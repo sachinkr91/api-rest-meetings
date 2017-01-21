@@ -156,7 +156,6 @@ paths:
           description: ID of user to use
           required: true
           type: integer
-          default: 52199
       responses:
         '200':
           description: The settings for the user
@@ -177,7 +176,6 @@ paths:
           description: ID of user to use
           required: true
           type: integer
-          default: 52199
         - name: user
           in: body
           description: The user details that you wish to update.
@@ -208,7 +206,6 @@ paths:
           description: ID of user to use
           required: true
           type: integer
-          default: 52199
       responses:
         '200':
           description: The settings for the room
@@ -232,7 +229,6 @@ paths:
           description: ID of user to use
           required: true
           type: integer
-          default: 52199
         - name: room
           in: body
           description: The user's room details that you wish to update.
@@ -263,7 +259,6 @@ paths:
           description: ID of user to use
           required: true
           type: integer
-          default: 52199
       responses:
         '200':
           description: The settings for the room
@@ -288,7 +283,6 @@ paths:
           description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
           required: true
           type: integer
-          default: 52199
         - name: email
           in: query
           description: If set to true, sends invitation emails to all listed participants.
@@ -323,13 +317,11 @@ paths:
           description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
           required: true
           type: integer
-          default: 52199
         - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
-          default: 12345
       responses:
         '200':
           description: The settings for the room
@@ -352,13 +344,11 @@ paths:
           description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
           required: true
           type: integer
-          default: 52199
         - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
-          default: 12345
         - name: meeting
           in: body
           description: The user's room details that you wish to update.
