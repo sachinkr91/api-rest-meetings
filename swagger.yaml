@@ -45,7 +45,6 @@ paths:
                 description: The type of access token you are requesting.
               username:
                 type: string
-                default: "brandon@localcounselcollective.com"
                 description: Your user name that you use to login to our site.
               password:
                 type: string
