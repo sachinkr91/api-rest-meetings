@@ -187,8 +187,7 @@ paths:
   /v1/user/{user_id}:
     get:
       summary: Get User Account Details
-      description: >
-        This endpoint retrieves the basic account details for a given user.
+      description: This endpoint retrieves the basic account details for a given user.
       tags:
         - User
       security:
@@ -237,8 +236,7 @@ paths:
   /v1/user/{user_id}/enterprise_profile:
     get:
       summary: Get Enterprise Profile
-      description: >
-        This endpoint retrieves the enterprise profile associated with the user.
+      description: This endpoint retrieves the enterprise profile associated with the user.
       tags:
         - User
         - Enterprise
@@ -406,8 +404,7 @@ paths:
   /v1/user/{user_id}/scheduled_meeting:
     get:
       summary: Meeting
-      description: >
-        This endpoint gets a user’s default meeting settings.
+      description: This endpoint gets a user’s default meeting settings.
       tags:
         - User
         - Meeting
@@ -465,8 +462,7 @@ paths:
   /v1/user/{user_id}/scheduled_meeting/{meeting_id}:
     get:
       summary: Meeting
-      description: >
-        This endpoint gets a user’s default meeting settings.
+      description: This endpoint gets a user’s default meeting settings.
       tags:
         - Meeting
       security:
@@ -554,8 +550,7 @@ paths:
   /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails:
     get:
       summary: Meeting
-      description: >
-        This endpoint retrieves the email object for a scheduled meeting.
+      description: This endpoint retrieves the email object for a scheduled meeting.
       tags:
         - Meeting
       security:
@@ -595,8 +590,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}:
     get:
       summary: Get Meeting State
-      description: >
-        This endpoint’s purpose is to return whether the meeting is in progress or not.
+      description: This endpoint’s purpose is to return whether the meeting is in progress or not.
       tags:
         - Meeting
       security:
@@ -908,8 +902,7 @@ paths:
   /v1/user/{user_id}/meeting_history:
     get:
       summary: List Meetings
-      description: >
-        This endpoint retrieves a list of meetings.
+      description: This endpoint retrieves a list of meetings.
       tags:
         - History
       security:
@@ -920,6 +913,30 @@ paths:
           description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
+        - name: meetingId
+          in: query
+          description: Return meetings with the specified Meeting ID (recurring & Personal Meeting ID).
+          type: string
+        - name: startDate
+          in: query
+          description: Return meetings starting from the specified date. MM/DD/YYYY
+          type: string
+        - name: endDate
+          in: query
+          description: Return meetings up until the specified date. MM/DD/YYYY
+          type: string
+        - name: pageSize
+          in: query
+          description: Sets number of items returned per page.
+          type: integer
+        - name: pageNumber
+          in: query
+          description: Selects which page of results to return.
+          type: integer
+        - name: order
+          in: query
+          description: Puts results in ascending or descending order. asc/desc
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -932,8 +949,7 @@ paths:
   /v1/enterprise/{enterprise_id}/meeting_history:
     get:
       summary: List Meetings
-      description: >
-        This endpoint retrieves a list of meetings.
+      description: This endpoint retrieves a list of meetings.
       tags:
         - History
       security:
@@ -956,8 +972,7 @@ paths:
   /v1/user/{user_id}/meeting_history/{meeting_guid}:
     get:
       summary: List Meetings
-      description: >
-        This endpoint retrieves a list of meetings.
+      description: This endpoint retrieves a list of meetings.
       tags:
         - History
       security:
@@ -985,8 +1000,7 @@ paths:
   /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}:
     get:
       summary: List Meetings
-      description: >
-        This endpoint retrieves a list of meetings.
+      description: This endpoint retrieves a list of meetings.
       tags:
         - History
       security:
@@ -1014,8 +1028,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=start:
     post:
       summary: Start Recording
-      description: >
-        This endpoint starts recording for a meeting in progress.
+      description: This endpoint starts recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1043,8 +1056,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=stop:
     put:
       summary: Stop Recording
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1072,8 +1084,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     get:
       summary: Get All Recordings for a Specified Meeting ID
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1101,8 +1112,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid={meeting_guid}:
     get:
       summary: Get All Recordings for a Specified Meeting GUID
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1164,8 +1174,7 @@ paths:
   /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/:
     delete:
       summary: Delete a Specified Recording Chapter
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1198,8 +1207,7 @@ paths:
   /v1/user/{user_id}/cms/{content_id}?isDownloadable=true:
     get:
       summary: Get Recording Download Link
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Recording
       security:
@@ -1227,8 +1235,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       summary: Live Meetings Summary
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1251,8 +1258,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/:
     get:
       summary: List Live Meeting Endpoints
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1280,8 +1286,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
       summary: List Past Meetings
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1292,6 +1297,18 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: offset
+          in: query
+          description: Page Number
+          type: integer
+        - name: limit
+          in: query
+          description: Per page
+          type: integer
+        - name: filter
+          in: query
+          description: URL-encoded JSON string
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1304,8 +1321,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings:
     get:
       summary: List Past Meetings by User
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1328,8 +1344,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}:
      get:
       summary: List Meeting Endpoints & Stats
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1357,8 +1372,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings/{meeting_guid}:
      get:
       summary: List Meeting Endpoints & Stats
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1386,8 +1400,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
      get:
       summary: List Meeting Endpoints & Stats
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
       security:
@@ -1398,6 +1411,10 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: filter
+          in: query
+          description: URL-encoded JSON string
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1410,8 +1427,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
      get:
       summary: Analytics - Endpoint Distribution
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
       security:
@@ -1422,6 +1438,10 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: filter
+          in: query
+          description: URL-encoded JSON string
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1434,8 +1454,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
      get:
       summary: Analytics - Meeting Usage Over Time
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
       security:
@@ -1446,6 +1465,14 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: clientTZ
+          in: query
+          description: Based on standard TZ code
+          type: string
+        - name: filter
+          in: query
+          description: URL-encoded JSON string
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1458,8 +1485,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
      get:
       summary: Analytics - ROI Data
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
       security:
@@ -1470,6 +1496,11 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: filter
+          in: query
+          description: URL-encoded JSON string
+          required: true
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1482,8 +1513,7 @@ paths:
   /v1/enterprise/{enterprise_id}/feedback/count:
      get:
       summary: Analytics - Survey Feedback Scores
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
       security:
@@ -1494,6 +1524,16 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: start
+          in: query
+          description: Date/time in UTC.
+          required: true
+          type: string
+        - name: end
+          in: query
+          description: Date/time in UTC.
+          required: true
+          type: string
       responses:
         '200':
           description: The settings for the room
@@ -1506,8 +1546,7 @@ paths:
   /v1/enterprise/{enterprise_id}/feedback/comments:
      get:
       summary: Analytics - Survey Feedback Scores
-      description: >
-        This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
       security:
@@ -1518,6 +1557,16 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: start
+          in: query
+          description: Date/time in UTC.
+          required: true
+          type: string
+        - name: end
+          in: query
+          description: Date/time in UTC.
+          required: true
+          type: string
       responses:
         '200':
           description: The settings for the room
