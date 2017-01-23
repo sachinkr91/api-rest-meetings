@@ -73,7 +73,7 @@ paths:
         - application/json
       parameters:
         - name: payload
-          description: Credentials and stuff
+          description: Contains information about the type of grant you are requesting.
           in: body
           required: true
           schema:
@@ -95,7 +95,7 @@ paths:
                 format: password
       responses:
         '200':
-          description: The settings for the room
+          description: The information about the grant.
           schema:
             type: array
             items:
@@ -114,7 +114,7 @@ paths:
         - application/json
       parameters:
         - name: payload
-          description: Credentials and stuff
+          description: Contains information about the type of grant you are requesting.
           in: body
           required: true
           schema:
@@ -135,7 +135,7 @@ paths:
                 description: Pin
       responses:
         '200':
-          description: The settings for the room
+          description: The information about the grant.
           schema:
             type: array
             items:
@@ -154,7 +154,7 @@ paths:
         - application/json
       parameters:
         - name: payload
-          description: Credentials and stuff
+          description: Contains information about the type of grant you are requesting.
           in: body
           required: true
           schema:
@@ -169,13 +169,13 @@ paths:
                 description: The type of access token you are requesting.
               client_id:
                 type: string
-                description: Meeting ID
+                description: The value given within the BlueJeans Enterprise Administration console.
               client_secret:
                 type: string
-                description: Pin
+                description: The value given within the BlueJeans Enterprise Administration console.
       responses:
         '200':
-          description: The settings for the room
+          description: The information about the grant.
           schema:
             type: array
             items:
@@ -190,13 +190,13 @@ paths:
       description: >
         This endpoint retrieves the basic account details for a given user.
       tags:
-        - Users
+        - User
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -212,11 +212,11 @@ paths:
       summary: Update User Account Details
       description: This endpoint allows updating a user’s basic account details.
       tags:
-        - Users
+        - User
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: user
@@ -240,14 +240,14 @@ paths:
       description: >
         This endpoint retrieves the enterprise profile associated with the user.
       tags:
-        - Users
+        - User
         - Enterprise
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -259,19 +259,111 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/users:
+    get:
+      summary: List Enterprise Users
+      description: This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: pageSize
+          in: query
+          description: Sets number of items returned per page.
+          type: integer
+        - name: pageNumber
+          in: query
+          description: Selects which page of results to return.
+          type: integer
+        - name: emailId
+          in: query
+          description: Allows filtering the response by a user’s email address.
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Room'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create Enterprise User
+      description: This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: forcePasswordChange
+          in: query
+          description: Forces the user to change his or her password on first log in.
+          type: boolean
+        - name: sendVerificationMail
+          in: query
+          description: Prevents welcome emails from being sent to the newly created user.
+          type: boolean
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Room'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/users/{user_id}:
+    delete:
+      summary: Remove Enterprise User
+      description: This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Room'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/user/{user_id}/room:
     get:
-      summary: UserRoom
-      description: >
-        This endpoint gets a user’s default meeting settings.
+      summary: Get User’s Default Meeting Settings
+      description: This endpoint gets a user’s default meeting settings.
       tags:
-        - Users
+        - User
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -284,17 +376,16 @@ paths:
           schema:
             $ref: '#/definitions/Error'
     put:
-      summary: UserRoom
-      description: >
-        This endpoint gets a user’s default meeting settings.
+      summary: Update User’s Default Meeting Settings
+      description: This endpoint allows updating a user’s default meeting settings.
       tags:
-        - Users
+        - User
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: room
@@ -318,14 +409,14 @@ paths:
       description: >
         This endpoint gets a user’s default meeting settings.
       tags:
-        - Users
-        - Meetings
+        - User
+        - Meeting
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: ID of user to use
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -349,7 +440,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: email
@@ -383,7 +474,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -410,7 +501,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -433,23 +524,509 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/recordings?action=start:
+    delete:
+      summary: Meeting
+      description: Cancel a meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails:
+    get:
+      summary: Meeting
+      description: >
+        This endpoint retrieves the email object for a scheduled meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: type
+          in: query
+          description: TEXT, ICS, HTML
+          type: string
+        - name: role
+          in: query
+          description: moderator, participant
+          type: string
+        - name: action
+          in: query
+          description: create, edit, delete
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}:
+    get:
+      summary: Get Meeting State
+      description: >
+        This endpoint’s purpose is to return whether the meeting is in progress or not.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update Meeting State
+      description: This endpoint’s purpose is to be able to modify a meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: mute
+          in: query
+          description: Allows you to mute/unmute all participants in a meeting.
+          type: boolean
+        - name: media
+          in: query
+          description: Specify "audio" or "video" for the prior mute parameter.
+          type: string
+        - name: delay
+          in: query
+          description: Number of seconds to delay the end meeting operation.
+          type: integer
+        - name: meeting
+          in: body
+          description: The meeting properties that you wish to update.
+          required: true
+          schema:
+            type: object
+            properties:
+              locked:
+                type: boolean
+                description: True to lock, false to unlock.
+              status:
+                type: string
+                description: Set to "terminated" to end the meeting.
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints:
+    get:
+      summary: List Meeting Endpoints
+      description: This endpoint returns an array of all endpoints in the current meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}:
+    get:
+      summary: Get Endpoint Information
+      description: This endpoint allows you to retrieve information about an endpoint in the meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: endpoint_guid
+          in: path
+          description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update Endpoint Video/Audio State
+      description: This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: endpoint_guid
+          in: path
+          description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+          required: true
+          type: string
+        - name: muteAudio
+          in: query
+          description: Toggle the audio source mute.
+          type: boolean
+        - name: muteVideo
+          in: query
+          description: Toggle the video source mute.
+          type: boolean
+        - name: leaveMeeting
+          in: query
+          description: Remove the user from the meeting.
+          type: boolean
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout:
+    get:
+      summary: Get Current Endpoint Layout
+      description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: endpoint_guid
+          in: path
+          description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update Endpoint Layout
+      description: This endpoint allows you to update an individual endpoint’s current layout setting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: endpoint_guid
+          in: path
+          description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+          required: true
+          type: string
+        - name: isLeader
+          in: query
+          type: boolean
+        - name: push
+          in: query
+          type: boolean
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP:
+    post:
+      summary: Generate SIP Pairing Code
+      description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/invite:
+    post:
+      summary: Send Email Invite
+      description: This endpoint generates an email invite to the specified meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history:
+    get:
+      summary: List Meetings
+      description: >
+        This endpoint retrieves a list of meetings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/meeting_history:
+    get:
+      summary: List Meetings
+      description: >
+        This endpoint retrieves a list of meetings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history/{meeting_guid}:
+    get:
+      summary: List Meetings
+      description: >
+        This endpoint retrieves a list of meetings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_guid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}:
+    get:
+      summary: List Meetings
+      description: >
+        This endpoint retrieves a list of meetings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: meeting_guid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=start:
     post:
       summary: Start Recording
       description: >
         This endpoint starts recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: numeric_meeting_id
+        - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
@@ -463,23 +1040,22 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/recordings?action=stop:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=stop:
     put:
       summary: Stop Recording
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: numeric_meeting_id
+        - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
@@ -493,23 +1069,22 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/recordings:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     get:
       summary: Get All Recordings for a Specified Meeting ID
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: numeric_meeting_id
+        - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
@@ -523,30 +1098,29 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/recordings?meetingGuid={meeting_guid}:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid={meeting_guid}:
     get:
       summary: Get All Recordings for a Specified Meeting GUID
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: numeric_meeting_id
+        - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
         - name: meeting_guid
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
       responses:
@@ -564,19 +1138,18 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_guid
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
       responses:
@@ -588,23 +1161,22 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/meeting_history/{numeric_meeting_id}/recordings/{recording_chapter_id}/:
+  /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/:
     delete:
       summary: Delete a Specified Recording Chapter
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: numeric_meeting_id
+        - name: meeting_id
           in: path
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
@@ -629,14 +1201,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Recording
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: content_id
@@ -659,14 +1230,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -684,19 +1254,18 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
         - name: meeting_guid
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
       responses:
@@ -714,14 +1283,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -739,14 +1307,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -764,19 +1331,18 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
         - name: meeting_guid
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
       responses:
@@ -794,19 +1360,18 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_guid
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
       responses:
@@ -824,14 +1389,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
         - Command Center
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -849,15 +1413,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
-        - Command Center
         - Analytics
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -875,15 +1437,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
-        - Command Center
         - Analytics
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -901,15 +1461,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
-        - Command Center
         - Analytics
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -927,15 +1485,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
-        - Command Center
         - Analytics
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
@@ -953,15 +1509,13 @@ paths:
       description: >
         This endpoint stops recording for a meeting in progress.
       tags:
-        - Meeting
-        - Command Center
         - Analytics
       security:
         - access_token: []
       parameters:
         - name: enterprise_id
           in: path
-          description: The ID of the user who owns the meeting. Your ID can be found in the response when you authorize and get your access token under the grant.scope.user.
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
       responses:
