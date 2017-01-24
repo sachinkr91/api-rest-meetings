@@ -1414,6 +1414,7 @@ paths:
         - name: filter
           in: query
           description: URL-encoded JSON string
+          default: "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"end_time\"}]"
           type: string
       responses:
         '200':
@@ -1441,6 +1442,7 @@ paths:
         - name: filter
           in: query
           description: URL-encoded JSON string
+          default: "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"creation_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"creation_time\"}]"
           type: string
       responses:
         '200':
@@ -1454,7 +1456,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
      get:
       summary: Meeting Usage Over Time
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint reports on meeting usage.
       tags:
         - Analytics
       security:
@@ -1467,11 +1469,13 @@ paths:
           type: integer
         - name: clientTZ
           in: query
-          description: Based on standard TZ code
+          description: Based on standard TZ code.
+          default: America/Denver
           type: string
         - name: filter
           in: query
           description: URL-encoded JSON string
+          default: "[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"hights\"}]"
           type: string
       responses:
         '200':
@@ -1499,6 +1503,7 @@ paths:
         - name: filter
           in: query
           description: URL-encoded JSON string
+          default: "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"startTime\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"startTime\"}]"
           required: true
           type: string
       responses:
@@ -1526,14 +1531,13 @@ paths:
           type: integer
         - name: start
           in: query
-          description: >
-            Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
           default: "2017-01-01T00:00:00-00:00"
           required: true
           type: string
         - name: end
           in: query
-          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. or https://www.w3.org/TR/NOTE-datetime
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
           default: "2018-01-01T00:00:00-00:00"
           required: true
           type: string
@@ -1562,12 +1566,14 @@ paths:
           type: integer
         - name: start
           in: query
-          description: Date and time in an ISO 8601 format, such as "2017-01-16T00:00:00-07:00".
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          default: "2017-01-01T00:00:00-00:00"
           required: true
           type: string
         - name: end
           in: query
-          description: Date and time in an ISO 8601 format, such as "2017-01-16T00:00:00-07:00".
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          default: "2018-01-01T00:00:00-00:00"
           required: true
           type: string
       responses:
@@ -1749,7 +1755,7 @@ definitions:
             lastMeetingTime:
               type: integer
             participantMinutes:
-              type: integer
+              type: number
             last_name:
               type: string
             userName:
@@ -1823,7 +1829,7 @@ definitions:
           type: object
           properties:
             distance:
-              type: integer
+              type: number
             distance_range:
               type: string
   AnalyticsFeedbackScores:
@@ -1842,60 +1848,21 @@ definitions:
   AnalyticsFeedbackComments:
     type: object
     properties:
-      Great:
+      comments:
         type: array
         items:
           type: object
           properties:
+            qualaroo_feedback:
+              description: The comment rating left by the user.
+              type: string
             meeting_uuid:
+              description: The UUID of the meeting.
               type: string
             callguid:
               type: string
             qualaroo_comments:
-              type: string
-      Good:
-        type: array
-        items:
-          type: object
-          properties:
-            meeting_uuid:
-              type: string
-            callguid:
-              type: string
-            qualaroo_comments:
-              type: string
-      Okay:
-        type: array
-        items:
-          type: object
-          properties:
-            meeting_uuid:
-              type: string
-            callguid:
-              type: string
-            qualaroo_comments:
-              type: string
-      Poor:
-        type: array
-        items:
-          type: object
-          properties:
-            meeting_uuid:
-              type: string
-            callguid:
-              type: string
-            qualaroo_comments:
-              type: string
-      Bad:
-        type: array
-        items:
-          type: object
-          properties:
-            meeting_uuid:
-              type: string
-            callguid:
-              type: string
-            qualaroo_comments:
+              description: The comment left by the user.
               type: string
   Error:
     type: object
