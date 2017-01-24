@@ -570,14 +570,25 @@ paths:
           in: query
           description: TEXT, ICS, HTML
           type: string
+          enum:
+            - TEXT
+            - ICS
+            - HTML
         - name: role
           in: query
           description: moderator, participant
           type: string
+          enum:
+            - moderator
+            - participant
         - name: action
           in: query
           description: create, edit, delete
           type: string
+          enum:
+            - create
+            - edit
+            - delete
       responses:
         '200':
           description: The settings for the room
