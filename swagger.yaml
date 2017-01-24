@@ -1518,7 +1518,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/feedback/count:
      get:
       summary: Survey Feedback Scores
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists end of meeting survey scores by enterprise by time period.
       tags:
         - Analytics
       security:
@@ -1552,8 +1552,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
      get:
-      summary: Survey Feedback Scores
-      description: This endpoint stops recording for a meeting in progress.
+      summary: Survey Feedback Comments
+      description: This endpoint lists end of meeting survey comments by enterprise by time period.
       tags:
         - Analytics
       security:
