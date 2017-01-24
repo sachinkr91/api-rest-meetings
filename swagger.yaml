@@ -1234,8 +1234,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
-      summary: Live Meetings Summary
-      description: This endpoint stops recording for a meeting in progress.
+      summary: Live Meetings Summary by Enterprise
+      description: This endpoint lists meetings in progress by enterprise.
       tags:
         - Command Center
       security:
@@ -1257,8 +1257,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/:
     get:
-      summary: List Live Meeting Endpoints
-      description: This endpoint stops recording for a meeting in progress.
+      summary: List Live Meeting Endpoints by Enterprise
+      description: This endpoint lists endpoints for a given meeting in progress.
       tags:
         - Command Center
       security:
@@ -1285,8 +1285,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
-      summary: List Past Meetings
-      description: This endpoint stops recording for a meeting in progress.
+      summary: List Past Meetings by Enterprise
+      description: This endpoint lists completed meetings by enterprise.
       tags:
         - Command Center
       security:
@@ -1321,7 +1321,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings:
     get:
       summary: List Past Meetings by User
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists completed meetings by user.
       tags:
         - Command Center
       security:
@@ -1344,7 +1344,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}:
      get:
       summary: List Meeting Endpoints & Stats by Enterprise
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists meeting endpoints for completed meetings by enterprise.
       tags:
         - Command Center
       security:
@@ -1372,7 +1372,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings/{meeting_guid}:
      get:
       summary: List Meeting Endpoints & Stats by User
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists meeting endpoints for completed meetings by user.
       tags:
         - Command Center
       security:
@@ -1402,7 +1402,7 @@ paths:
       summary: Top Users
       description: This endpoint retrieves the top useres by usage for an enterprise.
       tags:
-        - Command Center
+        - Analytics
       security:
         - access_token: []
       parameters:
@@ -1489,7 +1489,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
      get:
       summary: ROI Data
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists return on investment (ROI) data for meetings.
       tags:
         - Analytics
       security:
