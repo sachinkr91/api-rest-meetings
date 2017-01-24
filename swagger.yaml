@@ -1276,7 +1276,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: TThe results for this enterprise.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1311,7 +1311,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1334,7 +1334,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this user.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1343,7 +1343,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}:
      get:
-      summary: List Meeting Endpoints & Stats
+      summary: List Meeting Endpoints & Stats by Enterprise
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
@@ -1362,7 +1362,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1371,7 +1371,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/indigo/meetings/{meeting_guid}:
      get:
-      summary: List Meeting Endpoints & Stats
+      summary: List Meeting Endpoints & Stats by User
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Command Center
@@ -1390,7 +1390,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this user.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1399,8 +1399,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
      get:
-      summary: List Meeting Endpoints & Stats
-      description: This endpoint stops recording for a meeting in progress.
+      summary: Top Users
+      description: This endpoint retrieves the top useres by usage for an enterprise.
       tags:
         - Command Center
       security:
@@ -1417,17 +1417,17 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/AnalyticsTopUsers'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
      get:
-      summary: Analytics - Endpoint Distribution
-      description: This endpoint stops recording for a meeting in progress.
+      summary: Endpoint Distribution
+      description: This endpoint retrieves endpoint connection type distribution by enterprise.
       tags:
         - Analytics
       security:
@@ -1444,16 +1444,16 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/AnalyticsEndpointDistribution'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
      get:
-      summary: Analytics - Meeting Usage Over Time
+      summary: Meeting Usage Over Time
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
@@ -1475,16 +1475,16 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/AnalyticsUsage'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
      get:
-      summary: Analytics - ROI Data
+      summary: ROI Data
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
@@ -1503,16 +1503,16 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
             $ref: '#/definitions/AnalyticsRoiData'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/feedback/count:
+  /v1/enterprise/{enterprise_id}/indigo/feedback/count:
      get:
-      summary: Analytics - Survey Feedback Scores
+      summary: Survey Feedback Scores
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
@@ -1526,26 +1526,29 @@ paths:
           type: integer
         - name: start
           in: query
-          description: Date/time in UTC.
+          description: >
+            Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          default: "2017-01-01T00:00:00-00:00"
           required: true
           type: string
         - name: end
           in: query
-          description: Date/time in UTC.
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. or https://www.w3.org/TR/NOTE-datetime
+          default: "2018-01-01T00:00:00-00:00"
           required: true
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/AnalyticsFeedbackScores'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/feedback/comments:
+  /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
      get:
-      summary: Analytics - Survey Feedback Scores
+      summary: Survey Feedback Scores
       description: This endpoint stops recording for a meeting in progress.
       tags:
         - Analytics
@@ -1559,19 +1562,19 @@ paths:
           type: integer
         - name: start
           in: query
-          description: Date/time in UTC.
+          description: Date and time in an ISO 8601 format, such as "2017-01-16T00:00:00-07:00".
           required: true
           type: string
         - name: end
           in: query
-          description: Date/time in UTC.
+          description: Date and time in an ISO 8601 format, such as "2017-01-16T00:00:00-07:00".
           required: true
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/AnalyticsFeedbackComments'
         default:
           description: Unexpected error
           schema:
@@ -1735,6 +1738,82 @@ definitions:
         type: string
       attendeePasscode:
         type: string
+  AnalyticsTopUsers:
+    type: object
+    properties:
+      usage:
+        type: array
+        items:
+          type: object
+          properties:
+            lastMeetingTime:
+              type: integer
+            participantMinutes:
+              type: integer
+            last_name:
+              type: string
+            userName:
+              type: string
+            userId:
+              type: integer
+            first_name:
+              type: string
+  AnalyticsEndpointDistribution:
+    type: object
+    properties:
+      distribution:
+        type: array
+        items:
+          type: object
+          properties:
+            Google:
+              type: integer
+            Telepresence:
+              type: integer
+            Lync:
+              type: integer
+            iOS:
+              type: integer
+            H323:
+              type: integer
+            InterCall:
+              type: integer
+            Jabber:
+              type: integer
+            Android:
+              type: integer
+            Skype:
+              type: integer
+            ISDN:
+              type: integer
+            PSTN:
+              type: integer
+            Level3:
+              type: integer
+            SIP:
+              type: integer
+            BlueJeansApp:
+              type: integer
+            Browser:
+              type: integer
+            WebRTC:
+              type: integer
+  AnalyticsUsage:
+    type: object
+    properties:
+      usage:
+        type: array
+        items:
+          type: object
+          properties:
+            endpointMinutes:
+              type: integer
+            numEndpoints:
+              type: integer
+            numMeetings:
+              type: integer
+            Date:
+              type: integer
   AnalyticsRoiData:
     type: object
     properties:
@@ -1746,6 +1825,77 @@ definitions:
             distance:
               type: integer
             distance_range:
+              type: string
+  AnalyticsFeedbackScores:
+    type: object
+    properties:
+      Great:
+        type: integer
+      Okay:
+        type: integer
+      Bad:
+        type: integer
+      Poor:
+        type: integer
+      Good:
+        type: integer
+  AnalyticsFeedbackComments:
+    type: object
+    properties:
+      Great:
+        type: array
+        items:
+          type: object
+          properties:
+            meeting_uuid:
+              type: string
+            callguid:
+              type: string
+            qualaroo_comments:
+              type: string
+      Good:
+        type: array
+        items:
+          type: object
+          properties:
+            meeting_uuid:
+              type: string
+            callguid:
+              type: string
+            qualaroo_comments:
+              type: string
+      Okay:
+        type: array
+        items:
+          type: object
+          properties:
+            meeting_uuid:
+              type: string
+            callguid:
+              type: string
+            qualaroo_comments:
+              type: string
+      Poor:
+        type: array
+        items:
+          type: object
+          properties:
+            meeting_uuid:
+              type: string
+            callguid:
+              type: string
+            qualaroo_comments:
+              type: string
+      Bad:
+        type: array
+        items:
+          type: object
+          properties:
+            meeting_uuid:
+              type: string
+            callguid:
+              type: string
+            qualaroo_comments:
               type: string
   Error:
     type: object
