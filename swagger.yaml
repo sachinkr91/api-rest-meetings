@@ -97,9 +97,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Grant'
+            $ref: '#/definitions/Grant'
         default:
           description: Unexpected error
           schema:
@@ -137,9 +135,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Grant'
+            $ref: '#/definitions/Grant'
         default:
           description: Unexpected error
           schema:
@@ -177,9 +173,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Grant'
+            $ref: '#/definitions/Grant'
         default:
           description: Unexpected error
           schema:
@@ -980,6 +974,52 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history/recordings:
+    get:
+      summary: List Meeting Recordings
+      description: This endpoint retrieves a list of meeting recordings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: pageSize
+          in: query
+          description: Sets number of items returned per page.
+          default: 10
+          type: integer
+        - name: pageNumber
+          in: query
+          description: Selects which page of results to return.
+          default: 1
+          type: integer
+        - name: sortBy
+          in: query
+          description: Selects which page of results to return.
+          default: start_time
+          type: string
+        - name: order
+          in: query
+          description: Puts results in ascending or descending order.
+          default: desc
+          enum:
+            - asc
+            - desc
+          type: string
+      responses:
+        '200':
+          description: The results for the request.
+          schema:
+            $ref: '#/definitions/Recording'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/user/{user_id}/meeting_history/{meeting_guid}:
     get:
       summary: List Meetings
@@ -1601,11 +1641,13 @@ definitions:
     type: object
     properties:
       access_token:
-        type: integer
-        description: Unique identifier for room.
+        type: string
+        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
       expires_in:
         type: integer
         description: Timestamp
+      refresh_token:
+        type: string
       scope:
         $ref: '#/definitions/Scope'
   Scope:
@@ -1617,6 +1659,15 @@ definitions:
       partitionName:
         type: string
         description: the server farm you are on
+      partition:
+        $ref: '#/definitions/Partition'
+  Partition:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
   User:
     type: object
     properties:
@@ -1755,6 +1806,35 @@ definitions:
         type: string
       attendeePasscode:
         type: string
+  Recording:
+    type: array
+    items:
+      type: object
+      properties:
+        recordingEntityId:
+          type: integer
+        recordingName:
+          type: string
+        meetingGuid:
+          type: string
+        chapterCount:
+          type: integer
+        totalSize:
+          type: integer
+        totalDuration:
+          type: integer
+        lastRecordingDate:
+          type: string
+        aggregatedStatus:
+          type: string
+        recordingThumbnail:
+          type: string
+        created:
+          type: integer
+        isPremiumRecording:
+          type: boolean
+        showPremiumRecordingTag:
+          type: boolean
   AnalyticsTopUsers:
     type: object
     properties:
