@@ -22,101 +22,93 @@
  * limitations under the License.
  */
 
-
-package io.swagger.client.model;
-
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-
-/**
- * Meeting
- */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
-public class Meeting   {
-  @SerializedName("locked")
-  private Boolean locked = null;
-
-  @SerializedName("status")
-  private String status = null;
-
-  public Meeting locked(Boolean locked) {
-    this.locked = locked;
-    return this;
-  }
-
-   /**
-   * True to lock, false to unlock.
-   * @return locked
-  **/
-  @ApiModelProperty(example = "null", value = "True to lock, false to unlock.")
-  public Boolean getLocked() {
-    return locked;
-  }
-
-  public void setLocked(Boolean locked) {
-    this.locked = locked;
-  }
-
-  public Meeting status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Set to \"terminated\" to end the meeting.
-   * @return status
-  **/
-  @ApiModelProperty(example = "null", value = "Set to \"terminated\" to end the meeting.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.BlueJeansOnVideoRestApi) {
+      root.BlueJeansOnVideoRestApi = {};
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+    root.BlueJeansOnVideoRestApi.ContentContentPropertiesLevels = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+  }
+}(this, function(ApiClient) {
+  'use strict';
+
+
+
+
+  /**
+   * The ContentContentPropertiesLevels model module.
+   * @module model/ContentContentPropertiesLevels
+   * @version 1.0.0
+   */
+
+  /**
+   * Constructs a new <code>ContentContentPropertiesLevels</code>.
+   * @alias module:model/ContentContentPropertiesLevels
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+
+
+
+  };
+
+  /**
+   * Constructs a <code>ContentContentPropertiesLevels</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ContentContentPropertiesLevels} obj Optional instance to populate.
+   * @return {module:model/ContentContentPropertiesLevels} The populated <code>ContentContentPropertiesLevels</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('file')) {
+        obj['file'] = ApiClient.convertToType(data['file'], 'String');
+      }
+      if (data.hasOwnProperty('width')) {
+        obj['width'] = ApiClient.convertToType(data['width'], 'Integer');
+      }
+      if (data.hasOwnProperty('bitrate')) {
+        obj['bitrate'] = ApiClient.convertToType(data['bitrate'], 'Integer');
+      }
+      if (data.hasOwnProperty('height')) {
+        obj['height'] = ApiClient.convertToType(data['height'], 'Integer');
+      }
     }
-    Meeting meeting = (Meeting) o;
-    return Objects.equals(this.locked, meeting.locked) &&
-        Objects.equals(this.status, meeting.status);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(locked, status);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Meeting {\n");
-    
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return obj;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * @member {String} file
    */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-}
+  exports.prototype['file'] = undefined;
+  /**
+   * @member {Integer} width
+   */
+  exports.prototype['width'] = undefined;
+  /**
+   * @member {Integer} bitrate
+   */
+  exports.prototype['bitrate'] = undefined;
+  /**
+   * @member {Integer} height
+   */
+  exports.prototype['height'] = undefined;
+
+
+
+  return exports;
+}));
+
 

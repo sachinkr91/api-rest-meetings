@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **content_type** | **string** |  | [optional] 
 **content_description** | **string** |  | [optional] 
+**content_url** | **string** |  | [optional] 
 **user_id** | **int** |  | [optional] 
 **content_location** | **string** |  | [optional] 
 **created** | **int** |  | [optional] 

@@ -34,22 +34,26 @@ authSvc.oauth2TokenpasswordPost(
 			if (err) console.log(err);
 			if (err) return;
 
+			// Iterate over all your recordings
 			recordings.forEach(function (recording)
 			{
-				historySvc.v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(grant.scope.user, recording.recordingEntityId, function (err, r)
+				// Get detailed information about each recording
+				historySvc.v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(grant.scope.user, recording.recordingEntityId, function (err, details)
 				{
 					if (err) console.log(err);
 					if (err) return;
 
-					r.recordingChapters.forEach(function (chapter)
+					// Iterate over the chapters in the recording
+					details.recordingChapters.forEach(function (chapter)
 					{
+						// Ask the content management system for the URL of the recording
 						recordingSvc.v1UserUserIdCmsContentIdisDownloadabletrueGet(grant.scope.user, chapter.compositeContentId, function (err, response)
 						{
 							if (err) console.log(err);
 							if (err) return;
 					
 							console.log('Recording: ' + recording.recordingName);
-							console.log(response.contentProperties.hdsUrl);
+							console.log(response.contentUrl);
 							console.log('');
 						});
 					});

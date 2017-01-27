@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **Integer** |  |  [optional]
 **contentType** | **String** |  |  [optional]
 **contentDescription** | **String** |  |  [optional]
+**contentUrl** | **String** |  |  [optional]
 **userId** | **Integer** |  |  [optional]
 **contentLocation** | **String** |  |  [optional]
 **created** | **Integer** |  |  [optional]

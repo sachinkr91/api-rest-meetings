@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Get Recording Download Link
 
-This endpoint stops recording for a meeting in progress.
+This endpoint retrieves properties about the recording chapter.
 
 ### Example
 ```java
@@ -40,7 +40,7 @@ access_token.setApiKey("YOUR API KEY");
 
 RecordingApi apiInstance = new RecordingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer contentId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer contentId = 56; // Integer | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
 try {
     Content result = apiInstance.v1UserUserIdCmsContentIdisDownloadabletrueGet(userId, contentId);
     System.out.println(result);
@@ -55,7 +55,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **contentId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **contentId** | **Integer**| The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. |
 
 ### Return type
 

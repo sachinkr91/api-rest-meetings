@@ -32,50 +32,92 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 /**
- * Meeting
+ * ContentContentPropertiesLevels
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
-public class Meeting   {
-  @SerializedName("locked")
-  private Boolean locked = null;
+public class ContentContentPropertiesLevels   {
+  @SerializedName("file")
+  private String file = null;
 
-  @SerializedName("status")
-  private String status = null;
+  @SerializedName("width")
+  private Integer width = null;
 
-  public Meeting locked(Boolean locked) {
-    this.locked = locked;
+  @SerializedName("bitrate")
+  private Integer bitrate = null;
+
+  @SerializedName("height")
+  private Integer height = null;
+
+  public ContentContentPropertiesLevels file(String file) {
+    this.file = file;
     return this;
   }
 
    /**
-   * True to lock, false to unlock.
-   * @return locked
+   * Get file
+   * @return file
   **/
-  @ApiModelProperty(example = "null", value = "True to lock, false to unlock.")
-  public Boolean getLocked() {
-    return locked;
+  @ApiModelProperty(example = "null", value = "")
+  public String getFile() {
+    return file;
   }
 
-  public void setLocked(Boolean locked) {
-    this.locked = locked;
+  public void setFile(String file) {
+    this.file = file;
   }
 
-  public Meeting status(String status) {
-    this.status = status;
+  public ContentContentPropertiesLevels width(Integer width) {
+    this.width = width;
     return this;
   }
 
    /**
-   * Set to \"terminated\" to end the meeting.
-   * @return status
+   * Get width
+   * @return width
   **/
-  @ApiModelProperty(example = "null", value = "Set to \"terminated\" to end the meeting.")
-  public String getStatus() {
-    return status;
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getWidth() {
+    return width;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public ContentContentPropertiesLevels bitrate(Integer bitrate) {
+    this.bitrate = bitrate;
+    return this;
+  }
+
+   /**
+   * Get bitrate
+   * @return bitrate
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getBitrate() {
+    return bitrate;
+  }
+
+  public void setBitrate(Integer bitrate) {
+    this.bitrate = bitrate;
+  }
+
+  public ContentContentPropertiesLevels height(Integer height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Get height
+   * @return height
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getHeight() {
+    return height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
   }
 
 
@@ -87,23 +129,27 @@ public class Meeting   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Meeting meeting = (Meeting) o;
-    return Objects.equals(this.locked, meeting.locked) &&
-        Objects.equals(this.status, meeting.status);
+    ContentContentPropertiesLevels contentContentPropertiesLevels = (ContentContentPropertiesLevels) o;
+    return Objects.equals(this.file, contentContentPropertiesLevels.file) &&
+        Objects.equals(this.width, contentContentPropertiesLevels.width) &&
+        Objects.equals(this.bitrate, contentContentPropertiesLevels.bitrate) &&
+        Objects.equals(this.height, contentContentPropertiesLevels.height);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locked, status);
+    return Objects.hash(file, width, bitrate, height);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Meeting {\n");
+    sb.append("class ContentContentPropertiesLevels {\n");
     
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    bitrate: ").append(toIndentedString(bitrate)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("}");
     return sb.toString();
   }

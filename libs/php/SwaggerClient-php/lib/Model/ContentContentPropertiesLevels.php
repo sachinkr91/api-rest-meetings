@@ -1,6 +1,6 @@
 <?php
 /**
- * ContentContentProperties
+ * ContentContentPropertiesLevels
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * ContentContentProperties Class Doc Comment
+ * ContentContentPropertiesLevels Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,29 +53,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ContentContentProperties implements ArrayAccess
+class ContentContentPropertiesLevels implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Content_contentProperties';
+    protected static $swaggerModelName = 'Content_contentProperties_levels';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'duration' => 'int',
-        'thumbnail' => 'string',
-        'thumbnail_sprite' => 'string',
-        'hds_url' => 'string',
-        'thumbnail_count' => 'int',
-        'thumbnail_width' => 'int',
-        'thumbnail_height' => 'int',
-        'thumbnail_interval' => 'int',
-        'hls_url' => 'string',
-        'levels' => '\Swagger\Client\Model\ContentContentPropertiesLevels[]'
+        'file' => 'string',
+        'width' => 'int',
+        'bitrate' => 'int',
+        'height' => 'int'
     );
 
     public static function swaggerTypes()
@@ -88,16 +82,10 @@ class ContentContentProperties implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'duration' => 'duration',
-        'thumbnail' => 'thumbnail',
-        'thumbnail_sprite' => 'thumbnailSprite',
-        'hds_url' => 'hdsUrl',
-        'thumbnail_count' => 'thumbnailCount',
-        'thumbnail_width' => 'thumbnailWidth',
-        'thumbnail_height' => 'thumbnailHeight',
-        'thumbnail_interval' => 'thumbnailInterval',
-        'hls_url' => 'hlsUrl',
-        'levels' => 'levels'
+        'file' => 'file',
+        'width' => 'width',
+        'bitrate' => 'bitrate',
+        'height' => 'height'
     );
 
     public static function attributeMap()
@@ -110,16 +98,10 @@ class ContentContentProperties implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'duration' => 'setDuration',
-        'thumbnail' => 'setThumbnail',
-        'thumbnail_sprite' => 'setThumbnailSprite',
-        'hds_url' => 'setHdsUrl',
-        'thumbnail_count' => 'setThumbnailCount',
-        'thumbnail_width' => 'setThumbnailWidth',
-        'thumbnail_height' => 'setThumbnailHeight',
-        'thumbnail_interval' => 'setThumbnailInterval',
-        'hls_url' => 'setHlsUrl',
-        'levels' => 'setLevels'
+        'file' => 'setFile',
+        'width' => 'setWidth',
+        'bitrate' => 'setBitrate',
+        'height' => 'setHeight'
     );
 
     public static function setters()
@@ -132,16 +114,10 @@ class ContentContentProperties implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'duration' => 'getDuration',
-        'thumbnail' => 'getThumbnail',
-        'thumbnail_sprite' => 'getThumbnailSprite',
-        'hds_url' => 'getHdsUrl',
-        'thumbnail_count' => 'getThumbnailCount',
-        'thumbnail_width' => 'getThumbnailWidth',
-        'thumbnail_height' => 'getThumbnailHeight',
-        'thumbnail_interval' => 'getThumbnailInterval',
-        'hls_url' => 'getHlsUrl',
-        'levels' => 'getLevels'
+        'file' => 'getFile',
+        'width' => 'getWidth',
+        'bitrate' => 'getBitrate',
+        'height' => 'getHeight'
     );
 
     public static function getters()
@@ -165,16 +141,10 @@ class ContentContentProperties implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['thumbnail'] = isset($data['thumbnail']) ? $data['thumbnail'] : null;
-        $this->container['thumbnail_sprite'] = isset($data['thumbnail_sprite']) ? $data['thumbnail_sprite'] : null;
-        $this->container['hds_url'] = isset($data['hds_url']) ? $data['hds_url'] : null;
-        $this->container['thumbnail_count'] = isset($data['thumbnail_count']) ? $data['thumbnail_count'] : null;
-        $this->container['thumbnail_width'] = isset($data['thumbnail_width']) ? $data['thumbnail_width'] : null;
-        $this->container['thumbnail_height'] = isset($data['thumbnail_height']) ? $data['thumbnail_height'] : null;
-        $this->container['thumbnail_interval'] = isset($data['thumbnail_interval']) ? $data['thumbnail_interval'] : null;
-        $this->container['hls_url'] = isset($data['hls_url']) ? $data['hls_url'] : null;
-        $this->container['levels'] = isset($data['levels']) ? $data['levels'] : null;
+        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['bitrate'] = isset($data['bitrate']) ? $data['bitrate'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
     }
 
     /**
@@ -201,211 +171,85 @@ class ContentContentProperties implements ArrayAccess
 
 
     /**
-     * Gets duration
-     * @return int
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     * @param int $duration
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail
+     * Gets file
      * @return string
      */
-    public function getThumbnail()
+    public function getFile()
     {
-        return $this->container['thumbnail'];
+        return $this->container['file'];
     }
 
     /**
-     * Sets thumbnail
-     * @param string $thumbnail
+     * Sets file
+     * @param string $file
      * @return $this
      */
-    public function setThumbnail($thumbnail)
+    public function setFile($file)
     {
-        $this->container['thumbnail'] = $thumbnail;
+        $this->container['file'] = $file;
 
         return $this;
     }
 
     /**
-     * Gets thumbnail_sprite
-     * @return string
-     */
-    public function getThumbnailSprite()
-    {
-        return $this->container['thumbnail_sprite'];
-    }
-
-    /**
-     * Sets thumbnail_sprite
-     * @param string $thumbnail_sprite
-     * @return $this
-     */
-    public function setThumbnailSprite($thumbnail_sprite)
-    {
-        $this->container['thumbnail_sprite'] = $thumbnail_sprite;
-
-        return $this;
-    }
-
-    /**
-     * Gets hds_url
-     * @return string
-     */
-    public function getHdsUrl()
-    {
-        return $this->container['hds_url'];
-    }
-
-    /**
-     * Sets hds_url
-     * @param string $hds_url
-     * @return $this
-     */
-    public function setHdsUrl($hds_url)
-    {
-        $this->container['hds_url'] = $hds_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail_count
+     * Gets width
      * @return int
      */
-    public function getThumbnailCount()
+    public function getWidth()
     {
-        return $this->container['thumbnail_count'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets thumbnail_count
-     * @param int $thumbnail_count
+     * Sets width
+     * @param int $width
      * @return $this
      */
-    public function setThumbnailCount($thumbnail_count)
+    public function setWidth($width)
     {
-        $this->container['thumbnail_count'] = $thumbnail_count;
+        $this->container['width'] = $width;
 
         return $this;
     }
 
     /**
-     * Gets thumbnail_width
+     * Gets bitrate
      * @return int
      */
-    public function getThumbnailWidth()
+    public function getBitrate()
     {
-        return $this->container['thumbnail_width'];
+        return $this->container['bitrate'];
     }
 
     /**
-     * Sets thumbnail_width
-     * @param int $thumbnail_width
+     * Sets bitrate
+     * @param int $bitrate
      * @return $this
      */
-    public function setThumbnailWidth($thumbnail_width)
+    public function setBitrate($bitrate)
     {
-        $this->container['thumbnail_width'] = $thumbnail_width;
+        $this->container['bitrate'] = $bitrate;
 
         return $this;
     }
 
     /**
-     * Gets thumbnail_height
+     * Gets height
      * @return int
      */
-    public function getThumbnailHeight()
+    public function getHeight()
     {
-        return $this->container['thumbnail_height'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets thumbnail_height
-     * @param int $thumbnail_height
+     * Sets height
+     * @param int $height
      * @return $this
      */
-    public function setThumbnailHeight($thumbnail_height)
+    public function setHeight($height)
     {
-        $this->container['thumbnail_height'] = $thumbnail_height;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail_interval
-     * @return int
-     */
-    public function getThumbnailInterval()
-    {
-        return $this->container['thumbnail_interval'];
-    }
-
-    /**
-     * Sets thumbnail_interval
-     * @param int $thumbnail_interval
-     * @return $this
-     */
-    public function setThumbnailInterval($thumbnail_interval)
-    {
-        $this->container['thumbnail_interval'] = $thumbnail_interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets hls_url
-     * @return string
-     */
-    public function getHlsUrl()
-    {
-        return $this->container['hls_url'];
-    }
-
-    /**
-     * Sets hls_url
-     * @param string $hls_url
-     * @return $this
-     */
-    public function setHlsUrl($hls_url)
-    {
-        $this->container['hls_url'] = $hls_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets levels
-     * @return \Swagger\Client\Model\ContentContentPropertiesLevels[]
-     */
-    public function getLevels()
-    {
-        return $this->container['levels'];
-    }
-
-    /**
-     * Sets levels
-     * @param \Swagger\Client\Model\ContentContentPropertiesLevels[] $levels
-     * @return $this
-     */
-    public function setLevels($levels)
-    {
-        $this->container['levels'] = $levels;
+        $this->container['height'] = $height;
 
         return $this;
     }

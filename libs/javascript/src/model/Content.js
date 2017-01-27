@@ -69,6 +69,7 @@
 
 
 
+
   };
 
   /**
@@ -90,6 +91,9 @@
       }
       if (data.hasOwnProperty('contentDescription')) {
         obj['contentDescription'] = ApiClient.convertToType(data['contentDescription'], 'String');
+      }
+      if (data.hasOwnProperty('contentUrl')) {
+        obj['contentUrl'] = ApiClient.convertToType(data['contentUrl'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Integer');
@@ -137,6 +141,10 @@
    * @member {String} contentDescription
    */
   exports.prototype['contentDescription'] = undefined;
+  /**
+   * @member {String} contentUrl
+   */
+  exports.prototype['contentUrl'] = undefined;
   /**
    * @member {Integer} userId
    */

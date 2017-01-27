@@ -30,7 +30,7 @@ import com.bluejeans.api.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T18:38:05.086-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

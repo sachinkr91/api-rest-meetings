@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="//www.bluejeans.com/favicon.ico" type="image/x-icon" />
+
+    <title>BlueJeans Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap-3.3.7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap-3.3.7-dist/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="http://bluejeans.com/">BlueJeans</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="http://bluejeans.com/about">About</a></li>
+                <li><a href="mailto:api@bluejeans.com">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Examples</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">SDK</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Web</li>
+                    <li><a href="embed.html">Embed</a></li>
+                    <li class="active"><a href="customize.html">Customize</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Containers</li>
+                    <li><a href="https://github.com/bluejeans/electron-demo" target="_blank">Electron &rarr;</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Customization</h1>
+        <p>Want to customize your BlueJeans in meeting experience on the web?</p>
+      </div>
+    </div>
+
+
+<p>BlueJeans gives developers the ability to inject customizations into the meeting room via the group admin interface.  Users must be given group administrator privileges by Blue Jeans Network to utilize this functionality.  Once done, users will see an ADMIN option in the banner when logged in.  Clicking on that reveals several options including the SDK tab seen below.  Contents added to the CSS or JavaScript textareas are injected into the web page that renders the meeting room immediately upon saving.  Developers are responsible for the validity of changes made here as they can have a detrimental effect on the meeting experience if done improperly.</p>
+
+<p><img src="img/sdk.png"/></p>
+
+<h2>JavaScript</h2>
+
+<p>The meeting room is a JavaScript-based web application.  It integrates various browser plugins and technologies to build a fully functional video conference experience.  The SDK provides a way to inject your own JavaScript code into the meeting room for advanced integration needs.</p>
+
+<h3>Usage</h3>
+
+<p>The script is added directly into the page after other meeting room components are invoked.  However, because of the asynchronous nature of the loading, integrations must conform to using a library loading technology known as RequireJS.  RequireJS helps synchronize loading across multiple dependencies.  Ultimately, to perform any type of interesting integration within the meeting room, you need to wait for the meeting room itself to signal it has loaded.  This is done by using RequireJS to wait/depend on a module known as Skinny.  Skinny is the internal code name for the web-based meeting client for Blue Jeans.</p>
+
+<h3>Sample</h3>
+
+<p>A simple example that binds to 2 different events that might be interesting for integrators.  The basic flow is to use RequireJS to wait for Skinny to load.  Upon completion, your function is invoked.  This sample gets a pointer to the event mechanism of the meeting room, known as hammerloop.  Then you can subscribe to various events that will occur in the user interface.</p>
+
+<pre>
+window.afterAppLoad(function()
+{
+  require(['Services/hammerloop'], function(hammerloop) {
+    hammerloop.subscribe(hammerloop.skinny.ui.resizedOnce, function() {
+      alert('We are ready to go!');
+    });
+    hammerloop.subscribe(hammerloop.skinny.meeting.participants, function(part, action) {
+     alert('Roster updated!');
+    });
+  });
+});
+</pre>
+
+<h2>CSS</h2>
+
+<h3>Recipes</h3>
+
+<h4>Color all text in the user interface</h4>
+
+<p>While not a practical recipe, its a nice way to visualize how the customization system works.</p>
+
+<pre>
+html *
+{
+    color: red !important;
+}
+</pre>
+
+<h4>Hide the meeting host information on the loading screen</h4>
+
+<p>When a participant joins, they view a loading screen which has the name and photo of the meeting owner along the bottom.  In some cases, as when scheduling with proxy users, this is not desired so you may hide that display.</p>
+
+<pre>
+.informationContainer
+{
+    display: none !important;
+}
+</pre>
+
+<hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Blue Jeans Network, Inc. &middot; <a href="http://bluejeans.com/privacy-policy">Privacy</a> &middot; <a href="http://bluejeans.com/terms-of-service">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap-3.3.7-dist/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="bootstrap-3.3.7-dist/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap-3.3.7-dist/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

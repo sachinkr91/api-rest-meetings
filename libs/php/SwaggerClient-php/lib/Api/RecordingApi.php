@@ -108,7 +108,7 @@ class RecordingApi
      * Get Recording Download Link
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $content_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $content_id The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. (required)
      * @return \Swagger\Client\Model\Content
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -124,7 +124,7 @@ class RecordingApi
      * Get Recording Download Link
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $content_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $content_id The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. (required)
      * @return Array of \Swagger\Client\Model\Content, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */

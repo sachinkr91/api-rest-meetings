@@ -10,6 +10,7 @@ exports.v1UserUser_idCmsContent_idisDownloadabletrueGET = function(args, res, ne
   examples['application/json'] = {
   "contentDescription" : "aeiou",
   "contentSize" : "",
+  "contentUrl" : "aeiou",
   "contentCategory" : "aeiou",
   "contentType" : "aeiou",
   "contentName" : "aeiou",
@@ -23,6 +24,12 @@ exports.v1UserUser_idCmsContent_idisDownloadabletrueGET = function(args, res, ne
   "contentProperties" : {
     "duration" : "",
     "thumbnail" : "aeiou",
+    "levels" : [ {
+      "height" : "",
+      "file" : "aeiou",
+      "width" : "",
+      "bitrate" : ""
+    } ],
     "hdsUrl" : "aeiou",
     "thumbnailInterval" : "",
     "thumbnailHeight" : "",

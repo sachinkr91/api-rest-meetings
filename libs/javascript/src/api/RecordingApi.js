@@ -66,9 +66,9 @@
 
     /**
      * Get Recording Download Link
-     * This endpoint stops recording for a meeting in progress.
+     * This endpoint retrieves properties about the recording chapter.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} contentId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Integer} contentId The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
      * @param {module:api/RecordingApi~v1UserUserIdCmsContentIdisDownloadabletrueGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Content}
      */

@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/ContentContentPropertiesLevels'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./ContentContentPropertiesLevels'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.ContentContentProperties = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+    root.BlueJeansOnVideoRestApi.ContentContentProperties = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.ContentContentPropertiesLevels);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, ContentContentPropertiesLevels) {
   'use strict';
 
 
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -105,6 +106,9 @@
       if (data.hasOwnProperty('hlsUrl')) {
         obj['hlsUrl'] = ApiClient.convertToType(data['hlsUrl'], 'String');
       }
+      if (data.hasOwnProperty('levels')) {
+        obj['levels'] = ApiClient.convertToType(data['levels'], [ContentContentPropertiesLevels]);
+      }
     }
     return obj;
   }
@@ -145,6 +149,10 @@
    * @member {String} hlsUrl
    */
   exports.prototype['hlsUrl'] = undefined;
+  /**
+   * @member {Array.<module:model/ContentContentPropertiesLevels>} levels
+   */
+  exports.prototype['levels'] = undefined;
 
 
 

@@ -29,12 +29,15 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.ContentContentPropertiesLevels;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * ContentContentProperties
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T18:38:05.086-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
 public class ContentContentProperties   {
   @SerializedName("duration")
   private Integer duration = null;
@@ -62,6 +65,9 @@ public class ContentContentProperties   {
 
   @SerializedName("hlsUrl")
   private String hlsUrl = null;
+
+  @SerializedName("levels")
+  private List<ContentContentPropertiesLevels> levels = new ArrayList<ContentContentPropertiesLevels>();
 
   public ContentContentProperties duration(Integer duration) {
     this.duration = duration;
@@ -225,6 +231,29 @@ public class ContentContentProperties   {
     this.hlsUrl = hlsUrl;
   }
 
+  public ContentContentProperties levels(List<ContentContentPropertiesLevels> levels) {
+    this.levels = levels;
+    return this;
+  }
+
+  public ContentContentProperties addLevelsItem(ContentContentPropertiesLevels levelsItem) {
+    this.levels.add(levelsItem);
+    return this;
+  }
+
+   /**
+   * Get levels
+   * @return levels
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<ContentContentPropertiesLevels> getLevels() {
+    return levels;
+  }
+
+  public void setLevels(List<ContentContentPropertiesLevels> levels) {
+    this.levels = levels;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -243,12 +272,13 @@ public class ContentContentProperties   {
         Objects.equals(this.thumbnailWidth, contentContentProperties.thumbnailWidth) &&
         Objects.equals(this.thumbnailHeight, contentContentProperties.thumbnailHeight) &&
         Objects.equals(this.thumbnailInterval, contentContentProperties.thumbnailInterval) &&
-        Objects.equals(this.hlsUrl, contentContentProperties.hlsUrl);
+        Objects.equals(this.hlsUrl, contentContentProperties.hlsUrl) &&
+        Objects.equals(this.levels, contentContentProperties.levels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, thumbnail, thumbnailSprite, hdsUrl, thumbnailCount, thumbnailWidth, thumbnailHeight, thumbnailInterval, hlsUrl);
+    return Objects.hash(duration, thumbnail, thumbnailSprite, hdsUrl, thumbnailCount, thumbnailWidth, thumbnailHeight, thumbnailInterval, hlsUrl, levels);
   }
 
   @Override
@@ -265,6 +295,7 @@ public class ContentContentProperties   {
     sb.append("    thumbnailHeight: ").append(toIndentedString(thumbnailHeight)).append("\n");
     sb.append("    thumbnailInterval: ").append(toIndentedString(thumbnailInterval)).append("\n");
     sb.append("    hlsUrl: ").append(toIndentedString(hlsUrl)).append("\n");
+    sb.append("    levels: ").append(toIndentedString(levels)).append("\n");
     sb.append("}");
     return sb.toString();
   }

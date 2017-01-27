@@ -69,6 +69,7 @@ class Content implements ArrayAccess
         'id' => 'int',
         'content_type' => 'string',
         'content_description' => 'string',
+        'content_url' => 'string',
         'user_id' => 'int',
         'content_location' => 'string',
         'created' => 'int',
@@ -94,6 +95,7 @@ class Content implements ArrayAccess
         'id' => 'id',
         'content_type' => 'contentType',
         'content_description' => 'contentDescription',
+        'content_url' => 'contentUrl',
         'user_id' => 'userId',
         'content_location' => 'contentLocation',
         'created' => 'created',
@@ -119,6 +121,7 @@ class Content implements ArrayAccess
         'id' => 'setId',
         'content_type' => 'setContentType',
         'content_description' => 'setContentDescription',
+        'content_url' => 'setContentUrl',
         'user_id' => 'setUserId',
         'content_location' => 'setContentLocation',
         'created' => 'setCreated',
@@ -144,6 +147,7 @@ class Content implements ArrayAccess
         'id' => 'getId',
         'content_type' => 'getContentType',
         'content_description' => 'getContentDescription',
+        'content_url' => 'getContentUrl',
         'user_id' => 'getUserId',
         'content_location' => 'getContentLocation',
         'created' => 'getCreated',
@@ -180,6 +184,7 @@ class Content implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['content_description'] = isset($data['content_description']) ? $data['content_description'] : null;
+        $this->container['content_url'] = isset($data['content_url']) ? $data['content_url'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['content_location'] = isset($data['content_location']) ? $data['content_location'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
@@ -274,6 +279,27 @@ class Content implements ArrayAccess
     public function setContentDescription($content_description)
     {
         $this->container['content_description'] = $content_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_url
+     * @return string
+     */
+    public function getContentUrl()
+    {
+        return $this->container['content_url'];
+    }
+
+    /**
+     * Sets content_url
+     * @param string $content_url
+     * @return $this
+     */
+    public function setContentUrl($content_url)
+    {
+        $this->container['content_url'] = $content_url;
 
         return $this;
     }

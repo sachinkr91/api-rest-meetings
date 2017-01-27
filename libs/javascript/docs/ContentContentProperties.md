@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **thumbnailHeight** | **Integer** |  | [optional] 
 **thumbnailInterval** | **Integer** |  | [optional] 
 **hlsUrl** | **String** |  | [optional] 
+**levels** | [**[ContentContentPropertiesLevels]**](ContentContentPropertiesLevels.md) |  | [optional] 
 
 

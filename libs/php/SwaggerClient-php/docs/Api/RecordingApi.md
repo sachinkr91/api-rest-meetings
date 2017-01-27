@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Get Recording Download Link
 
-This endpoint stops recording for a meeting in progress.
+This endpoint retrieves properties about the recording chapter.
 
 ### Example
 ```php
@@ -32,7 +32,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\RecordingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$content_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$content_id = 56; // int | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
 
 try {
     $result = $api_instance->v1UserUserIdCmsContentIdisDownloadabletrueGet($user_id, $content_id);
@@ -48,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **content_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **content_id** | **int**| The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. |
 
 ### Return type
 

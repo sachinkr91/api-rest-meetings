@@ -35,7 +35,7 @@ import java.math.BigDecimal;
 /**
  * AnalyticsTopUsersUsage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T18:38:05.086-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
 public class AnalyticsTopUsersUsage   {
   @SerializedName("lastMeetingTime")
   private Integer lastMeetingTime = null;

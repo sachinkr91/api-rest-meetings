@@ -22,101 +22,73 @@
  * limitations under the License.
  */
 
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require('../../src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.BlueJeansOnVideoRestApi);
+  }
+}(this, function(expect, BlueJeansOnVideoRestApi) {
+  'use strict';
 
-package io.swagger.client.model;
+  var instance;
 
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+  beforeEach(function() {
+    instance = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+  });
 
-
-/**
- * Meeting
- */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
-public class Meeting   {
-  @SerializedName("locked")
-  private Boolean locked = null;
-
-  @SerializedName("status")
-  private String status = null;
-
-  public Meeting locked(Boolean locked) {
-    this.locked = locked;
-    return this;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-   /**
-   * True to lock, false to unlock.
-   * @return locked
-  **/
-  @ApiModelProperty(example = "null", value = "True to lock, false to unlock.")
-  public Boolean getLocked() {
-    return locked;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
   }
 
-  public void setLocked(Boolean locked) {
-    this.locked = locked;
-  }
+  describe('ContentContentPropertiesLevels', function() {
+    it('should create an instance of ContentContentPropertiesLevels', function() {
+      // uncomment below and update the code to test ContentContentPropertiesLevels
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.ContentContentPropertiesLevels);
+    });
 
-  public Meeting status(String status) {
-    this.status = status;
-    return this;
-  }
+    it('should have the property file (base name: "file")', function() {
+      // uncomment below and update the code to test the property file
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be();
+    });
 
-   /**
-   * Set to \"terminated\" to end the meeting.
-   * @return status
-  **/
-  @ApiModelProperty(example = "null", value = "Set to \"terminated\" to end the meeting.")
-  public String getStatus() {
-    return status;
-  }
+    it('should have the property width (base name: "width")', function() {
+      // uncomment below and update the code to test the property width
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be();
+    });
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    it('should have the property bitrate (base name: "bitrate")', function() {
+      // uncomment below and update the code to test the property bitrate
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property height (base name: "height")', function() {
+      // uncomment below and update the code to test the property height
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be();
+    });
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Meeting meeting = (Meeting) o;
-    return Objects.equals(this.locked, meeting.locked) &&
-        Objects.equals(this.status, meeting.status);
-  }
+  });
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(locked, status);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Meeting {\n");
-    
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-}
-
+}));

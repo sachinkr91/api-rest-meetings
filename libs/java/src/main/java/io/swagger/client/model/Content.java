@@ -35,7 +35,7 @@ import io.swagger.client.model.ContentContentProperties;
 /**
  * Content
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T18:38:05.086-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
 public class Content   {
   @SerializedName("id")
   private Integer id = null;
@@ -45,6 +45,9 @@ public class Content   {
 
   @SerializedName("contentDescription")
   private String contentDescription = null;
+
+  @SerializedName("contentUrl")
+  private String contentUrl = null;
 
   @SerializedName("userId")
   private Integer userId = null;
@@ -128,6 +131,24 @@ public class Content   {
 
   public void setContentDescription(String contentDescription) {
     this.contentDescription = contentDescription;
+  }
+
+  public Content contentUrl(String contentUrl) {
+    this.contentUrl = contentUrl;
+    return this;
+  }
+
+   /**
+   * Get contentUrl
+   * @return contentUrl
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getContentUrl() {
+    return contentUrl;
+  }
+
+  public void setContentUrl(String contentUrl) {
+    this.contentUrl = contentUrl;
   }
 
   public Content userId(Integer userId) {
@@ -323,6 +344,7 @@ public class Content   {
     return Objects.equals(this.id, content.id) &&
         Objects.equals(this.contentType, content.contentType) &&
         Objects.equals(this.contentDescription, content.contentDescription) &&
+        Objects.equals(this.contentUrl, content.contentUrl) &&
         Objects.equals(this.userId, content.userId) &&
         Objects.equals(this.contentLocation, content.contentLocation) &&
         Objects.equals(this.created, content.created) &&
@@ -337,7 +359,7 @@ public class Content   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, contentType, contentDescription, userId, contentLocation, created, modified, contentStatus, contentName, contentCategory, contentSize, contentDuration, contentProperties);
+    return Objects.hash(id, contentType, contentDescription, contentUrl, userId, contentLocation, created, modified, contentStatus, contentName, contentCategory, contentSize, contentDuration, contentProperties);
   }
 
   @Override
@@ -348,6 +370,7 @@ public class Content   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    contentDescription: ").append(toIndentedString(contentDescription)).append("\n");
+    sb.append("    contentUrl: ").append(toIndentedString(contentUrl)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    contentLocation: ").append(toIndentedString(contentLocation)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
