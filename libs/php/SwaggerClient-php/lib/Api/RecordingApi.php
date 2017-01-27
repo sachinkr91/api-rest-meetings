@@ -107,9 +107,9 @@ class RecordingApi
      *
      * Get Recording Download Link
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $content_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Content
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdCmsContentIdisDownloadabletrueGet($user_id, $content_id)
@@ -123,9 +123,9 @@ class RecordingApi
      *
      * Get Recording Download Link
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $content_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Content, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo($user_id, $content_id)
@@ -189,15 +189,15 @@ class RecordingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Content',
                 '/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Content', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Content', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -215,7 +215,7 @@ class RecordingApi
      *
      * Get All Recordings for a Specified Meeting ID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -231,7 +231,7 @@ class RecordingApi
      *
      * Get All Recordings for a Specified Meeting ID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -323,7 +323,7 @@ class RecordingApi
      *
      * Start Recording
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -339,7 +339,7 @@ class RecordingApi
      *
      * Start Recording
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -431,7 +431,7 @@ class RecordingApi
      *
      * Stop Recording
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -447,7 +447,7 @@ class RecordingApi
      *
      * Stop Recording
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -539,7 +539,7 @@ class RecordingApi
      *
      * Get All Recordings for a Specified Meeting GUID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return \Swagger\Client\Model\Meeting
@@ -556,7 +556,7 @@ class RecordingApi
      *
      * Get All Recordings for a Specified Meeting GUID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
@@ -661,7 +661,7 @@ class RecordingApi
      *
      * Delete All Recordings for a Specified Meeting GUID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -677,7 +677,7 @@ class RecordingApi
      *
      * Delete All Recordings for a Specified Meeting GUID
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -769,7 +769,7 @@ class RecordingApi
      *
      * Delete a Specified Recording Chapter
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return \Swagger\Client\Model\Meeting
@@ -786,7 +786,7 @@ class RecordingApi
      *
      * Delete a Specified Recording Chapter
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)

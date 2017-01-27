@@ -182,7 +182,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\UserApi();
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
     $result = $api_instance->v1UserUserIdRoomGet($user_id);
@@ -197,7 +197,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 
@@ -232,7 +232,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\UserApi();
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $room = new \Swagger\Client\Model\Room(); // \Swagger\Client\Model\Room | The user's room details that you wish to update.
 
 try {
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **room** | [**\Swagger\Client\Model\Room**](../Model/\Swagger\Client\Model\Room.md)| The user&#39;s room details that you wish to update. |
 
 ### Return type
@@ -284,7 +284,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\UserApi();
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
     $result = $api_instance->v1UserUserIdScheduledMeetingGet($user_id);
@@ -299,7 +299,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 

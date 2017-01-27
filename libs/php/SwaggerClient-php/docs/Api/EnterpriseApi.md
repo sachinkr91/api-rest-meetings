@@ -139,7 +139,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\EnterpriseApi();
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
     $result = $api_instance->v1EnterpriseEnterpriseIdUsersUserIdDelete($enterprise_id, $user_id);
@@ -155,7 +155,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 

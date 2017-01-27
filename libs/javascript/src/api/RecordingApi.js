@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error'], factory);
+    define(['ApiClient', 'model/Content', 'model/Error', 'model/Meeting'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'));
+    module.exports = factory(require('../ApiClient'), require('../model/Content'), require('../model/Error'), require('../model/Meeting'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.RecordingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error);
+    root.BlueJeansOnVideoRestApi.RecordingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Content, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting);
   }
-}(this, function(ApiClient, Meeting, Error) {
+}(this, function(ApiClient, Content, Error, Meeting) {
   'use strict';
 
   /**
@@ -60,17 +60,17 @@
      * Callback function to receive the result of the v1UserUserIdCmsContentIdisDownloadabletrueGet operation.
      * @callback module:api/RecordingApi~v1UserUserIdCmsContentIdisDownloadabletrueGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/Content} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Recording Download Link
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} contentId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdCmsContentIdisDownloadabletrueGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * data is of type: {@link module:model/Content}
      */
     this.v1UserUserIdCmsContentIdisDownloadabletrueGet = function(userId, contentId, callback) {
       var postBody = null;
@@ -100,7 +100,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = Content;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/cms/{content_id}?isDownloadable=true', 'GET',
@@ -120,7 +120,7 @@
     /**
      * Get All Recordings for a Specified Meeting ID
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -173,7 +173,7 @@
     /**
      * Start Recording
      * This endpoint starts recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -226,7 +226,7 @@
     /**
      * Stop Recording
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -279,7 +279,7 @@
     /**
      * Get All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -339,7 +339,7 @@
     /**
      * Delete All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress. 
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/RecordingApi~v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -392,7 +392,7 @@
     /**
      * Delete a Specified Recording Chapter
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {Integer} recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response

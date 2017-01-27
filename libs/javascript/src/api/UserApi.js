@@ -211,7 +211,7 @@
     /**
      * Get User’s Default Meeting Settings
      * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~v1UserUserIdRoomGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
@@ -257,7 +257,7 @@
     /**
      * Update User’s Default Meeting Settings
      * This endpoint allows updating a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Room} room The user&#39;s room details that you wish to update.
      * @param {module:api/UserApi~v1UserUserIdRoomPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
@@ -309,7 +309,7 @@
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~v1UserUserIdScheduledMeetingGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Meeting>}
      */

@@ -205,7 +205,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 try {
     Room result = apiInstance.v1UserUserIdRoomGet(userId);
     System.out.println(result);
@@ -219,7 +219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 
@@ -260,7 +260,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Room room = new Room(); // Room | The user's room details that you wish to update.
 try {
     Room result = apiInstance.v1UserUserIdRoomPut(userId, room);
@@ -275,7 +275,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **room** | [**Room**](Room.md)| The user&#39;s room details that you wish to update. |
 
 ### Return type
@@ -317,7 +317,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 try {
     List<Meeting> result = apiInstance.v1UserUserIdScheduledMeetingGet(userId);
     System.out.println(result);
@@ -331,7 +331,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 

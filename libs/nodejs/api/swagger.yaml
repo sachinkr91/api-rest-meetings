@@ -670,7 +670,7 @@ paths:
         type: "integer"
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -755,7 +755,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -771,7 +771,7 @@ paths:
         200:
           description: "The settings for the room"
           schema:
-            $ref: "#/definitions/Meeting"
+            $ref: "#/definitions/Content"
         default:
           description: "Unexpected error"
           schema:
@@ -818,7 +818,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -846,7 +846,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -884,7 +884,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -917,7 +917,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -973,7 +973,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1008,7 +1008,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1048,7 +1048,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1104,7 +1104,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1144,7 +1144,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1192,7 +1192,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1227,7 +1227,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1261,7 +1261,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1295,7 +1295,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1329,7 +1329,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1363,7 +1363,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1407,7 +1407,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1465,7 +1465,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1501,6 +1501,41 @@ paths:
         200:
           description: "The results for the request."
           schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/RecordingSummary"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      security:
+      - access_token: []
+      x-swagger-router-controller: "History"
+  /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}:
+    get:
+      tags:
+      - "History"
+      summary: "List Meeting Recordings"
+      description: "This endpoint retrieves a list of meeting recordings."
+      operationId: "v1UserUser_idMeeting_historyRecordingsRecording_entity_idGET"
+      parameters:
+      - name: "user_id"
+        in: "path"
+        description: "The ID of the user of interest. This value is an integer which\
+          \ can be retrieved for the current user via the Get User Account Details\
+          \ endpoint."
+        required: true
+        type: "integer"
+      - name: "recording_entity_id"
+        in: "path"
+        description: "The ID of the meeting recording. This value is shown in meeting\
+          \ recording lists as recordingEntityId."
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "The results for the request."
+          schema:
             $ref: "#/definitions/Recording"
         default:
           description: "Unexpected error"
@@ -1519,7 +1554,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1556,7 +1591,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1593,7 +1628,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1634,7 +1669,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1660,7 +1695,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1694,7 +1729,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1722,7 +1757,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1760,7 +1795,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1793,7 +1828,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest.  This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1832,7 +1867,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -1866,7 +1901,7 @@ paths:
       parameters:
       - name: "user_id"
         in: "path"
-        description: "The ID of the user of interest.  his value is an integer which\
+        description: "The ID of the user of interest. This value is an integer which\
           \ can be retrieved for the current user via the Get User Account Details\
           \ endpoint."
         required: true
@@ -2093,10 +2128,97 @@ definitions:
         type: "string"
       attendeePasscode:
         type: "string"
+  RecordingSummary:
+    type: "object"
+    properties:
+      recordingEntityId:
+        type: "integer"
+      recordingName:
+        type: "string"
+      meetingGuid:
+        type: "string"
+      chapterCount:
+        type: "integer"
+      totalSize:
+        type: "integer"
+      totalDuration:
+        type: "integer"
+      lastRecordingDate:
+        type: "string"
+      aggregatedStatus:
+        type: "string"
+      recordingThumbnail:
+        type: "string"
+      created:
+        type: "integer"
+      isPremiumRecording:
+        type: "boolean"
+      showPremiumRecordingTag:
+        type: "boolean"
   Recording:
-    type: "array"
-    items:
-      $ref: "#/definitions/Recording_inner"
+    type: "object"
+    properties:
+      recordingEntityId:
+        type: "integer"
+      recordingEntityGuid:
+        type: "string"
+      recordingName:
+        type: "string"
+      meetingGuid:
+        type: "string"
+      chapterCount:
+        type: "integer"
+      totalSize:
+        type: "integer"
+      totalDuration:
+        type: "integer"
+      lastRecordingDate:
+        type: "integer"
+      aggregatedStatus:
+        type: "string"
+      recordingThumbnail:
+        type: "string"
+      created:
+        type: "integer"
+      aggregatedViewCount:
+        type: "integer"
+      isPremiumRecording:
+        type: "boolean"
+      showPremiumRecordingTag:
+        type: "boolean"
+      recordingChapters:
+        type: "array"
+        items:
+          $ref: "#/definitions/Recording_recordingChapters"
+  Content:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      contentType:
+        type: "string"
+      contentDescription:
+        type: "string"
+      userId:
+        type: "integer"
+      contentLocation:
+        type: "string"
+      created:
+        type: "integer"
+      modified:
+        type: "integer"
+      contentStatus:
+        type: "string"
+      contentName:
+        type: "string"
+      contentCategory:
+        type: "string"
+      contentSize:
+        type: "integer"
+      contentDuration:
+        type: "integer"
+      contentProperties:
+        $ref: "#/definitions/Content_contentProperties"
   AnalyticsTopUsers:
     type: "object"
     properties:
@@ -2215,32 +2337,80 @@ definitions:
       status:
         type: "string"
         description: "Set to \"terminated\" to end the meeting."
-  Recording_inner:
+  Recording_startedBy:
     properties:
-      recordingEntityId:
-        type: "integer"
-      recordingName:
+      endpointName:
         type: "string"
-      meetingGuid:
+      endpointGuid:
         type: "string"
-      chapterCount:
+  Recording_recordingSessions:
+    properties:
+      id:
         type: "integer"
+      contentStatus:
+        type: "string"
+      recordingType:
+        type: "string"
+      contentId:
+        type: "integer"
+      thumbnailUrl:
+        type: "string"
+      startTimeOffset:
+        type: "integer"
+      endTimeOffset:
+        type: "integer"
+      duration:
+        type: "integer"
+      startedBy:
+        $ref: "#/definitions/Recording_startedBy"
+      stoppedBy:
+        $ref: "#/definitions/Recording_startedBy"
+  Recording_recordingChapters:
+    properties:
+      chapterId:
+        type: "string"
+      id:
+        type: "integer"
+      startTimeOffset:
+        type: "integer"
+      endTimeOffset:
+        type: "integer"
+      chapterName:
+        type: "string"
       totalSize:
         type: "integer"
-      totalDuration:
+      compositeContentId:
         type: "integer"
-      lastRecordingDate:
+      compositeContentStatus:
         type: "string"
-      aggregatedStatus:
-        type: "string"
-      recordingThumbnail:
-        type: "string"
-      created:
+      parentRecordingId:
         type: "integer"
-      isPremiumRecording:
-        type: "boolean"
-      showPremiumRecordingTag:
-        type: "boolean"
+      viewCount:
+        type: "integer"
+      recordingSessions:
+        type: "array"
+        items:
+          $ref: "#/definitions/Recording_recordingSessions"
+  Content_contentProperties:
+    properties:
+      duration:
+        type: "integer"
+      thumbnail:
+        type: "string"
+      thumbnailSprite:
+        type: "string"
+      hdsUrl:
+        type: "string"
+      thumbnailCount:
+        type: "integer"
+      thumbnailWidth:
+        type: "integer"
+      thumbnailHeight:
+        type: "integer"
+      thumbnailInterval:
+        type: "integer"
+      hlsUrl:
+        type: "string"
   AnalyticsTopUsers_usage:
     properties:
       lastMeetingTime:

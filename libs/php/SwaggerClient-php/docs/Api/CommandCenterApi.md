@@ -240,7 +240,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CommandCenterApi();
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
     $result = $api_instance->v1UserUserIdIndigoMeetingsGet($user_id);
@@ -255,7 +255,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
 
 ### Return type
 
@@ -290,7 +290,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CommandCenterApi();
-$user_id = 56; // int | The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
 try {
@@ -306,7 +306,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_guid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
 
 ### Return type

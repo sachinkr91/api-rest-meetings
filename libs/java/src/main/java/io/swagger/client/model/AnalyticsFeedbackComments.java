@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * AnalyticsFeedbackComments
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T14:34:46.462-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T18:38:05.086-07:00")
 public class AnalyticsFeedbackComments   {
   @SerializedName("comments")
   private List<AnalyticsFeedbackCommentsComments> comments = new ArrayList<AnalyticsFeedbackCommentsComments>();

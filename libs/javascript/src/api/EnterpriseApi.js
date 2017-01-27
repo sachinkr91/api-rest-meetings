@@ -174,7 +174,7 @@
      * Remove Enterprise User
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersUserIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */

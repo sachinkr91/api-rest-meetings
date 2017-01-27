@@ -309,7 +309,7 @@ class HistoryApi
      *
      * List Meetings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_id Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
      * @param string $start_date Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param string $end_date Return meetings up until the specified date. MM/DD/YYYY (optional)
@@ -330,7 +330,7 @@ class HistoryApi
      *
      * List Meetings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_id Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
      * @param string $start_date Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param string $end_date Return meetings up until the specified date. MM/DD/YYYY (optional)
@@ -439,7 +439,7 @@ class HistoryApi
      *
      * List Meetings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -455,7 +455,7 @@ class HistoryApi
      *
      * List Meetings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -547,12 +547,12 @@ class HistoryApi
      *
      * List Meeting Recordings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $page_size Sets number of items returned per page. (optional, default to 10)
      * @param int $page_number Selects which page of results to return. (optional, default to 1)
      * @param string $sort_by Selects which page of results to return. (optional, default to start_time)
      * @param string $order Puts results in ascending or descending order. (optional, default to desc)
-     * @return \Swagger\Client\Model\Recording
+     * @return \Swagger\Client\Model\RecordingSummary[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdMeetingHistoryRecordingsGet($user_id, $page_size = null, $page_number = null, $sort_by = null, $order = null)
@@ -566,12 +566,12 @@ class HistoryApi
      *
      * List Meeting Recordings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $page_size Sets number of items returned per page. (optional, default to 10)
      * @param int $page_number Selects which page of results to return. (optional, default to 1)
      * @param string $sort_by Selects which page of results to return. (optional, default to start_time)
      * @param string $order Puts results in ascending or descending order. (optional, default to desc)
-     * @return Array of \Swagger\Client\Model\Recording, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\RecordingSummary[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo($user_id, $page_size = null, $page_number = null, $sort_by = null, $order = null)
@@ -639,8 +639,116 @@ class HistoryApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Recording',
+                '\Swagger\Client\Model\RecordingSummary[]',
                 '/v1/user/{user_id}/meeting_history/recordings'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\RecordingSummary[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\RecordingSummary[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet
+     *
+     * List Meeting Recordings
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $recording_entity_id The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. (required)
+     * @return \Swagger\Client\Model\Recording
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet($user_id, $recording_entity_id)
+    {
+        list($response) = $this->v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo($user_id, $recording_entity_id);
+        return $response;
+    }
+
+    /**
+     * Operation v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo
+     *
+     * List Meeting Recordings
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $recording_entity_id The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. (required)
+     * @return Array of \Swagger\Client\Model\Recording, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo($user_id, $recording_entity_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet');
+        }
+        // verify the required parameter 'recording_entity_id' is set
+        if ($recording_entity_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $recording_entity_id when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($recording_entity_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "recording_entity_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($recording_entity_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Recording',
+                '/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Recording', $httpHeader), $statusCode, $httpHeader);

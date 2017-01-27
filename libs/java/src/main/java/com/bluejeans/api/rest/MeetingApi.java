@@ -129,7 +129,7 @@ public class MeetingApi {
     /**
      * Get Endpoint Information
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @return Meeting
@@ -143,7 +143,7 @@ public class MeetingApi {
     /**
      * Get Endpoint Information
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @return ApiResponse&lt;Meeting&gt;
@@ -158,7 +158,7 @@ public class MeetingApi {
     /**
      * Get Endpoint Information (asynchronously)
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -254,7 +254,7 @@ public class MeetingApi {
     /**
      * Get Current Endpoint Layout
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @return Meeting
@@ -268,7 +268,7 @@ public class MeetingApi {
     /**
      * Get Current Endpoint Layout
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @return ApiResponse&lt;Meeting&gt;
@@ -283,7 +283,7 @@ public class MeetingApi {
     /**
      * Get Current Endpoint Layout (asynchronously)
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -383,7 +383,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Layout
      * This endpoint allows you to update an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param isLeader  (optional)
@@ -399,7 +399,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Layout
      * This endpoint allows you to update an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param isLeader  (optional)
@@ -416,7 +416,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Layout (asynchronously)
      * This endpoint allows you to update an individual endpoint’s current layout setting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param isLeader  (optional)
@@ -520,7 +520,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Video/Audio State
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param muteAudio Toggle the audio source mute. (optional)
@@ -537,7 +537,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Video/Audio State
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param muteAudio Toggle the audio source mute. (optional)
@@ -555,7 +555,7 @@ public class MeetingApi {
     /**
      * Update Endpoint Video/Audio State (asynchronously)
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param muteAudio Toggle the audio source mute. (optional)
@@ -648,7 +648,7 @@ public class MeetingApi {
     /**
      * List Meeting Endpoints
      * This endpoint returns an array of all endpoints in the current meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -661,7 +661,7 @@ public class MeetingApi {
     /**
      * List Meeting Endpoints
      * This endpoint returns an array of all endpoints in the current meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -675,7 +675,7 @@ public class MeetingApi {
     /**
      * List Meeting Endpoints (asynchronously)
      * This endpoint returns an array of all endpoints in the current meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -764,7 +764,7 @@ public class MeetingApi {
     /**
      * Get Meeting State
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -777,7 +777,7 @@ public class MeetingApi {
     /**
      * Get Meeting State
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -791,7 +791,7 @@ public class MeetingApi {
     /**
      * Get Meeting State (asynchronously)
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -880,7 +880,7 @@ public class MeetingApi {
     /**
      * Send Email Invite
      * This endpoint generates an email invite to the specified meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -893,7 +893,7 @@ public class MeetingApi {
     /**
      * Send Email Invite
      * This endpoint generates an email invite to the specified meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -907,7 +907,7 @@ public class MeetingApi {
     /**
      * Send Email Invite (asynchronously)
      * This endpoint generates an email invite to the specified meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -996,7 +996,7 @@ public class MeetingApi {
     /**
      * Generate SIP Pairing Code
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1009,7 +1009,7 @@ public class MeetingApi {
     /**
      * Generate SIP Pairing Code
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1023,7 +1023,7 @@ public class MeetingApi {
     /**
      * Generate SIP Pairing Code (asynchronously)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1123,7 +1123,7 @@ public class MeetingApi {
     /**
      * Update Meeting State
      * This endpoint’s purpose is to be able to modify a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
@@ -1140,7 +1140,7 @@ public class MeetingApi {
     /**
      * Update Meeting State
      * This endpoint’s purpose is to be able to modify a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
@@ -1158,7 +1158,7 @@ public class MeetingApi {
     /**
      * Update Meeting State (asynchronously)
      * This endpoint’s purpose is to be able to modify a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
@@ -1245,7 +1245,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return List&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1257,7 +1257,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return ApiResponse&lt;List&lt;Meeting&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1270,7 +1270,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1358,7 +1358,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Cancel a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1371,7 +1371,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Cancel a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1385,7 +1385,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * Cancel a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1480,7 +1480,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint retrieves the email object for a scheduled meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param type TEXT, ICS, HTML (optional)
      * @param role moderator, participant (optional)
@@ -1496,7 +1496,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint retrieves the email object for a scheduled meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param type TEXT, ICS, HTML (optional)
      * @param role moderator, participant (optional)
@@ -1513,7 +1513,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * This endpoint retrieves the email object for a scheduled meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param type TEXT, ICS, HTML (optional)
      * @param role moderator, participant (optional)
@@ -1605,7 +1605,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1618,7 +1618,7 @@ public class MeetingApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1632,7 +1632,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1726,7 +1726,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Update a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @return Meeting
@@ -1740,7 +1740,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Update a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @return ApiResponse&lt;Meeting&gt;
@@ -1755,7 +1755,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * Update a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1846,7 +1846,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Create a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return Meeting
@@ -1860,7 +1860,7 @@ public class MeetingApi {
     /**
      * Meeting
      * Create a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return ApiResponse&lt;Meeting&gt;
@@ -1875,7 +1875,7 @@ public class MeetingApi {
     /**
      * Meeting (asynchronously)
      * Create a meeting.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meeting The user&#39;s room details that you wish to update. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @param callback The callback to be executed when the API call finishes

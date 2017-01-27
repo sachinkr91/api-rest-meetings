@@ -40,6 +40,7 @@ import java.io.IOException;
 
 import io.swagger.client.model.Meeting;
 import io.swagger.client.model.Error;
+import io.swagger.client.model.RecordingSummary;
 import io.swagger.client.model.Recording;
 
 import java.lang.reflect.Type;
@@ -353,7 +354,7 @@ public class HistoryApi {
     /**
      * List Meetings
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
      * @param startDate Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param endDate Return meetings up until the specified date. MM/DD/YYYY (optional)
@@ -371,7 +372,7 @@ public class HistoryApi {
     /**
      * List Meetings
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
      * @param startDate Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param endDate Return meetings up until the specified date. MM/DD/YYYY (optional)
@@ -390,7 +391,7 @@ public class HistoryApi {
     /**
      * List Meetings (asynchronously)
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
      * @param startDate Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param endDate Return meetings up until the specified date. MM/DD/YYYY (optional)
@@ -484,7 +485,7 @@ public class HistoryApi {
     /**
      * List Meetings
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -497,7 +498,7 @@ public class HistoryApi {
     /**
      * List Meetings
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -511,7 +512,7 @@ public class HistoryApi {
     /**
      * List Meetings (asynchronously)
      * This endpoint retrieves a list of meetings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -602,40 +603,40 @@ public class HistoryApi {
     /**
      * List Meeting Recordings
      * This endpoint retrieves a list of meeting recordings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param pageSize Sets number of items returned per page. (optional, default to 10)
      * @param pageNumber Selects which page of results to return. (optional, default to 1)
      * @param sortBy Selects which page of results to return. (optional, default to start_time)
      * @param order Puts results in ascending or descending order. (optional, default to desc)
-     * @return Recording
+     * @return List&lt;RecordingSummary&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Recording v1UserUserIdMeetingHistoryRecordingsGet(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order) throws ApiException {
-        ApiResponse<Recording> resp = v1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
+    public List<RecordingSummary> v1UserUserIdMeetingHistoryRecordingsGet(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order) throws ApiException {
+        ApiResponse<List<RecordingSummary>> resp = v1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
         return resp.getData();
     }
 
     /**
      * List Meeting Recordings
      * This endpoint retrieves a list of meeting recordings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param pageSize Sets number of items returned per page. (optional, default to 10)
      * @param pageNumber Selects which page of results to return. (optional, default to 1)
      * @param sortBy Selects which page of results to return. (optional, default to start_time)
      * @param order Puts results in ascending or descending order. (optional, default to desc)
-     * @return ApiResponse&lt;Recording&gt;
+     * @return ApiResponse&lt;List&lt;RecordingSummary&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Recording> v1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order) throws ApiException {
+    public ApiResponse<List<RecordingSummary>> v1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order) throws ApiException {
         com.squareup.okhttp.Call call = v1UserUserIdMeetingHistoryRecordingsGetCall(userId, pageSize, pageNumber, sortBy, order, null, null);
-        Type localVarReturnType = new TypeToken<Recording>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<RecordingSummary>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List Meeting Recordings (asynchronously)
      * This endpoint retrieves a list of meeting recordings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param pageSize Sets number of items returned per page. (optional, default to 10)
      * @param pageNumber Selects which page of results to return. (optional, default to 1)
      * @param sortBy Selects which page of results to return. (optional, default to start_time)
@@ -644,7 +645,7 @@ public class HistoryApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdMeetingHistoryRecordingsGetAsync(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order, final ApiCallback<Recording> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdMeetingHistoryRecordingsGetAsync(Integer userId, Integer pageSize, Integer pageNumber, String sortBy, String order, final ApiCallback<List<RecordingSummary>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -666,6 +667,122 @@ public class HistoryApi {
         }
 
         com.squareup.okhttp.Call call = v1UserUserIdMeetingHistoryRecordingsGetCall(userId, pageSize, pageNumber, sortBy, order, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<RecordingSummary>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet */
+    private com.squareup.okhttp.Call v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetCall(Integer userId, Integer recordingEntityId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(Async)");
+        }
+        
+        // verify the required parameter 'recordingEntityId' is set
+        if (recordingEntityId == null) {
+            throw new ApiException("Missing the required parameter 'recordingEntityId' when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "recording_entity_id" + "\\}", apiClient.escapeString(recordingEntityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * List Meeting Recordings
+     * This endpoint retrieves a list of meeting recordings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. (required)
+     * @return Recording
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Recording v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(Integer userId, Integer recordingEntityId) throws ApiException {
+        ApiResponse<Recording> resp = v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo(userId, recordingEntityId);
+        return resp.getData();
+    }
+
+    /**
+     * List Meeting Recordings
+     * This endpoint retrieves a list of meeting recordings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. (required)
+     * @return ApiResponse&lt;Recording&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Recording> v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo(Integer userId, Integer recordingEntityId) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetCall(userId, recordingEntityId, null, null);
+        Type localVarReturnType = new TypeToken<Recording>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Meeting Recordings (asynchronously)
+     * This endpoint retrieves a list of meeting recordings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsync(Integer userId, Integer recordingEntityId, final ApiCallback<Recording> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetCall(userId, recordingEntityId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Recording>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

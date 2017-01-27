@@ -529,7 +529,7 @@ class CommandCenterApi
      *
      * List Past Meetings by User
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -544,7 +544,7 @@ class CommandCenterApi
      *
      * List Past Meetings by User
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -623,7 +623,7 @@ class CommandCenterApi
      *
      * List Meeting Endpoints & Stats by User
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -639,7 +639,7 @@ class CommandCenterApi
      *
      * List Meeting Endpoints & Stats by User
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response

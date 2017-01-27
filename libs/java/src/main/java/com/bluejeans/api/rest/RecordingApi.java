@@ -38,8 +38,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import io.swagger.client.model.Meeting;
+import io.swagger.client.model.Content;
 import io.swagger.client.model.Error;
+import io.swagger.client.model.Meeting;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -123,40 +124,40 @@ public class RecordingApi {
     /**
      * Get Recording Download Link
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param contentId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
+     * @return Content
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdCmsContentIdisDownloadabletrueGet(Integer userId, Integer contentId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(userId, contentId);
+    public Content v1UserUserIdCmsContentIdisDownloadabletrueGet(Integer userId, Integer contentId) throws ApiException {
+        ApiResponse<Content> resp = v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(userId, contentId);
         return resp.getData();
     }
 
     /**
      * Get Recording Download Link
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param contentId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @return ApiResponse&lt;Content&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(Integer userId, Integer contentId) throws ApiException {
+    public ApiResponse<Content> v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(Integer userId, Integer contentId) throws ApiException {
         com.squareup.okhttp.Call call = v1UserUserIdCmsContentIdisDownloadabletrueGetCall(userId, contentId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        Type localVarReturnType = new TypeToken<Content>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get Recording Download Link (asynchronously)
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param contentId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdCmsContentIdisDownloadabletrueGetAsync(Integer userId, Integer contentId, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdCmsContentIdisDownloadabletrueGetAsync(Integer userId, Integer contentId, final ApiCallback<Content> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -178,7 +179,7 @@ public class RecordingApi {
         }
 
         com.squareup.okhttp.Call call = v1UserUserIdCmsContentIdisDownloadabletrueGetCall(userId, contentId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        Type localVarReturnType = new TypeToken<Content>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -239,7 +240,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting ID
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -252,7 +253,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting ID
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -266,7 +267,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting ID (asynchronously)
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -355,7 +356,7 @@ public class RecordingApi {
     /**
      * Start Recording
      * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -368,7 +369,7 @@ public class RecordingApi {
     /**
      * Start Recording
      * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -382,7 +383,7 @@ public class RecordingApi {
     /**
      * Start Recording (asynchronously)
      * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -471,7 +472,7 @@ public class RecordingApi {
     /**
      * Stop Recording
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -484,7 +485,7 @@ public class RecordingApi {
     /**
      * Stop Recording
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -498,7 +499,7 @@ public class RecordingApi {
     /**
      * Stop Recording (asynchronously)
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -593,7 +594,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Meeting
@@ -607,7 +608,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return ApiResponse&lt;Meeting&gt;
@@ -622,7 +623,7 @@ public class RecordingApi {
     /**
      * Get All Recordings for a Specified Meeting GUID (asynchronously)
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -712,7 +713,7 @@ public class RecordingApi {
     /**
      * Delete All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress. 
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -725,7 +726,7 @@ public class RecordingApi {
     /**
      * Delete All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress. 
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -739,7 +740,7 @@ public class RecordingApi {
     /**
      * Delete All Recordings for a Specified Meeting GUID (asynchronously)
      * This endpoint stops recording for a meeting in progress. 
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -834,7 +835,7 @@ public class RecordingApi {
     /**
      * Delete a Specified Recording Chapter
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return Meeting
@@ -848,7 +849,7 @@ public class RecordingApi {
     /**
      * Delete a Specified Recording Chapter
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @return ApiResponse&lt;Meeting&gt;
@@ -863,7 +864,7 @@ public class RecordingApi {
     /**
      * Delete a Specified Recording Chapter (asynchronously)
      * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param callback The callback to be executed when the API call finishes

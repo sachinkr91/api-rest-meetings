@@ -8,14 +8,29 @@ exports.v1UserUser_idCmsContent_idisDownloadabletrueGET = function(args, res, ne
   **/
     var examples = {};
   examples['application/json'] = {
-  "numericMeetingId" : "aeiou",
+  "contentDescription" : "aeiou",
+  "contentSize" : "",
+  "contentCategory" : "aeiou",
+  "contentType" : "aeiou",
+  "contentName" : "aeiou",
+  "contentDuration" : "",
+  "modified" : "",
   "id" : "",
-  "timezone" : "aeiou",
-  "title" : "aeiou",
-  "attendeePasscode" : "aeiou",
-  "start" : "",
-  "description" : "aeiou",
-  "end" : ""
+  "created" : "",
+  "contentStatus" : "aeiou",
+  "userId" : "",
+  "contentLocation" : "aeiou",
+  "contentProperties" : {
+    "duration" : "",
+    "thumbnail" : "aeiou",
+    "hdsUrl" : "aeiou",
+    "thumbnailInterval" : "",
+    "thumbnailHeight" : "",
+    "thumbnailWidth" : "",
+    "hlsUrl" : "aeiou",
+    "thumbnailCount" : "",
+    "thumbnailSprite" : "aeiou"
+  }
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');

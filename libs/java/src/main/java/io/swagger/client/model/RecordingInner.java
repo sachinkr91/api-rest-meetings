@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * RecordingInner
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T14:34:46.462-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-26T14:53:34.330-07:00")
 public class RecordingInner   {
   @SerializedName("recordingEntityId")
   private Integer recordingEntityId = null;

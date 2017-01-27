@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/RecordingInner'], factory);
+    define(['ApiClient', 'model/RecordingRecordingChapters'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./RecordingInner'));
+    module.exports = factory(require('../ApiClient'), require('./RecordingRecordingChapters'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.Recording = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.RecordingInner);
+    root.BlueJeansOnVideoRestApi.Recording = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.RecordingRecordingChapters);
   }
-}(this, function(ApiClient, RecordingInner) {
+}(this, function(ApiClient, RecordingRecordingChapters) {
   'use strict';
 
 
@@ -52,14 +52,25 @@
    * Constructs a new <code>Recording</code>.
    * @alias module:model/Recording
    * @class
-   * @extends Array
    */
   var exports = function() {
     var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
 
-    return _this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   /**
@@ -72,12 +83,116 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, RecordingInner);
 
+      if (data.hasOwnProperty('recordingEntityId')) {
+        obj['recordingEntityId'] = ApiClient.convertToType(data['recordingEntityId'], 'Integer');
+      }
+      if (data.hasOwnProperty('recordingEntityGuid')) {
+        obj['recordingEntityGuid'] = ApiClient.convertToType(data['recordingEntityGuid'], 'String');
+      }
+      if (data.hasOwnProperty('recordingName')) {
+        obj['recordingName'] = ApiClient.convertToType(data['recordingName'], 'String');
+      }
+      if (data.hasOwnProperty('meetingGuid')) {
+        obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
+      }
+      if (data.hasOwnProperty('chapterCount')) {
+        obj['chapterCount'] = ApiClient.convertToType(data['chapterCount'], 'Integer');
+      }
+      if (data.hasOwnProperty('totalSize')) {
+        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Integer');
+      }
+      if (data.hasOwnProperty('totalDuration')) {
+        obj['totalDuration'] = ApiClient.convertToType(data['totalDuration'], 'Integer');
+      }
+      if (data.hasOwnProperty('lastRecordingDate')) {
+        obj['lastRecordingDate'] = ApiClient.convertToType(data['lastRecordingDate'], 'Integer');
+      }
+      if (data.hasOwnProperty('aggregatedStatus')) {
+        obj['aggregatedStatus'] = ApiClient.convertToType(data['aggregatedStatus'], 'String');
+      }
+      if (data.hasOwnProperty('recordingThumbnail')) {
+        obj['recordingThumbnail'] = ApiClient.convertToType(data['recordingThumbnail'], 'String');
+      }
+      if (data.hasOwnProperty('created')) {
+        obj['created'] = ApiClient.convertToType(data['created'], 'Integer');
+      }
+      if (data.hasOwnProperty('aggregatedViewCount')) {
+        obj['aggregatedViewCount'] = ApiClient.convertToType(data['aggregatedViewCount'], 'Integer');
+      }
+      if (data.hasOwnProperty('isPremiumRecording')) {
+        obj['isPremiumRecording'] = ApiClient.convertToType(data['isPremiumRecording'], 'Boolean');
+      }
+      if (data.hasOwnProperty('showPremiumRecordingTag')) {
+        obj['showPremiumRecordingTag'] = ApiClient.convertToType(data['showPremiumRecordingTag'], 'Boolean');
+      }
+      if (data.hasOwnProperty('recordingChapters')) {
+        obj['recordingChapters'] = ApiClient.convertToType(data['recordingChapters'], [RecordingRecordingChapters]);
+      }
     }
     return obj;
   }
 
+  /**
+   * @member {Integer} recordingEntityId
+   */
+  exports.prototype['recordingEntityId'] = undefined;
+  /**
+   * @member {String} recordingEntityGuid
+   */
+  exports.prototype['recordingEntityGuid'] = undefined;
+  /**
+   * @member {String} recordingName
+   */
+  exports.prototype['recordingName'] = undefined;
+  /**
+   * @member {String} meetingGuid
+   */
+  exports.prototype['meetingGuid'] = undefined;
+  /**
+   * @member {Integer} chapterCount
+   */
+  exports.prototype['chapterCount'] = undefined;
+  /**
+   * @member {Integer} totalSize
+   */
+  exports.prototype['totalSize'] = undefined;
+  /**
+   * @member {Integer} totalDuration
+   */
+  exports.prototype['totalDuration'] = undefined;
+  /**
+   * @member {Integer} lastRecordingDate
+   */
+  exports.prototype['lastRecordingDate'] = undefined;
+  /**
+   * @member {String} aggregatedStatus
+   */
+  exports.prototype['aggregatedStatus'] = undefined;
+  /**
+   * @member {String} recordingThumbnail
+   */
+  exports.prototype['recordingThumbnail'] = undefined;
+  /**
+   * @member {Integer} created
+   */
+  exports.prototype['created'] = undefined;
+  /**
+   * @member {Integer} aggregatedViewCount
+   */
+  exports.prototype['aggregatedViewCount'] = undefined;
+  /**
+   * @member {Boolean} isPremiumRecording
+   */
+  exports.prototype['isPremiumRecording'] = undefined;
+  /**
+   * @member {Boolean} showPremiumRecordingTag
+   */
+  exports.prototype['showPremiumRecordingTag'] = undefined;
+  /**
+   * @member {Array.<module:model/RecordingRecordingChapters>} recordingChapters
+   */
+  exports.prototype['recordingChapters'] = undefined;
 
 
 

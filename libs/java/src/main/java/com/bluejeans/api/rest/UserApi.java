@@ -449,7 +449,7 @@ public class UserApi {
     /**
      * Get User’s Default Meeting Settings
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -461,7 +461,7 @@ public class UserApi {
     /**
      * Get User’s Default Meeting Settings
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -474,7 +474,7 @@ public class UserApi {
     /**
      * Get User’s Default Meeting Settings (asynchronously)
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -561,7 +561,7 @@ public class UserApi {
     /**
      * Update User’s Default Meeting Settings
      * This endpoint allows updating a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param room The user&#39;s room details that you wish to update. (required)
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -574,7 +574,7 @@ public class UserApi {
     /**
      * Update User’s Default Meeting Settings
      * This endpoint allows updating a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param room The user&#39;s room details that you wish to update. (required)
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -588,7 +588,7 @@ public class UserApi {
     /**
      * Update User’s Default Meeting Settings (asynchronously)
      * This endpoint allows updating a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param room The user&#39;s room details that you wish to update. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -671,7 +671,7 @@ public class UserApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return List&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -683,7 +683,7 @@ public class UserApi {
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return ApiResponse&lt;List&lt;Meeting&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -696,7 +696,7 @@ public class UserApi {
     /**
      * Meeting (asynchronously)
      * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

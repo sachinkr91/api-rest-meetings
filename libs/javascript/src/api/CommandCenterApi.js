@@ -273,7 +273,7 @@
     /**
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -319,7 +319,7 @@
     /**
      * List Meeting Endpoints &amp; Stats by User
      * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}

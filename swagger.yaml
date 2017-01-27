@@ -332,7 +332,7 @@ paths:
           type: integer
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -355,7 +355,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -377,7 +377,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: room
@@ -407,7 +407,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -431,7 +431,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: email
@@ -464,7 +464,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -491,7 +491,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -524,7 +524,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -552,7 +552,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -603,7 +603,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -630,7 +630,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -683,7 +683,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -711,7 +711,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -743,7 +743,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -788,7 +788,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -820,7 +820,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -859,7 +859,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -887,7 +887,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -915,7 +915,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meetingId
@@ -985,7 +985,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: pageSize
@@ -1015,7 +1015,37 @@ paths:
         '200':
           description: The results for the request.
           schema:
-            $ref: '#/definitions/Recording'
+            type: array
+            items:
+              $ref: '#/definitions/RecordingSummary'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}:
+    get:
+      summary: List Meeting Recordings
+      description: This endpoint retrieves a list of meeting recordings.
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: recording_entity_id
+          in: path
+          description: The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The results for the request.
+          schema:
+              $ref: '#/definitions/Recording'
         default:
           description: Unexpected error
           schema:
@@ -1031,7 +1061,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_guid
@@ -1087,7 +1117,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -1115,7 +1145,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -1143,7 +1173,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -1171,7 +1201,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -1205,7 +1235,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_guid
@@ -1233,7 +1263,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_id
@@ -1266,7 +1296,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: content_id
@@ -1278,7 +1308,7 @@ paths:
         '200':
           description: The settings for the room
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Content'
         default:
           description: Unexpected error
           schema:
@@ -1380,7 +1410,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
       responses:
@@ -1431,7 +1461,7 @@ paths:
       parameters:
         - name: user_id
           in: path
-          description: The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
         - name: meeting_guid
@@ -1806,35 +1836,172 @@ definitions:
         type: string
       attendeePasscode:
         type: string
+  RecordingSummary:
+    type: object
+    properties:
+      recordingEntityId:
+        type: integer
+      recordingName:
+        type: string
+      meetingGuid:
+        type: string
+      chapterCount:
+        type: integer
+      totalSize:
+        type: integer
+      totalDuration:
+        type: integer
+      lastRecordingDate:
+        type: string
+      aggregatedStatus:
+        type: string
+      recordingThumbnail:
+        type: string
+      created:
+        type: integer
+      isPremiumRecording:
+        type: boolean
+      showPremiumRecordingTag:
+        type: boolean
   Recording:
-    type: array
-    items:
-      type: object
-      properties:
-        recordingEntityId:
-          type: integer
-        recordingName:
-          type: string
-        meetingGuid:
-          type: string
-        chapterCount:
-          type: integer
-        totalSize:
-          type: integer
-        totalDuration:
-          type: integer
-        lastRecordingDate:
-          type: string
-        aggregatedStatus:
-          type: string
-        recordingThumbnail:
-          type: string
-        created:
-          type: integer
-        isPremiumRecording:
-          type: boolean
-        showPremiumRecordingTag:
-          type: boolean
+    type: object
+    properties:
+      recordingEntityId:
+        type: integer
+      recordingEntityGuid:
+        type: string
+      recordingName:
+        type: string
+      meetingGuid:
+        type: string
+      chapterCount:
+        type: integer
+      totalSize:
+        type: integer
+      totalDuration:
+        type: integer
+      lastRecordingDate:
+        type: integer
+      aggregatedStatus:
+        type: string
+      recordingThumbnail:
+        type: string
+      created:
+        type: integer
+      aggregatedViewCount:
+        type: integer
+      isPremiumRecording:
+        type: boolean
+      showPremiumRecordingTag:
+        type: boolean
+      recordingChapters:
+        type: array
+        items:
+          type: object
+          properties:
+            chapterId:
+              type: string
+            id:
+              type: integer
+            startTimeOffset:
+              type: integer
+            endTimeOffset:
+              type: integer
+            chapterName:
+              type: string
+            totalSize:
+              type: integer
+            compositeContentId:
+              type: integer
+            compositeContentStatus:
+              type: string
+            parentRecordingId:
+              type: integer
+            viewCount:
+              type: integer
+            recordingSessions:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  contentStatus:
+                    type: string
+                  recordingType:
+                    type: string
+                  contentId:
+                    type: integer
+                  thumbnailUrl:
+                    type: string
+                  startTimeOffset:
+                    type: integer
+                  endTimeOffset:
+                    type: integer
+                  duration:
+                    type: integer
+                  startedBy:
+                    type: object
+                    properties:
+                      endpointName:
+                        type: string
+                      endpointGuid:
+                        type: string
+                  stoppedBy:
+                    type: object
+                    properties:
+                      endpointName:
+                        type: string
+                      endpointGuid:
+                        type: string
+  Content:
+    type: object
+    properties:
+      id:
+        type: integer
+      contentType:
+        type: string
+      contentDescription:
+        type: string
+      userId:
+        type: integer
+      contentLocation:
+        type: string
+      created:
+        type: integer
+      modified:
+        type: integer
+      contentStatus:
+        type: string
+      contentName:
+        type: string
+      contentCategory:
+        type: string
+      contentSize:
+        type: integer
+      contentDuration:
+        type: integer
+      contentProperties:
+        type: object
+        properties:
+          duration:
+            type: integer
+          thumbnail:
+            type: string
+          thumbnailSprite:
+            type: string
+          hdsUrl:
+            type: string
+          thumbnailCount:
+            type: integer
+          thumbnailWidth:
+            type: integer
+          thumbnailHeight:
+            type: integer
+          thumbnailInterval:
+            type: integer
+          hlsUrl:
+            type: string
   AnalyticsTopUsers:
     type: object
     properties:

@@ -364,7 +364,7 @@ public class EnterpriseApi {
      * Remove Enterprise User
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -377,7 +377,7 @@ public class EnterpriseApi {
      * Remove Enterprise User
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -391,7 +391,7 @@ public class EnterpriseApi {
      * Remove Enterprise User (asynchronously)
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

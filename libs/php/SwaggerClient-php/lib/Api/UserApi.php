@@ -400,7 +400,7 @@ class UserApi
      *
      * Get User’s Default Meeting Settings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -415,7 +415,7 @@ class UserApi
      *
      * Get User’s Default Meeting Settings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -494,7 +494,7 @@ class UserApi
      *
      * Update User’s Default Meeting Settings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param \Swagger\Client\Model\Room $room The user&#39;s room details that you wish to update. (required)
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -510,7 +510,7 @@ class UserApi
      *
      * Update User’s Default Meeting Settings
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param \Swagger\Client\Model\Room $room The user&#39;s room details that you wish to update. (required)
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -599,7 +599,7 @@ class UserApi
      *
      * Meeting
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return \Swagger\Client\Model\Meeting[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -614,7 +614,7 @@ class UserApi
      *
      * Meeting
      *
-     * @param int $user_id The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */

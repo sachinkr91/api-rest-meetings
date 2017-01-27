@@ -578,7 +578,7 @@ public class CommandCenterApi {
     /**
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -590,7 +590,7 @@ public class CommandCenterApi {
     /**
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -603,7 +603,7 @@ public class CommandCenterApi {
     /**
      * List Past Meetings by User (asynchronously)
      * This endpoint lists completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,7 +691,7 @@ public class CommandCenterApi {
     /**
      * List Meeting Endpoints &amp; Stats by User
      * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -704,7 +704,7 @@ public class CommandCenterApi {
     /**
      * List Meeting Endpoints &amp; Stats by User
      * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -718,7 +718,7 @@ public class CommandCenterApi {
     /**
      * List Meeting Endpoints &amp; Stats by User (asynchronously)
      * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

@@ -67,7 +67,7 @@
     /**
      * Get Endpoint Information
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -127,7 +127,7 @@
     /**
      * Get Current Endpoint Layout
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -187,7 +187,7 @@
     /**
      * Update Endpoint Layout
      * This endpoint allows you to update an individual endpoint’s current layout setting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
@@ -253,7 +253,7 @@
     /**
      * Update Endpoint Video/Audio State
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
@@ -321,7 +321,7 @@
     /**
      * List Meeting Endpoints
      * This endpoint returns an array of all endpoints in the current meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -374,7 +374,7 @@
     /**
      * Get Meeting State
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -427,7 +427,7 @@
     /**
      * Send Email Invite
      * This endpoint generates an email invite to the specified meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdInvitePostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -480,7 +480,7 @@
     /**
      * Generate SIP Pairing Code
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -533,7 +533,7 @@
     /**
      * Update Meeting State
      * This endpoint’s purpose is to be able to modify a meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/Meeting} meeting The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
@@ -600,7 +600,7 @@
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/MeetingApi~v1UserUserIdScheduledMeetingGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Meeting>}
      */
@@ -646,7 +646,7 @@
     /**
      * Meeting
      * Cancel a meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdScheduledMeetingMeetingIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -699,7 +699,7 @@
     /**
      * Meeting
      * This endpoint retrieves the email object for a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.type TEXT, ICS, HTML
@@ -760,7 +760,7 @@
     /**
      * Meeting
      * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~v1UserUserIdScheduledMeetingMeetingIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -813,7 +813,7 @@
     /**
      * Meeting
      * Update a meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/Meeting} meeting The user&#39;s room details that you wish to update.
      * @param {module:api/MeetingApi~v1UserUserIdScheduledMeetingMeetingIdPutCallback} callback The callback function, accepting three arguments: error, data, response
@@ -872,7 +872,7 @@
     /**
      * Meeting
      * Create a meeting.
-     * @param {Integer} userId The ID of the user of interest.  his value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Meeting} meeting The user&#39;s room details that you wish to update.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.email If set to true, sends invitation emails to all listed participants.

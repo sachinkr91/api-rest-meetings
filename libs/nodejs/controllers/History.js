@@ -25,3 +25,7 @@ module.exports.v1UserUser_idMeeting_historyMeeting_guidGET = function v1UserUser
 module.exports.v1UserUser_idMeeting_historyRecordingsGET = function v1UserUser_idMeeting_historyRecordingsGET (req, res, next) {
   History.v1UserUser_idMeeting_historyRecordingsGET(req.swagger.params, res, next);
 };
+
+module.exports.v1UserUser_idMeeting_historyRecordingsRecording_entity_idGET = function v1UserUser_idMeeting_historyRecordingsRecording_entity_idGET (req, res, next) {
+  History.v1UserUser_idMeeting_historyRecordingsRecording_entity_idGET(req.swagger.params, res, next);
+};
