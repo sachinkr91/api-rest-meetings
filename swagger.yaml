@@ -694,7 +694,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Meeting Endpoints State
-      description: This endpoint’s purpose is to be able to modify the endpoints in a meeting.
+      description: This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
       tags:
         - Meeting
       security:
@@ -724,6 +724,12 @@ paths:
       responses:
         '204':
           description: There is no body conent.
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: No active meeting found for this meeting ID.
+          schema:
+            $ref: '#/definitions/Error'
         default:
           description: Unexpected error
           schema:
@@ -2168,10 +2174,5 @@ definitions:
   Error:
     type: object
     properties:
-      code:
-        type: integer
-        format: int32
       message:
-        type: string
-      fields:
         type: string
