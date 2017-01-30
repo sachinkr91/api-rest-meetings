@@ -26,6 +26,10 @@ module.exports.v1UserUser_idLive_meetingsMeeting_idEndpointsGET = function v1Use
   Meeting.v1UserUser_idLive_meetingsMeeting_idEndpointsGET(req.swagger.params, res, next);
 };
 
+module.exports.v1UserUser_idLive_meetingsMeeting_idEndpointsPUT = function v1UserUser_idLive_meetingsMeeting_idEndpointsPUT (req, res, next) {
+  Meeting.v1UserUser_idLive_meetingsMeeting_idEndpointsPUT(req.swagger.params, res, next);
+};
+
 module.exports.v1UserUser_idLive_meetingsMeeting_idGET = function v1UserUser_idLive_meetingsMeeting_idGET (req, res, next) {
   Meeting.v1UserUser_idLive_meetingsMeeting_idGET(req.swagger.params, res, next);
 };

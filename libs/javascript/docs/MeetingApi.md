@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
@@ -327,6 +328,68 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsPut"></a>
+# **v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**
+> v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(userId, meetingId, opts)
+
+Update Meeting Endpoints State
+
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+var opts = { 
+  'mute': true, // Boolean | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
+  'media': "media_example" // String | Specify the type of media you which to mute/unmute.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(userId, meetingId, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **mute** | **Boolean**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional] 
+ **media** | **String**| Specify the type of media you which to mute/unmute. | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="v1UserUserIdLiveMeetingsMeetingIdGet"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdGet**
 > Meeting v1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId)
@@ -523,8 +586,6 @@ var meetingId = 56; // Integer | The ID of the meeting you want to view. This is
 var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The meeting properties that you wish to update.
 
 var opts = { 
-  'mute': true, // Boolean | Allows you to mute/unmute all participants in a meeting.
-  'media': "media_example", // String | Specify \"audio\" or \"video\" for the prior mute parameter.
   'delay': 56 // Integer | Number of seconds to delay the end meeting operation.
 };
 
@@ -545,8 +606,6 @@ Name | Type | Description  | Notes
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
  **meeting** | [**Meeting**](Meeting.md)| The meeting properties that you wish to update. | 
- **mute** | **Boolean**| Allows you to mute/unmute all participants in a meeting. | [optional] 
- **media** | **String**| Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. | [optional] 
  **delay** | **Integer**| Number of seconds to delay the end meeting operation. | [optional] 
 
 ### Return type

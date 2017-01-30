@@ -66,9 +66,7 @@ class Error implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'code' => 'int',
-        'message' => 'string',
-        'fields' => 'string'
+        'message' => 'string'
     );
 
     public static function swaggerTypes()
@@ -81,9 +79,7 @@ class Error implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'code' => 'code',
-        'message' => 'message',
-        'fields' => 'fields'
+        'message' => 'message'
     );
 
     public static function attributeMap()
@@ -96,9 +92,7 @@ class Error implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'fields' => 'setFields'
+        'message' => 'setMessage'
     );
 
     public static function setters()
@@ -111,9 +105,7 @@ class Error implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'fields' => 'getFields'
+        'message' => 'getMessage'
     );
 
     public static function getters()
@@ -137,9 +129,7 @@ class Error implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
     }
 
     /**
@@ -166,27 +156,6 @@ class Error implements ArrayAccess
 
 
     /**
-     * Gets code
-     * @return int
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     * @param int $code
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
      * Gets message
      * @return string
      */
@@ -203,27 +172,6 @@ class Error implements ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets fields
-     * @return string
-     */
-    public function getFields()
-    {
-        return $this->container['fields'];
-    }
-
-    /**
-     * Sets fields
-     * @param string $fields
-     * @return $this
-     */
-    public function setFields($fields)
-    {
-        $this->container['fields'] = $fields;
 
         return $this;
     }

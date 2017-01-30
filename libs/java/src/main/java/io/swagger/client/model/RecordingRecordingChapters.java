@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * RecordingRecordingChapters
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-27T15:40:39.680-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-30T16:34:27.400-07:00")
 public class RecordingRecordingChapters   {
   @SerializedName("chapterId")
   private String chapterId = null;

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
@@ -299,6 +300,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**
+> v1UserUserIdLiveMeetingsMeetingIdEndpointsPut($user_id, $meeting_id, $mute, $media)
+
+Update Meeting Endpoints State
+
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\MeetingApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$mute = true; // bool | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
+$media = "media_example"; // string | Specify the type of media you which to mute/unmute.
+
+try {
+    $api_instance->v1UserUserIdLiveMeetingsMeetingIdEndpointsPut($user_id, $meeting_id, $mute, $media);
+} catch (Exception $e) {
+    echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdEndpointsPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **mute** | **bool**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional]
+ **media** | **string**| Specify the type of media you which to mute/unmute. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **v1UserUserIdLiveMeetingsMeetingIdGet**
 > \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdGet($user_id, $meeting_id)
 
@@ -456,7 +512,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdPut**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $mute, $media, $delay)
+> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay)
 
 Update Meeting State
 
@@ -476,12 +532,10 @@ $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 $meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The meeting properties that you wish to update.
-$mute = true; // bool | Allows you to mute/unmute all participants in a meeting.
-$media = "media_example"; // string | Specify \"audio\" or \"video\" for the prior mute parameter.
 $delay = 56; // int | Number of seconds to delay the end meeting operation.
 
 try {
-    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $mute, $media, $delay);
+    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdPut: ', $e->getMessage(), PHP_EOL;
@@ -496,8 +550,6 @@ Name | Type | Description  | Notes
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
  **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The meeting properties that you wish to update. |
- **mute** | **bool**| Allows you to mute/unmute all participants in a meeting. | [optional]
- **media** | **string**| Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. | [optional]
  **delay** | **int**| Number of seconds to delay the end meeting operation. | [optional]
 
 ### Return type

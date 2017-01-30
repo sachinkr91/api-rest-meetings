@@ -729,6 +729,126 @@ class MeetingApi
     }
 
     /**
+     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
+     *
+     * Update Meeting Endpoints State
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param bool $mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
+     * @param string $media Specify the type of media you which to mute/unmute. (optional)
+     * @return void
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsPut($user_id, $meeting_id, $mute = null, $media = null)
+    {
+        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo($user_id, $meeting_id, $mute, $media);
+        return $response;
+    }
+
+    /**
+     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo
+     *
+     * Update Meeting Endpoints State
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param bool $mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
+     * @param string $media Specify the type of media you which to mute/unmute. (optional)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo($user_id, $meeting_id, $mute = null, $media = null)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // query params
+        if ($mute !== null) {
+            $queryParams['mute'] = $this->apiClient->getSerializer()->toQueryValue($mute);
+        }
+        // query params
+        if ($media !== null) {
+            $queryParams['media'] = $this->apiClient->getSerializer()->toQueryValue($media);
+        }
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints'
+            );
+
+            return array(null, $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdGet
      *
      * Get Meeting State
@@ -1060,15 +1180,13 @@ class MeetingApi
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param \Swagger\Client\Model\Meeting $meeting The meeting properties that you wish to update. (required)
-     * @param bool $mute Allows you to mute/unmute all participants in a meeting. (optional)
-     * @param string $media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. (optional)
      * @param int $delay Number of seconds to delay the end meeting operation. (optional)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $mute = null, $media = null, $delay = null)
+    public function v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay = null)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $mute, $media, $delay);
+        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $delay);
         return $response;
     }
 
@@ -1080,13 +1198,11 @@ class MeetingApi
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param \Swagger\Client\Model\Meeting $meeting The meeting properties that you wish to update. (required)
-     * @param bool $mute Allows you to mute/unmute all participants in a meeting. (optional)
-     * @param string $media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. (optional)
      * @param int $delay Number of seconds to delay the end meeting operation. (optional)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $mute = null, $media = null, $delay = null)
+    public function v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $delay = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1112,14 +1228,6 @@ class MeetingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
-        // query params
-        if ($mute !== null) {
-            $queryParams['mute'] = $this->apiClient->getSerializer()->toQueryValue($mute);
-        }
-        // query params
-        if ($media !== null) {
-            $queryParams['media'] = $this->apiClient->getSerializer()->toQueryValue($media);
-        }
         // query params
         if ($delay !== null) {
             $queryParams['delay'] = $this->apiClient->getSerializer()->toQueryValue($delay);

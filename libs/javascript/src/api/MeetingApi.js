@@ -364,6 +364,64 @@
     }
 
     /**
+     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdEndpointsPut operation.
+     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update Meeting Endpoints State
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
+     * @param {module:model/String} opts.media Specify the type of media you which to mute/unmute.
+     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut = function(userId, meetingId, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+        'mute': opts['mute'],
+        'media': opts['media']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdGet operation.
      * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdGetCallback
      * @param {String} error Error message, if any.
@@ -537,8 +595,6 @@
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/Meeting} meeting The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.mute Allows you to mute/unmute all participants in a meeting.
-     * @param {String} opts.media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter.
      * @param {Integer} opts.delay Number of seconds to delay the end meeting operation.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -568,8 +624,6 @@
         'meeting_id': meetingId
       };
       var queryParams = {
-        'mute': opts['mute'],
-        'media': opts['media'],
         'delay': opts['delay']
       };
       var headerParams = {

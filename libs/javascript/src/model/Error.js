@@ -57,8 +57,6 @@
     var _this = this;
 
 
-
-
   };
 
   /**
@@ -72,31 +70,17 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Integer');
-      }
       if (data.hasOwnProperty('message')) {
         obj['message'] = ApiClient.convertToType(data['message'], 'String');
-      }
-      if (data.hasOwnProperty('fields')) {
-        obj['fields'] = ApiClient.convertToType(data['fields'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Integer} code
-   */
-  exports.prototype['code'] = undefined;
-  /**
    * @member {String} message
    */
   exports.prototype['message'] = undefined;
-  /**
-   * @member {String} fields
-   */
-  exports.prototype['fields'] = undefined;
 
 
 

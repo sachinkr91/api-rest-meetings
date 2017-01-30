@@ -707,6 +707,128 @@ public class MeetingApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /* Build call for v1UserUserIdLiveMeetingsMeetingIdEndpointsPut */
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCall(Integer userId, Integer meetingId, Boolean mute, String media, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(Async)");
+        }
+        
+        // verify the required parameter 'meetingId' is set
+        if (meetingId == null) {
+            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (mute != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "mute", mute));
+        if (media != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "media", media));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Update Meeting Endpoints State
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
+     * @param media Specify the type of media you which to mute/unmute. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(Integer userId, Integer meetingId, Boolean mute, String media) throws ApiException {
+        v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo(userId, meetingId, mute, media);
+    }
+
+    /**
+     * Update Meeting Endpoints State
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
+     * @param media Specify the type of media you which to mute/unmute. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo(Integer userId, Integer meetingId, Boolean mute, String media) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCall(userId, meetingId, mute, media, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update Meeting Endpoints State (asynchronously)
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
+     * @param media Specify the type of media you which to mute/unmute. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsync(Integer userId, Integer meetingId, Boolean mute, String media, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCall(userId, meetingId, mute, media, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdGet */
     private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdGetCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -1056,7 +1178,7 @@ public class MeetingApi {
         return call;
     }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdPut */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutCall(Integer userId, Integer meetingId, Meeting meeting, Boolean mute, String media, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutCall(Integer userId, Integer meetingId, Meeting meeting, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = meeting;
         
         // verify the required parameter 'userId' is set
@@ -1081,10 +1203,6 @@ public class MeetingApi {
         .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (mute != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "mute", mute));
-        if (media != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "media", media));
         if (delay != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "delay", delay));
 
@@ -1126,14 +1244,12 @@ public class MeetingApi {
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
-     * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
-     * @param media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. (optional)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdPut(Integer userId, Integer meetingId, Meeting meeting, Boolean mute, String media, Integer delay) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, meeting, mute, media, delay);
+    public Meeting v1UserUserIdLiveMeetingsMeetingIdPut(Integer userId, Integer meetingId, Meeting meeting, Integer delay) throws ApiException {
+        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, meeting, delay);
         return resp.getData();
     }
 
@@ -1143,14 +1259,12 @@ public class MeetingApi {
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
-     * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
-     * @param media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. (optional)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(Integer userId, Integer meetingId, Meeting meeting, Boolean mute, String media, Integer delay) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, mute, media, delay, null, null);
+    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(Integer userId, Integer meetingId, Meeting meeting, Integer delay) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, delay, null, null);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1161,14 +1275,12 @@ public class MeetingApi {
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param meeting The meeting properties that you wish to update. (required)
-     * @param mute Allows you to mute/unmute all participants in a meeting. (optional)
-     * @param media Specify \&quot;audio\&quot; or \&quot;video\&quot; for the prior mute parameter. (optional)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutAsync(Integer userId, Integer meetingId, Meeting meeting, Boolean mute, String media, Integer delay, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutAsync(Integer userId, Integer meetingId, Meeting meeting, Integer delay, final ApiCallback<Meeting> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1189,7 +1301,7 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, mute, media, delay, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, delay, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

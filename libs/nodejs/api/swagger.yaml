@@ -929,16 +929,6 @@ paths:
           id\" property."
         required: true
         type: "integer"
-      - name: "mute"
-        in: "query"
-        description: "Allows you to mute/unmute all participants in a meeting."
-        required: false
-        type: "boolean"
-      - name: "media"
-        in: "query"
-        description: "Specify \"audio\" or \"video\" for the prior mute parameter."
-        required: false
-        type: "string"
       - name: "delay"
         in: "query"
         description: "Number of seconds to delay the end meeting operation."
@@ -990,6 +980,58 @@ paths:
           description: "The settings for the room"
           schema:
             $ref: "#/definitions/Meeting"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      security:
+      - access_token: []
+      x-swagger-router-controller: "Meeting"
+    put:
+      tags:
+      - "Meeting"
+      summary: "Update Meeting Endpoints State"
+      description: "This endpoint’s purpose is to be able to modify the endpoints\
+        \ in a meeting. Seems to require a Meeting-level access token."
+      operationId: "v1UserUser_idLive_meetingsMeeting_idEndpointsPUT"
+      parameters:
+      - name: "user_id"
+        in: "path"
+        description: "The ID of the user of interest. This value is an integer which\
+          \ can be retrieved for the current user via the Get User Account Details\
+          \ endpoint."
+        required: true
+        type: "integer"
+      - name: "meeting_id"
+        in: "path"
+        description: "The ID of the meeting you want to view. This is an integer value.\
+          \ You can find this ID by doing a list of meetings and referencing the \"\
+          id\" property."
+        required: true
+        type: "integer"
+      - name: "mute"
+        in: "query"
+        description: "Allows you to mute/unmute all participants in a meeting. Set\
+          \ mute to true to mute.  Set mute to false to unmute."
+        required: false
+        type: "boolean"
+      - name: "media"
+        in: "query"
+        description: "Specify the type of media you which to mute/unmute."
+        required: false
+        type: "string"
+        enum:
+        - "audio"
+        - "video"
+      responses:
+        204:
+          description: "There is no body conent."
+        401:
+          description: "The access token is invalid or does not have permission."
+        404:
+          description: "No active meeting found for this meeting ID."
+          schema:
+            $ref: "#/definitions/Error"
         default:
           description: "Unexpected error"
           schema:
@@ -2272,12 +2314,7 @@ definitions:
   Error:
     type: "object"
     properties:
-      code:
-        type: "integer"
-        format: "int32"
       message:
-        type: "string"
-      fields:
         type: "string"
   payload:
     required:

@@ -144,6 +144,18 @@ exports.v1UserUser_idLive_meetingsMeeting_idEndpointsGET = function(args, res, n
   
 }
 
+exports.v1UserUser_idLive_meetingsMeeting_idEndpointsPUT = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * user_id (Integer)
+  * meeting_id (Integer)
+  * mute (Boolean)
+  * media (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
 exports.v1UserUser_idLive_meetingsMeeting_idGET = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -204,8 +216,6 @@ exports.v1UserUser_idLive_meetingsMeeting_idPUT = function(args, res, next) {
   * user_id (Integer)
   * meeting_id (Integer)
   * meeting (Meeting)
-  * mute (Boolean)
-  * media (String)
   * delay (Integer)
   **/
     var examples = {};

@@ -8,6 +8,10 @@ java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/
 
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript
 
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l csharp -o ../libs/csharp
+
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python
+
 cd ../libs/java
 mvn package
 cd ../../build
