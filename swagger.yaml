@@ -638,14 +638,6 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
-        - name: mute
-          in: query
-          description: Allows you to mute/unmute all participants in a meeting.
-          type: boolean
-        - name: media
-          in: query
-          description: Specify "audio" or "video" for the prior mute parameter.
-          type: string
         - name: delay
           in: query
           description: Number of seconds to delay the end meeting operation.
@@ -696,6 +688,42 @@ paths:
           description: The settings for the room
           schema:
             $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update Meeting Endpoints State
+      description: This endpoint’s purpose is to be able to modify the endpoints in a meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: mute
+          in: query
+          description: Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
+          type: boolean
+        - name: media
+          in: query
+          description: Specify the type of media you which to mute/unmute.
+          type: string
+          enum:
+            - audio
+            - video
+      responses:
+        '204':
+          description: There is no body conent.
         default:
           description: Unexpected error
           schema:
