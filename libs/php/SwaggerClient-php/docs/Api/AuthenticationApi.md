@@ -4,13 +4,13 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauth2TokenclientPost**](AuthenticationApi.md#oauth2TokenclientPost) | **POST** /oauth2/token?client | Authentication via Client Grant Type
-[**oauth2TokenmeetingPost**](AuthenticationApi.md#oauth2TokenmeetingPost) | **POST** /oauth2/token?meeting | Authentication via Meeting Grant Type
-[**oauth2TokenpasswordPost**](AuthenticationApi.md#oauth2TokenpasswordPost) | **POST** /oauth2/token?password | Authentication via Password Grant Type
+[**oauth2TokenClientPost**](AuthenticationApi.md#oauth2TokenClientPost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2TokenMeetingPost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2TokenPasswordPost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-# **oauth2TokenclientPost**
-> \Swagger\Client\Model\Grant oauth2TokenclientPost($payload)
+# **oauth2TokenClientPost**
+> \Swagger\Client\Model\Grant oauth2TokenClientPost($payload)
 
 Authentication via Client Grant Type
 
@@ -30,10 +30,10 @@ $api_instance = new Swagger\Client\Api\AuthenticationApi();
 $payload = new \Swagger\Client\Model\Payload(); // \Swagger\Client\Model\Payload | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenclientPost($payload);
+    $result = $api_instance->oauth2TokenClientPost($payload);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenclientPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->oauth2TokenClientPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -59,8 +59,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **oauth2TokenmeetingPost**
-> \Swagger\Client\Model\Grant oauth2TokenmeetingPost($payload)
+# **oauth2TokenMeetingPost**
+> \Swagger\Client\Model\Grant oauth2TokenMeetingPost($payload)
 
 Authentication via Meeting Grant Type
 
@@ -80,10 +80,10 @@ $api_instance = new Swagger\Client\Api\AuthenticationApi();
 $payload = new \Swagger\Client\Model\Payload1(); // \Swagger\Client\Model\Payload1 | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenmeetingPost($payload);
+    $result = $api_instance->oauth2TokenMeetingPost($payload);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenmeetingPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->oauth2TokenMeetingPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -109,8 +109,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **oauth2TokenpasswordPost**
-> \Swagger\Client\Model\Grant oauth2TokenpasswordPost($payload)
+# **oauth2TokenPasswordPost**
+> \Swagger\Client\Model\Grant oauth2TokenPasswordPost($payload)
 
 Authentication via Password Grant Type
 
@@ -130,10 +130,10 @@ $api_instance = new Swagger\Client\Api\AuthenticationApi();
 $payload = new \Swagger\Client\Model\Payload2(); // \Swagger\Client\Model\Payload2 | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenpasswordPost($payload);
+    $result = $api_instance->oauth2TokenPasswordPost($payload);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenpasswordPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->oauth2TokenPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

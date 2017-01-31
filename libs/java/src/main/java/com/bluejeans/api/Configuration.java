@@ -25,7 +25,7 @@
 
 package com.bluejeans.api;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-30T16:34:27.400-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-30T17:01:28.744-07:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

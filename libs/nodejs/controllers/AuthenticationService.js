@@ -1,6 +1,6 @@
 'use strict';
 
-exports.oauth2TokenclientPOST = function(args, res, next) {
+exports.oauth2TokenClientPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * payload (Payload)
@@ -29,7 +29,7 @@ exports.oauth2TokenclientPOST = function(args, res, next) {
   
 }
 
-exports.oauth2TokenmeetingPOST = function(args, res, next) {
+exports.oauth2TokenMeetingPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * payload (Payload_1)
@@ -58,7 +58,7 @@ exports.oauth2TokenmeetingPOST = function(args, res, next) {
   
 }
 
-exports.oauth2TokenpasswordPOST = function(args, res, next) {
+exports.oauth2TokenPasswordPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * payload (Payload_2)

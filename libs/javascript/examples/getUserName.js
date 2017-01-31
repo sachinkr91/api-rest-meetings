@@ -9,7 +9,7 @@ var authSvc = new BlueJeansOnVideoRestApi.AuthenticationApi();
 var userSvc = new BlueJeansOnVideoRestApi.UserApi();
 
 // Authenticate with username & password grant type
-authSvc.oauth2TokenpasswordPost(
+authSvc.oauth2TokenPasswordPost(
 	{
 		'grant_type': 'password',
 		'username': config.username,

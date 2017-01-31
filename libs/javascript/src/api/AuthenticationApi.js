@@ -57,8 +57,8 @@
 
 
     /**
-     * Callback function to receive the result of the oauth2TokenclientPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenclientPostCallback
+     * Callback function to receive the result of the oauth2TokenClientPost operation.
+     * @callback module:api/AuthenticationApi~oauth2TokenClientPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Grant} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -68,15 +68,15 @@
      * Authentication via Client Grant Type
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
      * @param {module:model/Payload} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenclientPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthenticationApi~oauth2TokenClientPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Grant}
      */
-    this.oauth2TokenclientPost = function(payload, callback) {
+    this.oauth2TokenClientPost = function(payload, callback) {
       var postBody = payload;
 
       // verify the required parameter 'payload' is set
       if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenclientPost";
+        throw "Missing the required parameter 'payload' when calling oauth2TokenClientPost";
       }
 
 
@@ -95,15 +95,15 @@
       var returnType = Grant;
 
       return this.apiClient.callApi(
-        '/oauth2/token?client', 'POST',
+        '/oauth2/token?Client', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the oauth2TokenmeetingPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenmeetingPostCallback
+     * Callback function to receive the result of the oauth2TokenMeetingPost operation.
+     * @callback module:api/AuthenticationApi~oauth2TokenMeetingPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Grant} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -113,15 +113,15 @@
      * Authentication via Meeting Grant Type
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
      * @param {module:model/Payload1} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenmeetingPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthenticationApi~oauth2TokenMeetingPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Grant}
      */
-    this.oauth2TokenmeetingPost = function(payload, callback) {
+    this.oauth2TokenMeetingPost = function(payload, callback) {
       var postBody = payload;
 
       // verify the required parameter 'payload' is set
       if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenmeetingPost";
+        throw "Missing the required parameter 'payload' when calling oauth2TokenMeetingPost";
       }
 
 
@@ -140,15 +140,15 @@
       var returnType = Grant;
 
       return this.apiClient.callApi(
-        '/oauth2/token?meeting', 'POST',
+        '/oauth2/token?Meeting', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the oauth2TokenpasswordPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenpasswordPostCallback
+     * Callback function to receive the result of the oauth2TokenPasswordPost operation.
+     * @callback module:api/AuthenticationApi~oauth2TokenPasswordPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Grant} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -158,15 +158,15 @@
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
      * @param {module:model/Payload2} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenpasswordPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthenticationApi~oauth2TokenPasswordPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Grant}
      */
-    this.oauth2TokenpasswordPost = function(payload, callback) {
+    this.oauth2TokenPasswordPost = function(payload, callback) {
       var postBody = payload;
 
       // verify the required parameter 'payload' is set
       if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenpasswordPost";
+        throw "Missing the required parameter 'payload' when calling oauth2TokenPasswordPost";
       }
 
 
@@ -185,7 +185,7 @@
       var returnType = Grant;
 
       return this.apiClient.callApi(
-        '/oauth2/token?password', 'POST',
+        '/oauth2/token?Password', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

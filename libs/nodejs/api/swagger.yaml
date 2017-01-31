@@ -46,14 +46,14 @@ schemes:
 produces:
 - "application/json"
 paths:
-  /oauth2/token?client:
+  /oauth2/token?Client:
     post:
       tags:
       - "Authentication"
       summary: "Authentication via Client Grant Type"
       description: "This grant type is commonly used by an app. Client ID and Secret\
         \ are provisioned within the BlueJeans Enterprise Administration console."
-      operationId: "oauth2TokenclientPOST"
+      operationId: "oauth2TokenClientPOST"
       consumes:
       - "application/json"
       parameters:
@@ -73,7 +73,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Authentication"
-  /oauth2/token?meeting:
+  /oauth2/token?Meeting:
     post:
       tags:
       - "Authentication"
@@ -83,7 +83,7 @@ paths:
         \ access to the meeting only. If a Moderator passcode is sent, moderator privileges\
         \ are granted. If an Attendee access code is passed, the access token will\
         \ have a limited scope of access that an attendee has within a meeting."
-      operationId: "oauth2TokenmeetingPOST"
+      operationId: "oauth2TokenMeetingPOST"
       consumes:
       - "application/json"
       parameters:
@@ -103,14 +103,14 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Authentication"
-  /oauth2/token?password:
+  /oauth2/token?Password:
     post:
       tags:
       - "Authentication"
       summary: "Authentication via Password Grant Type"
       description: "An access token can be obtained by using a user’s username and\
         \ password."
-      operationId: "oauth2TokenpasswordPOST"
+      operationId: "oauth2TokenPasswordPOST"
       consumes:
       - "application/json"
       parameters:

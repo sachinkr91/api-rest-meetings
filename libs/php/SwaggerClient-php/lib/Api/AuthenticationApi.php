@@ -103,7 +103,7 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenclientPost
+     * Operation oauth2TokenClientPost
      *
      * Authentication via Client Grant Type
      *
@@ -111,14 +111,14 @@ class AuthenticationApi
      * @return \Swagger\Client\Model\Grant
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenclientPost($payload)
+    public function oauth2TokenClientPost($payload)
     {
-        list($response) = $this->oauth2TokenclientPostWithHttpInfo($payload);
+        list($response) = $this->oauth2TokenClientPostWithHttpInfo($payload);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenclientPostWithHttpInfo
+     * Operation oauth2TokenClientPostWithHttpInfo
      *
      * Authentication via Client Grant Type
      *
@@ -126,14 +126,14 @@ class AuthenticationApi
      * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenclientPostWithHttpInfo($payload)
+    public function oauth2TokenClientPostWithHttpInfo($payload)
     {
         // verify the required parameter 'payload' is set
         if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenclientPost');
+            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenClientPost');
         }
         // parse inputs
-        $resourcePath = "/oauth2/token?client";
+        $resourcePath = "/oauth2/token?Client";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -173,7 +173,7 @@ class AuthenticationApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Grant',
-                '/oauth2/token?client'
+                '/oauth2/token?Client'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);
@@ -194,7 +194,7 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenmeetingPost
+     * Operation oauth2TokenMeetingPost
      *
      * Authentication via Meeting Grant Type
      *
@@ -202,14 +202,14 @@ class AuthenticationApi
      * @return \Swagger\Client\Model\Grant
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenmeetingPost($payload)
+    public function oauth2TokenMeetingPost($payload)
     {
-        list($response) = $this->oauth2TokenmeetingPostWithHttpInfo($payload);
+        list($response) = $this->oauth2TokenMeetingPostWithHttpInfo($payload);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenmeetingPostWithHttpInfo
+     * Operation oauth2TokenMeetingPostWithHttpInfo
      *
      * Authentication via Meeting Grant Type
      *
@@ -217,14 +217,14 @@ class AuthenticationApi
      * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenmeetingPostWithHttpInfo($payload)
+    public function oauth2TokenMeetingPostWithHttpInfo($payload)
     {
         // verify the required parameter 'payload' is set
         if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenmeetingPost');
+            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenMeetingPost');
         }
         // parse inputs
-        $resourcePath = "/oauth2/token?meeting";
+        $resourcePath = "/oauth2/token?Meeting";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -264,7 +264,7 @@ class AuthenticationApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Grant',
-                '/oauth2/token?meeting'
+                '/oauth2/token?Meeting'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);
@@ -285,7 +285,7 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenpasswordPost
+     * Operation oauth2TokenPasswordPost
      *
      * Authentication via Password Grant Type
      *
@@ -293,14 +293,14 @@ class AuthenticationApi
      * @return \Swagger\Client\Model\Grant
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenpasswordPost($payload)
+    public function oauth2TokenPasswordPost($payload)
     {
-        list($response) = $this->oauth2TokenpasswordPostWithHttpInfo($payload);
+        list($response) = $this->oauth2TokenPasswordPostWithHttpInfo($payload);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenpasswordPostWithHttpInfo
+     * Operation oauth2TokenPasswordPostWithHttpInfo
      *
      * Authentication via Password Grant Type
      *
@@ -308,14 +308,14 @@ class AuthenticationApi
      * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenpasswordPostWithHttpInfo($payload)
+    public function oauth2TokenPasswordPostWithHttpInfo($payload)
     {
         // verify the required parameter 'payload' is set
         if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenpasswordPost');
+            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenPasswordPost');
         }
         // parse inputs
-        $resourcePath = "/oauth2/token?password";
+        $resourcePath = "/oauth2/token?Password";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -355,7 +355,7 @@ class AuthenticationApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Grant',
-                '/oauth2/token?password'
+                '/oauth2/token?Password'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);

@@ -69,18 +69,18 @@ public class AuthenticationApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for oauth2TokenclientPost */
-    private com.squareup.okhttp.Call oauth2TokenclientPostCall(Payload payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for oauth2TokenClientPost */
+    private com.squareup.okhttp.Call oauth2TokenClientPostCall(Payload payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payload;
         
         // verify the required parameter 'payload' is set
         if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenclientPost(Async)");
+            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenClientPost(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/oauth2/token?client".replaceAll("\\{format\\}","json");
+        String localVarPath = "/oauth2/token?Client".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -123,8 +123,8 @@ public class AuthenticationApi {
      * @return Grant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenclientPost(Payload payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenclientPostWithHttpInfo(payload);
+    public Grant oauth2TokenClientPost(Payload payload) throws ApiException {
+        ApiResponse<Grant> resp = oauth2TokenClientPostWithHttpInfo(payload);
         return resp.getData();
     }
 
@@ -135,8 +135,8 @@ public class AuthenticationApi {
      * @return ApiResponse&lt;Grant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenclientPostWithHttpInfo(Payload payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenclientPostCall(payload, null, null);
+    public ApiResponse<Grant> oauth2TokenClientPostWithHttpInfo(Payload payload) throws ApiException {
+        com.squareup.okhttp.Call call = oauth2TokenClientPostCall(payload, null, null);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -149,7 +149,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenclientPostAsync(Payload payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call oauth2TokenClientPostAsync(Payload payload, final ApiCallback<Grant> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,23 +170,23 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenclientPostCall(payload, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = oauth2TokenClientPostCall(payload, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for oauth2TokenmeetingPost */
-    private com.squareup.okhttp.Call oauth2TokenmeetingPostCall(Payload1 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for oauth2TokenMeetingPost */
+    private com.squareup.okhttp.Call oauth2TokenMeetingPostCall(Payload1 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payload;
         
         // verify the required parameter 'payload' is set
         if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenmeetingPost(Async)");
+            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenMeetingPost(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/oauth2/token?meeting".replaceAll("\\{format\\}","json");
+        String localVarPath = "/oauth2/token?Meeting".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -229,8 +229,8 @@ public class AuthenticationApi {
      * @return Grant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenmeetingPost(Payload1 payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenmeetingPostWithHttpInfo(payload);
+    public Grant oauth2TokenMeetingPost(Payload1 payload) throws ApiException {
+        ApiResponse<Grant> resp = oauth2TokenMeetingPostWithHttpInfo(payload);
         return resp.getData();
     }
 
@@ -241,8 +241,8 @@ public class AuthenticationApi {
      * @return ApiResponse&lt;Grant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenmeetingPostWithHttpInfo(Payload1 payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenmeetingPostCall(payload, null, null);
+    public ApiResponse<Grant> oauth2TokenMeetingPostWithHttpInfo(Payload1 payload) throws ApiException {
+        com.squareup.okhttp.Call call = oauth2TokenMeetingPostCall(payload, null, null);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -255,7 +255,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenmeetingPostAsync(Payload1 payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call oauth2TokenMeetingPostAsync(Payload1 payload, final ApiCallback<Grant> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -276,23 +276,23 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenmeetingPostCall(payload, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = oauth2TokenMeetingPostCall(payload, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for oauth2TokenpasswordPost */
-    private com.squareup.okhttp.Call oauth2TokenpasswordPostCall(Payload2 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for oauth2TokenPasswordPost */
+    private com.squareup.okhttp.Call oauth2TokenPasswordPostCall(Payload2 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payload;
         
         // verify the required parameter 'payload' is set
         if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenpasswordPost(Async)");
+            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenPasswordPost(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/oauth2/token?password".replaceAll("\\{format\\}","json");
+        String localVarPath = "/oauth2/token?Password".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -335,8 +335,8 @@ public class AuthenticationApi {
      * @return Grant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenpasswordPost(Payload2 payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenpasswordPostWithHttpInfo(payload);
+    public Grant oauth2TokenPasswordPost(Payload2 payload) throws ApiException {
+        ApiResponse<Grant> resp = oauth2TokenPasswordPostWithHttpInfo(payload);
         return resp.getData();
     }
 
@@ -347,8 +347,8 @@ public class AuthenticationApi {
      * @return ApiResponse&lt;Grant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenpasswordPostWithHttpInfo(Payload2 payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenpasswordPostCall(payload, null, null);
+    public ApiResponse<Grant> oauth2TokenPasswordPostWithHttpInfo(Payload2 payload) throws ApiException {
+        com.squareup.okhttp.Call call = oauth2TokenPasswordPostCall(payload, null, null);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -361,7 +361,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenpasswordPostAsync(Payload2 payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call oauth2TokenPasswordPostAsync(Payload2 payload, final ApiCallback<Grant> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -382,7 +382,7 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenpasswordPostCall(payload, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = oauth2TokenPasswordPostCall(payload, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Grant>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

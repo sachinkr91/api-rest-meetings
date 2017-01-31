@@ -11,7 +11,7 @@ var recordingSvc = new BlueJeansOnVideoRestApi.RecordingApi();
 var userSvc = new BlueJeansOnVideoRestApi.UserApi();
 
 // Authenticate with username & password grant type
-authSvc.oauth2TokenpasswordPost(
+authSvc.oauth2TokenPasswordPost(
 	{
 		'grant_type': 'password',
 		'username': config.username,

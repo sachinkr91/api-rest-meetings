@@ -45,7 +45,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        Grant Oauth2TokenclientPost (Payload payload);
+        Grant Oauth2TokenClientPost (Payload payload);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -56,7 +56,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenclientPostWithHttpInfo (Payload payload);
+        ApiResponse<Grant> Oauth2TokenClientPostWithHttpInfo (Payload payload);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -66,7 +66,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        Grant Oauth2TokenmeetingPost (Payload1 payload);
+        Grant Oauth2TokenMeetingPost (Payload1 payload);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -77,7 +77,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenmeetingPostWithHttpInfo (Payload1 payload);
+        ApiResponse<Grant> Oauth2TokenMeetingPostWithHttpInfo (Payload1 payload);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -87,7 +87,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        Grant Oauth2TokenpasswordPost (Payload2 payload);
+        Grant Oauth2TokenPasswordPost (Payload2 payload);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -98,7 +98,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenpasswordPostWithHttpInfo (Payload2 payload);
+        ApiResponse<Grant> Oauth2TokenPasswordPostWithHttpInfo (Payload2 payload);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -110,7 +110,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenclientPostAsync (Payload payload);
+        System.Threading.Tasks.Task<Grant> Oauth2TokenClientPostAsync (Payload payload);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -121,7 +121,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenclientPostAsyncWithHttpInfo (Payload payload);
+        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenClientPostAsyncWithHttpInfo (Payload payload);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -131,7 +131,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenmeetingPostAsync (Payload1 payload);
+        System.Threading.Tasks.Task<Grant> Oauth2TokenMeetingPostAsync (Payload1 payload);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -142,7 +142,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenmeetingPostAsyncWithHttpInfo (Payload1 payload);
+        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenMeetingPostAsyncWithHttpInfo (Payload1 payload);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -152,7 +152,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenpasswordPostAsync (Payload2 payload);
+        System.Threading.Tasks.Task<Grant> Oauth2TokenPasswordPostAsync (Payload2 payload);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -163,7 +163,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenpasswordPostAsyncWithHttpInfo (Payload2 payload);
+        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenPasswordPostAsyncWithHttpInfo (Payload2 payload);
         #endregion Asynchronous Operations
     }
 
@@ -282,9 +282,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        public Grant Oauth2TokenclientPost (Payload payload)
+        public Grant Oauth2TokenClientPost (Payload payload)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenclientPostWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = Oauth2TokenClientPostWithHttpInfo(payload);
              return localVarResponse.Data;
         }
 
@@ -294,13 +294,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenclientPostWithHttpInfo (Payload payload)
+        public ApiResponse< Grant > Oauth2TokenClientPostWithHttpInfo (Payload payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenclientPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenClientPost");
 
-            var localVarPath = "/oauth2/token?client";
+            var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -350,7 +350,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenclientPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenClientPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -366,9 +366,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenclientPostAsync (Payload payload)
+        public async System.Threading.Tasks.Task<Grant> Oauth2TokenClientPostAsync (Payload payload)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenclientPostAsyncWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = await Oauth2TokenClientPostAsyncWithHttpInfo(payload);
              return localVarResponse.Data;
 
         }
@@ -379,13 +379,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenclientPostAsyncWithHttpInfo (Payload payload)
+        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenClientPostAsyncWithHttpInfo (Payload payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenclientPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenClientPost");
 
-            var localVarPath = "/oauth2/token?client";
+            var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -434,7 +434,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenclientPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenClientPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -450,9 +450,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        public Grant Oauth2TokenmeetingPost (Payload1 payload)
+        public Grant Oauth2TokenMeetingPost (Payload1 payload)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenmeetingPostWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = Oauth2TokenMeetingPostWithHttpInfo(payload);
              return localVarResponse.Data;
         }
 
@@ -462,13 +462,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenmeetingPostWithHttpInfo (Payload1 payload)
+        public ApiResponse< Grant > Oauth2TokenMeetingPostWithHttpInfo (Payload1 payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenmeetingPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenMeetingPost");
 
-            var localVarPath = "/oauth2/token?meeting";
+            var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -518,7 +518,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenmeetingPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenMeetingPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -534,9 +534,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenmeetingPostAsync (Payload1 payload)
+        public async System.Threading.Tasks.Task<Grant> Oauth2TokenMeetingPostAsync (Payload1 payload)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenmeetingPostAsyncWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = await Oauth2TokenMeetingPostAsyncWithHttpInfo(payload);
              return localVarResponse.Data;
 
         }
@@ -547,13 +547,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenmeetingPostAsyncWithHttpInfo (Payload1 payload)
+        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenMeetingPostAsyncWithHttpInfo (Payload1 payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenmeetingPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenMeetingPost");
 
-            var localVarPath = "/oauth2/token?meeting";
+            var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -602,7 +602,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenmeetingPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenMeetingPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -618,9 +618,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Grant</returns>
-        public Grant Oauth2TokenpasswordPost (Payload2 payload)
+        public Grant Oauth2TokenPasswordPost (Payload2 payload)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenpasswordPostWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = Oauth2TokenPasswordPostWithHttpInfo(payload);
              return localVarResponse.Data;
         }
 
@@ -630,13 +630,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenpasswordPostWithHttpInfo (Payload2 payload)
+        public ApiResponse< Grant > Oauth2TokenPasswordPostWithHttpInfo (Payload2 payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenpasswordPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenPasswordPost");
 
-            var localVarPath = "/oauth2/token?password";
+            var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -686,7 +686,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenpasswordPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenPasswordPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -702,9 +702,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenpasswordPostAsync (Payload2 payload)
+        public async System.Threading.Tasks.Task<Grant> Oauth2TokenPasswordPostAsync (Payload2 payload)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenpasswordPostAsyncWithHttpInfo(payload);
+             ApiResponse<Grant> localVarResponse = await Oauth2TokenPasswordPostAsyncWithHttpInfo(payload);
              return localVarResponse.Data;
 
         }
@@ -715,13 +715,13 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenpasswordPostAsyncWithHttpInfo (Payload2 payload)
+        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenPasswordPostAsyncWithHttpInfo (Payload2 payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenpasswordPost");
+                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenPasswordPost");
 
-            var localVarPath = "/oauth2/token?password";
+            var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -770,7 +770,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenpasswordPost", localVarResponse);
+                Exception exception = ExceptionFactory("Oauth2TokenPasswordPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

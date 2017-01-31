@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Oauth2TokenclientPost**](AuthenticationApi.md#oauth2tokenclientpost) | **POST** /oauth2/token?client | Authentication via Client Grant Type
-[**Oauth2TokenmeetingPost**](AuthenticationApi.md#oauth2tokenmeetingpost) | **POST** /oauth2/token?meeting | Authentication via Meeting Grant Type
-[**Oauth2TokenpasswordPost**](AuthenticationApi.md#oauth2tokenpasswordpost) | **POST** /oauth2/token?password | Authentication via Password Grant Type
+[**Oauth2TokenClientPost**](AuthenticationApi.md#oauth2tokenclientpost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**Oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2tokenmeetingpost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**Oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2tokenpasswordpost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
 <a name="oauth2tokenclientpost"></a>
-# **Oauth2TokenclientPost**
-> Grant Oauth2TokenclientPost (Payload payload)
+# **Oauth2TokenClientPost**
+> Grant Oauth2TokenClientPost (Payload payload)
 
 Authentication via Client Grant Type
 
@@ -27,7 +27,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenclientPostExample
+    public class Oauth2TokenClientPostExample
     {
         public void main()
         {
@@ -43,12 +43,12 @@ namespace Example
             try
             {
                 // Authentication via Client Grant Type
-                Grant result = apiInstance.Oauth2TokenclientPost(payload);
+                Grant result = apiInstance.Oauth2TokenClientPost(payload);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenclientPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenClientPost: " + e.Message );
             }
         }
     }
@@ -77,8 +77,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="oauth2tokenmeetingpost"></a>
-# **Oauth2TokenmeetingPost**
-> Grant Oauth2TokenmeetingPost (Payload1 payload)
+# **Oauth2TokenMeetingPost**
+> Grant Oauth2TokenMeetingPost (Payload1 payload)
 
 Authentication via Meeting Grant Type
 
@@ -94,7 +94,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenmeetingPostExample
+    public class Oauth2TokenMeetingPostExample
     {
         public void main()
         {
@@ -110,12 +110,12 @@ namespace Example
             try
             {
                 // Authentication via Meeting Grant Type
-                Grant result = apiInstance.Oauth2TokenmeetingPost(payload);
+                Grant result = apiInstance.Oauth2TokenMeetingPost(payload);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenmeetingPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenMeetingPost: " + e.Message );
             }
         }
     }
@@ -144,8 +144,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="oauth2tokenpasswordpost"></a>
-# **Oauth2TokenpasswordPost**
-> Grant Oauth2TokenpasswordPost (Payload2 payload)
+# **Oauth2TokenPasswordPost**
+> Grant Oauth2TokenPasswordPost (Payload2 payload)
 
 Authentication via Password Grant Type
 
@@ -161,7 +161,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenpasswordPostExample
+    public class Oauth2TokenPasswordPostExample
     {
         public void main()
         {
@@ -177,12 +177,12 @@ namespace Example
             try
             {
                 // Authentication via Password Grant Type
-                Grant result = apiInstance.Oauth2TokenpasswordPost(payload);
+                Grant result = apiInstance.Oauth2TokenPasswordPost(payload);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenpasswordPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenPasswordPost: " + e.Message );
             }
         }
     }

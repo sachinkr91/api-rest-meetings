@@ -63,7 +63,7 @@ schemes:
 produces:
   - application/json
 paths:
-  /oauth2/token?password:
+  /oauth2/token?Password:
     post:
       summary: Authentication via Password Grant Type
       description: An access token can be obtained by using a user’s username and password.
@@ -102,7 +102,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /oauth2/token?meeting:
+  /oauth2/token?Meeting:
     post:
       summary: Authentication via Meeting Grant Type
       description: This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
@@ -140,7 +140,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /oauth2/token?client:
+  /oauth2/token?Client:
     post:
       summary: Authentication via Client Grant Type
       description: This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.

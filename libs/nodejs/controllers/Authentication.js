@@ -6,14 +6,14 @@ var url = require('url');
 var Authentication = require('./AuthenticationService');
 
 
-module.exports.oauth2TokenclientPOST = function oauth2TokenclientPOST (req, res, next) {
-  Authentication.oauth2TokenclientPOST(req.swagger.params, res, next);
+module.exports.oauth2TokenClientPOST = function oauth2TokenClientPOST (req, res, next) {
+  Authentication.oauth2TokenClientPOST(req.swagger.params, res, next);
 };
 
-module.exports.oauth2TokenmeetingPOST = function oauth2TokenmeetingPOST (req, res, next) {
-  Authentication.oauth2TokenmeetingPOST(req.swagger.params, res, next);
+module.exports.oauth2TokenMeetingPOST = function oauth2TokenMeetingPOST (req, res, next) {
+  Authentication.oauth2TokenMeetingPOST(req.swagger.params, res, next);
 };
 
-module.exports.oauth2TokenpasswordPOST = function oauth2TokenpasswordPOST (req, res, next) {
-  Authentication.oauth2TokenpasswordPOST(req.swagger.params, res, next);
+module.exports.oauth2TokenPasswordPOST = function oauth2TokenPasswordPOST (req, res, next) {
+  Authentication.oauth2TokenPasswordPOST(req.swagger.params, res, next);
 };

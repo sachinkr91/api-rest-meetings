@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauth2TokenclientPost**](AuthenticationApi.md#oauth2TokenclientPost) | **POST** /oauth2/token?client | Authentication via Client Grant Type
-[**oauth2TokenmeetingPost**](AuthenticationApi.md#oauth2TokenmeetingPost) | **POST** /oauth2/token?meeting | Authentication via Meeting Grant Type
-[**oauth2TokenpasswordPost**](AuthenticationApi.md#oauth2TokenpasswordPost) | **POST** /oauth2/token?password | Authentication via Password Grant Type
+[**oauth2TokenClientPost**](AuthenticationApi.md#oauth2TokenClientPost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2TokenMeetingPost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2TokenPasswordPost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-<a name="oauth2TokenclientPost"></a>
-# **oauth2TokenclientPost**
-> Grant oauth2TokenclientPost(payload)
+<a name="oauth2TokenClientPost"></a>
+# **oauth2TokenClientPost**
+> Grant oauth2TokenClientPost(payload)
 
 Authentication via Client Grant Type
 
@@ -40,7 +40,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.oauth2TokenclientPost(payload, callback);
+apiInstance.oauth2TokenClientPost(payload, callback);
 ```
 
 ### Parameters
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="oauth2TokenmeetingPost"></a>
-# **oauth2TokenmeetingPost**
-> Grant oauth2TokenmeetingPost(payload)
+<a name="oauth2TokenMeetingPost"></a>
+# **oauth2TokenMeetingPost**
+> Grant oauth2TokenMeetingPost(payload)
 
 Authentication via Meeting Grant Type
 
@@ -93,7 +93,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.oauth2TokenmeetingPost(payload, callback);
+apiInstance.oauth2TokenMeetingPost(payload, callback);
 ```
 
 ### Parameters
@@ -115,9 +115,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="oauth2TokenpasswordPost"></a>
-# **oauth2TokenpasswordPost**
-> Grant oauth2TokenpasswordPost(payload)
+<a name="oauth2TokenPasswordPost"></a>
+# **oauth2TokenPasswordPost**
+> Grant oauth2TokenPasswordPost(payload)
 
 Authentication via Password Grant Type
 
@@ -146,7 +146,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.oauth2TokenpasswordPost(payload, callback);
+apiInstance.oauth2TokenPasswordPost(payload, callback);
 ```
 
 ### Parameters
