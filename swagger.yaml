@@ -469,7 +469,7 @@ paths:
           type: integer
         - name: meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property. This is not the numeric meeting ID visible to users.
           required: true
           type: integer
       responses:
@@ -534,9 +534,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
-          schema:
-            $ref: '#/definitions/Meeting'
+          description: No content.
         default:
           description: Unexpected error
           schema:
@@ -588,6 +586,34 @@ paths:
           description: The settings for the room
           schema:
             $ref: '#/definitions/Meeting'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meetings/{meeting_id}/numbers:
+    get:
+      summary: Meeting Join Info
+      description: This endpoint retrieves the join information for a scheduled meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the room
+          schema:
+            $ref: '#/definitions/Numbers'
         default:
           description: Unexpected error
           schema:
@@ -1851,6 +1877,12 @@ definitions:
         type: string
   Meeting:
     type: object
+    required:
+      - title
+      - start
+      - end
+      - endPointVersion
+      - endPointType
     properties:
       id:
         type: integer
@@ -1858,18 +1890,105 @@ definitions:
         readOnly: true
       title:
         type: string
+        default: My Test Meeting
       description:
         type: string
       start:
         type: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string
+        default: America/New_York
       numericMeetingId:
         type: string
+        readOnly: true
       attendeePasscode:
         type: string
+        readOnly: true
+      endPointVersion:
+        type: string
+        default: "2.10"
+      endPointType:
+        type: string
+        default: "WEB_APP"
+      advancedMeetingOptions:
+        type: object
+        properties:
+          autoRecord:
+            type: boolean
+          muteParticipantsOnEntry:
+            type: boolean
+          encryptionType:
+            type: string
+            default: NO_ENCRYPTION
+            enum:
+              - NO_ENCRYPTION
+              - ENCRYPTED_ONLY
+              - ENCRYPTED_OR_PSTN_ONLY
+          moderatorLess:
+            type: boolean
+          videoBestFit:
+            type: boolean
+          disallowChat:
+            type: boolean
+          publishMeeting:
+            type: boolean
+          showAllAttendeesInMeetingInvite:
+            type: boolean
+  Numbers:
+    type: object
+    properties:
+      meetingId:
+        type: string
+      allowDirectDial:
+        type: boolean
+      useAttendeePasscode:
+        type: boolean
+      pstnNumbersUrl:
+        type: string
+      moderatorPasscode:
+        type: string
+      precision:
+        type: string
+      pstnLocalizationSupported:
+        type: boolean
+      partnerIntegratedMeeting:
+        type: boolean
+      numbers:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+            number:
+              type: string
+            tollfree:
+              type: boolean
+            premium:
+              type: boolean
+            custom:
+              type: boolean
+            country:
+              type: string
+            countryName:
+              type: string
+            state:
+              type: string
+            city:
+              type: string
+            label:
+              type: object
+              properties:
+                default:
+                  type: string
+            defaultSettingsInherited:
+              type: boolean
+            default:
+              type: boolean
   RecordingSummary:
     type: object
     properties:
