@@ -839,7 +839,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout:
     get:
-      summary: Get Current Endpoint Layout
+      summary: Get Endpoint Layout
       description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.
       tags:
         - Meeting
