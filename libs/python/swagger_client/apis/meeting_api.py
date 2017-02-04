@@ -69,7 +69,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Meeting
+        :return: Endpoint
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -98,7 +98,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Meeting
+        :return: Endpoint
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -164,14 +164,14 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='Endpoint',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
     def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(self, user_id, meeting_id, endpoint_guid, **kwargs):
         """
-        Get Current Endpoint Layout
+        Get Endpoint Layout
         This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -187,7 +187,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Meeting
+        :return: Layout
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -200,7 +200,7 @@ class MeetingApi(object):
 
     def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get_with_http_info(self, user_id, meeting_id, endpoint_guid, **kwargs):
         """
-        Get Current Endpoint Layout
+        Get Endpoint Layout
         This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -216,7 +216,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Meeting
+        :return: Layout
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -282,7 +282,7 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='Layout',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -307,7 +307,7 @@ class MeetingApi(object):
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
         :param bool is_leader: 
         :param bool push: 
-        :return: Meeting
+        :return: Layout
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,7 +338,7 @@ class MeetingApi(object):
         :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
         :param bool is_leader: 
         :param bool push: 
-        :return: Meeting
+        :return: Layout
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -408,7 +408,7 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='Layout',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -434,7 +434,7 @@ class MeetingApi(object):
         :param bool mute_audio: Toggle the audio source mute.
         :param bool mute_video: Toggle the video source mute.
         :param bool leave_meeting: Remove the user from the meeting.
-        :return: Meeting
+        :return: Endpoint
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -466,7 +466,7 @@ class MeetingApi(object):
         :param bool mute_audio: Toggle the audio source mute.
         :param bool mute_video: Toggle the video source mute.
         :param bool leave_meeting: Remove the user from the meeting.
-        :return: Meeting
+        :return: Endpoint
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -538,7 +538,7 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='Endpoint',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -560,7 +560,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: Endpoints
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -588,7 +588,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: Endpoints
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -649,7 +649,7 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='Endpoints',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -790,7 +790,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: MeetingState
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -818,7 +818,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: MeetingState
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -879,7 +879,7 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='MeetingState',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -1228,9 +1228,120 @@ class MeetingApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def v1_user_user_id_meetings_meeting_id_numbers_get(self, user_id, meeting_id, **kwargs):
+        """
+        Get Meeting Join Info
+        This endpoint retrieves the join information for a scheduled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.v1_user_user_id_meetings_meeting_id_numbers_get(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: Numbers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.v1_user_user_id_meetings_meeting_id_numbers_get_with_http_info(user_id, meeting_id, **kwargs)
+        else:
+            (data) = self.v1_user_user_id_meetings_meeting_id_numbers_get_with_http_info(user_id, meeting_id, **kwargs)
+            return data
+
+    def v1_user_user_id_meetings_meeting_id_numbers_get_with_http_info(self, user_id, meeting_id, **kwargs):
+        """
+        Get Meeting Join Info
+        This endpoint retrieves the join information for a scheduled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.v1_user_user_id_meetings_meeting_id_numbers_get_with_http_info(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: Numbers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method v1_user_user_id_meetings_meeting_id_numbers_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_meetings_meeting_id_numbers_get`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_meetings_meeting_id_numbers_get`")
+
+        resource_path = '/v1/user/{user_id}/meetings/{meeting_id}/numbers'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Numbers',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def v1_user_user_id_scheduled_meeting_get(self, user_id, **kwargs):
         """
-        Meeting
+        Get Meeting Settings
         This endpoint gets a user’s default meeting settings.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1257,7 +1368,7 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_get_with_http_info(self, user_id, **kwargs):
         """
-        Meeting
+        Get Meeting Settings
         This endpoint gets a user’s default meeting settings.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1334,8 +1445,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_delete(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
-        Cancel a meeting.
+        Cancel Meeting
+        This endpoint deletes a scheuled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1349,7 +1460,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1362,8 +1473,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_delete_with_http_info(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
-        Cancel a meeting.
+        Cancel Meeting
+        This endpoint deletes a scheuled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1377,7 +1488,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1438,14 +1549,14 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
     def v1_user_user_id_scheduled_meeting_meeting_id_emails_get(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
+        Get Meeting Email
         This endpoint retrieves the email object for a scheduled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1476,7 +1587,7 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_emails_get_with_http_info(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
+        Get Meeting Email
         This endpoint retrieves the email object for a scheduled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1568,8 +1679,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_get(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
-        This endpoint gets a user’s default meeting settings.
+        Get Meeting
+        This endpoint gets the settings for a user's meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1582,7 +1693,7 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
         :return: Meeting
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1596,8 +1707,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_get_with_http_info(self, user_id, meeting_id, **kwargs):
         """
-        Meeting
-        This endpoint gets a user’s default meeting settings.
+        Get Meeting
+        This endpoint gets the settings for a user's meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1610,7 +1721,7 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
         :return: Meeting
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1679,8 +1790,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_put(self, user_id, meeting_id, meeting, **kwargs):
         """
-        Meeting
-        Update a meeting.
+        Update Meeting
+        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1708,8 +1819,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_meeting_id_put_with_http_info(self, user_id, meeting_id, meeting, **kwargs):
         """
-        Meeting
-        Update a meeting.
+        Update Meeting
+        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1797,8 +1908,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_post(self, user_id, meeting, **kwargs):
         """
-        Meeting
-        Create a meeting.
+        Create Meeting
+        This endpoint will create a scheduled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1826,8 +1937,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_scheduled_meeting_post_with_http_info(self, user_id, meeting, **kwargs):
         """
-        Meeting
-        Create a meeting.
+        Create Meeting
+        This endpoint will create a scheduled meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

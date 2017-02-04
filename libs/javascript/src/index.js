@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/AnalyticsEndpointDistributionDistribution', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackCommentsComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsRoiData', 'model/AnalyticsRoiDataRoiRanges', 'model/AnalyticsTopUsers', 'model/AnalyticsTopUsersUsage', 'model/AnalyticsUsage', 'model/AnalyticsUsageUsage', 'model/Content', 'model/ContentContentProperties', 'model/ContentContentPropertiesLevels', 'model/Enterprise', 'model/Error', 'model/Grant', 'model/Meeting', 'model/Partition', 'model/Payload', 'model/Payload1', 'model/Payload2', 'model/Recording', 'model/RecordingRecordingChapters', 'model/RecordingRecordingSessions', 'model/RecordingStartedBy', 'model/RecordingSummary', 'model/Room', 'model/Scope', 'model/User', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/CommandCenterApi', 'api/EnterpriseApi', 'api/HistoryApi', 'api/MeetingApi', 'api/RecordingApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/AnalyticsEndpointDistributionDistribution', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackCommentsComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsRoiData', 'model/AnalyticsRoiDataRoiRanges', 'model/AnalyticsTopUsers', 'model/AnalyticsTopUsersUsage', 'model/AnalyticsUsage', 'model/AnalyticsUsageUsage', 'model/Content', 'model/ContentContentProperties', 'model/ContentContentPropertiesLevels', 'model/Endpoint', 'model/Endpoints', 'model/EndpointsInner', 'model/EndpointsInnerConnections', 'model/Enterprise', 'model/Error', 'model/Grant', 'model/Layout', 'model/Meeting', 'model/MeetingAdvancedMeetingOptions', 'model/MeetingState', 'model/MeetingStateRecordinginfo', 'model/Numbers', 'model/NumbersLabel', 'model/NumbersNumbers', 'model/Partition', 'model/Payload', 'model/Payload1', 'model/Payload2', 'model/Recording', 'model/RecordingRecordingChapters', 'model/RecordingRecordingSessions', 'model/RecordingStartedBy', 'model/RecordingSummary', 'model/Room', 'model/Scope', 'model/User', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/CommandCenterApi', 'api/EnterpriseApi', 'api/HistoryApi', 'api/MeetingApi', 'api/RecordingApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AnalyticsEndpointDistribution'), require('./model/AnalyticsEndpointDistributionDistribution'), require('./model/AnalyticsFeedbackComments'), require('./model/AnalyticsFeedbackCommentsComments'), require('./model/AnalyticsFeedbackScores'), require('./model/AnalyticsRoiData'), require('./model/AnalyticsRoiDataRoiRanges'), require('./model/AnalyticsTopUsers'), require('./model/AnalyticsTopUsersUsage'), require('./model/AnalyticsUsage'), require('./model/AnalyticsUsageUsage'), require('./model/Content'), require('./model/ContentContentProperties'), require('./model/ContentContentPropertiesLevels'), require('./model/Enterprise'), require('./model/Error'), require('./model/Grant'), require('./model/Meeting'), require('./model/Partition'), require('./model/Payload'), require('./model/Payload1'), require('./model/Payload2'), require('./model/Recording'), require('./model/RecordingRecordingChapters'), require('./model/RecordingRecordingSessions'), require('./model/RecordingStartedBy'), require('./model/RecordingSummary'), require('./model/Room'), require('./model/Scope'), require('./model/User'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/CommandCenterApi'), require('./api/EnterpriseApi'), require('./api/HistoryApi'), require('./api/MeetingApi'), require('./api/RecordingApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AnalyticsEndpointDistribution'), require('./model/AnalyticsEndpointDistributionDistribution'), require('./model/AnalyticsFeedbackComments'), require('./model/AnalyticsFeedbackCommentsComments'), require('./model/AnalyticsFeedbackScores'), require('./model/AnalyticsRoiData'), require('./model/AnalyticsRoiDataRoiRanges'), require('./model/AnalyticsTopUsers'), require('./model/AnalyticsTopUsersUsage'), require('./model/AnalyticsUsage'), require('./model/AnalyticsUsageUsage'), require('./model/Content'), require('./model/ContentContentProperties'), require('./model/ContentContentPropertiesLevels'), require('./model/Endpoint'), require('./model/Endpoints'), require('./model/EndpointsInner'), require('./model/EndpointsInnerConnections'), require('./model/Enterprise'), require('./model/Error'), require('./model/Grant'), require('./model/Layout'), require('./model/Meeting'), require('./model/MeetingAdvancedMeetingOptions'), require('./model/MeetingState'), require('./model/MeetingStateRecordinginfo'), require('./model/Numbers'), require('./model/NumbersLabel'), require('./model/NumbersNumbers'), require('./model/Partition'), require('./model/Payload'), require('./model/Payload1'), require('./model/Payload2'), require('./model/Recording'), require('./model/RecordingRecordingChapters'), require('./model/RecordingRecordingSessions'), require('./model/RecordingStartedBy'), require('./model/RecordingSummary'), require('./model/Room'), require('./model/Scope'), require('./model/User'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/CommandCenterApi'), require('./api/EnterpriseApi'), require('./api/HistoryApi'), require('./api/MeetingApi'), require('./api/RecordingApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, AnalyticsEndpointDistribution, AnalyticsEndpointDistributionDistribution, AnalyticsFeedbackComments, AnalyticsFeedbackCommentsComments, AnalyticsFeedbackScores, AnalyticsRoiData, AnalyticsRoiDataRoiRanges, AnalyticsTopUsers, AnalyticsTopUsersUsage, AnalyticsUsage, AnalyticsUsageUsage, Content, ContentContentProperties, ContentContentPropertiesLevels, Enterprise, Error, Grant, Meeting, Partition, Payload, Payload1, Payload2, Recording, RecordingRecordingChapters, RecordingRecordingSessions, RecordingStartedBy, RecordingSummary, Room, Scope, User, AnalyticsApi, AuthenticationApi, CommandCenterApi, EnterpriseApi, HistoryApi, MeetingApi, RecordingApi, UserApi) {
+}(function(ApiClient, AnalyticsEndpointDistribution, AnalyticsEndpointDistributionDistribution, AnalyticsFeedbackComments, AnalyticsFeedbackCommentsComments, AnalyticsFeedbackScores, AnalyticsRoiData, AnalyticsRoiDataRoiRanges, AnalyticsTopUsers, AnalyticsTopUsersUsage, AnalyticsUsage, AnalyticsUsageUsage, Content, ContentContentProperties, ContentContentPropertiesLevels, Endpoint, Endpoints, EndpointsInner, EndpointsInnerConnections, Enterprise, Error, Grant, Layout, Meeting, MeetingAdvancedMeetingOptions, MeetingState, MeetingStateRecordinginfo, Numbers, NumbersLabel, NumbersNumbers, Partition, Payload, Payload1, Payload2, Recording, RecordingRecordingChapters, RecordingRecordingSessions, RecordingStartedBy, RecordingSummary, Room, Scope, User, AnalyticsApi, AuthenticationApi, CommandCenterApi, EnterpriseApi, HistoryApi, MeetingApi, RecordingApi, UserApi) {
   'use strict';
 
   /**
@@ -141,6 +141,26 @@
      */
     ContentContentPropertiesLevels: ContentContentPropertiesLevels,
     /**
+     * The Endpoint model constructor.
+     * @property {module:model/Endpoint}
+     */
+    Endpoint: Endpoint,
+    /**
+     * The Endpoints model constructor.
+     * @property {module:model/Endpoints}
+     */
+    Endpoints: Endpoints,
+    /**
+     * The EndpointsInner model constructor.
+     * @property {module:model/EndpointsInner}
+     */
+    EndpointsInner: EndpointsInner,
+    /**
+     * The EndpointsInnerConnections model constructor.
+     * @property {module:model/EndpointsInnerConnections}
+     */
+    EndpointsInnerConnections: EndpointsInnerConnections,
+    /**
      * The Enterprise model constructor.
      * @property {module:model/Enterprise}
      */
@@ -156,10 +176,45 @@
      */
     Grant: Grant,
     /**
+     * The Layout model constructor.
+     * @property {module:model/Layout}
+     */
+    Layout: Layout,
+    /**
      * The Meeting model constructor.
      * @property {module:model/Meeting}
      */
     Meeting: Meeting,
+    /**
+     * The MeetingAdvancedMeetingOptions model constructor.
+     * @property {module:model/MeetingAdvancedMeetingOptions}
+     */
+    MeetingAdvancedMeetingOptions: MeetingAdvancedMeetingOptions,
+    /**
+     * The MeetingState model constructor.
+     * @property {module:model/MeetingState}
+     */
+    MeetingState: MeetingState,
+    /**
+     * The MeetingStateRecordinginfo model constructor.
+     * @property {module:model/MeetingStateRecordinginfo}
+     */
+    MeetingStateRecordinginfo: MeetingStateRecordinginfo,
+    /**
+     * The Numbers model constructor.
+     * @property {module:model/Numbers}
+     */
+    Numbers: Numbers,
+    /**
+     * The NumbersLabel model constructor.
+     * @property {module:model/NumbersLabel}
+     */
+    NumbersLabel: NumbersLabel,
+    /**
+     * The NumbersNumbers model constructor.
+     * @property {module:model/NumbersNumbers}
+     */
+    NumbersNumbers: NumbersNumbers,
     /**
      * The Partition model constructor.
      * @property {module:model/Partition}

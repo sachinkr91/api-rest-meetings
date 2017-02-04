@@ -23,11 +23,11 @@ This endpoint retrieves endpoint connection type distribution by enterprise.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -80,11 +80,11 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -139,11 +139,11 @@ This endpoint reports on meeting usage.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -198,11 +198,11 @@ This endpoint lists return on investment (ROI) data for meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -255,11 +255,11 @@ This endpoint retrieves the top useres by usage for an enterprise.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -312,11 +312,11 @@ This endpoint lists end of meeting survey scores by enterprise by time period.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AnalyticsApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AnalyticsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

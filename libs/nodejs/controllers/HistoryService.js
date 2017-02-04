@@ -12,9 +12,21 @@ exports.v1EnterpriseEnterprise_idMeeting_historyGET = function(args, res, next) 
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -39,9 +51,21 @@ exports.v1EnterpriseEnterprise_idMeeting_historyMeeting_guidGET = function(args,
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -71,9 +95,21 @@ exports.v1UserUser_idMeeting_historyGET = function(args, res, next) {
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -98,9 +134,21 @@ exports.v1UserUser_idMeeting_historyMeeting_guidGET = function(args, res, next) 
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');

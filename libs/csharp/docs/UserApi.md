@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**V1UserUserIdPut**](UserApi.md#v1useruseridput) | **PUT** /v1/user/{user_id} | Update User Account Details
 [**V1UserUserIdRoomGet**](UserApi.md#v1useruseridroomget) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**V1UserUserIdRoomPut**](UserApi.md#v1useruseridroomput) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
-[**V1UserUserIdScheduledMeetingGet**](UserApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**V1UserUserIdScheduledMeetingGet**](UserApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 
 
 <a name="v1useruseridenterpriseprofileget"></a>
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 # **V1UserUserIdScheduledMeetingGet**
 > List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -384,7 +384,7 @@ namespace Example
 
             try
             {
-                // Meeting
+                // Get Meeting Settings
                 List&lt;Meeting&gt; result = apiInstance.V1UserUserIdScheduledMeetingGet(userId);
                 Debug.WriteLine(result);
             }

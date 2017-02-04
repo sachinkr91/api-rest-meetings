@@ -587,7 +587,7 @@ class UserApi(object):
 
     def v1_user_user_id_scheduled_meeting_get(self, user_id, **kwargs):
         """
-        Meeting
+        Get Meeting Settings
         This endpoint gets a user’s default meeting settings.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -614,7 +614,7 @@ class UserApi(object):
 
     def v1_user_user_id_scheduled_meeting_get_with_http_info(self, user_id, **kwargs):
         """
-        Meeting
+        Get Meeting Settings
         This endpoint gets a user’s default meeting settings.
 
         This method makes a synchronous HTTP request by default. To make an

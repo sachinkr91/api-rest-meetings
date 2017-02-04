@@ -46,6 +46,10 @@ module.exports.v1UserUser_idLive_meetingsMeeting_idPairing_codeSIPPOST = functio
   Meeting.v1UserUser_idLive_meetingsMeeting_idPairing_codeSIPPOST(req.swagger.params, res, next);
 };
 
+module.exports.v1UserUser_idMeetingsMeeting_idNumbersGET = function v1UserUser_idMeetingsMeeting_idNumbersGET (req, res, next) {
+  Meeting.v1UserUser_idMeetingsMeeting_idNumbersGET(req.swagger.params, res, next);
+};
+
 module.exports.v1UserUser_idScheduled_meetingGET = function v1UserUser_idScheduled_meetingGET (req, res, next) {
   Meeting.v1UserUser_idScheduled_meetingGET(req.swagger.params, res, next);
 };

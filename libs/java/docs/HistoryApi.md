@@ -23,11 +23,11 @@ This endpoint retrieves a list of meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -78,11 +78,11 @@ This endpoint retrieves a list of meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -135,11 +135,11 @@ This endpoint retrieves a list of meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -202,11 +202,11 @@ This endpoint retrieves a list of meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -259,11 +259,11 @@ This endpoint retrieves a list of meeting recordings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -322,11 +322,11 @@ This endpoint retrieves a list of meeting recordings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.HistoryApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

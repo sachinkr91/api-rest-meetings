@@ -46,8 +46,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Endpoint</returns>
+        Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Information
@@ -59,10 +59,10 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>ApiResponse of Endpoint</returns>
+        ApiResponse<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
         /// <summary>
-        /// Get Current Endpoint Layout
+        /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -71,11 +71,11 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Layout</returns>
+        Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid);
 
         /// <summary>
-        /// Get Current Endpoint Layout
+        /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -84,8 +84,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>ApiResponse of Layout</returns>
+        ApiResponse<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -98,8 +98,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <returns>Layout</returns>
+        Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -113,8 +113,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <returns>ApiResponse of Layout</returns>
+        ApiResponse<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Endpoint Video/Audio State
         /// </summary>
@@ -128,8 +128,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>Endpoint</returns>
+        Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -144,8 +144,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>ApiResponse of Endpoint</returns>
+        ApiResponse<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// List Meeting Endpoints
         /// </summary>
@@ -155,8 +155,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId);
+        /// <returns>Endpoints</returns>
+        Endpoints V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId);
 
         /// <summary>
         /// List Meeting Endpoints
@@ -167,8 +167,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>ApiResponse of Endpoints</returns>
+        ApiResponse<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -205,8 +205,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId);
+        /// <returns>MeetingState</returns>
+        MeetingState V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId);
 
         /// <summary>
         /// Get Meeting State
@@ -217,8 +217,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>ApiResponse of MeetingState</returns>
+        ApiResponse<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
         /// Send Email Invite
         /// </summary>
@@ -293,7 +293,30 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Numbers</returns>
+        Numbers V1UserUserIdMeetingsMeetingIdNumbersGet (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Numbers</returns>
+        ApiResponse<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -304,7 +327,7 @@ namespace IO.Swagger.Api
         List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -314,30 +337,30 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of List&lt;Meeting&gt;</returns>
         ApiResponse<List<Meeting>> V1UserUserIdScheduledMeetingGetWithHttpInfo (int? userId);
         /// <summary>
-        /// Meeting
+        /// Cancel Meeting
         /// </summary>
         /// <remarks>
-        /// Cancel a meeting.
+        /// This endpoint deletes a scheuled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId);
+        /// <returns></returns>
+        void V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId);
 
         /// <summary>
-        /// Meeting
+        /// Cancel Meeting
         /// </summary>
         /// <remarks>
-        /// Cancel a meeting.
+        /// This endpoint deletes a scheuled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Email
         /// </summary>
         /// <remarks>
         /// This endpoint retrieves the email object for a scheduled meeting.
@@ -352,7 +375,7 @@ namespace IO.Swagger.Api
         Meeting V1UserUserIdScheduledMeetingMeetingIdEmailsGet (int? userId, int? meetingId, string type = null, string role = null, string action = null);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Email
         /// </summary>
         /// <remarks>
         /// This endpoint retrieves the email object for a scheduled meeting.
@@ -366,33 +389,33 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> V1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
         /// <summary>
-        /// Meeting
+        /// Get Meeting
         /// </summary>
         /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
+        /// This endpoint gets the settings for a user&#39;s meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Meeting</returns>
         Meeting V1UserUserIdScheduledMeetingMeetingIdGet (int? userId, int? meetingId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting
         /// </summary>
         /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
+        /// This endpoint gets the settings for a user&#39;s meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> V1UserUserIdScheduledMeetingMeetingIdGetWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
-        /// Meeting
+        /// Update Meeting
         /// </summary>
         /// <remarks>
-        /// Update a meeting.
+        /// This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -402,10 +425,10 @@ namespace IO.Swagger.Api
         Meeting V1UserUserIdScheduledMeetingMeetingIdPut (int? userId, int? meetingId, Meeting meeting);
 
         /// <summary>
-        /// Meeting
+        /// Update Meeting
         /// </summary>
         /// <remarks>
-        /// Update a meeting.
+        /// This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -414,10 +437,10 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> V1UserUserIdScheduledMeetingMeetingIdPutWithHttpInfo (int? userId, int? meetingId, Meeting meeting);
         /// <summary>
-        /// Meeting
+        /// Create Meeting
         /// </summary>
         /// <remarks>
-        /// Create a meeting.
+        /// This endpoint will create a scheduled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -427,10 +450,10 @@ namespace IO.Swagger.Api
         Meeting V1UserUserIdScheduledMeetingPost (int? userId, Meeting meeting, bool? email = null);
 
         /// <summary>
-        /// Meeting
+        /// Create Meeting
         /// </summary>
         /// <remarks>
-        /// Create a meeting.
+        /// This endpoint will create a scheduled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -450,8 +473,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Task of Endpoint</returns>
+        System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Information
@@ -463,10 +486,10 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
         /// <summary>
-        /// Get Current Endpoint Layout
+        /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -475,11 +498,11 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsync (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Task of Layout</returns>
+        System.Threading.Tasks.Task<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsync (int? userId, int? meetingId, string endpointGuid);
 
         /// <summary>
-        /// Get Current Endpoint Layout
+        /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -488,8 +511,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <returns>Task of ApiResponse (Layout)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Layout>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -502,8 +525,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <returns>Task of Layout</returns>
+        System.Threading.Tasks.Task<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -517,8 +540,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <returns>Task of ApiResponse (Layout)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Layout>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Endpoint Video/Audio State
         /// </summary>
@@ -532,8 +555,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>Task of Endpoint</returns>
+        System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -548,8 +571,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// List Meeting Endpoints
         /// </summary>
@@ -559,8 +582,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId);
+        /// <returns>Task of Endpoints</returns>
+        System.Threading.Tasks.Task<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId);
 
         /// <summary>
         /// List Meeting Endpoints
@@ -571,8 +594,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>Task of ApiResponse (Endpoints)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Endpoints>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -609,8 +632,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId);
+        /// <returns>Task of MeetingState</returns>
+        System.Threading.Tasks.Task<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId);
 
         /// <summary>
         /// Get Meeting State
@@ -621,8 +644,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>Task of ApiResponse (MeetingState)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingState>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
         /// Send Email Invite
         /// </summary>
@@ -697,7 +720,30 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Numbers</returns>
+        System.Threading.Tasks.Task<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetAsync (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Numbers)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Numbers>> V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -708,7 +754,7 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<List<Meeting>> V1UserUserIdScheduledMeetingGetAsync (int? userId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -718,30 +764,30 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (List&lt;Meeting&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> V1UserUserIdScheduledMeetingGetAsyncWithHttpInfo (int? userId);
         /// <summary>
-        /// Meeting
+        /// Cancel Meeting
         /// </summary>
         /// <remarks>
-        /// Cancel a meeting.
+        /// This endpoint deletes a scheuled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdDeleteAsync (int? userId, int? meetingId);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task V1UserUserIdScheduledMeetingMeetingIdDeleteAsync (int? userId, int? meetingId);
 
         /// <summary>
-        /// Meeting
+        /// Cancel Meeting
         /// </summary>
         /// <remarks>
-        /// Cancel a meeting.
+        /// This endpoint deletes a scheuled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Email
         /// </summary>
         /// <remarks>
         /// This endpoint retrieves the email object for a scheduled meeting.
@@ -756,7 +802,7 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsync (int? userId, int? meetingId, string type = null, string role = null, string action = null);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Email
         /// </summary>
         /// <remarks>
         /// This endpoint retrieves the email object for a scheduled meeting.
@@ -770,33 +816,33 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsyncWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
         /// <summary>
-        /// Meeting
+        /// Get Meeting
         /// </summary>
         /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
+        /// This endpoint gets the settings for a user&#39;s meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Task of Meeting</returns>
         System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdGetAsync (int? userId, int? meetingId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting
         /// </summary>
         /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
+        /// This endpoint gets the settings for a user&#39;s meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
-        /// Meeting
+        /// Update Meeting
         /// </summary>
         /// <remarks>
-        /// Update a meeting.
+        /// This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -806,10 +852,10 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdPutAsync (int? userId, int? meetingId, Meeting meeting);
 
         /// <summary>
-        /// Meeting
+        /// Update Meeting
         /// </summary>
         /// <remarks>
-        /// Update a meeting.
+        /// This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -818,10 +864,10 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, Meeting meeting);
         /// <summary>
-        /// Meeting
+        /// Create Meeting
         /// </summary>
         /// <remarks>
-        /// Create a meeting.
+        /// This endpoint will create a scheduled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -831,10 +877,10 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingPostAsync (int? userId, Meeting meeting, bool? email = null);
 
         /// <summary>
-        /// Meeting
+        /// Create Meeting
         /// </summary>
         /// <remarks>
-        /// Create a meeting.
+        /// This endpoint will create a scheduled meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -961,10 +1007,10 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Endpoint</returns>
+        public Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Endpoint> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo(userId, meetingId, endpointGuid);
              return localVarResponse.Data;
         }
 
@@ -975,8 +1021,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>ApiResponse of Endpoint</returns>
+        public ApiResponse< Endpoint > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1036,9 +1082,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoint>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
             
         }
 
@@ -1049,10 +1095,10 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Task of Endpoint</returns>
+        public async System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Endpoint> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo(userId, meetingId, endpointGuid);
              return localVarResponse.Data;
 
         }
@@ -1064,8 +1110,8 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1124,35 +1170,35 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoint>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
             
         }
 
         /// <summary>
-        /// Get Current Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+        /// Get Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Layout</returns>
+        public Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Layout> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo(userId, meetingId, endpointGuid);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Current Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+        /// Get Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>ApiResponse of Layout</returns>
+        public ApiResponse< Layout > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1212,36 +1258,36 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Layout>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Layout) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
             
         }
 
         /// <summary>
-        /// Get Current Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+        /// Get Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsync (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Task of Layout</returns>
+        public async System.Threading.Tasks.Task<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsync (int? userId, int? meetingId, string endpointGuid)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Layout> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo(userId, meetingId, endpointGuid);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get Current Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+        /// Get Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        /// <returns>Task of ApiResponse (Layout)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Layout>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1300,9 +1346,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Layout>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Layout) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
             
         }
 
@@ -1315,10 +1361,10 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <returns>Layout</returns>
+        public Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
+             ApiResponse<Layout> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
              return localVarResponse.Data;
         }
 
@@ -1331,8 +1377,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <returns>ApiResponse of Layout</returns>
+        public ApiResponse< Layout > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1394,9 +1440,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Layout>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Layout) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
             
         }
 
@@ -1409,10 +1455,10 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <returns>Task of Layout</returns>
+        public async System.Threading.Tasks.Task<Layout> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
+             ApiResponse<Layout> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
              return localVarResponse.Data;
 
         }
@@ -1426,8 +1472,8 @@ namespace IO.Swagger.Api
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <returns>Task of ApiResponse (Layout)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Layout>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1488,9 +1534,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Layout>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Layout) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
             
         }
 
@@ -1504,10 +1550,10 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>Endpoint</returns>
+        public Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
         }
 
@@ -1521,8 +1567,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>ApiResponse of Endpoint</returns>
+        public ApiResponse< Endpoint > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1585,9 +1631,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoint>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
             
         }
 
@@ -1601,10 +1647,10 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>Task of Endpoint</returns>
+        public async System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
 
         }
@@ -1619,8 +1665,8 @@ namespace IO.Swagger.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1682,9 +1728,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoint>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
             
         }
 
@@ -1694,10 +1740,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId)
+        /// <returns>Endpoints</returns>
+        public Endpoints V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo(userId, meetingId);
+             ApiResponse<Endpoints> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo(userId, meetingId);
              return localVarResponse.Data;
         }
 
@@ -1707,8 +1753,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>ApiResponse of Endpoints</returns>
+        public ApiResponse< Endpoints > V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1764,9 +1810,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoints>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
             
         }
 
@@ -1776,10 +1822,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId)
+        /// <returns>Task of Endpoints</returns>
+        public async System.Threading.Tasks.Task<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo(userId, meetingId);
+             ApiResponse<Endpoints> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo(userId, meetingId);
              return localVarResponse.Data;
 
         }
@@ -1790,8 +1836,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>Task of ApiResponse (Endpoints)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoints>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1846,9 +1892,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<Endpoints>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
             
         }
 
@@ -2032,10 +2078,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId)
+        /// <returns>MeetingState</returns>
+        public MeetingState V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo(userId, meetingId);
+             ApiResponse<MeetingState> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo(userId, meetingId);
              return localVarResponse.Data;
         }
 
@@ -2045,8 +2091,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>ApiResponse of MeetingState</returns>
+        public ApiResponse< MeetingState > V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2102,9 +2148,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingState>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
             
         }
 
@@ -2114,10 +2160,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId)
+        /// <returns>Task of MeetingState</returns>
+        public async System.Threading.Tasks.Task<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo(userId, meetingId);
+             ApiResponse<MeetingState> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo(userId, meetingId);
              return localVarResponse.Data;
 
         }
@@ -2128,8 +2174,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>Task of ApiResponse (MeetingState)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingState>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2184,9 +2230,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingState>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
             
         }
 
@@ -2715,7 +2761,171 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Numbers</returns>
+        public Numbers V1UserUserIdMeetingsMeetingIdNumbersGet (int? userId, int? meetingId)
+        {
+             ApiResponse<Numbers> localVarResponse = V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Numbers</returns>
+        public ApiResponse< Numbers > V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
+
+            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("V1UserUserIdMeetingsMeetingIdNumbersGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Numbers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Numbers</returns>
+        public async System.Threading.Tasks.Task<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetAsync (int? userId, int? meetingId)
+        {
+             ApiResponse<Numbers> localVarResponse = await V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Numbers)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Numbers>> V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
+
+            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("V1UserUserIdMeetingsMeetingIdNumbersGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Numbers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -2727,7 +2937,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -2791,7 +3001,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -2804,7 +3014,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -2867,26 +3077,25 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Cancel a meeting.
+        /// Cancel Meeting This endpoint deletes a scheuled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId)
+        /// <returns></returns>
+        public void V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
+             V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo(userId, meetingId);
         }
 
         /// <summary>
-        /// Meeting Cancel a meeting.
+        /// Cancel Meeting This endpoint deletes a scheuled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> V1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2942,34 +3151,33 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
-        /// Meeting Cancel a meeting.
+        /// Cancel Meeting This endpoint deletes a scheuled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdDeleteAsync (int? userId, int? meetingId)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task V1UserUserIdScheduledMeetingMeetingIdDeleteAsync (int? userId, int? meetingId)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
+             await V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo(userId, meetingId);
 
         }
 
         /// <summary>
-        /// Meeting Cancel a meeting.
+        /// Cancel Meeting This endpoint deletes a scheuled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo (int? userId, int? meetingId)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdScheduledMeetingMeetingIdDeleteAsyncWithHttpInfo (int? userId, int? meetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3024,14 +3232,14 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
-        /// Meeting This endpoint retrieves the email object for a scheduled meeting.
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3047,7 +3255,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint retrieves the email object for a scheduled meeting.
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3122,7 +3330,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint retrieves the email object for a scheduled meeting.
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3139,7 +3347,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint retrieves the email object for a scheduled meeting.
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3213,11 +3421,11 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting This endpoint gets the settings for a user&#39;s meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Meeting</returns>
         public Meeting V1UserUserIdScheduledMeetingMeetingIdGet (int? userId, int? meetingId)
         {
@@ -3226,11 +3434,11 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting This endpoint gets the settings for a user&#39;s meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>ApiResponse of Meeting</returns>
         public ApiResponse< Meeting > V1UserUserIdScheduledMeetingMeetingIdGetWithHttpInfo (int? userId, int? meetingId)
         {
@@ -3295,11 +3503,11 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting This endpoint gets the settings for a user&#39;s meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Task of Meeting</returns>
         public async System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdGetAsync (int? userId, int? meetingId)
         {
@@ -3309,11 +3517,11 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting This endpoint gets the settings for a user&#39;s meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId)
         {
@@ -3377,7 +3585,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Update a meeting.
+        /// Update Meeting This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3391,7 +3599,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Update a meeting.
+        /// Update Meeting This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3472,7 +3680,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Update a meeting.
+        /// Update Meeting This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3487,7 +3695,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Update a meeting.
+        /// Update Meeting This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3567,7 +3775,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Create a meeting.
+        /// Create Meeting This endpoint will create a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3581,7 +3789,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Create a meeting.
+        /// Create Meeting This endpoint will create a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3659,7 +3867,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Create a meeting.
+        /// Create Meeting This endpoint will create a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3674,7 +3882,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting Create a meeting.
+        /// Create Meeting This endpoint will create a scheduled meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>

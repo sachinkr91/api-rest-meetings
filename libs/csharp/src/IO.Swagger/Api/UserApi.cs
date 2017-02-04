@@ -146,7 +146,7 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Room</returns>
         ApiResponse<Room> V1UserUserIdRoomPutWithHttpInfo (int? userId, Room room);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -157,7 +157,7 @@ namespace IO.Swagger.Api
         List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -278,7 +278,7 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Room)</returns>
         System.Threading.Tasks.Task<ApiResponse<Room>> V1UserUserIdRoomPutAsyncWithHttpInfo (int? userId, Room room);
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -289,7 +289,7 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<List<Meeting>> V1UserUserIdScheduledMeetingGetAsync (int? userId);
 
         /// <summary>
-        /// Meeting
+        /// Get Meeting Settings
         /// </summary>
         /// <remarks>
         /// This endpoint gets a user’s default meeting settings.
@@ -1223,7 +1223,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -1235,7 +1235,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -1299,7 +1299,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -1312,7 +1312,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Meeting This endpoint gets a user’s default meeting settings.
+        /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>

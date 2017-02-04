@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**v1UserUserIdPut**](UserApi.md#v1UserUserIdPut) | **PUT** /v1/user/{user_id} | Update User Account Details
 [**v1UserUserIdRoomGet**](UserApi.md#v1UserUserIdRoomGet) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**v1UserUserIdRoomPut**](UserApi.md#v1UserUserIdRoomPut) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
-[**v1UserUserIdScheduledMeetingGet**](UserApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1UserUserIdScheduledMeetingGet**](UserApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 
 
 <a name="v1UserUserIdEnterpriseProfileGet"></a>
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingGet**
 > [Meeting] v1UserUserIdScheduledMeetingGet(userId)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 

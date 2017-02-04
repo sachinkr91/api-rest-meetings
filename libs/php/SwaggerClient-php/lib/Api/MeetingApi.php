@@ -110,7 +110,7 @@ class MeetingApi
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Endpoint
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet($user_id, $meeting_id, $endpoint_guid)
@@ -127,7 +127,7 @@ class MeetingApi
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Endpoint, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo($user_id, $meeting_id, $endpoint_guid)
@@ -203,15 +203,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Endpoint',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoint', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoint', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -227,12 +227,12 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet
      *
-     * Get Current Endpoint Layout
+     * Get Endpoint Layout
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Layout
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet($user_id, $meeting_id, $endpoint_guid)
@@ -244,12 +244,12 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo
      *
-     * Get Current Endpoint Layout
+     * Get Endpoint Layout
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Layout, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetWithHttpInfo($user_id, $meeting_id, $endpoint_guid)
@@ -325,15 +325,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Layout',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Layout', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Layout', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -356,7 +356,7 @@ class MeetingApi
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param bool $is_leader  (optional)
      * @param bool $push  (optional)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Layout
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut($user_id, $meeting_id, $endpoint_guid, $is_leader = null, $push = null)
@@ -375,7 +375,7 @@ class MeetingApi
      * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
      * @param bool $is_leader  (optional)
      * @param bool $push  (optional)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Layout, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $is_leader = null, $push = null)
@@ -459,15 +459,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Layout',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Layout', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Layout', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -491,7 +491,7 @@ class MeetingApi
      * @param bool $mute_audio Toggle the audio source mute. (optional)
      * @param bool $mute_video Toggle the video source mute. (optional)
      * @param bool $leave_meeting Remove the user from the meeting. (optional)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Endpoint
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
@@ -511,7 +511,7 @@ class MeetingApi
      * @param bool $mute_audio Toggle the audio source mute. (optional)
      * @param bool $mute_video Toggle the video source mute. (optional)
      * @param bool $leave_meeting Remove the user from the meeting. (optional)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Endpoint, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
@@ -599,15 +599,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Endpoint',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoint', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoint', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -627,7 +627,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\Endpoints
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsGet($user_id, $meeting_id)
@@ -643,7 +643,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\Endpoints, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo($user_id, $meeting_id)
@@ -707,15 +707,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\Endpoints',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoints', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoints', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -855,7 +855,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\MeetingState
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdGet($user_id, $meeting_id)
@@ -871,7 +871,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\MeetingState, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo($user_id, $meeting_id)
@@ -935,15 +935,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\MeetingState',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingState', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingState', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1298,9 +1298,117 @@ class MeetingApi
     }
 
     /**
+     * Operation v1UserUserIdMeetingsMeetingIdNumbersGet
+     *
+     * Get Meeting Join Info
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return \Swagger\Client\Model\Numbers
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdMeetingsMeetingIdNumbersGet($user_id, $meeting_id)
+    {
+        list($response) = $this->v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo($user_id, $meeting_id);
+        return $response;
+    }
+
+    /**
+     * Operation v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo
+     *
+     * Get Meeting Join Info
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return Array of \Swagger\Client\Model\Numbers, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo($user_id, $meeting_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingsMeetingIdNumbersGet');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdMeetingsMeetingIdNumbersGet');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Numbers',
+                '/v1/user/{user_id}/meetings/{meeting_id}/numbers'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Numbers', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Numbers', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation v1UserUserIdScheduledMeetingGet
      *
-     * Meeting
+     * Get Meeting Settings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return \Swagger\Client\Model\Meeting[]
@@ -1315,7 +1423,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingGetWithHttpInfo
      *
-     * Meeting
+     * Get Meeting Settings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)
@@ -1394,11 +1502,11 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdDelete
      *
-     * Meeting
+     * Cancel Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdScheduledMeetingMeetingIdDelete($user_id, $meeting_id)
@@ -1410,11 +1518,11 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo
      *
-     * Meeting
+     * Cancel Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdScheduledMeetingMeetingIdDeleteWithHttpInfo($user_id, $meeting_id)
@@ -1478,17 +1586,13 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                null,
                 '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -1502,7 +1606,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdEmailsGet
      *
-     * Meeting
+     * Get Meeting Email
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1521,7 +1625,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo
      *
-     * Meeting
+     * Get Meeting Email
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1628,10 +1732,10 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdGet
      *
-     * Meeting
+     * Get Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. (required)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -1644,10 +1748,10 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdGetWithHttpInfo
      *
-     * Meeting
+     * Get Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. (required)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -1736,7 +1840,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdPut
      *
-     * Meeting
+     * Update Meeting
      *
      * @param int $user_id The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1753,7 +1857,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingMeetingIdPutWithHttpInfo
      *
-     * Meeting
+     * Update Meeting
      *
      * @param int $user_id The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1855,7 +1959,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingPost
      *
-     * Meeting
+     * Create Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param \Swagger\Client\Model\Meeting $meeting The user&#39;s room details that you wish to update. (required)
@@ -1872,7 +1976,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdScheduledMeetingPostWithHttpInfo
      *
-     * Meeting
+     * Create Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param \Swagger\Client\Model\Meeting $meeting The user&#39;s room details that you wish to update. (required)
@@ -1949,7 +2053,7 @@ class MeetingApi
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;

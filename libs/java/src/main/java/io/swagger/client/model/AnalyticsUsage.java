@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * AnalyticsUsage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-01-30T17:01:28.744-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-03T17:42:01.176-07:00")
 public class AnalyticsUsage   {
   @SerializedName("usage")
   private List<AnalyticsUsageUsage> usage = new ArrayList<AnalyticsUsageUsage>();

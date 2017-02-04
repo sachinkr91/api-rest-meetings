@@ -5,7 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Current Endpoint Layout
+[**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
@@ -14,17 +14,18 @@ Method | HTTP request | Description
 [**V1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidinvitepost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**V1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodesippost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
 [**V1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-[**V1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
-[**V1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1useruseridscheduledmeetingmeetingiddelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**V1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidemailsget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Meeting
-[**V1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**V1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidput) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**V1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1useruseridscheduledmeetingpost) | **POST** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**V1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1useruseridmeetingsmeetingidnumbersget) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
+[**V1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**V1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1useruseridscheduledmeetingmeetingiddelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
+[**V1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidemailsget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**V1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**V1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidput) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
+[**V1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1useruseridscheduledmeetingpost) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
 
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidget"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid)
+> Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid)
 
 Get Endpoint Information
 
@@ -58,7 +59,7 @@ namespace Example
             try
             {
                 // Get Endpoint Information
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid);
+                Endpoint result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -80,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -95,9 +96,9 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutget"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid)
+> Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid)
 
-Get Current Endpoint Layout
+Get Endpoint Layout
 
 This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
@@ -128,8 +129,8 @@ namespace Example
 
             try
             {
-                // Get Current Endpoint Layout
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid);
+                // Get Endpoint Layout
+                Layout result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -151,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -166,7 +167,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutput"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+> Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
 
 Update Endpoint Layout
 
@@ -202,7 +203,7 @@ namespace Example
             try
             {
                 // Update Endpoint Layout
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, isLeader, push);
+                Layout result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, isLeader, push);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -226,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -241,7 +242,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidput"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+> Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
 
 Update Endpoint Video/Audio State
 
@@ -278,7 +279,7 @@ namespace Example
             try
             {
                 // Update Endpoint Video/Audio State
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+                Endpoint result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -303,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -318,7 +319,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsget"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsGet**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId)
+> Endpoints V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId)
 
 List Meeting Endpoints
 
@@ -351,7 +352,7 @@ namespace Example
             try
             {
                 // List Meeting Endpoints
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId);
+                Endpoints result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -372,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoints**](Endpoints.md)
 
 ### Authorization
 
@@ -459,7 +460,7 @@ void (empty response body)
 
 <a name="v1useruseridlivemeetingsmeetingidget"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdGet**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId)
+> MeetingState V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId)
 
 Get Meeting State
 
@@ -492,7 +493,7 @@ namespace Example
             try
             {
                 // Get Meeting State
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId);
+                MeetingState result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -513,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingState**](MeetingState.md)
 
 ### Authorization
 
@@ -737,11 +738,80 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="v1useruseridmeetingsmeetingidnumbersget"></a>
+# **V1UserUserIdMeetingsMeetingIdNumbersGet**
+> Numbers V1UserUserIdMeetingsMeetingIdNumbersGet (int? userId, int? meetingId)
+
+Get Meeting Join Info
+
+This endpoint retrieves the join information for a scheduled meeting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class V1UserUserIdMeetingsMeetingIdNumbersGetExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+            try
+            {
+                // Get Meeting Join Info
+                Numbers result = apiInstance.V1UserUserIdMeetingsMeetingIdNumbersGet(userId, meetingId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.V1UserUserIdMeetingsMeetingIdNumbersGet: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+
+### Return type
+
+[**Numbers**](Numbers.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="v1useruseridscheduledmeetingget"></a>
 # **V1UserUserIdScheduledMeetingGet**
 > List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -770,7 +840,7 @@ namespace Example
 
             try
             {
-                // Meeting
+                // Get Meeting Settings
                 List&lt;Meeting&gt; result = apiInstance.V1UserUserIdScheduledMeetingGet(userId);
                 Debug.WriteLine(result);
             }
@@ -806,11 +876,11 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridscheduledmeetingmeetingiddelete"></a>
 # **V1UserUserIdScheduledMeetingMeetingIdDelete**
-> Meeting V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId)
+> void V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId)
 
-Meeting
+Cancel Meeting
 
-Cancel a meeting.
+This endpoint deletes a scheuled meeting.
 
 ### Example
 ```csharp
@@ -838,9 +908,8 @@ namespace Example
 
             try
             {
-                // Meeting
-                Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId);
-                Debug.WriteLine(result);
+                // Cancel Meeting
+                apiInstance.V1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId);
             }
             catch (Exception e)
             {
@@ -860,7 +929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+void (empty response body)
 
 ### Authorization
 
@@ -877,7 +946,7 @@ Name | Type | Description  | Notes
 # **V1UserUserIdScheduledMeetingMeetingIdEmailsGet**
 > Meeting V1UserUserIdScheduledMeetingMeetingIdEmailsGet (int? userId, int? meetingId, string type = null, string role = null, string action = null)
 
-Meeting
+Get Meeting Email
 
 This endpoint retrieves the email object for a scheduled meeting.
 
@@ -910,7 +979,7 @@ namespace Example
 
             try
             {
-                // Meeting
+                // Get Meeting Email
                 Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdEmailsGet(userId, meetingId, type, role, action);
                 Debug.WriteLine(result);
             }
@@ -952,9 +1021,9 @@ Name | Type | Description  | Notes
 # **V1UserUserIdScheduledMeetingMeetingIdGet**
 > Meeting V1UserUserIdScheduledMeetingMeetingIdGet (int? userId, int? meetingId)
 
-Meeting
+Get Meeting
 
-This endpoint gets a user’s default meeting settings.
+This endpoint gets the settings for a user's meeting.
 
 ### Example
 ```csharp
@@ -978,11 +1047,11 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
             try
             {
-                // Meeting
+                // Get Meeting
                 Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdGet(userId, meetingId);
                 Debug.WriteLine(result);
             }
@@ -1000,7 +1069,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. | 
 
 ### Return type
 
@@ -1021,9 +1090,9 @@ Name | Type | Description  | Notes
 # **V1UserUserIdScheduledMeetingMeetingIdPut**
 > Meeting V1UserUserIdScheduledMeetingMeetingIdPut (int? userId, int? meetingId, Meeting meeting)
 
-Meeting
+Update Meeting
 
-Update a meeting.
+This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
 ### Example
 ```csharp
@@ -1052,7 +1121,7 @@ namespace Example
 
             try
             {
-                // Meeting
+                // Update Meeting
                 Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdPut(userId, meetingId, meeting);
                 Debug.WriteLine(result);
             }
@@ -1092,9 +1161,9 @@ Name | Type | Description  | Notes
 # **V1UserUserIdScheduledMeetingPost**
 > Meeting V1UserUserIdScheduledMeetingPost (int? userId, Meeting meeting, bool? email = null)
 
-Meeting
+Create Meeting
 
-Create a meeting.
+This endpoint will create a scheduled meeting.
 
 ### Example
 ```csharp
@@ -1123,7 +1192,7 @@ namespace Example
 
             try
             {
-                // Meeting
+                // Create Meeting
                 Meeting result = apiInstance.V1UserUserIdScheduledMeetingPost(userId, meeting, email);
                 Debug.WriteLine(result);
             }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**v1_user_user_id_put**](UserApi.md#v1_user_user_id_put) | **PUT** /v1/user/{user_id} | Update User Account Details
 [**v1_user_user_id_room_get**](UserApi.md#v1_user_user_id_room_get) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**v1_user_user_id_room_put**](UserApi.md#v1_user_user_id_room_put) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
-[**v1_user_user_id_scheduled_meeting_get**](UserApi.md#v1_user_user_id_scheduled_meeting_get) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1_user_user_id_scheduled_meeting_get**](UserApi.md#v1_user_user_id_scheduled_meeting_get) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 
 
 # **v1_user_user_id_enterprise_profile_get**
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_scheduled_meeting_get**
 > list[Meeting] v1_user_user_id_scheduled_meeting_get(user_id)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -300,7 +300,7 @@ api_instance = swagger_client.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
-    # Meeting
+    # Get Meeting Settings
     api_response = api_instance.v1_user_user_id_scheduled_meeting_get(user_id)
     pprint(api_response)
 except ApiException as e:

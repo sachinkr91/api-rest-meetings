@@ -597,7 +597,7 @@ class UserApi
     /**
      * Operation v1UserUserIdScheduledMeetingGet
      *
-     * Meeting
+     * Get Meeting Settings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return \Swagger\Client\Model\Meeting[]
@@ -612,7 +612,7 @@ class UserApi
     /**
      * Operation v1UserUserIdScheduledMeetingGetWithHttpInfo
      *
-     * Meeting
+     * Get Meeting Settings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)

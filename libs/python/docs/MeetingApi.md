@@ -5,7 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Current Endpoint Layout
+[**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
@@ -14,16 +14,17 @@ Method | HTTP request | Description
 [**v1_user_user_id_live_meetings_meeting_id_invite_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_invite_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
 [**v1_user_user_id_live_meetings_meeting_id_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-[**v1_user_user_id_scheduled_meeting_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_get) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
-[**v1_user_user_id_scheduled_meeting_meeting_id_delete**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_delete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1_user_user_id_scheduled_meeting_meeting_id_emails_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_emails_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Meeting
-[**v1_user_user_id_scheduled_meeting_meeting_id_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1_user_user_id_scheduled_meeting_meeting_id_put**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_put) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1_user_user_id_scheduled_meeting_post**](MeetingApi.md#v1_user_user_id_scheduled_meeting_post) | **POST** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1_user_user_id_meetings_meeting_id_numbers_get**](MeetingApi.md#v1_user_user_id_meetings_meeting_id_numbers_get) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
+[**v1_user_user_id_scheduled_meeting_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_get) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**v1_user_user_id_scheduled_meeting_meeting_id_delete**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_delete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
+[**v1_user_user_id_scheduled_meeting_meeting_id_emails_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_emails_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**v1_user_user_id_scheduled_meeting_meeting_id_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**v1_user_user_id_scheduled_meeting_meeting_id_put**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_put) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
+[**v1_user_user_id_scheduled_meeting_post**](MeetingApi.md#v1_user_user_id_scheduled_meeting_post) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
 
 
 # **v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get**
-> Meeting v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get(user_id, meeting_id, endpoint_guid)
+> Endpoint v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get(user_id, meeting_id, endpoint_guid)
 
 Get Endpoint Information
 
@@ -65,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -79,9 +80,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get**
-> Meeting v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(user_id, meeting_id, endpoint_guid)
+> Layout v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(user_id, meeting_id, endpoint_guid)
 
-Get Current Endpoint Layout
+Get Endpoint Layout
 
 This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
@@ -104,7 +105,7 @@ meeting_id = 56 # int | The ID of the meeting you want to view. This is an integ
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
 try: 
-    # Get Current Endpoint Layout
+    # Get Endpoint Layout
     api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(user_id, meeting_id, endpoint_guid)
     pprint(api_response)
 except ApiException as e:
@@ -121,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -135,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put**
-> Meeting v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put(user_id, meeting_id, endpoint_guid, is_leader=is_leader, push=push)
+> Layout v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put(user_id, meeting_id, endpoint_guid, is_leader=is_leader, push=push)
 
 Update Endpoint Layout
 
@@ -181,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -195,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put**
-> Meeting v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put(user_id, meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
+> Endpoint v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put(user_id, meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -243,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -257,7 +258,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_endpoints_get**
-> Meeting v1_user_user_id_live_meetings_meeting_id_endpoints_get(user_id, meeting_id)
+> Endpoints v1_user_user_id_live_meetings_meeting_id_endpoints_get(user_id, meeting_id)
 
 List Meeting Endpoints
 
@@ -297,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoints**](Endpoints.md)
 
 ### Authorization
 
@@ -368,7 +369,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_get**
-> Meeting v1_user_user_id_live_meetings_meeting_id_get(user_id, meeting_id)
+> MeetingState v1_user_user_id_live_meetings_meeting_id_get(user_id, meeting_id)
 
 Get Meeting State
 
@@ -408,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingState**](MeetingState.md)
 
 ### Authorization
 
@@ -587,10 +588,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_user_user_id_meetings_meeting_id_numbers_get**
+> Numbers v1_user_user_id_meetings_meeting_id_numbers_get(user_id, meeting_id)
+
+Get Meeting Join Info
+
+This endpoint retrieves the join information for a scheduled meeting.
+
+### Example 
+```python
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.MeetingApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+try: 
+    # Get Meeting Join Info
+    api_response = api_instance.v1_user_user_id_meetings_meeting_id_numbers_get(user_id, meeting_id)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling MeetingApi->v1_user_user_id_meetings_meeting_id_numbers_get: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+
+### Return type
+
+[**Numbers**](Numbers.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_user_user_id_scheduled_meeting_get**
 > list[Meeting] v1_user_user_id_scheduled_meeting_get(user_id)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -611,7 +666,7 @@ api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
-    # Meeting
+    # Get Meeting Settings
     api_response = api_instance.v1_user_user_id_scheduled_meeting_get(user_id)
     pprint(api_response)
 except ApiException as e:
@@ -640,11 +695,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_scheduled_meeting_meeting_id_delete**
-> Meeting v1_user_user_id_scheduled_meeting_meeting_id_delete(user_id, meeting_id)
+> v1_user_user_id_scheduled_meeting_meeting_id_delete(user_id, meeting_id)
 
-Meeting
+Cancel Meeting
 
-Cancel a meeting.
+This endpoint deletes a scheuled meeting.
 
 ### Example 
 ```python
@@ -664,9 +719,8 @@ user_id = 56 # int | The ID of the user of interest. This value is an integer wh
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
 try: 
-    # Meeting
-    api_response = api_instance.v1_user_user_id_scheduled_meeting_meeting_id_delete(user_id, meeting_id)
-    pprint(api_response)
+    # Cancel Meeting
+    api_instance.v1_user_user_id_scheduled_meeting_meeting_id_delete(user_id, meeting_id)
 except ApiException as e:
     print "Exception when calling MeetingApi->v1_user_user_id_scheduled_meeting_meeting_id_delete: %s\n" % e
 ```
@@ -680,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+void (empty response body)
 
 ### Authorization
 
@@ -696,7 +750,7 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_scheduled_meeting_meeting_id_emails_get**
 > Meeting v1_user_user_id_scheduled_meeting_meeting_id_emails_get(user_id, meeting_id, type=type, role=role, action=action)
 
-Meeting
+Get Meeting Email
 
 This endpoint retrieves the email object for a scheduled meeting.
 
@@ -721,7 +775,7 @@ role = 'role_example' # str | moderator, participant (optional)
 action = 'action_example' # str | create, edit, delete (optional)
 
 try: 
-    # Meeting
+    # Get Meeting Email
     api_response = api_instance.v1_user_user_id_scheduled_meeting_meeting_id_emails_get(user_id, meeting_id, type=type, role=role, action=action)
     pprint(api_response)
 except ApiException as e:
@@ -756,9 +810,9 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_scheduled_meeting_meeting_id_get**
 > Meeting v1_user_user_id_scheduled_meeting_meeting_id_get(user_id, meeting_id)
 
-Meeting
+Get Meeting
 
-This endpoint gets a user’s default meeting settings.
+This endpoint gets the settings for a user's meeting.
 
 ### Example 
 ```python
@@ -775,10 +829,10 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
 try: 
-    # Meeting
+    # Get Meeting
     api_response = api_instance.v1_user_user_id_scheduled_meeting_meeting_id_get(user_id, meeting_id)
     pprint(api_response)
 except ApiException as e:
@@ -790,7 +844,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. | 
 
 ### Return type
 
@@ -810,9 +864,9 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_scheduled_meeting_meeting_id_put**
 > Meeting v1_user_user_id_scheduled_meeting_meeting_id_put(user_id, meeting_id, meeting)
 
-Meeting
+Update Meeting
 
-Update a meeting.
+This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
 ### Example 
 ```python
@@ -833,7 +887,7 @@ meeting_id = 56 # int | The ID of the meeting you want to view. This is an integ
 meeting = swagger_client.Meeting() # Meeting | The user's room details that you wish to update.
 
 try: 
-    # Meeting
+    # Update Meeting
     api_response = api_instance.v1_user_user_id_scheduled_meeting_meeting_id_put(user_id, meeting_id, meeting)
     pprint(api_response)
 except ApiException as e:
@@ -866,9 +920,9 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_scheduled_meeting_post**
 > Meeting v1_user_user_id_scheduled_meeting_post(user_id, meeting, email=email)
 
-Meeting
+Create Meeting
 
-Create a meeting.
+This endpoint will create a scheduled meeting.
 
 ### Example 
 ```python
@@ -889,7 +943,7 @@ meeting = swagger_client.Meeting() # Meeting | The user's room details that you 
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
 try: 
-    # Meeting
+    # Create Meeting
     api_response = api_instance.v1_user_user_id_scheduled_meeting_post(user_id, meeting, email=email)
     pprint(api_response)
 except ApiException as e:

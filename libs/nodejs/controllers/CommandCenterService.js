@@ -15,9 +15,21 @@ exports.v1EnterpriseEnterprise_idIndigoMeetingsGET = function(args, res, next) {
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -41,9 +53,21 @@ exports.v1EnterpriseEnterprise_idIndigoMeetingsLiveGET = function(args, res, nex
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -68,9 +92,21 @@ exports.v1EnterpriseEnterprise_idIndigoMeetingsLiveMeeting_guidEndpointsGET = fu
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -95,9 +131,21 @@ exports.v1EnterpriseEnterprise_idIndigoMeetingsMeeting_guidGET = function(args, 
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -121,9 +169,21 @@ exports.v1UserUser_idIndigoMeetingsGET = function(args, res, next) {
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -148,9 +208,21 @@ exports.v1UserUser_idIndigoMeetingsMeeting_guidGET = function(args, res, next) {
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');

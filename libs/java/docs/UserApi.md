@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**v1UserUserIdPut**](UserApi.md#v1UserUserIdPut) | **PUT** /v1/user/{user_id} | Update User Account Details
 [**v1UserUserIdRoomGet**](UserApi.md#v1UserUserIdRoomGet) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**v1UserUserIdRoomPut**](UserApi.md#v1UserUserIdRoomPut) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
-[**v1UserUserIdScheduledMeetingGet**](UserApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1UserUserIdScheduledMeetingGet**](UserApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 
 
 <a name="v1UserUserIdEnterpriseProfileGet"></a>
@@ -23,11 +23,11 @@ This endpoint retrieves the enterprise profile associated with the user.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -78,11 +78,11 @@ This endpoint retrieves the basic account details for a given user.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -133,11 +133,11 @@ This endpoint allows updating a user’s basic account details.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -190,11 +190,11 @@ This endpoint gets a user’s default meeting settings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -245,11 +245,11 @@ This endpoint allows updating a user’s default meeting settings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -295,18 +295,18 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingGet**
 > List&lt;Meeting&gt; v1UserUserIdScheduledMeetingGet(userId)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.UserApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

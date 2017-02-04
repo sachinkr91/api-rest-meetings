@@ -1,6 +1,6 @@
 #!/bin/sh
 
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api --api-package com.bluejeans.api.rest
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api --api-package com.bluejeans.api.rest.onvideo
 
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l nodejs-server -o ../libs/nodejs
 

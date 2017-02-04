@@ -5,7 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Current Endpoint Layout
+[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
@@ -14,17 +14,18 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
 [**v1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-[**v1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdDelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdPut) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1UserUserIdScheduledMeetingPost) | **POST** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
+[**v1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**v1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdDelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
+[**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**v1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**v1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdPut) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
+[**v1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1UserUserIdScheduledMeetingPost) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
 
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid)
+> Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid)
 
 Get Endpoint Information
 
@@ -70,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -83,9 +84,9 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid)
+> Layout v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid)
 
-Get Current Endpoint Layout
+Get Endpoint Layout
 
 This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
@@ -129,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -142,7 +143,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, opts)
+> Layout v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, opts)
 
 Update Endpoint Layout
 
@@ -194,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -207,7 +208,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, opts)
+> Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, opts)
 
 Update Endpoint Video/Audio State
 
@@ -261,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoint**](Endpoint.md)
 
 ### Authorization
 
@@ -274,7 +275,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsGet"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId)
+> Endpoints v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId)
 
 List Meeting Endpoints
 
@@ -317,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**Endpoints**](Endpoints.md)
 
 ### Authorization
 
@@ -392,7 +393,7 @@ null (empty response body)
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdGet"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdGet**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId)
+> MeetingState v1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId)
 
 Get Meeting State
 
@@ -435,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingState**](MeetingState.md)
 
 ### Authorization
 
@@ -621,11 +622,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="v1UserUserIdMeetingsMeetingIdNumbersGet"></a>
+# **v1UserUserIdMeetingsMeetingIdNumbersGet**
+> Numbers v1UserUserIdMeetingsMeetingIdNumbersGet(userId, meetingId)
+
+Get Meeting Join Info
+
+This endpoint retrieves the join information for a scheduled meeting.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.v1UserUserIdMeetingsMeetingIdNumbersGet(userId, meetingId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+
+### Return type
+
+[**Numbers**](Numbers.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="v1UserUserIdScheduledMeetingGet"></a>
 # **v1UserUserIdScheduledMeetingGet**
 > [Meeting] v1UserUserIdScheduledMeetingGet(userId)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -676,11 +733,11 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdScheduledMeetingMeetingIdDelete"></a>
 # **v1UserUserIdScheduledMeetingMeetingIdDelete**
-> Meeting v1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId)
+> v1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId)
 
-Meeting
+Cancel Meeting
 
-Cancel a meeting.
+This endpoint deletes a scheuled meeting.
 
 ### Example
 ```javascript
@@ -704,7 +761,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
 apiInstance.v1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId, callback);
@@ -719,7 +776,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+null (empty response body)
 
 ### Authorization
 
@@ -734,7 +791,7 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdEmailsGet**
 > Meeting v1UserUserIdScheduledMeetingMeetingIdEmailsGet(userId, meetingId, opts)
 
-Meeting
+Get Meeting Email
 
 This endpoint retrieves the email object for a scheduled meeting.
 
@@ -798,9 +855,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdGet**
 > Meeting v1UserUserIdScheduledMeetingMeetingIdGet(userId, meetingId)
 
-Meeting
+Get Meeting
 
-This endpoint gets a user’s default meeting settings.
+This endpoint gets the settings for a user&#39;s meeting.
 
 ### Example
 ```javascript
@@ -817,7 +874,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
 
 var callback = function(error, data, response) {
@@ -835,7 +892,7 @@ apiInstance.v1UserUserIdScheduledMeetingMeetingIdGet(userId, meetingId, callback
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. | 
 
 ### Return type
 
@@ -854,9 +911,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdPut**
 > Meeting v1UserUserIdScheduledMeetingMeetingIdPut(userId, meetingId, meeting)
 
-Meeting
+Update Meeting
 
-Update a meeting.
+This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
 
 ### Example
 ```javascript
@@ -913,9 +970,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingPost**
 > Meeting v1UserUserIdScheduledMeetingPost(userId, meeting, opts)
 
-Meeting
+Create Meeting
 
-Create a meeting.
+This endpoint will create a scheduled meeting.
 
 ### Example
 ```javascript

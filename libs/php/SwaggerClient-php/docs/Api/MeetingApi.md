@@ -5,7 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Current Endpoint Layout
+[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
@@ -14,16 +14,17 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
 [**v1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-[**v1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdDelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdPut) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Meeting
-[**v1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1UserUserIdScheduledMeetingPost) | **POST** /v1/user/{user_id}/scheduled_meeting | Meeting
+[**v1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
+[**v1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1UserUserIdScheduledMeetingGet) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**v1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdDelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
+[**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**v1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**v1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdPut) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
+[**v1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1UserUserIdScheduledMeetingPost) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
 
 
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet($user_id, $meeting_id, $endpoint_guid)
+> \Swagger\Client\Model\Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet($user_id, $meeting_id, $endpoint_guid)
 
 Get Endpoint Information
 
@@ -63,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Endpoint**](../Model/Endpoint.md)
 
 ### Authorization
 
@@ -77,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet($user_id, $meeting_id, $endpoint_guid)
+> \Swagger\Client\Model\Layout v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet($user_id, $meeting_id, $endpoint_guid)
 
-Get Current Endpoint Layout
+Get Endpoint Layout
 
 This endpoint allows you to retrieve an individual endpoint’s current layout setting.
 
@@ -117,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Layout**](../Model/Layout.md)
 
 ### Authorization
 
@@ -131,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut($user_id, $meeting_id, $endpoint_guid, $is_leader, $push)
+> \Swagger\Client\Model\Layout v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut($user_id, $meeting_id, $endpoint_guid, $is_leader, $push)
 
 Update Endpoint Layout
 
@@ -175,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Layout**](../Model/Layout.md)
 
 ### Authorization
 
@@ -189,7 +190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
+> \Swagger\Client\Model\Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -235,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Endpoint**](../Model/Endpoint.md)
 
 ### Authorization
 
@@ -249,7 +250,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdEndpointsGet($user_id, $meeting_id)
+> \Swagger\Client\Model\Endpoints v1UserUserIdLiveMeetingsMeetingIdEndpointsGet($user_id, $meeting_id)
 
 List Meeting Endpoints
 
@@ -287,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Endpoints**](../Model/Endpoints.md)
 
 ### Authorization
 
@@ -356,7 +357,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdGet($user_id, $meeting_id)
+> \Swagger\Client\Model\MeetingState v1UserUserIdLiveMeetingsMeetingIdGet($user_id, $meeting_id)
 
 Get Meeting State
 
@@ -394,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\MeetingState**](../Model/MeetingState.md)
 
 ### Authorization
 
@@ -567,10 +568,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **v1UserUserIdMeetingsMeetingIdNumbersGet**
+> \Swagger\Client\Model\Numbers v1UserUserIdMeetingsMeetingIdNumbersGet($user_id, $meeting_id)
+
+Get Meeting Join Info
+
+This endpoint retrieves the join information for a scheduled meeting.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\MeetingApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+try {
+    $result = $api_instance->v1UserUserIdMeetingsMeetingIdNumbersGet($user_id, $meeting_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MeetingApi->v1UserUserIdMeetingsMeetingIdNumbersGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+[**\Swagger\Client\Model\Numbers**](../Model/Numbers.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **v1UserUserIdScheduledMeetingGet**
 > \Swagger\Client\Model\Meeting[] v1UserUserIdScheduledMeetingGet($user_id)
 
-Meeting
+Get Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
@@ -618,11 +671,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdScheduledMeetingMeetingIdDelete**
-> \Swagger\Client\Model\Meeting v1UserUserIdScheduledMeetingMeetingIdDelete($user_id, $meeting_id)
+> v1UserUserIdScheduledMeetingMeetingIdDelete($user_id, $meeting_id)
 
-Meeting
+Cancel Meeting
 
-Cancel a meeting.
+This endpoint deletes a scheuled meeting.
 
 ### Example
 ```php
@@ -639,8 +692,7 @@ $user_id = 56; // int | The ID of the user of interest. This value is an integer
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
 try {
-    $result = $api_instance->v1UserUserIdScheduledMeetingMeetingIdDelete($user_id, $meeting_id);
-    print_r($result);
+    $api_instance->v1UserUserIdScheduledMeetingMeetingIdDelete($user_id, $meeting_id);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->v1UserUserIdScheduledMeetingMeetingIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -656,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+void (empty response body)
 
 ### Authorization
 
@@ -672,7 +724,7 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdEmailsGet**
 > \Swagger\Client\Model\Meeting v1UserUserIdScheduledMeetingMeetingIdEmailsGet($user_id, $meeting_id, $type, $role, $action)
 
-Meeting
+Get Meeting Email
 
 This endpoint retrieves the email object for a scheduled meeting.
 
@@ -730,9 +782,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdGet**
 > \Swagger\Client\Model\Meeting v1UserUserIdScheduledMeetingMeetingIdGet($user_id, $meeting_id)
 
-Meeting
+Get Meeting
 
-This endpoint gets a user’s default meeting settings.
+This endpoint gets the settings for a user's meeting.
 
 ### Example
 ```php
@@ -746,7 +798,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
 try {
     $result = $api_instance->v1UserUserIdScheduledMeetingMeetingIdGet($user_id, $meeting_id);
@@ -762,7 +814,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. |
 
 ### Return type
 
@@ -782,9 +834,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingMeetingIdPut**
 > \Swagger\Client\Model\Meeting v1UserUserIdScheduledMeetingMeetingIdPut($user_id, $meeting_id, $meeting)
 
-Meeting
+Update Meeting
 
-Update a meeting.
+This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
 ### Example
 ```php
@@ -836,9 +888,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdScheduledMeetingPost**
 > \Swagger\Client\Model\Meeting v1UserUserIdScheduledMeetingPost($user_id, $meeting, $email)
 
-Meeting
+Create Meeting
 
-Create a meeting.
+This endpoint will create a scheduled meeting.
 
 ### Example
 ```php

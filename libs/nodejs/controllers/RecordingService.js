@@ -62,9 +62,21 @@ exports.v1UserUser_idLive_meetingsMeeting_idRecordingsGET = function(args, res, 
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -89,9 +101,21 @@ exports.v1UserUser_idLive_meetingsMeeting_idRecordingsactionstartPOST = function
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -116,9 +140,21 @@ exports.v1UserUser_idLive_meetingsMeeting_idRecordingsactionstopPUT = function(a
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -144,9 +180,21 @@ exports.v1UserUser_idLive_meetingsMeeting_idRecordingsmeetingGuidmeeting_guidGET
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -171,9 +219,21 @@ exports.v1UserUser_idMeeting_historyMeeting_guidRecordingsDELETE = function(args
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
@@ -199,9 +259,21 @@ exports.v1UserUser_idMeeting_historyMeeting_idRecordingsRecording_chapter_idDELE
   "timezone" : "aeiou",
   "title" : "aeiou",
   "attendeePasscode" : "aeiou",
+  "endPointVersion" : "aeiou",
   "start" : "",
   "description" : "aeiou",
-  "end" : ""
+  "advancedMeetingOptions" : {
+    "muteParticipantsOnEntry" : true,
+    "autoRecord" : true,
+    "moderatorLess" : true,
+    "showAllAttendeesInMeetingInvite" : true,
+    "videoBestFit" : true,
+    "publishMeeting" : true,
+    "disallowChat" : true,
+    "encryptionType" : "aeiou"
+  },
+  "end" : "",
+  "endPointType" : "aeiou"
 };
   if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');

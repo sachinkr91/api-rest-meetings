@@ -307,7 +307,7 @@
      */
 
     /**
-     * Meeting
+     * Get Meeting Settings
      * This endpoint gets a user’s default meeting settings.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~v1UserUserIdScheduledMeetingGetCallback} callback The callback function, accepting three arguments: error, data, response

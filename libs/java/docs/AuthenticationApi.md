@@ -20,11 +20,11 @@ This grant type is commonly used by an app. Client ID and Secret are provisioned
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AuthenticationApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -75,11 +75,11 @@ This is not a traditional OAuth grant type, but it behaves closely to the passwo
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AuthenticationApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -130,11 +130,11 @@ An access token can be obtained by using a user’s username and password.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.ApiClient;
-//import com.bluejeans.api.ApiException;
-//import com.bluejeans.api.Configuration;
-//import com.bluejeans.api.auth.*;
-//import com.bluejeans.api.rest.AuthenticationApi;
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
