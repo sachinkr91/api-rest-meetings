@@ -397,7 +397,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/scheduled_meeting:
     get:
-      summary: Meeting
+      summary: Get Meeting Settings
       description: This endpoint gets a user’s default meeting settings.
       tags:
         - User
@@ -422,8 +422,8 @@ paths:
           schema:
             $ref: '#/definitions/Error'
     post:
-      summary: Meeting
-      description: Create a meeting.
+      summary: Create Meeting
+      description: This endpoint will create a scheduled meeting.
       tags:
         - Meeting
       security:
@@ -445,8 +445,8 @@ paths:
           schema:
             $ref: "#/definitions/Meeting"
       responses:
-        '200':
-          description: The settings for the room
+        '201':
+          description: The settings for the meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -455,8 +455,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/scheduled_meeting/{meeting_id}:
     get:
-      summary: Meeting
-      description: This endpoint gets a user’s default meeting settings.
+      summary: Get Meeting
+      description: This endpoint gets the settings for a user's meeting.
       tags:
         - Meeting
       security:
@@ -474,7 +474,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -482,8 +482,8 @@ paths:
           schema:
             $ref: '#/definitions/Error'
     put:
-      summary: Meeting
-      description: Update a meeting.
+      summary: Update Meeting
+      description: This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
       tags:
         - Meeting
       security:
@@ -507,7 +507,7 @@ paths:
             $ref: "#/definitions/Meeting"
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -515,8 +515,8 @@ paths:
           schema:
             $ref: '#/definitions/Error'
     delete:
-      summary: Meeting
-      description: Cancel a meeting.
+      summary: Cancel Meeting
+      description: This endpoint deletes a scheuled meeting.
       tags:
         - Meeting
       security:
@@ -541,7 +541,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails:
     get:
-      summary: Meeting
+      summary: Get Meeting Email
       description: This endpoint retrieves the email object for a scheduled meeting.
       tags:
         - Meeting
@@ -583,7 +583,7 @@ paths:
             - delete
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the email.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -611,7 +611,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the join information.
           schema:
             $ref: '#/definitions/Numbers'
         default:
@@ -639,9 +639,9 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the meeting state.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingState'
         default:
           description: Unexpected error
           schema:
@@ -711,9 +711,9 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The list of endpoints.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Endpoints'
         default:
           description: Unexpected error
           schema:
@@ -786,9 +786,9 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the endpoint.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Endpoint'
         default:
           description: Unexpected error
           schema:
@@ -830,9 +830,9 @@ paths:
           type: boolean
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the enpoint.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Endpoint'
         default:
           description: Unexpected error
           schema:
@@ -863,9 +863,9 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the endpoint's layout.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Layout'
         default:
           description: Unexpected error
           schema:
@@ -901,9 +901,9 @@ paths:
           type: boolean
       responses:
         '200':
-          description: The settings for the room
+          description: The settings for the endpoint's layout.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/Layout'
         default:
           description: Unexpected error
           schema:
@@ -1989,6 +1989,377 @@ definitions:
               type: boolean
             default:
               type: boolean
+  MeetingState:
+    type: object
+    properties:
+      meetingId:
+        type: string
+      meetingGuid:
+        type: string
+      meetingState:
+        type: string
+        enum:
+          - MeetingStarted
+      status:
+        type: string
+        enum:
+          - active
+      isContentSharingActive:
+        type: boolean
+      bridged:
+        type: boolean
+      locked:
+        type: boolean
+      audioMuteOnEntry:
+        type: boolean
+      videoMuteOnEntry:
+        type: boolean
+      moderatorLess:
+        type: boolean
+      title:
+        type: string
+      chatEnabled:
+        type: boolean
+      pinnedEndpointGuid:
+        type: string
+      audioEndpointCount:
+        type: integer
+      videoEndpointCount:
+        type: integer
+      recordingEnabled:
+        type: boolean
+      participantWebJoinURL:
+        type: string
+      isLargeMeeting:
+        type: string
+      features:
+        type: array
+        items:
+          type: string
+      delayedMeetingEndTime:
+        type: integer
+      smStreams:
+        type: string
+      inactiveMeetingStatus:
+        type: string
+      meetingMarkedForDelayedTermination:
+        type: boolean
+      recordinginfo:
+        type: object
+        properties:
+          contentStatus:
+            type: string
+          recordingStartTime:
+            type: integer
+          active:
+            type: boolean
+          recorded:
+            type: boolean
+  Endpoints:
+    type: array
+    items:
+      type: object
+      properties:
+        meetingid:
+          type: string
+        name:
+          type: string
+        CallQuality:
+          type: string
+        Leader:
+          type: string
+        callguid:
+          type: string
+        endpoint:
+          type: string
+        TalkDetected:
+          type: string
+        SecureCall:
+          type: string
+        Layout:
+          type: string
+        SubLayout:
+          type: string
+        VideoRecv:
+          type: string
+        VideoRecvLocalMute:
+          type: string
+        VideoRecvRemoteMute:
+          type: string
+        AudioRecv:
+          type: string
+        AudioRecvLocalMute:
+          type: string
+        AudioRecvRemoteMute:
+          type: string
+        AudioRecvCodec:
+          type: string
+        AudioSendCodec:
+          type: string
+        VideoRecvCodec:
+          type: string
+        VideoRecvHeight:
+          type: string
+        VideoRecvWidth:
+          type: string
+        VideoSendCodec:
+          type: string
+        VideoSendHeight:
+          type: string
+        VideoSendWidth:
+          type: string
+        visibility:
+          type: string
+        chatEndpointGuid:
+          type: string
+        endpointGuid:
+          type: string
+        RDCVersion:
+          type: string
+        RDCControllerCapable:
+          type: string
+        RDCControlleeCapable:
+          type: string
+        connections:
+          type: array
+          items:
+            type: object
+            properties:
+              connectionGuid:
+                type: string
+              capabilities:
+                type: array
+                items:
+                  type: string
+              endpoint:
+                type: string
+              callGuid:
+                type: string
+  Endpoint:
+    type: object
+    properties:
+      EcMode:
+        type: string
+      creationtime:
+        type: string
+      audio.remote.rtcpAddress:
+        type: string
+      VideoSendCodec:
+        type: string
+      AudioPlayID:
+        type: string
+      CallQualityRecv:
+        type: string
+      SessionOut:
+        type: string
+      audio.local.address:
+        type: string
+      meetingid:
+        type: string
+      VideoSendWidth:
+        type: string
+      CallQualitySend:
+        type: string
+      mhaddress:
+        type: string
+      RDCControlleeCapable:
+        type: string
+      AudioCapName:
+        type: string
+      ProxyInfo:
+        type: string
+      AudioSendCodec:
+        type: string
+      vendor:
+        type: string
+      VideoRecvWidth:
+        type: string
+      conaddress:
+        type: string
+      TalkDetected:
+        type: string
+      SubLayout:
+        type: string
+      AudioRtcpRelay:
+        type: string
+      AudioRecvLocalMute:
+        type: string
+      name:
+        type: string
+      video.local.address:
+        type: string
+      audio.local.rtcpAddress:
+        type: string
+      ContentRtpRelay:
+        type: string
+      content.local.rtcpAddress:
+        type: string
+      RemoteConnectionCount:
+        type: string
+      callrate:
+        type: string
+      MixerGuid:
+        type: string
+      transport:
+        type: string
+      AudioCapSelectID:
+        type: string
+      CountryCode:
+        type: string
+      RDCControllerCapable:
+        type: string
+      pairedname:
+        type: string
+      VideoRtcpRelay:
+        type: string
+      EndpointCpuParams:
+        type: string
+      video.remote.address:
+        type: string
+      version:
+        type: string
+      ContentRecv:
+        type: string
+      localName:
+        type: string
+      BJNUserId:
+        type: string
+      content.remote.address:
+        type: string
+      AudioSend:
+        type: string
+      ParticipantDTMFMenus:
+        type: string
+      VideoRtcpTranspor:
+        type: string
+      AudioRtcpTransport:
+        type: string
+      RelayNodeId:
+        type: string
+      content.remote.rtcpAddress:
+        type: string
+      AudioRtpRelay:
+        type: string
+      VideoRtpTransport:
+        type: string
+      ContentRecvLocalMute:
+        type: string
+      Layout:
+        type: string
+      ContentSend:
+        type: string
+      remoteaddress:
+        type: string
+      MeetingGuid:
+        type: string
+      connecttime:
+        type: string
+      localaddress:
+        type: string
+      audio.remote.address:
+        type: string
+      BondedAudioGuid:
+        type: string
+      AudioRecvRemoteMute:
+        type: string
+      SessionOutRelay:
+        type: string
+      Leader:
+        type: string
+      content.local.address:
+        type: string
+      MovieCapable:
+        type: string
+      VideoRecvLocalMute:
+        type: string
+      ContentRtpTransport:
+        type: string
+      RDCVersion:
+        type: string
+      AudioRecv:
+        type: string
+      ContentRelayServer:
+        type: string
+      VideoRecv:
+        type: string
+      visibility:
+        type: string
+      sessionid:
+        type: string
+      ContentRtcpRelay:
+        type: string
+      locales:
+        type: string
+      medaddress:
+        type: string
+      HtmlLayoutGuid:
+        type: string
+      endpoint:
+        type: string
+      VideoDrop:
+        type: string
+      ContentRtcpTransport:
+        type: string
+      video.remote.rtcpAddress:
+        type: string
+      VideoRtpRelay:
+        type: string
+      mixaddress:
+        type: string
+      SIPHTTPProxyTransport:
+        type: string
+      VideoRecvCodec:
+        type: string
+      AudioRecvCodec:
+        type: string
+      SessionIn:
+        type: string
+      BondedVideoGuid:
+        type: string
+      CallQuality:
+        type: string
+      meetingjointime:
+        type: string
+      SessionInRelay:
+        type: string
+      pairedremoteaddress:
+        type: string
+      VideoSendHeight:
+        type: string
+      VideoRecvHeight:
+        type: string
+      SecureCall:
+        type: string
+      video.local.rtcpAddress:
+        type: string
+      AudioPlayName:
+        type: string
+      VideoCapID:
+        type: string
+      AudioRtpTransport:
+        type: string
+      MeetingInfoMode:
+        type: string
+      callhostname:
+        type: string
+      callguid:
+        type: string
+      AudioCapID:
+        type: string
+      VideoSend:
+        type: string
+      ContentRecvCodec:
+        type: string
+      SessionRelay:
+        type: string
+      VideoRecvRemoteMute:
+        type: string
+      Id:
+        type: string
+      BondedVideoName:
+        type: string
+      isInRoster:
+        type: boolean
   RecordingSummary:
     type: object
     properties:
@@ -2016,6 +2387,17 @@ definitions:
         type: boolean
       showPremiumRecordingTag:
         type: boolean
+  Layout:
+    type: object
+    properties:
+      layoutMode:
+        type: string
+        enum:
+          - Video
+      subLayoutMode:
+        type: string
+        enum:
+          - VideoContiniousPresence
   Recording:
     type: object
     properties:
