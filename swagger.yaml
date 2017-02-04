@@ -592,7 +592,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/meetings/{meeting_id}/numbers:
     get:
-      summary: Meeting Join Info
+      summary: Get Meeting Join Info
       description: This endpoint retrieves the join information for a scheduled meeting.
       tags:
         - Meeting
