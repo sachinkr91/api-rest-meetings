@@ -97,7 +97,27 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            $ref: '#/definitions/Grant'
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+              expires_in:
+                type: integer
+                description: Seconds that access token is valid for from now.
+              refresh_token:
+                type: string
+              scope:
+                type: object
+                properties:
+                  user:
+                    type: integer
+                    description: The ID of your user.
+                  partitionName:
+                    type: string
+                    description: The name of the partition you are on.
+                  partition:
+                    $ref: '#/definitions/Partition'
         default:
           description: Unexpected error
           schema:
@@ -135,7 +155,41 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            $ref: '#/definitions/Grant'
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+              expires_in:
+                type: integer
+                description: Seconds that access token is valid for from now.
+              scope:
+                type: object
+                properties:
+                  meeting:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      leaderId:
+                        type: integer
+                      meetingNumericId:
+                        type: string
+                      meetingUri:
+                        type: string
+                      isModerator:
+                        type: boolean
+                      endpointUriSet:
+                        type: array
+                        items:
+                          type: object
+                      meetingId:
+                        type: string
+                  partitionName:
+                    type: string
+                    description: The name of the partition you are on.
+                  partition:
+                    $ref: '#/definitions/Partition'
         default:
           description: Unexpected error
           schema:
@@ -173,7 +227,25 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            $ref: '#/definitions/GrantClient'
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+              expires_in:
+                type: integer
+                description: Seconds that access token is valid for from now.
+              scope:
+                type: object
+                properties:
+                  enterprise:
+                    type: integer
+                    description: The ID of your enterprise.
+                  partitionName:
+                    type: string
+                    description: The name of the partition you are on.
+                  partition:
+                    $ref: '#/definitions/Partition'
         default:
           description: Unexpected error
           schema:
@@ -1742,50 +1814,6 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
-  Grant:
-    type: object
-    properties:
-      access_token:
-        type: string
-        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
-      expires_in:
-        type: integer
-        description: Seconds that access token is valid for from now.
-      refresh_token:
-        type: string
-      scope:
-        $ref: '#/definitions/Scope'
-  GrantClient:
-    type: object
-    properties:
-      access_token:
-        type: string
-        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
-      expires_in:
-        type: integer
-        description: Seconds that access token is valid for from now.
-      scope:
-        type: object
-        properties:
-          enterprise:
-            type: integer
-            description: The ID of your enterprise.
-          partitionName:
-            type: string
-            description: The name of the partition you are on.
-          partition:
-            $ref: '#/definitions/Partition'
-  Scope:
-    type: object
-    properties:
-      user:
-        type: integer
-        description: The ID of your user.
-      partitionName:
-        type: string
-        description: The name of the partition you are on.
-      partition:
-        $ref: '#/definitions/Partition'
   Partition:
     type: object
     properties:
