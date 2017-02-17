@@ -173,7 +173,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            $ref: '#/definitions/Grant'
+            $ref: '#/definitions/GrantClient'
         default:
           description: Unexpected error
           schema:
@@ -279,9 +279,24 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The list of users in the enterprise.
           schema:
-            $ref: '#/definitions/Room'
+            type: object
+            properties:
+              count:
+                type: integer
+                description: The number of users in the result.
+              users:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: The ID of this user.
+                    uri:
+                      type: string
+                      description: The URI of this user in order to fetch further details.
         default:
           description: Unexpected error
           schema:
@@ -1735,20 +1750,40 @@ definitions:
         description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
       expires_in:
         type: integer
-        description: Timestamp
+        description: Seconds that access token is valid for from now.
       refresh_token:
         type: string
       scope:
         $ref: '#/definitions/Scope'
+  GrantClient:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+      expires_in:
+        type: integer
+        description: Seconds that access token is valid for from now.
+      scope:
+        type: object
+        properties:
+          enterprise:
+            type: integer
+            description: The ID of your enterprise.
+          partitionName:
+            type: string
+            description: The name of the partition you are on.
+          partition:
+            $ref: '#/definitions/Partition'
   Scope:
     type: object
     properties:
       user:
         type: integer
-        description: your user id
+        description: The ID of your user.
       partitionName:
         type: string
-        description: the server farm you are on
+        description: The name of the partition you are on.
       partition:
         $ref: '#/definitions/Partition'
   Partition:
