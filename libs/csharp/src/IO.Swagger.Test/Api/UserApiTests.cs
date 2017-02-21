@@ -77,6 +77,18 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
+        /// Test GetEnterpriseProfile
+        /// </summary>
+        [Test]
+        public void GetEnterpriseProfileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.GetEnterpriseProfile(userId);
+            //Assert.IsInstanceOf<Enterprise> (response, "response is Enterprise");
+        }
+        
+        /// <summary>
         /// Test GetRoom
         /// </summary>
         [Test]

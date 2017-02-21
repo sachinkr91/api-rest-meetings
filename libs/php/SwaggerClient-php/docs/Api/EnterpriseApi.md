@@ -5,7 +5,6 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createUser**](EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
-[**getEnterpriseProfile**](EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**listUsers**](EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
 [**removeUser**](EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
@@ -54,56 +53,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\UserId**](../Model/UserId.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getEnterpriseProfile**
-> \Swagger\Client\Model\Enterprise getEnterpriseProfile($user_id)
-
-Get Enterprise Profile
-
-This endpoint retrieves the enterprise profile associated with the user.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\EnterpriseApi();
-$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-try {
-    $result = $api_instance->getEnterpriseProfile($user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EnterpriseApi->getEnterpriseProfile: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
-
-### Return type
-
-[**\Swagger\Client\Model\Enterprise**](../Model/Enterprise.md)
 
 ### Authorization
 

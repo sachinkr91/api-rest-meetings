@@ -42,6 +42,14 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_enterprise_profile(self):
+        """
+        Test case for get_enterprise_profile
+
+        Get Enterprise Profile
+        """
+        pass
+
     def test_get_room(self):
         """
         Test case for get_room

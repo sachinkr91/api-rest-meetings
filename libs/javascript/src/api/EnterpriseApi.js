@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/User', 'model/UserId', 'model/Error', 'model/Enterprise', 'model/EnterpriseUserList'], factory);
+    define(['ApiClient', 'model/User', 'model/UserId', 'model/Error', 'model/EnterpriseUserList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/UserId'), require('../model/Error'), require('../model/Enterprise'), require('../model/EnterpriseUserList'));
+    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/UserId'), require('../model/Error'), require('../model/EnterpriseUserList'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.UserId, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
+    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.UserId, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
   }
-}(this, function(ApiClient, User, UserId, Error, Enterprise, EnterpriseUserList) {
+}(this, function(ApiClient, User, UserId, Error, EnterpriseUserList) {
   'use strict';
 
   /**
@@ -109,52 +109,6 @@
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/users', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getEnterpriseProfile operation.
-     * @callback module:api/EnterpriseApi~getEnterpriseProfileCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Enterprise} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Enterprise Profile
-     * This endpoint retrieves the enterprise profile associated with the user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/EnterpriseApi~getEnterpriseProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Enterprise}
-     */
-    this.getEnterpriseProfile = function(userId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getEnterpriseProfile";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Enterprise;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/enterprise_profile', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

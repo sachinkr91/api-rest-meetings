@@ -90,6 +90,17 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getEnterpriseProfile
+     *
+     * Get Enterprise Profile.
+     *
+     */
+    public function testGetEnterpriseProfile()
+    {
+
+    }
+
+    /**
      * Test case for getRoom
      *
      * Get User’s Default Meeting Settings.

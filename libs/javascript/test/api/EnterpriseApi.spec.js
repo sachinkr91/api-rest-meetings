@@ -69,16 +69,6 @@
         done();
       });
     });
-    describe('getEnterpriseProfile', function() {
-      it('should call getEnterpriseProfile successfully', function(done) {
-        //uncomment below and update the code to test getEnterpriseProfile
-        //instance.getEnterpriseProfile(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('listUsers', function() {
       it('should call listUsers successfully', function(done) {
         //uncomment below and update the code to test listUsers

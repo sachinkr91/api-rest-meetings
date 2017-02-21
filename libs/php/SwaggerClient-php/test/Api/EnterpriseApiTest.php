@@ -101,17 +101,6 @@ class EnterpriseApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getEnterpriseProfile
-     *
-     * Get Enterprise Profile.
-     *
-     */
-    public function testGetEnterpriseProfile()
-    {
-
-    }
-
-    /**
      * Test case for listUsers
      *
      * List Enterprise Users.

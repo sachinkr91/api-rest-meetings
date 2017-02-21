@@ -50,14 +50,6 @@ class TestEnterpriseApi(unittest.TestCase):
         """
         pass
 
-    def test_get_enterprise_profile(self):
-        """
-        Test case for get_enterprise_profile
-
-        Get Enterprise Profile
-        """
-        pass
-
     def test_list_users(self):
         """
         Test case for list_users
