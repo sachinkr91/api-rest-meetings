@@ -288,7 +288,7 @@ public class MeetingApiTest {
     }
     
     /**
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      *
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      *
@@ -306,9 +306,9 @@ public class MeetingApiTest {
     }
     
     /**
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (WebRTC)
      *
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      *
      * @throws ApiException
      *          if the Api call fails

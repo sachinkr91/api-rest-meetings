@@ -1714,7 +1714,7 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1728,7 +1728,7 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1743,7 +1743,7 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code (asynchronously)
+     * Generate Pairing Code (SIP) (asynchronously)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1840,8 +1840,8 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * Generate Pairing Code (WebRTC)
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param payloadPairingCodeWebRTC  (required)
@@ -1855,8 +1855,8 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * Generate Pairing Code (WebRTC)
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param payloadPairingCodeWebRTC  (required)
@@ -1871,8 +1871,8 @@ public class MeetingApi {
     }
 
     /**
-     * Generate SIP Pairing Code (asynchronously)
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * Generate Pairing Code (WebRTC) (asynchronously)
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
      * @param payloadPairingCodeWebRTC  (required)

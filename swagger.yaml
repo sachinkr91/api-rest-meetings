@@ -927,7 +927,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip:
     post:
-      summary: Generate SIP Pairing Code
+      summary: Generate Pairing Code (SIP)
       description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
       tags:
         - Meeting
@@ -973,8 +973,8 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc:
     post:
-      summary: Generate SIP Pairing Code
-      description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+      summary: Generate Pairing Code (WebRTC)
+      description: This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
       tags:
         - Meeting
       security:

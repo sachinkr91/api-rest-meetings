@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * PayloadPairingCodeWebRTC
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:00:22.730-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:04:47.098-07:00")
 public class PayloadPairingCodeWebRTC   {
   @SerializedName("endpointType")
   private Integer endpointType = null;
