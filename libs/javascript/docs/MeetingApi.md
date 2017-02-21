@@ -103,7 +103,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The user's room details that you wish to update.
+var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The details of the meeting.
 
 var opts = { 
   'email': true // Boolean | If set to true, sends invitation emails to all listed participants.
@@ -124,7 +124,7 @@ apiInstance.createMeeting(userId, meeting, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
+ **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. | 
  **email** | **Boolean**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

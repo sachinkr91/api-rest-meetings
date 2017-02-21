@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * PayloadPairingCodeSIP
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:04:47.098-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:38:02.878-07:00")
 public class PayloadPairingCodeSIP   {
   @SerializedName("endpointType")
   private Integer endpointType = null;

@@ -67,7 +67,7 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Meeting</returns>
         Meeting CreateMeeting (int? userId, Meeting meeting, bool? email = null);
@@ -80,7 +80,7 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> CreateMeetingWithHttpInfo (int? userId, Meeting meeting, bool? email = null);
@@ -525,7 +525,7 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Task of Meeting</returns>
         System.Threading.Tasks.Task<Meeting> CreateMeetingAsync (int? userId, Meeting meeting, bool? email = null);
@@ -538,7 +538,7 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> CreateMeetingAsyncWithHttpInfo (int? userId, Meeting meeting, bool? email = null);
@@ -1229,7 +1229,7 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Meeting</returns>
         public Meeting CreateMeeting (int? userId, Meeting meeting, bool? email = null)
@@ -1243,7 +1243,7 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
         public ApiResponse< Meeting > CreateMeetingWithHttpInfo (int? userId, Meeting meeting, bool? email = null)
@@ -1321,7 +1321,7 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Task of Meeting</returns>
         public async System.Threading.Tasks.Task<Meeting> CreateMeetingAsync (int? userId, Meeting meeting, bool? email = null)
@@ -1336,7 +1336,7 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meeting">The user&#39;s room details that you wish to update.</param>
+        /// <param name="meeting">The details of the meeting.</param>
         /// <param name="email">If set to true, sends invitation emails to all listed participants. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Meeting>> CreateMeetingAsyncWithHttpInfo (int? userId, Meeting meeting, bool? email = null)

@@ -82,6 +82,7 @@ from .models.recording_started_by import RecordingStartedBy
 from .models.recording_summary import RecordingSummary
 from .models.room import Room
 from .models.user import User
+from .models.user_id import UserId
 
 # import apis into sdk package
 from .apis.analytics_api import AnalyticsApi

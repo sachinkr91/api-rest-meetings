@@ -4,67 +4,11 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEnterpriseProfile**](UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
-
-<a name="getEnterpriseProfile"></a>
-# **getEnterpriseProfile**
-> Enterprise getEnterpriseProfile(userId)
-
-Get Enterprise Profile
-
-This endpoint retrieves the enterprise profile associated with the user.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.UserApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-try {
-    Enterprise result = apiInstance.getEnterpriseProfile(userId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#getEnterpriseProfile");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
-
-### Return type
-
-[**Enterprise**](Enterprise.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a name="getRoom"></a>
 # **getRoom**

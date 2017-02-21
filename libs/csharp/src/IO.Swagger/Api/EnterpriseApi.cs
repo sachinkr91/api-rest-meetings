@@ -44,10 +44,11 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Room</returns>
-        Room CreateUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        /// <returns>UserId</returns>
+        UserId CreateUser (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
 
         /// <summary>
         /// Create Enterprise User
@@ -57,10 +58,11 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> CreateUserWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        /// <returns>ApiResponse of UserId</returns>
+        ApiResponse<UserId> CreateUserWithHttpInfo (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
         /// <summary>
         /// Get Enterprise Profile
         /// </summary>
@@ -118,8 +120,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        Room RemoveUser (int? enterpriseId, int? userId);
+        /// <returns></returns>
+        void RemoveUser (int? enterpriseId, int? userId);
 
         /// <summary>
         /// Remove Enterprise User
@@ -130,8 +132,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> RemoveUserWithHttpInfo (int? enterpriseId, int? userId);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RemoveUserWithHttpInfo (int? enterpriseId, int? userId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -142,10 +144,11 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> CreateUserAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        /// <returns>Task of UserId</returns>
+        System.Threading.Tasks.Task<UserId> CreateUserAsync (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
 
         /// <summary>
         /// Create Enterprise User
@@ -155,10 +158,11 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> CreateUserAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        /// <returns>Task of ApiResponse (UserId)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserId>> CreateUserAsyncWithHttpInfo (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
         /// <summary>
         /// Get Enterprise Profile
         /// </summary>
@@ -216,8 +220,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> RemoveUserAsync (int? enterpriseId, int? userId);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RemoveUserAsync (int? enterpriseId, int? userId);
 
         /// <summary>
         /// Remove Enterprise User
@@ -228,8 +232,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> RemoveUserAsyncWithHttpInfo (int? enterpriseId, int? userId);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveUserAsyncWithHttpInfo (int? enterpriseId, int? userId);
         #endregion Asynchronous Operations
     }
 
@@ -347,12 +351,13 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Room</returns>
-        public Room CreateUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        /// <returns>UserId</returns>
+        public UserId CreateUser (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
-             ApiResponse<Room> localVarResponse = CreateUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+             ApiResponse<UserId> localVarResponse = CreateUserWithHttpInfo(enterpriseId, user, forcePasswordChange, sendVerificationMail);
              return localVarResponse.Data;
         }
 
@@ -361,14 +366,18 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > CreateUserWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        /// <returns>ApiResponse of UserId</returns>
+        public ApiResponse< UserId > CreateUserWithHttpInfo (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
                 throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->CreateUser");
+            // verify the required parameter 'user' is set
+            if (user == null)
+                throw new ApiException(400, "Missing required parameter 'user' when calling EnterpriseApi->CreateUser");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/users";
             var localVarPathParams = new Dictionary<String, String>();
@@ -397,6 +406,14 @@ namespace IO.Swagger.Api
             if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
             if (forcePasswordChange != null) localVarQueryParams.Add("forcePasswordChange", Configuration.ApiClient.ParameterToString(forcePasswordChange)); // query parameter
             if (sendVerificationMail != null) localVarQueryParams.Add("sendVerificationMail", Configuration.ApiClient.ParameterToString(sendVerificationMail)); // query parameter
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -418,9 +435,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Room>(localVarStatusCode,
+            return new ApiResponse<UserId>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+                (UserId) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserId)));
             
         }
 
@@ -429,12 +446,13 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> CreateUserAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        /// <returns>Task of UserId</returns>
+        public async System.Threading.Tasks.Task<UserId> CreateUserAsync (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
-             ApiResponse<Room> localVarResponse = await CreateUserAsyncWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+             ApiResponse<UserId> localVarResponse = await CreateUserAsyncWithHttpInfo(enterpriseId, user, forcePasswordChange, sendVerificationMail);
              return localVarResponse.Data;
 
         }
@@ -444,14 +462,18 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="user">The information about the new user.</param>
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> CreateUserAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        /// <returns>Task of ApiResponse (UserId)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UserId>> CreateUserAsyncWithHttpInfo (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
                 throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->CreateUser");
+            // verify the required parameter 'user' is set
+            if (user == null)
+                throw new ApiException(400, "Missing required parameter 'user' when calling EnterpriseApi->CreateUser");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/users";
             var localVarPathParams = new Dictionary<String, String>();
@@ -480,6 +502,14 @@ namespace IO.Swagger.Api
             if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
             if (forcePasswordChange != null) localVarQueryParams.Add("forcePasswordChange", Configuration.ApiClient.ParameterToString(forcePasswordChange)); // query parameter
             if (sendVerificationMail != null) localVarQueryParams.Add("sendVerificationMail", Configuration.ApiClient.ParameterToString(sendVerificationMail)); // query parameter
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -500,9 +530,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Room>(localVarStatusCode,
+            return new ApiResponse<UserId>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+                (UserId) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserId)));
             
         }
 
@@ -834,11 +864,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        public Room RemoveUser (int? enterpriseId, int? userId)
+        /// <returns></returns>
+        public void RemoveUser (int? enterpriseId, int? userId)
         {
-             ApiResponse<Room> localVarResponse = RemoveUserWithHttpInfo(enterpriseId, userId);
-             return localVarResponse.Data;
+             RemoveUserWithHttpInfo(enterpriseId, userId);
         }
 
         /// <summary>
@@ -847,8 +876,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > RemoveUserWithHttpInfo (int? enterpriseId, int? userId)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> RemoveUserWithHttpInfo (int? enterpriseId, int? userId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -904,10 +933,10 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -916,11 +945,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> RemoveUserAsync (int? enterpriseId, int? userId)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RemoveUserAsync (int? enterpriseId, int? userId)
         {
-             ApiResponse<Room> localVarResponse = await RemoveUserAsyncWithHttpInfo(enterpriseId, userId);
-             return localVarResponse.Data;
+             await RemoveUserAsyncWithHttpInfo(enterpriseId, userId);
 
         }
 
@@ -930,8 +958,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> RemoveUserAsyncWithHttpInfo (int? enterpriseId, int? userId)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveUserAsyncWithHttpInfo (int? enterpriseId, int? userId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -986,10 +1014,10 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
     }

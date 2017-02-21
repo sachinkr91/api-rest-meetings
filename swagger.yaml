@@ -238,7 +238,6 @@ paths:
       description: This endpoint retrieves the enterprise profile associated with the user.
       operationId: getEnterpriseProfile
       tags:
-        - User
         - Enterprise
       security:
         - access_token: []
@@ -315,11 +314,17 @@ paths:
           in: query
           description: Prevents welcome emails from being sent to the newly created user.
           type: boolean
-      responses:
-        '200':
-          description: TBD
+        - name: user
+          in: body
+          description: The information about the new user.
+          required: true
           schema:
-            $ref: '#/definitions/Room'
+            $ref: '#/definitions/User'
+      responses:
+        '201':
+          description: The new user.
+          schema:
+            $ref: '#/definitions/UserId'
         default:
           description: Unexpected error
           schema:
@@ -345,10 +350,8 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
-          description: TBD
-          schema:
-            $ref: '#/definitions/Room'
+        '204':
+          description: Empty response on success.
         default:
           description: Unexpected error
           schema:
@@ -452,7 +455,7 @@ paths:
           type: boolean
         - name: meeting
           in: body
-          description: The user's room details that you wish to update.
+          description: The details of the meeting.
           required: true
           schema:
             $ref: "#/definitions/Meeting"
@@ -2001,6 +2004,12 @@ definitions:
             uri:
               type: string
               description: The URI of this user in order to fetch further details.
+  UserId:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The ID of the user.
   Room:
     type: object
     properties:

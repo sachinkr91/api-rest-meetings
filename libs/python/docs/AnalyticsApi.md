@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 Top Users
 
-This endpoint retrieves the top useres by usage for an enterprise.
+This endpoint retrieves the top users by usage for an enterprise.
 
 ### Example 
 ```python

@@ -82,3 +82,4 @@ from .recording_started_by import RecordingStartedBy
 from .recording_summary import RecordingSummary
 from .room import Room
 from .user import User
+from .user_id import UserId

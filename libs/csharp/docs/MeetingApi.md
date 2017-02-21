@@ -122,7 +122,7 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
+            var meeting = new Meeting(); // Meeting | The details of the meeting.
             var email = true;  // bool? | If set to true, sends invitation emails to all listed participants. (optional) 
 
             try
@@ -145,7 +145,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
+ **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. | 
  **email** | **bool?**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

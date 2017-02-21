@@ -212,7 +212,7 @@ class MeetingApi
      * Create Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param \Swagger\Client\Model\Meeting $meeting The user&#39;s room details that you wish to update. (required)
+     * @param \Swagger\Client\Model\Meeting $meeting The details of the meeting. (required)
      * @param bool $email If set to true, sends invitation emails to all listed participants. (optional)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -229,7 +229,7 @@ class MeetingApi
      * Create Meeting
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param \Swagger\Client\Model\Meeting $meeting The user&#39;s room details that you wish to update. (required)
+     * @param \Swagger\Client\Model\Meeting $meeting The details of the meeting. (required)
      * @param bool $email If set to true, sends invitation emails to all listed participants. (optional)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response

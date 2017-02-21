@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createUser"></a>
 # **createUser**
-> Room createUser(enterpriseId, forcePasswordChange, sendVerificationMail)
+> UserId createUser(enterpriseId, user, forcePasswordChange, sendVerificationMail)
 
 Create Enterprise User
 
@@ -37,10 +37,11 @@ access_token.setApiKey("YOUR API KEY");
 
 EnterpriseApi apiInstance = new EnterpriseApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+User user = new User(); // User | The information about the new user.
 Boolean forcePasswordChange = true; // Boolean | Forces the user to change his or her password on first log in.
 Boolean sendVerificationMail = true; // Boolean | Prevents welcome emails from being sent to the newly created user.
 try {
-    Room result = apiInstance.createUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+    UserId result = apiInstance.createUser(enterpriseId, user, forcePasswordChange, sendVerificationMail);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EnterpriseApi#createUser");
@@ -53,12 +54,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **user** | [**User**](User.md)| The information about the new user. |
  **forcePasswordChange** | **Boolean**| Forces the user to change his or her password on first log in. | [optional]
  **sendVerificationMail** | **Boolean**| Prevents welcome emails from being sent to the newly created user. | [optional]
 
 ### Return type
 
-[**Room**](Room.md)
+[**UserId**](UserId.md)
 
 ### Authorization
 
@@ -187,7 +189,7 @@ Name | Type | Description  | Notes
 
 <a name="removeUser"></a>
 # **removeUser**
-> Room removeUser(enterpriseId, userId)
+> removeUser(enterpriseId, userId)
 
 Remove Enterprise User
 
@@ -214,8 +216,7 @@ EnterpriseApi apiInstance = new EnterpriseApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 try {
-    Room result = apiInstance.removeUser(enterpriseId, userId);
-    System.out.println(result);
+    apiInstance.removeUser(enterpriseId, userId);
 } catch (ApiException e) {
     System.err.println("Exception when calling EnterpriseApi#removeUser");
     e.printStackTrace();
@@ -231,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Room**](Room.md)
+null (empty response body)
 
 ### Authorization
 

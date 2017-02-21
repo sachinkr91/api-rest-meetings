@@ -51,7 +51,7 @@ class EnterpriseApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def create_user(self, enterprise_id, **kwargs):
+    def create_user(self, enterprise_id, user, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -62,25 +62,26 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_user(enterprise_id, callback=callback_function)
+        >>> thread = api.create_user(enterprise_id, user, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param User user: The information about the new user. (required)
         :param bool force_password_change: Forces the user to change his or her password on first log in.
         :param bool send_verification_mail: Prevents welcome emails from being sent to the newly created user.
-        :return: Room
+        :return: UserId
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.create_user_with_http_info(enterprise_id, **kwargs)
+            return self.create_user_with_http_info(enterprise_id, user, **kwargs)
         else:
-            (data) = self.create_user_with_http_info(enterprise_id, **kwargs)
+            (data) = self.create_user_with_http_info(enterprise_id, user, **kwargs)
             return data
 
-    def create_user_with_http_info(self, enterprise_id, **kwargs):
+    def create_user_with_http_info(self, enterprise_id, user, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -91,19 +92,20 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_user_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.create_user_with_http_info(enterprise_id, user, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param User user: The information about the new user. (required)
         :param bool force_password_change: Forces the user to change his or her password on first log in.
         :param bool send_verification_mail: Prevents welcome emails from being sent to the newly created user.
-        :return: Room
+        :return: UserId
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['enterprise_id', 'force_password_change', 'send_verification_mail']
+        all_params = ['enterprise_id', 'user', 'force_password_change', 'send_verification_mail']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -119,6 +121,9 @@ class EnterpriseApi(object):
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
             raise ValueError("Missing the required parameter `enterprise_id` when calling `create_user`")
+        # verify the required parameter 'user' is set
+        if ('user' not in params) or (params['user'] is None):
+            raise ValueError("Missing the required parameter `user` when calling `create_user`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
         path_params = {}
@@ -137,6 +142,8 @@ class EnterpriseApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'user' in params:
+            body_params = params['user']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -158,7 +165,7 @@ class EnterpriseApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Room',
+                                            response_type='UserId',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -400,7 +407,7 @@ class EnterpriseApi(object):
             for asynchronous request. (optional)
         :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Room
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -428,7 +435,7 @@ class EnterpriseApi(object):
             for asynchronous request. (optional)
         :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Room
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -489,7 +496,7 @@ class EnterpriseApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Room',
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

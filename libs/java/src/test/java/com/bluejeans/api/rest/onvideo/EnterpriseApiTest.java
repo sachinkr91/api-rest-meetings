@@ -26,7 +26,8 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Room;
+import io.swagger.client.model.User;
+import io.swagger.client.model.UserId;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.Enterprise;
 import io.swagger.client.model.EnterpriseUserList;
@@ -56,9 +57,10 @@ public class EnterpriseApiTest {
     @Test
     public void createUserTest() throws ApiException {
         Integer enterpriseId = null;
+        User user = null;
         Boolean forcePasswordChange = null;
         Boolean sendVerificationMail = null;
-        // Room response = api.createUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+        // UserId response = api.createUser(enterpriseId, user, forcePasswordChange, sendVerificationMail);
 
         // TODO: test validations
     }
@@ -110,7 +112,7 @@ public class EnterpriseApiTest {
     public void removeUserTest() throws ApiException {
         Integer enterpriseId = null;
         Integer userId = null;
-        // Room response = api.removeUser(enterpriseId, userId);
+        // api.removeUser(enterpriseId, userId);
 
         // TODO: test validations
     }

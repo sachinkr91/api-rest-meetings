@@ -38,7 +38,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import io.swagger.client.model.Room;
+import io.swagger.client.model.User;
+import io.swagger.client.model.UserId;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.Enterprise;
 import io.swagger.client.model.EnterpriseUserList;
@@ -69,12 +70,17 @@ public class EnterpriseApi {
     }
 
     /* Build call for createUser */
-    private com.squareup.okhttp.Call createUserCall(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call createUserCall(Integer enterpriseId, User user, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = user;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling createUser(Async)");
+        }
+        
+        // verify the required parameter 'user' is set
+        if (user == null) {
+            throw new ApiException("Missing the required parameter 'user' when calling createUser(Async)");
         }
         
 
@@ -124,13 +130,14 @@ public class EnterpriseApi {
      * Create Enterprise User
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param user The information about the new user. (required)
      * @param forcePasswordChange Forces the user to change his or her password on first log in. (optional)
      * @param sendVerificationMail Prevents welcome emails from being sent to the newly created user. (optional)
-     * @return Room
+     * @return UserId
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room createUser(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        ApiResponse<Room> resp = createUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+    public UserId createUser(Integer enterpriseId, User user, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        ApiResponse<UserId> resp = createUserWithHttpInfo(enterpriseId, user, forcePasswordChange, sendVerificationMail);
         return resp.getData();
     }
 
@@ -138,14 +145,15 @@ public class EnterpriseApi {
      * Create Enterprise User
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param user The information about the new user. (required)
      * @param forcePasswordChange Forces the user to change his or her password on first log in. (optional)
      * @param sendVerificationMail Prevents welcome emails from being sent to the newly created user. (optional)
-     * @return ApiResponse&lt;Room&gt;
+     * @return ApiResponse&lt;UserId&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> createUserWithHttpInfo(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        com.squareup.okhttp.Call call = createUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, null, null);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
+    public ApiResponse<UserId> createUserWithHttpInfo(Integer enterpriseId, User user, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        com.squareup.okhttp.Call call = createUserCall(enterpriseId, user, forcePasswordChange, sendVerificationMail, null, null);
+        Type localVarReturnType = new TypeToken<UserId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -153,13 +161,14 @@ public class EnterpriseApi {
      * Create Enterprise User (asynchronously)
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param user The information about the new user. (required)
      * @param forcePasswordChange Forces the user to change his or her password on first log in. (optional)
      * @param sendVerificationMail Prevents welcome emails from being sent to the newly created user. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createUserAsync(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call createUserAsync(Integer enterpriseId, User user, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<UserId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,8 +189,8 @@ public class EnterpriseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
+        com.squareup.okhttp.Call call = createUserCall(enterpriseId, user, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UserId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -473,12 +482,10 @@ public class EnterpriseApi {
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room removeUser(Integer enterpriseId, Integer userId) throws ApiException {
-        ApiResponse<Room> resp = removeUserWithHttpInfo(enterpriseId, userId);
-        return resp.getData();
+    public void removeUser(Integer enterpriseId, Integer userId) throws ApiException {
+        removeUserWithHttpInfo(enterpriseId, userId);
     }
 
     /**
@@ -486,13 +493,12 @@ public class EnterpriseApi {
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return ApiResponse&lt;Room&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> removeUserWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
+    public ApiResponse<Void> removeUserWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
         com.squareup.okhttp.Call call = removeUserCall(enterpriseId, userId, null, null);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -504,7 +510,7 @@ public class EnterpriseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeUserAsync(Integer enterpriseId, Integer userId, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeUserAsync(Integer enterpriseId, Integer userId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -526,8 +532,7 @@ public class EnterpriseApi {
         }
 
         com.squareup.okhttp.Call call = removeUserCall(enterpriseId, userId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
 }

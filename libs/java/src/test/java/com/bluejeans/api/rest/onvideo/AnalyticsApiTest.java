@@ -139,7 +139,7 @@ public class AnalyticsApiTest {
     /**
      * Top Users
      *
-     * This endpoint retrieves the top useres by usage for an enterprise.
+     * This endpoint retrieves the top users by usage for an enterprise.
      *
      * @throws ApiException
      *          if the Api call fails

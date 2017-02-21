@@ -107,7 +107,7 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Meeting meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
+Meeting meeting = new Meeting(); // Meeting | The details of the meeting.
 Boolean email = true; // Boolean | If set to true, sends invitation emails to all listed participants.
 try {
     Meeting result = apiInstance.createMeeting(userId, meeting, email);
@@ -123,7 +123,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. |
+ **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. |
  **email** | **Boolean**| If set to true, sends invitation emails to all listed participants. | [optional]
 
 ### Return type

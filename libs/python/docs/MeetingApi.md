@@ -99,7 +99,7 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting = swagger_client.Meeting() # Meeting | The user's room details that you wish to update.
+meeting = swagger_client.Meeting() # Meeting | The details of the meeting.
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
 try: 
@@ -115,7 +115,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
+ **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. | 
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

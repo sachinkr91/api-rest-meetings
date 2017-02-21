@@ -723,7 +723,7 @@ public class AnalyticsApi {
 
     /**
      * Top Users
-     * This endpoint retrieves the top useres by usage for an enterprise.
+     * This endpoint retrieves the top users by usage for an enterprise.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
      * @return AnalyticsTopUsers
@@ -736,7 +736,7 @@ public class AnalyticsApi {
 
     /**
      * Top Users
-     * This endpoint retrieves the top useres by usage for an enterprise.
+     * This endpoint retrieves the top users by usage for an enterprise.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
      * @return ApiResponse&lt;AnalyticsTopUsers&gt;
@@ -750,7 +750,7 @@ public class AnalyticsApi {
 
     /**
      * Top Users (asynchronously)
-     * This endpoint retrieves the top useres by usage for an enterprise.
+     * This endpoint retrieves the top users by usage for an enterprise.
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
      * @param callback The callback to be executed when the API call finishes

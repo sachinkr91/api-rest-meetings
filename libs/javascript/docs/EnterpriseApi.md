@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createUser"></a>
 # **createUser**
-> Room createUser(enterpriseId, opts)
+> UserId createUser(enterpriseId, user, opts)
 
 Create Enterprise User
 
@@ -33,6 +33,8 @@ var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
 
 var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
+var user = new BlueJeansOnVideoRestApi.User(); // User | The information about the new user.
+
 var opts = { 
   'forcePasswordChange': true, // Boolean | Forces the user to change his or her password on first log in.
   'sendVerificationMail': true // Boolean | Prevents welcome emails from being sent to the newly created user.
@@ -45,7 +47,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.createUser(enterpriseId, opts, callback);
+apiInstance.createUser(enterpriseId, user, opts, callback);
 ```
 
 ### Parameters
@@ -53,12 +55,13 @@ apiInstance.createUser(enterpriseId, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **user** | [**User**](User.md)| The information about the new user. | 
  **forcePasswordChange** | **Boolean**| Forces the user to change his or her password on first log in. | [optional] 
  **sendVerificationMail** | **Boolean**| Prevents welcome emails from being sent to the newly created user. | [optional] 
 
 ### Return type
 
-[**Room**](Room.md)
+[**UserId**](UserId.md)
 
 ### Authorization
 
@@ -185,7 +188,7 @@ Name | Type | Description  | Notes
 
 <a name="removeUser"></a>
 # **removeUser**
-> Room removeUser(enterpriseId, userId)
+> removeUser(enterpriseId, userId)
 
 Remove Enterprise User
 
@@ -213,7 +216,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
 apiInstance.removeUser(enterpriseId, userId, callback);
@@ -228,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Room**](Room.md)
+null (empty response body)
 
 ### Authorization
 

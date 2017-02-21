@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_user**
-> Room create_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
+> UserId create_user(enterprise_id, user, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
 
 Create Enterprise User
 
@@ -32,12 +32,13 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.EnterpriseApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+user = swagger_client.User() # User | The information about the new user.
 force_password_change = true # bool | Forces the user to change his or her password on first log in. (optional)
 send_verification_mail = true # bool | Prevents welcome emails from being sent to the newly created user. (optional)
 
 try: 
     # Create Enterprise User
-    api_response = api_instance.create_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
+    api_response = api_instance.create_user(enterprise_id, user, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling EnterpriseApi->create_user: %s\n" % e
@@ -48,12 +49,13 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **user** | [**User**](User.md)| The information about the new user. | 
  **force_password_change** | **bool**| Forces the user to change his or her password on first log in. | [optional] 
  **send_verification_mail** | **bool**| Prevents welcome emails from being sent to the newly created user. | [optional] 
 
 ### Return type
 
-[**Room**](Room.md)
+[**UserId**](UserId.md)
 
 ### Authorization
 
@@ -177,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_user**
-> Room remove_user(enterprise_id, user_id)
+> remove_user(enterprise_id, user_id)
 
 Remove Enterprise User
 
@@ -202,8 +204,7 @@ user_id = 56 # int | The ID of the user of interest. This value is an integer wh
 
 try: 
     # Remove Enterprise User
-    api_response = api_instance.remove_user(enterprise_id, user_id)
-    pprint(api_response)
+    api_instance.remove_user(enterprise_id, user_id)
 except ApiException as e:
     print "Exception when calling EnterpriseApi->remove_user: %s\n" % e
 ```
@@ -217,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Room**](Room.md)
+void (empty response body)
 
 ### Authorization
 

@@ -621,7 +621,7 @@ class AnalyticsApi(object):
     def get_top_users(self, enterprise_id, **kwargs):
         """
         Top Users
-        This endpoint retrieves the top useres by usage for an enterprise.
+        This endpoint retrieves the top users by usage for an enterprise.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -649,7 +649,7 @@ class AnalyticsApi(object):
     def get_top_users_with_http_info(self, enterprise_id, **kwargs):
         """
         Top Users
-        This endpoint retrieves the top useres by usage for an enterprise.
+        This endpoint retrieves the top users by usage for an enterprise.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

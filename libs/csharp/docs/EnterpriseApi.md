@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createuser"></a>
 # **CreateUser**
-> Room CreateUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+> UserId CreateUser (int? enterpriseId, User user, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
 
 Create Enterprise User
 
@@ -40,13 +40,14 @@ namespace Example
 
             var apiInstance = new EnterpriseApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+            var user = new User(); // User | The information about the new user.
             var forcePasswordChange = true;  // bool? | Forces the user to change his or her password on first log in. (optional) 
             var sendVerificationMail = true;  // bool? | Prevents welcome emails from being sent to the newly created user. (optional) 
 
             try
             {
                 // Create Enterprise User
-                Room result = apiInstance.CreateUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+                UserId result = apiInstance.CreateUser(enterpriseId, user, forcePasswordChange, sendVerificationMail);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -63,12 +64,13 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **user** | [**User**](User.md)| The information about the new user. | 
  **forcePasswordChange** | **bool?**| Forces the user to change his or her password on first log in. | [optional] 
  **sendVerificationMail** | **bool?**| Prevents welcome emails from being sent to the newly created user. | [optional] 
 
 ### Return type
 
-[**Room**](Room.md)
+[**UserId**](UserId.md)
 
 ### Authorization
 
@@ -223,7 +225,7 @@ Name | Type | Description  | Notes
 
 <a name="removeuser"></a>
 # **RemoveUser**
-> Room RemoveUser (int? enterpriseId, int? userId)
+> void RemoveUser (int? enterpriseId, int? userId)
 
 Remove Enterprise User
 
@@ -256,8 +258,7 @@ namespace Example
             try
             {
                 // Remove Enterprise User
-                Room result = apiInstance.RemoveUser(enterpriseId, userId);
-                Debug.WriteLine(result);
+                apiInstance.RemoveUser(enterpriseId, userId);
             }
             catch (Exception e)
             {
@@ -277,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Room**](Room.md)
+void (empty response body)
 
 ### Authorization
 

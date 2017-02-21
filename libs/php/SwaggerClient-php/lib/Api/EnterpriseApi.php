@@ -108,14 +108,15 @@ class EnterpriseApi
      * Create Enterprise User
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param \Swagger\Client\Model\User $user The information about the new user. (required)
      * @param bool $force_password_change Forces the user to change his or her password on first log in. (optional)
      * @param bool $send_verification_mail Prevents welcome emails from being sent to the newly created user. (optional)
-     * @return \Swagger\Client\Model\Room
+     * @return \Swagger\Client\Model\UserId
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function createUser($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createUser($enterprise_id, $user, $force_password_change = null, $send_verification_mail = null)
     {
-        list($response) = $this->createUserWithHttpInfo($enterprise_id, $force_password_change, $send_verification_mail);
+        list($response) = $this->createUserWithHttpInfo($enterprise_id, $user, $force_password_change, $send_verification_mail);
         return $response;
     }
 
@@ -125,16 +126,21 @@ class EnterpriseApi
      * Create Enterprise User
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param \Swagger\Client\Model\User $user The information about the new user. (required)
      * @param bool $force_password_change Forces the user to change his or her password on first log in. (optional)
      * @param bool $send_verification_mail Prevents welcome emails from being sent to the newly created user. (optional)
-     * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\UserId, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function createUserWithHttpInfo($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createUserWithHttpInfo($enterprise_id, $user, $force_password_change = null, $send_verification_mail = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling createUser');
+        }
+        // verify the required parameter 'user' is set
+        if ($user === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user when calling createUser');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/users";
@@ -167,7 +173,12 @@ class EnterpriseApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($user)) {
+            $_tempBody = $user;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -187,15 +198,15 @@ class EnterpriseApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Room',
+                '\Swagger\Client\Model\UserId',
                 '/v1/enterprise/{enterprise_id}/users'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Room', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\UserId', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Room', $e->getResponseHeaders());
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\UserId', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -421,7 +432,7 @@ class EnterpriseApi
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return \Swagger\Client\Model\Room
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function removeUser($enterprise_id, $user_id)
@@ -437,7 +448,7 @@ class EnterpriseApi
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function removeUserWithHttpInfo($enterprise_id, $user_id)
@@ -501,17 +512,13 @@ class EnterpriseApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Room',
+                null,
                 '/v1/enterprise/{enterprise_id}/users/{user_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Room', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Room', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);

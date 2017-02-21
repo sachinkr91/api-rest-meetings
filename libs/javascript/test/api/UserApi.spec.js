@@ -59,16 +59,6 @@
   }
 
   describe('UserApi', function() {
-    describe('getEnterpriseProfile', function() {
-      it('should call getEnterpriseProfile successfully', function(done) {
-        //uncomment below and update the code to test getEnterpriseProfile
-        //instance.getEnterpriseProfile(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getRoom', function() {
       it('should call getRoom successfully', function(done) {
         //uncomment below and update the code to test getRoom

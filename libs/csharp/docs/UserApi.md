@@ -4,79 +4,11 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetEnterpriseProfile**](UserApi.md#getenterpriseprofile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**GetRoom**](UserApi.md#getroom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**GetUser**](UserApi.md#getuser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**UpdateRoom**](UserApi.md#updateroom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**UpdateUser**](UserApi.md#updateuser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
-
-<a name="getenterpriseprofile"></a>
-# **GetEnterpriseProfile**
-> Enterprise GetEnterpriseProfile (int? userId)
-
-Get Enterprise Profile
-
-This endpoint retrieves the enterprise profile associated with the user.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class GetEnterpriseProfileExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new UserApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-            try
-            {
-                // Get Enterprise Profile
-                Enterprise result = apiInstance.GetEnterpriseProfile(userId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling UserApi.GetEnterpriseProfile: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**Enterprise**](Enterprise.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getroom"></a>
 # **GetRoom**

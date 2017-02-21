@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Room', 'model/Error', 'model/Enterprise', 'model/EnterpriseUserList'], factory);
+    define(['ApiClient', 'model/User', 'model/UserId', 'model/Error', 'model/Enterprise', 'model/EnterpriseUserList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Room'), require('../model/Error'), require('../model/Enterprise'), require('../model/EnterpriseUserList'));
+    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/UserId'), require('../model/Error'), require('../model/Enterprise'), require('../model/EnterpriseUserList'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
+    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.UserId, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
   }
-}(this, function(ApiClient, Room, Error, Enterprise, EnterpriseUserList) {
+}(this, function(ApiClient, User, UserId, Error, Enterprise, EnterpriseUserList) {
   'use strict';
 
   /**
@@ -60,7 +60,7 @@
      * Callback function to receive the result of the createUser operation.
      * @callback module:api/EnterpriseApi~createUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Room} data The data returned by the service call.
+     * @param {module:model/UserId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -68,19 +68,25 @@
      * Create Enterprise User
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {module:model/User} user The information about the new user.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.forcePasswordChange Forces the user to change his or her password on first log in.
      * @param {Boolean} opts.sendVerificationMail Prevents welcome emails from being sent to the newly created user.
      * @param {module:api/EnterpriseApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Room}
+     * data is of type: {@link module:model/UserId}
      */
-    this.createUser = function(enterpriseId, opts, callback) {
+    this.createUser = function(enterpriseId, user, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = user;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
         throw "Missing the required parameter 'enterpriseId' when calling createUser";
+      }
+
+      // verify the required parameter 'user' is set
+      if (user == undefined || user == null) {
+        throw "Missing the required parameter 'user' when calling createUser";
       }
 
 
@@ -99,7 +105,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Room;
+      var returnType = UserId;
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/users', 'POST',
@@ -212,7 +218,7 @@
      * Callback function to receive the result of the removeUser operation.
      * @callback module:api/EnterpriseApi~removeUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Room} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -222,7 +228,6 @@
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/EnterpriseApi~removeUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Room}
      */
     this.removeUser = function(enterpriseId, userId, callback) {
       var postBody = null;
@@ -252,7 +257,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Room;
+      var returnType = null;
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/users/{user_id}', 'DELETE',

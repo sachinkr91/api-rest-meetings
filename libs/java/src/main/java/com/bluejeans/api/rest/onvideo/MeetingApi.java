@@ -247,7 +247,7 @@ public class MeetingApi {
      * Create Meeting
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The user&#39;s room details that you wish to update. (required)
+     * @param meeting The details of the meeting. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -261,7 +261,7 @@ public class MeetingApi {
      * Create Meeting
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The user&#39;s room details that you wish to update. (required)
+     * @param meeting The details of the meeting. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -276,7 +276,7 @@ public class MeetingApi {
      * Create Meeting (asynchronously)
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The user&#39;s room details that you wish to update. (required)
+     * @param meeting The details of the meeting. (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

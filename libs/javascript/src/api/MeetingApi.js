@@ -120,7 +120,7 @@
      * Create Meeting
      * This endpoint will create a scheduled meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:model/Meeting} meeting The user&#39;s room details that you wish to update.
+     * @param {module:model/Meeting} meeting The details of the meeting.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.email If set to true, sends invitation emails to all listed participants.
      * @param {module:api/MeetingApi~createMeetingCallback} callback The callback function, accepting three arguments: error, data, response

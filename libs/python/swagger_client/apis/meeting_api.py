@@ -178,7 +178,7 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :param Meeting meeting: The details of the meeting. (required)
         :param bool email: If set to true, sends invitation emails to all listed participants.
         :return: Meeting
                  If the method is called asynchronously,
@@ -207,7 +207,7 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :param Meeting meeting: The details of the meeting. (required)
         :param bool email: If set to true, sends invitation emails to all listed participants.
         :return: Meeting
                  If the method is called asynchronously,

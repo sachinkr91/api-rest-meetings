@@ -84,10 +84,11 @@ namespace IO.Swagger.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
+            //User user = null;
             //bool? forcePasswordChange = null;
             //bool? sendVerificationMail = null;
-            //var response = instance.CreateUser(enterpriseId, forcePasswordChange, sendVerificationMail);
-            //Assert.IsInstanceOf<Room> (response, "response is Room");
+            //var response = instance.CreateUser(enterpriseId, user, forcePasswordChange, sendVerificationMail);
+            //Assert.IsInstanceOf<UserId> (response, "response is UserId");
         }
         
         /// <summary>
@@ -126,8 +127,8 @@ namespace IO.Swagger.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //int? userId = null;
-            //var response = instance.RemoveUser(enterpriseId, userId);
-            //Assert.IsInstanceOf<Room> (response, "response is Room");
+            //instance.RemoveUser(enterpriseId, userId);
+            
         }
         
     }

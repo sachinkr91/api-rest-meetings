@@ -341,7 +341,7 @@
 
     /**
      * Top Users
-     * This endpoint retrieves the top useres by usage for an enterprise.
+     * This endpoint retrieves the top users by usage for an enterprise.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])

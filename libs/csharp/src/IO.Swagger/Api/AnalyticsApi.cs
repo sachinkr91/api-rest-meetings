@@ -161,7 +161,7 @@ namespace IO.Swagger.Api
         /// Top Users
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// This endpoint retrieves the top users by usage for an enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -173,7 +173,7 @@ namespace IO.Swagger.Api
         /// Top Users
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// This endpoint retrieves the top users by usage for an enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -307,7 +307,7 @@ namespace IO.Swagger.Api
         /// Top Users
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// This endpoint retrieves the top users by usage for an enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -319,7 +319,7 @@ namespace IO.Swagger.Api
         /// Top Users
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// This endpoint retrieves the top users by usage for an enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -1277,7 +1277,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -1290,7 +1290,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -1356,7 +1356,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
@@ -1370,7 +1370,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>

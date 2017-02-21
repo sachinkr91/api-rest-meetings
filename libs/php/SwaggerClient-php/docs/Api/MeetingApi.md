@@ -94,7 +94,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The user's room details that you wish to update.
+$meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The details of the meeting.
 $email = true; // bool | If set to true, sends invitation emails to all listed participants.
 
 try {
@@ -111,7 +111,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The user&#39;s room details that you wish to update. |
+ **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The details of the meeting. |
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional]
 
 ### Return type
