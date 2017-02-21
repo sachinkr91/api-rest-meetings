@@ -73,27 +73,12 @@ paths:
       consumes:
         - application/json
       parameters:
-        - name: GrantTypePassword
+        - name: GrantRequestPassword
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true
           schema:
-            required:
-              - grant_type
-              - username
-              - password
-            properties:
-              grant_type:
-                type: string
-                default: password
-                description: The type of access token you are requesting.
-              username:
-                type: string
-                description: Your user name that you use to login to our site.
-              password:
-                type: string
-                description: Your user password that you use to login to our site.
-                format: password
+            $ref: '#/definitions/GrantRequestPassword'
       responses:
         '200':
           description: The information about the grant.
@@ -1840,6 +1825,20 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  GrantRequestPassword:
+    type: object
+    properties:
+      grant_type:
+        type: string
+        default: password
+        description: The type of access token you are requesting.
+      username:
+        type: string
+        description: Your user name that you use to login to our site.
+      password:
+        type: string
+        description: Your user password that you use to login to our site.
+        format: password
   GrantPassword:
     type: object
     properties:

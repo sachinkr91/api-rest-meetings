@@ -22,92 +22,124 @@
  * limitations under the License.
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
-    }
-    root.BlueJeansOnVideoRestApi.GrantTypePassword = factory(root.BlueJeansOnVideoRestApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+
+package io.swagger.client.model;
+
+import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
+/**
+ * GrantRequestPassword
+ */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
+public class GrantRequestPassword   {
+  @SerializedName("grant_type")
+  private String grantType = "password";
 
+  @SerializedName("username")
+  private String username = null;
 
-  /**
-   * The GrantTypePassword model module.
-   * @module model/GrantTypePassword
-   * @version 1.0.0
-   */
+  @SerializedName("password")
+  private String password = null;
 
-  /**
-   * Constructs a new <code>GrantTypePassword</code>.
-   * @alias module:model/GrantTypePassword
-   * @class
-   * @param grantType {String} The type of access token you are requesting.
-   * @param username {String} Your user name that you use to login to our site.
-   * @param password {String} Your user password that you use to login to our site.
-   */
-  var exports = function(grantType, username, password) {
-    var _this = this;
-
-    _this['grant_type'] = grantType;
-    _this['username'] = username;
-    _this['password'] = password;
-  };
-
-  /**
-   * Constructs a <code>GrantTypePassword</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/GrantTypePassword} obj Optional instance to populate.
-   * @return {module:model/GrantTypePassword} The populated <code>GrantTypePassword</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('grant_type')) {
-        obj['grant_type'] = ApiClient.convertToType(data['grant_type'], 'String');
-      }
-      if (data.hasOwnProperty('username')) {
-        obj['username'] = ApiClient.convertToType(data['username'], 'String');
-      }
-      if (data.hasOwnProperty('password')) {
-        obj['password'] = ApiClient.convertToType(data['password'], 'String');
-      }
-    }
-    return obj;
+  public GrantRequestPassword grantType(String grantType) {
+    this.grantType = grantType;
+    return this;
   }
 
-  /**
+   /**
    * The type of access token you are requesting.
-   * @member {String} grant_type
-   * @default 'password'
-   */
-  exports.prototype['grant_type'] = 'password';
-  /**
+   * @return grantType
+  **/
+  @ApiModelProperty(example = "null", value = "The type of access token you are requesting.")
+  public String getGrantType() {
+    return grantType;
+  }
+
+  public void setGrantType(String grantType) {
+    this.grantType = grantType;
+  }
+
+  public GrantRequestPassword username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
    * Your user name that you use to login to our site.
-   * @member {String} username
-   */
-  exports.prototype['username'] = undefined;
-  /**
+   * @return username
+  **/
+  @ApiModelProperty(example = "null", value = "Your user name that you use to login to our site.")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public GrantRequestPassword password(String password) {
+    this.password = password;
+    return this;
+  }
+
+   /**
    * Your user password that you use to login to our site.
-   * @member {String} password
+   * @return password
+  **/
+  @ApiModelProperty(example = "null", value = "Your user password that you use to login to our site.")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    GrantRequestPassword grantRequestPassword = (GrantRequestPassword) o;
+    return Objects.equals(this.grantType, grantRequestPassword.grantType) &&
+        Objects.equals(this.username, grantRequestPassword.username) &&
+        Objects.equals(this.password, grantRequestPassword.password);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(grantType, username, password);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class GrantRequestPassword {\n");
+    
+    sb.append("    grantType: ").append(toIndentedString(grantType)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
-  exports.prototype['password'] = undefined;
-
-
-
-  return exports;
-}));
-
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
 

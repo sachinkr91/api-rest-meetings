@@ -1,6 +1,6 @@
 <?php
 /**
- * GrantTypePasswordTest
+ * GrantRequestPasswordTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Swagger\Client;
 
 /**
- * GrantTypePasswordTest Class Doc Comment
+ * GrantRequestPasswordTest Class Doc Comment
  *
  * @category    Class */
-// * @description GrantTypePassword
+// * @description GrantRequestPassword
 /**
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GrantTypePasswordTest extends \PHPUnit_Framework_TestCase
+class GrantRequestPasswordTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class GrantTypePasswordTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "GrantTypePassword"
+     * Test "GrantRequestPassword"
      */
-    public function testGrantTypePassword()
+    public function testGrantRequestPassword()
     {
 
     }

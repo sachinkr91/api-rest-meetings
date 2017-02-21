@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MeetingHistoryLeaderInfo
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:42:32.307-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
 public class MeetingHistoryLeaderInfo   {
   @SerializedName("leaderId")
   private Integer leaderId = null;

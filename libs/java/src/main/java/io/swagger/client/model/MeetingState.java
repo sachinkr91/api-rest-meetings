@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * MeetingState
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:42:32.307-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
 public class MeetingState   {
   @SerializedName("meetingId")
   private String meetingId = null;

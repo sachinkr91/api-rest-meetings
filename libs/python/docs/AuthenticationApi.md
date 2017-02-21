@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_token_by_password**
-> GrantPassword get_token_by_password(grant_type_password)
+> GrantPassword get_token_by_password(grant_request_password)
 
 Authentication via Password Grant Type
 
@@ -134,11 +134,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_type_password = swagger_client.GrantTypePassword() # GrantTypePassword | Contains information about the type of grant you are requesting.
+grant_request_password = swagger_client.GrantRequestPassword() # GrantRequestPassword | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Password Grant Type
-    api_response = api_instance.get_token_by_password(grant_type_password)
+    api_response = api_instance.get_token_by_password(grant_request_password)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e
@@ -148,7 +148,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_password** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. | 
+ **grant_request_password** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

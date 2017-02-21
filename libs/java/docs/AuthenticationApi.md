@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="getTokenByPassword"></a>
 # **getTokenByPassword**
-> GrantPassword getTokenByPassword(grantTypePassword)
+> GrantPassword getTokenByPassword(grantRequestPassword)
 
 Authentication via Password Grant Type
 
@@ -145,9 +145,9 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantTypePassword grantTypePassword = new GrantTypePassword(); // GrantTypePassword | Contains information about the type of grant you are requesting.
+GrantRequestPassword grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.
 try {
-    GrantPassword result = apiInstance.getTokenByPassword(grantTypePassword);
+    GrantPassword result = apiInstance.getTokenByPassword(grantRequestPassword);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthenticationApi#getTokenByPassword");
@@ -159,7 +159,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypePassword** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestPassword** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

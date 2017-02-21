@@ -259,7 +259,7 @@ class AuthenticationApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def get_token_by_password(self, grant_type_password, **kwargs):
+    def get_token_by_password(self, grant_request_password, **kwargs):
         """
         Authentication via Password Grant Type
         An access token can be obtained by using a user’s username and password.
@@ -270,23 +270,23 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_password(grant_type_password, callback=callback_function)
+        >>> thread = api.get_token_by_password(grant_request_password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypePassword grant_type_password: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestPassword grant_request_password: Contains information about the type of grant you are requesting. (required)
         :return: GrantPassword
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.get_token_by_password_with_http_info(grant_type_password, **kwargs)
+            return self.get_token_by_password_with_http_info(grant_request_password, **kwargs)
         else:
-            (data) = self.get_token_by_password_with_http_info(grant_type_password, **kwargs)
+            (data) = self.get_token_by_password_with_http_info(grant_request_password, **kwargs)
             return data
 
-    def get_token_by_password_with_http_info(self, grant_type_password, **kwargs):
+    def get_token_by_password_with_http_info(self, grant_request_password, **kwargs):
         """
         Authentication via Password Grant Type
         An access token can be obtained by using a user’s username and password.
@@ -297,17 +297,17 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_password_with_http_info(grant_type_password, callback=callback_function)
+        >>> thread = api.get_token_by_password_with_http_info(grant_request_password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypePassword grant_type_password: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestPassword grant_request_password: Contains information about the type of grant you are requesting. (required)
         :return: GrantPassword
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['grant_type_password']
+        all_params = ['grant_request_password']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -320,9 +320,9 @@ class AuthenticationApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'grant_type_password' is set
-        if ('grant_type_password' not in params) or (params['grant_type_password'] is None):
-            raise ValueError("Missing the required parameter `grant_type_password` when calling `get_token_by_password`")
+        # verify the required parameter 'grant_request_password' is set
+        if ('grant_request_password' not in params) or (params['grant_request_password'] is None):
+            raise ValueError("Missing the required parameter `grant_request_password` when calling `get_token_by_password`")
 
         resource_path = '/oauth2/token?Password'.replace('{format}', 'json')
         path_params = {}
@@ -335,8 +335,8 @@ class AuthenticationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'grant_type_password' in params:
-            body_params = params['grant_type_password']
+        if 'grant_request_password' in params:
+            body_params = params['grant_request_password']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\

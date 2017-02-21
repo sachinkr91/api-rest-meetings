@@ -107,8 +107,8 @@ namespace IO.Swagger.Test
         public void GetTokenByPasswordTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //GrantTypePassword grantTypePassword = null;
-            //var response = instance.GetTokenByPassword(grantTypePassword);
+            //GrantRequestPassword grantRequestPassword = null;
+            //var response = instance.GetTokenByPassword(grantRequestPassword);
             //Assert.IsInstanceOf<GrantPassword> (response, "response is GrantPassword");
         }
         

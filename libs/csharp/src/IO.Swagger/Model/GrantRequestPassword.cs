@@ -34,51 +34,30 @@ using Newtonsoft.Json.Converters;
 namespace IO.Swagger.Model
 {
     /// <summary>
-    /// GrantTypePassword
+    /// GrantRequestPassword
     /// </summary>
     [DataContract]
-    public partial class GrantTypePassword :  IEquatable<GrantTypePassword>
+    public partial class GrantRequestPassword :  IEquatable<GrantRequestPassword>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrantTypePassword" /> class.
+        /// Initializes a new instance of the <see cref="GrantRequestPassword" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GrantTypePassword() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GrantTypePassword" /> class.
-        /// </summary>
-        /// <param name="GrantType">The type of access token you are requesting. (required) (default to &quot;password&quot;).</param>
-        /// <param name="Username">Your user name that you use to login to our site. (required).</param>
-        /// <param name="Password">Your user password that you use to login to our site. (required).</param>
-        public GrantTypePassword(string GrantType = null, string Username = null, string Password = null)
+        /// <param name="GrantType">The type of access token you are requesting. (default to &quot;password&quot;).</param>
+        /// <param name="Username">Your user name that you use to login to our site..</param>
+        /// <param name="Password">Your user password that you use to login to our site..</param>
+        public GrantRequestPassword(string GrantType = null, string Username = null, string Password = null)
         {
-            // to ensure "GrantType" is required (not null)
+            // use default value if no "GrantType" provided
             if (GrantType == null)
             {
-                throw new InvalidDataException("GrantType is a required property for GrantTypePassword and cannot be null");
+                this.GrantType = "password";
             }
             else
             {
                 this.GrantType = GrantType;
             }
-            // to ensure "Username" is required (not null)
-            if (Username == null)
-            {
-                throw new InvalidDataException("Username is a required property for GrantTypePassword and cannot be null");
-            }
-            else
-            {
-                this.Username = Username;
-            }
-            // to ensure "Password" is required (not null)
-            if (Password == null)
-            {
-                throw new InvalidDataException("Password is a required property for GrantTypePassword and cannot be null");
-            }
-            else
-            {
-                this.Password = Password;
-            }
+            this.Username = Username;
+            this.Password = Password;
         }
         
         /// <summary>
@@ -106,7 +85,7 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GrantTypePassword {\n");
+            sb.Append("class GrantRequestPassword {\n");
             sb.Append("  GrantType: ").Append(GrantType).Append("\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
@@ -131,15 +110,15 @@ namespace IO.Swagger.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as GrantTypePassword);
+            return this.Equals(obj as GrantRequestPassword);
         }
 
         /// <summary>
-        /// Returns true if GrantTypePassword instances are equal
+        /// Returns true if GrantRequestPassword instances are equal
         /// </summary>
-        /// <param name="other">Instance of GrantTypePassword to be compared</param>
+        /// <param name="other">Instance of GrantRequestPassword to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GrantTypePassword other)
+        public bool Equals(GrantRequestPassword other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

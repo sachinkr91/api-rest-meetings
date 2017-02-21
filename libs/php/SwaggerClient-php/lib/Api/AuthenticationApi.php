@@ -289,13 +289,13 @@ class AuthenticationApi
      *
      * Authentication via Password Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypePassword $grant_type_password Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting. (required)
      * @return \Swagger\Client\Model\GrantPassword
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByPassword($grant_type_password)
+    public function getTokenByPassword($grant_request_password)
     {
-        list($response) = $this->getTokenByPasswordWithHttpInfo($grant_type_password);
+        list($response) = $this->getTokenByPasswordWithHttpInfo($grant_request_password);
         return $response;
     }
 
@@ -304,15 +304,15 @@ class AuthenticationApi
      *
      * Authentication via Password Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypePassword $grant_type_password Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting. (required)
      * @return Array of \Swagger\Client\Model\GrantPassword, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByPasswordWithHttpInfo($grant_type_password)
+    public function getTokenByPasswordWithHttpInfo($grant_request_password)
     {
-        // verify the required parameter 'grant_type_password' is set
-        if ($grant_type_password === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type_password when calling getTokenByPassword');
+        // verify the required parameter 'grant_request_password' is set
+        if ($grant_request_password === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_password when calling getTokenByPassword');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Password";
@@ -331,8 +331,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($grant_type_password)) {
-            $_tempBody = $grant_type_password;
+        if (isset($grant_request_password)) {
+            $_tempBody = $grant_request_password;
         }
 
         // for model (json/xml)

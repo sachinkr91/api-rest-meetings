@@ -1,6 +1,6 @@
 <?php
 /**
- * GrantTypePassword
+ * GrantRequestPassword
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * GrantTypePassword Class Doc Comment
+ * GrantRequestPassword Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GrantTypePassword implements ArrayAccess
+class GrantRequestPassword implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GrantTypePassword';
+    protected static $swaggerModelName = 'GrantRequestPassword';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -150,15 +150,6 @@ class GrantTypePassword implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if ($this->container['grant_type'] === null) {
-            $invalid_properties[] = "'grant_type' can't be null";
-        }
-        if ($this->container['username'] === null) {
-            $invalid_properties[] = "'username' can't be null";
-        }
-        if ($this->container['password'] === null) {
-            $invalid_properties[] = "'password' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -170,15 +161,6 @@ class GrantTypePassword implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['grant_type'] === null) {
-            return false;
-        }
-        if ($this->container['username'] === null) {
-            return false;
-        }
-        if ($this->container['password'] === null) {
-            return false;
-        }
         return true;
     }
 

@@ -54,9 +54,9 @@ from .models.grant_meeting_scope import GrantMeetingScope
 from .models.grant_meeting_scope_meeting import GrantMeetingScopeMeeting
 from .models.grant_password import GrantPassword
 from .models.grant_password_scope import GrantPasswordScope
+from .models.grant_request_password import GrantRequestPassword
 from .models.grant_type_client import GrantTypeClient
 from .models.grant_type_meeting import GrantTypeMeeting
-from .models.grant_type_password import GrantTypePassword
 from .models.layout import Layout
 from .models.meeting import Meeting
 from .models.meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions

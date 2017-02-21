@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantTypePassword();
+    instance = new BlueJeansOnVideoRestApi.GrantRequestPassword();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,28 +58,28 @@
       object[property] = value;
   }
 
-  describe('GrantTypePassword', function() {
-    it('should create an instance of GrantTypePassword', function() {
-      // uncomment below and update the code to test GrantTypePassword
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypePassword();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantTypePassword);
+  describe('GrantRequestPassword', function() {
+    it('should create an instance of GrantRequestPassword', function() {
+      // uncomment below and update the code to test GrantRequestPassword
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestPassword();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestPassword);
     });
 
     it('should have the property grantType (base name: "grant_type")', function() {
       // uncomment below and update the code to test the property grantType
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypePassword();
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestPassword();
       //expect(instance).to.be();
     });
 
     it('should have the property username (base name: "username")', function() {
       // uncomment below and update the code to test the property username
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypePassword();
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestPassword();
       //expect(instance).to.be();
     });
 
     it('should have the property password (base name: "password")', function() {
       // uncomment below and update the code to test the property password
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypePassword();
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestPassword();
       //expect(instance).to.be();
     });
 

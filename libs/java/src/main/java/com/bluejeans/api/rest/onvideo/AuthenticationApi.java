@@ -43,8 +43,8 @@ import io.swagger.client.model.GrantTypeClient;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.GrantMeeting;
 import io.swagger.client.model.GrantTypeMeeting;
-import io.swagger.client.model.GrantTypePassword;
 import io.swagger.client.model.GrantPassword;
+import io.swagger.client.model.GrantRequestPassword;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -284,12 +284,12 @@ public class AuthenticationApi {
         return call;
     }
     /* Build call for getTokenByPassword */
-    private com.squareup.okhttp.Call getTokenByPasswordCall(GrantTypePassword grantTypePassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = grantTypePassword;
+    private com.squareup.okhttp.Call getTokenByPasswordCall(GrantRequestPassword grantRequestPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantRequestPassword;
         
-        // verify the required parameter 'grantTypePassword' is set
-        if (grantTypePassword == null) {
-            throw new ApiException("Missing the required parameter 'grantTypePassword' when calling getTokenByPassword(Async)");
+        // verify the required parameter 'grantRequestPassword' is set
+        if (grantRequestPassword == null) {
+            throw new ApiException("Missing the required parameter 'grantRequestPassword' when calling getTokenByPassword(Async)");
         }
         
 
@@ -333,24 +333,24 @@ public class AuthenticationApi {
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
+     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
      * @return GrantPassword
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GrantPassword getTokenByPassword(GrantTypePassword grantTypePassword) throws ApiException {
-        ApiResponse<GrantPassword> resp = getTokenByPasswordWithHttpInfo(grantTypePassword);
+    public GrantPassword getTokenByPassword(GrantRequestPassword grantRequestPassword) throws ApiException {
+        ApiResponse<GrantPassword> resp = getTokenByPasswordWithHttpInfo(grantRequestPassword);
         return resp.getData();
     }
 
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
+     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
      * @return ApiResponse&lt;GrantPassword&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GrantPassword> getTokenByPasswordWithHttpInfo(GrantTypePassword grantTypePassword) throws ApiException {
-        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantTypePassword, null, null);
+    public ApiResponse<GrantPassword> getTokenByPasswordWithHttpInfo(GrantRequestPassword grantRequestPassword) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantRequestPassword, null, null);
         Type localVarReturnType = new TypeToken<GrantPassword>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -358,12 +358,12 @@ public class AuthenticationApi {
     /**
      * Authentication via Password Grant Type (asynchronously)
      * An access token can be obtained by using a user’s username and password.
-     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
+     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenByPasswordAsync(GrantTypePassword grantTypePassword, final ApiCallback<GrantPassword> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByPasswordAsync(GrantRequestPassword grantRequestPassword, final ApiCallback<GrantPassword> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -384,7 +384,7 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantTypePassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantRequestPassword, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GrantPassword>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

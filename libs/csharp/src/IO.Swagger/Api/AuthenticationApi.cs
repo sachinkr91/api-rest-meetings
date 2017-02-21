@@ -85,9 +85,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantPassword</returns>
-        GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword);
+        GrantPassword GetTokenByPassword (GrantRequestPassword grantRequestPassword);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -96,9 +96,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantPassword</returns>
-        ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantTypePassword grantTypePassword);
+        ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -150,9 +150,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantPassword</returns>
-        System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantTypePassword grantTypePassword);
+        System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantRequestPassword grantRequestPassword);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -161,9 +161,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantTypePassword grantTypePassword);
+        System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword);
         #endregion Asynchronous Operations
     }
 
@@ -616,11 +616,11 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantPassword</returns>
-        public GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword)
+        public GrantPassword GetTokenByPassword (GrantRequestPassword grantRequestPassword)
         {
-             ApiResponse<GrantPassword> localVarResponse = GetTokenByPasswordWithHttpInfo(grantTypePassword);
+             ApiResponse<GrantPassword> localVarResponse = GetTokenByPasswordWithHttpInfo(grantRequestPassword);
              return localVarResponse.Data;
         }
 
@@ -628,13 +628,13 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantPassword</returns>
-        public ApiResponse< GrantPassword > GetTokenByPasswordWithHttpInfo (GrantTypePassword grantTypePassword)
+        public ApiResponse< GrantPassword > GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword)
         {
-            // verify the required parameter 'grantTypePassword' is set
-            if (grantTypePassword == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypePassword' when calling AuthenticationApi->GetTokenByPassword");
+            // verify the required parameter 'grantRequestPassword' is set
+            if (grantRequestPassword == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestPassword' when calling AuthenticationApi->GetTokenByPassword");
 
             var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -661,13 +661,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypePassword != null && grantTypePassword.GetType() != typeof(byte[]))
+            if (grantRequestPassword != null && grantRequestPassword.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypePassword); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestPassword); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypePassword; // byte array
+                localVarPostBody = grantRequestPassword; // byte array
             }
 
             // authentication (access_token) required
@@ -700,11 +700,11 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantPassword</returns>
-        public async System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantTypePassword grantTypePassword)
+        public async System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantRequestPassword grantRequestPassword)
         {
-             ApiResponse<GrantPassword> localVarResponse = await GetTokenByPasswordAsyncWithHttpInfo(grantTypePassword);
+             ApiResponse<GrantPassword> localVarResponse = await GetTokenByPasswordAsyncWithHttpInfo(grantRequestPassword);
              return localVarResponse.Data;
 
         }
@@ -713,13 +713,13 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantTypePassword grantTypePassword)
+        public async System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword)
         {
-            // verify the required parameter 'grantTypePassword' is set
-            if (grantTypePassword == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypePassword' when calling AuthenticationApi->GetTokenByPassword");
+            // verify the required parameter 'grantRequestPassword' is set
+            if (grantRequestPassword == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestPassword' when calling AuthenticationApi->GetTokenByPassword");
 
             var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -746,13 +746,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypePassword != null && grantTypePassword.GetType() != typeof(byte[]))
+            if (grantRequestPassword != null && grantRequestPassword.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypePassword); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestPassword); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypePassword; // byte array
+                localVarPostBody = grantRequestPassword; // byte array
             }
 
             // authentication (access_token) required

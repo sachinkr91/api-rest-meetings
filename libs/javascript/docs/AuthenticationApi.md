@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 <a name="getTokenByPassword"></a>
 # **getTokenByPassword**
-> GrantPassword getTokenByPassword(grantTypePassword)
+> GrantPassword getTokenByPassword(grantRequestPassword)
 
 Authentication via Password Grant Type
 
@@ -136,7 +136,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
 
-var grantTypePassword = new BlueJeansOnVideoRestApi.GrantTypePassword(); // GrantTypePassword | Contains information about the type of grant you are requesting.
+var grantRequestPassword = new BlueJeansOnVideoRestApi.GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.
 
 
 var callback = function(error, data, response) {
@@ -146,14 +146,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getTokenByPassword(grantTypePassword, callback);
+apiInstance.getTokenByPassword(grantRequestPassword, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypePassword** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. | 
+ **grantRequestPassword** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

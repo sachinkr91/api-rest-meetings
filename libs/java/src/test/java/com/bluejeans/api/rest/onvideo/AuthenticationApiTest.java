@@ -31,8 +31,8 @@ import io.swagger.client.model.GrantTypeClient;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.GrantMeeting;
 import io.swagger.client.model.GrantTypeMeeting;
-import io.swagger.client.model.GrantTypePassword;
 import io.swagger.client.model.GrantPassword;
+import io.swagger.client.model.GrantRequestPassword;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -90,8 +90,8 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenByPasswordTest() throws ApiException {
-        GrantTypePassword grantTypePassword = null;
-        // GrantPassword response = api.getTokenByPassword(grantTypePassword);
+        GrantRequestPassword grantRequestPassword = null;
+        // GrantPassword response = api.getTokenByPassword(grantRequestPassword);
 
         // TODO: test validations
     }

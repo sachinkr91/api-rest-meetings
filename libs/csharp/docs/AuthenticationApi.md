@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 <a name="gettokenbypassword"></a>
 # **GetTokenByPassword**
-> GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword)
+> GrantPassword GetTokenByPassword (GrantRequestPassword grantRequestPassword)
 
 Authentication via Password Grant Type
 
@@ -172,12 +172,12 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var grantTypePassword = new GrantTypePassword(); // GrantTypePassword | Contains information about the type of grant you are requesting.
+            var grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Password Grant Type
-                GrantPassword result = apiInstance.GetTokenByPassword(grantTypePassword);
+                GrantPassword result = apiInstance.GetTokenByPassword(grantRequestPassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -193,7 +193,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypePassword** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. | 
+ **grantRequestPassword** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByPassword**
-> \Swagger\Client\Model\GrantPassword getTokenByPassword($grant_type_password)
+> \Swagger\Client\Model\GrantPassword getTokenByPassword($grant_request_password)
 
 Authentication via Password Grant Type
 
@@ -127,10 +127,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$grant_type_password = new \Swagger\Client\Model\GrantTypePassword(); // \Swagger\Client\Model\GrantTypePassword | Contains information about the type of grant you are requesting.
+$grant_request_password = new \Swagger\Client\Model\GrantRequestPassword(); // \Swagger\Client\Model\GrantRequestPassword | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->getTokenByPassword($grant_type_password);
+    $result = $api_instance->getTokenByPassword($grant_request_password);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByPassword: ', $e->getMessage(), PHP_EOL;
@@ -142,7 +142,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_password** | [**\Swagger\Client\Model\GrantTypePassword**](../Model/\Swagger\Client\Model\GrantTypePassword.md)| Contains information about the type of grant you are requesting. |
+ **grant_request_password** | [**\Swagger\Client\Model\GrantRequestPassword**](../Model/\Swagger\Client\Model\GrantRequestPassword.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

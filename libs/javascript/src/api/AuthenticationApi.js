@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GrantClient', 'model/GrantTypeClient', 'model/Error', 'model/GrantMeeting', 'model/GrantTypeMeeting', 'model/GrantTypePassword', 'model/GrantPassword'], factory);
+    define(['ApiClient', 'model/GrantClient', 'model/GrantTypeClient', 'model/Error', 'model/GrantMeeting', 'model/GrantTypeMeeting', 'model/GrantPassword', 'model/GrantRequestPassword'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/GrantClient'), require('../model/GrantTypeClient'), require('../model/Error'), require('../model/GrantMeeting'), require('../model/GrantTypeMeeting'), require('../model/GrantTypePassword'), require('../model/GrantPassword'));
+    module.exports = factory(require('../ApiClient'), require('../model/GrantClient'), require('../model/GrantTypeClient'), require('../model/Error'), require('../model/GrantMeeting'), require('../model/GrantTypeMeeting'), require('../model/GrantPassword'), require('../model/GrantRequestPassword'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantTypeClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantTypeMeeting, root.BlueJeansOnVideoRestApi.GrantTypePassword, root.BlueJeansOnVideoRestApi.GrantPassword);
+    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantTypeClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantTypeMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRequestPassword);
   }
-}(this, function(ApiClient, GrantClient, GrantTypeClient, Error, GrantMeeting, GrantTypeMeeting, GrantTypePassword, GrantPassword) {
+}(this, function(ApiClient, GrantClient, GrantTypeClient, Error, GrantMeeting, GrantTypeMeeting, GrantPassword, GrantRequestPassword) {
   'use strict';
 
   /**
@@ -157,16 +157,16 @@
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param {module:model/GrantTypePassword} grantTypePassword Contains information about the type of grant you are requesting.
+     * @param {module:model/GrantRequestPassword} grantRequestPassword Contains information about the type of grant you are requesting.
      * @param {module:api/AuthenticationApi~getTokenByPasswordCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GrantPassword}
      */
-    this.getTokenByPassword = function(grantTypePassword, callback) {
-      var postBody = grantTypePassword;
+    this.getTokenByPassword = function(grantRequestPassword, callback) {
+      var postBody = grantRequestPassword;
 
-      // verify the required parameter 'grantTypePassword' is set
-      if (grantTypePassword == undefined || grantTypePassword == null) {
-        throw "Missing the required parameter 'grantTypePassword' when calling getTokenByPassword";
+      // verify the required parameter 'grantRequestPassword' is set
+      if (grantRequestPassword == undefined || grantRequestPassword == null) {
+        throw "Missing the required parameter 'grantRequestPassword' when calling getTokenByPassword";
       }
 
 

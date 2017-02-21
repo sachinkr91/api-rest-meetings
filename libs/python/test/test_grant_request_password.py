@@ -30,11 +30,11 @@ import unittest
 
 import swagger_client
 from swagger_client.rest import ApiException
-from swagger_client.models.grant_type_password import GrantTypePassword
+from swagger_client.models.grant_request_password import GrantRequestPassword
 
 
-class TestGrantTypePassword(unittest.TestCase):
-    """ GrantTypePassword unit test stubs """
+class TestGrantRequestPassword(unittest.TestCase):
+    """ GrantRequestPassword unit test stubs """
 
     def setUp(self):
         pass
@@ -42,11 +42,11 @@ class TestGrantTypePassword(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGrantTypePassword(self):
+    def testGrantRequestPassword(self):
         """
-        Test GrantTypePassword
+        Test GrantRequestPassword
         """
-        model = swagger_client.models.grant_type_password.GrantTypePassword()
+        model = swagger_client.models.grant_request_password.GrantRequestPassword()
 
 
 if __name__ == '__main__':
