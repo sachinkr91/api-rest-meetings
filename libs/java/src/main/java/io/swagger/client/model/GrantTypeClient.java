@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * GrantTypeClient
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:38:02.878-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:41:11.528-07:00")
 public class GrantTypeClient   {
   @SerializedName("grant_type")
   private String grantType = "client_credentials";

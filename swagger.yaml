@@ -238,7 +238,7 @@ paths:
       description: This endpoint retrieves the enterprise profile associated with the user.
       operationId: getEnterpriseProfile
       tags:
-        - Enterprise
+        - User
       security:
         - access_token: []
       parameters:

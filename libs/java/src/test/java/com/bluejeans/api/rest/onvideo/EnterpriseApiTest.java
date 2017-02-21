@@ -29,7 +29,6 @@ import com.bluejeans.api.rest.ApiException;
 import io.swagger.client.model.User;
 import io.swagger.client.model.UserId;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.Enterprise;
 import io.swagger.client.model.EnterpriseUserList;
 import org.junit.Test;
 
@@ -61,22 +60,6 @@ public class EnterpriseApiTest {
         Boolean forcePasswordChange = null;
         Boolean sendVerificationMail = null;
         // UserId response = api.createUser(enterpriseId, user, forcePasswordChange, sendVerificationMail);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get Enterprise Profile
-     *
-     * This endpoint retrieves the enterprise profile associated with the user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getEnterpriseProfileTest() throws ApiException {
-        Integer userId = null;
-        // Enterprise response = api.getEnterpriseProfile(userId);
 
         // TODO: test validations
     }

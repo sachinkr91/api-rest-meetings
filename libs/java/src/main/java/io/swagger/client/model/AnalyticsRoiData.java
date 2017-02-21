@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * AnalyticsRoiData
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:38:02.878-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:41:11.528-07:00")
 public class AnalyticsRoiData   {
   @SerializedName("roi_ranges")
   private List<AnalyticsRoiDataRoiRanges> roiRanges = new ArrayList<AnalyticsRoiDataRoiRanges>();

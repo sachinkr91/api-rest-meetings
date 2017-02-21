@@ -26,8 +26,9 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Room;
+import io.swagger.client.model.Enterprise;
 import io.swagger.client.model.Error;
+import io.swagger.client.model.Room;
 import io.swagger.client.model.User;
 import org.junit.Test;
 
@@ -43,6 +44,22 @@ public class UserApiTest {
 
     private final UserApi api = new UserApi();
 
+    
+    /**
+     * Get Enterprise Profile
+     *
+     * This endpoint retrieves the enterprise profile associated with the user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getEnterpriseProfileTest() throws ApiException {
+        Integer userId = null;
+        // Enterprise response = api.getEnterpriseProfile(userId);
+
+        // TODO: test validations
+    }
     
     /**
      * Get User’s Default Meeting Settings
