@@ -1499,12 +1499,13 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
+     * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id)
+    public function v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id, $payload_invite)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id);
+        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id, $payload_invite);
         return $response;
     }
 
@@ -1515,10 +1516,11 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id)
+    public function v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id, $payload_invite)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1527,6 +1529,10 @@ class MeetingApi
         // verify the required parameter 'meeting_id' is set
         if ($meeting_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost');
+        }
+        // verify the required parameter 'payload_invite' is set
+        if ($payload_invite === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payload_invite when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
@@ -1559,7 +1565,12 @@ class MeetingApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($payload_invite)) {
+            $_tempBody = $payload_invite;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -1579,17 +1590,13 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                null,
                 '/v1/user/{user_id}/live_meetings/{meeting_id}/invite'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);

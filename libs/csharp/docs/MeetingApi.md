@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidinvitepost"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdInvitePost**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdInvitePost (int? userId, int? meetingId)
+> void V1UserUserIdLiveMeetingsMeetingIdInvitePost (int? userId, int? meetingId, PayloadInvite payloadInvite)
 
 Send Email Invite
 
@@ -904,12 +904,12 @@ namespace Example
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var payloadInvite = new PayloadInvite(); // PayloadInvite | 
 
             try
             {
                 // Send Email Invite
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId);
-                Debug.WriteLine(result);
+                apiInstance.V1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite);
             }
             catch (Exception e)
             {
@@ -926,10 +926,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  | 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+void (empty response body)
 
 ### Authorization
 

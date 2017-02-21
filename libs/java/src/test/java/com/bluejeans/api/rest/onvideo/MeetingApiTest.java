@@ -32,6 +32,7 @@ import io.swagger.client.model.Layout;
 import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
+import io.swagger.client.model.PayloadInvite;
 import io.swagger.client.model.PayloadMeetingState;
 import io.swagger.client.model.Numbers;
 import org.junit.Test;
@@ -277,7 +278,8 @@ public class MeetingApiTest {
     public void v1UserUserIdLiveMeetingsMeetingIdInvitePostTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        // Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId);
+        PayloadInvite payloadInvite = null;
+        // api.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite);
 
         // TODO: test validations
     }

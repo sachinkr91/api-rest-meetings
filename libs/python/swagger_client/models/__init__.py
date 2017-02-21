@@ -69,6 +69,7 @@ from .numbers import Numbers
 from .numbers_label import NumbersLabel
 from .numbers_numbers import NumbersNumbers
 from .partition import Partition
+from .payload_invite import PayloadInvite
 from .payload_meeting_state import PayloadMeetingState
 from .recording import Recording
 from .recording_recording_chapters import RecordingRecordingChapters

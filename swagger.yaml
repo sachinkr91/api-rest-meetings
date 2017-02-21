@@ -972,11 +972,19 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
-      responses:
-        '200':
-          description: The settings for the room
+        - name: PayloadInvite
+          in: body
+          required: true
           schema:
-            $ref: '#/definitions/Meeting'
+            type: object
+            properties:
+              invitees:
+                type: array
+                items:
+                  type: string
+      responses:
+        '202':
+          description: Empty response on success.
         default:
           description: Unexpected error
           schema:

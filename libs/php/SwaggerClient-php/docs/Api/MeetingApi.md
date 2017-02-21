@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdInvitePost**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id)
+> v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id, $payload_invite)
 
 Send Email Invite
 
@@ -689,10 +689,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$payload_invite = new \Swagger\Client\Model\PayloadInvite(); // \Swagger\Client\Model\PayloadInvite | 
 
 try {
-    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id);
-    print_r($result);
+    $api_instance->v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id, $payload_invite);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdInvitePost: ', $e->getMessage(), PHP_EOL;
 }
@@ -705,10 +705,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payload_invite** | [**\Swagger\Client\Model\PayloadInvite**](../Model/\Swagger\Client\Model\PayloadInvite.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+void (empty response body)
 
 ### Authorization
 

@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdInvitePost"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdInvitePost**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId)
+> v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite)
 
 Send Email Invite
 
@@ -757,9 +757,9 @@ access_token.setApiKey("YOUR API KEY");
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+PayloadInvite payloadInvite = new PayloadInvite(); // PayloadInvite | 
 try {
-    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId);
-    System.out.println(result);
+    apiInstance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdInvitePost");
     e.printStackTrace();
@@ -772,10 +772,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  |
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+null (empty response body)
 
 ### Authorization
 

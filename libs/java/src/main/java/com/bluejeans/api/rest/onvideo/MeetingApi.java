@@ -44,6 +44,7 @@ import io.swagger.client.model.Layout;
 import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
+import io.swagger.client.model.PayloadInvite;
 import io.swagger.client.model.PayloadMeetingState;
 import io.swagger.client.model.Numbers;
 
@@ -1531,8 +1532,8 @@ public class MeetingApi {
         return call;
     }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdInvitePost */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(Integer userId, Integer meetingId, PayloadInvite payloadInvite, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = payloadInvite;
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -1542,6 +1543,11 @@ public class MeetingApi {
         // verify the required parameter 'meetingId' is set
         if (meetingId == null) {
             throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost(Async)");
+        }
+        
+        // verify the required parameter 'payloadInvite' is set
+        if (payloadInvite == null) {
+            throw new ApiException("Missing the required parameter 'payloadInvite' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost(Async)");
         }
         
 
@@ -1589,12 +1595,11 @@ public class MeetingApi {
      * This endpoint generates an email invite to the specified meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
+     * @param payloadInvite  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdInvitePost(Integer userId, Integer meetingId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo(userId, meetingId);
-        return resp.getData();
+    public void v1UserUserIdLiveMeetingsMeetingIdInvitePost(Integer userId, Integer meetingId, PayloadInvite payloadInvite) throws ApiException {
+        v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo(userId, meetingId, payloadInvite);
     }
 
     /**
@@ -1602,13 +1607,13 @@ public class MeetingApi {
      * This endpoint generates an email invite to the specified meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @param payloadInvite  (required)
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(userId, meetingId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+    public ApiResponse<Void> v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo(Integer userId, Integer meetingId, PayloadInvite payloadInvite) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(userId, meetingId, payloadInvite, null, null);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1616,11 +1621,12 @@ public class MeetingApi {
      * This endpoint generates an email invite to the specified meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param payloadInvite  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdInvitePostAsync(Integer userId, Integer meetingId, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdInvitePostAsync(Integer userId, Integer meetingId, PayloadInvite payloadInvite, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1641,9 +1647,8 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(userId, meetingId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdInvitePostCall(userId, meetingId, payloadInvite, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost */

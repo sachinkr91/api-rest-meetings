@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadMeetingState', 'model/Numbers'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/Numbers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
   }
-}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadMeetingState, Numbers) {
+}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadInvite, PayloadMeetingState, Numbers) {
   'use strict';
 
   /**
@@ -744,7 +744,7 @@
      * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdInvitePost operation.
      * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdInvitePostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -753,11 +753,11 @@
      * This endpoint generates an email invite to the specified meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:model/PayloadInvite} payloadInvite 
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdInvitePostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdInvitePost = function(userId, meetingId, callback) {
-      var postBody = null;
+    this.v1UserUserIdLiveMeetingsMeetingIdInvitePost = function(userId, meetingId, payloadInvite, callback) {
+      var postBody = payloadInvite;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
@@ -767,6 +767,11 @@
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
         throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost";
+      }
+
+      // verify the required parameter 'payloadInvite' is set
+      if (payloadInvite == undefined || payloadInvite == null) {
+        throw "Missing the required parameter 'payloadInvite' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost";
       }
 
 
@@ -784,7 +789,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = null;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/live_meetings/{meeting_id}/invite', 'POST',

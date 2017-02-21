@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
  - [NumbersLabel](docs/NumbersLabel.md)
  - [NumbersNumbers](docs/NumbersNumbers.md)
  - [Partition](docs/Partition.md)
+ - [PayloadInvite](docs/PayloadInvite.md)
  - [PayloadMeetingState](docs/PayloadMeetingState.md)
  - [Recording](docs/Recording.md)
  - [RecordingRecordingChapters](docs/RecordingRecordingChapters.md)

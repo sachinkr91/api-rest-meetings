@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_invite_post**
-> Meeting v1_user_user_id_live_meetings_meeting_id_invite_post(user_id, meeting_id)
+> v1_user_user_id_live_meetings_meeting_id_invite_post(user_id, meeting_id, payload_invite)
 
 Send Email Invite
 
@@ -716,11 +716,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+payload_invite = swagger_client.PayloadInvite() # PayloadInvite | 
 
 try: 
     # Send Email Invite
-    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_invite_post(user_id, meeting_id)
-    pprint(api_response)
+    api_instance.v1_user_user_id_live_meetings_meeting_id_invite_post(user_id, meeting_id, payload_invite)
 except ApiException as e:
     print "Exception when calling MeetingApi->v1_user_user_id_live_meetings_meeting_id_invite_post: %s\n" % e
 ```
@@ -731,10 +731,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **payload_invite** | [**PayloadInvite**](PayloadInvite.md)|  | 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+void (empty response body)
 
 ### Authorization
 

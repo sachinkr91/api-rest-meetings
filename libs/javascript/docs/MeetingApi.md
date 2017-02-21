@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdInvitePost"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdInvitePost**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId)
+> v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite)
 
 Send Email Invite
 
@@ -756,15 +756,17 @@ var userId = 56; // Integer | The ID of the user of interest. This value is an i
 
 var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
+var payloadInvite = new BlueJeansOnVideoRestApi.PayloadInvite(); // PayloadInvite | 
+
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
-apiInstance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, callback);
+apiInstance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite, callback);
 ```
 
 ### Parameters
@@ -773,10 +775,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  | 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+null (empty response body)
 
 ### Authorization
 

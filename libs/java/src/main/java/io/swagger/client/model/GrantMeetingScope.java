@@ -36,7 +36,7 @@ import io.swagger.client.model.Partition;
 /**
  * GrantMeetingScope
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:43:18.826-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T15:12:23.377-07:00")
 public class GrantMeetingScope   {
   @SerializedName("meeting")
   private GrantMeetingScopeMeeting meeting = null;

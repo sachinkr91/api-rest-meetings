@@ -253,8 +253,9 @@ namespace IO.Swagger.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? meetingId = null;
-            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+            //PayloadInvite payloadInvite = null;
+            //instance.V1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite);
+            
         }
         
         /// <summary>

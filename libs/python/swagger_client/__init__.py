@@ -69,6 +69,7 @@ from .models.numbers import Numbers
 from .models.numbers_label import NumbersLabel
 from .models.numbers_numbers import NumbersNumbers
 from .models.partition import Partition
+from .models.payload_invite import PayloadInvite
 from .models.payload_meeting_state import PayloadMeetingState
 from .models.recording import Recording
 from .models.recording_recording_chapters import RecordingRecordingChapters
