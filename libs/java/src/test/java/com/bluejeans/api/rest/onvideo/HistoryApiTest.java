@@ -26,11 +26,11 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
+import io.swagger.client.model.Meeting;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.Recording;
 import io.swagger.client.model.MeetingHistory;
 import io.swagger.client.model.RecordingSummary;
-import io.swagger.client.model.Meeting;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,6 +45,40 @@ public class HistoryApiTest {
 
     private final HistoryApi api = new HistoryApi();
 
+    
+    /**
+     * Get Meeting History by Enterprise
+     *
+     * This endpoint retrieves the meeting history for a specific instance of a meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHistoryByEnterpriseTest() throws ApiException {
+        Integer enterpriseId = null;
+        String meetingGuid = null;
+        // Meeting response = api.getHistoryByEnterprise(enterpriseId, meetingGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Meeting History by User
+     *
+     * This endpoint retrieves the meeting history for a specific instance of a meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHistoryByUserTest() throws ApiException {
+        Integer userId = null;
+        String meetingGuid = null;
+        // Meeting response = api.getHistoryByUser(userId, meetingGuid);
+
+        // TODO: test validations
+    }
     
     /**
      * Get Recording
@@ -64,31 +98,31 @@ public class HistoryApiTest {
     }
     
     /**
-     * List Meetings
+     * List History by Enterprise
      *
-     * This endpoint retrieves a list of meetings.
+     * This endpoint retrieves a list of meeting histories by the given enterprise.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void listMeetingsByEnterpriseTest() throws ApiException {
+    public void listHistoryByEnterpriseTest() throws ApiException {
         Integer enterpriseId = null;
-        // List<MeetingHistory> response = api.listMeetingsByEnterprise(enterpriseId);
+        // List<MeetingHistory> response = api.listHistoryByEnterprise(enterpriseId);
 
         // TODO: test validations
     }
     
     /**
-     * List Meetings
+     * List History by User
      *
-     * This endpoint retrieves a list of meetings.
+     * This endpoint retrieves a list of meeting histories by the given user.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void listMeetingsByUserTest() throws ApiException {
+    public void listHistoryByUserTest() throws ApiException {
         Integer userId = null;
         String meetingId = null;
         String startDate = null;
@@ -96,7 +130,7 @@ public class HistoryApiTest {
         Integer pageSize = null;
         Integer pageNumber = null;
         String order = null;
-        // List<MeetingHistory> response = api.listMeetingsByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+        // List<MeetingHistory> response = api.listHistoryByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
 
         // TODO: test validations
     }
@@ -117,40 +151,6 @@ public class HistoryApiTest {
         String sortBy = null;
         String order = null;
         // List<RecordingSummary> response = api.listRecordings(userId, pageSize, pageNumber, sortBy, order);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Meetings
-     *
-     * This endpoint retrieves a list of meetings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        String meetingGuid = null;
-        // Meeting response = api.v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet(enterpriseId, meetingGuid);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Meetings
-     *
-     * This endpoint retrieves a list of meetings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdMeetingHistoryMeetingGuidGetTest() throws ApiException {
-        Integer userId = null;
-        String meetingGuid = null;
-        // Meeting response = api.v1UserUserIdMeetingHistoryMeetingGuidGet(userId, meetingGuid);
 
         // TODO: test validations
     }

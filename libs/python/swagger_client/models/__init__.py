@@ -68,9 +68,13 @@ from .meeting_state_recordinginfo import MeetingStateRecordinginfo
 from .numbers import Numbers
 from .numbers_label import NumbersLabel
 from .numbers_numbers import NumbersNumbers
+from .pairing_code import PairingCode
+from .pairing_code_turnservers import PairingCodeTurnservers
 from .partition import Partition
 from .payload_invite import PayloadInvite
 from .payload_meeting_state import PayloadMeetingState
+from .payload_pairing_code_sip import PayloadPairingCodeSIP
+from .payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 from .recording import Recording
 from .recording_recording_chapters import RecordingRecordingChapters
 from .recording_recording_sessions import RecordingRecordingSessions

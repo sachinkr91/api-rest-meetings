@@ -112,17 +112,6 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getDefaultMeeting
-     *
-     * Get Meeting Settings.
-     *
-     */
-    public function testGetDefaultMeeting()
-    {
-
-    }
-
-    /**
      * Test case for getEndpointLayout
      *
      * Get Endpoint Layout.
@@ -140,6 +129,17 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for listMeetings
+     *
+     * List Meetings.
+     *
+     */
+    public function testListMeetings()
     {
 
     }
@@ -233,12 +233,23 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost
+     * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
      *
      * Generate SIP Pairing Code.
      *
      */
-    public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost()
+    public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost()
+    {
+
+    }
+
+    /**
+     * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
+     *
+     * Generate SIP Pairing Code.
+     *
+     */
+    public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost()
     {
 
     }

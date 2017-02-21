@@ -68,9 +68,13 @@ from .models.meeting_state_recordinginfo import MeetingStateRecordinginfo
 from .models.numbers import Numbers
 from .models.numbers_label import NumbersLabel
 from .models.numbers_numbers import NumbersNumbers
+from .models.pairing_code import PairingCode
+from .models.pairing_code_turnservers import PairingCodeTurnservers
 from .models.partition import Partition
 from .models.payload_invite import PayloadInvite
 from .models.payload_meeting_state import PayloadMeetingState
+from .models.payload_pairing_code_sip import PayloadPairingCodeSIP
+from .models.payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 from .models.recording import Recording
 from .models.recording_recording_chapters import RecordingRecordingChapters
 from .models.recording_recording_sessions import RecordingRecordingSessions

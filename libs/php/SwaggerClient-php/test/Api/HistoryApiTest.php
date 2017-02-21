@@ -90,6 +90,28 @@ class HistoryApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getHistoryByEnterprise
+     *
+     * Get Meeting History by Enterprise.
+     *
+     */
+    public function testGetHistoryByEnterprise()
+    {
+
+    }
+
+    /**
+     * Test case for getHistoryByUser
+     *
+     * Get Meeting History by User.
+     *
+     */
+    public function testGetHistoryByUser()
+    {
+
+    }
+
+    /**
      * Test case for getRecording
      *
      * Get Recording.
@@ -101,23 +123,23 @@ class HistoryApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for listMeetingsByEnterprise
+     * Test case for listHistoryByEnterprise
      *
-     * List Meetings.
+     * List History by Enterprise.
      *
      */
-    public function testListMeetingsByEnterprise()
+    public function testListHistoryByEnterprise()
     {
 
     }
 
     /**
-     * Test case for listMeetingsByUser
+     * Test case for listHistoryByUser
      *
-     * List Meetings.
+     * List History by User.
      *
      */
-    public function testListMeetingsByUser()
+    public function testListHistoryByUser()
     {
 
     }
@@ -129,28 +151,6 @@ class HistoryApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testListRecordings()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet
-     *
-     * List Meetings.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdMeetingHistoryMeetingGuidGet
-     *
-     * List Meetings.
-     *
-     */
-    public function testV1UserUserIdMeetingHistoryMeetingGuidGet()
     {
 
     }

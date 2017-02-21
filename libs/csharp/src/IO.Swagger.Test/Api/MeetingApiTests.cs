@@ -104,18 +104,6 @@ namespace IO.Swagger.Test
         }
         
         /// <summary>
-        /// Test GetDefaultMeeting
-        /// </summary>
-        [Test]
-        public void GetDefaultMeetingTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //var response = instance.GetDefaultMeeting(userId);
-            //Assert.IsInstanceOf<List<Meeting>> (response, "response is List<Meeting>");
-        }
-        
-        /// <summary>
         /// Test GetEndpointLayout
         /// </summary>
         [Test]
@@ -140,6 +128,18 @@ namespace IO.Swagger.Test
             //int? meetingId = null;
             //var response = instance.GetMeeting(userId, meetingId);
             //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+        }
+        
+        /// <summary>
+        /// Test ListMeetings
+        /// </summary>
+        [Test]
+        public void ListMeetingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.ListMeetings(userId);
+            //Assert.IsInstanceOf<List<Meeting>> (response, "response is List<Meeting>");
         }
         
         /// <summary>
@@ -259,16 +259,32 @@ namespace IO.Swagger.Test
         }
         
         /// <summary>
-        /// Test V1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost
+        /// Test V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
         /// </summary>
         [Test]
-        public void V1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostTest()
+        public void V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? meetingId = null;
-            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(userId, meetingId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+            //PayloadPairingCodeSIP payloadPairingCodeSIP = null;
+            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(userId, meetingId, payloadPairingCodeSIP);
+            //Assert.IsInstanceOf<PairingCode> (response, "response is PairingCode");
+        }
+        
+        /// <summary>
+        /// Test V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
+        /// </summary>
+        [Test]
+        public void V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? meetingId = null;
+            //PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = null;
+            //string role = null;
+            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(userId, meetingId, payloadPairingCodeWebRTC, role);
+            //Assert.IsInstanceOf<PairingCode> (response, "response is PairingCode");
         }
         
         /// <summary>

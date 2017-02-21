@@ -79,16 +79,6 @@
         done();
       });
     });
-    describe('getDefaultMeeting', function() {
-      it('should call getDefaultMeeting successfully', function(done) {
-        //uncomment below and update the code to test getDefaultMeeting
-        //instance.getDefaultMeeting(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getEndpointLayout', function() {
       it('should call getEndpointLayout successfully', function(done) {
         //uncomment below and update the code to test getEndpointLayout
@@ -103,6 +93,16 @@
       it('should call getMeeting successfully', function(done) {
         //uncomment below and update the code to test getMeeting
         //instance.getMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listMeetings', function() {
+      it('should call listMeetings successfully', function(done) {
+        //uncomment below and update the code to test listMeetings
+        //instance.listMeetings(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -189,10 +189,20 @@
         done();
       });
     });
-    describe('v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost
-        //instance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(pet, function(error) {
+    describe('v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost', function() {
+      it('should call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost successfully', function(done) {
+        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
+        //instance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost', function() {
+      it('should call v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost successfully', function(done) {
+        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
+        //instance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

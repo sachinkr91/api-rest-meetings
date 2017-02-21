@@ -59,6 +59,26 @@
   }
 
   describe('HistoryApi', function() {
+    describe('getHistoryByEnterprise', function() {
+      it('should call getHistoryByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test getHistoryByEnterprise
+        //instance.getHistoryByEnterprise(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getHistoryByUser', function() {
+      it('should call getHistoryByUser successfully', function(done) {
+        //uncomment below and update the code to test getHistoryByUser
+        //instance.getHistoryByUser(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getRecording', function() {
       it('should call getRecording successfully', function(done) {
         //uncomment below and update the code to test getRecording
@@ -69,20 +89,20 @@
         done();
       });
     });
-    describe('listMeetingsByEnterprise', function() {
-      it('should call listMeetingsByEnterprise successfully', function(done) {
-        //uncomment below and update the code to test listMeetingsByEnterprise
-        //instance.listMeetingsByEnterprise(pet, function(error) {
+    describe('listHistoryByEnterprise', function() {
+      it('should call listHistoryByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test listHistoryByEnterprise
+        //instance.listHistoryByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('listMeetingsByUser', function() {
-      it('should call listMeetingsByUser successfully', function(done) {
-        //uncomment below and update the code to test listMeetingsByUser
-        //instance.listMeetingsByUser(pet, function(error) {
+    describe('listHistoryByUser', function() {
+      it('should call listHistoryByUser successfully', function(done) {
+        //uncomment below and update the code to test listHistoryByUser
+        //instance.listHistoryByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -93,26 +113,6 @@
       it('should call listRecordings successfully', function(done) {
         //uncomment below and update the code to test listRecordings
         //instance.listRecordings(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet', function() {
-      it('should call v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet
-        //instance.v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdMeetingHistoryMeetingGuidGet', function() {
-      it('should call v1UserUserIdMeetingHistoryMeetingGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdMeetingHistoryMeetingGuidGet
-        //instance.v1UserUserIdMeetingHistoryMeetingGuidGet(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

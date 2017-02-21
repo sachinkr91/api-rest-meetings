@@ -33,6 +33,9 @@ import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
 import io.swagger.client.model.PayloadInvite;
+import io.swagger.client.model.PairingCode;
+import io.swagger.client.model.PayloadPairingCodeSIP;
+import io.swagger.client.model.PayloadPairingCodeWebRTC;
 import io.swagger.client.model.PayloadMeetingState;
 import io.swagger.client.model.Numbers;
 import org.junit.Test;
@@ -86,22 +89,6 @@ public class MeetingApiTest {
     }
     
     /**
-     * Get Meeting Settings
-     *
-     * This endpoint gets a user’s default meeting settings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getDefaultMeetingTest() throws ApiException {
-        Integer userId = null;
-        // List<Meeting> response = api.getDefaultMeeting(userId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get Endpoint Layout
      *
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -132,6 +119,22 @@ public class MeetingApiTest {
         Integer userId = null;
         Integer meetingId = null;
         // Meeting response = api.getMeeting(userId, meetingId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Meetings
+     *
+     * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listMeetingsTest() throws ApiException {
+        Integer userId = null;
+        // List<Meeting> response = api.listMeetings(userId);
 
         // TODO: test validations
     }
@@ -293,10 +296,30 @@ public class MeetingApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostTest() throws ApiException {
+    public void v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        // Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(userId, meetingId);
+        PayloadPairingCodeSIP payloadPairingCodeSIP = null;
+        // PairingCode response = api.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(userId, meetingId, payloadPairingCodeSIP);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Generate SIP Pairing Code
+     *
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = null;
+        String role = null;
+        // PairingCode response = api.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(userId, meetingId, payloadPairingCodeWebRTC, role);
 
         // TODO: test validations
     }

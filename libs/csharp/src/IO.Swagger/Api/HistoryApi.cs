@@ -37,6 +37,52 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get Meeting History by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Meeting</returns>
+        Meeting GetHistoryByEnterprise (int? enterpriseId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        ApiResponse<Meeting> GetHistoryByEnterpriseWithHttpInfo (int? enterpriseId, string meetingGuid);
+        /// <summary>
+        /// Get Meeting History by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Meeting</returns>
+        Meeting GetHistoryByUser (int? userId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        ApiResponse<Meeting> GetHistoryByUserWithHttpInfo (int? userId, string meetingGuid);
+        /// <summary>
         /// Get Recording
         /// </summary>
         /// <remarks>
@@ -60,59 +106,59 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Recording</returns>
         ApiResponse<Recording> GetRecordingWithHttpInfo (int? userId, int? recordingEntityId);
         /// <summary>
-        /// List Meetings
+        /// List History by Enterprise
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>List&lt;MeetingHistory&gt;</returns>
-        List<MeetingHistory> ListMeetingsByEnterprise (int? enterpriseId);
+        List<MeetingHistory> ListHistoryByEnterprise (int? enterpriseId);
 
         /// <summary>
-        /// List Meetings
+        /// List History by Enterprise
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
-        ApiResponse<List<MeetingHistory>> ListMeetingsByEnterpriseWithHttpInfo (int? enterpriseId);
+        ApiResponse<List<MeetingHistory>> ListHistoryByEnterpriseWithHttpInfo (int? enterpriseId);
         /// <summary>
-        /// List Meetings
+        /// List History by User
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>List&lt;MeetingHistory&gt;</returns>
-        List<MeetingHistory> ListMeetingsByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        List<MeetingHistory> ListHistoryByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
 
         /// <summary>
-        /// List Meetings
+        /// List History by User
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
-        ApiResponse<List<MeetingHistory>> ListMeetingsByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        ApiResponse<List<MeetingHistory>> ListHistoryByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
         /// <summary>
         /// List Meeting Recordings
         /// </summary>
@@ -142,54 +188,54 @@ namespace IO.Swagger.Api
         /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
         /// <returns>ApiResponse of List&lt;RecordingSummary&gt;</returns>
         ApiResponse<List<RecordingSummary>> ListRecordingsWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet (int? enterpriseId, string meetingGuid);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdMeetingHistoryMeetingGuidGet (int? userId, string meetingGuid);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Get Meeting History by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of Meeting</returns>
+        System.Threading.Tasks.Task<Meeting> GetHistoryByEnterpriseAsync (int? enterpriseId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> GetHistoryByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingGuid);
+        /// <summary>
+        /// Get Meeting History by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of Meeting</returns>
+        System.Threading.Tasks.Task<Meeting> GetHistoryByUserAsync (int? userId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> GetHistoryByUserAsyncWithHttpInfo (int? userId, string meetingGuid);
         /// <summary>
         /// Get Recording
         /// </summary>
@@ -214,59 +260,59 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Recording)</returns>
         System.Threading.Tasks.Task<ApiResponse<Recording>> GetRecordingAsyncWithHttpInfo (int? userId, int? recordingEntityId);
         /// <summary>
-        /// List Meetings
+        /// List History by Enterprise
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
-        System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByEnterpriseAsync (int? enterpriseId);
+        System.Threading.Tasks.Task<List<MeetingHistory>> ListHistoryByEnterpriseAsync (int? enterpriseId);
 
         /// <summary>
-        /// List Meetings
+        /// List History by Enterprise
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByEnterpriseAsyncWithHttpInfo (int? enterpriseId);
+        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListHistoryByEnterpriseAsyncWithHttpInfo (int? enterpriseId);
         /// <summary>
-        /// List Meetings
+        /// List History by User
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
-        System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        System.Threading.Tasks.Task<List<MeetingHistory>> ListHistoryByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
 
         /// <summary>
-        /// List Meetings
+        /// List History by User
         /// </summary>
         /// <remarks>
-        /// This endpoint retrieves a list of meetings.
+        /// This endpoint retrieves a list of meeting histories by the given user.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListHistoryByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
         /// <summary>
         /// List Meeting Recordings
         /// </summary>
@@ -296,52 +342,6 @@ namespace IO.Swagger.Api
         /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (List&lt;RecordingSummary&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<RecordingSummary>>> ListRecordingsAsyncWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetAsync (int? enterpriseId, string meetingGuid);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdMeetingHistoryMeetingGuidGetAsync (int? userId, string meetingGuid);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid);
         #endregion Asynchronous Operations
     }
 
@@ -452,6 +452,334 @@ namespace IO.Swagger.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Get Meeting History by Enterprise This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Meeting</returns>
+        public Meeting GetHistoryByEnterprise (int? enterpriseId, string meetingGuid)
+        {
+             ApiResponse<Meeting> localVarResponse = GetHistoryByEnterpriseWithHttpInfo(enterpriseId, meetingGuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting History by Enterprise This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        public ApiResponse< Meeting > GetHistoryByEnterpriseWithHttpInfo (int? enterpriseId, string meetingGuid)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->GetHistoryByEnterprise");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistoryByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistoryByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting History by Enterprise This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of Meeting</returns>
+        public async System.Threading.Tasks.Task<Meeting> GetHistoryByEnterpriseAsync (int? enterpriseId, string meetingGuid)
+        {
+             ApiResponse<Meeting> localVarResponse = await GetHistoryByEnterpriseAsyncWithHttpInfo(enterpriseId, meetingGuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting History by Enterprise This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> GetHistoryByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingGuid)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->GetHistoryByEnterprise");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistoryByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistoryByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting History by User This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Meeting</returns>
+        public Meeting GetHistoryByUser (int? userId, string meetingGuid)
+        {
+             ApiResponse<Meeting> localVarResponse = GetHistoryByUserWithHttpInfo(userId, meetingGuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting History by User This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        public ApiResponse< Meeting > GetHistoryByUserWithHttpInfo (int? userId, string meetingGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetHistoryByUser");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistoryByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistoryByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting History by User This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of Meeting</returns>
+        public async System.Threading.Tasks.Task<Meeting> GetHistoryByUserAsync (int? userId, string meetingGuid)
+        {
+             ApiResponse<Meeting> localVarResponse = await GetHistoryByUserAsyncWithHttpInfo(userId, meetingGuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting History by User This endpoint retrieves the meeting history for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> GetHistoryByUserAsyncWithHttpInfo (int? userId, string meetingGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetHistoryByUser");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistoryByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistoryByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
         }
 
         /// <summary>
@@ -619,28 +947,28 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by Enterprise This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>List&lt;MeetingHistory&gt;</returns>
-        public List<MeetingHistory> ListMeetingsByEnterprise (int? enterpriseId)
+        public List<MeetingHistory> ListHistoryByEnterprise (int? enterpriseId)
         {
-             ApiResponse<List<MeetingHistory>> localVarResponse = ListMeetingsByEnterpriseWithHttpInfo(enterpriseId);
+             ApiResponse<List<MeetingHistory>> localVarResponse = ListHistoryByEnterpriseWithHttpInfo(enterpriseId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by Enterprise This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
-        public ApiResponse< List<MeetingHistory> > ListMeetingsByEnterpriseWithHttpInfo (int? enterpriseId)
+        public ApiResponse< List<MeetingHistory> > ListHistoryByEnterpriseWithHttpInfo (int? enterpriseId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListMeetingsByEnterprise");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListHistoryByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -684,7 +1012,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListMeetingsByEnterprise", localVarResponse);
+                Exception exception = ExceptionFactory("ListHistoryByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -695,29 +1023,29 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by Enterprise This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
-        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByEnterpriseAsync (int? enterpriseId)
+        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListHistoryByEnterpriseAsync (int? enterpriseId)
         {
-             ApiResponse<List<MeetingHistory>> localVarResponse = await ListMeetingsByEnterpriseAsyncWithHttpInfo(enterpriseId);
+             ApiResponse<List<MeetingHistory>> localVarResponse = await ListHistoryByEnterpriseAsyncWithHttpInfo(enterpriseId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by Enterprise This endpoint retrieves a list of meeting histories by the given enterprise.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByEnterpriseAsyncWithHttpInfo (int? enterpriseId)
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListHistoryByEnterpriseAsyncWithHttpInfo (int? enterpriseId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListMeetingsByEnterprise");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListHistoryByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -760,7 +1088,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListMeetingsByEnterprise", localVarResponse);
+                Exception exception = ExceptionFactory("ListHistoryByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -771,40 +1099,40 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by User This endpoint retrieves a list of meeting histories by the given user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>List&lt;MeetingHistory&gt;</returns>
-        public List<MeetingHistory> ListMeetingsByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        public List<MeetingHistory> ListHistoryByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
         {
-             ApiResponse<List<MeetingHistory>> localVarResponse = ListMeetingsByUserWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+             ApiResponse<List<MeetingHistory>> localVarResponse = ListHistoryByUserWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by User This endpoint retrieves a list of meeting histories by the given user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
-        public ApiResponse< List<MeetingHistory> > ListMeetingsByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        public ApiResponse< List<MeetingHistory> > ListHistoryByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListMeetingsByUser");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListHistoryByUser");
 
             var localVarPath = "/v1/user/{user_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -854,7 +1182,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListMeetingsByUser", localVarResponse);
+                Exception exception = ExceptionFactory("ListHistoryByUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -865,41 +1193,41 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by User This endpoint retrieves a list of meeting histories by the given user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
-        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListHistoryByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
         {
-             ApiResponse<List<MeetingHistory>> localVarResponse = await ListMeetingsByUserAsyncWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+             ApiResponse<List<MeetingHistory>> localVarResponse = await ListHistoryByUserAsyncWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
+        /// List History by User This endpoint retrieves a list of meeting histories by the given user.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="meetingId">Return only meetings with the specified meeting numeric ID. (optional)</param>
         /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
         /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
         /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
         /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListHistoryByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListMeetingsByUser");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListHistoryByUser");
 
             var localVarPath = "/v1/user/{user_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -948,7 +1276,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListMeetingsByUser", localVarResponse);
+                Exception exception = ExceptionFactory("ListHistoryByUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1131,334 +1459,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<List<RecordingSummary>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (List<RecordingSummary>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RecordingSummary>)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet (int? enterpriseId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo(enterpriseId, meetingGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetAsync (int? enterpriseId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo(enterpriseId, meetingGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdMeetingHistoryMeetingGuidGet (int? userId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo(userId, meetingGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->V1UserUserIdMeetingHistoryMeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdMeetingHistoryMeetingGuidGetAsync (int? userId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo(userId, meetingGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->V1UserUserIdMeetingHistoryMeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
             
         }
 

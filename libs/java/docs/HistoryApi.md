@@ -4,13 +4,127 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getHistoryByEnterprise**](HistoryApi.md#getHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | Get Meeting History by Enterprise
+[**getHistoryByUser**](HistoryApi.md#getHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | Get Meeting History by User
 [**getRecording**](HistoryApi.md#getRecording) | **GET** /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id} | Get Recording
-[**listMeetingsByEnterprise**](HistoryApi.md#listMeetingsByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List Meetings
-[**listMeetingsByUser**](HistoryApi.md#listMeetingsByUser) | **GET** /v1/user/{user_id}/meeting_history | List Meetings
+[**listHistoryByEnterprise**](HistoryApi.md#listHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List History by Enterprise
+[**listHistoryByUser**](HistoryApi.md#listHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history | List History by User
 [**listRecordings**](HistoryApi.md#listRecordings) | **GET** /v1/user/{user_id}/meeting_history/recordings | List Meeting Recordings
-[**v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet**](HistoryApi.md#v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | List Meetings
-[**v1UserUserIdMeetingHistoryMeetingGuidGet**](HistoryApi.md#v1UserUserIdMeetingHistoryMeetingGuidGet) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | List Meetings
 
+
+<a name="getHistoryByEnterprise"></a>
+# **getHistoryByEnterprise**
+> Meeting getHistoryByEnterprise(enterpriseId, meetingGuid)
+
+Get Meeting History by Enterprise
+
+This endpoint retrieves the meeting history for a specific instance of a meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+HistoryApi apiInstance = new HistoryApi();
+Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+try {
+    Meeting result = apiInstance.getHistoryByEnterprise(enterpriseId, meetingGuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling HistoryApi#getHistoryByEnterprise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getHistoryByUser"></a>
+# **getHistoryByUser**
+> Meeting getHistoryByUser(userId, meetingGuid)
+
+Get Meeting History by User
+
+This endpoint retrieves the meeting history for a specific instance of a meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.HistoryApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+HistoryApi apiInstance = new HistoryApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+try {
+    Meeting result = apiInstance.getHistoryByUser(userId, meetingGuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling HistoryApi#getHistoryByUser");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="getRecording"></a>
 # **getRecording**
@@ -69,13 +183,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listMeetingsByEnterprise"></a>
-# **listMeetingsByEnterprise**
-> List&lt;MeetingHistory&gt; listMeetingsByEnterprise(enterpriseId)
+<a name="listHistoryByEnterprise"></a>
+# **listHistoryByEnterprise**
+> List&lt;MeetingHistory&gt; listHistoryByEnterprise(enterpriseId)
 
-List Meetings
+List History by Enterprise
 
-This endpoint retrieves a list of meetings.
+This endpoint retrieves a list of meeting histories by the given enterprise.
 
 ### Example
 ```java
@@ -97,10 +211,10 @@ access_token.setApiKey("YOUR API KEY");
 HistoryApi apiInstance = new HistoryApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 try {
-    List<MeetingHistory> result = apiInstance.listMeetingsByEnterprise(enterpriseId);
+    List<MeetingHistory> result = apiInstance.listHistoryByEnterprise(enterpriseId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#listMeetingsByEnterprise");
+    System.err.println("Exception when calling HistoryApi#listHistoryByEnterprise");
     e.printStackTrace();
 }
 ```
@@ -124,13 +238,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listMeetingsByUser"></a>
-# **listMeetingsByUser**
-> List&lt;MeetingHistory&gt; listMeetingsByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order)
+<a name="listHistoryByUser"></a>
+# **listHistoryByUser**
+> List&lt;MeetingHistory&gt; listHistoryByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order)
 
-List Meetings
+List History by User
 
-This endpoint retrieves a list of meetings.
+This endpoint retrieves a list of meeting histories by the given user.
 
 ### Example
 ```java
@@ -151,17 +265,17 @@ access_token.setApiKey("YOUR API KEY");
 
 HistoryApi apiInstance = new HistoryApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-String meetingId = "meetingId_example"; // String | Return meetings with the specified Meeting ID (recurring & Personal Meeting ID).
+String meetingId = "meetingId_example"; // String | Return only meetings with the specified meeting numeric ID.
 String startDate = "startDate_example"; // String | Return meetings starting from the specified date. MM/DD/YYYY
 String endDate = "endDate_example"; // String | Return meetings up until the specified date. MM/DD/YYYY
 Integer pageSize = 56; // Integer | Sets number of items returned per page.
 Integer pageNumber = 56; // Integer | Selects which page of results to return.
 String order = "order_example"; // String | Puts results in ascending or descending order. asc/desc
 try {
-    List<MeetingHistory> result = apiInstance.listMeetingsByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+    List<MeetingHistory> result = apiInstance.listHistoryByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#listMeetingsByUser");
+    System.err.println("Exception when calling HistoryApi#listHistoryByUser");
     e.printStackTrace();
 }
 ```
@@ -171,7 +285,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **String**| Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). | [optional]
+ **meetingId** | **String**| Return only meetings with the specified meeting numeric ID. | [optional]
  **startDate** | **String**| Return meetings starting from the specified date. MM/DD/YYYY | [optional]
  **endDate** | **String**| Return meetings up until the specified date. MM/DD/YYYY | [optional]
  **pageSize** | **Integer**| Sets number of items returned per page. | [optional]
@@ -244,120 +358,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;RecordingSummary&gt;**](RecordingSummary.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet"></a>
-# **v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet**
-> Meeting v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet(enterpriseId, meetingGuid)
-
-List Meetings
-
-This endpoint retrieves a list of meetings.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.HistoryApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-HistoryApi apiInstance = new HistoryApi();
-Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-try {
-    Meeting result = apiInstance.v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet(enterpriseId, meetingGuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdMeetingHistoryMeetingGuidGet"></a>
-# **v1UserUserIdMeetingHistoryMeetingGuidGet**
-> Meeting v1UserUserIdMeetingHistoryMeetingGuidGet(userId, meetingGuid)
-
-List Meetings
-
-This endpoint retrieves a list of meetings.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.HistoryApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-HistoryApi apiInstance = new HistoryApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-try {
-    Meeting result = apiInstance.v1UserUserIdMeetingHistoryMeetingGuidGet(userId, meetingGuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#v1UserUserIdMeetingHistoryMeetingGuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
 
 ### Authorization
 

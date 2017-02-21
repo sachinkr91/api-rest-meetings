@@ -6,9 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**getDefaultMeeting**](MeetingApi.md#getDefaultMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 [**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**getMeeting**](MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**listMeetings**](MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
 [**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**updateMeeting**](MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
@@ -17,7 +17,8 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
+[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
+[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
 [**v1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**v1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 [**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -128,56 +129,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getDefaultMeeting**
-> \Swagger\Client\Model\Meeting[] getDefaultMeeting($user_id)
-
-Get Meeting Settings
-
-This endpoint gets a user’s default meeting settings.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\MeetingApi();
-$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-try {
-    $result = $api_instance->getDefaultMeeting($user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MeetingApi->getDefaultMeeting: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
-
-### Return type
-
-[**\Swagger\Client\Model\Meeting[]**](../Model/Meeting.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getEndpointLayout**
 > \Swagger\Client\Model\Layout getEndpointLayout($user_id, $meeting_id, $endpoint_guid)
 
@@ -272,6 +223,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listMeetings**
+> \Swagger\Client\Model\Meeting[] listMeetings($user_id)
+
+List Meetings
+
+This endpoint gets a list of the user's scheduled upcoming meetings.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\MeetingApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try {
+    $result = $api_instance->listMeetings($user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MeetingApi->listMeetings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+
+### Return type
+
+[**\Swagger\Client\Model\Meeting[]**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -722,8 +723,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost($user_id, $meeting_id)
+# **v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**
+> \Swagger\Client\Model\PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost($user_id, $meeting_id, $payload_pairing_code_sip)
 
 Generate SIP Pairing Code
 
@@ -742,12 +743,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$payload_pairing_code_sip = new \Swagger\Client\Model\PayloadPairingCodeSIP(); // \Swagger\Client\Model\PayloadPairingCodeSIP | 
 
 try {
-    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost($user_id, $meeting_id);
+    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost($user_id, $meeting_id, $payload_pairing_code_sip);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -758,10 +760,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payload_pairing_code_sip** | [**\Swagger\Client\Model\PayloadPairingCodeSIP**](../Model/\Swagger\Client\Model\PayloadPairingCodeSIP.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\PairingCode**](../Model/PairingCode.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**
+> \Swagger\Client\Model\PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role)
+
+Generate SIP Pairing Code
+
+This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\MeetingApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$payload_pairing_code_web_rtc = new \Swagger\Client\Model\PayloadPairingCodeWebRTC(); // \Swagger\Client\Model\PayloadPairingCodeWebRTC | 
+$role = "USER"; // string | 
+
+try {
+    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payload_pairing_code_web_rtc** | [**\Swagger\Client\Model\PayloadPairingCodeWebRTC**](../Model/\Swagger\Client\Model\PayloadPairingCodeWebRTC.md)|  |
+ **role** | **string**|  | [optional] [default to USER]
+
+### Return type
+
+[**\Swagger\Client\Model\PairingCode**](../Model/PairingCode.md)
 
 ### Authorization
 

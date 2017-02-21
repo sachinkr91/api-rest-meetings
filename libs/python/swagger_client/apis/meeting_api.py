@@ -277,110 +277,6 @@ class MeetingApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def get_default_meeting(self, user_id, **kwargs):
-        """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_default_meeting(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.get_default_meeting_with_http_info(user_id, **kwargs)
-        else:
-            (data) = self.get_default_meeting_with_http_info(user_id, **kwargs)
-            return data
-
-    def get_default_meeting_with_http_info(self, user_id, **kwargs):
-        """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_default_meeting_with_http_info(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_default_meeting" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `get_default_meeting`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='list[Meeting]',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
     def get_endpoint_layout(self, user_id, meeting_id, endpoint_guid, **kwargs):
         """
         Get Endpoint Layout
@@ -606,6 +502,110 @@ class MeetingApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='Meeting',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def list_meetings(self, user_id, **kwargs):
+        """
+        List Meetings
+        This endpoint gets a list of the user's scheduled upcoming meetings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_meetings(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_meetings_with_http_info(user_id, **kwargs)
+        else:
+            (data) = self.list_meetings_with_http_info(user_id, **kwargs)
+            return data
+
+    def list_meetings_with_http_info(self, user_id, **kwargs):
+        """
+        List Meetings
+        This endpoint gets a list of the user's scheduled upcoming meetings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_meetings_with_http_info(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_meetings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `list_meetings`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='list[Meeting]',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -1561,7 +1561,7 @@ class MeetingApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(self, user_id, meeting_id, **kwargs):
+    def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(self, user_id, meeting_id, payload_pairing_code_sip, **kwargs):
         """
         Generate SIP Pairing Code
         This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -1572,24 +1572,25 @@ class MeetingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, callback=callback_function)
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, payload_pairing_code_sip, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :param PayloadPairingCodeSIP payload_pairing_code_sip:  (required)
+        :return: PairingCode
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, **kwargs)
+            return self.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, payload_pairing_code_sip, **kwargs)
         else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, **kwargs)
+            (data) = self.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, payload_pairing_code_sip, **kwargs)
             return data
 
-    def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(self, user_id, meeting_id, **kwargs):
+    def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(self, user_id, meeting_id, payload_pairing_code_sip, **kwargs):
         """
         Generate SIP Pairing Code
         This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -1600,18 +1601,19 @@ class MeetingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, callback=callback_function)
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(user_id, meeting_id, payload_pairing_code_sip, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :param PayloadPairingCodeSIP payload_pairing_code_sip:  (required)
+        :return: PairingCode
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'meeting_id']
+        all_params = ['user_id', 'meeting_id', 'payload_pairing_code_sip']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1630,8 +1632,11 @@ class MeetingApi(object):
         # verify the required parameter 'meeting_id' is set
         if ('meeting_id' not in params) or (params['meeting_id'] is None):
             raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post`")
+        # verify the required parameter 'payload_pairing_code_sip' is set
+        if ('payload_pairing_code_sip' not in params) or (params['payload_pairing_code_sip'] is None):
+            raise ValueError("Missing the required parameter `payload_pairing_code_sip` when calling `v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post`")
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP'.replace('{format}', 'json')
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -1646,6 +1651,8 @@ class MeetingApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'payload_pairing_code_sip' in params:
+            body_params = params['payload_pairing_code_sip']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1667,7 +1674,129 @@ class MeetingApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='Meeting',
+                                            response_type='PairingCode',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(self, user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs):
+        """
+        Generate SIP Pairing Code
+        This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(user_id, meeting_id, payload_pairing_code_web_rtc, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param PayloadPairingCodeWebRTC payload_pairing_code_web_rtc:  (required)
+        :param str role: 
+        :return: PairingCode
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post_with_http_info(user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs)
+        else:
+            (data) = self.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post_with_http_info(user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs)
+            return data
+
+    def v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post_with_http_info(self, user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs):
+        """
+        Generate SIP Pairing Code
+        This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post_with_http_info(user_id, meeting_id, payload_pairing_code_web_rtc, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param PayloadPairingCodeWebRTC payload_pairing_code_web_rtc:  (required)
+        :param str role: 
+        :return: PairingCode
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id', 'payload_pairing_code_web_rtc', 'role']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post`")
+        # verify the required parameter 'payload_pairing_code_web_rtc' is set
+        if ('payload_pairing_code_web_rtc' not in params) or (params['payload_pairing_code_web_rtc'] is None):
+            raise ValueError("Missing the required parameter `payload_pairing_code_web_rtc` when calling `v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post`")
+
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+        if 'role' in params:
+            query_params['role'] = params['role']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'payload_pairing_code_web_rtc' in params:
+            body_params = params['payload_pairing_code_web_rtc']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='PairingCode',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

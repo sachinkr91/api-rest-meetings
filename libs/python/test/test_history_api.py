@@ -42,6 +42,22 @@ class TestHistoryApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_history_by_enterprise(self):
+        """
+        Test case for get_history_by_enterprise
+
+        Get Meeting History by Enterprise
+        """
+        pass
+
+    def test_get_history_by_user(self):
+        """
+        Test case for get_history_by_user
+
+        Get Meeting History by User
+        """
+        pass
+
     def test_get_recording(self):
         """
         Test case for get_recording
@@ -50,19 +66,19 @@ class TestHistoryApi(unittest.TestCase):
         """
         pass
 
-    def test_list_meetings_by_enterprise(self):
+    def test_list_history_by_enterprise(self):
         """
-        Test case for list_meetings_by_enterprise
+        Test case for list_history_by_enterprise
 
-        List Meetings
+        List History by Enterprise
         """
         pass
 
-    def test_list_meetings_by_user(self):
+    def test_list_history_by_user(self):
         """
-        Test case for list_meetings_by_user
+        Test case for list_history_by_user
 
-        List Meetings
+        List History by User
         """
         pass
 
@@ -71,22 +87,6 @@ class TestHistoryApi(unittest.TestCase):
         Test case for list_recordings
 
         List Meeting Recordings
-        """
-        pass
-
-    def test_v1_enterprise_enterprise_id_meeting_history_meeting_guid_get(self):
-        """
-        Test case for v1_enterprise_enterprise_id_meeting_history_meeting_guid_get
-
-        List Meetings
-        """
-        pass
-
-    def test_v1_user_user_id_meeting_history_meeting_guid_get(self):
-        """
-        Test case for v1_user_user_id_meeting_history_meeting_guid_get
-
-        List Meetings
         """
         pass
 

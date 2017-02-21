@@ -117,17 +117,17 @@ Class | Method | HTTP request | Description
 *EnterpriseApi* | [**getEnterpriseProfile**](docs/EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 *EnterpriseApi* | [**listUsers**](docs/EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
 *EnterpriseApi* | [**removeUser**](docs/EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+*HistoryApi* | [**getHistoryByEnterprise**](docs/HistoryApi.md#getHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | Get Meeting History by Enterprise
+*HistoryApi* | [**getHistoryByUser**](docs/HistoryApi.md#getHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | Get Meeting History by User
 *HistoryApi* | [**getRecording**](docs/HistoryApi.md#getRecording) | **GET** /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id} | Get Recording
-*HistoryApi* | [**listMeetingsByEnterprise**](docs/HistoryApi.md#listMeetingsByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List Meetings
-*HistoryApi* | [**listMeetingsByUser**](docs/HistoryApi.md#listMeetingsByUser) | **GET** /v1/user/{user_id}/meeting_history | List Meetings
+*HistoryApi* | [**listHistoryByEnterprise**](docs/HistoryApi.md#listHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List History by Enterprise
+*HistoryApi* | [**listHistoryByUser**](docs/HistoryApi.md#listHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history | List History by User
 *HistoryApi* | [**listRecordings**](docs/HistoryApi.md#listRecordings) | **GET** /v1/user/{user_id}/meeting_history/recordings | List Meeting Recordings
-*HistoryApi* | [**v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet**](docs/HistoryApi.md#v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | List Meetings
-*HistoryApi* | [**v1UserUserIdMeetingHistoryMeetingGuidGet**](docs/HistoryApi.md#v1UserUserIdMeetingHistoryMeetingGuidGet) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | List Meetings
 *MeetingApi* | [**cancelMeeting**](docs/MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 *MeetingApi* | [**createMeeting**](docs/MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-*MeetingApi* | [**getDefaultMeeting**](docs/MeetingApi.md#getDefaultMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 *MeetingApi* | [**getEndpointLayout**](docs/MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 *MeetingApi* | [**getMeeting**](docs/MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+*MeetingApi* | [**listMeetings**](docs/MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
 *MeetingApi* | [**updateEndpointLayout**](docs/MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 *MeetingApi* | [**updateMeeting**](docs/MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
 *MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
@@ -136,7 +136,8 @@ Class | Method | HTTP request | Description
 *MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 *MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdGet**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 *MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-*MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
+*MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
+*MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
 *MeetingApi* | [**v1UserUserIdLiveMeetingsMeetingIdPut**](docs/MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 *MeetingApi* | [**v1UserUserIdMeetingsMeetingIdNumbersGet**](docs/MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 *MeetingApi* | [**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](docs/MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -199,9 +200,13 @@ Class | Method | HTTP request | Description
  - [Numbers](docs/Numbers.md)
  - [NumbersLabel](docs/NumbersLabel.md)
  - [NumbersNumbers](docs/NumbersNumbers.md)
+ - [PairingCode](docs/PairingCode.md)
+ - [PairingCodeTurnservers](docs/PairingCodeTurnservers.md)
  - [Partition](docs/Partition.md)
  - [PayloadInvite](docs/PayloadInvite.md)
  - [PayloadMeetingState](docs/PayloadMeetingState.md)
+ - [PayloadPairingCodeSIP](docs/PayloadPairingCodeSIP.md)
+ - [PayloadPairingCodeWebRTC](docs/PayloadPairingCodeWebRTC.md)
  - [Recording](docs/Recording.md)
  - [RecordingRecordingChapters](docs/RecordingRecordingChapters.md)
  - [RecordingRecordingSessions](docs/RecordingRecordingSessions.md)

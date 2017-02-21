@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/Numbers'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadInvite', 'model/PairingCode', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC', 'model/PayloadMeetingState', 'model/Numbers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PairingCode'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
   }
-}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadInvite, PayloadMeetingState, Numbers) {
+}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadInvite, PairingCode, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC, PayloadMeetingState, Numbers) {
   'use strict';
 
   /**
@@ -165,52 +165,6 @@
     }
 
     /**
-     * Callback function to receive the result of the getDefaultMeeting operation.
-     * @callback module:api/MeetingApi~getDefaultMeetingCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Meeting>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Meeting Settings
-     * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/MeetingApi~getDefaultMeetingCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Meeting>}
-     */
-    this.getDefaultMeeting = function(userId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getDefaultMeeting";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [Meeting];
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/scheduled_meeting', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getEndpointLayout operation.
      * @callback module:api/MeetingApi~getEndpointLayoutCallback
      * @param {String} error Error message, if any.
@@ -318,6 +272,52 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/scheduled_meeting/{meeting_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listMeetings operation.
+     * @callback module:api/MeetingApi~listMeetingsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Meeting>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meetings
+     * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:api/MeetingApi~listMeetingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Meeting>}
+     */
+    this.listMeetings = function(userId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling listMeetings";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Meeting];
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/scheduled_meeting', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -799,10 +799,10 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCallback
+     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost operation.
+     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/PairingCode} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -811,20 +811,26 @@
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
+     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PairingCode}
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost = function(userId, meetingId, callback) {
-      var postBody = null;
+    this.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost = function(userId, meetingId, payloadPairingCodeSIP, callback) {
+      var postBody = payloadPairingCodeSIP;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost";
+        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost";
+        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
+      }
+
+      // verify the required parameter 'payloadPairingCodeSIP' is set
+      if (payloadPairingCodeSIP == undefined || payloadPairingCodeSIP == null) {
+        throw "Missing the required parameter 'payloadPairingCodeSIP' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
       }
 
 
@@ -842,10 +848,73 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = PairingCode;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP', 'POST',
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost operation.
+     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PairingCode} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate SIP Pairing Code
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.role  (default to USER)
+     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PairingCode}
+     */
+    this.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost = function(userId, meetingId, payloadPairingCodeWebRTC, opts, callback) {
+      opts = opts || {};
+      var postBody = payloadPairingCodeWebRTC;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
+      }
+
+      // verify the required parameter 'payloadPairingCodeWebRTC' is set
+      if (payloadPairingCodeWebRTC == undefined || payloadPairingCodeWebRTC == null) {
+        throw "Missing the required parameter 'payloadPairingCodeWebRTC' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+        'role': opts['role']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = PairingCode;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

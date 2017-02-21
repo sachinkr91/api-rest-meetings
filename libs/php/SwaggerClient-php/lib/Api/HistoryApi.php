@@ -103,6 +103,222 @@ class HistoryApi
     }
 
     /**
+     * Operation getHistoryByEnterprise
+     *
+     * Get Meeting History by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @return \Swagger\Client\Model\Meeting
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getHistoryByEnterprise($enterprise_id, $meeting_guid)
+    {
+        list($response) = $this->getHistoryByEnterpriseWithHttpInfo($enterprise_id, $meeting_guid);
+        return $response;
+    }
+
+    /**
+     * Operation getHistoryByEnterpriseWithHttpInfo
+     *
+     * Get Meeting History by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getHistoryByEnterpriseWithHttpInfo($enterprise_id, $meeting_guid)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getHistoryByEnterprise');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling getHistoryByEnterprise');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_guid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Meeting',
+                '/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getHistoryByUser
+     *
+     * Get Meeting History by User
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @return \Swagger\Client\Model\Meeting
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getHistoryByUser($user_id, $meeting_guid)
+    {
+        list($response) = $this->getHistoryByUserWithHttpInfo($user_id, $meeting_guid);
+        return $response;
+    }
+
+    /**
+     * Operation getHistoryByUserWithHttpInfo
+     *
+     * Get Meeting History by User
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getHistoryByUserWithHttpInfo($user_id, $meeting_guid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getHistoryByUser');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling getHistoryByUser');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_guid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Meeting',
+                '/v1/user/{user_id}/meeting_history/{meeting_guid}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getRecording
      *
      * Get Recording
@@ -211,34 +427,34 @@ class HistoryApi
     }
 
     /**
-     * Operation listMeetingsByEnterprise
+     * Operation listHistoryByEnterprise
      *
-     * List Meetings
+     * List History by Enterprise
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @return \Swagger\Client\Model\MeetingHistory[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetingsByEnterprise($enterprise_id)
+    public function listHistoryByEnterprise($enterprise_id)
     {
-        list($response) = $this->listMeetingsByEnterpriseWithHttpInfo($enterprise_id);
+        list($response) = $this->listHistoryByEnterpriseWithHttpInfo($enterprise_id);
         return $response;
     }
 
     /**
-     * Operation listMeetingsByEnterpriseWithHttpInfo
+     * Operation listHistoryByEnterpriseWithHttpInfo
      *
-     * List Meetings
+     * List History by Enterprise
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @return Array of \Swagger\Client\Model\MeetingHistory[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetingsByEnterpriseWithHttpInfo($enterprise_id)
+    public function listHistoryByEnterpriseWithHttpInfo($enterprise_id)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling listMeetingsByEnterprise');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling listHistoryByEnterprise');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/meeting_history";
@@ -305,12 +521,12 @@ class HistoryApi
     }
 
     /**
-     * Operation listMeetingsByUser
+     * Operation listHistoryByUser
      *
-     * List Meetings
+     * List History by User
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_id Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
+     * @param string $meeting_id Return only meetings with the specified meeting numeric ID. (optional)
      * @param string $start_date Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param string $end_date Return meetings up until the specified date. MM/DD/YYYY (optional)
      * @param int $page_size Sets number of items returned per page. (optional)
@@ -319,19 +535,19 @@ class HistoryApi
      * @return \Swagger\Client\Model\MeetingHistory[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetingsByUser($user_id, $meeting_id = null, $start_date = null, $end_date = null, $page_size = null, $page_number = null, $order = null)
+    public function listHistoryByUser($user_id, $meeting_id = null, $start_date = null, $end_date = null, $page_size = null, $page_number = null, $order = null)
     {
-        list($response) = $this->listMeetingsByUserWithHttpInfo($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order);
+        list($response) = $this->listHistoryByUserWithHttpInfo($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order);
         return $response;
     }
 
     /**
-     * Operation listMeetingsByUserWithHttpInfo
+     * Operation listHistoryByUserWithHttpInfo
      *
-     * List Meetings
+     * List History by User
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_id Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)
+     * @param string $meeting_id Return only meetings with the specified meeting numeric ID. (optional)
      * @param string $start_date Return meetings starting from the specified date. MM/DD/YYYY (optional)
      * @param string $end_date Return meetings up until the specified date. MM/DD/YYYY (optional)
      * @param int $page_size Sets number of items returned per page. (optional)
@@ -340,11 +556,11 @@ class HistoryApi
      * @return Array of \Swagger\Client\Model\MeetingHistory[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetingsByUserWithHttpInfo($user_id, $meeting_id = null, $start_date = null, $end_date = null, $page_size = null, $page_number = null, $order = null)
+    public function listHistoryByUserWithHttpInfo($user_id, $meeting_id = null, $start_date = null, $end_date = null, $page_size = null, $page_number = null, $order = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling listMeetingsByUser');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling listHistoryByUser');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/meeting_history";
@@ -540,222 +756,6 @@ class HistoryApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\RecordingSummary[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet
-     *
-     * List Meetings
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return \Swagger\Client\Model\Meeting
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet($enterprise_id, $meeting_guid)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo
-     *
-     * List Meetings
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1EnterpriseEnterpriseIdMeetingHistoryMeetingGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingGuidGet
-     *
-     * List Meetings
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return \Swagger\Client\Model\Meeting
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdMeetingHistoryMeetingGuidGet($user_id, $meeting_guid)
-    {
-        list($response) = $this->v1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo($user_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo
-     *
-     * List Meetings
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo($user_id, $meeting_guid)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingHistoryMeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1UserUserIdMeetingHistoryMeetingGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/user/{user_id}/meeting_history/{meeting_guid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

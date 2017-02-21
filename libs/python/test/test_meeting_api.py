@@ -58,14 +58,6 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
-    def test_get_default_meeting(self):
-        """
-        Test case for get_default_meeting
-
-        Get Meeting Settings
-        """
-        pass
-
     def test_get_endpoint_layout(self):
         """
         Test case for get_endpoint_layout
@@ -79,6 +71,14 @@ class TestMeetingApi(unittest.TestCase):
         Test case for get_meeting
 
         Get Meeting
+        """
+        pass
+
+    def test_list_meetings(self):
+        """
+        Test case for list_meetings
+
+        List Meetings
         """
         pass
 
@@ -149,6 +149,14 @@ class TestMeetingApi(unittest.TestCase):
     def test_v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(self):
         """
         Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post
+
+        Generate SIP Pairing Code
+        """
+        pass
+
+    def test_v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(self):
+        """
+        Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post
 
         Generate SIP Pairing Code
         """

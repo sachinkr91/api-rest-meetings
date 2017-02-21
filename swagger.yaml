@@ -317,7 +317,7 @@ paths:
           type: boolean
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Room'
         default:
@@ -346,7 +346,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Room'
         default:
@@ -370,7 +370,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The default meeting settings.
           schema:
             $ref: '#/definitions/Room'
         default:
@@ -399,7 +399,7 @@ paths:
             $ref: "#/definitions/Room"
       responses:
         '200':
-          description: The settings for the room
+          description: The default meeting settings.
           schema:
             $ref: '#/definitions/Room'
         default:
@@ -408,9 +408,9 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/scheduled_meeting:
     get:
-      summary: Get Meeting Settings
-      description: This endpoint gets a user’s default meeting settings.
-      operationId: getDefaultMeeting
+      summary: List Meetings
+      description: This endpoint gets a list of the user's scheduled upcoming meetings.
+      operationId: listMeetings
       tags:
         - Meeting
       security:
@@ -423,7 +423,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: A list of meetings. 
           schema:
             type: array
             items:
@@ -698,7 +698,7 @@ paths:
                 description: Set to "terminated" to end the meeting.
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -925,7 +925,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip:
     post:
       summary: Generate SIP Pairing Code
       description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -944,11 +944,79 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
+        - name: PayloadPairingCodeSIP
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              endpointType:
+                type: integer
+              userId:
+                type: integer
+              languageCode:
+                type: string
+                enum:
+                  - en
+              capabilities:
+                type: array
+                items:
+                  type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The pairing code information.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/PairingCode'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc:
+    post:
+      summary: Generate SIP Pairing Code
+      description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_id
+          in: path
+          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          required: true
+          type: integer
+        - name: role
+          in: query
+          type: string
+          default: USER
+        - name: PayloadPairingCodeWebRTC
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              endpointType:
+                type: integer
+              userId:
+                type: integer
+              languageCode:
+                type: string
+                enum:
+                  - en
+              capabilities:
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: The pairing code information.
+          schema:
+            $ref: '#/definitions/PairingCode'
         default:
           description: Unexpected error
           schema:
@@ -991,9 +1059,9 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/meeting_history:
     get:
-      summary: List Meetings
-      description: This endpoint retrieves a list of meetings.
-      operationId: listMeetingsByUser
+      summary: List History by User
+      description: This endpoint retrieves a list of meeting histories by the given user.
+      operationId: listHistoryByUser
       tags:
         - History
       security:
@@ -1006,7 +1074,7 @@ paths:
           type: integer
         - name: meetingId
           in: query
-          description: Return meetings with the specified Meeting ID (recurring & Personal Meeting ID).
+          description: Return only meetings with the specified meeting numeric ID.
           type: string
         - name: startDate
           in: query
@@ -1030,20 +1098,22 @@ paths:
           type: string
       responses:
         '200':
-          description: The list of meetings.
+          description: List of meeting history objects.
           schema:
             type: array
             items:
               $ref: '#/definitions/MeetingHistory'
+        '404':
+          description: No matches found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/meeting_history:
     get:
-      summary: List Meetings
-      description: This endpoint retrieves a list of meetings.
-      operationId: listMeetingsByEnterprise
+      summary: List History by Enterprise
+      description: This endpoint retrieves a list of meeting histories by the given enterprise.
+      operationId: listHistoryByEnterprise
       tags:
         - History
       security:
@@ -1056,7 +1126,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The list of meetings.
+          description: List of meeting history objects.
           schema:
             type: array
             items:
@@ -1145,8 +1215,9 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/meeting_history/{meeting_guid}:
     get:
-      summary: List Meetings
-      description: This endpoint retrieves a list of meetings.
+      summary: Get Meeting History by User
+      description: This endpoint retrieves the meeting history for a specific instance of a meeting.
+      operationId: getHistoryByUser
       tags:
         - History
       security:
@@ -1164,7 +1235,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The meeting history object.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1173,8 +1244,9 @@ paths:
             $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}:
     get:
-      summary: List Meetings
-      description: This endpoint retrieves a list of meetings.
+      summary: Get Meeting History by Enterprise
+      description: This endpoint retrieves the meeting history for a specific instance of a meeting.
+      operationId: getHistoryByEnterprise
       tags:
         - History
       security:
@@ -1192,7 +1264,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The meeting history object.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1274,7 +1346,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1307,7 +1379,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1336,7 +1408,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1369,7 +1441,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1421,7 +1493,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: TBD
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -2098,6 +2170,42 @@ definitions:
               type: boolean
             default:
               type: boolean
+  PairingCode:
+    type: object
+    properties:
+      callguid:
+        type: string
+      endpointGuid:
+        type: string
+      forceTURN:
+        type: boolean
+      pairingCode:
+        type: string
+      status:
+        type: integer
+      statusText:
+        type: string
+        enum:
+          - OK
+      turnservers:
+        type: array
+        items:
+          type: object
+          properties:
+            credential:
+              type: string
+            urls:
+              type: string
+            username:
+              type: string
+      uri:
+        type: string
+      seamEndpointGuid:
+        type: string
+      connectionGuid:
+        type: string
+      endpointName:
+        type: string
   MeetingState:
     type: object
     properties:

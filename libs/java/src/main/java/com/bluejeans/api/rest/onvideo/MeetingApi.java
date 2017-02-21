@@ -45,6 +45,9 @@ import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
 import io.swagger.client.model.PayloadInvite;
+import io.swagger.client.model.PairingCode;
+import io.swagger.client.model.PayloadPairingCodeSIP;
+import io.swagger.client.model.PayloadPairingCodeWebRTC;
 import io.swagger.client.model.PayloadMeetingState;
 import io.swagger.client.model.Numbers;
 
@@ -305,113 +308,6 @@ public class MeetingApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getDefaultMeeting */
-    private com.squareup.okhttp.Call getDefaultMeetingCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling getDefaultMeeting(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/scheduled_meeting".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Get Meeting Settings
-     * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return List&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<Meeting> getDefaultMeeting(Integer userId) throws ApiException {
-        ApiResponse<List<Meeting>> resp = getDefaultMeetingWithHttpInfo(userId);
-        return resp.getData();
-    }
-
-    /**
-     * Get Meeting Settings
-     * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return ApiResponse&lt;List&lt;Meeting&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<Meeting>> getDefaultMeetingWithHttpInfo(Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = getDefaultMeetingCall(userId, null, null);
-        Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get Meeting Settings (asynchronously)
-     * This endpoint gets a user’s default meeting settings.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDefaultMeetingAsync(Integer userId, final ApiCallback<List<Meeting>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDefaultMeetingCall(userId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for getEndpointLayout */
     private com.squareup.okhttp.Call getEndpointLayoutCall(Integer userId, Integer meetingId, String endpointGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -650,6 +546,113 @@ public class MeetingApi {
 
         com.squareup.okhttp.Call call = getMeetingCall(userId, meetingId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for listMeetings */
+    private com.squareup.okhttp.Call listMeetingsCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling listMeetings(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/scheduled_meeting".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * List Meetings
+     * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return List&lt;Meeting&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Meeting> listMeetings(Integer userId) throws ApiException {
+        ApiResponse<List<Meeting>> resp = listMeetingsWithHttpInfo(userId);
+        return resp.getData();
+    }
+
+    /**
+     * List Meetings
+     * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return ApiResponse&lt;List&lt;Meeting&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Meeting>> listMeetingsWithHttpInfo(Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = listMeetingsCall(userId, null, null);
+        Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Meetings (asynchronously)
+     * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listMeetingsAsync(Integer userId, final ApiCallback<List<Meeting>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listMeetingsCall(userId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1651,23 +1654,28 @@ public class MeetingApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    /* Build call for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost */
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCall(Integer userId, Integer meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = payloadPairingCodeSIP;
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(Async)");
+            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(Async)");
         }
         
         // verify the required parameter 'meetingId' is set
         if (meetingId == null) {
-            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(Async)");
+            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(Async)");
+        }
+        
+        // verify the required parameter 'payloadPairingCodeSIP' is set
+        if (payloadPairingCodeSIP == null) {
+            throw new ApiException("Missing the required parameter 'payloadPairingCodeSIP' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(Async)");
         }
         
 
         // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP".replaceAll("\\{format\\}","json")
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
         .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
@@ -1710,11 +1718,12 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
+     * @param payloadPairingCodeSIP  (required)
+     * @return PairingCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost(Integer userId, Integer meetingId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostWithHttpInfo(userId, meetingId);
+    public PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(Integer userId, Integer meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
+        ApiResponse<PairingCode> resp = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
         return resp.getData();
     }
 
@@ -1723,12 +1732,13 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @param payloadPairingCodeSIP  (required)
+     * @return ApiResponse&lt;PairingCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCall(userId, meetingId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+    public ApiResponse<PairingCode> v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo(Integer userId, Integer meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCall(userId, meetingId, payloadPairingCodeSIP, null, null);
+        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1737,11 +1747,12 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param payloadPairingCodeSIP  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostAsync(Integer userId, Integer meetingId, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsync(Integer userId, Integer meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ApiCallback<PairingCode> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1762,8 +1773,137 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPostCall(userId, meetingId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCall(userId, meetingId, payloadPairingCodeSIP, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost */
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCall(Integer userId, Integer meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = payloadPairingCodeWebRTC;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(Async)");
+        }
+        
+        // verify the required parameter 'meetingId' is set
+        if (meetingId == null) {
+            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(Async)");
+        }
+        
+        // verify the required parameter 'payloadPairingCodeWebRTC' is set
+        if (payloadPairingCodeWebRTC == null) {
+            throw new ApiException("Missing the required parameter 'payloadPairingCodeWebRTC' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (role != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Generate SIP Pairing Code
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param payloadPairingCodeWebRTC  (required)
+     * @param role  (optional, default to USER)
+     * @return PairingCode
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(Integer userId, Integer meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
+        ApiResponse<PairingCode> resp = v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
+        return resp.getData();
+    }
+
+    /**
+     * Generate SIP Pairing Code
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param payloadPairingCodeWebRTC  (required)
+     * @param role  (optional, default to USER)
+     * @return ApiResponse&lt;PairingCode&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PairingCode> v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo(Integer userId, Integer meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCall(userId, meetingId, payloadPairingCodeWebRTC, role, null, null);
+        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Generate SIP Pairing Code (asynchronously)
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param payloadPairingCodeWebRTC  (required)
+     * @param role  (optional, default to USER)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsync(Integer userId, Integer meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ApiCallback<PairingCode> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCall(userId, meetingId, payloadPairingCodeWebRTC, role, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -6,9 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_meeting**](MeetingApi.md#cancel_meeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**create_meeting**](MeetingApi.md#create_meeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**get_default_meeting**](MeetingApi.md#get_default_meeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 [**get_endpoint_layout**](MeetingApi.md#get_endpoint_layout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**get_meeting**](MeetingApi.md#get_meeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**list_meetings**](MeetingApi.md#list_meetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
 [**update_endpoint_layout**](MeetingApi.md#update_endpoint_layout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**update_meeting**](MeetingApi.md#update_meeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
@@ -17,7 +17,8 @@ Method | HTTP request | Description
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1_user_user_id_live_meetings_meeting_id_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1_user_user_id_live_meetings_meeting_id_invite_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_invite_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
+[**v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
+[**v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
 [**v1_user_user_id_live_meetings_meeting_id_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**v1_user_user_id_meetings_meeting_id_numbers_get**](MeetingApi.md#v1_user_user_id_meetings_meeting_id_numbers_get) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 [**v1_user_user_id_scheduled_meeting_meeting_id_emails_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_emails_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -132,58 +133,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_default_meeting**
-> list[Meeting] get_default_meeting(user_id)
-
-Get Meeting Settings
-
-This endpoint gets a user’s default meeting settings.
-
-### Example 
-```python
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.MeetingApi()
-user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-try: 
-    # Get Meeting Settings
-    api_response = api_instance.get_default_meeting(user_id)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling MeetingApi->get_default_meeting: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**list[Meeting]**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_endpoint_layout**
 > Layout get_endpoint_layout(user_id, meeting_id, endpoint_guid)
 
@@ -282,6 +231,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_meetings**
+> list[Meeting] list_meetings(user_id)
+
+List Meetings
+
+This endpoint gets a list of the user's scheduled upcoming meetings.
+
+### Example 
+```python
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.MeetingApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try: 
+    # List Meetings
+    api_response = api_instance.list_meetings(user_id)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling MeetingApi->list_meetings: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**list[Meeting]**](Meeting.md)
 
 ### Authorization
 
@@ -749,7 +750,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**
-> Meeting v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id)
+> PairingCode v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, payload_pairing_code_sip)
 
 Generate SIP Pairing Code
 
@@ -771,10 +772,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+payload_pairing_code_sip = swagger_client.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | 
 
 try: 
     # Generate SIP Pairing Code
-    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id)
+    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, payload_pairing_code_sip)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling MeetingApi->v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post: %s\n" % e
@@ -786,10 +788,69 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **payload_pairing_code_sip** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**PairingCode**](PairingCode.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post**
+> PairingCode v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(user_id, meeting_id, payload_pairing_code_web_rtc, role=role)
+
+Generate SIP Pairing Code
+
+This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+
+### Example 
+```python
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.MeetingApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+payload_pairing_code_web_rtc = swagger_client.PayloadPairingCodeWebRTC() # PayloadPairingCodeWebRTC | 
+role = 'USER' # str |  (optional) (default to USER)
+
+try: 
+    # Generate SIP Pairing Code
+    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(user_id, meeting_id, payload_pairing_code_web_rtc, role=role)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling MeetingApi->v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **payload_pairing_code_web_rtc** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  | 
+ **role** | **str**|  | [optional] [default to USER]
+
+### Return type
+
+[**PairingCode**](PairingCode.md)
 
 ### Authorization
 
