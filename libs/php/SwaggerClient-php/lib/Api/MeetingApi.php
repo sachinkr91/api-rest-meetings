@@ -1610,7 +1610,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
      *
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1627,7 +1627,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo
      *
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1729,7 +1729,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
      *
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (WebRTC)
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
@@ -1747,7 +1747,7 @@ class MeetingApi
     /**
      * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo
      *
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (WebRTC)
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)

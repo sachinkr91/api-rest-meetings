@@ -1563,7 +1563,7 @@ class MeetingApi(object):
 
     def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(self, user_id, meeting_id, payload_pairing_code_sip, **kwargs):
         """
-        Generate SIP Pairing Code
+        Generate Pairing Code (SIP)
         This endpoint generates a SIP pairing code that can be used to connect to a meeting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1592,7 +1592,7 @@ class MeetingApi(object):
 
     def v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post_with_http_info(self, user_id, meeting_id, payload_pairing_code_sip, **kwargs):
         """
-        Generate SIP Pairing Code
+        Generate Pairing Code (SIP)
         This endpoint generates a SIP pairing code that can be used to connect to a meeting.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1681,8 +1681,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(self, user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs):
         """
-        Generate SIP Pairing Code
-        This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        Generate Pairing Code (WebRTC)
+        This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1711,8 +1711,8 @@ class MeetingApi(object):
 
     def v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post_with_http_info(self, user_id, meeting_id, payload_pairing_code_web_rtc, **kwargs):
         """
-        Generate SIP Pairing Code
-        This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        Generate Pairing Code (WebRTC)
+        This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

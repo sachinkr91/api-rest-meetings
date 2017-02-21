@@ -362,7 +362,7 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> V1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (SIP)
         /// </summary>
         /// <remarks>
         /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -375,7 +375,7 @@ namespace IO.Swagger.Api
         PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (SIP)
         /// </summary>
         /// <remarks>
         /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -387,10 +387,10 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of PairingCode</returns>
         ApiResponse<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (WebRTC)
         /// </summary>
         /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -401,10 +401,10 @@ namespace IO.Swagger.Api
         PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
 
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (WebRTC)
         /// </summary>
         /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -820,7 +820,7 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdLiveMeetingsMeetingIdInvitePostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (SIP)
         /// </summary>
         /// <remarks>
         /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -833,7 +833,7 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (SIP)
         /// </summary>
         /// <remarks>
         /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -845,10 +845,10 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (PairingCode)</returns>
         System.Threading.Tasks.Task<ApiResponse<PairingCode>> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (WebRTC)
         /// </summary>
         /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -859,10 +859,10 @@ namespace IO.Swagger.Api
         System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
 
         /// <summary>
-        /// Generate SIP Pairing Code
+        /// Generate Pairing Code (WebRTC)
         /// </summary>
         /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3339,7 +3339,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3353,7 +3353,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3434,7 +3434,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3449,7 +3449,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3529,7 +3529,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3544,7 +3544,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3627,7 +3627,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
@@ -3643,7 +3643,7 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Generate SIP Pairing Code This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>

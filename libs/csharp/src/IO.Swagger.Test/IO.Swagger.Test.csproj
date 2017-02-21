@@ -86,7 +86,7 @@ limitations under the License.
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
-          <Project>{8EB0B086-03D0-4969-9B0B-7CEBFDDDEFB1}</Project>
+          <Project>{76F3BAD7-E5B4-4E6A-9E27-6619DEBCDC7F}</Project>
           <Name>IO.Swagger</Name>
       </ProjectReference>
   </ItemGroup>

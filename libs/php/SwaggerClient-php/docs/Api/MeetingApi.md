@@ -17,8 +17,8 @@ Method | HTTP request | Description
 [**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
-[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
+[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**v1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**v1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 [**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -726,7 +726,7 @@ void (empty response body)
 # **v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**
 > \Swagger\Client\Model\PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost($user_id, $meeting_id, $payload_pairing_code_sip)
 
-Generate SIP Pairing Code
+Generate Pairing Code (SIP)
 
 This endpoint generates a SIP pairing code that can be used to connect to a meeting.
 
@@ -780,9 +780,9 @@ Name | Type | Description  | Notes
 # **v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**
 > \Swagger\Client\Model\PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role)
 
-Generate SIP Pairing Code
+Generate Pairing Code (WebRTC)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
 
 ### Example
 ```php

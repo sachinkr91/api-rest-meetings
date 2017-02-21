@@ -17,8 +17,8 @@ Method | HTTP request | Description
 [**v1_user_user_id_live_meetings_meeting_id_endpoints_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_endpoints_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**v1_user_user_id_live_meetings_meeting_id_get**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**v1_user_user_id_live_meetings_meeting_id_invite_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_invite_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
-[**v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
+[**v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**v1_user_user_id_live_meetings_meeting_id_put**](MeetingApi.md#v1_user_user_id_live_meetings_meeting_id_put) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**v1_user_user_id_meetings_meeting_id_numbers_get**](MeetingApi.md#v1_user_user_id_meetings_meeting_id_numbers_get) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 [**v1_user_user_id_scheduled_meeting_meeting_id_emails_get**](MeetingApi.md#v1_user_user_id_scheduled_meeting_meeting_id_emails_get) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -752,7 +752,7 @@ void (empty response body)
 # **v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post**
 > PairingCode v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, payload_pairing_code_sip)
 
-Generate SIP Pairing Code
+Generate Pairing Code (SIP)
 
 This endpoint generates a SIP pairing code that can be used to connect to a meeting.
 
@@ -775,7 +775,7 @@ meeting_id = 56 # int | The ID of the meeting you want to view. This is an integ
 payload_pairing_code_sip = swagger_client.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | 
 
 try: 
-    # Generate SIP Pairing Code
+    # Generate Pairing Code (SIP)
     api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(user_id, meeting_id, payload_pairing_code_sip)
     pprint(api_response)
 except ApiException as e:
@@ -808,9 +808,9 @@ Name | Type | Description  | Notes
 # **v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post**
 > PairingCode v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(user_id, meeting_id, payload_pairing_code_web_rtc, role=role)
 
-Generate SIP Pairing Code
+Generate Pairing Code (WebRTC)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
 
 ### Example 
 ```python
@@ -832,7 +832,7 @@ payload_pairing_code_web_rtc = swagger_client.PayloadPairingCodeWebRTC() # Paylo
 role = 'USER' # str |  (optional) (default to USER)
 
 try: 
-    # Generate SIP Pairing Code
+    # Generate Pairing Code (WebRTC)
     api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(user_id, meeting_id, payload_pairing_code_web_rtc, role=role)
     pprint(api_response)
 except ApiException as e:

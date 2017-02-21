@@ -1645,7 +1645,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
      get:
       summary: Top Users
-      description: This endpoint retrieves the top useres by usage for an enterprise.
+      description: This endpoint retrieves the top users by usage for an enterprise.
       operationId: getTopUsers
       tags:
         - Analytics

@@ -235,7 +235,7 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
      *
-     * Generate SIP Pairing Code.
+     * Generate Pairing Code (SIP).
      *
      */
     public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost()
@@ -246,7 +246,7 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
      *
-     * Generate SIP Pairing Code.
+     * Generate Pairing Code (WebRTC).
      *
      */
     public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost()

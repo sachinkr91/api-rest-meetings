@@ -150,7 +150,7 @@ class TestMeetingApi(unittest.TestCase):
         """
         Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post
 
-        Generate SIP Pairing Code
+        Generate Pairing Code (SIP)
         """
         pass
 
@@ -158,7 +158,7 @@ class TestMeetingApi(unittest.TestCase):
         """
         Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post
 
-        Generate SIP Pairing Code
+        Generate Pairing Code (WebRTC)
         """
         pass
 

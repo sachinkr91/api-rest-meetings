@@ -807,7 +807,7 @@
      */
 
     /**
-     * Generate SIP Pairing Code
+     * Generate Pairing Code (SIP)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
@@ -866,8 +866,8 @@
      */
 
     /**
-     * Generate SIP Pairing Code
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * Generate Pairing Code (WebRTC)
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 

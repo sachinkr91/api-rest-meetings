@@ -17,8 +17,8 @@ Method | HTTP request | Description
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 [**V1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**V1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidinvitepost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodesippost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate SIP Pairing Code
-[**V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodewebrtcpost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate SIP Pairing Code
+[**V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodesippost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodewebrtcpost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**V1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**V1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1useruseridmeetingsmeetingidnumbersget) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
 [**V1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidemailsget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
@@ -948,7 +948,7 @@ void (empty response body)
 # **V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**
 > PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
 
-Generate SIP Pairing Code
+Generate Pairing Code (SIP)
 
 This endpoint generates a SIP pairing code that can be used to connect to a meeting.
 
@@ -979,7 +979,7 @@ namespace Example
 
             try
             {
-                // Generate SIP Pairing Code
+                // Generate Pairing Code (SIP)
                 PairingCode result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(userId, meetingId, payloadPairingCodeSIP);
                 Debug.WriteLine(result);
             }
@@ -1019,9 +1019,9 @@ Name | Type | Description  | Notes
 # **V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**
 > PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
 
-Generate SIP Pairing Code
+Generate Pairing Code (WebRTC)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
 
 ### Example
 ```csharp
@@ -1051,7 +1051,7 @@ namespace Example
 
             try
             {
-                // Generate SIP Pairing Code
+                // Generate Pairing Code (WebRTC)
                 PairingCode result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(userId, meetingId, payloadPairingCodeWebRTC, role);
                 Debug.WriteLine(result);
             }
