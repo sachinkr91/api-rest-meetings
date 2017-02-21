@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Oauth2TokenClientPost**](AuthenticationApi.md#oauth2tokenclientpost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
-[**Oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2tokenmeetingpost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
-[**Oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2tokenpasswordpost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**GetTokenByClient**](AuthenticationApi.md#gettokenbyclient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**GetTokenByMeeting**](AuthenticationApi.md#gettokenbymeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**GetTokenByPassword**](AuthenticationApi.md#gettokenbypassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-<a name="oauth2tokenclientpost"></a>
-# **Oauth2TokenClientPost**
-> Grant Oauth2TokenClientPost (Payload payload)
+<a name="gettokenbyclient"></a>
+# **GetTokenByClient**
+> GrantClient GetTokenByClient (GrantTypeClient grantTypeClient)
 
 Authentication via Client Grant Type
 
@@ -27,7 +27,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenClientPostExample
+    public class GetTokenByClientExample
     {
         public void main()
         {
@@ -38,17 +38,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var payload = new Payload(); // Payload | Contains information about the type of grant you are requesting.
+            var grantTypeClient = new GrantTypeClient(); // GrantTypeClient | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Client Grant Type
-                Grant result = apiInstance.Oauth2TokenClientPost(payload);
+                GrantClient result = apiInstance.GetTokenByClient(grantTypeClient);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenClientPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.GetTokenByClient: " + e.Message );
             }
         }
     }
@@ -59,11 +59,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload**](Payload.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeClient** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantClient**](GrantClient.md)
 
 ### Authorization
 
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="oauth2tokenmeetingpost"></a>
-# **Oauth2TokenMeetingPost**
-> Grant Oauth2TokenMeetingPost (Payload1 payload)
+<a name="gettokenbymeeting"></a>
+# **GetTokenByMeeting**
+> GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting)
 
 Authentication via Meeting Grant Type
 
@@ -94,7 +94,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenMeetingPostExample
+    public class GetTokenByMeetingExample
     {
         public void main()
         {
@@ -105,17 +105,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var payload = new Payload1(); // Payload1 | Contains information about the type of grant you are requesting.
+            var grantTypeMeeting = new GrantTypeMeeting(); // GrantTypeMeeting | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Meeting Grant Type
-                Grant result = apiInstance.Oauth2TokenMeetingPost(payload);
+                GrantMeeting result = apiInstance.GetTokenByMeeting(grantTypeMeeting);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenMeetingPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.GetTokenByMeeting: " + e.Message );
             }
         }
     }
@@ -126,11 +126,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload1**](Payload1.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeMeeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantMeeting**](GrantMeeting.md)
 
 ### Authorization
 
@@ -143,9 +143,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="oauth2tokenpasswordpost"></a>
-# **Oauth2TokenPasswordPost**
-> Grant Oauth2TokenPasswordPost (Payload2 payload)
+<a name="gettokenbypassword"></a>
+# **GetTokenByPassword**
+> GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword)
 
 Authentication via Password Grant Type
 
@@ -161,7 +161,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class Oauth2TokenPasswordPostExample
+    public class GetTokenByPasswordExample
     {
         public void main()
         {
@@ -172,17 +172,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var payload = new Payload2(); // Payload2 | Contains information about the type of grant you are requesting.
+            var grantTypePassword = new GrantTypePassword(); // GrantTypePassword | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Password Grant Type
-                Grant result = apiInstance.Oauth2TokenPasswordPost(payload);
+                GrantPassword result = apiInstance.GetTokenByPassword(grantTypePassword);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenPasswordPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.GetTokenByPassword: " + e.Message );
             }
         }
     }
@@ -193,11 +193,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload2**](Payload2.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypePassword** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantPassword**](GrantPassword.md)
 
 ### Authorization
 

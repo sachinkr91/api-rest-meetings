@@ -103,119 +103,7 @@ class EnterpriseApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdUsersGet
-     *
-     * List Enterprise Users
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param int $page_size Sets number of items returned per page. (optional)
-     * @param int $page_number Selects which page of results to return. (optional)
-     * @param string $email_id Allows filtering the response by a user’s email address. (optional)
-     * @return \Swagger\Client\Model\Room
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdUsersGet($enterprise_id, $page_size = null, $page_number = null, $email_id = null)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdUsersGetWithHttpInfo($enterprise_id, $page_size, $page_number, $email_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdUsersGetWithHttpInfo
-     *
-     * List Enterprise Users
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param int $page_size Sets number of items returned per page. (optional)
-     * @param int $page_number Selects which page of results to return. (optional)
-     * @param string $email_id Allows filtering the response by a user’s email address. (optional)
-     * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdUsersGetWithHttpInfo($enterprise_id, $page_size = null, $page_number = null, $email_id = null)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdUsersGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/users";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = $this->apiClient->getSerializer()->toQueryValue($page_size);
-        }
-        // query params
-        if ($page_number !== null) {
-            $queryParams['pageNumber'] = $this->apiClient->getSerializer()->toQueryValue($page_number);
-        }
-        // query params
-        if ($email_id !== null) {
-            $queryParams['emailId'] = $this->apiClient->getSerializer()->toQueryValue($email_id);
-        }
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Room',
-                '/v1/enterprise/{enterprise_id}/users'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Room', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Room', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdUsersPost
+     * Operation createEnterpriseUser
      *
      * Create Enterprise User
      *
@@ -225,14 +113,14 @@ class EnterpriseApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdUsersPost($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createEnterpriseUser($enterprise_id, $force_password_change = null, $send_verification_mail = null)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdUsersPostWithHttpInfo($enterprise_id, $force_password_change, $send_verification_mail);
+        list($response) = $this->createEnterpriseUserWithHttpInfo($enterprise_id, $force_password_change, $send_verification_mail);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdUsersPostWithHttpInfo
+     * Operation createEnterpriseUserWithHttpInfo
      *
      * Create Enterprise User
      *
@@ -242,11 +130,11 @@ class EnterpriseApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdUsersPostWithHttpInfo($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createEnterpriseUserWithHttpInfo($enterprise_id, $force_password_change = null, $send_verification_mail = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdUsersPost');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling createEnterpriseUser');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/users";
@@ -321,7 +209,213 @@ class EnterpriseApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdUsersUserIdDelete
+     * Operation getEnterpriseProfile
+     *
+     * Get Enterprise Profile
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return \Swagger\Client\Model\Enterprise
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getEnterpriseProfile($user_id)
+    {
+        list($response) = $this->getEnterpriseProfileWithHttpInfo($user_id);
+        return $response;
+    }
+
+    /**
+     * Operation getEnterpriseProfileWithHttpInfo
+     *
+     * Get Enterprise Profile
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return Array of \Swagger\Client\Model\Enterprise, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getEnterpriseProfileWithHttpInfo($user_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getEnterpriseProfile');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/enterprise_profile";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Enterprise',
+                '/v1/user/{user_id}/enterprise_profile'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Enterprise', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Enterprise', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listUsers
+     *
+     * List Enterprise Users
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param int $page_size Sets number of items returned per page. (optional)
+     * @param int $page_number Selects which page of results to return. (optional)
+     * @param string $email_id Allows filtering the response by a user’s email address. (optional)
+     * @return \Swagger\Client\Model\EnterpriseUserList
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function listUsers($enterprise_id, $page_size = null, $page_number = null, $email_id = null)
+    {
+        list($response) = $this->listUsersWithHttpInfo($enterprise_id, $page_size, $page_number, $email_id);
+        return $response;
+    }
+
+    /**
+     * Operation listUsersWithHttpInfo
+     *
+     * List Enterprise Users
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param int $page_size Sets number of items returned per page. (optional)
+     * @param int $page_number Selects which page of results to return. (optional)
+     * @param string $email_id Allows filtering the response by a user’s email address. (optional)
+     * @return Array of \Swagger\Client\Model\EnterpriseUserList, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function listUsersWithHttpInfo($enterprise_id, $page_size = null, $page_number = null, $email_id = null)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling listUsers');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/users";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // query params
+        if ($page_size !== null) {
+            $queryParams['pageSize'] = $this->apiClient->getSerializer()->toQueryValue($page_size);
+        }
+        // query params
+        if ($page_number !== null) {
+            $queryParams['pageNumber'] = $this->apiClient->getSerializer()->toQueryValue($page_number);
+        }
+        // query params
+        if ($email_id !== null) {
+            $queryParams['emailId'] = $this->apiClient->getSerializer()->toQueryValue($email_id);
+        }
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\EnterpriseUserList',
+                '/v1/enterprise/{enterprise_id}/users'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\EnterpriseUserList', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\EnterpriseUserList', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeEnterpriseUser
      *
      * Remove Enterprise User
      *
@@ -330,14 +424,14 @@ class EnterpriseApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdUsersUserIdDelete($enterprise_id, $user_id)
+    public function removeEnterpriseUser($enterprise_id, $user_id)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo($enterprise_id, $user_id);
+        list($response) = $this->removeEnterpriseUserWithHttpInfo($enterprise_id, $user_id);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo
+     * Operation removeEnterpriseUserWithHttpInfo
      *
      * Remove Enterprise User
      *
@@ -346,15 +440,15 @@ class EnterpriseApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo($enterprise_id, $user_id)
+    public function removeEnterpriseUserWithHttpInfo($enterprise_id, $user_id)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdUsersUserIdDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling removeEnterpriseUser');
         }
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1EnterpriseEnterpriseIdUsersUserIdDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling removeEnterpriseUser');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/users/{user_id}";
@@ -416,100 +510,6 @@ class EnterpriseApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Room', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdEnterpriseProfileGet
-     *
-     * Get Enterprise Profile
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return \Swagger\Client\Model\Enterprise
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdEnterpriseProfileGet($user_id)
-    {
-        list($response) = $this->v1UserUserIdEnterpriseProfileGetWithHttpInfo($user_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdEnterpriseProfileGetWithHttpInfo
-     *
-     * Get Enterprise Profile
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Enterprise, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdEnterpriseProfileGetWithHttpInfo($user_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdEnterpriseProfileGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/enterprise_profile";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Enterprise',
-                '/v1/user/{user_id}/enterprise_profile'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Enterprise', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Enterprise', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

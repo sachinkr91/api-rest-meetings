@@ -90,67 +90,67 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdEnterpriseProfileGet
+     * Test case for getDefaultMeeting
+     *
+     * Get Meeting Settings.
+     *
+     */
+    public function testGetDefaultMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for getEnterpriseProfile
      *
      * Get Enterprise Profile.
      *
      */
-    public function testV1UserUserIdEnterpriseProfileGet()
+    public function testGetEnterpriseProfile()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdGet
-     *
-     * Get User Account Details.
-     *
-     */
-    public function testV1UserUserIdGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdPut
-     *
-     * Update User Account Details.
-     *
-     */
-    public function testV1UserUserIdPut()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdRoomGet
+     * Test case for getRoom
      *
      * Get User’s Default Meeting Settings.
      *
      */
-    public function testV1UserUserIdRoomGet()
+    public function testGetRoom()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdRoomPut
+     * Test case for getUser
+     *
+     * Get User Account Details.
+     *
+     */
+    public function testGetUser()
+    {
+
+    }
+
+    /**
+     * Test case for updateRoom
      *
      * Update User’s Default Meeting Settings.
      *
      */
-    public function testV1UserUserIdRoomPut()
+    public function testUpdateRoom()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdScheduledMeetingGet
+     * Test case for updateUser
      *
-     * Meeting.
+     * Update User Account Details.
      *
      */
-    public function testV1UserUserIdScheduledMeetingGet()
+    public function testUpdateUser()
     {
 
     }

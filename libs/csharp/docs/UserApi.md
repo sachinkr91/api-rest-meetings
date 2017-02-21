@@ -4,17 +4,84 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1UserUserIdEnterpriseProfileGet**](UserApi.md#v1useruseridenterpriseprofileget) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
-[**V1UserUserIdGet**](UserApi.md#v1useruseridget) | **GET** /v1/user/{user_id} | Get User Account Details
-[**V1UserUserIdPut**](UserApi.md#v1useruseridput) | **PUT** /v1/user/{user_id} | Update User Account Details
-[**V1UserUserIdRoomGet**](UserApi.md#v1useruseridroomget) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
-[**V1UserUserIdRoomPut**](UserApi.md#v1useruseridroomput) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
-[**V1UserUserIdScheduledMeetingGet**](UserApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**GetDefaultMeeting**](UserApi.md#getdefaultmeeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**GetEnterpriseProfile**](UserApi.md#getenterpriseprofile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+[**GetRoom**](UserApi.md#getroom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
+[**GetUser**](UserApi.md#getuser) | **GET** /v1/user/{user_id} | Get User Account Details
+[**UpdateRoom**](UserApi.md#updateroom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
+[**UpdateUser**](UserApi.md#updateuser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
 
-<a name="v1useruseridenterpriseprofileget"></a>
-# **V1UserUserIdEnterpriseProfileGet**
-> Enterprise V1UserUserIdEnterpriseProfileGet (int? userId)
+<a name="getdefaultmeeting"></a>
+# **GetDefaultMeeting**
+> List<Meeting> GetDefaultMeeting (int? userId)
+
+Get Meeting Settings
+
+This endpoint gets a user’s default meeting settings.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetDefaultMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new UserApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+            try
+            {
+                // Get Meeting Settings
+                List&lt;Meeting&gt; result = apiInstance.GetDefaultMeeting(userId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserApi.GetDefaultMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**List<Meeting>**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getenterpriseprofile"></a>
+# **GetEnterpriseProfile**
+> Enterprise GetEnterpriseProfile (int? userId)
 
 Get Enterprise Profile
 
@@ -30,7 +97,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1UserUserIdEnterpriseProfileGetExample
+    public class GetEnterpriseProfileExample
     {
         public void main()
         {
@@ -46,12 +113,12 @@ namespace Example
             try
             {
                 // Get Enterprise Profile
-                Enterprise result = apiInstance.V1UserUserIdEnterpriseProfileGet(userId);
+                Enterprise result = apiInstance.GetEnterpriseProfile(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdEnterpriseProfileGet: " + e.Message );
+                Debug.Print("Exception when calling UserApi.GetEnterpriseProfile: " + e.Message );
             }
         }
     }
@@ -79,145 +146,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1useruseridget"></a>
-# **V1UserUserIdGet**
-> User V1UserUserIdGet (int? userId)
-
-Get User Account Details
-
-This endpoint retrieves the basic account details for a given user.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new UserApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-            try
-            {
-                // Get User Account Details
-                User result = apiInstance.V1UserUserIdGet(userId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**User**](User.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridput"></a>
-# **V1UserUserIdPut**
-> User V1UserUserIdPut (int? userId, User user)
-
-Update User Account Details
-
-This endpoint allows updating a user’s basic account details.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdPutExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new UserApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var user = new User(); // User | The user details that you wish to update.
-
-            try
-            {
-                // Update User Account Details
-                User result = apiInstance.V1UserUserIdPut(userId, user);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **user** | [**User**](User.md)| The user details that you wish to update. | 
-
-### Return type
-
-[**User**](User.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridroomget"></a>
-# **V1UserUserIdRoomGet**
-> Room V1UserUserIdRoomGet (int? userId)
+<a name="getroom"></a>
+# **GetRoom**
+> Room GetRoom (int? userId)
 
 Get User’s Default Meeting Settings
 
@@ -233,7 +164,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1UserUserIdRoomGetExample
+    public class GetRoomExample
     {
         public void main()
         {
@@ -249,12 +180,12 @@ namespace Example
             try
             {
                 // Get User’s Default Meeting Settings
-                Room result = apiInstance.V1UserUserIdRoomGet(userId);
+                Room result = apiInstance.GetRoom(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdRoomGet: " + e.Message );
+                Debug.Print("Exception when calling UserApi.GetRoom: " + e.Message );
             }
         }
     }
@@ -282,9 +213,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1useruseridroomput"></a>
-# **V1UserUserIdRoomPut**
-> Room V1UserUserIdRoomPut (int? userId, Room room)
+<a name="getuser"></a>
+# **GetUser**
+> User GetUser (int? userId)
+
+Get User Account Details
+
+This endpoint retrieves the basic account details for a given user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetUserExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new UserApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+            try
+            {
+                // Get User Account Details
+                User result = apiInstance.GetUser(userId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserApi.GetUser: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateroom"></a>
+# **UpdateRoom**
+> Room UpdateRoom (int? userId, Room room)
 
 Update User’s Default Meeting Settings
 
@@ -300,7 +298,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1UserUserIdRoomPutExample
+    public class UpdateRoomExample
     {
         public void main()
         {
@@ -317,12 +315,12 @@ namespace Example
             try
             {
                 // Update User’s Default Meeting Settings
-                Room result = apiInstance.V1UserUserIdRoomPut(userId, room);
+                Room result = apiInstance.UpdateRoom(userId, room);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdRoomPut: " + e.Message );
+                Debug.Print("Exception when calling UserApi.UpdateRoom: " + e.Message );
             }
         }
     }
@@ -351,13 +349,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1useruseridscheduledmeetingget"></a>
-# **V1UserUserIdScheduledMeetingGet**
-> List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId)
+<a name="updateuser"></a>
+# **UpdateUser**
+> User UpdateUser (int? userId, User user)
 
-Get Meeting Settings
+Update User Account Details
 
-This endpoint gets a user’s default meeting settings.
+This endpoint allows updating a user’s basic account details.
 
 ### Example
 ```csharp
@@ -369,7 +367,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1UserUserIdScheduledMeetingGetExample
+    public class UpdateUserExample
     {
         public void main()
         {
@@ -381,16 +379,17 @@ namespace Example
 
             var apiInstance = new UserApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var user = new User(); // User | The user details that you wish to update.
 
             try
             {
-                // Get Meeting Settings
-                List&lt;Meeting&gt; result = apiInstance.V1UserUserIdScheduledMeetingGet(userId);
+                // Update User Account Details
+                User result = apiInstance.UpdateUser(userId, user);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UserApi.V1UserUserIdScheduledMeetingGet: " + e.Message );
+                Debug.Print("Exception when calling UserApi.UpdateUser: " + e.Message );
             }
         }
     }
@@ -402,10 +401,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **user** | [**User**](User.md)| The user details that you wish to update. | 
 
 ### Return type
 
-[**List<Meeting>**](Meeting.md)
+[**User**](User.md)
 
 ### Authorization
 

@@ -4,18 +4,18 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1UserUserIdCmsContentIdisDownloadabletrueGet**](RecordingApi.md#v1UserUserIdCmsContentIdisDownloadabletrueGet) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
+[**getRecordingContent**](RecordingApi.md#getRecordingContent) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
+[**startRecording**](RecordingApi.md#startRecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start | Start Recording
+[**stopRecording**](RecordingApi.md#stopRecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
 [**v1UserUserIdLiveMeetingsMeetingIdRecordingsGet**](RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
-[**v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost**](RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;start | Start Recording
-[**v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut**](RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
 [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](RecordingApi.md#v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 
 
-<a name="v1UserUserIdCmsContentIdisDownloadabletrueGet"></a>
-# **v1UserUserIdCmsContentIdisDownloadabletrueGet**
-> Content v1UserUserIdCmsContentIdisDownloadabletrueGet(userId, contentId)
+<a name="getRecordingContent"></a>
+# **getRecordingContent**
+> Content getRecordingContent(userId, contentId)
 
 Get Recording Download Link
 
@@ -42,10 +42,10 @@ RecordingApi apiInstance = new RecordingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer contentId = 56; // Integer | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
 try {
-    Content result = apiInstance.v1UserUserIdCmsContentIdisDownloadabletrueGet(userId, contentId);
+    Content result = apiInstance.getRecordingContent(userId, contentId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecordingApi#v1UserUserIdCmsContentIdisDownloadabletrueGet");
+    System.err.println("Exception when calling RecordingApi#getRecordingContent");
     e.printStackTrace();
 }
 ```
@@ -60,6 +60,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Content**](Content.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="startRecording"></a>
+# **startRecording**
+> startRecording(userId, meetingId)
+
+Start Recording
+
+This endpoint starts recording for a meeting in progress.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.RecordingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+RecordingApi apiInstance = new RecordingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+try {
+    apiInstance.startRecording(userId, meetingId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecordingApi#startRecording");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="stopRecording"></a>
+# **stopRecording**
+> stopRecording(userId, meetingId)
+
+Stop Recording
+
+This endpoint stops recording for a meeting in progress.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.ApiClient;
+//import com.bluejeans.api.rest.ApiException;
+//import com.bluejeans.api.rest.Configuration;
+//import com.bluejeans.api.rest.auth.*;
+//import com.bluejeans.api.rest.onvideo.RecordingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+RecordingApi apiInstance = new RecordingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+try {
+    apiInstance.stopRecording(userId, meetingId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecordingApi#stopRecording");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -103,120 +215,6 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecordingApi#v1UserUserIdLiveMeetingsMeetingIdRecordingsGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(userId, meetingId)
-
-Start Recording
-
-This endpoint starts recording for a meeting in progress.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.RecordingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-RecordingApi apiInstance = new RecordingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-try {
-    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(userId, meetingId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecordingApi#v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(userId, meetingId)
-
-Stop Recording
-
-This endpoint stops recording for a meeting in progress.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.RecordingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-RecordingApi apiInstance = new RecordingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-try {
-    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(userId, meetingId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecordingApi#v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut");
     e.printStackTrace();
 }
 ```

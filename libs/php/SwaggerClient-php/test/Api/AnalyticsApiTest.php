@@ -90,67 +90,67 @@ class AnalyticsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet
+     * Test case for getEndpointDistribution
      *
      * Endpoint Distribution.
      *
      */
-    public function testV1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet()
+    public function testGetEndpointDistribution()
     {
 
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet
+     * Test case for getFeedbackComments
      *
      * Survey Feedback Comments.
      *
      */
-    public function testV1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet()
+    public function testGetFeedbackComments()
     {
 
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet
-     *
-     * Meeting Usage Over Time.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet
-     *
-     * ROI Data.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet
-     *
-     * Top Users.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoFeedbackCountGet
+     * Test case for getFeedbackCount
      *
      * Survey Feedback Scores.
      *
      */
-    public function testV1EnterpriseEnterpriseIdIndigoFeedbackCountGet()
+    public function testGetFeedbackCount()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingUsage
+     *
+     * Meeting Usage Over Time.
+     *
+     */
+    public function testGetMeetingUsage()
+    {
+
+    }
+
+    /**
+     * Test case for getRoiRanges
+     *
+     * ROI Data.
+     *
+     */
+    public function testGetRoiRanges()
+    {
+
+    }
+
+    /**
+     * Test case for getTopUsers
+     *
+     * Top Users.
+     *
+     */
+    public function testGetTopUsers()
     {
 
     }

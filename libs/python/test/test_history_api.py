@@ -42,11 +42,35 @@ class TestHistoryApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_enterprise_enterprise_id_meeting_history_get(self):
+    def test_get_recording(self):
         """
-        Test case for v1_enterprise_enterprise_id_meeting_history_get
+        Test case for get_recording
+
+        Get Recording
+        """
+        pass
+
+    def test_list_meetings_by_enterprise(self):
+        """
+        Test case for list_meetings_by_enterprise
 
         List Meetings
+        """
+        pass
+
+    def test_list_meetings_by_user(self):
+        """
+        Test case for list_meetings_by_user
+
+        List Meetings
+        """
+        pass
+
+    def test_list_recordings(self):
+        """
+        Test case for list_recordings
+
+        List Meeting Recordings
         """
         pass
 
@@ -58,35 +82,11 @@ class TestHistoryApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_user_user_id_meeting_history_get(self):
-        """
-        Test case for v1_user_user_id_meeting_history_get
-
-        List Meetings
-        """
-        pass
-
     def test_v1_user_user_id_meeting_history_meeting_guid_get(self):
         """
         Test case for v1_user_user_id_meeting_history_meeting_guid_get
 
         List Meetings
-        """
-        pass
-
-    def test_v1_user_user_id_meeting_history_recordings_get(self):
-        """
-        Test case for v1_user_user_id_meeting_history_recordings_get
-
-        List Meeting Recordings
-        """
-        pass
-
-    def test_v1_user_user_id_meeting_history_recordings_recording_entity_id_get(self):
-        """
-        Test case for v1_user_user_id_meeting_history_recordings_recording_entity_id_get
-
-        List Meeting Recordings
         """
         pass
 

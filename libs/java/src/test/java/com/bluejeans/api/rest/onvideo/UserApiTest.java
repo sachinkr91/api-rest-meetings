@@ -26,11 +26,11 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Enterprise;
-import io.swagger.client.model.Error;
-import io.swagger.client.model.User;
-import io.swagger.client.model.Room;
 import io.swagger.client.model.Meeting;
+import io.swagger.client.model.Error;
+import io.swagger.client.model.Enterprise;
+import io.swagger.client.model.Room;
+import io.swagger.client.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -47,6 +47,22 @@ public class UserApiTest {
 
     
     /**
+     * Get Meeting Settings
+     *
+     * This endpoint gets a user’s default meeting settings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDefaultMeetingTest() throws ApiException {
+        Integer userId = null;
+        // List<Meeting> response = api.getDefaultMeeting(userId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get Enterprise Profile
      *
      * This endpoint retrieves the enterprise profile associated with the user.
@@ -55,42 +71,9 @@ public class UserApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdEnterpriseProfileGetTest() throws ApiException {
+    public void getEnterpriseProfileTest() throws ApiException {
         Integer userId = null;
-        // Enterprise response = api.v1UserUserIdEnterpriseProfileGet(userId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get User Account Details
-     *
-     * This endpoint retrieves the basic account details for a given user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdGetTest() throws ApiException {
-        Integer userId = null;
-        // User response = api.v1UserUserIdGet(userId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update User Account Details
-     *
-     * This endpoint allows updating a user’s basic account details.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdPutTest() throws ApiException {
-        Integer userId = null;
-        User user = null;
-        // User response = api.v1UserUserIdPut(userId, user);
+        // Enterprise response = api.getEnterpriseProfile(userId);
 
         // TODO: test validations
     }
@@ -104,9 +87,25 @@ public class UserApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdRoomGetTest() throws ApiException {
+    public void getRoomTest() throws ApiException {
         Integer userId = null;
-        // Room response = api.v1UserUserIdRoomGet(userId);
+        // Room response = api.getRoom(userId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get User Account Details
+     *
+     * This endpoint retrieves the basic account details for a given user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUserTest() throws ApiException {
+        Integer userId = null;
+        // User response = api.getUser(userId);
 
         // TODO: test validations
     }
@@ -120,26 +119,27 @@ public class UserApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdRoomPutTest() throws ApiException {
+    public void updateRoomTest() throws ApiException {
         Integer userId = null;
         Room room = null;
-        // Room response = api.v1UserUserIdRoomPut(userId, room);
+        // Room response = api.updateRoom(userId, room);
 
         // TODO: test validations
     }
     
     /**
-     * Get Meeting Settings
+     * Update User Account Details
      *
-     * This endpoint gets a user’s default meeting settings.
+     * This endpoint allows updating a user’s basic account details.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdScheduledMeetingGetTest() throws ApiException {
+    public void updateUserTest() throws ApiException {
         Integer userId = null;
-        // List<Meeting> response = api.v1UserUserIdScheduledMeetingGet(userId);
+        User user = null;
+        // User response = api.updateUser(userId, user);
 
         // TODO: test validations
     }

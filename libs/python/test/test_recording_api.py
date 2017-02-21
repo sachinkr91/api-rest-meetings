@@ -42,11 +42,27 @@ class TestRecordingApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_user_user_id_cms_content_idis_downloadabletrue_get(self):
+    def test_get_recording_content(self):
         """
-        Test case for v1_user_user_id_cms_content_idis_downloadabletrue_get
+        Test case for get_recording_content
 
         Get Recording Download Link
+        """
+        pass
+
+    def test_start_recording(self):
+        """
+        Test case for start_recording
+
+        Start Recording
+        """
+        pass
+
+    def test_stop_recording(self):
+        """
+        Test case for stop_recording
+
+        Stop Recording
         """
         pass
 
@@ -55,22 +71,6 @@ class TestRecordingApi(unittest.TestCase):
         Test case for v1_user_user_id_live_meetings_meeting_id_recordings_get
 
         Get All Recordings for a Specified Meeting ID
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post
-
-        Start Recording
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put
-
-        Stop Recording
         """
         pass
 

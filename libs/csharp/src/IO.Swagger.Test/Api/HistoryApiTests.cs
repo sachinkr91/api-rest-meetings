@@ -77,15 +77,62 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdMeetingHistoryGet
+        /// Test GetRecording
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdMeetingHistoryGetTest()
+        public void GetRecordingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? recordingEntityId = null;
+            //var response = instance.GetRecording(userId, recordingEntityId);
+            //Assert.IsInstanceOf<Recording> (response, "response is Recording");
+        }
+        
+        /// <summary>
+        /// Test ListMeetingsByEnterprise
+        /// </summary>
+        [Test]
+        public void ListMeetingsByEnterpriseTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
-            //var response = instance.V1EnterpriseEnterpriseIdMeetingHistoryGet(enterpriseId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+            //var response = instance.ListMeetingsByEnterprise(enterpriseId);
+            //Assert.IsInstanceOf<List<MeetingHistory>> (response, "response is List<MeetingHistory>");
+        }
+        
+        /// <summary>
+        /// Test ListMeetingsByUser
+        /// </summary>
+        [Test]
+        public void ListMeetingsByUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //string meetingId = null;
+            //string startDate = null;
+            //string endDate = null;
+            //int? pageSize = null;
+            //int? pageNumber = null;
+            //string order = null;
+            //var response = instance.ListMeetingsByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+            //Assert.IsInstanceOf<List<MeetingHistory>> (response, "response is List<MeetingHistory>");
+        }
+        
+        /// <summary>
+        /// Test ListRecordings
+        /// </summary>
+        [Test]
+        public void ListRecordingsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? pageSize = null;
+            //int? pageNumber = null;
+            //string sortBy = null;
+            //string order = null;
+            //var response = instance.ListRecordings(userId, pageSize, pageNumber, sortBy, order);
+            //Assert.IsInstanceOf<List<RecordingSummary>> (response, "response is List<RecordingSummary>");
         }
         
         /// <summary>
@@ -102,24 +149,6 @@ namespace IO.Swagger.Test
         }
         
         /// <summary>
-        /// Test V1UserUserIdMeetingHistoryGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdMeetingHistoryGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //string meetingId = null;
-            //string startDate = null;
-            //string endDate = null;
-            //int? pageSize = null;
-            //int? pageNumber = null;
-            //string order = null;
-            //var response = instance.V1UserUserIdMeetingHistoryGet(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
         /// Test V1UserUserIdMeetingHistoryMeetingGuidGet
         /// </summary>
         [Test]
@@ -130,35 +159,6 @@ namespace IO.Swagger.Test
             //string meetingGuid = null;
             //var response = instance.V1UserUserIdMeetingHistoryMeetingGuidGet(userId, meetingGuid);
             //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdMeetingHistoryRecordingsGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdMeetingHistoryRecordingsGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //int? pageSize = null;
-            //int? pageNumber = null;
-            //string sortBy = null;
-            //string order = null;
-            //var response = instance.V1UserUserIdMeetingHistoryRecordingsGet(userId, pageSize, pageNumber, sortBy, order);
-            //Assert.IsInstanceOf<List<RecordingSummary>> (response, "response is List<RecordingSummary>");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //int? recordingEntityId = null;
-            //var response = instance.V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(userId, recordingEntityId);
-            //Assert.IsInstanceOf<Recording> (response, "response is Recording");
         }
         
     }

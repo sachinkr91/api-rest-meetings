@@ -167,4 +167,12 @@ class ContentContentPropertiesTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test attribute "levels"
+     */
+    public function testPropertyLevels()
+    {
+
+    }
+
 }

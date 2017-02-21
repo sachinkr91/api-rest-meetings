@@ -11,7 +11,7 @@ var recordingSvc = new BlueJeansOnVideoRestApi.RecordingApi();
 var userSvc = new BlueJeansOnVideoRestApi.UserApi();
 
 // Authenticate with username & password grant type
-authSvc.oauth2TokenPasswordPost(
+authSvc.getTokenByPassword(
 	{
 		'grant_type': 'password',
 		'username': config.username,
@@ -23,7 +23,7 @@ authSvc.oauth2TokenPasswordPost(
 		historySvc.apiClient.authentications.access_token.apiKey = grant.access_token;
 
 		// Go fetch my recordings
-		historySvc.v1UserUserIdMeetingHistoryRecordingsGet(grant.scope.user,
+		historySvc.listRecordings(grant.scope.user,
 			{
 				pageSize: 10,
 				pageNumber: 1,
@@ -38,7 +38,7 @@ authSvc.oauth2TokenPasswordPost(
 			recordings.forEach(function (recording)
 			{
 				// Get detailed information about each recording
-				historySvc.v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(grant.scope.user, recording.recordingEntityId, function (err, details)
+				historySvc.getRecording(grant.scope.user, recording.recordingEntityId, function (err, details)
 				{
 					if (err) console.log(err);
 					if (err) return;
@@ -47,7 +47,7 @@ authSvc.oauth2TokenPasswordPost(
 					details.recordingChapters.forEach(function (chapter)
 					{
 						// Ask the content management system for the URL of the recording
-						recordingSvc.v1UserUserIdCmsContentIdisDownloadabletrueGet(grant.scope.user, chapter.compositeContentId, function (err, response)
+						recordingSvc.getRecordingContent(grant.scope.user, chapter.compositeContentId, function (err, response)
 						{
 							if (err) console.log(err);
 							if (err) return;

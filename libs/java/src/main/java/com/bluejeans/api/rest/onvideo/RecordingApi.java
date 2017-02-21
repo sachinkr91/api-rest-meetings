@@ -67,18 +67,18 @@ public class RecordingApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for v1UserUserIdCmsContentIdisDownloadabletrueGet */
-    private com.squareup.okhttp.Call v1UserUserIdCmsContentIdisDownloadabletrueGetCall(Integer userId, Integer contentId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getRecordingContent */
+    private com.squareup.okhttp.Call getRecordingContentCall(Integer userId, Integer contentId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdCmsContentIdisDownloadabletrueGet(Async)");
+            throw new ApiException("Missing the required parameter 'userId' when calling getRecordingContent(Async)");
         }
         
         // verify the required parameter 'contentId' is set
         if (contentId == null) {
-            throw new ApiException("Missing the required parameter 'contentId' when calling v1UserUserIdCmsContentIdisDownloadabletrueGet(Async)");
+            throw new ApiException("Missing the required parameter 'contentId' when calling getRecordingContent(Async)");
         }
         
 
@@ -129,8 +129,8 @@ public class RecordingApi {
      * @return Content
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Content v1UserUserIdCmsContentIdisDownloadabletrueGet(Integer userId, Integer contentId) throws ApiException {
-        ApiResponse<Content> resp = v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(userId, contentId);
+    public Content getRecordingContent(Integer userId, Integer contentId) throws ApiException {
+        ApiResponse<Content> resp = getRecordingContentWithHttpInfo(userId, contentId);
         return resp.getData();
     }
 
@@ -142,8 +142,8 @@ public class RecordingApi {
      * @return ApiResponse&lt;Content&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Content> v1UserUserIdCmsContentIdisDownloadabletrueGetWithHttpInfo(Integer userId, Integer contentId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdCmsContentIdisDownloadabletrueGetCall(userId, contentId, null, null);
+    public ApiResponse<Content> getRecordingContentWithHttpInfo(Integer userId, Integer contentId) throws ApiException {
+        com.squareup.okhttp.Call call = getRecordingContentCall(userId, contentId, null, null);
         Type localVarReturnType = new TypeToken<Content>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -157,7 +157,7 @@ public class RecordingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdCmsContentIdisDownloadabletrueGetAsync(Integer userId, Integer contentId, final ApiCallback<Content> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRecordingContentAsync(Integer userId, Integer contentId, final ApiCallback<Content> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -178,9 +178,233 @@ public class RecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdCmsContentIdisDownloadabletrueGetCall(userId, contentId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getRecordingContentCall(userId, contentId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Content>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for startRecording */
+    private com.squareup.okhttp.Call startRecordingCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling startRecording(Async)");
+        }
+        
+        // verify the required parameter 'meetingId' is set
+        if (meetingId == null) {
+            throw new ApiException("Missing the required parameter 'meetingId' when calling startRecording(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Start Recording
+     * This endpoint starts recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void startRecording(Integer userId, Integer meetingId) throws ApiException {
+        startRecordingWithHttpInfo(userId, meetingId);
+    }
+
+    /**
+     * Start Recording
+     * This endpoint starts recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> startRecordingWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
+        com.squareup.okhttp.Call call = startRecordingCall(userId, meetingId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Start Recording (asynchronously)
+     * This endpoint starts recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call startRecordingAsync(Integer userId, Integer meetingId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = startRecordingCall(userId, meetingId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for stopRecording */
+    private com.squareup.okhttp.Call stopRecordingCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling stopRecording(Async)");
+        }
+        
+        // verify the required parameter 'meetingId' is set
+        if (meetingId == null) {
+            throw new ApiException("Missing the required parameter 'meetingId' when calling stopRecording(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Stop Recording
+     * This endpoint stops recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void stopRecording(Integer userId, Integer meetingId) throws ApiException {
+        stopRecordingWithHttpInfo(userId, meetingId);
+    }
+
+    /**
+     * Stop Recording
+     * This endpoint stops recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> stopRecordingWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
+        com.squareup.okhttp.Call call = stopRecordingCall(userId, meetingId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Stop Recording (asynchronously)
+     * This endpoint stops recording for a meeting in progress.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call stopRecordingAsync(Integer userId, Integer meetingId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = stopRecordingCall(userId, meetingId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdRecordingsGet */
@@ -295,238 +519,6 @@ public class RecordingApi {
         }
 
         com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsGetCall(userId, meetingId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(Async)");
-        }
-        
-        // verify the required parameter 'meetingId' is set
-        if (meetingId == null) {
-            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;start".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Start Recording
-     * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(Integer userId, Integer meetingId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostWithHttpInfo(userId, meetingId);
-        return resp.getData();
-    }
-
-    /**
-     * Start Recording
-     * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCall(userId, meetingId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Start Recording (asynchronously)
-     * This endpoint starts recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostAsync(Integer userId, Integer meetingId, final ApiCallback<Meeting> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCall(userId, meetingId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(Async)");
-        }
-        
-        // verify the required parameter 'meetingId' is set
-        if (meetingId == null) {
-            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Stop Recording
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(Integer userId, Integer meetingId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutWithHttpInfo(userId, meetingId);
-        return resp.getData();
-    }
-
-    /**
-     * Stop Recording
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCall(userId, meetingId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Stop Recording (asynchronously)
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutAsync(Integer userId, Integer meetingId, final ApiCallback<Meeting> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCall(userId, meetingId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

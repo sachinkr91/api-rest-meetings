@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauth2TokenClientPost**](AuthenticationApi.md#oauth2TokenClientPost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
-[**oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2TokenMeetingPost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
-[**oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2TokenPasswordPost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**getTokenByClient**](AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**getTokenByMeeting**](AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**getTokenByPassword**](AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-<a name="oauth2TokenClientPost"></a>
-# **oauth2TokenClientPost**
-> Grant oauth2TokenClientPost(payload)
+<a name="getTokenByClient"></a>
+# **getTokenByClient**
+> GrantClient getTokenByClient(grantTypeClient)
 
 Authentication via Client Grant Type
 
@@ -35,12 +35,12 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-Payload payload = new Payload(); // Payload | Contains information about the type of grant you are requesting.
+GrantTypeClient grantTypeClient = new GrantTypeClient(); // GrantTypeClient | Contains information about the type of grant you are requesting.
 try {
-    Grant result = apiInstance.oauth2TokenClientPost(payload);
+    GrantClient result = apiInstance.getTokenByClient(grantTypeClient);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#oauth2TokenClientPost");
+    System.err.println("Exception when calling AuthenticationApi#getTokenByClient");
     e.printStackTrace();
 }
 ```
@@ -49,11 +49,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload**](Payload.md)| Contains information about the type of grant you are requesting. |
+ **grantTypeClient** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantClient**](GrantClient.md)
 
 ### Authorization
 
@@ -64,9 +64,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="oauth2TokenMeetingPost"></a>
-# **oauth2TokenMeetingPost**
-> Grant oauth2TokenMeetingPost(payload)
+<a name="getTokenByMeeting"></a>
+# **getTokenByMeeting**
+> GrantMeeting getTokenByMeeting(grantTypeMeeting)
 
 Authentication via Meeting Grant Type
 
@@ -90,12 +90,12 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-Payload1 payload = new Payload1(); // Payload1 | Contains information about the type of grant you are requesting.
+GrantTypeMeeting grantTypeMeeting = new GrantTypeMeeting(); // GrantTypeMeeting | Contains information about the type of grant you are requesting.
 try {
-    Grant result = apiInstance.oauth2TokenMeetingPost(payload);
+    GrantMeeting result = apiInstance.getTokenByMeeting(grantTypeMeeting);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#oauth2TokenMeetingPost");
+    System.err.println("Exception when calling AuthenticationApi#getTokenByMeeting");
     e.printStackTrace();
 }
 ```
@@ -104,11 +104,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload1**](Payload1.md)| Contains information about the type of grant you are requesting. |
+ **grantTypeMeeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantMeeting**](GrantMeeting.md)
 
 ### Authorization
 
@@ -119,9 +119,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="oauth2TokenPasswordPost"></a>
-# **oauth2TokenPasswordPost**
-> Grant oauth2TokenPasswordPost(payload)
+<a name="getTokenByPassword"></a>
+# **getTokenByPassword**
+> GrantPassword getTokenByPassword(grantTypePassword)
 
 Authentication via Password Grant Type
 
@@ -145,12 +145,12 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-Payload2 payload = new Payload2(); // Payload2 | Contains information about the type of grant you are requesting.
+GrantTypePassword grantTypePassword = new GrantTypePassword(); // GrantTypePassword | Contains information about the type of grant you are requesting.
 try {
-    Grant result = apiInstance.oauth2TokenPasswordPost(payload);
+    GrantPassword result = apiInstance.getTokenByPassword(grantTypePassword);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#oauth2TokenPasswordPost");
+    System.err.println("Exception when calling AuthenticationApi#getTokenByPassword");
     e.printStackTrace();
 }
 ```
@@ -159,11 +159,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload2**](Payload2.md)| Contains information about the type of grant you are requesting. |
+ **grantTypePassword** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantPassword**](GrantPassword.md)
 
 ### Authorization
 

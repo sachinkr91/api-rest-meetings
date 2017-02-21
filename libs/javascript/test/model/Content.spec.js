@@ -83,6 +83,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property contentUrl (base name: "contentUrl")', function() {
+      // uncomment below and update the code to test the property contentUrl
+      //var instane = new BlueJeansOnVideoRestApi.Content();
+      //expect(instance).to.be();
+    });
+
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
       //var instane = new BlueJeansOnVideoRestApi.Content();

@@ -51,7 +51,111 @@ class UserApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def v1_user_user_id_enterprise_profile_get(self, user_id, **kwargs):
+    def get_default_meeting(self, user_id, **kwargs):
+        """
+        Get Meeting Settings
+        This endpoint gets a user’s default meeting settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_default_meeting(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_default_meeting_with_http_info(user_id, **kwargs)
+        else:
+            (data) = self.get_default_meeting_with_http_info(user_id, **kwargs)
+            return data
+
+    def get_default_meeting_with_http_info(self, user_id, **kwargs):
+        """
+        Get Meeting Settings
+        This endpoint gets a user’s default meeting settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_default_meeting_with_http_info(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_default_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_default_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='list[Meeting]',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_enterprise_profile(self, user_id, **kwargs):
         """
         Get Enterprise Profile
         This endpoint retrieves the enterprise profile associated with the user.
@@ -62,7 +166,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_enterprise_profile_get(user_id, callback=callback_function)
+        >>> thread = api.get_enterprise_profile(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -73,12 +177,12 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, **kwargs)
+            return self.get_enterprise_profile_with_http_info(user_id, **kwargs)
         else:
-            (data) = self.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, **kwargs)
+            (data) = self.get_enterprise_profile_with_http_info(user_id, **kwargs)
             return data
 
-    def v1_user_user_id_enterprise_profile_get_with_http_info(self, user_id, **kwargs):
+    def get_enterprise_profile_with_http_info(self, user_id, **kwargs):
         """
         Get Enterprise Profile
         This endpoint retrieves the enterprise profile associated with the user.
@@ -89,7 +193,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, callback=callback_function)
+        >>> thread = api.get_enterprise_profile_with_http_info(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -108,13 +212,13 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_enterprise_profile_get" % key
+                    " to method get_enterprise_profile" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_enterprise_profile_get`")
+            raise ValueError("Missing the required parameter `user_id` when calling `get_enterprise_profile`")
 
         resource_path = '/v1/user/{user_id}/enterprise_profile'.replace('{format}', 'json')
         path_params = {}
@@ -155,222 +259,7 @@ class UserApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_get(self, user_id, **kwargs):
-        """
-        Get User Account Details
-        This endpoint retrieves the basic account details for a given user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_get(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: User
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_get_with_http_info(user_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_get_with_http_info(user_id, **kwargs)
-            return data
-
-    def v1_user_user_id_get_with_http_info(self, user_id, **kwargs):
-        """
-        Get User Account Details
-        This endpoint retrieves the basic account details for a given user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_get_with_http_info(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: User
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_get`")
-
-        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='User',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_put(self, user_id, user, **kwargs):
-        """
-        Update User Account Details
-        This endpoint allows updating a user’s basic account details.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_put(user_id, user, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param User user: The user details that you wish to update. (required)
-        :return: User
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_put_with_http_info(user_id, user, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_put_with_http_info(user_id, user, **kwargs)
-            return data
-
-    def v1_user_user_id_put_with_http_info(self, user_id, user, **kwargs):
-        """
-        Update User Account Details
-        This endpoint allows updating a user’s basic account details.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_put_with_http_info(user_id, user, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param User user: The user details that you wish to update. (required)
-        :return: User
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'user']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_put`")
-        # verify the required parameter 'user' is set
-        if ('user' not in params) or (params['user'] is None):
-            raise ValueError("Missing the required parameter `user` when calling `v1_user_user_id_put`")
-
-        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'user' in params:
-            body_params = params['user']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='User',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_room_get(self, user_id, **kwargs):
+    def get_room(self, user_id, **kwargs):
         """
         Get User’s Default Meeting Settings
         This endpoint gets a user’s default meeting settings.
@@ -381,7 +270,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_room_get(user_id, callback=callback_function)
+        >>> thread = api.get_room(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -392,12 +281,12 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_room_get_with_http_info(user_id, **kwargs)
+            return self.get_room_with_http_info(user_id, **kwargs)
         else:
-            (data) = self.v1_user_user_id_room_get_with_http_info(user_id, **kwargs)
+            (data) = self.get_room_with_http_info(user_id, **kwargs)
             return data
 
-    def v1_user_user_id_room_get_with_http_info(self, user_id, **kwargs):
+    def get_room_with_http_info(self, user_id, **kwargs):
         """
         Get User’s Default Meeting Settings
         This endpoint gets a user’s default meeting settings.
@@ -408,7 +297,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_room_get_with_http_info(user_id, callback=callback_function)
+        >>> thread = api.get_room_with_http_info(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -427,13 +316,13 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_room_get" % key
+                    " to method get_room" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_room_get`")
+            raise ValueError("Missing the required parameter `user_id` when calling `get_room`")
 
         resource_path = '/v1/user/{user_id}/room'.replace('{format}', 'json')
         path_params = {}
@@ -474,7 +363,111 @@ class UserApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_room_put(self, user_id, room, **kwargs):
+    def get_user(self, user_id, **kwargs):
+        """
+        Get User Account Details
+        This endpoint retrieves the basic account details for a given user.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_user(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: User
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_user_with_http_info(user_id, **kwargs)
+        else:
+            (data) = self.get_user_with_http_info(user_id, **kwargs)
+            return data
+
+    def get_user_with_http_info(self, user_id, **kwargs):
+        """
+        Get User Account Details
+        This endpoint retrieves the basic account details for a given user.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_user_with_http_info(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: User
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_user`")
+
+        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='User',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_room(self, user_id, room, **kwargs):
         """
         Update User’s Default Meeting Settings
         This endpoint allows updating a user’s default meeting settings.
@@ -485,7 +478,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_room_put(user_id, room, callback=callback_function)
+        >>> thread = api.update_room(user_id, room, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -497,12 +490,12 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_room_put_with_http_info(user_id, room, **kwargs)
+            return self.update_room_with_http_info(user_id, room, **kwargs)
         else:
-            (data) = self.v1_user_user_id_room_put_with_http_info(user_id, room, **kwargs)
+            (data) = self.update_room_with_http_info(user_id, room, **kwargs)
             return data
 
-    def v1_user_user_id_room_put_with_http_info(self, user_id, room, **kwargs):
+    def update_room_with_http_info(self, user_id, room, **kwargs):
         """
         Update User’s Default Meeting Settings
         This endpoint allows updating a user’s default meeting settings.
@@ -513,7 +506,7 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_room_put_with_http_info(user_id, room, callback=callback_function)
+        >>> thread = api.update_room_with_http_info(user_id, room, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -533,16 +526,16 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_room_put" % key
+                    " to method update_room" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_room_put`")
+            raise ValueError("Missing the required parameter `user_id` when calling `update_room`")
         # verify the required parameter 'room' is set
         if ('room' not in params) or (params['room'] is None):
-            raise ValueError("Missing the required parameter `room` when calling `v1_user_user_id_room_put`")
+            raise ValueError("Missing the required parameter `room` when calling `update_room`")
 
         resource_path = '/v1/user/{user_id}/room'.replace('{format}', 'json')
         path_params = {}
@@ -585,10 +578,10 @@ class UserApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_scheduled_meeting_get(self, user_id, **kwargs):
+    def update_user(self, user_id, user, **kwargs):
         """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
+        Update User Account Details
+        This endpoint allows updating a user’s basic account details.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -596,26 +589,27 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_get(user_id, callback=callback_function)
+        >>> thread = api.update_user(user_id, user, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
+        :param User user: The user details that you wish to update. (required)
+        :return: User
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, **kwargs)
+            return self.update_user_with_http_info(user_id, user, **kwargs)
         else:
-            (data) = self.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, **kwargs)
+            (data) = self.update_user_with_http_info(user_id, user, **kwargs)
             return data
 
-    def v1_user_user_id_scheduled_meeting_get_with_http_info(self, user_id, **kwargs):
+    def update_user_with_http_info(self, user_id, user, **kwargs):
         """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
+        Update User Account Details
+        This endpoint allows updating a user’s basic account details.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -623,17 +617,18 @@ class UserApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, callback=callback_function)
+        >>> thread = api.update_user_with_http_info(user_id, user, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
+        :param User user: The user details that you wish to update. (required)
+        :return: User
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id']
+        all_params = ['user_id', 'user']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -642,15 +637,18 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_get" % key
+                    " to method update_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_get`")
+            raise ValueError("Missing the required parameter `user_id` when calling `update_user`")
+        # verify the required parameter 'user' is set
+        if ('user' not in params) or (params['user'] is None):
+            raise ValueError("Missing the required parameter `user` when calling `update_user`")
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
+        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -663,6 +661,8 @@ class UserApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'user' in params:
+            body_params = params['user']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -677,14 +677,14 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='list[Meeting]',
+                                            response_type='User',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

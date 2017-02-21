@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/Error', 'model/AnalyticsFeedbackComments', 'model/AnalyticsUsage', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers', 'model/AnalyticsFeedbackScores'], factory);
+    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/Error', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsUsage', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/Error'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsUsage'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'), require('../model/AnalyticsFeedbackScores'));
+    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/Error'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/AnalyticsUsage'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AnalyticsApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores);
+    root.BlueJeansOnVideoRestApi.AnalyticsApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers);
   }
-}(this, function(ApiClient, AnalyticsEndpointDistribution, Error, AnalyticsFeedbackComments, AnalyticsUsage, AnalyticsRoiData, AnalyticsTopUsers, AnalyticsFeedbackScores) {
+}(this, function(ApiClient, AnalyticsEndpointDistribution, Error, AnalyticsFeedbackComments, AnalyticsFeedbackScores, AnalyticsUsage, AnalyticsRoiData, AnalyticsTopUsers) {
   'use strict';
 
   /**
@@ -57,8 +57,8 @@
 
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetCallback
+     * Callback function to receive the result of the getEndpointDistribution operation.
+     * @callback module:api/AnalyticsApi~getEndpointDistributionCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AnalyticsEndpointDistribution} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -70,16 +70,16 @@
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AnalyticsApi~getEndpointDistributionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsEndpointDistribution}
      */
-    this.v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet = function(enterpriseId, opts, callback) {
+    this.getEndpointDistribution = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet";
+        throw "Missing the required parameter 'enterpriseId' when calling getEndpointDistribution";
       }
 
 
@@ -107,8 +107,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetCallback
+     * Callback function to receive the result of the getFeedbackComments operation.
+     * @callback module:api/AnalyticsApi~getFeedbackCommentsCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AnalyticsFeedbackComments} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -120,25 +120,25 @@
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AnalyticsApi~getFeedbackCommentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsFeedbackComments}
      */
-    this.v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet = function(enterpriseId, start, end, callback) {
+    this.getFeedbackComments = function(enterpriseId, start, end, callback) {
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet";
+        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackComments";
       }
 
       // verify the required parameter 'start' is set
       if (start == undefined || start == null) {
-        throw "Missing the required parameter 'start' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet";
+        throw "Missing the required parameter 'start' when calling getFeedbackComments";
       }
 
       // verify the required parameter 'end' is set
       if (end == undefined || end == null) {
-        throw "Missing the required parameter 'end' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet";
+        throw "Missing the required parameter 'end' when calling getFeedbackComments";
       }
 
 
@@ -167,8 +167,68 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetCallback
+     * Callback function to receive the result of the getFeedbackCount operation.
+     * @callback module:api/AnalyticsApi~getFeedbackCountCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AnalyticsFeedbackScores} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Survey Feedback Scores
+     * This endpoint lists end of meeting survey scores by enterprise by time period.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+     * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+     * @param {module:api/AnalyticsApi~getFeedbackCountCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AnalyticsFeedbackScores}
+     */
+    this.getFeedbackCount = function(enterpriseId, start, end, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'enterpriseId' is set
+      if (enterpriseId == undefined || enterpriseId == null) {
+        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackCount";
+      }
+
+      // verify the required parameter 'start' is set
+      if (start == undefined || start == null) {
+        throw "Missing the required parameter 'start' when calling getFeedbackCount";
+      }
+
+      // verify the required parameter 'end' is set
+      if (end == undefined || end == null) {
+        throw "Missing the required parameter 'end' when calling getFeedbackCount";
+      }
+
+
+      var pathParams = {
+        'enterprise_id': enterpriseId
+      };
+      var queryParams = {
+        'start': start,
+        'end': end
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = AnalyticsFeedbackScores;
+
+      return this.apiClient.callApi(
+        '/v1/enterprise/{enterprise_id}/indigo/feedback/count', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingUsage operation.
+     * @callback module:api/AnalyticsApi~getMeetingUsageCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AnalyticsUsage} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -181,16 +241,16 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientTZ Based on standard TZ code. (default to America/Denver)
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AnalyticsApi~getMeetingUsageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsUsage}
      */
-    this.v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet = function(enterpriseId, opts, callback) {
+    this.getMeetingUsage = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet";
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingUsage";
       }
 
 
@@ -219,8 +279,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetCallback
+     * Callback function to receive the result of the getRoiRanges operation.
+     * @callback module:api/AnalyticsApi~getRoiRangesCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AnalyticsRoiData} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -231,20 +291,20 @@
      * This endpoint lists return on investment (ROI) data for meetings.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} filter URL-encoded JSON string
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AnalyticsApi~getRoiRangesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsRoiData}
      */
-    this.v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet = function(enterpriseId, filter, callback) {
+    this.getRoiRanges = function(enterpriseId, filter, callback) {
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet";
+        throw "Missing the required parameter 'enterpriseId' when calling getRoiRanges";
       }
 
       // verify the required parameter 'filter' is set
       if (filter == undefined || filter == null) {
-        throw "Missing the required parameter 'filter' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet";
+        throw "Missing the required parameter 'filter' when calling getRoiRanges";
       }
 
 
@@ -272,8 +332,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetCallback
+     * Callback function to receive the result of the getTopUsers operation.
+     * @callback module:api/AnalyticsApi~getTopUsersCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AnalyticsTopUsers} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -285,16 +345,16 @@
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AnalyticsApi~getTopUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsTopUsers}
      */
-    this.v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet = function(enterpriseId, opts, callback) {
+    this.getTopUsers = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet";
+        throw "Missing the required parameter 'enterpriseId' when calling getTopUsers";
       }
 
 
@@ -316,66 +376,6 @@
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoFeedbackCountGet operation.
-     * @callback module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoFeedbackCountGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/AnalyticsFeedbackScores} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Survey Feedback Scores
-     * This endpoint lists end of meeting survey scores by enterprise by time period.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-     * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-     * @param {module:api/AnalyticsApi~v1EnterpriseEnterpriseIdIndigoFeedbackCountGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/AnalyticsFeedbackScores}
-     */
-    this.v1EnterpriseEnterpriseIdIndigoFeedbackCountGet = function(enterpriseId, start, end, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'enterpriseId' is set
-      if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet";
-      }
-
-      // verify the required parameter 'start' is set
-      if (start == undefined || start == null) {
-        throw "Missing the required parameter 'start' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet";
-      }
-
-      // verify the required parameter 'end' is set
-      if (end == undefined || end == null) {
-        throw "Missing the required parameter 'end' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet";
-      }
-
-
-      var pathParams = {
-        'enterprise_id': enterpriseId
-      };
-      var queryParams = {
-        'start': start,
-        'end': end
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = AnalyticsFeedbackScores;
-
-      return this.apiClient.callApi(
-        '/v1/enterprise/{enterprise_id}/indigo/feedback/count', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

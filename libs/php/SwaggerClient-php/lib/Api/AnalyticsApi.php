@@ -103,7 +103,7 @@ class AnalyticsApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet
+     * Operation getEndpointDistribution
      *
      * Endpoint Distribution
      *
@@ -112,14 +112,14 @@ class AnalyticsApi
      * @return \Swagger\Client\Model\AnalyticsEndpointDistribution
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet($enterprise_id, $filter = null)
+    public function getEndpointDistribution($enterprise_id, $filter = null)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo($enterprise_id, $filter);
+        list($response) = $this->getEndpointDistributionWithHttpInfo($enterprise_id, $filter);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo
+     * Operation getEndpointDistributionWithHttpInfo
      *
      * Endpoint Distribution
      *
@@ -128,11 +128,11 @@ class AnalyticsApi
      * @return Array of \Swagger\Client\Model\AnalyticsEndpointDistribution, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo($enterprise_id, $filter = null)
+    public function getEndpointDistributionWithHttpInfo($enterprise_id, $filter = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getEndpointDistribution');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
@@ -203,7 +203,7 @@ class AnalyticsApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet
+     * Operation getFeedbackComments
      *
      * Survey Feedback Comments
      *
@@ -213,14 +213,14 @@ class AnalyticsApi
      * @return \Swagger\Client\Model\AnalyticsFeedbackComments
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet($enterprise_id, $start, $end)
+    public function getFeedbackComments($enterprise_id, $start, $end)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo($enterprise_id, $start, $end);
+        list($response) = $this->getFeedbackCommentsWithHttpInfo($enterprise_id, $start, $end);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo
+     * Operation getFeedbackCommentsWithHttpInfo
      *
      * Survey Feedback Comments
      *
@@ -230,19 +230,19 @@ class AnalyticsApi
      * @return Array of \Swagger\Client\Model\AnalyticsFeedbackComments, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo($enterprise_id, $start, $end)
+    public function getFeedbackCommentsWithHttpInfo($enterprise_id, $start, $end)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getFeedbackComments');
         }
         // verify the required parameter 'start' is set
         if ($start === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $start when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $start when calling getFeedbackComments');
         }
         // verify the required parameter 'end' is set
         if ($end === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $end when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $end when calling getFeedbackComments');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
@@ -317,7 +317,121 @@ class AnalyticsApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet
+     * Operation getFeedbackCount
+     *
+     * Survey Feedback Scores
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+     * @param string $end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+     * @return \Swagger\Client\Model\AnalyticsFeedbackScores
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getFeedbackCount($enterprise_id, $start, $end)
+    {
+        list($response) = $this->getFeedbackCountWithHttpInfo($enterprise_id, $start, $end);
+        return $response;
+    }
+
+    /**
+     * Operation getFeedbackCountWithHttpInfo
+     *
+     * Survey Feedback Scores
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+     * @param string $end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+     * @return Array of \Swagger\Client\Model\AnalyticsFeedbackScores, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getFeedbackCountWithHttpInfo($enterprise_id, $start, $end)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getFeedbackCount');
+        }
+        // verify the required parameter 'start' is set
+        if ($start === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $start when calling getFeedbackCount');
+        }
+        // verify the required parameter 'end' is set
+        if ($end === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $end when calling getFeedbackCount');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // query params
+        if ($start !== null) {
+            $queryParams['start'] = $this->apiClient->getSerializer()->toQueryValue($start);
+        }
+        // query params
+        if ($end !== null) {
+            $queryParams['end'] = $this->apiClient->getSerializer()->toQueryValue($end);
+        }
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\AnalyticsFeedbackScores',
+                '/v1/enterprise/{enterprise_id}/indigo/feedback/count'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\AnalyticsFeedbackScores', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\AnalyticsFeedbackScores', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingUsage
      *
      * Meeting Usage Over Time
      *
@@ -327,14 +441,14 @@ class AnalyticsApi
      * @return \Swagger\Client\Model\AnalyticsUsage
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet($enterprise_id, $client_tz = null, $filter = null)
+    public function getMeetingUsage($enterprise_id, $client_tz = null, $filter = null)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo($enterprise_id, $client_tz, $filter);
+        list($response) = $this->getMeetingUsageWithHttpInfo($enterprise_id, $client_tz, $filter);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo
+     * Operation getMeetingUsageWithHttpInfo
      *
      * Meeting Usage Over Time
      *
@@ -344,11 +458,11 @@ class AnalyticsApi
      * @return Array of \Swagger\Client\Model\AnalyticsUsage, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo($enterprise_id, $client_tz = null, $filter = null)
+    public function getMeetingUsageWithHttpInfo($enterprise_id, $client_tz = null, $filter = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getMeetingUsage');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
@@ -423,7 +537,7 @@ class AnalyticsApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet
+     * Operation getRoiRanges
      *
      * ROI Data
      *
@@ -432,14 +546,14 @@ class AnalyticsApi
      * @return \Swagger\Client\Model\AnalyticsRoiData
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet($enterprise_id, $filter)
+    public function getRoiRanges($enterprise_id, $filter)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo($enterprise_id, $filter);
+        list($response) = $this->getRoiRangesWithHttpInfo($enterprise_id, $filter);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo
+     * Operation getRoiRangesWithHttpInfo
      *
      * ROI Data
      *
@@ -448,15 +562,15 @@ class AnalyticsApi
      * @return Array of \Swagger\Client\Model\AnalyticsRoiData, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo($enterprise_id, $filter)
+    public function getRoiRangesWithHttpInfo($enterprise_id, $filter)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getRoiRanges');
         }
         // verify the required parameter 'filter' is set
         if ($filter === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $filter when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet');
+            throw new \InvalidArgumentException('Missing the required parameter $filter when calling getRoiRanges');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
@@ -527,7 +641,7 @@ class AnalyticsApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet
+     * Operation getTopUsers
      *
      * Top Users
      *
@@ -536,14 +650,14 @@ class AnalyticsApi
      * @return \Swagger\Client\Model\AnalyticsTopUsers
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet($enterprise_id, $filter = null)
+    public function getTopUsers($enterprise_id, $filter = null)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo($enterprise_id, $filter);
+        list($response) = $this->getTopUsersWithHttpInfo($enterprise_id, $filter);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo
+     * Operation getTopUsersWithHttpInfo
      *
      * Top Users
      *
@@ -552,11 +666,11 @@ class AnalyticsApi
      * @return Array of \Swagger\Client\Model\AnalyticsTopUsers, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo($enterprise_id, $filter = null)
+    public function getTopUsersWithHttpInfo($enterprise_id, $filter = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getTopUsers');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
@@ -614,120 +728,6 @@ class AnalyticsApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\AnalyticsTopUsers', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoFeedbackCountGet
-     *
-     * Survey Feedback Scores
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-     * @param string $end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-     * @return \Swagger\Client\Model\AnalyticsFeedbackScores
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdIndigoFeedbackCountGet($enterprise_id, $start, $end)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo($enterprise_id, $start, $end);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo
-     *
-     * Survey Feedback Scores
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-     * @param string $end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-     * @return Array of \Swagger\Client\Model\AnalyticsFeedbackScores, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo($enterprise_id, $start, $end)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet');
-        }
-        // verify the required parameter 'start' is set
-        if ($start === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $start when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet');
-        }
-        // verify the required parameter 'end' is set
-        if ($end === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $end when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // query params
-        if ($start !== null) {
-            $queryParams['start'] = $this->apiClient->getSerializer()->toQueryValue($start);
-        }
-        // query params
-        if ($end !== null) {
-            $queryParams['end'] = $this->apiClient->getSerializer()->toQueryValue($end);
-        }
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\AnalyticsFeedbackScores',
-                '/v1/enterprise/{enterprise_id}/indigo/feedback/count'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\AnalyticsFeedbackScores', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\AnalyticsFeedbackScores', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

@@ -65,20 +65,8 @@
       //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Error);
     });
 
-    it('should have the property code (base name: "code")', function() {
-      // uncomment below and update the code to test the property code
-      //var instane = new BlueJeansOnVideoRestApi.Error();
-      //expect(instance).to.be();
-    });
-
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new BlueJeansOnVideoRestApi.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fields (base name: "fields")', function() {
-      // uncomment below and update the code to test the property fields
       //var instane = new BlueJeansOnVideoRestApi.Error();
       //expect(instance).to.be();
     });

@@ -59,60 +59,60 @@
   }
 
   describe('UserApi', function() {
-    describe('v1UserUserIdEnterpriseProfileGet', function() {
-      it('should call v1UserUserIdEnterpriseProfileGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdEnterpriseProfileGet
-        //instance.v1UserUserIdEnterpriseProfileGet(pet, function(error) {
+    describe('getDefaultMeeting', function() {
+      it('should call getDefaultMeeting successfully', function(done) {
+        //uncomment below and update the code to test getDefaultMeeting
+        //instance.getDefaultMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdGet', function() {
-      it('should call v1UserUserIdGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdGet
-        //instance.v1UserUserIdGet(pet, function(error) {
+    describe('getEnterpriseProfile', function() {
+      it('should call getEnterpriseProfile successfully', function(done) {
+        //uncomment below and update the code to test getEnterpriseProfile
+        //instance.getEnterpriseProfile(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdPut', function() {
-      it('should call v1UserUserIdPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdPut
-        //instance.v1UserUserIdPut(pet, function(error) {
+    describe('getRoom', function() {
+      it('should call getRoom successfully', function(done) {
+        //uncomment below and update the code to test getRoom
+        //instance.getRoom(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdRoomGet', function() {
-      it('should call v1UserUserIdRoomGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdRoomGet
-        //instance.v1UserUserIdRoomGet(pet, function(error) {
+    describe('getUser', function() {
+      it('should call getUser successfully', function(done) {
+        //uncomment below and update the code to test getUser
+        //instance.getUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdRoomPut', function() {
-      it('should call v1UserUserIdRoomPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdRoomPut
-        //instance.v1UserUserIdRoomPut(pet, function(error) {
+    describe('updateRoom', function() {
+      it('should call updateRoom successfully', function(done) {
+        //uncomment below and update the code to test updateRoom
+        //instance.updateRoom(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdScheduledMeetingGet', function() {
-      it('should call v1UserUserIdScheduledMeetingGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingGet
-        //instance.v1UserUserIdScheduledMeetingGet(pet, function(error) {
+    describe('updateUser', function() {
+      it('should call updateUser successfully', function(done) {
+        //uncomment below and update the code to test updateUser
+        //instance.updateUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

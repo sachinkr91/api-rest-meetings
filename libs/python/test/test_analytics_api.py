@@ -42,51 +42,51 @@ class TestAnalyticsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get(self):
+    def test_get_endpoint_distribution(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get
+        Test case for get_endpoint_distribution
 
         Endpoint Distribution
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get(self):
+    def test_get_feedback_comments(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get
+        Test case for get_feedback_comments
 
         Survey Feedback Comments
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get(self):
+    def test_get_feedback_count(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get
+        Test case for get_feedback_count
+
+        Survey Feedback Scores
+        """
+        pass
+
+    def test_get_meeting_usage(self):
+        """
+        Test case for get_meeting_usage
 
         Meeting Usage Over Time
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get(self):
+    def test_get_roi_ranges(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get
+        Test case for get_roi_ranges
 
         ROI Data
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_analytics_users_usage_get(self):
+    def test_get_top_users(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_analytics_users_usage_get
+        Test case for get_top_users
 
         Top Users
-        """
-        pass
-
-    def test_v1_enterprise_enterprise_id_indigo_feedback_count_get(self):
-        """
-        Test case for v1_enterprise_enterprise_id_indigo_feedback_count_get
-
-        Survey Feedback Scores
         """
         pass
 

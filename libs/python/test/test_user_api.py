@@ -42,51 +42,51 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_user_user_id_enterprise_profile_get(self):
+    def test_get_default_meeting(self):
         """
-        Test case for v1_user_user_id_enterprise_profile_get
+        Test case for get_default_meeting
+
+        Get Meeting Settings
+        """
+        pass
+
+    def test_get_enterprise_profile(self):
+        """
+        Test case for get_enterprise_profile
 
         Get Enterprise Profile
         """
         pass
 
-    def test_v1_user_user_id_get(self):
+    def test_get_room(self):
         """
-        Test case for v1_user_user_id_get
-
-        Get User Account Details
-        """
-        pass
-
-    def test_v1_user_user_id_put(self):
-        """
-        Test case for v1_user_user_id_put
-
-        Update User Account Details
-        """
-        pass
-
-    def test_v1_user_user_id_room_get(self):
-        """
-        Test case for v1_user_user_id_room_get
+        Test case for get_room
 
         Get User’s Default Meeting Settings
         """
         pass
 
-    def test_v1_user_user_id_room_put(self):
+    def test_get_user(self):
         """
-        Test case for v1_user_user_id_room_put
+        Test case for get_user
+
+        Get User Account Details
+        """
+        pass
+
+    def test_update_room(self):
+        """
+        Test case for update_room
 
         Update User’s Default Meeting Settings
         """
         pass
 
-    def test_v1_user_user_id_scheduled_meeting_get(self):
+    def test_update_user(self):
         """
-        Test case for v1_user_user_id_scheduled_meeting_get
+        Test case for update_user
 
-        Meeting
+        Update User Account Details
         """
         pass
 

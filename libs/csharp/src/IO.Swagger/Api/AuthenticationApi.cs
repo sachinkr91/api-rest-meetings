@@ -43,9 +43,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        Grant Oauth2TokenClientPost (Payload payload);
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantClient</returns>
+        GrantClient GetTokenByClient (GrantTypeClient grantTypeClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -54,9 +54,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenClientPostWithHttpInfo (Payload payload);
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantClient</returns>
+        ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantTypeClient grantTypeClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -64,9 +64,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        Grant Oauth2TokenMeetingPost (Payload1 payload);
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantMeeting</returns>
+        GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -75,9 +75,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenMeetingPostWithHttpInfo (Payload1 payload);
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantMeeting</returns>
+        ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantTypeMeeting grantTypeMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -85,9 +85,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        Grant Oauth2TokenPasswordPost (Payload2 payload);
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantPassword</returns>
+        GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -96,9 +96,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        ApiResponse<Grant> Oauth2TokenPasswordPostWithHttpInfo (Payload2 payload);
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantPassword</returns>
+        ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantTypePassword grantTypePassword);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -108,9 +108,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenClientPostAsync (Payload payload);
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantClient</returns>
+        System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantTypeClient grantTypeClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -119,9 +119,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenClientPostAsyncWithHttpInfo (Payload payload);
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantClient)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantTypeClient grantTypeClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -129,9 +129,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenMeetingPostAsync (Payload1 payload);
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantMeeting</returns>
+        System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantTypeMeeting grantTypeMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -140,9 +140,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenMeetingPostAsyncWithHttpInfo (Payload1 payload);
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantMeeting)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantTypeMeeting grantTypeMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -150,9 +150,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        System.Threading.Tasks.Task<Grant> Oauth2TokenPasswordPostAsync (Payload2 payload);
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantPassword</returns>
+        System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantTypePassword grantTypePassword);
 
         /// <summary>
         /// Authentication via Password Grant Type
@@ -161,9 +161,9 @@ namespace IO.Swagger.Api
         /// An access token can be obtained by using a user’s username and password.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenPasswordPostAsyncWithHttpInfo (Payload2 payload);
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantPassword)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantTypePassword grantTypePassword);
         #endregion Asynchronous Operations
     }
 
@@ -280,11 +280,11 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        public Grant Oauth2TokenClientPost (Payload payload)
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantClient</returns>
+        public GrantClient GetTokenByClient (GrantTypeClient grantTypeClient)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenClientPostWithHttpInfo(payload);
+             ApiResponse<GrantClient> localVarResponse = GetTokenByClientWithHttpInfo(grantTypeClient);
              return localVarResponse.Data;
         }
 
@@ -292,13 +292,13 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenClientPostWithHttpInfo (Payload payload)
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantClient</returns>
+        public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantTypeClient grantTypeClient)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenClientPost");
+            // verify the required parameter 'grantTypeClient' is set
+            if (grantTypeClient == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypeClient' when calling AuthenticationApi->GetTokenByClient");
 
             var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
@@ -325,13 +325,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypeClient != null && grantTypeClient.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeClient); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypeClient; // byte array
             }
 
             // authentication (access_token) required
@@ -350,13 +350,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenClientPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByClient", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantClient>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantClient) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantClient)));
             
         }
 
@@ -364,11 +364,11 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenClientPostAsync (Payload payload)
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantClient</returns>
+        public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantTypeClient grantTypeClient)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenClientPostAsyncWithHttpInfo(payload);
+             ApiResponse<GrantClient> localVarResponse = await GetTokenByClientAsyncWithHttpInfo(grantTypeClient);
              return localVarResponse.Data;
 
         }
@@ -377,13 +377,13 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenClientPostAsyncWithHttpInfo (Payload payload)
+        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantClient)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantTypeClient grantTypeClient)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenClientPost");
+            // verify the required parameter 'grantTypeClient' is set
+            if (grantTypeClient == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypeClient' when calling AuthenticationApi->GetTokenByClient");
 
             var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
@@ -410,13 +410,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypeClient != null && grantTypeClient.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeClient); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypeClient; // byte array
             }
 
             // authentication (access_token) required
@@ -434,13 +434,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenClientPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByClient", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantClient>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantClient) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantClient)));
             
         }
 
@@ -448,11 +448,11 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        public Grant Oauth2TokenMeetingPost (Payload1 payload)
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantMeeting</returns>
+        public GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenMeetingPostWithHttpInfo(payload);
+             ApiResponse<GrantMeeting> localVarResponse = GetTokenByMeetingWithHttpInfo(grantTypeMeeting);
              return localVarResponse.Data;
         }
 
@@ -460,13 +460,13 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenMeetingPostWithHttpInfo (Payload1 payload)
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantMeeting</returns>
+        public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantTypeMeeting grantTypeMeeting)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenMeetingPost");
+            // verify the required parameter 'grantTypeMeeting' is set
+            if (grantTypeMeeting == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypeMeeting' when calling AuthenticationApi->GetTokenByMeeting");
 
             var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -493,13 +493,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypeMeeting != null && grantTypeMeeting.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeMeeting); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypeMeeting; // byte array
             }
 
             // authentication (access_token) required
@@ -518,13 +518,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenMeetingPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByMeeting", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantMeeting>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantMeeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantMeeting)));
             
         }
 
@@ -532,11 +532,11 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenMeetingPostAsync (Payload1 payload)
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantMeeting</returns>
+        public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantTypeMeeting grantTypeMeeting)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenMeetingPostAsyncWithHttpInfo(payload);
+             ApiResponse<GrantMeeting> localVarResponse = await GetTokenByMeetingAsyncWithHttpInfo(grantTypeMeeting);
              return localVarResponse.Data;
 
         }
@@ -545,13 +545,13 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenMeetingPostAsyncWithHttpInfo (Payload1 payload)
+        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantMeeting)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantTypeMeeting grantTypeMeeting)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenMeetingPost");
+            // verify the required parameter 'grantTypeMeeting' is set
+            if (grantTypeMeeting == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypeMeeting' when calling AuthenticationApi->GetTokenByMeeting");
 
             var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -578,13 +578,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypeMeeting != null && grantTypeMeeting.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeMeeting); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypeMeeting; // byte array
             }
 
             // authentication (access_token) required
@@ -602,13 +602,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenMeetingPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByMeeting", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantMeeting>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantMeeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantMeeting)));
             
         }
 
@@ -616,11 +616,11 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Grant</returns>
-        public Grant Oauth2TokenPasswordPost (Payload2 payload)
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantPassword</returns>
+        public GrantPassword GetTokenByPassword (GrantTypePassword grantTypePassword)
         {
-             ApiResponse<Grant> localVarResponse = Oauth2TokenPasswordPostWithHttpInfo(payload);
+             ApiResponse<GrantPassword> localVarResponse = GetTokenByPasswordWithHttpInfo(grantTypePassword);
              return localVarResponse.Data;
         }
 
@@ -628,13 +628,13 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>ApiResponse of Grant</returns>
-        public ApiResponse< Grant > Oauth2TokenPasswordPostWithHttpInfo (Payload2 payload)
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantPassword</returns>
+        public ApiResponse< GrantPassword > GetTokenByPasswordWithHttpInfo (GrantTypePassword grantTypePassword)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenPasswordPost");
+            // verify the required parameter 'grantTypePassword' is set
+            if (grantTypePassword == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypePassword' when calling AuthenticationApi->GetTokenByPassword");
 
             var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -661,13 +661,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypePassword != null && grantTypePassword.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypePassword); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypePassword; // byte array
             }
 
             // authentication (access_token) required
@@ -686,13 +686,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenPasswordPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByPassword", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantPassword>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantPassword) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantPassword)));
             
         }
 
@@ -700,11 +700,11 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of Grant</returns>
-        public async System.Threading.Tasks.Task<Grant> Oauth2TokenPasswordPostAsync (Payload2 payload)
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantPassword</returns>
+        public async System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantTypePassword grantTypePassword)
         {
-             ApiResponse<Grant> localVarResponse = await Oauth2TokenPasswordPostAsyncWithHttpInfo(payload);
+             ApiResponse<GrantPassword> localVarResponse = await GetTokenByPasswordAsyncWithHttpInfo(grantTypePassword);
              return localVarResponse.Data;
 
         }
@@ -713,13 +713,13 @@ namespace IO.Swagger.Api
         /// Authentication via Password Grant Type An access token can be obtained by using a user’s username and password.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="payload">Contains information about the type of grant you are requesting.</param>
-        /// <returns>Task of ApiResponse (Grant)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Grant>> Oauth2TokenPasswordPostAsyncWithHttpInfo (Payload2 payload)
+        /// <param name="grantTypePassword">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantPassword)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantTypePassword grantTypePassword)
         {
-            // verify the required parameter 'payload' is set
-            if (payload == null)
-                throw new ApiException(400, "Missing required parameter 'payload' when calling AuthenticationApi->Oauth2TokenPasswordPost");
+            // verify the required parameter 'grantTypePassword' is set
+            if (grantTypePassword == null)
+                throw new ApiException(400, "Missing required parameter 'grantTypePassword' when calling AuthenticationApi->GetTokenByPassword");
 
             var localVarPath = "/oauth2/token?Password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -746,13 +746,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (payload != null && payload.GetType() != typeof(byte[]))
+            if (grantTypePassword != null && grantTypePassword.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(payload); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantTypePassword); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = payload; // byte array
+                localVarPostBody = grantTypePassword; // byte array
             }
 
             // authentication (access_token) required
@@ -770,13 +770,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Oauth2TokenPasswordPost", localVarResponse);
+                Exception exception = ExceptionFactory("GetTokenByPassword", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Grant>(localVarStatusCode,
+            return new ApiResponse<GrantPassword>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Grant) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Grant)));
+                (GrantPassword) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantPassword)));
             
         }
 

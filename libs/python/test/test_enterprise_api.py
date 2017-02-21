@@ -42,35 +42,35 @@ class TestEnterpriseApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_enterprise_enterprise_id_users_get(self):
+    def test_create_enterprise_user(self):
         """
-        Test case for v1_enterprise_enterprise_id_users_get
-
-        List Enterprise Users
-        """
-        pass
-
-    def test_v1_enterprise_enterprise_id_users_post(self):
-        """
-        Test case for v1_enterprise_enterprise_id_users_post
+        Test case for create_enterprise_user
 
         Create Enterprise User
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_users_user_id_delete(self):
+    def test_get_enterprise_profile(self):
         """
-        Test case for v1_enterprise_enterprise_id_users_user_id_delete
+        Test case for get_enterprise_profile
 
-        Remove Enterprise User
+        Get Enterprise Profile
         """
         pass
 
-    def test_v1_user_user_id_enterprise_profile_get(self):
+    def test_list_users(self):
         """
-        Test case for v1_user_user_id_enterprise_profile_get
+        Test case for list_users
 
-        Get Enterprise Profile
+        List Enterprise Users
+        """
+        pass
+
+    def test_remove_enterprise_user(self):
+        """
+        Test case for remove_enterprise_user
+
+        Remove Enterprise User
         """
         pass
 

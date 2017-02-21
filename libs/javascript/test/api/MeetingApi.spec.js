@@ -59,30 +59,80 @@
   }
 
   describe('MeetingApi', function() {
+    describe('cancelMeeting', function() {
+      it('should call cancelMeeting successfully', function(done) {
+        //uncomment below and update the code to test cancelMeeting
+        //instance.cancelMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createMeeting', function() {
+      it('should call createMeeting successfully', function(done) {
+        //uncomment below and update the code to test createMeeting
+        //instance.createMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getDefaultMeeting', function() {
+      it('should call getDefaultMeeting successfully', function(done) {
+        //uncomment below and update the code to test getDefaultMeeting
+        //instance.getDefaultMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getEndpointLayout', function() {
+      it('should call getEndpointLayout successfully', function(done) {
+        //uncomment below and update the code to test getEndpointLayout
+        //instance.getEndpointLayout(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMeeting', function() {
+      it('should call getMeeting successfully', function(done) {
+        //uncomment below and update the code to test getMeeting
+        //instance.getMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateEndpointLayout', function() {
+      it('should call updateEndpointLayout successfully', function(done) {
+        //uncomment below and update the code to test updateEndpointLayout
+        //instance.updateEndpointLayout(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateMeeting', function() {
+      it('should call updateMeeting successfully', function(done) {
+        //uncomment below and update the code to test updateMeeting
+        //instance.updateMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet', function() {
       it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet
         //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -103,6 +153,16 @@
       it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsGet
         //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsPut', function() {
+      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsPut successfully', function(done) {
+        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
+        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -149,20 +209,10 @@
         done();
       });
     });
-    describe('v1UserUserIdScheduledMeetingGet', function() {
-      it('should call v1UserUserIdScheduledMeetingGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingGet
-        //instance.v1UserUserIdScheduledMeetingGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdScheduledMeetingMeetingIdDelete', function() {
-      it('should call v1UserUserIdScheduledMeetingMeetingIdDelete successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingMeetingIdDelete
-        //instance.v1UserUserIdScheduledMeetingMeetingIdDelete(pet, function(error) {
+    describe('v1UserUserIdMeetingsMeetingIdNumbersGet', function() {
+      it('should call v1UserUserIdMeetingsMeetingIdNumbersGet successfully', function(done) {
+        //uncomment below and update the code to test v1UserUserIdMeetingsMeetingIdNumbersGet
+        //instance.v1UserUserIdMeetingsMeetingIdNumbersGet(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -173,36 +223,6 @@
       it('should call v1UserUserIdScheduledMeetingMeetingIdEmailsGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdScheduledMeetingMeetingIdEmailsGet
         //instance.v1UserUserIdScheduledMeetingMeetingIdEmailsGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdScheduledMeetingMeetingIdGet', function() {
-      it('should call v1UserUserIdScheduledMeetingMeetingIdGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingMeetingIdGet
-        //instance.v1UserUserIdScheduledMeetingMeetingIdGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdScheduledMeetingMeetingIdPut', function() {
-      it('should call v1UserUserIdScheduledMeetingMeetingIdPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingMeetingIdPut
-        //instance.v1UserUserIdScheduledMeetingMeetingIdPut(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdScheduledMeetingPost', function() {
-      it('should call v1UserUserIdScheduledMeetingPost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingPost
-        //instance.v1UserUserIdScheduledMeetingPost(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

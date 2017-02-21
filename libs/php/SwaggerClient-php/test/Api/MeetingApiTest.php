@@ -90,34 +90,89 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for cancelMeeting
+     *
+     * Cancel Meeting.
+     *
+     */
+    public function testCancelMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for createMeeting
+     *
+     * Create Meeting.
+     *
+     */
+    public function testCreateMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for getDefaultMeeting
+     *
+     * Get Meeting Settings.
+     *
+     */
+    public function testGetDefaultMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for getEndpointLayout
+     *
+     * Get Endpoint Layout.
+     *
+     */
+    public function testGetEndpointLayout()
+    {
+
+    }
+
+    /**
+     * Test case for getMeeting
+     *
+     * Get Meeting.
+     *
+     */
+    public function testGetMeeting()
+    {
+
+    }
+
+    /**
+     * Test case for updateEndpointLayout
+     *
+     * Update Endpoint Layout.
+     *
+     */
+    public function testUpdateEndpointLayout()
+    {
+
+    }
+
+    /**
+     * Test case for updateMeeting
+     *
+     * Update Meeting.
+     *
+     */
+    public function testUpdateMeeting()
+    {
+
+    }
+
+    /**
      * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet
      *
      * Get Endpoint Information.
      *
      */
     public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet
-     *
-     * Get Current Endpoint Layout.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut
-     *
-     * Update Endpoint Layout.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut()
     {
 
     }
@@ -140,6 +195,17 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsGet()
+    {
+
+    }
+
+    /**
+     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
+     *
+     * Update Meeting Endpoints State.
+     *
+     */
+    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsPut()
     {
 
     }
@@ -189,23 +255,12 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdScheduledMeetingGet
+     * Test case for v1UserUserIdMeetingsMeetingIdNumbersGet
      *
-     * Meeting.
-     *
-     */
-    public function testV1UserUserIdScheduledMeetingGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdScheduledMeetingMeetingIdDelete
-     *
-     * Meeting.
+     * Get Meeting Join Info.
      *
      */
-    public function testV1UserUserIdScheduledMeetingMeetingIdDelete()
+    public function testV1UserUserIdMeetingsMeetingIdNumbersGet()
     {
 
     }
@@ -213,43 +268,10 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for v1UserUserIdScheduledMeetingMeetingIdEmailsGet
      *
-     * Meeting.
+     * Get Meeting Email.
      *
      */
     public function testV1UserUserIdScheduledMeetingMeetingIdEmailsGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdScheduledMeetingMeetingIdGet
-     *
-     * Meeting.
-     *
-     */
-    public function testV1UserUserIdScheduledMeetingMeetingIdGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdScheduledMeetingMeetingIdPut
-     *
-     * Meeting.
-     *
-     */
-    public function testV1UserUserIdScheduledMeetingMeetingIdPut()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdScheduledMeetingPost
-     *
-     * Meeting.
-     *
-     */
-    public function testV1UserUserIdScheduledMeetingPost()
     {
 
     }

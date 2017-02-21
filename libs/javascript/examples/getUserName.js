@@ -9,7 +9,7 @@ var authSvc = new BlueJeansOnVideoRestApi.AuthenticationApi();
 var userSvc = new BlueJeansOnVideoRestApi.UserApi();
 
 // Authenticate with username & password grant type
-authSvc.oauth2TokenPasswordPost(
+authSvc.getTokenByPassword(
 	{
 		'grant_type': 'password',
 		'username': config.username,
@@ -24,7 +24,7 @@ authSvc.oauth2TokenPasswordPost(
 		userSvc.apiClient.authentications.access_token.apiKey = grant.access_token;
 
 		// Go fetch info about my user
-		userSvc.v1UserUserIdGet(grant.scope.user, function (err, user)
+		userSvc.getUser(grant.scope.user, function (err, user)
 		{
 			if (err) console.log(err);
 			if (err) return;

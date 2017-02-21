@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Room', 'model/Error', 'model/Enterprise'], factory);
+    define(['ApiClient', 'model/Room', 'model/Error', 'model/Enterprise', 'model/EnterpriseUserList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Room'), require('../model/Error'), require('../model/Enterprise'));
+    module.exports = factory(require('../ApiClient'), require('../model/Room'), require('../model/Error'), require('../model/Enterprise'), require('../model/EnterpriseUserList'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise);
+    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
   }
-}(this, function(ApiClient, Room, Error, Enterprise) {
+}(this, function(ApiClient, Room, Error, Enterprise, EnterpriseUserList) {
   'use strict';
 
   /**
@@ -57,62 +57,8 @@
 
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdUsersGet operation.
-     * @callback module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Room} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Enterprise Users
-     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {Object} opts Optional parameters
-     * @param {Integer} opts.pageSize Sets number of items returned per page.
-     * @param {Integer} opts.pageNumber Selects which page of results to return.
-     * @param {String} opts.emailId Allows filtering the response by a user’s email address.
-     * @param {module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Room}
-     */
-    this.v1EnterpriseEnterpriseIdUsersGet = function(enterpriseId, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'enterpriseId' is set
-      if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersGet";
-      }
-
-
-      var pathParams = {
-        'enterprise_id': enterpriseId
-      };
-      var queryParams = {
-        'pageSize': opts['pageSize'],
-        'pageNumber': opts['pageNumber'],
-        'emailId': opts['emailId']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Room;
-
-      return this.apiClient.callApi(
-        '/v1/enterprise/{enterprise_id}/users', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdUsersPost operation.
-     * @callback module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersPostCallback
+     * Callback function to receive the result of the createEnterpriseUser operation.
+     * @callback module:api/EnterpriseApi~createEnterpriseUserCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -125,16 +71,16 @@
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.forcePasswordChange Forces the user to change his or her password on first log in.
      * @param {Boolean} opts.sendVerificationMail Prevents welcome emails from being sent to the newly created user.
-     * @param {module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/EnterpriseApi~createEnterpriseUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.v1EnterpriseEnterpriseIdUsersPost = function(enterpriseId, opts, callback) {
+    this.createEnterpriseUser = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersPost";
+        throw "Missing the required parameter 'enterpriseId' when calling createEnterpriseUser";
       }
 
 
@@ -163,8 +109,108 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdUsersUserIdDelete operation.
-     * @callback module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersUserIdDeleteCallback
+     * Callback function to receive the result of the getEnterpriseProfile operation.
+     * @callback module:api/EnterpriseApi~getEnterpriseProfileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Enterprise} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Enterprise Profile
+     * This endpoint retrieves the enterprise profile associated with the user.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:api/EnterpriseApi~getEnterpriseProfileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Enterprise}
+     */
+    this.getEnterpriseProfile = function(userId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getEnterpriseProfile";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Enterprise;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/enterprise_profile', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listUsers operation.
+     * @callback module:api/EnterpriseApi~listUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/EnterpriseUserList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Enterprise Users
+     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.pageSize Sets number of items returned per page.
+     * @param {Integer} opts.pageNumber Selects which page of results to return.
+     * @param {String} opts.emailId Allows filtering the response by a user’s email address.
+     * @param {module:api/EnterpriseApi~listUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/EnterpriseUserList}
+     */
+    this.listUsers = function(enterpriseId, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'enterpriseId' is set
+      if (enterpriseId == undefined || enterpriseId == null) {
+        throw "Missing the required parameter 'enterpriseId' when calling listUsers";
+      }
+
+
+      var pathParams = {
+        'enterprise_id': enterpriseId
+      };
+      var queryParams = {
+        'pageSize': opts['pageSize'],
+        'pageNumber': opts['pageNumber'],
+        'emailId': opts['emailId']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = EnterpriseUserList;
+
+      return this.apiClient.callApi(
+        '/v1/enterprise/{enterprise_id}/users', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeEnterpriseUser operation.
+     * @callback module:api/EnterpriseApi~removeEnterpriseUserCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -175,20 +221,20 @@
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/EnterpriseApi~v1EnterpriseEnterpriseIdUsersUserIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/EnterpriseApi~removeEnterpriseUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.v1EnterpriseEnterpriseIdUsersUserIdDelete = function(enterpriseId, userId, callback) {
+    this.removeEnterpriseUser = function(enterpriseId, userId, callback) {
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersUserIdDelete";
+        throw "Missing the required parameter 'enterpriseId' when calling removeEnterpriseUser";
       }
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1EnterpriseEnterpriseIdUsersUserIdDelete";
+        throw "Missing the required parameter 'userId' when calling removeEnterpriseUser";
       }
 
 
@@ -210,52 +256,6 @@
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/users/{user_id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdEnterpriseProfileGet operation.
-     * @callback module:api/EnterpriseApi~v1UserUserIdEnterpriseProfileGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Enterprise} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Enterprise Profile
-     * This endpoint retrieves the enterprise profile associated with the user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/EnterpriseApi~v1UserUserIdEnterpriseProfileGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Enterprise}
-     */
-    this.v1UserUserIdEnterpriseProfileGet = function(userId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdEnterpriseProfileGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Enterprise;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/enterprise_profile', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -4,13 +4,13 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauth2TokenClientPost**](AuthenticationApi.md#oauth2TokenClientPost) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
-[**oauth2TokenMeetingPost**](AuthenticationApi.md#oauth2TokenMeetingPost) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
-[**oauth2TokenPasswordPost**](AuthenticationApi.md#oauth2TokenPasswordPost) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**getTokenByClient**](AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**getTokenByMeeting**](AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**getTokenByPassword**](AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-# **oauth2TokenClientPost**
-> \Swagger\Client\Model\Grant oauth2TokenClientPost($payload)
+# **getTokenByClient**
+> \Swagger\Client\Model\GrantClient getTokenByClient($grant_type_client)
 
 Authentication via Client Grant Type
 
@@ -27,13 +27,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$payload = new \Swagger\Client\Model\Payload(); // \Swagger\Client\Model\Payload | Contains information about the type of grant you are requesting.
+$grant_type_client = new \Swagger\Client\Model\GrantTypeClient(); // \Swagger\Client\Model\GrantTypeClient | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenClientPost($payload);
+    $result = $api_instance->getTokenByClient($grant_type_client);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenClientPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->getTokenByClient: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -42,11 +42,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**\Swagger\Client\Model\Payload**](../Model/\Swagger\Client\Model\Payload.md)| Contains information about the type of grant you are requesting. |
+ **grant_type_client** | [**\Swagger\Client\Model\GrantTypeClient**](../Model/\Swagger\Client\Model\GrantTypeClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Grant**](../Model/Grant.md)
+[**\Swagger\Client\Model\GrantClient**](../Model/GrantClient.md)
 
 ### Authorization
 
@@ -59,8 +59,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **oauth2TokenMeetingPost**
-> \Swagger\Client\Model\Grant oauth2TokenMeetingPost($payload)
+# **getTokenByMeeting**
+> \Swagger\Client\Model\GrantMeeting getTokenByMeeting($grant_type_meeting)
 
 Authentication via Meeting Grant Type
 
@@ -77,13 +77,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$payload = new \Swagger\Client\Model\Payload1(); // \Swagger\Client\Model\Payload1 | Contains information about the type of grant you are requesting.
+$grant_type_meeting = new \Swagger\Client\Model\GrantTypeMeeting(); // \Swagger\Client\Model\GrantTypeMeeting | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenMeetingPost($payload);
+    $result = $api_instance->getTokenByMeeting($grant_type_meeting);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenMeetingPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->getTokenByMeeting: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -92,11 +92,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**\Swagger\Client\Model\Payload1**](../Model/\Swagger\Client\Model\Payload1.md)| Contains information about the type of grant you are requesting. |
+ **grant_type_meeting** | [**\Swagger\Client\Model\GrantTypeMeeting**](../Model/\Swagger\Client\Model\GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Grant**](../Model/Grant.md)
+[**\Swagger\Client\Model\GrantMeeting**](../Model/GrantMeeting.md)
 
 ### Authorization
 
@@ -109,8 +109,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **oauth2TokenPasswordPost**
-> \Swagger\Client\Model\Grant oauth2TokenPasswordPost($payload)
+# **getTokenByPassword**
+> \Swagger\Client\Model\GrantPassword getTokenByPassword($grant_type_password)
 
 Authentication via Password Grant Type
 
@@ -127,13 +127,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$payload = new \Swagger\Client\Model\Payload2(); // \Swagger\Client\Model\Payload2 | Contains information about the type of grant you are requesting.
+$grant_type_password = new \Swagger\Client\Model\GrantTypePassword(); // \Swagger\Client\Model\GrantTypePassword | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->oauth2TokenPasswordPost($payload);
+    $result = $api_instance->getTokenByPassword($grant_type_password);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthenticationApi->oauth2TokenPasswordPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->getTokenByPassword: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -142,11 +142,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**\Swagger\Client\Model\Payload2**](../Model/\Swagger\Client\Model\Payload2.md)| Contains information about the type of grant you are requesting. |
+ **grant_type_password** | [**\Swagger\Client\Model\GrantTypePassword**](../Model/\Swagger\Client\Model\GrantTypePassword.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Grant**](../Model/Grant.md)
+[**\Swagger\Client\Model\GrantPassword**](../Model/GrantPassword.md)
 
 ### Authorization
 

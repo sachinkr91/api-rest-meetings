@@ -77,39 +77,39 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test Oauth2TokenclientPost
+        /// Test GetTokenByClient
         /// </summary>
         [Test]
-        public void Oauth2TokenclientPostTest()
+        public void GetTokenByClientTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Payload payload = null;
-            //var response = instance.Oauth2TokenclientPost(payload);
-            //Assert.IsInstanceOf<Grant> (response, "response is Grant");
+            //GrantTypeClient grantTypeClient = null;
+            //var response = instance.GetTokenByClient(grantTypeClient);
+            //Assert.IsInstanceOf<GrantClient> (response, "response is GrantClient");
         }
         
         /// <summary>
-        /// Test Oauth2TokenmeetingPost
+        /// Test GetTokenByMeeting
         /// </summary>
         [Test]
-        public void Oauth2TokenmeetingPostTest()
+        public void GetTokenByMeetingTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Payload1 payload = null;
-            //var response = instance.Oauth2TokenmeetingPost(payload);
-            //Assert.IsInstanceOf<Grant> (response, "response is Grant");
+            //GrantTypeMeeting grantTypeMeeting = null;
+            //var response = instance.GetTokenByMeeting(grantTypeMeeting);
+            //Assert.IsInstanceOf<GrantMeeting> (response, "response is GrantMeeting");
         }
         
         /// <summary>
-        /// Test Oauth2TokenpasswordPost
+        /// Test GetTokenByPassword
         /// </summary>
         [Test]
-        public void Oauth2TokenpasswordPostTest()
+        public void GetTokenByPasswordTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Payload2 payload = null;
-            //var response = instance.Oauth2TokenpasswordPost(payload);
-            //Assert.IsInstanceOf<Grant> (response, "response is Grant");
+            //GrantTypePassword grantTypePassword = null;
+            //var response = instance.GetTokenByPassword(grantTypePassword);
+            //Assert.IsInstanceOf<GrantPassword> (response, "response is GrantPassword");
         }
         
     }

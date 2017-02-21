@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * Endpoints
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-03T17:42:01.176-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:13:24.966-07:00")
 public class Endpoints extends ArrayList<EndpointsInner>  {
 
   @Override

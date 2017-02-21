@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Grant', 'model/Payload', 'model/Error', 'model/Payload1', 'model/Payload2'], factory);
+    define(['ApiClient', 'model/GrantClient', 'model/GrantTypeClient', 'model/Error', 'model/GrantMeeting', 'model/GrantTypeMeeting', 'model/GrantTypePassword', 'model/GrantPassword'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Grant'), require('../model/Payload'), require('../model/Error'), require('../model/Payload1'), require('../model/Payload2'));
+    module.exports = factory(require('../ApiClient'), require('../model/GrantClient'), require('../model/GrantTypeClient'), require('../model/Error'), require('../model/GrantMeeting'), require('../model/GrantTypeMeeting'), require('../model/GrantTypePassword'), require('../model/GrantPassword'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Grant, root.BlueJeansOnVideoRestApi.Payload, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Payload1, root.BlueJeansOnVideoRestApi.Payload2);
+    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantTypeClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantTypeMeeting, root.BlueJeansOnVideoRestApi.GrantTypePassword, root.BlueJeansOnVideoRestApi.GrantPassword);
   }
-}(this, function(ApiClient, Grant, Payload, Error, Payload1, Payload2) {
+}(this, function(ApiClient, GrantClient, GrantTypeClient, Error, GrantMeeting, GrantTypeMeeting, GrantTypePassword, GrantPassword) {
   'use strict';
 
   /**
@@ -57,26 +57,26 @@
 
 
     /**
-     * Callback function to receive the result of the oauth2TokenClientPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenClientPostCallback
+     * Callback function to receive the result of the getTokenByClient operation.
+     * @callback module:api/AuthenticationApi~getTokenByClientCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Grant} data The data returned by the service call.
+     * @param {module:model/GrantClient} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Authentication via Client Grant Type
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
-     * @param {module:model/Payload} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenClientPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Grant}
+     * @param {module:model/GrantTypeClient} grantTypeClient Contains information about the type of grant you are requesting.
+     * @param {module:api/AuthenticationApi~getTokenByClientCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantClient}
      */
-    this.oauth2TokenClientPost = function(payload, callback) {
-      var postBody = payload;
+    this.getTokenByClient = function(grantTypeClient, callback) {
+      var postBody = grantTypeClient;
 
-      // verify the required parameter 'payload' is set
-      if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenClientPost";
+      // verify the required parameter 'grantTypeClient' is set
+      if (grantTypeClient == undefined || grantTypeClient == null) {
+        throw "Missing the required parameter 'grantTypeClient' when calling getTokenByClient";
       }
 
 
@@ -92,7 +92,7 @@
       var authNames = ['access_token'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Grant;
+      var returnType = GrantClient;
 
       return this.apiClient.callApi(
         '/oauth2/token?Client', 'POST',
@@ -102,26 +102,26 @@
     }
 
     /**
-     * Callback function to receive the result of the oauth2TokenMeetingPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenMeetingPostCallback
+     * Callback function to receive the result of the getTokenByMeeting operation.
+     * @callback module:api/AuthenticationApi~getTokenByMeetingCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Grant} data The data returned by the service call.
+     * @param {module:model/GrantMeeting} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Authentication via Meeting Grant Type
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
-     * @param {module:model/Payload1} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenMeetingPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Grant}
+     * @param {module:model/GrantTypeMeeting} grantTypeMeeting Contains information about the type of grant you are requesting.
+     * @param {module:api/AuthenticationApi~getTokenByMeetingCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantMeeting}
      */
-    this.oauth2TokenMeetingPost = function(payload, callback) {
-      var postBody = payload;
+    this.getTokenByMeeting = function(grantTypeMeeting, callback) {
+      var postBody = grantTypeMeeting;
 
-      // verify the required parameter 'payload' is set
-      if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenMeetingPost";
+      // verify the required parameter 'grantTypeMeeting' is set
+      if (grantTypeMeeting == undefined || grantTypeMeeting == null) {
+        throw "Missing the required parameter 'grantTypeMeeting' when calling getTokenByMeeting";
       }
 
 
@@ -137,7 +137,7 @@
       var authNames = ['access_token'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Grant;
+      var returnType = GrantMeeting;
 
       return this.apiClient.callApi(
         '/oauth2/token?Meeting', 'POST',
@@ -147,26 +147,26 @@
     }
 
     /**
-     * Callback function to receive the result of the oauth2TokenPasswordPost operation.
-     * @callback module:api/AuthenticationApi~oauth2TokenPasswordPostCallback
+     * Callback function to receive the result of the getTokenByPassword operation.
+     * @callback module:api/AuthenticationApi~getTokenByPasswordCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Grant} data The data returned by the service call.
+     * @param {module:model/GrantPassword} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param {module:model/Payload2} payload Contains information about the type of grant you are requesting.
-     * @param {module:api/AuthenticationApi~oauth2TokenPasswordPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Grant}
+     * @param {module:model/GrantTypePassword} grantTypePassword Contains information about the type of grant you are requesting.
+     * @param {module:api/AuthenticationApi~getTokenByPasswordCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantPassword}
      */
-    this.oauth2TokenPasswordPost = function(payload, callback) {
-      var postBody = payload;
+    this.getTokenByPassword = function(grantTypePassword, callback) {
+      var postBody = grantTypePassword;
 
-      // verify the required parameter 'payload' is set
-      if (payload == undefined || payload == null) {
-        throw "Missing the required parameter 'payload' when calling oauth2TokenPasswordPost";
+      // verify the required parameter 'grantTypePassword' is set
+      if (grantTypePassword == undefined || grantTypePassword == null) {
+        throw "Missing the required parameter 'grantTypePassword' when calling getTokenByPassword";
       }
 
 
@@ -182,7 +182,7 @@
       var authNames = ['access_token'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Grant;
+      var returnType = GrantPassword;
 
       return this.apiClient.callApi(
         '/oauth2/token?Password', 'POST',

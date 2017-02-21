@@ -42,27 +42,67 @@ class TestMeetingApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_cancel_meeting(self):
+        """
+        Test case for cancel_meeting
+
+        Cancel Meeting
+        """
+        pass
+
+    def test_create_meeting(self):
+        """
+        Test case for create_meeting
+
+        Create Meeting
+        """
+        pass
+
+    def test_get_default_meeting(self):
+        """
+        Test case for get_default_meeting
+
+        Get Meeting Settings
+        """
+        pass
+
+    def test_get_endpoint_layout(self):
+        """
+        Test case for get_endpoint_layout
+
+        Get Endpoint Layout
+        """
+        pass
+
+    def test_get_meeting(self):
+        """
+        Test case for get_meeting
+
+        Get Meeting
+        """
+        pass
+
+    def test_update_endpoint_layout(self):
+        """
+        Test case for update_endpoint_layout
+
+        Update Endpoint Layout
+        """
+        pass
+
+    def test_update_meeting(self):
+        """
+        Test case for update_meeting
+
+        Update Meeting
+        """
+        pass
+
     def test_v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get(self):
         """
         Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get
 
         Get Endpoint Information
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get
-
-        Get Current Endpoint Layout
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put
-
-        Update Endpoint Layout
         """
         pass
 
@@ -122,19 +162,11 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_user_user_id_scheduled_meeting_get(self):
+    def test_v1_user_user_id_meetings_meeting_id_numbers_get(self):
         """
-        Test case for v1_user_user_id_scheduled_meeting_get
+        Test case for v1_user_user_id_meetings_meeting_id_numbers_get
 
-        Meeting
-        """
-        pass
-
-    def test_v1_user_user_id_scheduled_meeting_meeting_id_delete(self):
-        """
-        Test case for v1_user_user_id_scheduled_meeting_meeting_id_delete
-
-        Meeting
+        Get Meeting Join Info
         """
         pass
 
@@ -142,31 +174,7 @@ class TestMeetingApi(unittest.TestCase):
         """
         Test case for v1_user_user_id_scheduled_meeting_meeting_id_emails_get
 
-        Meeting
-        """
-        pass
-
-    def test_v1_user_user_id_scheduled_meeting_meeting_id_get(self):
-        """
-        Test case for v1_user_user_id_scheduled_meeting_meeting_id_get
-
-        Meeting
-        """
-        pass
-
-    def test_v1_user_user_id_scheduled_meeting_meeting_id_put(self):
-        """
-        Test case for v1_user_user_id_scheduled_meeting_meeting_id_put
-
-        Meeting
-        """
-        pass
-
-    def test_v1_user_user_id_scheduled_meeting_post(self):
-        """
-        Test case for v1_user_user_id_scheduled_meeting_post
-
-        Meeting
+        Get Meeting Email
         """
         pass
 

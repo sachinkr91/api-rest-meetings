@@ -51,123 +51,7 @@ class EnterpriseApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def v1_enterprise_enterprise_id_users_get(self, enterprise_id, **kwargs):
-        """
-        List Enterprise Users
-        This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_get(enterprise_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param int page_size: Sets number of items returned per page.
-        :param int page_number: Selects which page of results to return.
-        :param str email_id: Allows filtering the response by a user’s email address.
-        :return: Room
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_users_get_with_http_info(enterprise_id, **kwargs)
-        else:
-            (data) = self.v1_enterprise_enterprise_id_users_get_with_http_info(enterprise_id, **kwargs)
-            return data
-
-    def v1_enterprise_enterprise_id_users_get_with_http_info(self, enterprise_id, **kwargs):
-        """
-        List Enterprise Users
-        This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_get_with_http_info(enterprise_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param int page_size: Sets number of items returned per page.
-        :param int page_number: Selects which page of results to return.
-        :param str email_id: Allows filtering the response by a user’s email address.
-        :return: Room
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id', 'page_size', 'page_number', 'email_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_users_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_users_get`")
-
-        resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-
-        query_params = {}
-        if 'page_size' in params:
-            query_params['pageSize'] = params['page_size']
-        if 'page_number' in params:
-            query_params['pageNumber'] = params['page_number']
-        if 'email_id' in params:
-            query_params['emailId'] = params['email_id']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Room',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_enterprise_enterprise_id_users_post(self, enterprise_id, **kwargs):
+    def create_enterprise_user(self, enterprise_id, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -178,7 +62,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_post(enterprise_id, callback=callback_function)
+        >>> thread = api.create_enterprise_user(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -191,12 +75,12 @@ class EnterpriseApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_users_post_with_http_info(enterprise_id, **kwargs)
+            return self.create_enterprise_user_with_http_info(enterprise_id, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_users_post_with_http_info(enterprise_id, **kwargs)
+            (data) = self.create_enterprise_user_with_http_info(enterprise_id, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_users_post_with_http_info(self, enterprise_id, **kwargs):
+    def create_enterprise_user_with_http_info(self, enterprise_id, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -207,7 +91,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_post_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.create_enterprise_user_with_http_info(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -228,13 +112,13 @@ class EnterpriseApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_users_post" % key
+                    " to method create_enterprise_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_users_post`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `create_enterprise_user`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
         path_params = {}
@@ -279,7 +163,227 @@ class EnterpriseApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_enterprise_enterprise_id_users_user_id_delete(self, enterprise_id, user_id, **kwargs):
+    def get_enterprise_profile(self, user_id, **kwargs):
+        """
+        Get Enterprise Profile
+        This endpoint retrieves the enterprise profile associated with the user.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_enterprise_profile(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: Enterprise
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_enterprise_profile_with_http_info(user_id, **kwargs)
+        else:
+            (data) = self.get_enterprise_profile_with_http_info(user_id, **kwargs)
+            return data
+
+    def get_enterprise_profile_with_http_info(self, user_id, **kwargs):
+        """
+        Get Enterprise Profile
+        This endpoint retrieves the enterprise profile associated with the user.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_enterprise_profile_with_http_info(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: Enterprise
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_enterprise_profile" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_enterprise_profile`")
+
+        resource_path = '/v1/user/{user_id}/enterprise_profile'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Enterprise',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def list_users(self, enterprise_id, **kwargs):
+        """
+        List Enterprise Users
+        This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_users(enterprise_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param int page_size: Sets number of items returned per page.
+        :param int page_number: Selects which page of results to return.
+        :param str email_id: Allows filtering the response by a user’s email address.
+        :return: EnterpriseUserList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.list_users_with_http_info(enterprise_id, **kwargs)
+        else:
+            (data) = self.list_users_with_http_info(enterprise_id, **kwargs)
+            return data
+
+    def list_users_with_http_info(self, enterprise_id, **kwargs):
+        """
+        List Enterprise Users
+        This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.list_users_with_http_info(enterprise_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param int page_size: Sets number of items returned per page.
+        :param int page_number: Selects which page of results to return.
+        :param str email_id: Allows filtering the response by a user’s email address.
+        :return: EnterpriseUserList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enterprise_id', 'page_size', 'page_number', 'email_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_users" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'enterprise_id' is set
+        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `list_users`")
+
+        resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
+        path_params = {}
+        if 'enterprise_id' in params:
+            path_params['enterprise_id'] = params['enterprise_id']
+
+        query_params = {}
+        if 'page_size' in params:
+            query_params['pageSize'] = params['page_size']
+        if 'page_number' in params:
+            query_params['pageNumber'] = params['page_number']
+        if 'email_id' in params:
+            query_params['emailId'] = params['email_id']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='EnterpriseUserList',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def remove_enterprise_user(self, enterprise_id, user_id, **kwargs):
         """
         Remove Enterprise User
         This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
@@ -290,7 +394,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_user_id_delete(enterprise_id, user_id, callback=callback_function)
+        >>> thread = api.remove_enterprise_user(enterprise_id, user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -302,12 +406,12 @@ class EnterpriseApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_users_user_id_delete_with_http_info(enterprise_id, user_id, **kwargs)
+            return self.remove_enterprise_user_with_http_info(enterprise_id, user_id, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_users_user_id_delete_with_http_info(enterprise_id, user_id, **kwargs)
+            (data) = self.remove_enterprise_user_with_http_info(enterprise_id, user_id, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_users_user_id_delete_with_http_info(self, enterprise_id, user_id, **kwargs):
+    def remove_enterprise_user_with_http_info(self, enterprise_id, user_id, **kwargs):
         """
         Remove Enterprise User
         This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
@@ -318,7 +422,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_users_user_id_delete_with_http_info(enterprise_id, user_id, callback=callback_function)
+        >>> thread = api.remove_enterprise_user_with_http_info(enterprise_id, user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -338,16 +442,16 @@ class EnterpriseApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_users_user_id_delete" % key
+                    " to method remove_enterprise_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_users_user_id_delete`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `remove_enterprise_user`")
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_enterprise_enterprise_id_users_user_id_delete`")
+            raise ValueError("Missing the required parameter `user_id` when calling `remove_enterprise_user`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/users/{user_id}'.replace('{format}', 'json')
         path_params = {}
@@ -386,110 +490,6 @@ class EnterpriseApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='Room',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_enterprise_profile_get(self, user_id, **kwargs):
-        """
-        Get Enterprise Profile
-        This endpoint retrieves the enterprise profile associated with the user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_enterprise_profile_get(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Enterprise
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, **kwargs)
-            return data
-
-    def v1_user_user_id_enterprise_profile_get_with_http_info(self, user_id, **kwargs):
-        """
-        Get Enterprise Profile
-        This endpoint retrieves the enterprise profile associated with the user.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_enterprise_profile_get_with_http_info(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Enterprise
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_enterprise_profile_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_enterprise_profile_get`")
-
-        resource_path = '/v1/user/{user_id}/enterprise_profile'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Enterprise',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

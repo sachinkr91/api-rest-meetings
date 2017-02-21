@@ -120,6 +120,14 @@ class ContentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "content_url"
+     */
+    public function testPropertyContentUrl()
+    {
+
+    }
+
+    /**
      * Test attribute "user_id"
      */
     public function testPropertyUserId()

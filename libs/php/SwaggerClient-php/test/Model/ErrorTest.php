@@ -96,25 +96,9 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "code"
-     */
-    public function testPropertyCode()
-    {
-
-    }
-
-    /**
      * Test attribute "message"
      */
     public function testPropertyMessage()
-    {
-
-    }
-
-    /**
-     * Test attribute "fields"
-     */
-    public function testPropertyFields()
     {
 
     }

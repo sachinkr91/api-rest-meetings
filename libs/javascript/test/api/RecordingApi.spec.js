@@ -59,10 +59,30 @@
   }
 
   describe('RecordingApi', function() {
-    describe('v1UserUserIdCmsContentIdisDownloadabletrueGet', function() {
-      it('should call v1UserUserIdCmsContentIdisDownloadabletrueGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdCmsContentIdisDownloadabletrueGet
-        //instance.v1UserUserIdCmsContentIdisDownloadabletrueGet(pet, function(error) {
+    describe('getRecordingContent', function() {
+      it('should call getRecordingContent successfully', function(done) {
+        //uncomment below and update the code to test getRecordingContent
+        //instance.getRecordingContent(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('startRecording', function() {
+      it('should call startRecording successfully', function(done) {
+        //uncomment below and update the code to test startRecording
+        //instance.startRecording(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('stopRecording', function() {
+      it('should call stopRecording successfully', function(done) {
+        //uncomment below and update the code to test stopRecording
+        //instance.stopRecording(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -73,26 +93,6 @@
       it('should call v1UserUserIdLiveMeetingsMeetingIdRecordingsGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdRecordingsGet
         //instance.v1UserUserIdLiveMeetingsMeetingIdRecordingsGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost
-        //instance.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut
-        //instance.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -90,12 +90,34 @@ class RecordingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdCmsContentIdisDownloadabletrueGet
+     * Test case for getRecordingContent
      *
      * Get Recording Download Link.
      *
      */
-    public function testV1UserUserIdCmsContentIdisDownloadabletrueGet()
+    public function testGetRecordingContent()
+    {
+
+    }
+
+    /**
+     * Test case for startRecording
+     *
+     * Start Recording.
+     *
+     */
+    public function testStartRecording()
+    {
+
+    }
+
+    /**
+     * Test case for stopRecording
+     *
+     * Stop Recording.
+     *
+     */
+    public function testStopRecording()
     {
 
     }
@@ -107,28 +129,6 @@ class RecordingApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testV1UserUserIdLiveMeetingsMeetingIdRecordingsGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost
-     *
-     * Start Recording.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut
-     *
-     * Stop Recording.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut()
     {
 
     }

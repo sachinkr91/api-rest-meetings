@@ -37,33 +37,6 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List Enterprise Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Room</returns>
-        Room V1EnterpriseEnterpriseIdUsersGet (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
-
-        /// <summary>
-        /// List Enterprise Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> V1EnterpriseEnterpriseIdUsersGetWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
-        /// <summary>
         /// Create Enterprise User
         /// </summary>
         /// <remarks>
@@ -74,7 +47,7 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Room</returns>
-        Room V1EnterpriseEnterpriseIdUsersPost (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        Room CreateEnterpriseUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
 
         /// <summary>
         /// Create Enterprise User
@@ -87,30 +60,7 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> V1EnterpriseEnterpriseIdUsersPostWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
-        /// <summary>
-        /// Remove Enterprise User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        Room V1EnterpriseEnterpriseIdUsersUserIdDelete (int? enterpriseId, int? userId);
-
-        /// <summary>
-        /// Remove Enterprise User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> V1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo (int? enterpriseId, int? userId);
+        ApiResponse<Room> CreateEnterpriseUserWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
         /// <summary>
         /// Get Enterprise Profile
         /// </summary>
@@ -120,7 +70,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Enterprise</returns>
-        Enterprise V1UserUserIdEnterpriseProfileGet (int? userId);
+        Enterprise GetEnterpriseProfile (int? userId);
 
         /// <summary>
         /// Get Enterprise Profile
@@ -131,37 +81,60 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of Enterprise</returns>
-        ApiResponse<Enterprise> V1UserUserIdEnterpriseProfileGetWithHttpInfo (int? userId);
+        ApiResponse<Enterprise> GetEnterpriseProfileWithHttpInfo (int? userId);
+        /// <summary>
+        /// List Enterprise Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>EnterpriseUserList</returns>
+        EnterpriseUserList ListUsers (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
+
+        /// <summary>
+        /// List Enterprise Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>ApiResponse of EnterpriseUserList</returns>
+        ApiResponse<EnterpriseUserList> ListUsersWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
+        /// <summary>
+        /// Remove Enterprise User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Room</returns>
+        Room RemoveEnterpriseUser (int? enterpriseId, int? userId);
+
+        /// <summary>
+        /// Remove Enterprise User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Room</returns>
+        ApiResponse<Room> RemoveEnterpriseUserWithHttpInfo (int? enterpriseId, int? userId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// List Enterprise Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersGetAsync (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
-
-        /// <summary>
-        /// List Enterprise Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersGetAsyncWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
-        /// <summary>
         /// Create Enterprise User
         /// </summary>
         /// <remarks>
@@ -172,7 +145,7 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersPostAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
+        System.Threading.Tasks.Task<Room> CreateEnterpriseUserAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
 
         /// <summary>
         /// Create Enterprise User
@@ -185,30 +158,7 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersPostAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
-        /// <summary>
-        /// Remove Enterprise User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersUserIdDeleteAsync (int? enterpriseId, int? userId);
-
-        /// <summary>
-        /// Remove Enterprise User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersUserIdDeleteAsyncWithHttpInfo (int? enterpriseId, int? userId);
+        System.Threading.Tasks.Task<ApiResponse<Room>> CreateEnterpriseUserAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null);
         /// <summary>
         /// Get Enterprise Profile
         /// </summary>
@@ -218,7 +168,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of Enterprise</returns>
-        System.Threading.Tasks.Task<Enterprise> V1UserUserIdEnterpriseProfileGetAsync (int? userId);
+        System.Threading.Tasks.Task<Enterprise> GetEnterpriseProfileAsync (int? userId);
 
         /// <summary>
         /// Get Enterprise Profile
@@ -229,7 +179,57 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (Enterprise)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Enterprise>> V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo (int? userId);
+        System.Threading.Tasks.Task<ApiResponse<Enterprise>> GetEnterpriseProfileAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// List Enterprise Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>Task of EnterpriseUserList</returns>
+        System.Threading.Tasks.Task<EnterpriseUserList> ListUsersAsync (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
+
+        /// <summary>
+        /// List Enterprise Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>Task of ApiResponse (EnterpriseUserList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EnterpriseUserList>> ListUsersAsyncWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null);
+        /// <summary>
+        /// Remove Enterprise User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Room</returns>
+        System.Threading.Tasks.Task<Room> RemoveEnterpriseUserAsync (int? enterpriseId, int? userId);
+
+        /// <summary>
+        /// Remove Enterprise User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Room>> RemoveEnterpriseUserAsyncWithHttpInfo (int? enterpriseId, int? userId);
         #endregion Asynchronous Operations
     }
 
@@ -343,176 +343,6 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Room</returns>
-        public Room V1EnterpriseEnterpriseIdUsersGet (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
-        {
-             ApiResponse<Room> localVarResponse = V1EnterpriseEnterpriseIdUsersGetWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > V1EnterpriseEnterpriseIdUsersGetWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (emailId != null) localVarQueryParams.Add("emailId", Configuration.ApiClient.ParameterToString(emailId)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersGetAsync (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
-        {
-             ApiResponse<Room> localVarResponse = await V1EnterpriseEnterpriseIdUsersGetAsyncWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersGetAsyncWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (emailId != null) localVarQueryParams.Add("emailId", Configuration.ApiClient.ParameterToString(emailId)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
         /// Create Enterprise User This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -520,9 +350,9 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Room</returns>
-        public Room V1EnterpriseEnterpriseIdUsersPost (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        public Room CreateEnterpriseUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
-             ApiResponse<Room> localVarResponse = V1EnterpriseEnterpriseIdUsersPostWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+             ApiResponse<Room> localVarResponse = CreateEnterpriseUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
              return localVarResponse.Data;
         }
 
@@ -534,11 +364,11 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > V1EnterpriseEnterpriseIdUsersPostWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        public ApiResponse< Room > CreateEnterpriseUserWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersPost");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->CreateEnterpriseUser");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/users";
             var localVarPathParams = new Dictionary<String, String>();
@@ -584,7 +414,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersPost", localVarResponse);
+                Exception exception = ExceptionFactory("CreateEnterpriseUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -602,9 +432,9 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersPostAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        public async System.Threading.Tasks.Task<Room> CreateEnterpriseUserAsync (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
-             ApiResponse<Room> localVarResponse = await V1EnterpriseEnterpriseIdUsersPostAsyncWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+             ApiResponse<Room> localVarResponse = await CreateEnterpriseUserAsyncWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
              return localVarResponse.Data;
 
         }
@@ -617,11 +447,11 @@ namespace IO.Swagger.Api
         /// <param name="forcePasswordChange">Forces the user to change his or her password on first log in. (optional)</param>
         /// <param name="sendVerificationMail">Prevents welcome emails from being sent to the newly created user. (optional)</param>
         /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersPostAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Room>> CreateEnterpriseUserAsyncWithHttpInfo (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersPost");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->CreateEnterpriseUser");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/users";
             var localVarPathParams = new Dictionary<String, String>();
@@ -666,171 +496,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        public Room V1EnterpriseEnterpriseIdUsersUserIdDelete (int? enterpriseId, int? userId)
-        {
-             ApiResponse<Room> localVarResponse = V1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo(enterpriseId, userId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > V1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo (int? enterpriseId, int? userId)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersUserIdDelete");
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersUserIdDelete");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/users/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersUserIdDelete", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> V1EnterpriseEnterpriseIdUsersUserIdDeleteAsync (int? enterpriseId, int? userId)
-        {
-             ApiResponse<Room> localVarResponse = await V1EnterpriseEnterpriseIdUsersUserIdDeleteAsyncWithHttpInfo(enterpriseId, userId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> V1EnterpriseEnterpriseIdUsersUserIdDeleteAsyncWithHttpInfo (int? enterpriseId, int? userId)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersUserIdDelete");
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->V1EnterpriseEnterpriseIdUsersUserIdDelete");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/users/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdUsersUserIdDelete", localVarResponse);
+                Exception exception = ExceptionFactory("CreateEnterpriseUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -846,9 +512,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Enterprise</returns>
-        public Enterprise V1UserUserIdEnterpriseProfileGet (int? userId)
+        public Enterprise GetEnterpriseProfile (int? userId)
         {
-             ApiResponse<Enterprise> localVarResponse = V1UserUserIdEnterpriseProfileGetWithHttpInfo(userId);
+             ApiResponse<Enterprise> localVarResponse = GetEnterpriseProfileWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -858,11 +524,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of Enterprise</returns>
-        public ApiResponse< Enterprise > V1UserUserIdEnterpriseProfileGetWithHttpInfo (int? userId)
+        public ApiResponse< Enterprise > GetEnterpriseProfileWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->V1UserUserIdEnterpriseProfileGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->GetEnterpriseProfile");
 
             var localVarPath = "/v1/user/{user_id}/enterprise_profile";
             var localVarPathParams = new Dictionary<String, String>();
@@ -906,7 +572,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdEnterpriseProfileGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetEnterpriseProfile", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -922,9 +588,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of Enterprise</returns>
-        public async System.Threading.Tasks.Task<Enterprise> V1UserUserIdEnterpriseProfileGetAsync (int? userId)
+        public async System.Threading.Tasks.Task<Enterprise> GetEnterpriseProfileAsync (int? userId)
         {
-             ApiResponse<Enterprise> localVarResponse = await V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo(userId);
+             ApiResponse<Enterprise> localVarResponse = await GetEnterpriseProfileAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -935,11 +601,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (Enterprise)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Enterprise>> V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo (int? userId)
+        public async System.Threading.Tasks.Task<ApiResponse<Enterprise>> GetEnterpriseProfileAsyncWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->V1UserUserIdEnterpriseProfileGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->GetEnterpriseProfile");
 
             var localVarPath = "/v1/user/{user_id}/enterprise_profile";
             var localVarPathParams = new Dictionary<String, String>();
@@ -982,13 +648,347 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdEnterpriseProfileGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetEnterpriseProfile", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<Enterprise>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Enterprise) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Enterprise)));
+            
+        }
+
+        /// <summary>
+        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>EnterpriseUserList</returns>
+        public EnterpriseUserList ListUsers (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
+        {
+             ApiResponse<EnterpriseUserList> localVarResponse = ListUsersWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>ApiResponse of EnterpriseUserList</returns>
+        public ApiResponse< EnterpriseUserList > ListUsersWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->ListUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/users";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (emailId != null) localVarQueryParams.Add("emailId", Configuration.ApiClient.ParameterToString(emailId)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EnterpriseUserList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EnterpriseUserList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUserList)));
+            
+        }
+
+        /// <summary>
+        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>Task of EnterpriseUserList</returns>
+        public async System.Threading.Tasks.Task<EnterpriseUserList> ListUsersAsync (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
+        {
+             ApiResponse<EnterpriseUserList> localVarResponse = await ListUsersAsyncWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Enterprise Users This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="emailId">Allows filtering the response by a user’s email address. (optional)</param>
+        /// <returns>Task of ApiResponse (EnterpriseUserList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EnterpriseUserList>> ListUsersAsyncWithHttpInfo (int? enterpriseId, int? pageSize = null, int? pageNumber = null, string emailId = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->ListUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/users";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (emailId != null) localVarQueryParams.Add("emailId", Configuration.ApiClient.ParameterToString(emailId)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EnterpriseUserList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EnterpriseUserList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUserList)));
+            
+        }
+
+        /// <summary>
+        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Room</returns>
+        public Room RemoveEnterpriseUser (int? enterpriseId, int? userId)
+        {
+             ApiResponse<Room> localVarResponse = RemoveEnterpriseUserWithHttpInfo(enterpriseId, userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Room</returns>
+        public ApiResponse< Room > RemoveEnterpriseUserWithHttpInfo (int? enterpriseId, int? userId)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->RemoveEnterpriseUser");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->RemoveEnterpriseUser");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/users/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveEnterpriseUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+            
+        }
+
+        /// <summary>
+        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Room</returns>
+        public async System.Threading.Tasks.Task<Room> RemoveEnterpriseUserAsync (int? enterpriseId, int? userId)
+        {
+             ApiResponse<Room> localVarResponse = await RemoveEnterpriseUserAsyncWithHttpInfo(enterpriseId, userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Remove Enterprise User This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Room>> RemoveEnterpriseUserAsyncWithHttpInfo (int? enterpriseId, int? userId)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling EnterpriseApi->RemoveEnterpriseUser");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling EnterpriseApi->RemoveEnterpriseUser");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/users/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveEnterpriseUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
             
         }
 

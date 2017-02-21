@@ -41,6 +41,7 @@ import java.io.IOException;
 import io.swagger.client.model.Room;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.Enterprise;
+import io.swagger.client.model.EnterpriseUserList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -67,135 +68,13 @@ public class EnterpriseApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for v1EnterpriseEnterpriseIdUsersGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersGetCall(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for createEnterpriseUser */
+    private com.squareup.okhttp.Call createEnterpriseUserCall(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/users".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
-        if (pageNumber != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
-        if (emailId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "emailId", emailId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * List Enterprise Users
-     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param pageSize Sets number of items returned per page. (optional)
-     * @param pageNumber Selects which page of results to return. (optional)
-     * @param emailId Allows filtering the response by a user’s email address. (optional)
-     * @return Room
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Room v1EnterpriseEnterpriseIdUsersGet(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId) throws ApiException {
-        ApiResponse<Room> resp = v1EnterpriseEnterpriseIdUsersGetWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
-        return resp.getData();
-    }
-
-    /**
-     * List Enterprise Users
-     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param pageSize Sets number of items returned per page. (optional)
-     * @param pageNumber Selects which page of results to return. (optional)
-     * @param emailId Allows filtering the response by a user’s email address. (optional)
-     * @return ApiResponse&lt;Room&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Room> v1EnterpriseEnterpriseIdUsersGetWithHttpInfo(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersGetCall(enterpriseId, pageSize, pageNumber, emailId, null, null);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List Enterprise Users (asynchronously)
-     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param pageSize Sets number of items returned per page. (optional)
-     * @param pageNumber Selects which page of results to return. (optional)
-     * @param emailId Allows filtering the response by a user’s email address. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersGetAsync(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId, final ApiCallback<Room> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersGetCall(enterpriseId, pageSize, pageNumber, emailId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Room>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdUsersPost */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersPostCall(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersPost(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling createEnterpriseUser(Async)");
         }
         
 
@@ -250,8 +129,8 @@ public class EnterpriseApi {
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room v1EnterpriseEnterpriseIdUsersPost(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        ApiResponse<Room> resp = v1EnterpriseEnterpriseIdUsersPostWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+    public Room createEnterpriseUser(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        ApiResponse<Room> resp = createEnterpriseUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
         return resp.getData();
     }
 
@@ -264,8 +143,8 @@ public class EnterpriseApi {
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> v1EnterpriseEnterpriseIdUsersPostWithHttpInfo(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersPostCall(enterpriseId, forcePasswordChange, sendVerificationMail, null, null);
+    public ApiResponse<Room> createEnterpriseUserWithHttpInfo(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        com.squareup.okhttp.Call call = createEnterpriseUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, null, null);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -280,7 +159,7 @@ public class EnterpriseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersPostAsync(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call createEnterpriseUserAsync(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<Room> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -301,23 +180,252 @@ public class EnterpriseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersPostCall(enterpriseId, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createEnterpriseUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for v1EnterpriseEnterpriseIdUsersUserIdDelete */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersUserIdDeleteCall(Integer enterpriseId, Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getEnterpriseProfile */
+    private com.squareup.okhttp.Call getEnterpriseProfileCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getEnterpriseProfile(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/enterprise_profile".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Get Enterprise Profile
+     * This endpoint retrieves the enterprise profile associated with the user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return Enterprise
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Enterprise getEnterpriseProfile(Integer userId) throws ApiException {
+        ApiResponse<Enterprise> resp = getEnterpriseProfileWithHttpInfo(userId);
+        return resp.getData();
+    }
+
+    /**
+     * Get Enterprise Profile
+     * This endpoint retrieves the enterprise profile associated with the user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return ApiResponse&lt;Enterprise&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Enterprise> getEnterpriseProfileWithHttpInfo(Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = getEnterpriseProfileCall(userId, null, null);
+        Type localVarReturnType = new TypeToken<Enterprise>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Enterprise Profile (asynchronously)
+     * This endpoint retrieves the enterprise profile associated with the user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getEnterpriseProfileAsync(Integer userId, final ApiCallback<Enterprise> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getEnterpriseProfileCall(userId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Enterprise>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for listUsers */
+    private com.squareup.okhttp.Call listUsersCall(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdUsersUserIdDelete(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling listUsers(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/users".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
+        if (pageNumber != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
+        if (emailId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "emailId", emailId));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * List Enterprise Users
+     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param pageSize Sets number of items returned per page. (optional)
+     * @param pageNumber Selects which page of results to return. (optional)
+     * @param emailId Allows filtering the response by a user’s email address. (optional)
+     * @return EnterpriseUserList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EnterpriseUserList listUsers(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId) throws ApiException {
+        ApiResponse<EnterpriseUserList> resp = listUsersWithHttpInfo(enterpriseId, pageSize, pageNumber, emailId);
+        return resp.getData();
+    }
+
+    /**
+     * List Enterprise Users
+     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param pageSize Sets number of items returned per page. (optional)
+     * @param pageNumber Selects which page of results to return. (optional)
+     * @param emailId Allows filtering the response by a user’s email address. (optional)
+     * @return ApiResponse&lt;EnterpriseUserList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EnterpriseUserList> listUsersWithHttpInfo(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId) throws ApiException {
+        com.squareup.okhttp.Call call = listUsersCall(enterpriseId, pageSize, pageNumber, emailId, null, null);
+        Type localVarReturnType = new TypeToken<EnterpriseUserList>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Enterprise Users (asynchronously)
+     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param pageSize Sets number of items returned per page. (optional)
+     * @param pageNumber Selects which page of results to return. (optional)
+     * @param emailId Allows filtering the response by a user’s email address. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listUsersAsync(Integer enterpriseId, Integer pageSize, Integer pageNumber, String emailId, final ApiCallback<EnterpriseUserList> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listUsersCall(enterpriseId, pageSize, pageNumber, emailId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EnterpriseUserList>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for removeEnterpriseUser */
+    private com.squareup.okhttp.Call removeEnterpriseUserCall(Integer enterpriseId, Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling removeEnterpriseUser(Async)");
         }
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1EnterpriseEnterpriseIdUsersUserIdDelete(Async)");
+            throw new ApiException("Missing the required parameter 'userId' when calling removeEnterpriseUser(Async)");
         }
         
 
@@ -368,8 +476,8 @@ public class EnterpriseApi {
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room v1EnterpriseEnterpriseIdUsersUserIdDelete(Integer enterpriseId, Integer userId) throws ApiException {
-        ApiResponse<Room> resp = v1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo(enterpriseId, userId);
+    public Room removeEnterpriseUser(Integer enterpriseId, Integer userId) throws ApiException {
+        ApiResponse<Room> resp = removeEnterpriseUserWithHttpInfo(enterpriseId, userId);
         return resp.getData();
     }
 
@@ -381,8 +489,8 @@ public class EnterpriseApi {
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> v1EnterpriseEnterpriseIdUsersUserIdDeleteWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersUserIdDeleteCall(enterpriseId, userId, null, null);
+    public ApiResponse<Room> removeEnterpriseUserWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = removeEnterpriseUserCall(enterpriseId, userId, null, null);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -396,7 +504,7 @@ public class EnterpriseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdUsersUserIdDeleteAsync(Integer enterpriseId, Integer userId, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeEnterpriseUserAsync(Integer enterpriseId, Integer userId, final ApiCallback<Room> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -417,115 +525,8 @@ public class EnterpriseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdUsersUserIdDeleteCall(enterpriseId, userId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeEnterpriseUserCall(enterpriseId, userId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1UserUserIdEnterpriseProfileGet */
-    private com.squareup.okhttp.Call v1UserUserIdEnterpriseProfileGetCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdEnterpriseProfileGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/enterprise_profile".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Get Enterprise Profile
-     * This endpoint retrieves the enterprise profile associated with the user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Enterprise
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Enterprise v1UserUserIdEnterpriseProfileGet(Integer userId) throws ApiException {
-        ApiResponse<Enterprise> resp = v1UserUserIdEnterpriseProfileGetWithHttpInfo(userId);
-        return resp.getData();
-    }
-
-    /**
-     * Get Enterprise Profile
-     * This endpoint retrieves the enterprise profile associated with the user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return ApiResponse&lt;Enterprise&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Enterprise> v1UserUserIdEnterpriseProfileGetWithHttpInfo(Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdEnterpriseProfileGetCall(userId, null, null);
-        Type localVarReturnType = new TypeToken<Enterprise>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get Enterprise Profile (asynchronously)
-     * This endpoint retrieves the enterprise profile associated with the user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1UserUserIdEnterpriseProfileGetAsync(Integer userId, final ApiCallback<Enterprise> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1UserUserIdEnterpriseProfileGetCall(userId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Enterprise>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

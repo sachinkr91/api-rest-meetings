@@ -57,8 +57,8 @@
 
 
     /**
-     * Callback function to receive the result of the v1UserUserIdCmsContentIdisDownloadabletrueGet operation.
-     * @callback module:api/RecordingApi~v1UserUserIdCmsContentIdisDownloadabletrueGetCallback
+     * Callback function to receive the result of the getRecordingContent operation.
+     * @callback module:api/RecordingApi~getRecordingContentCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Content} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -69,20 +69,20 @@
      * This endpoint retrieves properties about the recording chapter.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} contentId The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
-     * @param {module:api/RecordingApi~v1UserUserIdCmsContentIdisDownloadabletrueGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/RecordingApi~getRecordingContentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Content}
      */
-    this.v1UserUserIdCmsContentIdisDownloadabletrueGet = function(userId, contentId, callback) {
+    this.getRecordingContent = function(userId, contentId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdCmsContentIdisDownloadabletrueGet";
+        throw "Missing the required parameter 'userId' when calling getRecordingContent";
       }
 
       // verify the required parameter 'contentId' is set
       if (contentId == undefined || contentId == null) {
-        throw "Missing the required parameter 'contentId' when calling v1UserUserIdCmsContentIdisDownloadabletrueGet";
+        throw "Missing the required parameter 'contentId' when calling getRecordingContent";
       }
 
 
@@ -104,6 +104,110 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/cms/{content_id}?isDownloadable=true', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the startRecording operation.
+     * @callback module:api/RecordingApi~startRecordingCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Start Recording
+     * This endpoint starts recording for a meeting in progress.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:api/RecordingApi~startRecordingCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.startRecording = function(userId, meetingId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling startRecording";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling startRecording";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action=start', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the stopRecording operation.
+     * @callback module:api/RecordingApi~stopRecordingCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Stop Recording
+     * This endpoint stops recording for a meeting in progress.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:api/RecordingApi~stopRecordingCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.stopRecording = function(userId, meetingId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling stopRecording";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling stopRecording";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=stop', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -157,112 +261,6 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost operation.
-     * @callback module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Start Recording
-     * This endpoint starts recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost = function(userId, meetingId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=start', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut operation.
-     * @callback module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Stop Recording
-     * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut = function(userId, meetingId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=stop', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

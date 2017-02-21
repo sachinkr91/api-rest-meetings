@@ -59,40 +59,40 @@
   }
 
   describe('EnterpriseApi', function() {
-    describe('v1EnterpriseEnterpriseIdUsersGet', function() {
-      it('should call v1EnterpriseEnterpriseIdUsersGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdUsersGet
-        //instance.v1EnterpriseEnterpriseIdUsersGet(pet, function(error) {
+    describe('createEnterpriseUser', function() {
+      it('should call createEnterpriseUser successfully', function(done) {
+        //uncomment below and update the code to test createEnterpriseUser
+        //instance.createEnterpriseUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdUsersPost', function() {
-      it('should call v1EnterpriseEnterpriseIdUsersPost successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdUsersPost
-        //instance.v1EnterpriseEnterpriseIdUsersPost(pet, function(error) {
+    describe('getEnterpriseProfile', function() {
+      it('should call getEnterpriseProfile successfully', function(done) {
+        //uncomment below and update the code to test getEnterpriseProfile
+        //instance.getEnterpriseProfile(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdUsersUserIdDelete', function() {
-      it('should call v1EnterpriseEnterpriseIdUsersUserIdDelete successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdUsersUserIdDelete
-        //instance.v1EnterpriseEnterpriseIdUsersUserIdDelete(pet, function(error) {
+    describe('listUsers', function() {
+      it('should call listUsers successfully', function(done) {
+        //uncomment below and update the code to test listUsers
+        //instance.listUsers(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdEnterpriseProfileGet', function() {
-      it('should call v1UserUserIdEnterpriseProfileGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdEnterpriseProfileGet
-        //instance.v1UserUserIdEnterpriseProfileGet(pet, function(error) {
+    describe('removeEnterpriseUser', function() {
+      it('should call removeEnterpriseUser successfully', function(done) {
+        //uncomment below and update the code to test removeEnterpriseUser
+        //instance.removeEnterpriseUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -4,9 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CancelMeeting**](MeetingApi.md#cancelmeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
+[**CreateMeeting**](MeetingApi.md#createmeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
+[**GetDefaultMeeting**](MeetingApi.md#getdefaultmeeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
+[**GetEndpointLayout**](MeetingApi.md#getendpointlayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
+[**GetMeeting**](MeetingApi.md#getmeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**UpdateEndpointLayout**](MeetingApi.md#updateendpointlayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
+[**UpdateMeeting**](MeetingApi.md#updatemeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
-[**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsendpointguidput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
 [**V1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidendpointsput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
@@ -15,13 +20,500 @@ Method | HTTP request | Description
 [**V1UserUserIdLiveMeetingsMeetingIdPairingCodeSIPPost**](MeetingApi.md#v1useruseridlivemeetingsmeetingidpairingcodesippost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/SIP | Generate SIP Pairing Code
 [**V1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1useruseridlivemeetingsmeetingidput) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 [**V1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1useruseridmeetingsmeetingidnumbersget) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**V1UserUserIdScheduledMeetingGet**](MeetingApi.md#v1useruseridscheduledmeetingget) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
-[**V1UserUserIdScheduledMeetingMeetingIdDelete**](MeetingApi.md#v1useruseridscheduledmeetingmeetingiddelete) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**V1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidemailsget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
-[**V1UserUserIdScheduledMeetingMeetingIdGet**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidget) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
-[**V1UserUserIdScheduledMeetingMeetingIdPut**](MeetingApi.md#v1useruseridscheduledmeetingmeetingidput) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**V1UserUserIdScheduledMeetingPost**](MeetingApi.md#v1useruseridscheduledmeetingpost) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
 
+
+<a name="cancelmeeting"></a>
+# **CancelMeeting**
+> void CancelMeeting (int? userId, int? meetingId)
+
+Cancel Meeting
+
+This endpoint deletes a scheuled meeting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CancelMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+
+            try
+            {
+                // Cancel Meeting
+                apiInstance.CancelMeeting(userId, meetingId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.CancelMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createmeeting"></a>
+# **CreateMeeting**
+> Meeting CreateMeeting (int? userId, Meeting meeting, bool? email = null)
+
+Create Meeting
+
+This endpoint will create a scheduled meeting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class CreateMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
+            var email = true;  // bool? | If set to true, sends invitation emails to all listed participants. (optional) 
+
+            try
+            {
+                // Create Meeting
+                Meeting result = apiInstance.CreateMeeting(userId, meeting, email);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.CreateMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
+ **email** | **bool?**| If set to true, sends invitation emails to all listed participants. | [optional] 
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getdefaultmeeting"></a>
+# **GetDefaultMeeting**
+> List<Meeting> GetDefaultMeeting (int? userId)
+
+Get Meeting Settings
+
+This endpoint gets a user’s default meeting settings.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetDefaultMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+            try
+            {
+                // Get Meeting Settings
+                List&lt;Meeting&gt; result = apiInstance.GetDefaultMeeting(userId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.GetDefaultMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**List<Meeting>**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getendpointlayout"></a>
+# **GetEndpointLayout**
+> Layout GetEndpointLayout (int? userId, int? meetingId, string endpointGuid)
+
+Get Endpoint Layout
+
+This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetEndpointLayoutExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+
+            try
+            {
+                // Get Endpoint Layout
+                Layout result = apiInstance.GetEndpointLayout(userId, meetingId, endpointGuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.GetEndpointLayout: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
+
+### Return type
+
+[**Layout**](Layout.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeeting"></a>
+# **GetMeeting**
+> Meeting GetMeeting (int? userId, int? meetingId)
+
+Get Meeting
+
+This endpoint gets the settings for a user's meeting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
+
+            try
+            {
+                // Get Meeting
+                Meeting result = apiInstance.GetMeeting(userId, meetingId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.GetMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. | 
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateendpointlayout"></a>
+# **UpdateEndpointLayout**
+> Layout UpdateEndpointLayout (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+
+Update Endpoint Layout
+
+This endpoint allows you to update an individual endpoint’s current layout setting.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class UpdateEndpointLayoutExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+            var isLeader = true;  // bool? |  (optional) 
+            var push = true;  // bool? |  (optional) 
+
+            try
+            {
+                // Update Endpoint Layout
+                Layout result = apiInstance.UpdateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.UpdateEndpointLayout: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
+ **isLeader** | **bool?**|  | [optional] 
+ **push** | **bool?**|  | [optional] 
+
+### Return type
+
+[**Layout**](Layout.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatemeeting"></a>
+# **UpdateMeeting**
+> Meeting UpdateMeeting (int? userId, int? meetingId, Meeting meeting)
+
+Update Meeting
+
+This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class UpdateMeetingExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new MeetingApi();
+            var userId = 56;  // int? | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
+
+            try
+            {
+                // Update Meeting
+                Meeting result = apiInstance.UpdateMeeting(userId, meetingId, meeting);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MeetingApi.UpdateMeeting: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidget"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**
@@ -82,152 +574,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Endpoint**](Endpoint.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutget"></a>
-# **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet**
-> Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet (int? userId, int? meetingId, string endpointGuid)
-
-Get Endpoint Layout
-
-This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-            var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
-
-            try
-            {
-                // Get Endpoint Layout
-                Layout result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
-
-### Return type
-
-[**Layout**](Layout.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridlivemeetingsmeetingidendpointsendpointguidlayoutput"></a>
-# **V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut**
-> Layout V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
-
-Update Endpoint Layout
-
-This endpoint allows you to update an individual endpoint’s current layout setting.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-            var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
-            var isLeader = true;  // bool? |  (optional) 
-            var push = true;  // bool? |  (optional) 
-
-            try
-            {
-                // Update Endpoint Layout
-                Layout result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, isLeader, push);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
- **isLeader** | **bool?**|  | [optional] 
- **push** | **bool?**|  | [optional] 
-
-### Return type
-
-[**Layout**](Layout.md)
 
 ### Authorization
 
@@ -807,141 +1153,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1useruseridscheduledmeetingget"></a>
-# **V1UserUserIdScheduledMeetingGet**
-> List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId)
-
-Get Meeting Settings
-
-This endpoint gets a user’s default meeting settings.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdScheduledMeetingGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-            try
-            {
-                // Get Meeting Settings
-                List&lt;Meeting&gt; result = apiInstance.V1UserUserIdScheduledMeetingGet(userId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdScheduledMeetingGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**List<Meeting>**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridscheduledmeetingmeetingiddelete"></a>
-# **V1UserUserIdScheduledMeetingMeetingIdDelete**
-> void V1UserUserIdScheduledMeetingMeetingIdDelete (int? userId, int? meetingId)
-
-Cancel Meeting
-
-This endpoint deletes a scheuled meeting.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdScheduledMeetingMeetingIdDeleteExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-
-            try
-            {
-                // Cancel Meeting
-                apiInstance.V1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdScheduledMeetingMeetingIdDelete: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="v1useruseridscheduledmeetingmeetingidemailsget"></a>
 # **V1UserUserIdScheduledMeetingMeetingIdEmailsGet**
 > Meeting V1UserUserIdScheduledMeetingMeetingIdEmailsGet (int? userId, int? meetingId, string type = null, string role = null, string action = null)
@@ -1001,217 +1212,6 @@ Name | Type | Description  | Notes
  **type** | **string**| TEXT, ICS, HTML | [optional] 
  **role** | **string**| moderator, participant | [optional] 
  **action** | **string**| create, edit, delete | [optional] 
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridscheduledmeetingmeetingidget"></a>
-# **V1UserUserIdScheduledMeetingMeetingIdGet**
-> Meeting V1UserUserIdScheduledMeetingMeetingIdGet (int? userId, int? meetingId)
-
-Get Meeting
-
-This endpoint gets the settings for a user's meeting.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdScheduledMeetingMeetingIdGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
-
-            try
-            {
-                // Get Meeting
-                Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdGet(userId, meetingId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdScheduledMeetingMeetingIdGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users. | 
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridscheduledmeetingmeetingidput"></a>
-# **V1UserUserIdScheduledMeetingMeetingIdPut**
-> Meeting V1UserUserIdScheduledMeetingMeetingIdPut (int? userId, int? meetingId, Meeting meeting)
-
-Update Meeting
-
-This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdScheduledMeetingMeetingIdPutExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-            var meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
-
-            try
-            {
-                // Update Meeting
-                Meeting result = apiInstance.V1UserUserIdScheduledMeetingMeetingIdPut(userId, meetingId, meeting);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdScheduledMeetingMeetingIdPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridscheduledmeetingpost"></a>
-# **V1UserUserIdScheduledMeetingPost**
-> Meeting V1UserUserIdScheduledMeetingPost (int? userId, Meeting meeting, bool? email = null)
-
-Create Meeting
-
-This endpoint will create a scheduled meeting.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1UserUserIdScheduledMeetingPostExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new MeetingApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meeting = new Meeting(); // Meeting | The user's room details that you wish to update.
-            var email = true;  // bool? | If set to true, sends invitation emails to all listed participants. (optional) 
-
-            try
-            {
-                // Create Meeting
-                Meeting result = apiInstance.V1UserUserIdScheduledMeetingPost(userId, meeting, email);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MeetingApi.V1UserUserIdScheduledMeetingPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The user&#39;s room details that you wish to update. | 
- **email** | **bool?**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type
 

@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Enterprise', 'model/Error', 'model/User', 'model/Room', 'model/Meeting'], factory);
+    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/Enterprise', 'model/Room', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Enterprise'), require('../model/Error'), require('../model/User'), require('../model/Room'), require('../model/Meeting'));
+    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/Enterprise'), require('../model/Room'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.UserApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.Meeting);
+    root.BlueJeansOnVideoRestApi.UserApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.User);
   }
-}(this, function(ApiClient, Enterprise, Error, User, Room, Meeting) {
+}(this, function(ApiClient, Meeting, Error, Enterprise, Room, User) {
   'use strict';
 
   /**
@@ -57,8 +57,54 @@
 
 
     /**
-     * Callback function to receive the result of the v1UserUserIdEnterpriseProfileGet operation.
-     * @callback module:api/UserApi~v1UserUserIdEnterpriseProfileGetCallback
+     * Callback function to receive the result of the getDefaultMeeting operation.
+     * @callback module:api/UserApi~getDefaultMeetingCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Meeting>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meeting Settings
+     * This endpoint gets a user’s default meeting settings.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:api/UserApi~getDefaultMeetingCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Meeting>}
+     */
+    this.getDefaultMeeting = function(userId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getDefaultMeeting";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Meeting];
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/scheduled_meeting', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getEnterpriseProfile operation.
+     * @callback module:api/UserApi~getEnterpriseProfileCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Enterprise} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -68,15 +114,15 @@
      * Get Enterprise Profile
      * This endpoint retrieves the enterprise profile associated with the user.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/UserApi~v1UserUserIdEnterpriseProfileGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserApi~getEnterpriseProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Enterprise}
      */
-    this.v1UserUserIdEnterpriseProfileGet = function(userId, callback) {
+    this.getEnterpriseProfile = function(userId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdEnterpriseProfileGet";
+        throw "Missing the required parameter 'userId' when calling getEnterpriseProfile";
       }
 
 
@@ -103,106 +149,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdGet operation.
-     * @callback module:api/UserApi~v1UserUserIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get User Account Details
-     * This endpoint retrieves the basic account details for a given user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/UserApi~v1UserUserIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
-     */
-    this.v1UserUserIdGet = function(userId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = User;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdPut operation.
-     * @callback module:api/UserApi~v1UserUserIdPutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Update User Account Details
-     * This endpoint allows updating a user’s basic account details.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:model/User} user The user details that you wish to update.
-     * @param {module:api/UserApi~v1UserUserIdPutCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
-     */
-    this.v1UserUserIdPut = function(userId, user, callback) {
-      var postBody = user;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdPut";
-      }
-
-      // verify the required parameter 'user' is set
-      if (user == undefined || user == null) {
-        throw "Missing the required parameter 'user' when calling v1UserUserIdPut";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = User;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdRoomGet operation.
-     * @callback module:api/UserApi~v1UserUserIdRoomGetCallback
+     * Callback function to receive the result of the getRoom operation.
+     * @callback module:api/UserApi~getRoomCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -212,15 +160,15 @@
      * Get User’s Default Meeting Settings
      * This endpoint gets a user’s default meeting settings.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/UserApi~v1UserUserIdRoomGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserApi~getRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.v1UserUserIdRoomGet = function(userId, callback) {
+    this.getRoom = function(userId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdRoomGet";
+        throw "Missing the required parameter 'userId' when calling getRoom";
       }
 
 
@@ -247,8 +195,54 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdRoomPut operation.
-     * @callback module:api/UserApi~v1UserUserIdRoomPutCallback
+     * Callback function to receive the result of the getUser operation.
+     * @callback module:api/UserApi~getUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/User} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get User Account Details
+     * This endpoint retrieves the basic account details for a given user.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/User}
+     */
+    this.getUser = function(userId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getUser";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = User;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateRoom operation.
+     * @callback module:api/UserApi~updateRoomCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -259,20 +253,20 @@
      * This endpoint allows updating a user’s default meeting settings.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Room} room The user&#39;s room details that you wish to update.
-     * @param {module:api/UserApi~v1UserUserIdRoomPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserApi~updateRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.v1UserUserIdRoomPut = function(userId, room, callback) {
+    this.updateRoom = function(userId, room, callback) {
       var postBody = room;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdRoomPut";
+        throw "Missing the required parameter 'userId' when calling updateRoom";
       }
 
       // verify the required parameter 'room' is set
       if (room == undefined || room == null) {
-        throw "Missing the required parameter 'room' when calling v1UserUserIdRoomPut";
+        throw "Missing the required parameter 'room' when calling updateRoom";
       }
 
 
@@ -299,26 +293,32 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdScheduledMeetingGet operation.
-     * @callback module:api/UserApi~v1UserUserIdScheduledMeetingGetCallback
+     * Callback function to receive the result of the updateUser operation.
+     * @callback module:api/UserApi~updateUserCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Meeting>} data The data returned by the service call.
+     * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get Meeting Settings
-     * This endpoint gets a user’s default meeting settings.
+     * Update User Account Details
+     * This endpoint allows updating a user’s basic account details.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/UserApi~v1UserUserIdScheduledMeetingGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Meeting>}
+     * @param {module:model/User} user The user details that you wish to update.
+     * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/User}
      */
-    this.v1UserUserIdScheduledMeetingGet = function(userId, callback) {
-      var postBody = null;
+    this.updateUser = function(userId, user, callback) {
+      var postBody = user;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdScheduledMeetingGet";
+        throw "Missing the required parameter 'userId' when calling updateUser";
+      }
+
+      // verify the required parameter 'user' is set
+      if (user == undefined || user == null) {
+        throw "Missing the required parameter 'user' when calling updateUser";
       }
 
 
@@ -335,10 +335,10 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = [Meeting];
+      var returnType = User;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/scheduled_meeting', 'GET',
+        '/v1/user/{user_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

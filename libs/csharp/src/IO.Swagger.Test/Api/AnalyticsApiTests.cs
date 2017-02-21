@@ -77,84 +77,84 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet
+        /// Test GetEndpointDistribution
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetTest()
+        public void GetEndpointDistributionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //string filter = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(enterpriseId, filter);
+            //var response = instance.GetEndpointDistribution(enterpriseId, filter);
             //Assert.IsInstanceOf<AnalyticsEndpointDistribution> (response, "response is AnalyticsEndpointDistribution");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet
+        /// Test GetFeedbackComments
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetTest()
+        public void GetFeedbackCommentsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //string start = null;
             //string end = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(enterpriseId, start, end);
+            //var response = instance.GetFeedbackComments(enterpriseId, start, end);
             //Assert.IsInstanceOf<AnalyticsFeedbackComments> (response, "response is AnalyticsFeedbackComments");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet
+        /// Test GetFeedbackCount
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetTest()
+        public void GetFeedbackCountTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? enterpriseId = null;
+            //string start = null;
+            //string end = null;
+            //var response = instance.GetFeedbackCount(enterpriseId, start, end);
+            //Assert.IsInstanceOf<AnalyticsFeedbackScores> (response, "response is AnalyticsFeedbackScores");
+        }
+        
+        /// <summary>
+        /// Test GetMeetingUsage
+        /// </summary>
+        [Test]
+        public void GetMeetingUsageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //string clientTZ = null;
             //string filter = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(enterpriseId, clientTZ, filter);
+            //var response = instance.GetMeetingUsage(enterpriseId, clientTZ, filter);
             //Assert.IsInstanceOf<AnalyticsUsage> (response, "response is AnalyticsUsage");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet
+        /// Test GetRoiRanges
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetTest()
+        public void GetRoiRangesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //string filter = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(enterpriseId, filter);
+            //var response = instance.GetRoiRanges(enterpriseId, filter);
             //Assert.IsInstanceOf<AnalyticsRoiData> (response, "response is AnalyticsRoiData");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet
+        /// Test GetTopUsers
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetTest()
+        public void GetTopUsersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //string filter = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(enterpriseId, filter);
+            //var response = instance.GetTopUsers(enterpriseId, filter);
             //Assert.IsInstanceOf<AnalyticsTopUsers> (response, "response is AnalyticsTopUsers");
-        }
-        
-        /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoFeedbackCountGet
-        /// </summary>
-        [Test]
-        public void V1EnterpriseEnterpriseIdIndigoFeedbackCountGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? enterpriseId = null;
-            //string start = null;
-            //string end = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoFeedbackCountGet(enterpriseId, start, end);
-            //Assert.IsInstanceOf<AnalyticsFeedbackScores> (response, "response is AnalyticsFeedbackScores");
         }
         
     }

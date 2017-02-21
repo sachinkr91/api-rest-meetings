@@ -59,30 +59,30 @@
   }
 
   describe('AuthenticationApi', function() {
-    describe('oauth2TokenclientPost', function() {
-      it('should call oauth2TokenclientPost successfully', function(done) {
-        //uncomment below and update the code to test oauth2TokenclientPost
-        //instance.oauth2TokenclientPost(pet, function(error) {
+    describe('getTokenByClient', function() {
+      it('should call getTokenByClient successfully', function(done) {
+        //uncomment below and update the code to test getTokenByClient
+        //instance.getTokenByClient(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('oauth2TokenmeetingPost', function() {
-      it('should call oauth2TokenmeetingPost successfully', function(done) {
-        //uncomment below and update the code to test oauth2TokenmeetingPost
-        //instance.oauth2TokenmeetingPost(pet, function(error) {
+    describe('getTokenByMeeting', function() {
+      it('should call getTokenByMeeting successfully', function(done) {
+        //uncomment below and update the code to test getTokenByMeeting
+        //instance.getTokenByMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('oauth2TokenpasswordPost', function() {
-      it('should call oauth2TokenpasswordPost successfully', function(done) {
-        //uncomment below and update the code to test oauth2TokenpasswordPost
-        //instance.oauth2TokenpasswordPost(pet, function(error) {
+    describe('getTokenByPassword', function() {
+      it('should call getTokenByPassword successfully', function(done) {
+        //uncomment below and update the code to test getTokenByPassword
+        //instance.getTokenByPassword(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

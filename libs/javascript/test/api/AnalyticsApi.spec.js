@@ -59,60 +59,60 @@
   }
 
   describe('AnalyticsApi', function() {
-    describe('v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet
-        //instance.v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(pet, function(error) {
+    describe('getEndpointDistribution', function() {
+      it('should call getEndpointDistribution successfully', function(done) {
+        //uncomment below and update the code to test getEndpointDistribution
+        //instance.getEndpointDistribution(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet
-        //instance.v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(pet, function(error) {
+    describe('getFeedbackComments', function() {
+      it('should call getFeedbackComments successfully', function(done) {
+        //uncomment below and update the code to test getFeedbackComments
+        //instance.getFeedbackComments(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet
-        //instance.v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(pet, function(error) {
+    describe('getFeedbackCount', function() {
+      it('should call getFeedbackCount successfully', function(done) {
+        //uncomment below and update the code to test getFeedbackCount
+        //instance.getFeedbackCount(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet
-        //instance.v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(pet, function(error) {
+    describe('getMeetingUsage', function() {
+      it('should call getMeetingUsage successfully', function(done) {
+        //uncomment below and update the code to test getMeetingUsage
+        //instance.getMeetingUsage(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet
-        //instance.v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(pet, function(error) {
+    describe('getRoiRanges', function() {
+      it('should call getRoiRanges successfully', function(done) {
+        //uncomment below and update the code to test getRoiRanges
+        //instance.getRoiRanges(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoFeedbackCountGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoFeedbackCountGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoFeedbackCountGet
-        //instance.v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(pet, function(error) {
+    describe('getTopUsers', function() {
+      it('should call getTopUsers successfully', function(done) {
+        //uncomment below and update the code to test getTopUsers
+        //instance.getTopUsers(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

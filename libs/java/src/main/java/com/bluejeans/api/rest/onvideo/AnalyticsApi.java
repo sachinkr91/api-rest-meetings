@@ -41,10 +41,10 @@ import java.io.IOException;
 import io.swagger.client.model.AnalyticsEndpointDistribution;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.AnalyticsFeedbackComments;
+import io.swagger.client.model.AnalyticsFeedbackScores;
 import io.swagger.client.model.AnalyticsUsage;
 import io.swagger.client.model.AnalyticsRoiData;
 import io.swagger.client.model.AnalyticsTopUsers;
-import io.swagger.client.model.AnalyticsFeedbackScores;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -71,13 +71,13 @@ public class AnalyticsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getEndpointDistribution */
+    private com.squareup.okhttp.Call getEndpointDistributionCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getEndpointDistribution(Async)");
         }
         
 
@@ -129,8 +129,8 @@ public class AnalyticsApi {
      * @return AnalyticsEndpointDistribution
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AnalyticsEndpointDistribution v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(Integer enterpriseId, String filter) throws ApiException {
-        ApiResponse<AnalyticsEndpointDistribution> resp = v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo(enterpriseId, filter);
+    public AnalyticsEndpointDistribution getEndpointDistribution(Integer enterpriseId, String filter) throws ApiException {
+        ApiResponse<AnalyticsEndpointDistribution> resp = getEndpointDistributionWithHttpInfo(enterpriseId, filter);
         return resp.getData();
     }
 
@@ -142,8 +142,8 @@ public class AnalyticsApi {
      * @return ApiResponse&lt;AnalyticsEndpointDistribution&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AnalyticsEndpointDistribution> v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetCall(enterpriseId, filter, null, null);
+    public ApiResponse<AnalyticsEndpointDistribution> getEndpointDistributionWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getEndpointDistributionCall(enterpriseId, filter, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsEndpointDistribution>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -157,7 +157,7 @@ public class AnalyticsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsEndpointDistribution> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEndpointDistributionAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsEndpointDistribution> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -178,28 +178,28 @@ public class AnalyticsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetCall(enterpriseId, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getEndpointDistributionCall(enterpriseId, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AnalyticsEndpointDistribution>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getFeedbackComments */
+    private com.squareup.okhttp.Call getFeedbackCommentsCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getFeedbackComments(Async)");
         }
         
         // verify the required parameter 'start' is set
         if (start == null) {
-            throw new ApiException("Missing the required parameter 'start' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(Async)");
+            throw new ApiException("Missing the required parameter 'start' when calling getFeedbackComments(Async)");
         }
         
         // verify the required parameter 'end' is set
         if (end == null) {
-            throw new ApiException("Missing the required parameter 'end' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(Async)");
+            throw new ApiException("Missing the required parameter 'end' when calling getFeedbackComments(Async)");
         }
         
 
@@ -254,8 +254,8 @@ public class AnalyticsApi {
      * @return AnalyticsFeedbackComments
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AnalyticsFeedbackComments v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(Integer enterpriseId, String start, String end) throws ApiException {
-        ApiResponse<AnalyticsFeedbackComments> resp = v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo(enterpriseId, start, end);
+    public AnalyticsFeedbackComments getFeedbackComments(Integer enterpriseId, String start, String end) throws ApiException {
+        ApiResponse<AnalyticsFeedbackComments> resp = getFeedbackCommentsWithHttpInfo(enterpriseId, start, end);
         return resp.getData();
     }
 
@@ -268,8 +268,8 @@ public class AnalyticsApi {
      * @return ApiResponse&lt;AnalyticsFeedbackComments&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AnalyticsFeedbackComments> v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetCall(enterpriseId, start, end, null, null);
+    public ApiResponse<AnalyticsFeedbackComments> getFeedbackCommentsWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
+        com.squareup.okhttp.Call call = getFeedbackCommentsCall(enterpriseId, start, end, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackComments>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -284,7 +284,7 @@ public class AnalyticsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackComments> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFeedbackCommentsAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackComments> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -305,374 +305,28 @@ public class AnalyticsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetCall(enterpriseId, start, end, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFeedbackCommentsCall(enterpriseId, start, end, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackComments>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetCall(Integer enterpriseId, String clientTZ, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getFeedbackCount */
+    private com.squareup.okhttp.Call getFeedbackCountCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (clientTZ != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTZ", clientTZ));
-        if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Meeting Usage Over Time
-     * This endpoint reports on meeting usage.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
-     * @return AnalyticsUsage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AnalyticsUsage v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
-        ApiResponse<AnalyticsUsage> resp = v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo(enterpriseId, clientTZ, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Meeting Usage Over Time
-     * This endpoint reports on meeting usage.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
-     * @return ApiResponse&lt;AnalyticsUsage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AnalyticsUsage> v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetCall(enterpriseId, clientTZ, filter, null, null);
-        Type localVarReturnType = new TypeToken<AnalyticsUsage>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Meeting Usage Over Time (asynchronously)
-     * This endpoint reports on meeting usage.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsync(Integer enterpriseId, String clientTZ, String filter, final ApiCallback<AnalyticsUsage> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetCall(enterpriseId, clientTZ, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AnalyticsUsage>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(Async)");
-        }
-        
-        // verify the required parameter 'filter' is set
-        if (filter == null) {
-            throw new ApiException("Missing the required parameter 'filter' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * ROI Data
-     * This endpoint lists return on investment (ROI) data for meetings.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (required)
-     * @return AnalyticsRoiData
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AnalyticsRoiData v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(Integer enterpriseId, String filter) throws ApiException {
-        ApiResponse<AnalyticsRoiData> resp = v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo(enterpriseId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * ROI Data
-     * This endpoint lists return on investment (ROI) data for meetings.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (required)
-     * @return ApiResponse&lt;AnalyticsRoiData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AnalyticsRoiData> v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetCall(enterpriseId, filter, null, null);
-        Type localVarReturnType = new TypeToken<AnalyticsRoiData>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * ROI Data (asynchronously)
-     * This endpoint lists return on investment (ROI) data for meetings.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsRoiData> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetCall(enterpriseId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AnalyticsRoiData>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(Async)");
-        }
-        
-
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * Top Users
-     * This endpoint retrieves the top useres by usage for an enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
-     * @return AnalyticsTopUsers
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AnalyticsTopUsers v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(Integer enterpriseId, String filter) throws ApiException {
-        ApiResponse<AnalyticsTopUsers> resp = v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo(enterpriseId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Top Users
-     * This endpoint retrieves the top useres by usage for an enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
-     * @return ApiResponse&lt;AnalyticsTopUsers&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AnalyticsTopUsers> v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetCall(enterpriseId, filter, null, null);
-        Type localVarReturnType = new TypeToken<AnalyticsTopUsers>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Top Users (asynchronously)
-     * This endpoint retrieves the top useres by usage for an enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsTopUsers> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetCall(enterpriseId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AnalyticsTopUsers>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoFeedbackCountGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoFeedbackCountGetCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getFeedbackCount(Async)");
         }
         
         // verify the required parameter 'start' is set
         if (start == null) {
-            throw new ApiException("Missing the required parameter 'start' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(Async)");
+            throw new ApiException("Missing the required parameter 'start' when calling getFeedbackCount(Async)");
         }
         
         // verify the required parameter 'end' is set
         if (end == null) {
-            throw new ApiException("Missing the required parameter 'end' when calling v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(Async)");
+            throw new ApiException("Missing the required parameter 'end' when calling getFeedbackCount(Async)");
         }
         
 
@@ -727,8 +381,8 @@ public class AnalyticsApi {
      * @return AnalyticsFeedbackScores
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AnalyticsFeedbackScores v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(Integer enterpriseId, String start, String end) throws ApiException {
-        ApiResponse<AnalyticsFeedbackScores> resp = v1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo(enterpriseId, start, end);
+    public AnalyticsFeedbackScores getFeedbackCount(Integer enterpriseId, String start, String end) throws ApiException {
+        ApiResponse<AnalyticsFeedbackScores> resp = getFeedbackCountWithHttpInfo(enterpriseId, start, end);
         return resp.getData();
     }
 
@@ -741,8 +395,8 @@ public class AnalyticsApi {
      * @return ApiResponse&lt;AnalyticsFeedbackScores&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AnalyticsFeedbackScores> v1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoFeedbackCountGetCall(enterpriseId, start, end, null, null);
+    public ApiResponse<AnalyticsFeedbackScores> getFeedbackCountWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
+        com.squareup.okhttp.Call call = getFeedbackCountCall(enterpriseId, start, end, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackScores>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -757,7 +411,7 @@ public class AnalyticsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackScores> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFeedbackCountAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackScores> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -778,8 +432,354 @@ public class AnalyticsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoFeedbackCountGetCall(enterpriseId, start, end, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFeedbackCountCall(enterpriseId, start, end, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackScores>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMeetingUsage */
+    private com.squareup.okhttp.Call getMeetingUsageCall(Integer enterpriseId, String clientTZ, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingUsage(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (clientTZ != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTZ", clientTZ));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Meeting Usage Over Time
+     * This endpoint reports on meeting usage.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
+     * @return AnalyticsUsage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AnalyticsUsage getMeetingUsage(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
+        ApiResponse<AnalyticsUsage> resp = getMeetingUsageWithHttpInfo(enterpriseId, clientTZ, filter);
+        return resp.getData();
+    }
+
+    /**
+     * Meeting Usage Over Time
+     * This endpoint reports on meeting usage.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
+     * @return ApiResponse&lt;AnalyticsUsage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AnalyticsUsage> getMeetingUsageWithHttpInfo(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingUsageCall(enterpriseId, clientTZ, filter, null, null);
+        Type localVarReturnType = new TypeToken<AnalyticsUsage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Meeting Usage Over Time (asynchronously)
+     * This endpoint reports on meeting usage.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param clientTZ Based on standard TZ code. (optional, default to America/Denver)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeetingUsageAsync(Integer enterpriseId, String clientTZ, String filter, final ApiCallback<AnalyticsUsage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeetingUsageCall(enterpriseId, clientTZ, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AnalyticsUsage>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getRoiRanges */
+    private com.squareup.okhttp.Call getRoiRangesCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getRoiRanges(Async)");
+        }
+        
+        // verify the required parameter 'filter' is set
+        if (filter == null) {
+            throw new ApiException("Missing the required parameter 'filter' when calling getRoiRanges(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * ROI Data
+     * This endpoint lists return on investment (ROI) data for meetings.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (required)
+     * @return AnalyticsRoiData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AnalyticsRoiData getRoiRanges(Integer enterpriseId, String filter) throws ApiException {
+        ApiResponse<AnalyticsRoiData> resp = getRoiRangesWithHttpInfo(enterpriseId, filter);
+        return resp.getData();
+    }
+
+    /**
+     * ROI Data
+     * This endpoint lists return on investment (ROI) data for meetings.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (required)
+     * @return ApiResponse&lt;AnalyticsRoiData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AnalyticsRoiData> getRoiRangesWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getRoiRangesCall(enterpriseId, filter, null, null);
+        Type localVarReturnType = new TypeToken<AnalyticsRoiData>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * ROI Data (asynchronously)
+     * This endpoint lists return on investment (ROI) data for meetings.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getRoiRangesAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsRoiData> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getRoiRangesCall(enterpriseId, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AnalyticsRoiData>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getTopUsers */
+    private com.squareup.okhttp.Call getTopUsersCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getTopUsers(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * Top Users
+     * This endpoint retrieves the top useres by usage for an enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
+     * @return AnalyticsTopUsers
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AnalyticsTopUsers getTopUsers(Integer enterpriseId, String filter) throws ApiException {
+        ApiResponse<AnalyticsTopUsers> resp = getTopUsersWithHttpInfo(enterpriseId, filter);
+        return resp.getData();
+    }
+
+    /**
+     * Top Users
+     * This endpoint retrieves the top useres by usage for an enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
+     * @return ApiResponse&lt;AnalyticsTopUsers&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AnalyticsTopUsers> getTopUsersWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getTopUsersCall(enterpriseId, filter, null, null);
+        Type localVarReturnType = new TypeToken<AnalyticsTopUsers>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Top Users (asynchronously)
+     * This endpoint retrieves the top useres by usage for an enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTopUsersAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsTopUsers> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTopUsersCall(enterpriseId, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AnalyticsTopUsers>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

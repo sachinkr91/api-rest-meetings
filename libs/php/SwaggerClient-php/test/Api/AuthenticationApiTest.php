@@ -90,34 +90,34 @@ class AuthenticationApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for oauth2TokenclientPost
+     * Test case for getTokenByClient
      *
      * Authentication via Client Grant Type.
      *
      */
-    public function testOauth2TokenclientPost()
+    public function testGetTokenByClient()
     {
 
     }
 
     /**
-     * Test case for oauth2TokenmeetingPost
+     * Test case for getTokenByMeeting
      *
      * Authentication via Meeting Grant Type.
      *
      */
-    public function testOauth2TokenmeetingPost()
+    public function testGetTokenByMeeting()
     {
 
     }
 
     /**
-     * Test case for oauth2TokenpasswordPost
+     * Test case for getTokenByPassword
      *
      * Authentication via Password Grant Type.
      *
      */
-    public function testOauth2TokenpasswordPost()
+    public function testGetTokenByPassword()
     {
 
     }

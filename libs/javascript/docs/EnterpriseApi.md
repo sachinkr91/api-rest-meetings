@@ -4,15 +4,127 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1EnterpriseEnterpriseIdUsersGet**](EnterpriseApi.md#v1EnterpriseEnterpriseIdUsersGet) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**v1EnterpriseEnterpriseIdUsersPost**](EnterpriseApi.md#v1EnterpriseEnterpriseIdUsersPost) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
-[**v1EnterpriseEnterpriseIdUsersUserIdDelete**](EnterpriseApi.md#v1EnterpriseEnterpriseIdUsersUserIdDelete) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
-[**v1UserUserIdEnterpriseProfileGet**](EnterpriseApi.md#v1UserUserIdEnterpriseProfileGet) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+[**createEnterpriseUser**](EnterpriseApi.md#createEnterpriseUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**getEnterpriseProfile**](EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+[**listUsers**](EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
+[**removeEnterpriseUser**](EnterpriseApi.md#removeEnterpriseUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-<a name="v1EnterpriseEnterpriseIdUsersGet"></a>
-# **v1EnterpriseEnterpriseIdUsersGet**
-> Room v1EnterpriseEnterpriseIdUsersGet(enterpriseId, opts)
+<a name="createEnterpriseUser"></a>
+# **createEnterpriseUser**
+> Room createEnterpriseUser(enterpriseId, opts)
+
+Create Enterprise User
+
+This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
+
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+
+var opts = { 
+  'forcePasswordChange': true, // Boolean | Forces the user to change his or her password on first log in.
+  'sendVerificationMail': true // Boolean | Prevents welcome emails from being sent to the newly created user.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.createEnterpriseUser(enterpriseId, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **forcePasswordChange** | **Boolean**| Forces the user to change his or her password on first log in. | [optional] 
+ **sendVerificationMail** | **Boolean**| Prevents welcome emails from being sent to the newly created user. | [optional] 
+
+### Return type
+
+[**Room**](Room.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getEnterpriseProfile"></a>
+# **getEnterpriseProfile**
+> Enterprise getEnterpriseProfile(userId)
+
+Get Enterprise Profile
+
+This endpoint retrieves the enterprise profile associated with the user.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
+
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getEnterpriseProfile(userId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**Enterprise**](Enterprise.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listUsers"></a>
+# **listUsers**
+> EnterpriseUserList listUsers(enterpriseId, opts)
 
 List Enterprise Users
 
@@ -46,7 +158,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1EnterpriseEnterpriseIdUsersGet(enterpriseId, opts, callback);
+apiInstance.listUsers(enterpriseId, opts, callback);
 ```
 
 ### Parameters
@@ -60,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Room**](Room.md)
+[**EnterpriseUserList**](EnterpriseUserList.md)
 
 ### Authorization
 
@@ -71,68 +183,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="v1EnterpriseEnterpriseIdUsersPost"></a>
-# **v1EnterpriseEnterpriseIdUsersPost**
-> Room v1EnterpriseEnterpriseIdUsersPost(enterpriseId, opts)
-
-Create Enterprise User
-
-This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
-
-### Example
-```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
-
-var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-
-var opts = { 
-  'forcePasswordChange': true, // Boolean | Forces the user to change his or her password on first log in.
-  'sendVerificationMail': true // Boolean | Prevents welcome emails from being sent to the newly created user.
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.v1EnterpriseEnterpriseIdUsersPost(enterpriseId, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **forcePasswordChange** | **Boolean**| Forces the user to change his or her password on first log in. | [optional] 
- **sendVerificationMail** | **Boolean**| Prevents welcome emails from being sent to the newly created user. | [optional] 
-
-### Return type
-
-[**Room**](Room.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1EnterpriseEnterpriseIdUsersUserIdDelete"></a>
-# **v1EnterpriseEnterpriseIdUsersUserIdDelete**
-> Room v1EnterpriseEnterpriseIdUsersUserIdDelete(enterpriseId, userId)
+<a name="removeEnterpriseUser"></a>
+# **removeEnterpriseUser**
+> Room removeEnterpriseUser(enterpriseId, userId)
 
 Remove Enterprise User
 
@@ -163,7 +216,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1EnterpriseEnterpriseIdUsersUserIdDelete(enterpriseId, userId, callback);
+apiInstance.removeEnterpriseUser(enterpriseId, userId, callback);
 ```
 
 ### Parameters
@@ -176,59 +229,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Room**](Room.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdEnterpriseProfileGet"></a>
-# **v1UserUserIdEnterpriseProfileGet**
-> Enterprise v1UserUserIdEnterpriseProfileGet(userId)
-
-Get Enterprise Profile
-
-This endpoint retrieves the enterprise profile associated with the user.
-
-### Example
-```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
-
-var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.v1UserUserIdEnterpriseProfileGet(userId, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**Enterprise**](Enterprise.md)
 
 ### Authorization
 

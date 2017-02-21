@@ -26,12 +26,12 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Error;
+import io.swagger.client.model.Meeting;
 import io.swagger.client.model.Layout;
+import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
-import io.swagger.client.model.Meeting;
 import io.swagger.client.model.Numbers;
 import org.junit.Test;
 
@@ -49,19 +49,52 @@ public class MeetingApiTest {
 
     
     /**
-     * Get Endpoint Information
+     * Cancel Meeting
      *
-     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     * This endpoint deletes a scheuled meeting.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetTest() throws ApiException {
+    public void cancelMeetingTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        String endpointGuid = null;
-        // Endpoint response = api.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid);
+        // api.cancelMeeting(userId, meetingId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create Meeting
+     *
+     * This endpoint will create a scheduled meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createMeetingTest() throws ApiException {
+        Integer userId = null;
+        Meeting meeting = null;
+        Boolean email = null;
+        // Meeting response = api.createMeeting(userId, meeting, email);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Meeting Settings
+     *
+     * This endpoint gets a user’s default meeting settings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDefaultMeetingTest() throws ApiException {
+        Integer userId = null;
+        // List<Meeting> response = api.getDefaultMeeting(userId);
 
         // TODO: test validations
     }
@@ -75,11 +108,28 @@ public class MeetingApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGetTest() throws ApiException {
+    public void getEndpointLayoutTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
         String endpointGuid = null;
-        // Layout response = api.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutGet(userId, meetingId, endpointGuid);
+        // Layout response = api.getEndpointLayout(userId, meetingId, endpointGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Meeting
+     *
+     * This endpoint gets the settings for a user&#39;s meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeetingTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        // Meeting response = api.getMeeting(userId, meetingId);
 
         // TODO: test validations
     }
@@ -93,13 +143,49 @@ public class MeetingApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPutTest() throws ApiException {
+    public void updateEndpointLayoutTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
         String endpointGuid = null;
         Boolean isLeader = null;
         Boolean push = null;
-        // Layout response = api.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidLayoutPut(userId, meetingId, endpointGuid, isLeader, push);
+        // Layout response = api.updateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update Meeting
+     *
+     * This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateMeetingTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        Meeting meeting = null;
+        // Meeting response = api.updateMeeting(userId, meetingId, meeting);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Endpoint Information
+     *
+     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        String endpointGuid = null;
+        // Endpoint response = api.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid);
 
         // TODO: test validations
     }
@@ -249,39 +335,6 @@ public class MeetingApiTest {
     }
     
     /**
-     * Get Meeting Settings
-     *
-     * This endpoint gets a user’s default meeting settings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdScheduledMeetingGetTest() throws ApiException {
-        Integer userId = null;
-        // List<Meeting> response = api.v1UserUserIdScheduledMeetingGet(userId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Cancel Meeting
-     *
-     * This endpoint deletes a scheuled meeting.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdScheduledMeetingMeetingIdDeleteTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        // api.v1UserUserIdScheduledMeetingMeetingIdDelete(userId, meetingId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get Meeting Email
      *
      * This endpoint retrieves the email object for a scheduled meeting.
@@ -297,59 +350,6 @@ public class MeetingApiTest {
         String role = null;
         String action = null;
         // Meeting response = api.v1UserUserIdScheduledMeetingMeetingIdEmailsGet(userId, meetingId, type, role, action);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get Meeting
-     *
-     * This endpoint gets the settings for a user&#39;s meeting.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdScheduledMeetingMeetingIdGetTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        // Meeting response = api.v1UserUserIdScheduledMeetingMeetingIdGet(userId, meetingId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update Meeting
-     *
-     * This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdScheduledMeetingMeetingIdPutTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        Meeting meeting = null;
-        // Meeting response = api.v1UserUserIdScheduledMeetingMeetingIdPut(userId, meetingId, meeting);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create Meeting
-     *
-     * This endpoint will create a scheduled meeting.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdScheduledMeetingPostTest() throws ApiException {
-        Integer userId = null;
-        Meeting meeting = null;
-        Boolean email = null;
-        // Meeting response = api.v1UserUserIdScheduledMeetingPost(userId, meeting, email);
 
         // TODO: test validations
     }

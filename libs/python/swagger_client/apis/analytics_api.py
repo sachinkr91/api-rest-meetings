@@ -51,7 +51,7 @@ class AnalyticsApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get(self, enterprise_id, **kwargs):
+    def get_endpoint_distribution(self, enterprise_id, **kwargs):
         """
         Endpoint Distribution
         This endpoint retrieves endpoint connection type distribution by enterprise.
@@ -62,7 +62,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get(enterprise_id, callback=callback_function)
+        >>> thread = api.get_endpoint_distribution(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -74,12 +74,12 @@ class AnalyticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get_with_http_info(enterprise_id, **kwargs)
+            return self.get_endpoint_distribution_with_http_info(enterprise_id, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get_with_http_info(enterprise_id, **kwargs)
+            (data) = self.get_endpoint_distribution_with_http_info(enterprise_id, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get_with_http_info(self, enterprise_id, **kwargs):
+    def get_endpoint_distribution_with_http_info(self, enterprise_id, **kwargs):
         """
         Endpoint Distribution
         This endpoint retrieves endpoint connection type distribution by enterprise.
@@ -90,7 +90,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.get_endpoint_distribution_with_http_info(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -110,13 +110,13 @@ class AnalyticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get" % key
+                    " to method get_endpoint_distribution" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_analytics_endpoints_distribution_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_endpoint_distribution`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution'.replace('{format}', 'json')
         path_params = {}
@@ -159,7 +159,7 @@ class AnalyticsApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get(self, enterprise_id, start, end, **kwargs):
+    def get_feedback_comments(self, enterprise_id, start, end, **kwargs):
         """
         Survey Feedback Comments
         This endpoint lists end of meeting survey comments by enterprise by time period.
@@ -170,7 +170,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get(enterprise_id, start, end, callback=callback_function)
+        >>> thread = api.get_feedback_comments(enterprise_id, start, end, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -183,12 +183,12 @@ class AnalyticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get_with_http_info(enterprise_id, start, end, **kwargs)
+            return self.get_feedback_comments_with_http_info(enterprise_id, start, end, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get_with_http_info(enterprise_id, start, end, **kwargs)
+            (data) = self.get_feedback_comments_with_http_info(enterprise_id, start, end, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get_with_http_info(self, enterprise_id, start, end, **kwargs):
+    def get_feedback_comments_with_http_info(self, enterprise_id, start, end, **kwargs):
         """
         Survey Feedback Comments
         This endpoint lists end of meeting survey comments by enterprise by time period.
@@ -199,7 +199,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get_with_http_info(enterprise_id, start, end, callback=callback_function)
+        >>> thread = api.get_feedback_comments_with_http_info(enterprise_id, start, end, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -220,19 +220,19 @@ class AnalyticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get" % key
+                    " to method get_feedback_comments" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_feedback_comments`")
         # verify the required parameter 'start' is set
         if ('start' not in params) or (params['start'] is None):
-            raise ValueError("Missing the required parameter `start` when calling `v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get`")
+            raise ValueError("Missing the required parameter `start` when calling `get_feedback_comments`")
         # verify the required parameter 'end' is set
         if ('end' not in params) or (params['end'] is None):
-            raise ValueError("Missing the required parameter `end` when calling `v1_enterprise_enterprise_id_indigo_analytics_feedback_comments_get`")
+            raise ValueError("Missing the required parameter `end` when calling `get_feedback_comments`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments'.replace('{format}', 'json')
         path_params = {}
@@ -277,7 +277,125 @@ class AnalyticsApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get(self, enterprise_id, **kwargs):
+    def get_feedback_count(self, enterprise_id, start, end, **kwargs):
+        """
+        Survey Feedback Scores
+        This endpoint lists end of meeting survey scores by enterprise by time period.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_feedback_count(enterprise_id, start, end, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param str start: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+        :param str end: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+        :return: AnalyticsFeedbackScores
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_feedback_count_with_http_info(enterprise_id, start, end, **kwargs)
+        else:
+            (data) = self.get_feedback_count_with_http_info(enterprise_id, start, end, **kwargs)
+            return data
+
+    def get_feedback_count_with_http_info(self, enterprise_id, start, end, **kwargs):
+        """
+        Survey Feedback Scores
+        This endpoint lists end of meeting survey scores by enterprise by time period.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_feedback_count_with_http_info(enterprise_id, start, end, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param str start: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+        :param str end: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
+        :return: AnalyticsFeedbackScores
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enterprise_id', 'start', 'end']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_feedback_count" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'enterprise_id' is set
+        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_feedback_count`")
+        # verify the required parameter 'start' is set
+        if ('start' not in params) or (params['start'] is None):
+            raise ValueError("Missing the required parameter `start` when calling `get_feedback_count`")
+        # verify the required parameter 'end' is set
+        if ('end' not in params) or (params['end'] is None):
+            raise ValueError("Missing the required parameter `end` when calling `get_feedback_count`")
+
+        resource_path = '/v1/enterprise/{enterprise_id}/indigo/feedback/count'.replace('{format}', 'json')
+        path_params = {}
+        if 'enterprise_id' in params:
+            path_params['enterprise_id'] = params['enterprise_id']
+
+        query_params = {}
+        if 'start' in params:
+            query_params['start'] = params['start']
+        if 'end' in params:
+            query_params['end'] = params['end']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AnalyticsFeedbackScores',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_meeting_usage(self, enterprise_id, **kwargs):
         """
         Meeting Usage Over Time
         This endpoint reports on meeting usage.
@@ -288,7 +406,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get(enterprise_id, callback=callback_function)
+        >>> thread = api.get_meeting_usage(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -301,12 +419,12 @@ class AnalyticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get_with_http_info(enterprise_id, **kwargs)
+            return self.get_meeting_usage_with_http_info(enterprise_id, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get_with_http_info(enterprise_id, **kwargs)
+            (data) = self.get_meeting_usage_with_http_info(enterprise_id, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get_with_http_info(self, enterprise_id, **kwargs):
+    def get_meeting_usage_with_http_info(self, enterprise_id, **kwargs):
         """
         Meeting Usage Over Time
         This endpoint reports on meeting usage.
@@ -317,7 +435,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.get_meeting_usage_with_http_info(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -338,13 +456,13 @@ class AnalyticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get" % key
+                    " to method get_meeting_usage" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_analytics_meetings_usage_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_meeting_usage`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage'.replace('{format}', 'json')
         path_params = {}
@@ -389,7 +507,7 @@ class AnalyticsApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get(self, enterprise_id, filter, **kwargs):
+    def get_roi_ranges(self, enterprise_id, filter, **kwargs):
         """
         ROI Data
         This endpoint lists return on investment (ROI) data for meetings.
@@ -400,7 +518,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get(enterprise_id, filter, callback=callback_function)
+        >>> thread = api.get_roi_ranges(enterprise_id, filter, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -412,12 +530,12 @@ class AnalyticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get_with_http_info(enterprise_id, filter, **kwargs)
+            return self.get_roi_ranges_with_http_info(enterprise_id, filter, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get_with_http_info(enterprise_id, filter, **kwargs)
+            (data) = self.get_roi_ranges_with_http_info(enterprise_id, filter, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get_with_http_info(self, enterprise_id, filter, **kwargs):
+    def get_roi_ranges_with_http_info(self, enterprise_id, filter, **kwargs):
         """
         ROI Data
         This endpoint lists return on investment (ROI) data for meetings.
@@ -428,7 +546,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get_with_http_info(enterprise_id, filter, callback=callback_function)
+        >>> thread = api.get_roi_ranges_with_http_info(enterprise_id, filter, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -448,16 +566,16 @@ class AnalyticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get" % key
+                    " to method get_roi_ranges" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_roi_ranges`")
         # verify the required parameter 'filter' is set
         if ('filter' not in params) or (params['filter'] is None):
-            raise ValueError("Missing the required parameter `filter` when calling `v1_enterprise_enterprise_id_indigo_analytics_roi_ranges_get`")
+            raise ValueError("Missing the required parameter `filter` when calling `get_roi_ranges`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges'.replace('{format}', 'json')
         path_params = {}
@@ -500,7 +618,7 @@ class AnalyticsApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_enterprise_enterprise_id_indigo_analytics_users_usage_get(self, enterprise_id, **kwargs):
+    def get_top_users(self, enterprise_id, **kwargs):
         """
         Top Users
         This endpoint retrieves the top useres by usage for an enterprise.
@@ -511,7 +629,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_users_usage_get(enterprise_id, callback=callback_function)
+        >>> thread = api.get_top_users(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -523,12 +641,12 @@ class AnalyticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_analytics_users_usage_get_with_http_info(enterprise_id, **kwargs)
+            return self.get_top_users_with_http_info(enterprise_id, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_analytics_users_usage_get_with_http_info(enterprise_id, **kwargs)
+            (data) = self.get_top_users_with_http_info(enterprise_id, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_analytics_users_usage_get_with_http_info(self, enterprise_id, **kwargs):
+    def get_top_users_with_http_info(self, enterprise_id, **kwargs):
         """
         Top Users
         This endpoint retrieves the top useres by usage for an enterprise.
@@ -539,7 +657,7 @@ class AnalyticsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_analytics_users_usage_get_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.get_top_users_with_http_info(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -559,13 +677,13 @@ class AnalyticsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_analytics_users_usage_get" % key
+                    " to method get_top_users" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_analytics_users_usage_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_top_users`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage'.replace('{format}', 'json')
         path_params = {}
@@ -604,124 +722,6 @@ class AnalyticsApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='AnalyticsTopUsers',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_enterprise_enterprise_id_indigo_feedback_count_get(self, enterprise_id, start, end, **kwargs):
-        """
-        Survey Feedback Scores
-        This endpoint lists end of meeting survey scores by enterprise by time period.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_feedback_count_get(enterprise_id, start, end, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str start: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-        :param str end: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-        :return: AnalyticsFeedbackScores
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_feedback_count_get_with_http_info(enterprise_id, start, end, **kwargs)
-        else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_feedback_count_get_with_http_info(enterprise_id, start, end, **kwargs)
-            return data
-
-    def v1_enterprise_enterprise_id_indigo_feedback_count_get_with_http_info(self, enterprise_id, start, end, **kwargs):
-        """
-        Survey Feedback Scores
-        This endpoint lists end of meeting survey scores by enterprise by time period.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_feedback_count_get_with_http_info(enterprise_id, start, end, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str start: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-        :param str end: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
-        :return: AnalyticsFeedbackScores
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id', 'start', 'end']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_feedback_count_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_feedback_count_get`")
-        # verify the required parameter 'start' is set
-        if ('start' not in params) or (params['start'] is None):
-            raise ValueError("Missing the required parameter `start` when calling `v1_enterprise_enterprise_id_indigo_feedback_count_get`")
-        # verify the required parameter 'end' is set
-        if ('end' not in params) or (params['end'] is None):
-            raise ValueError("Missing the required parameter `end` when calling `v1_enterprise_enterprise_id_indigo_feedback_count_get`")
-
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/feedback/count'.replace('{format}', 'json')
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-
-        query_params = {}
-        if 'start' in params:
-            query_params['start'] = params['start']
-        if 'end' in params:
-            query_params['end'] = params['end']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='AnalyticsFeedbackScores',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

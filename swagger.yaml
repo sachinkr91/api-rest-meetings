@@ -67,12 +67,13 @@ paths:
     post:
       summary: Authentication via Password Grant Type
       description: An access token can be obtained by using a user’s username and password.
+      operationId: getTokenByPassword
       tags:
         - Authentication
       consumes:
         - application/json
       parameters:
-        - name: payload
+        - name: GrantTypePassword
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true
@@ -97,27 +98,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: object
-            properties:
-              access_token:
-                type: string
-                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
-              expires_in:
-                type: integer
-                description: Seconds that access token is valid for from now.
-              refresh_token:
-                type: string
-              scope:
-                type: object
-                properties:
-                  user:
-                    type: integer
-                    description: The ID of your user.
-                  partitionName:
-                    type: string
-                    description: The name of the partition you are on.
-                  partition:
-                    $ref: '#/definitions/Partition'
+            $ref: '#/definitions/GrantPassword'
         default:
           description: Unexpected error
           schema:
@@ -126,12 +107,13 @@ paths:
     post:
       summary: Authentication via Meeting Grant Type
       description: This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
+      operationId: getTokenByMeeting
       tags:
         - Authentication
       consumes:
         - application/json
       parameters:
-        - name: payload
+        - name: GrantTypeMeeting
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true
@@ -155,41 +137,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: object
-            properties:
-              access_token:
-                type: string
-                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
-              expires_in:
-                type: integer
-                description: Seconds that access token is valid for from now.
-              scope:
-                type: object
-                properties:
-                  meeting:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                      leaderId:
-                        type: integer
-                      meetingNumericId:
-                        type: string
-                      meetingUri:
-                        type: string
-                      isModerator:
-                        type: boolean
-                      endpointUriSet:
-                        type: array
-                        items:
-                          type: object
-                      meetingId:
-                        type: string
-                  partitionName:
-                    type: string
-                    description: The name of the partition you are on.
-                  partition:
-                    $ref: '#/definitions/Partition'
+            $ref: '#/definitions/GrantMeeting'
         default:
           description: Unexpected error
           schema:
@@ -198,12 +146,13 @@ paths:
     post:
       summary: Authentication via Client Grant Type
       description: This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
+      operationId: getTokenByClient
       tags:
         - Authentication
       consumes:
         - application/json
       parameters:
-        - name: payload
+        - name: GrantTypeClient
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true
@@ -227,25 +176,7 @@ paths:
         '200':
           description: The information about the grant.
           schema:
-            type: object
-            properties:
-              access_token:
-                type: string
-                description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
-              expires_in:
-                type: integer
-                description: Seconds that access token is valid for from now.
-              scope:
-                type: object
-                properties:
-                  enterprise:
-                    type: integer
-                    description: The ID of your enterprise.
-                  partitionName:
-                    type: string
-                    description: The name of the partition you are on.
-                  partition:
-                    $ref: '#/definitions/Partition'
+            $ref: '#/definitions/GrantClient'
         default:
           description: Unexpected error
           schema:
@@ -254,6 +185,7 @@ paths:
     get:
       summary: Get User Account Details
       description: This endpoint retrieves the basic account details for a given user.
+      operationId: getUser
       tags:
         - User
       security:
@@ -276,6 +208,7 @@ paths:
     put:
       summary: Update User Account Details
       description: This endpoint allows updating a user’s basic account details.
+      operationId: updateUser
       tags:
         - User
       parameters:
@@ -303,6 +236,7 @@ paths:
     get:
       summary: Get Enterprise Profile
       description: This endpoint retrieves the enterprise profile associated with the user.
+      operationId: getEnterpriseProfile
       tags:
         - User
         - Enterprise
@@ -327,6 +261,7 @@ paths:
     get:
       summary: List Enterprise Users
       description: This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+      operationId: listUsers
       tags:
         - Enterprise
       security:
@@ -353,22 +288,7 @@ paths:
         '200':
           description: The list of users in the enterprise.
           schema:
-            type: object
-            properties:
-              count:
-                type: integer
-                description: The number of users in the result.
-              users:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      description: The ID of this user.
-                    uri:
-                      type: string
-                      description: The URI of this user in order to fetch further details.
+            $ref: "#/definitions/EnterpriseUserList"
         default:
           description: Unexpected error
           schema:
@@ -376,6 +296,7 @@ paths:
     post:
       summary: Create Enterprise User
       description: This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
+      operationId: createEnterpriseUser
       tags:
         - Enterprise
       security:
@@ -407,6 +328,7 @@ paths:
     delete:
       summary: Remove Enterprise User
       description: This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+      operationId: removeEnterpriseUser
       tags:
         - Enterprise
       security:
@@ -435,6 +357,7 @@ paths:
     get:
       summary: Get User’s Default Meeting Settings
       description: This endpoint gets a user’s default meeting settings.
+      operationId: getRoom
       tags:
         - User
       security:
@@ -457,6 +380,7 @@ paths:
     put:
       summary: Update User’s Default Meeting Settings
       description: This endpoint allows updating a user’s default meeting settings.
+      operationId: updateRoom
       tags:
         - User
       security:
@@ -486,6 +410,7 @@ paths:
     get:
       summary: Get Meeting Settings
       description: This endpoint gets a user’s default meeting settings.
+      operationId: getDefaultMeeting
       tags:
         - User
         - Meeting
@@ -511,6 +436,7 @@ paths:
     post:
       summary: Create Meeting
       description: This endpoint will create a scheduled meeting.
+      operationId: createMeeting
       tags:
         - Meeting
       security:
@@ -544,6 +470,7 @@ paths:
     get:
       summary: Get Meeting
       description: This endpoint gets the settings for a user's meeting.
+      operationId: getMeeting
       tags:
         - Meeting
       security:
@@ -571,6 +498,7 @@ paths:
     put:
       summary: Update Meeting
       description: This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
+      operationId: updateMeeting
       tags:
         - Meeting
       security:
@@ -604,6 +532,7 @@ paths:
     delete:
       summary: Cancel Meeting
       description: This endpoint deletes a scheuled meeting.
+      operationId: cancelMeeting
       tags:
         - Meeting
       security:
@@ -928,6 +857,7 @@ paths:
     get:
       summary: Get Endpoint Layout
       description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+      operationId: getEndpointLayout
       tags:
         - Meeting
       security:
@@ -960,6 +890,7 @@ paths:
     put:
       summary: Update Endpoint Layout
       description: This endpoint allows you to update an individual endpoint’s current layout setting.
+      operationId: updateEndpointLayout
       tags:
         - Meeting
       security:
@@ -1055,6 +986,7 @@ paths:
     get:
       summary: List Meetings
       description: This endpoint retrieves a list of meetings.
+      operationId: listMeetingsByUser
       tags:
         - History
       security:
@@ -1091,9 +1023,11 @@ paths:
           type: string
       responses:
         '200':
-          description: The settings for the room
+          description: The list of meetings.
           schema:
-            $ref: '#/definitions/Meeting'
+            type: array
+            items:
+              $ref: '#/definitions/MeetingHistory'
         default:
           description: Unexpected error
           schema:
@@ -1102,6 +1036,7 @@ paths:
     get:
       summary: List Meetings
       description: This endpoint retrieves a list of meetings.
+      operationId: listMeetingsByEnterprise
       tags:
         - History
       security:
@@ -1114,9 +1049,11 @@ paths:
           type: integer
       responses:
         '200':
-          description: The settings for the room
+          description: The list of meetings.
           schema:
-            $ref: '#/definitions/Meeting'
+            type: array
+            items:
+              $ref: '#/definitions/MeetingHistory'
         default:
           description: Unexpected error
           schema:
@@ -1125,6 +1062,7 @@ paths:
     get:
       summary: List Meeting Recordings
       description: This endpoint retrieves a list of meeting recordings.
+      operationId: listRecordings
       tags:
         - History
       security:
@@ -1171,8 +1109,9 @@ paths:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}:
     get:
-      summary: List Meeting Recordings
-      description: This endpoint retrieves a list of meeting recordings.
+      summary: Get Recording
+      description: This endpoint retrieves the details about a meeting recording.
+      operationId: getRecording
       tags:
         - History
       security:
@@ -1253,10 +1192,11 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=start:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action=start:
     post:
       summary: Start Recording
       description: This endpoint starts recording for a meeting in progress.
+      operationId: startRecording
       tags:
         - Recording
       security:
@@ -1273,10 +1213,8 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
-          description: The settings for the room
-          schema:
-            $ref: '#/definitions/Meeting'
+        '204':
+          description: Empty response on success.
         default:
           description: Unexpected error
           schema:
@@ -1285,6 +1223,7 @@ paths:
     put:
       summary: Stop Recording
       description: This endpoint stops recording for a meeting in progress.
+      operationId: stopRecording
       tags:
         - Recording
       security:
@@ -1301,10 +1240,8 @@ paths:
           required: true
           type: integer
       responses:
-        '200':
-          description: The settings for the room
-          schema:
-            $ref: '#/definitions/Meeting'
+        '204':
+          description: Empty response on success.
         default:
           description: Unexpected error
           schema:
@@ -1436,6 +1373,7 @@ paths:
     get:
       summary: Get Recording Download Link
       description: This endpoint retrieves properties about the recording chapter.
+      operationId: getRecordingContent
       tags:
         - Recording
       security:
@@ -1629,6 +1567,7 @@ paths:
      get:
       summary: Top Users
       description: This endpoint retrieves the top useres by usage for an enterprise.
+      operationId: getTopUsers
       tags:
         - Analytics
       security:
@@ -1657,6 +1596,7 @@ paths:
      get:
       summary: Endpoint Distribution
       description: This endpoint retrieves endpoint connection type distribution by enterprise.
+      operationId: getEndpointDistribution
       tags:
         - Analytics
       security:
@@ -1685,6 +1625,7 @@ paths:
      get:
       summary: Meeting Usage Over Time
       description: This endpoint reports on meeting usage.
+      operationId: getMeetingUsage
       tags:
         - Analytics
       security:
@@ -1718,6 +1659,7 @@ paths:
      get:
       summary: ROI Data
       description: This endpoint lists return on investment (ROI) data for meetings.
+      operationId: getRoiRanges
       tags:
         - Analytics
       security:
@@ -1747,6 +1689,7 @@ paths:
      get:
       summary: Survey Feedback Scores
       description: This endpoint lists end of meeting survey scores by enterprise by time period.
+      operationId: getFeedbackCount
       tags:
         - Analytics
       security:
@@ -1782,6 +1725,7 @@ paths:
      get:
       summary: Survey Feedback Comments
       description: This endpoint lists end of meeting survey comments by enterprise by time period.
+      operationId: getFeedbackComments
       tags:
         - Analytics
       security:
@@ -1814,6 +1758,84 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  GrantPassword:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+      expires_in:
+        type: integer
+        description: Seconds that access token is valid for from now.
+      refresh_token:
+        type: string
+      scope:
+        type: object
+        properties:
+          user:
+            type: integer
+            description: The ID of your user.
+          partitionName:
+            type: string
+            description: The name of the partition you are on.
+          partition:
+            $ref: '#/definitions/Partition'
+  GrantMeeting:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+      expires_in:
+        type: integer
+        description: Seconds that access token is valid for from now.
+      scope:
+        type: object
+        properties:
+          meeting:
+            type: object
+            properties:
+              id:
+                type: integer
+              leaderId:
+                type: integer
+              meetingNumericId:
+                type: string
+              meetingUri:
+                type: string
+              isModerator:
+                type: boolean
+              endpointUriSet:
+                type: array
+                items:
+                  type: object
+              meetingId:
+                type: string
+          partitionName:
+            type: string
+            description: The name of the partition you are on.
+          partition:
+            $ref: '#/definitions/Partition'
+  GrantClient:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token acts as a kind of "valet key" that the application can include with its requests to the identity provider, which prove that it has permission from the user to access those APIs.
+      expires_in:
+        type: integer
+        description: Seconds that access token is valid for from now.
+      scope:
+        type: object
+        properties:
+          enterprise:
+            type: integer
+            description: The ID of your enterprise.
+          partitionName:
+            type: string
+            description: The name of the partition you are on.
+          partition:
+            $ref: '#/definitions/Partition'
   Partition:
     type: object
     properties:
@@ -1883,6 +1905,23 @@ definitions:
       expiryDate:
         type: integer
         description: Date of expiration; null if not set
+  EnterpriseUserList:
+    type: object
+    properties:
+      count:
+        type: integer
+        description: The number of users in the result.
+      users:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              description: The ID of this user.
+            uri:
+              type: string
+              description: The URI of this user in order to fetch further details.
   Room:
     type: object
     properties:
@@ -2552,6 +2591,104 @@ definitions:
                         type: string
                       endpointGuid:
                         type: string
+  MeetingHistory:
+      type: object
+      properties:
+        meetingGuid:
+          type: string
+        meetingNumericId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        leaderInfo:
+          type: object
+          properties:
+            leaderId:
+              type: integer
+            firstName:
+              type: string
+            lastName:
+              type: string
+            userName:
+              type: string
+            email:
+              type: string
+        userId:
+          type: integer
+        meetingDuration:
+          type: integer
+        maxParticipantCount:
+          type: integer
+        totalParticipantMinutes:
+          type: integer
+        maxParticipantMinutes:
+          type: integer
+        extraParticipantMinutes:
+          type: integer
+        isdnEndpoints:
+          type: integer
+        totalDialoutMinutes:
+          type: integer
+        totalTollFreeMinutes:
+          type: integer
+        callDIDMinutes:
+          type: integer
+        startTime:
+          type: integer
+        endTime:
+          type: integer
+        meetingStatus:
+          type: string
+          enum:
+            - Complete
+        meetingThumbnail:
+          type: string
+        startTimeZone:
+          type: string
+        processingStatus:
+          type: string
+          enum:
+            - PROCESSED
+        concurrentCalls:
+          type: string
+        uploadStatus:
+          type: string
+        pstnonly:
+          type: boolean
+        participantList:
+          type: array
+          items:
+            type: object
+            properties:
+              endpointName:
+                type: string
+              joinTime:
+                type: integer
+              minutes:
+                type: integer
+              deviceType:
+                type: string
+                enum:
+                  - Carmel
+                  - WebRTC
+              email:
+                type: string
+              remoteAddress:
+                type: string
+              isEncrypted:
+                type: boolean
+              disconnectTime:
+                type: integer
+              isModerator:
+                type: boolean
+              userId:
+                type: integer
+              tags:
+                type: string
+              participantGuid:
+                type: string
   Content:
     type: object
     properties:

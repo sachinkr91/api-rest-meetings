@@ -38,11 +38,13 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import io.swagger.client.model.Grant;
-import io.swagger.client.model.Payload;
+import io.swagger.client.model.GrantClient;
+import io.swagger.client.model.GrantTypeClient;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.Payload1;
-import io.swagger.client.model.Payload2;
+import io.swagger.client.model.GrantMeeting;
+import io.swagger.client.model.GrantTypeMeeting;
+import io.swagger.client.model.GrantTypePassword;
+import io.swagger.client.model.GrantPassword;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -69,13 +71,13 @@ public class AuthenticationApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for oauth2TokenClientPost */
-    private com.squareup.okhttp.Call oauth2TokenClientPostCall(Payload payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = payload;
+    /* Build call for getTokenByClient */
+    private com.squareup.okhttp.Call getTokenByClientCall(GrantTypeClient grantTypeClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantTypeClient;
         
-        // verify the required parameter 'payload' is set
-        if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenClientPost(Async)");
+        // verify the required parameter 'grantTypeClient' is set
+        if (grantTypeClient == null) {
+            throw new ApiException("Missing the required parameter 'grantTypeClient' when calling getTokenByClient(Async)");
         }
         
 
@@ -119,37 +121,37 @@ public class AuthenticationApi {
     /**
      * Authentication via Client Grant Type
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return Grant
+     * @param grantTypeClient Contains information about the type of grant you are requesting. (required)
+     * @return GrantClient
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenClientPost(Payload payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenClientPostWithHttpInfo(payload);
+    public GrantClient getTokenByClient(GrantTypeClient grantTypeClient) throws ApiException {
+        ApiResponse<GrantClient> resp = getTokenByClientWithHttpInfo(grantTypeClient);
         return resp.getData();
     }
 
     /**
      * Authentication via Client Grant Type
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return ApiResponse&lt;Grant&gt;
+     * @param grantTypeClient Contains information about the type of grant you are requesting. (required)
+     * @return ApiResponse&lt;GrantClient&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenClientPostWithHttpInfo(Payload payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenClientPostCall(payload, null, null);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+    public ApiResponse<GrantClient> getTokenByClientWithHttpInfo(GrantTypeClient grantTypeClient) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByClientCall(grantTypeClient, null, null);
+        Type localVarReturnType = new TypeToken<GrantClient>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Authentication via Client Grant Type (asynchronously)
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
-     * @param payload Contains information about the type of grant you are requesting. (required)
+     * @param grantTypeClient Contains information about the type of grant you are requesting. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenClientPostAsync(Payload payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByClientAsync(GrantTypeClient grantTypeClient, final ApiCallback<GrantClient> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,18 +172,18 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenClientPostCall(payload, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+        com.squareup.okhttp.Call call = getTokenByClientCall(grantTypeClient, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantClient>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for oauth2TokenMeetingPost */
-    private com.squareup.okhttp.Call oauth2TokenMeetingPostCall(Payload1 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = payload;
+    /* Build call for getTokenByMeeting */
+    private com.squareup.okhttp.Call getTokenByMeetingCall(GrantTypeMeeting grantTypeMeeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantTypeMeeting;
         
-        // verify the required parameter 'payload' is set
-        if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenMeetingPost(Async)");
+        // verify the required parameter 'grantTypeMeeting' is set
+        if (grantTypeMeeting == null) {
+            throw new ApiException("Missing the required parameter 'grantTypeMeeting' when calling getTokenByMeeting(Async)");
         }
         
 
@@ -225,37 +227,37 @@ public class AuthenticationApi {
     /**
      * Authentication via Meeting Grant Type
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return Grant
+     * @param grantTypeMeeting Contains information about the type of grant you are requesting. (required)
+     * @return GrantMeeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenMeetingPost(Payload1 payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenMeetingPostWithHttpInfo(payload);
+    public GrantMeeting getTokenByMeeting(GrantTypeMeeting grantTypeMeeting) throws ApiException {
+        ApiResponse<GrantMeeting> resp = getTokenByMeetingWithHttpInfo(grantTypeMeeting);
         return resp.getData();
     }
 
     /**
      * Authentication via Meeting Grant Type
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return ApiResponse&lt;Grant&gt;
+     * @param grantTypeMeeting Contains information about the type of grant you are requesting. (required)
+     * @return ApiResponse&lt;GrantMeeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenMeetingPostWithHttpInfo(Payload1 payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenMeetingPostCall(payload, null, null);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+    public ApiResponse<GrantMeeting> getTokenByMeetingWithHttpInfo(GrantTypeMeeting grantTypeMeeting) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByMeetingCall(grantTypeMeeting, null, null);
+        Type localVarReturnType = new TypeToken<GrantMeeting>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Authentication via Meeting Grant Type (asynchronously)
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
-     * @param payload Contains information about the type of grant you are requesting. (required)
+     * @param grantTypeMeeting Contains information about the type of grant you are requesting. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenMeetingPostAsync(Payload1 payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByMeetingAsync(GrantTypeMeeting grantTypeMeeting, final ApiCallback<GrantMeeting> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -276,18 +278,18 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenMeetingPostCall(payload, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+        com.squareup.okhttp.Call call = getTokenByMeetingCall(grantTypeMeeting, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantMeeting>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for oauth2TokenPasswordPost */
-    private com.squareup.okhttp.Call oauth2TokenPasswordPostCall(Payload2 payload, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = payload;
+    /* Build call for getTokenByPassword */
+    private com.squareup.okhttp.Call getTokenByPasswordCall(GrantTypePassword grantTypePassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantTypePassword;
         
-        // verify the required parameter 'payload' is set
-        if (payload == null) {
-            throw new ApiException("Missing the required parameter 'payload' when calling oauth2TokenPasswordPost(Async)");
+        // verify the required parameter 'grantTypePassword' is set
+        if (grantTypePassword == null) {
+            throw new ApiException("Missing the required parameter 'grantTypePassword' when calling getTokenByPassword(Async)");
         }
         
 
@@ -331,37 +333,37 @@ public class AuthenticationApi {
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return Grant
+     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
+     * @return GrantPassword
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Grant oauth2TokenPasswordPost(Payload2 payload) throws ApiException {
-        ApiResponse<Grant> resp = oauth2TokenPasswordPostWithHttpInfo(payload);
+    public GrantPassword getTokenByPassword(GrantTypePassword grantTypePassword) throws ApiException {
+        ApiResponse<GrantPassword> resp = getTokenByPasswordWithHttpInfo(grantTypePassword);
         return resp.getData();
     }
 
     /**
      * Authentication via Password Grant Type
      * An access token can be obtained by using a user’s username and password.
-     * @param payload Contains information about the type of grant you are requesting. (required)
-     * @return ApiResponse&lt;Grant&gt;
+     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
+     * @return ApiResponse&lt;GrantPassword&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Grant> oauth2TokenPasswordPostWithHttpInfo(Payload2 payload) throws ApiException {
-        com.squareup.okhttp.Call call = oauth2TokenPasswordPostCall(payload, null, null);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+    public ApiResponse<GrantPassword> getTokenByPasswordWithHttpInfo(GrantTypePassword grantTypePassword) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantTypePassword, null, null);
+        Type localVarReturnType = new TypeToken<GrantPassword>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Authentication via Password Grant Type (asynchronously)
      * An access token can be obtained by using a user’s username and password.
-     * @param payload Contains information about the type of grant you are requesting. (required)
+     * @param grantTypePassword Contains information about the type of grant you are requesting. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call oauth2TokenPasswordPostAsync(Payload2 payload, final ApiCallback<Grant> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByPasswordAsync(GrantTypePassword grantTypePassword, final ApiCallback<GrantPassword> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -382,8 +384,8 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = oauth2TokenPasswordPostCall(payload, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Grant>(){}.getType();
+        com.squareup.okhttp.Call call = getTokenByPasswordCall(grantTypePassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantPassword>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

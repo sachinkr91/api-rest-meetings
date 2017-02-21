@@ -53,10 +53,44 @@ public class RecordingApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdCmsContentIdisDownloadabletrueGetTest() throws ApiException {
+    public void getRecordingContentTest() throws ApiException {
         Integer userId = null;
         Integer contentId = null;
-        // Content response = api.v1UserUserIdCmsContentIdisDownloadabletrueGet(userId, contentId);
+        // Content response = api.getRecordingContent(userId, contentId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Start Recording
+     *
+     * This endpoint starts recording for a meeting in progress.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void startRecordingTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        // api.startRecording(userId, meetingId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Stop Recording
+     *
+     * This endpoint stops recording for a meeting in progress.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void stopRecordingTest() throws ApiException {
+        Integer userId = null;
+        Integer meetingId = null;
+        // api.stopRecording(userId, meetingId);
 
         // TODO: test validations
     }
@@ -74,40 +108,6 @@ public class RecordingApiTest {
         Integer userId = null;
         Integer meetingId = null;
         // Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdRecordingsGet(userId, meetingId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Start Recording
-     *
-     * This endpoint starts recording for a meeting in progress.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        // Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(userId, meetingId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Stop Recording
-     *
-     * This endpoint stops recording for a meeting in progress.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        // Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(userId, meetingId);
 
         // TODO: test validations
     }

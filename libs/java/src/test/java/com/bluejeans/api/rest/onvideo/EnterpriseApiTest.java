@@ -29,6 +29,7 @@ import com.bluejeans.api.rest.ApiException;
 import io.swagger.client.model.Room;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.Enterprise;
+import io.swagger.client.model.EnterpriseUserList;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,25 +46,6 @@ public class EnterpriseApiTest {
 
     
     /**
-     * List Enterprise Users
-     *
-     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdUsersGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        Integer pageSize = null;
-        Integer pageNumber = null;
-        String emailId = null;
-        // Room response = api.v1EnterpriseEnterpriseIdUsersGet(enterpriseId, pageSize, pageNumber, emailId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Create Enterprise User
      *
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -72,28 +54,11 @@ public class EnterpriseApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdUsersPostTest() throws ApiException {
+    public void createEnterpriseUserTest() throws ApiException {
         Integer enterpriseId = null;
         Boolean forcePasswordChange = null;
         Boolean sendVerificationMail = null;
-        // Room response = api.v1EnterpriseEnterpriseIdUsersPost(enterpriseId, forcePasswordChange, sendVerificationMail);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Remove Enterprise User
-     *
-     * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdUsersUserIdDeleteTest() throws ApiException {
-        Integer enterpriseId = null;
-        Integer userId = null;
-        // Room response = api.v1EnterpriseEnterpriseIdUsersUserIdDelete(enterpriseId, userId);
+        // Room response = api.createEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
 
         // TODO: test validations
     }
@@ -107,9 +72,45 @@ public class EnterpriseApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdEnterpriseProfileGetTest() throws ApiException {
+    public void getEnterpriseProfileTest() throws ApiException {
         Integer userId = null;
-        // Enterprise response = api.v1UserUserIdEnterpriseProfileGet(userId);
+        // Enterprise response = api.getEnterpriseProfile(userId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Enterprise Users
+     *
+     * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listUsersTest() throws ApiException {
+        Integer enterpriseId = null;
+        Integer pageSize = null;
+        Integer pageNumber = null;
+        String emailId = null;
+        // EnterpriseUserList response = api.listUsers(enterpriseId, pageSize, pageNumber, emailId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove Enterprise User
+     *
+     * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void removeEnterpriseUserTest() throws ApiException {
+        Integer enterpriseId = null;
+        Integer userId = null;
+        // Room response = api.removeEnterpriseUser(enterpriseId, userId);
 
         // TODO: test validations
     }

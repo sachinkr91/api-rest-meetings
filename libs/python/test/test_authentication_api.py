@@ -42,25 +42,25 @@ class TestAuthenticationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_oauth2_tokenclient_post(self):
+    def test_get_token_by_client(self):
         """
-        Test case for oauth2_tokenclient_post
+        Test case for get_token_by_client
 
         Authentication via Client Grant Type
         """
         pass
 
-    def test_oauth2_tokenmeeting_post(self):
+    def test_get_token_by_meeting(self):
         """
-        Test case for oauth2_tokenmeeting_post
+        Test case for get_token_by_meeting
 
         Authentication via Meeting Grant Type
         """
         pass
 
-    def test_oauth2_tokenpassword_post(self):
+    def test_get_token_by_password(self):
         """
-        Test case for oauth2_tokenpassword_post
+        Test case for get_token_by_password
 
         Authentication via Password Grant Type
         """

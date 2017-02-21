@@ -4,13 +4,13 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauth2_token_client_post**](AuthenticationApi.md#oauth2_token_client_post) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
-[**oauth2_token_meeting_post**](AuthenticationApi.md#oauth2_token_meeting_post) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
-[**oauth2_token_password_post**](AuthenticationApi.md#oauth2_token_password_post) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**get_token_by_client**](AuthenticationApi.md#get_token_by_client) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**get_token_by_meeting**](AuthenticationApi.md#get_token_by_meeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
+[**get_token_by_password**](AuthenticationApi.md#get_token_by_password) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 
 
-# **oauth2_token_client_post**
-> Grant oauth2_token_client_post(payload)
+# **get_token_by_client**
+> GrantClient get_token_by_client(grant_type_client)
 
 Authentication via Client Grant Type
 
@@ -30,25 +30,25 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-payload = swagger_client.Payload() # Payload | Contains information about the type of grant you are requesting.
+grant_type_client = swagger_client.GrantTypeClient() # GrantTypeClient | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Client Grant Type
-    api_response = api_instance.oauth2_token_client_post(payload)
+    api_response = api_instance.get_token_by_client(grant_type_client)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->oauth2_token_client_post: %s\n" % e
+    print "Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload**](Payload.md)| Contains information about the type of grant you are requesting. | 
+ **grant_type_client** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantClient**](GrantClient.md)
 
 ### Authorization
 
@@ -61,8 +61,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **oauth2_token_meeting_post**
-> Grant oauth2_token_meeting_post(payload)
+# **get_token_by_meeting**
+> GrantMeeting get_token_by_meeting(grant_type_meeting)
 
 Authentication via Meeting Grant Type
 
@@ -82,25 +82,25 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-payload = swagger_client.Payload1() # Payload1 | Contains information about the type of grant you are requesting.
+grant_type_meeting = swagger_client.GrantTypeMeeting() # GrantTypeMeeting | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Meeting Grant Type
-    api_response = api_instance.oauth2_token_meeting_post(payload)
+    api_response = api_instance.get_token_by_meeting(grant_type_meeting)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->oauth2_token_meeting_post: %s\n" % e
+    print "Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload1**](Payload1.md)| Contains information about the type of grant you are requesting. | 
+ **grant_type_meeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantMeeting**](GrantMeeting.md)
 
 ### Authorization
 
@@ -113,8 +113,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **oauth2_token_password_post**
-> Grant oauth2_token_password_post(payload)
+# **get_token_by_password**
+> GrantPassword get_token_by_password(grant_type_password)
 
 Authentication via Password Grant Type
 
@@ -134,25 +134,25 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-payload = swagger_client.Payload2() # Payload2 | Contains information about the type of grant you are requesting.
+grant_type_password = swagger_client.GrantTypePassword() # GrantTypePassword | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Password Grant Type
-    api_response = api_instance.oauth2_token_password_post(payload)
+    api_response = api_instance.get_token_by_password(grant_type_password)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->oauth2_token_password_post: %s\n" % e
+    print "Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Payload2**](Payload2.md)| Contains information about the type of grant you are requesting. | 
+ **grant_type_password** | [**GrantTypePassword**](GrantTypePassword.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
-[**Grant**](Grant.md)
+[**GrantPassword**](GrantPassword.md)
 
 ### Authorization
 

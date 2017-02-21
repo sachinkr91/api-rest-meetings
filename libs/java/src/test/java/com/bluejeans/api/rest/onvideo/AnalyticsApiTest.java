@@ -29,10 +29,10 @@ import com.bluejeans.api.rest.ApiException;
 import io.swagger.client.model.AnalyticsEndpointDistribution;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.AnalyticsFeedbackComments;
+import io.swagger.client.model.AnalyticsFeedbackScores;
 import io.swagger.client.model.AnalyticsUsage;
 import io.swagger.client.model.AnalyticsRoiData;
 import io.swagger.client.model.AnalyticsTopUsers;
-import io.swagger.client.model.AnalyticsFeedbackScores;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -57,10 +57,10 @@ public class AnalyticsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetTest() throws ApiException {
+    public void getEndpointDistributionTest() throws ApiException {
         Integer enterpriseId = null;
         String filter = null;
-        // AnalyticsEndpointDistribution response = api.v1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(enterpriseId, filter);
+        // AnalyticsEndpointDistribution response = api.getEndpointDistribution(enterpriseId, filter);
 
         // TODO: test validations
     }
@@ -74,63 +74,11 @@ public class AnalyticsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetTest() throws ApiException {
+    public void getFeedbackCommentsTest() throws ApiException {
         Integer enterpriseId = null;
         String start = null;
         String end = null;
-        // AnalyticsFeedbackComments response = api.v1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(enterpriseId, start, end);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Meeting Usage Over Time
-     *
-     * This endpoint reports on meeting usage.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        String clientTZ = null;
-        String filter = null;
-        // AnalyticsUsage response = api.v1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(enterpriseId, clientTZ, filter);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * ROI Data
-     *
-     * This endpoint lists return on investment (ROI) data for meetings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        String filter = null;
-        // AnalyticsRoiData response = api.v1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(enterpriseId, filter);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Top Users
-     *
-     * This endpoint retrieves the top useres by usage for an enterprise.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        String filter = null;
-        // AnalyticsTopUsers response = api.v1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(enterpriseId, filter);
+        // AnalyticsFeedbackComments response = api.getFeedbackComments(enterpriseId, start, end);
 
         // TODO: test validations
     }
@@ -144,11 +92,63 @@ public class AnalyticsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdIndigoFeedbackCountGetTest() throws ApiException {
+    public void getFeedbackCountTest() throws ApiException {
         Integer enterpriseId = null;
         String start = null;
         String end = null;
-        // AnalyticsFeedbackScores response = api.v1EnterpriseEnterpriseIdIndigoFeedbackCountGet(enterpriseId, start, end);
+        // AnalyticsFeedbackScores response = api.getFeedbackCount(enterpriseId, start, end);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Meeting Usage Over Time
+     *
+     * This endpoint reports on meeting usage.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeetingUsageTest() throws ApiException {
+        Integer enterpriseId = null;
+        String clientTZ = null;
+        String filter = null;
+        // AnalyticsUsage response = api.getMeetingUsage(enterpriseId, clientTZ, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * ROI Data
+     *
+     * This endpoint lists return on investment (ROI) data for meetings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getRoiRangesTest() throws ApiException {
+        Integer enterpriseId = null;
+        String filter = null;
+        // AnalyticsRoiData response = api.getRoiRanges(enterpriseId, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Top Users
+     *
+     * This endpoint retrieves the top useres by usage for an enterprise.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTopUsersTest() throws ApiException {
+        Integer enterpriseId = null;
+        String filter = null;
+        // AnalyticsTopUsers response = api.getTopUsers(enterpriseId, filter);
 
         // TODO: test validations
     }

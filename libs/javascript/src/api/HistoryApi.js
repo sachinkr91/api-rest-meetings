@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/RecordingSummary', 'model/Recording'], factory);
+    define(['ApiClient', 'model/Error', 'model/Recording', 'model/MeetingHistory', 'model/RecordingSummary', 'model/Meeting'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/RecordingSummary'), require('../model/Recording'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Recording'), require('../model/MeetingHistory'), require('../model/RecordingSummary'), require('../model/Meeting'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.RecordingSummary, root.BlueJeansOnVideoRestApi.Recording);
+    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Recording, root.BlueJeansOnVideoRestApi.MeetingHistory, root.BlueJeansOnVideoRestApi.RecordingSummary, root.BlueJeansOnVideoRestApi.Meeting);
   }
-}(this, function(ApiClient, Meeting, Error, RecordingSummary, Recording) {
+}(this, function(ApiClient, Error, Recording, MeetingHistory, RecordingSummary, Meeting) {
   'use strict';
 
   /**
@@ -57,10 +57,63 @@
 
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdMeetingHistoryGet operation.
-     * @callback module:api/HistoryApi~v1EnterpriseEnterpriseIdMeetingHistoryGetCallback
+     * Callback function to receive the result of the getRecording operation.
+     * @callback module:api/HistoryApi~getRecordingCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/Recording} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Recording
+     * This endpoint retrieves the details about a meeting recording.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
+     * @param {module:api/HistoryApi~getRecordingCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Recording}
+     */
+    this.getRecording = function(userId, recordingEntityId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getRecording";
+      }
+
+      // verify the required parameter 'recordingEntityId' is set
+      if (recordingEntityId == undefined || recordingEntityId == null) {
+        throw "Missing the required parameter 'recordingEntityId' when calling getRecording";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'recording_entity_id': recordingEntityId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Recording;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listMeetingsByEnterprise operation.
+     * @callback module:api/HistoryApi~listMeetingsByEnterpriseCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/MeetingHistory>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -68,15 +121,15 @@
      * List Meetings
      * This endpoint retrieves a list of meetings.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {module:api/HistoryApi~v1EnterpriseEnterpriseIdMeetingHistoryGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * @param {module:api/HistoryApi~listMeetingsByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/MeetingHistory>}
      */
-    this.v1EnterpriseEnterpriseIdMeetingHistoryGet = function(enterpriseId, callback) {
+    this.listMeetingsByEnterprise = function(enterpriseId, callback) {
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdMeetingHistoryGet";
+        throw "Missing the required parameter 'enterpriseId' when calling listMeetingsByEnterprise";
       }
 
 
@@ -93,10 +146,126 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = [MeetingHistory];
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/meeting_history', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listMeetingsByUser operation.
+     * @callback module:api/HistoryApi~listMeetingsByUserCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/MeetingHistory>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meetings
+     * This endpoint retrieves a list of meetings.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.meetingId Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID).
+     * @param {String} opts.startDate Return meetings starting from the specified date. MM/DD/YYYY
+     * @param {String} opts.endDate Return meetings up until the specified date. MM/DD/YYYY
+     * @param {Integer} opts.pageSize Sets number of items returned per page.
+     * @param {Integer} opts.pageNumber Selects which page of results to return.
+     * @param {String} opts.order Puts results in ascending or descending order. asc/desc
+     * @param {module:api/HistoryApi~listMeetingsByUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/MeetingHistory>}
+     */
+    this.listMeetingsByUser = function(userId, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling listMeetingsByUser";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+        'meetingId': opts['meetingId'],
+        'startDate': opts['startDate'],
+        'endDate': opts['endDate'],
+        'pageSize': opts['pageSize'],
+        'pageNumber': opts['pageNumber'],
+        'order': opts['order']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [MeetingHistory];
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/meeting_history', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listRecordings operation.
+     * @callback module:api/HistoryApi~listRecordingsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/RecordingSummary>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meeting Recordings
+     * This endpoint retrieves a list of meeting recordings.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.pageSize Sets number of items returned per page. (default to 10)
+     * @param {Integer} opts.pageNumber Selects which page of results to return. (default to 1)
+     * @param {String} opts.sortBy Selects which page of results to return. (default to start_time)
+     * @param {module:model/String} opts.order Puts results in ascending or descending order. (default to desc)
+     * @param {module:api/HistoryApi~listRecordingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/RecordingSummary>}
+     */
+    this.listRecordings = function(userId, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling listRecordings";
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+        'pageSize': opts['pageSize'],
+        'pageNumber': opts['pageNumber'],
+        'sortBy': opts['sortBy'],
+        'order': opts['order']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [RecordingSummary];
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/meeting_history/recordings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -156,66 +325,6 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdMeetingHistoryGet operation.
-     * @callback module:api/HistoryApi~v1UserUserIdMeetingHistoryGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meetings
-     * This endpoint retrieves a list of meetings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.meetingId Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID).
-     * @param {String} opts.startDate Return meetings starting from the specified date. MM/DD/YYYY
-     * @param {String} opts.endDate Return meetings up until the specified date. MM/DD/YYYY
-     * @param {Integer} opts.pageSize Sets number of items returned per page.
-     * @param {Integer} opts.pageNumber Selects which page of results to return.
-     * @param {String} opts.order Puts results in ascending or descending order. asc/desc
-     * @param {module:api/HistoryApi~v1UserUserIdMeetingHistoryGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1UserUserIdMeetingHistoryGet = function(userId, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-        'meetingId': opts['meetingId'],
-        'startDate': opts['startDate'],
-        'endDate': opts['endDate'],
-        'pageSize': opts['pageSize'],
-        'pageNumber': opts['pageNumber'],
-        'order': opts['order']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/meeting_history', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the v1UserUserIdMeetingHistoryMeetingGuidGet operation.
      * @callback module:api/HistoryApi~v1UserUserIdMeetingHistoryMeetingGuidGetCallback
      * @param {String} error Error message, if any.
@@ -263,115 +372,6 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/meeting_history/{meeting_guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdMeetingHistoryRecordingsGet operation.
-     * @callback module:api/HistoryApi~v1UserUserIdMeetingHistoryRecordingsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/RecordingSummary>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meeting Recordings
-     * This endpoint retrieves a list of meeting recordings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Object} opts Optional parameters
-     * @param {Integer} opts.pageSize Sets number of items returned per page. (default to 10)
-     * @param {Integer} opts.pageNumber Selects which page of results to return. (default to 1)
-     * @param {String} opts.sortBy Selects which page of results to return. (default to start_time)
-     * @param {module:model/String} opts.order Puts results in ascending or descending order. (default to desc)
-     * @param {module:api/HistoryApi~v1UserUserIdMeetingHistoryRecordingsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/RecordingSummary>}
-     */
-    this.v1UserUserIdMeetingHistoryRecordingsGet = function(userId, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryRecordingsGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-        'pageSize': opts['pageSize'],
-        'pageNumber': opts['pageNumber'],
-        'sortBy': opts['sortBy'],
-        'order': opts['order']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [RecordingSummary];
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/meeting_history/recordings', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet operation.
-     * @callback module:api/HistoryApi~v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Recording} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meeting Recordings
-     * This endpoint retrieves a list of meeting recordings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
-     * @param {module:api/HistoryApi~v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Recording}
-     */
-    this.v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet = function(userId, recordingEntityId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet";
-      }
-
-      // verify the required parameter 'recordingEntityId' is set
-      if (recordingEntityId == undefined || recordingEntityId == null) {
-        throw "Missing the required parameter 'recordingEntityId' when calling v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'recording_entity_id': recordingEntityId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Recording;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

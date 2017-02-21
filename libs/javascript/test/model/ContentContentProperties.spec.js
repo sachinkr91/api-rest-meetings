@@ -119,6 +119,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property levels (base name: "levels")', function() {
+      // uncomment below and update the code to test the property levels
+      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -26,11 +26,13 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Grant;
-import io.swagger.client.model.Payload;
+import io.swagger.client.model.GrantClient;
+import io.swagger.client.model.GrantTypeClient;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.Payload1;
-import io.swagger.client.model.Payload2;
+import io.swagger.client.model.GrantMeeting;
+import io.swagger.client.model.GrantTypeMeeting;
+import io.swagger.client.model.GrantTypePassword;
+import io.swagger.client.model.GrantPassword;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -55,9 +57,9 @@ public class AuthenticationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void oauth2TokenClientPostTest() throws ApiException {
-        Payload payload = null;
-        // Grant response = api.oauth2TokenClientPost(payload);
+    public void getTokenByClientTest() throws ApiException {
+        GrantTypeClient grantTypeClient = null;
+        // GrantClient response = api.getTokenByClient(grantTypeClient);
 
         // TODO: test validations
     }
@@ -71,9 +73,9 @@ public class AuthenticationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void oauth2TokenMeetingPostTest() throws ApiException {
-        Payload1 payload = null;
-        // Grant response = api.oauth2TokenMeetingPost(payload);
+    public void getTokenByMeetingTest() throws ApiException {
+        GrantTypeMeeting grantTypeMeeting = null;
+        // GrantMeeting response = api.getTokenByMeeting(grantTypeMeeting);
 
         // TODO: test validations
     }
@@ -87,9 +89,9 @@ public class AuthenticationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void oauth2TokenPasswordPostTest() throws ApiException {
-        Payload2 payload = null;
-        // Grant response = api.oauth2TokenPasswordPost(payload);
+    public void getTokenByPasswordTest() throws ApiException {
+        GrantTypePassword grantTypePassword = null;
+        // GrantPassword response = api.getTokenByPassword(grantTypePassword);
 
         // TODO: test validations
     }

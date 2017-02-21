@@ -77,16 +77,42 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test V1UserUserIdCmsContentIdisDownloadabletrueGet
+        /// Test GetRecordingContent
         /// </summary>
         [Test]
-        public void V1UserUserIdCmsContentIdisDownloadabletrueGetTest()
+        public void GetRecordingContentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? contentId = null;
-            //var response = instance.V1UserUserIdCmsContentIdisDownloadabletrueGet(userId, contentId);
+            //var response = instance.GetRecordingContent(userId, contentId);
             //Assert.IsInstanceOf<Content> (response, "response is Content");
+        }
+        
+        /// <summary>
+        /// Test StartRecording
+        /// </summary>
+        [Test]
+        public void StartRecordingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? meetingId = null;
+            //instance.StartRecording(userId, meetingId);
+            
+        }
+        
+        /// <summary>
+        /// Test StopRecording
+        /// </summary>
+        [Test]
+        public void StopRecordingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? meetingId = null;
+            //instance.StopRecording(userId, meetingId);
+            
         }
         
         /// <summary>
@@ -99,32 +125,6 @@ namespace IO.Swagger.Test
             //int? userId = null;
             //int? meetingId = null;
             //var response = instance.V1UserUserIdLiveMeetingsMeetingIdRecordingsGet(userId, meetingId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost
-        /// </summary>
-        [Test]
-        public void V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //int? meetingId = null;
-            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstartPost(userId, meetingId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut
-        /// </summary>
-        [Test]
-        public void V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //int? meetingId = null;
-            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdRecordingsactionstopPut(userId, meetingId);
             //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
         }
         

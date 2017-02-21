@@ -26,10 +26,11 @@
 package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
-import io.swagger.client.model.Meeting;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.RecordingSummary;
 import io.swagger.client.model.Recording;
+import io.swagger.client.model.MeetingHistory;
+import io.swagger.client.model.RecordingSummary;
+import io.swagger.client.model.Meeting;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -46,6 +47,23 @@ public class HistoryApiTest {
 
     
     /**
+     * Get Recording
+     *
+     * This endpoint retrieves the details about a meeting recording.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getRecordingTest() throws ApiException {
+        Integer userId = null;
+        Integer recordingEntityId = null;
+        // Recording response = api.getRecording(userId, recordingEntityId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List Meetings
      *
      * This endpoint retrieves a list of meetings.
@@ -54,9 +72,51 @@ public class HistoryApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdMeetingHistoryGetTest() throws ApiException {
+    public void listMeetingsByEnterpriseTest() throws ApiException {
         Integer enterpriseId = null;
-        // Meeting response = api.v1EnterpriseEnterpriseIdMeetingHistoryGet(enterpriseId);
+        // List<MeetingHistory> response = api.listMeetingsByEnterprise(enterpriseId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Meetings
+     *
+     * This endpoint retrieves a list of meetings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listMeetingsByUserTest() throws ApiException {
+        Integer userId = null;
+        String meetingId = null;
+        String startDate = null;
+        String endDate = null;
+        Integer pageSize = null;
+        Integer pageNumber = null;
+        String order = null;
+        // List<MeetingHistory> response = api.listMeetingsByUser(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Meeting Recordings
+     *
+     * This endpoint retrieves a list of meeting recordings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listRecordingsTest() throws ApiException {
+        Integer userId = null;
+        Integer pageSize = null;
+        Integer pageNumber = null;
+        String sortBy = null;
+        String order = null;
+        // List<RecordingSummary> response = api.listRecordings(userId, pageSize, pageNumber, sortBy, order);
 
         // TODO: test validations
     }
@@ -87,69 +147,10 @@ public class HistoryApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdMeetingHistoryGetTest() throws ApiException {
-        Integer userId = null;
-        String meetingId = null;
-        String startDate = null;
-        String endDate = null;
-        Integer pageSize = null;
-        Integer pageNumber = null;
-        String order = null;
-        // Meeting response = api.v1UserUserIdMeetingHistoryGet(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Meetings
-     *
-     * This endpoint retrieves a list of meetings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void v1UserUserIdMeetingHistoryMeetingGuidGetTest() throws ApiException {
         Integer userId = null;
         String meetingGuid = null;
         // Meeting response = api.v1UserUserIdMeetingHistoryMeetingGuidGet(userId, meetingGuid);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Meeting Recordings
-     *
-     * This endpoint retrieves a list of meeting recordings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdMeetingHistoryRecordingsGetTest() throws ApiException {
-        Integer userId = null;
-        Integer pageSize = null;
-        Integer pageNumber = null;
-        String sortBy = null;
-        String order = null;
-        // List<RecordingSummary> response = api.v1UserUserIdMeetingHistoryRecordingsGet(userId, pageSize, pageNumber, sortBy, order);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Meeting Recordings
-     *
-     * This endpoint retrieves a list of meeting recordings.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetTest() throws ApiException {
-        Integer userId = null;
-        Integer recordingEntityId = null;
-        // Recording response = api.v1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet(userId, recordingEntityId);
 
         // TODO: test validations
     }

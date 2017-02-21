@@ -103,34 +103,34 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenClientPost
+     * Operation getTokenByClient
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\Payload $payload Contains information about the type of grant you are requesting. (required)
-     * @return \Swagger\Client\Model\Grant
+     * @param \Swagger\Client\Model\GrantTypeClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @return \Swagger\Client\Model\GrantClient
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenClientPost($payload)
+    public function getTokenByClient($grant_type_client)
     {
-        list($response) = $this->oauth2TokenClientPostWithHttpInfo($payload);
+        list($response) = $this->getTokenByClientWithHttpInfo($grant_type_client);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenClientPostWithHttpInfo
+     * Operation getTokenByClientWithHttpInfo
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\Payload $payload Contains information about the type of grant you are requesting. (required)
-     * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\GrantTypeClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @return Array of \Swagger\Client\Model\GrantClient, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenClientPostWithHttpInfo($payload)
+    public function getTokenByClientWithHttpInfo($grant_type_client)
     {
-        // verify the required parameter 'payload' is set
-        if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenClientPost');
+        // verify the required parameter 'grant_type_client' is set
+        if ($grant_type_client === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type_client when calling getTokenByClient');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Client";
@@ -149,8 +149,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($payload)) {
-            $_tempBody = $payload;
+        if (isset($grant_type_client)) {
+            $_tempBody = $grant_type_client;
         }
 
         // for model (json/xml)
@@ -172,15 +172,15 @@ class AuthenticationApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Grant',
+                '\Swagger\Client\Model\GrantClient',
                 '/oauth2/token?Client'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantClient', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Grant', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantClient', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -194,34 +194,34 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenMeetingPost
+     * Operation getTokenByMeeting
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\Payload1 $payload Contains information about the type of grant you are requesting. (required)
-     * @return \Swagger\Client\Model\Grant
+     * @param \Swagger\Client\Model\GrantTypeMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @return \Swagger\Client\Model\GrantMeeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenMeetingPost($payload)
+    public function getTokenByMeeting($grant_type_meeting)
     {
-        list($response) = $this->oauth2TokenMeetingPostWithHttpInfo($payload);
+        list($response) = $this->getTokenByMeetingWithHttpInfo($grant_type_meeting);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenMeetingPostWithHttpInfo
+     * Operation getTokenByMeetingWithHttpInfo
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\Payload1 $payload Contains information about the type of grant you are requesting. (required)
-     * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\GrantTypeMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @return Array of \Swagger\Client\Model\GrantMeeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenMeetingPostWithHttpInfo($payload)
+    public function getTokenByMeetingWithHttpInfo($grant_type_meeting)
     {
-        // verify the required parameter 'payload' is set
-        if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenMeetingPost');
+        // verify the required parameter 'grant_type_meeting' is set
+        if ($grant_type_meeting === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type_meeting when calling getTokenByMeeting');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Meeting";
@@ -240,8 +240,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($payload)) {
-            $_tempBody = $payload;
+        if (isset($grant_type_meeting)) {
+            $_tempBody = $grant_type_meeting;
         }
 
         // for model (json/xml)
@@ -263,15 +263,15 @@ class AuthenticationApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Grant',
+                '\Swagger\Client\Model\GrantMeeting',
                 '/oauth2/token?Meeting'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantMeeting', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Grant', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantMeeting', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -285,34 +285,34 @@ class AuthenticationApi
     }
 
     /**
-     * Operation oauth2TokenPasswordPost
+     * Operation getTokenByPassword
      *
      * Authentication via Password Grant Type
      *
-     * @param \Swagger\Client\Model\Payload2 $payload Contains information about the type of grant you are requesting. (required)
-     * @return \Swagger\Client\Model\Grant
+     * @param \Swagger\Client\Model\GrantTypePassword $grant_type_password Contains information about the type of grant you are requesting. (required)
+     * @return \Swagger\Client\Model\GrantPassword
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenPasswordPost($payload)
+    public function getTokenByPassword($grant_type_password)
     {
-        list($response) = $this->oauth2TokenPasswordPostWithHttpInfo($payload);
+        list($response) = $this->getTokenByPasswordWithHttpInfo($grant_type_password);
         return $response;
     }
 
     /**
-     * Operation oauth2TokenPasswordPostWithHttpInfo
+     * Operation getTokenByPasswordWithHttpInfo
      *
      * Authentication via Password Grant Type
      *
-     * @param \Swagger\Client\Model\Payload2 $payload Contains information about the type of grant you are requesting. (required)
-     * @return Array of \Swagger\Client\Model\Grant, HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\GrantTypePassword $grant_type_password Contains information about the type of grant you are requesting. (required)
+     * @return Array of \Swagger\Client\Model\GrantPassword, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function oauth2TokenPasswordPostWithHttpInfo($payload)
+    public function getTokenByPasswordWithHttpInfo($grant_type_password)
     {
-        // verify the required parameter 'payload' is set
-        if ($payload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload when calling oauth2TokenPasswordPost');
+        // verify the required parameter 'grant_type_password' is set
+        if ($grant_type_password === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type_password when calling getTokenByPassword');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Password";
@@ -331,8 +331,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($payload)) {
-            $_tempBody = $payload;
+        if (isset($grant_type_password)) {
+            $_tempBody = $grant_type_password;
         }
 
         // for model (json/xml)
@@ -354,15 +354,15 @@ class AuthenticationApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Grant',
+                '\Swagger\Client\Model\GrantPassword',
                 '/oauth2/token?Password'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Grant', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantPassword', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Grant', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantPassword', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

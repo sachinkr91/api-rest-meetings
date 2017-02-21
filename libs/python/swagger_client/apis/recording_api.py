@@ -51,7 +51,7 @@ class RecordingApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def v1_user_user_id_cms_content_idis_downloadabletrue_get(self, user_id, content_id, **kwargs):
+    def get_recording_content(self, user_id, content_id, **kwargs):
         """
         Get Recording Download Link
         This endpoint retrieves properties about the recording chapter.
@@ -62,7 +62,7 @@ class RecordingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_cms_content_idis_downloadabletrue_get(user_id, content_id, callback=callback_function)
+        >>> thread = api.get_recording_content(user_id, content_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -74,12 +74,12 @@ class RecordingApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_cms_content_idis_downloadabletrue_get_with_http_info(user_id, content_id, **kwargs)
+            return self.get_recording_content_with_http_info(user_id, content_id, **kwargs)
         else:
-            (data) = self.v1_user_user_id_cms_content_idis_downloadabletrue_get_with_http_info(user_id, content_id, **kwargs)
+            (data) = self.get_recording_content_with_http_info(user_id, content_id, **kwargs)
             return data
 
-    def v1_user_user_id_cms_content_idis_downloadabletrue_get_with_http_info(self, user_id, content_id, **kwargs):
+    def get_recording_content_with_http_info(self, user_id, content_id, **kwargs):
         """
         Get Recording Download Link
         This endpoint retrieves properties about the recording chapter.
@@ -90,7 +90,7 @@ class RecordingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_cms_content_idis_downloadabletrue_get_with_http_info(user_id, content_id, callback=callback_function)
+        >>> thread = api.get_recording_content_with_http_info(user_id, content_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -110,16 +110,16 @@ class RecordingApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_cms_content_idis_downloadabletrue_get" % key
+                    " to method get_recording_content" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_cms_content_idis_downloadabletrue_get`")
+            raise ValueError("Missing the required parameter `user_id` when calling `get_recording_content`")
         # verify the required parameter 'content_id' is set
         if ('content_id' not in params) or (params['content_id'] is None):
-            raise ValueError("Missing the required parameter `content_id` when calling `v1_user_user_id_cms_content_idis_downloadabletrue_get`")
+            raise ValueError("Missing the required parameter `content_id` when calling `get_recording_content`")
 
         resource_path = '/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true'.replace('{format}', 'json')
         path_params = {}
@@ -158,6 +158,228 @@ class RecordingApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='Content',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def start_recording(self, user_id, meeting_id, **kwargs):
+        """
+        Start Recording
+        This endpoint starts recording for a meeting in progress.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.start_recording(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.start_recording_with_http_info(user_id, meeting_id, **kwargs)
+        else:
+            (data) = self.start_recording_with_http_info(user_id, meeting_id, **kwargs)
+            return data
+
+    def start_recording_with_http_info(self, user_id, meeting_id, **kwargs):
+        """
+        Start Recording
+        This endpoint starts recording for a meeting in progress.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.start_recording_with_http_info(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method start_recording" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `start_recording`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `start_recording`")
+
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def stop_recording(self, user_id, meeting_id, **kwargs):
+        """
+        Stop Recording
+        This endpoint stops recording for a meeting in progress.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.stop_recording(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.stop_recording_with_http_info(user_id, meeting_id, **kwargs)
+        else:
+            (data) = self.stop_recording_with_http_info(user_id, meeting_id, **kwargs)
+            return data
+
+    def stop_recording_with_http_info(self, user_id, meeting_id, **kwargs):
+        """
+        Stop Recording
+        This endpoint stops recording for a meeting in progress.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.stop_recording_with_http_info(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method stop_recording" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `stop_recording`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `stop_recording`")
+
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -262,228 +484,6 @@ class RecordingApi(object):
         auth_settings = ['access_token']
 
         return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Meeting',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post(self, user_id, meeting_id, **kwargs):
-        """
-        Start Recording
-        This endpoint starts recording for a meeting in progress.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post_with_http_info(user_id, meeting_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post_with_http_info(user_id, meeting_id, **kwargs)
-            return data
-
-    def v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post_with_http_info(self, user_id, meeting_id, **kwargs):
-        """
-        Start Recording
-        This endpoint starts recording for a meeting in progress.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post_with_http_info(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsactionstart_post`")
-
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;start'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Meeting',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put(self, user_id, meeting_id, **kwargs):
-        """
-        Stop Recording
-        This endpoint stops recording for a meeting in progress.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put_with_http_info(user_id, meeting_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put_with_http_info(user_id, meeting_id, **kwargs)
-            return data
-
-    def v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put_with_http_info(self, user_id, meeting_id, **kwargs):
-        """
-        Stop Recording
-        This endpoint stops recording for a meeting in progress.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put_with_http_info(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsactionstop_put`")
-
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,

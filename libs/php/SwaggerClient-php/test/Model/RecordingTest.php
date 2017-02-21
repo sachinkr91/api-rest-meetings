@@ -95,4 +95,124 @@ class RecordingTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test attribute "recording_entity_id"
+     */
+    public function testPropertyRecordingEntityId()
+    {
+
+    }
+
+    /**
+     * Test attribute "recording_entity_guid"
+     */
+    public function testPropertyRecordingEntityGuid()
+    {
+
+    }
+
+    /**
+     * Test attribute "recording_name"
+     */
+    public function testPropertyRecordingName()
+    {
+
+    }
+
+    /**
+     * Test attribute "meeting_guid"
+     */
+    public function testPropertyMeetingGuid()
+    {
+
+    }
+
+    /**
+     * Test attribute "chapter_count"
+     */
+    public function testPropertyChapterCount()
+    {
+
+    }
+
+    /**
+     * Test attribute "total_size"
+     */
+    public function testPropertyTotalSize()
+    {
+
+    }
+
+    /**
+     * Test attribute "total_duration"
+     */
+    public function testPropertyTotalDuration()
+    {
+
+    }
+
+    /**
+     * Test attribute "last_recording_date"
+     */
+    public function testPropertyLastRecordingDate()
+    {
+
+    }
+
+    /**
+     * Test attribute "aggregated_status"
+     */
+    public function testPropertyAggregatedStatus()
+    {
+
+    }
+
+    /**
+     * Test attribute "recording_thumbnail"
+     */
+    public function testPropertyRecordingThumbnail()
+    {
+
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
+    {
+
+    }
+
+    /**
+     * Test attribute "aggregated_view_count"
+     */
+    public function testPropertyAggregatedViewCount()
+    {
+
+    }
+
+    /**
+     * Test attribute "is_premium_recording"
+     */
+    public function testPropertyIsPremiumRecording()
+    {
+
+    }
+
+    /**
+     * Test attribute "show_premium_recording_tag"
+     */
+    public function testPropertyShowPremiumRecordingTag()
+    {
+
+    }
+
+    /**
+     * Test attribute "recording_chapters"
+     */
+    public function testPropertyRecordingChapters()
+    {
+
+    }
+
 }

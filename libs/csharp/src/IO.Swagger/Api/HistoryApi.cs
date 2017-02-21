@@ -37,6 +37,29 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get Recording
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the details about a meeting recording.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Recording</returns>
+        Recording GetRecording (int? userId, int? recordingEntityId);
+
+        /// <summary>
+        /// Get Recording
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the details about a meeting recording.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>ApiResponse of Recording</returns>
+        ApiResponse<Recording> GetRecordingWithHttpInfo (int? userId, int? recordingEntityId);
+        /// <summary>
         /// List Meetings
         /// </summary>
         /// <remarks>
@@ -44,8 +67,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdMeetingHistoryGet (int? enterpriseId);
+        /// <returns>List&lt;MeetingHistory&gt;</returns>
+        List<MeetingHistory> ListMeetingsByEnterprise (int? enterpriseId);
 
         /// <summary>
         /// List Meetings
@@ -55,8 +78,70 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryGetWithHttpInfo (int? enterpriseId);
+        /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
+        ApiResponse<List<MeetingHistory>> ListMeetingsByEnterpriseWithHttpInfo (int? enterpriseId);
+        /// <summary>
+        /// List Meetings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>List&lt;MeetingHistory&gt;</returns>
+        List<MeetingHistory> ListMeetingsByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+
+        /// <summary>
+        /// List Meetings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
+        ApiResponse<List<MeetingHistory>> ListMeetingsByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        /// <summary>
+        /// List Meeting Recordings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meeting recordings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>List&lt;RecordingSummary&gt;</returns>
+        List<RecordingSummary> ListRecordings (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
+
+        /// <summary>
+        /// List Meeting Recordings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meeting recordings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>ApiResponse of List&lt;RecordingSummary&gt;</returns>
+        ApiResponse<List<RecordingSummary>> ListRecordingsWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
         /// <summary>
         /// List Meetings
         /// </summary>
@@ -88,39 +173,6 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdMeetingHistoryGet (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdMeetingHistoryGetWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>Meeting</returns>
         Meeting V1UserUserIdMeetingHistoryMeetingGuidGet (int? userId, string meetingGuid);
@@ -136,61 +188,32 @@ namespace IO.Swagger.Api
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> V1UserUserIdMeetingHistoryMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid);
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>List&lt;RecordingSummary&gt;</returns>
-        List<RecordingSummary> V1UserUserIdMeetingHistoryRecordingsGet (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>ApiResponse of List&lt;RecordingSummary&gt;</returns>
-        ApiResponse<List<RecordingSummary>> V1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Recording</returns>
-        Recording V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet (int? userId, int? recordingEntityId);
-
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>ApiResponse of Recording</returns>
-        ApiResponse<Recording> V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo (int? userId, int? recordingEntityId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Get Recording
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the details about a meeting recording.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Task of Recording</returns>
+        System.Threading.Tasks.Task<Recording> GetRecordingAsync (int? userId, int? recordingEntityId);
+
+        /// <summary>
+        /// Get Recording
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the details about a meeting recording.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Task of ApiResponse (Recording)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Recording>> GetRecordingAsyncWithHttpInfo (int? userId, int? recordingEntityId);
+        /// <summary>
         /// List Meetings
         /// </summary>
         /// <remarks>
@@ -198,8 +221,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryGetAsync (int? enterpriseId);
+        /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
+        System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByEnterpriseAsync (int? enterpriseId);
 
         /// <summary>
         /// List Meetings
@@ -209,8 +232,70 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdMeetingHistoryGetAsyncWithHttpInfo (int? enterpriseId);
+        /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByEnterpriseAsyncWithHttpInfo (int? enterpriseId);
+        /// <summary>
+        /// List Meetings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
+        System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+
+        /// <summary>
+        /// List Meetings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
+        /// <summary>
+        /// List Meeting Recordings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meeting recordings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>Task of List&lt;RecordingSummary&gt;</returns>
+        System.Threading.Tasks.Task<List<RecordingSummary>> ListRecordingsAsync (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
+
+        /// <summary>
+        /// List Meeting Recordings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves a list of meeting recordings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>Task of ApiResponse (List&lt;RecordingSummary&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<RecordingSummary>>> ListRecordingsAsyncWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
         /// <summary>
         /// List Meetings
         /// </summary>
@@ -242,39 +327,6 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdMeetingHistoryGetAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
-
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdMeetingHistoryGetAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null);
-        /// <summary>
-        /// List Meetings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>Task of Meeting</returns>
         System.Threading.Tasks.Task<Meeting> V1UserUserIdMeetingHistoryMeetingGuidGetAsync (int? userId, string meetingGuid);
@@ -290,58 +342,6 @@ namespace IO.Swagger.Api
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdMeetingHistoryMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid);
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>Task of List&lt;RecordingSummary&gt;</returns>
-        System.Threading.Tasks.Task<List<RecordingSummary>> V1UserUserIdMeetingHistoryRecordingsGetAsync (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (List&lt;RecordingSummary&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<RecordingSummary>>> V1UserUserIdMeetingHistoryRecordingsGetAsyncWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null);
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Task of Recording</returns>
-        System.Threading.Tasks.Task<Recording> V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsync (int? userId, int? recordingEntityId);
-
-        /// <summary>
-        /// List Meeting Recordings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves a list of meeting recordings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Task of ApiResponse (Recording)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Recording>> V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsyncWithHttpInfo (int? userId, int? recordingEntityId);
         #endregion Asynchronous Operations
     }
 
@@ -455,14 +455,178 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
+        /// Get Recording This endpoint retrieves the details about a meeting recording.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Recording</returns>
+        public Recording GetRecording (int? userId, int? recordingEntityId)
+        {
+             ApiResponse<Recording> localVarResponse = GetRecordingWithHttpInfo(userId, recordingEntityId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Recording This endpoint retrieves the details about a meeting recording.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>ApiResponse of Recording</returns>
+        public ApiResponse< Recording > GetRecordingWithHttpInfo (int? userId, int? recordingEntityId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetRecording");
+            // verify the required parameter 'recordingEntityId' is set
+            if (recordingEntityId == null)
+                throw new ApiException(400, "Missing required parameter 'recordingEntityId' when calling HistoryApi->GetRecording");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (recordingEntityId != null) localVarPathParams.Add("recording_entity_id", Configuration.ApiClient.ParameterToString(recordingEntityId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Recording>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Recording) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Recording)));
+            
+        }
+
+        /// <summary>
+        /// Get Recording This endpoint retrieves the details about a meeting recording.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Task of Recording</returns>
+        public async System.Threading.Tasks.Task<Recording> GetRecordingAsync (int? userId, int? recordingEntityId)
+        {
+             ApiResponse<Recording> localVarResponse = await GetRecordingAsyncWithHttpInfo(userId, recordingEntityId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Recording This endpoint retrieves the details about a meeting recording.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
+        /// <returns>Task of ApiResponse (Recording)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Recording>> GetRecordingAsyncWithHttpInfo (int? userId, int? recordingEntityId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetRecording");
+            // verify the required parameter 'recordingEntityId' is set
+            if (recordingEntityId == null)
+                throw new ApiException(400, "Missing required parameter 'recordingEntityId' when calling HistoryApi->GetRecording");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (recordingEntityId != null) localVarPathParams.Add("recording_entity_id", Configuration.ApiClient.ParameterToString(recordingEntityId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Recording>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Recording) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Recording)));
+            
+        }
+
+        /// <summary>
         /// List Meetings This endpoint retrieves a list of meetings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdMeetingHistoryGet (int? enterpriseId)
+        /// <returns>List&lt;MeetingHistory&gt;</returns>
+        public List<MeetingHistory> ListMeetingsByEnterprise (int? enterpriseId)
         {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdMeetingHistoryGetWithHttpInfo(enterpriseId);
+             ApiResponse<List<MeetingHistory>> localVarResponse = ListMeetingsByEnterpriseWithHttpInfo(enterpriseId);
              return localVarResponse.Data;
         }
 
@@ -471,12 +635,12 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdMeetingHistoryGetWithHttpInfo (int? enterpriseId)
+        /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
+        public ApiResponse< List<MeetingHistory> > ListMeetingsByEnterpriseWithHttpInfo (int? enterpriseId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListMeetingsByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -520,13 +684,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdMeetingHistoryGet", localVarResponse);
+                Exception exception = ExceptionFactory("ListMeetingsByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<List<MeetingHistory>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (List<MeetingHistory>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MeetingHistory>)));
             
         }
 
@@ -535,10 +699,10 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdMeetingHistoryGetAsync (int? enterpriseId)
+        /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
+        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByEnterpriseAsync (int? enterpriseId)
         {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdMeetingHistoryGetAsyncWithHttpInfo(enterpriseId);
+             ApiResponse<List<MeetingHistory>> localVarResponse = await ListMeetingsByEnterpriseAsyncWithHttpInfo(enterpriseId);
              return localVarResponse.Data;
 
         }
@@ -548,12 +712,12 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdMeetingHistoryGetAsyncWithHttpInfo (int? enterpriseId)
+        /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByEnterpriseAsyncWithHttpInfo (int? enterpriseId)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->V1EnterpriseEnterpriseIdMeetingHistoryGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling HistoryApi->ListMeetingsByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/meeting_history";
             var localVarPathParams = new Dictionary<String, String>();
@@ -596,13 +760,377 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdMeetingHistoryGet", localVarResponse);
+                Exception exception = ExceptionFactory("ListMeetingsByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<List<MeetingHistory>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (List<MeetingHistory>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MeetingHistory>)));
+            
+        }
+
+        /// <summary>
+        /// List Meetings This endpoint retrieves a list of meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>List&lt;MeetingHistory&gt;</returns>
+        public List<MeetingHistory> ListMeetingsByUser (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        {
+             ApiResponse<List<MeetingHistory>> localVarResponse = ListMeetingsByUserWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Meetings This endpoint retrieves a list of meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>ApiResponse of List&lt;MeetingHistory&gt;</returns>
+        public ApiResponse< List<MeetingHistory> > ListMeetingsByUserWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListMeetingsByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarQueryParams.Add("meetingId", Configuration.ApiClient.ParameterToString(meetingId)); // query parameter
+            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
+            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListMeetingsByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<MeetingHistory>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<MeetingHistory>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MeetingHistory>)));
+            
+        }
+
+        /// <summary>
+        /// List Meetings This endpoint retrieves a list of meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>Task of List&lt;MeetingHistory&gt;</returns>
+        public async System.Threading.Tasks.Task<List<MeetingHistory>> ListMeetingsByUserAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        {
+             ApiResponse<List<MeetingHistory>> localVarResponse = await ListMeetingsByUserAsyncWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Meetings This endpoint retrieves a list of meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
+        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
+        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;MeetingHistory&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingHistory>>> ListMeetingsByUserAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListMeetingsByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarQueryParams.Add("meetingId", Configuration.ApiClient.ParameterToString(meetingId)); // query parameter
+            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
+            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListMeetingsByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<MeetingHistory>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<MeetingHistory>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<MeetingHistory>)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>List&lt;RecordingSummary&gt;</returns>
+        public List<RecordingSummary> ListRecordings (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
+        {
+             ApiResponse<List<RecordingSummary>> localVarResponse = ListRecordingsWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>ApiResponse of List&lt;RecordingSummary&gt;</returns>
+        public ApiResponse< List<RecordingSummary> > ListRecordingsWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListRecordings");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (sortBy != null) localVarQueryParams.Add("sortBy", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
+            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListRecordings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<RecordingSummary>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<RecordingSummary>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RecordingSummary>)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>Task of List&lt;RecordingSummary&gt;</returns>
+        public async System.Threading.Tasks.Task<List<RecordingSummary>> ListRecordingsAsync (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
+        {
+             ApiResponse<List<RecordingSummary>> localVarResponse = await ListRecordingsAsyncWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
+        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
+        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
+        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
+        /// <returns>Task of ApiResponse (List&lt;RecordingSummary&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<RecordingSummary>>> ListRecordingsAsyncWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->ListRecordings");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
+            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
+            if (sortBy != null) localVarQueryParams.Add("sortBy", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
+            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListRecordings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<RecordingSummary>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<RecordingSummary>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RecordingSummary>)));
             
         }
 
@@ -775,194 +1303,6 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdMeetingHistoryGet (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
-        {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdMeetingHistoryGetWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdMeetingHistoryGetWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarQueryParams.Add("meetingId", Configuration.ApiClient.ParameterToString(meetingId)); // query parameter
-            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
-            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdMeetingHistoryGetAsync (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdMeetingHistoryGetAsyncWithHttpInfo(userId, meetingId, startDate, endDate, pageSize, pageNumber, order);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">Return meetings with the specified Meeting ID (recurring &amp; Personal Meeting ID). (optional)</param>
-        /// <param name="startDate">Return meetings starting from the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="endDate">Return meetings up until the specified date. MM/DD/YYYY (optional)</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional)</param>
-        /// <param name="order">Puts results in ascending or descending order. asc/desc (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdMeetingHistoryGetAsyncWithHttpInfo (int? userId, string meetingId = null, string startDate = null, string endDate = null, int? pageSize = null, int? pageNumber = null, string order = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarQueryParams.Add("meetingId", Configuration.ApiClient.ParameterToString(meetingId)); // query parameter
-            if (startDate != null) localVarQueryParams.Add("startDate", Configuration.ApiClient.ParameterToString(startDate)); // query parameter
-            if (endDate != null) localVarQueryParams.Add("endDate", Configuration.ApiClient.ParameterToString(endDate)); // query parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meetings This endpoint retrieves a list of meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>Meeting</returns>
         public Meeting V1UserUserIdMeetingHistoryMeetingGuidGet (int? userId, string meetingGuid)
@@ -1119,346 +1459,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<Meeting>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>List&lt;RecordingSummary&gt;</returns>
-        public List<RecordingSummary> V1UserUserIdMeetingHistoryRecordingsGet (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
-        {
-             ApiResponse<List<RecordingSummary>> localVarResponse = V1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>ApiResponse of List&lt;RecordingSummary&gt;</returns>
-        public ApiResponse< List<RecordingSummary> > V1UserUserIdMeetingHistoryRecordingsGetWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (sortBy != null) localVarQueryParams.Add("sortBy", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
-            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryRecordingsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<List<RecordingSummary>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<RecordingSummary>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RecordingSummary>)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>Task of List&lt;RecordingSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecordingSummary>> V1UserUserIdMeetingHistoryRecordingsGetAsync (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
-        {
-             ApiResponse<List<RecordingSummary>> localVarResponse = await V1UserUserIdMeetingHistoryRecordingsGetAsyncWithHttpInfo(userId, pageSize, pageNumber, sortBy, order);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="pageSize">Sets number of items returned per page. (optional, default to 10)</param>
-        /// <param name="pageNumber">Selects which page of results to return. (optional, default to 1)</param>
-        /// <param name="sortBy">Selects which page of results to return. (optional, default to start_time)</param>
-        /// <param name="order">Puts results in ascending or descending order. (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (List&lt;RecordingSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<RecordingSummary>>> V1UserUserIdMeetingHistoryRecordingsGetAsyncWithHttpInfo (int? userId, int? pageSize = null, int? pageNumber = null, string sortBy = null, string order = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (pageSize != null) localVarQueryParams.Add("pageSize", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
-            if (pageNumber != null) localVarQueryParams.Add("pageNumber", Configuration.ApiClient.ParameterToString(pageNumber)); // query parameter
-            if (sortBy != null) localVarQueryParams.Add("sortBy", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
-            if (order != null) localVarQueryParams.Add("order", Configuration.ApiClient.ParameterToString(order)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryRecordingsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<List<RecordingSummary>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<RecordingSummary>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RecordingSummary>)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Recording</returns>
-        public Recording V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet (int? userId, int? recordingEntityId)
-        {
-             ApiResponse<Recording> localVarResponse = V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo(userId, recordingEntityId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>ApiResponse of Recording</returns>
-        public ApiResponse< Recording > V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetWithHttpInfo (int? userId, int? recordingEntityId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet");
-            // verify the required parameter 'recordingEntityId' is set
-            if (recordingEntityId == null)
-                throw new ApiException(400, "Missing required parameter 'recordingEntityId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (recordingEntityId != null) localVarPathParams.Add("recording_entity_id", Configuration.ApiClient.ParameterToString(recordingEntityId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Recording>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Recording) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Recording)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Task of Recording</returns>
-        public async System.Threading.Tasks.Task<Recording> V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsync (int? userId, int? recordingEntityId)
-        {
-             ApiResponse<Recording> localVarResponse = await V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsyncWithHttpInfo(userId, recordingEntityId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meeting Recordings This endpoint retrieves a list of meeting recordings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="recordingEntityId">The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.</param>
-        /// <returns>Task of ApiResponse (Recording)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Recording>> V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGetAsyncWithHttpInfo (int? userId, int? recordingEntityId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet");
-            // verify the required parameter 'recordingEntityId' is set
-            if (recordingEntityId == null)
-                throw new ApiException(400, "Missing required parameter 'recordingEntityId' when calling HistoryApi->V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet");
-
-            var localVarPath = "/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (recordingEntityId != null) localVarPathParams.Add("recording_entity_id", Configuration.ApiClient.ParameterToString(recordingEntityId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingHistoryRecordingsRecordingEntityIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Recording>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Recording) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Recording)));
             
         }
 

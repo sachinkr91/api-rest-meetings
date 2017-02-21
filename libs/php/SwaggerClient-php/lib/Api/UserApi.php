@@ -103,7 +103,101 @@ class UserApi
     }
 
     /**
-     * Operation v1UserUserIdEnterpriseProfileGet
+     * Operation getDefaultMeeting
+     *
+     * Get Meeting Settings
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return \Swagger\Client\Model\Meeting[]
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getDefaultMeeting($user_id)
+    {
+        list($response) = $this->getDefaultMeetingWithHttpInfo($user_id);
+        return $response;
+    }
+
+    /**
+     * Operation getDefaultMeetingWithHttpInfo
+     *
+     * Get Meeting Settings
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getDefaultMeetingWithHttpInfo($user_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getDefaultMeeting');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/scheduled_meeting";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Meeting[]',
+                '/v1/user/{user_id}/scheduled_meeting'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEnterpriseProfile
      *
      * Get Enterprise Profile
      *
@@ -111,14 +205,14 @@ class UserApi
      * @return \Swagger\Client\Model\Enterprise
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdEnterpriseProfileGet($user_id)
+    public function getEnterpriseProfile($user_id)
     {
-        list($response) = $this->v1UserUserIdEnterpriseProfileGetWithHttpInfo($user_id);
+        list($response) = $this->getEnterpriseProfileWithHttpInfo($user_id);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdEnterpriseProfileGetWithHttpInfo
+     * Operation getEnterpriseProfileWithHttpInfo
      *
      * Get Enterprise Profile
      *
@@ -126,11 +220,11 @@ class UserApi
      * @return Array of \Swagger\Client\Model\Enterprise, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdEnterpriseProfileGetWithHttpInfo($user_id)
+    public function getEnterpriseProfileWithHttpInfo($user_id)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdEnterpriseProfileGet');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getEnterpriseProfile');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/enterprise_profile";
@@ -197,206 +291,7 @@ class UserApi
     }
 
     /**
-     * Operation v1UserUserIdGet
-     *
-     * Get User Account Details
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return \Swagger\Client\Model\User
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdGet($user_id)
-    {
-        list($response) = $this->v1UserUserIdGetWithHttpInfo($user_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdGetWithHttpInfo
-     *
-     * Get User Account Details
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Array of \Swagger\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdGetWithHttpInfo($user_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\User',
-                '/v1/user/{user_id}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\User', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\User', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdPut
-     *
-     * Update User Account Details
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param \Swagger\Client\Model\User $user The user details that you wish to update. (required)
-     * @return \Swagger\Client\Model\User
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdPut($user_id, $user)
-    {
-        list($response) = $this->v1UserUserIdPutWithHttpInfo($user_id, $user);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdPutWithHttpInfo
-     *
-     * Update User Account Details
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param \Swagger\Client\Model\User $user The user details that you wish to update. (required)
-     * @return Array of \Swagger\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdPutWithHttpInfo($user_id, $user)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdPut');
-        }
-        // verify the required parameter 'user' is set
-        if ($user === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user when calling v1UserUserIdPut');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($user)) {
-            $_tempBody = $user;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\User',
-                '/v1/user/{user_id}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\User', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\User', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdRoomGet
+     * Operation getRoom
      *
      * Get User’s Default Meeting Settings
      *
@@ -404,14 +299,14 @@ class UserApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdRoomGet($user_id)
+    public function getRoom($user_id)
     {
-        list($response) = $this->v1UserUserIdRoomGetWithHttpInfo($user_id);
+        list($response) = $this->getRoomWithHttpInfo($user_id);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdRoomGetWithHttpInfo
+     * Operation getRoomWithHttpInfo
      *
      * Get User’s Default Meeting Settings
      *
@@ -419,11 +314,11 @@ class UserApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdRoomGetWithHttpInfo($user_id)
+    public function getRoomWithHttpInfo($user_id)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdRoomGet');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getRoom');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/room";
@@ -490,7 +385,101 @@ class UserApi
     }
 
     /**
-     * Operation v1UserUserIdRoomPut
+     * Operation getUser
+     *
+     * Get User Account Details
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return \Swagger\Client\Model\User
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getUser($user_id)
+    {
+        list($response) = $this->getUserWithHttpInfo($user_id);
+        return $response;
+    }
+
+    /**
+     * Operation getUserWithHttpInfo
+     *
+     * Get User Account Details
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @return Array of \Swagger\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getUserWithHttpInfo($user_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getUser');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\User',
+                '/v1/user/{user_id}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\User', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\User', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateRoom
      *
      * Update User’s Default Meeting Settings
      *
@@ -499,14 +488,14 @@ class UserApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdRoomPut($user_id, $room)
+    public function updateRoom($user_id, $room)
     {
-        list($response) = $this->v1UserUserIdRoomPutWithHttpInfo($user_id, $room);
+        list($response) = $this->updateRoomWithHttpInfo($user_id, $room);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdRoomPutWithHttpInfo
+     * Operation updateRoomWithHttpInfo
      *
      * Update User’s Default Meeting Settings
      *
@@ -515,15 +504,15 @@ class UserApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdRoomPutWithHttpInfo($user_id, $room)
+    public function updateRoomWithHttpInfo($user_id, $room)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdRoomPut');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateRoom');
         }
         // verify the required parameter 'room' is set
         if ($room === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $room when calling v1UserUserIdRoomPut');
+            throw new \InvalidArgumentException('Missing the required parameter $room when calling updateRoom');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/room";
@@ -595,37 +584,43 @@ class UserApi
     }
 
     /**
-     * Operation v1UserUserIdScheduledMeetingGet
+     * Operation updateUser
      *
-     * Get Meeting Settings
+     * Update User Account Details
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return \Swagger\Client\Model\Meeting[]
+     * @param \Swagger\Client\Model\User $user The user details that you wish to update. (required)
+     * @return \Swagger\Client\Model\User
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdScheduledMeetingGet($user_id)
+    public function updateUser($user_id, $user)
     {
-        list($response) = $this->v1UserUserIdScheduledMeetingGetWithHttpInfo($user_id);
+        list($response) = $this->updateUserWithHttpInfo($user_id, $user);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdScheduledMeetingGetWithHttpInfo
+     * Operation updateUserWithHttpInfo
      *
-     * Get Meeting Settings
+     * Update User Account Details
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\User $user The user details that you wish to update. (required)
+     * @return Array of \Swagger\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdScheduledMeetingGetWithHttpInfo($user_id)
+    public function updateUserWithHttpInfo($user_id, $user)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdScheduledMeetingGet');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateUser');
+        }
+        // verify the required parameter 'user' is set
+        if ($user === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user when calling updateUser');
         }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/scheduled_meeting";
+        $resourcePath = "/v1/user/{user_id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -647,7 +642,12 @@ class UserApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($user)) {
+            $_tempBody = $user;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -663,19 +663,19 @@ class UserApi
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'GET',
+                'PUT',
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting[]',
-                '/v1/user/{user_id}/scheduled_meeting'
+                '\Swagger\Client\Model\User',
+                '/v1/user/{user_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\User', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\User', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

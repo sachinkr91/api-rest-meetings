@@ -46,7 +46,7 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>AnalyticsEndpointDistribution</returns>
-        AnalyticsEndpointDistribution V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet (int? enterpriseId, string filter = null);
+        AnalyticsEndpointDistribution GetEndpointDistribution (int? enterpriseId, string filter = null);
 
         /// <summary>
         /// Endpoint Distribution
@@ -58,7 +58,7 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>ApiResponse of AnalyticsEndpointDistribution</returns>
-        ApiResponse<AnalyticsEndpointDistribution> V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo (int? enterpriseId, string filter = null);
+        ApiResponse<AnalyticsEndpointDistribution> GetEndpointDistributionWithHttpInfo (int? enterpriseId, string filter = null);
         /// <summary>
         /// Survey Feedback Comments
         /// </summary>
@@ -70,7 +70,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>AnalyticsFeedbackComments</returns>
-        AnalyticsFeedbackComments V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet (int? enterpriseId, string start, string end);
+        AnalyticsFeedbackComments GetFeedbackComments (int? enterpriseId, string start, string end);
 
         /// <summary>
         /// Survey Feedback Comments
@@ -83,78 +83,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>ApiResponse of AnalyticsFeedbackComments</returns>
-        ApiResponse<AnalyticsFeedbackComments> V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo (int? enterpriseId, string start, string end);
-        /// <summary>
-        /// Meeting Usage Over Time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint reports on meeting usage.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>AnalyticsUsage</returns>
-        AnalyticsUsage V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet (int? enterpriseId, string clientTZ = null, string filter = null);
-
-        /// <summary>
-        /// Meeting Usage Over Time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint reports on meeting usage.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>ApiResponse of AnalyticsUsage</returns>
-        ApiResponse<AnalyticsUsage> V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
-        /// <summary>
-        /// ROI Data
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists return on investment (ROI) data for meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>AnalyticsRoiData</returns>
-        AnalyticsRoiData V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet (int? enterpriseId, string filter);
-
-        /// <summary>
-        /// ROI Data
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists return on investment (ROI) data for meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>ApiResponse of AnalyticsRoiData</returns>
-        ApiResponse<AnalyticsRoiData> V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo (int? enterpriseId, string filter);
-        /// <summary>
-        /// Top Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>AnalyticsTopUsers</returns>
-        AnalyticsTopUsers V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet (int? enterpriseId, string filter = null);
-
-        /// <summary>
-        /// Top Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
-        ApiResponse<AnalyticsTopUsers> V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo (int? enterpriseId, string filter = null);
+        ApiResponse<AnalyticsFeedbackComments> GetFeedbackCommentsWithHttpInfo (int? enterpriseId, string start, string end);
         /// <summary>
         /// Survey Feedback Scores
         /// </summary>
@@ -166,7 +95,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>AnalyticsFeedbackScores</returns>
-        AnalyticsFeedbackScores V1EnterpriseEnterpriseIdIndigoFeedbackCountGet (int? enterpriseId, string start, string end);
+        AnalyticsFeedbackScores GetFeedbackCount (int? enterpriseId, string start, string end);
 
         /// <summary>
         /// Survey Feedback Scores
@@ -179,7 +108,78 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>ApiResponse of AnalyticsFeedbackScores</returns>
-        ApiResponse<AnalyticsFeedbackScores> V1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo (int? enterpriseId, string start, string end);
+        ApiResponse<AnalyticsFeedbackScores> GetFeedbackCountWithHttpInfo (int? enterpriseId, string start, string end);
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>AnalyticsUsage</returns>
+        AnalyticsUsage GetMeetingUsage (int? enterpriseId, string clientTZ = null, string filter = null);
+
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsUsage</returns>
+        ApiResponse<AnalyticsUsage> GetMeetingUsageWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>AnalyticsRoiData</returns>
+        AnalyticsRoiData GetRoiRanges (int? enterpriseId, string filter);
+
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>ApiResponse of AnalyticsRoiData</returns>
+        ApiResponse<AnalyticsRoiData> GetRoiRangesWithHttpInfo (int? enterpriseId, string filter);
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>AnalyticsTopUsers</returns>
+        AnalyticsTopUsers GetTopUsers (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
+        ApiResponse<AnalyticsTopUsers> GetTopUsersWithHttpInfo (int? enterpriseId, string filter = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -192,7 +192,7 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>Task of AnalyticsEndpointDistribution</returns>
-        System.Threading.Tasks.Task<AnalyticsEndpointDistribution> V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsync (int? enterpriseId, string filter = null);
+        System.Threading.Tasks.Task<AnalyticsEndpointDistribution> GetEndpointDistributionAsync (int? enterpriseId, string filter = null);
 
         /// <summary>
         /// Endpoint Distribution
@@ -204,7 +204,7 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>Task of ApiResponse (AnalyticsEndpointDistribution)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsyncWithHttpInfo (int? enterpriseId, string filter = null);
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> GetEndpointDistributionAsyncWithHttpInfo (int? enterpriseId, string filter = null);
         /// <summary>
         /// Survey Feedback Comments
         /// </summary>
@@ -216,7 +216,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of AnalyticsFeedbackComments</returns>
-        System.Threading.Tasks.Task<AnalyticsFeedbackComments> V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsync (int? enterpriseId, string start, string end);
+        System.Threading.Tasks.Task<AnalyticsFeedbackComments> GetFeedbackCommentsAsync (int? enterpriseId, string start, string end);
 
         /// <summary>
         /// Survey Feedback Comments
@@ -229,78 +229,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of ApiResponse (AnalyticsFeedbackComments)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsyncWithHttpInfo (int? enterpriseId, string start, string end);
-        /// <summary>
-        /// Meeting Usage Over Time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint reports on meeting usage.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>Task of AnalyticsUsage</returns>
-        System.Threading.Tasks.Task<AnalyticsUsage> V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsync (int? enterpriseId, string clientTZ = null, string filter = null);
-
-        /// <summary>
-        /// Meeting Usage Over Time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint reports on meeting usage.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
-        /// <summary>
-        /// ROI Data
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists return on investment (ROI) data for meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>Task of AnalyticsRoiData</returns>
-        System.Threading.Tasks.Task<AnalyticsRoiData> V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsync (int? enterpriseId, string filter);
-
-        /// <summary>
-        /// ROI Data
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists return on investment (ROI) data for meetings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsyncWithHttpInfo (int? enterpriseId, string filter);
-        /// <summary>
-        /// Top Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>Task of AnalyticsTopUsers</returns>
-        System.Threading.Tasks.Task<AnalyticsTopUsers> V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsync (int? enterpriseId, string filter = null);
-
-        /// <summary>
-        /// Top Users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the top useres by usage for an enterprise.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsyncWithHttpInfo (int? enterpriseId, string filter = null);
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> GetFeedbackCommentsAsyncWithHttpInfo (int? enterpriseId, string start, string end);
         /// <summary>
         /// Survey Feedback Scores
         /// </summary>
@@ -312,7 +241,7 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of AnalyticsFeedbackScores</returns>
-        System.Threading.Tasks.Task<AnalyticsFeedbackScores> V1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsync (int? enterpriseId, string start, string end);
+        System.Threading.Tasks.Task<AnalyticsFeedbackScores> GetFeedbackCountAsync (int? enterpriseId, string start, string end);
 
         /// <summary>
         /// Survey Feedback Scores
@@ -325,7 +254,78 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of ApiResponse (AnalyticsFeedbackScores)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> V1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsyncWithHttpInfo (int? enterpriseId, string start, string end);
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> GetFeedbackCountAsyncWithHttpInfo (int? enterpriseId, string start, string end);
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of AnalyticsUsage</returns>
+        System.Threading.Tasks.Task<AnalyticsUsage> GetMeetingUsageAsync (int? enterpriseId, string clientTZ = null, string filter = null);
+
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> GetMeetingUsageAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of AnalyticsRoiData</returns>
+        System.Threading.Tasks.Task<AnalyticsRoiData> GetRoiRangesAsync (int? enterpriseId, string filter);
+
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> GetRoiRangesAsyncWithHttpInfo (int? enterpriseId, string filter);
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of AnalyticsTopUsers</returns>
+        System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersAsync (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top useres by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersAsyncWithHttpInfo (int? enterpriseId, string filter = null);
         #endregion Asynchronous Operations
     }
 
@@ -445,9 +445,9 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>AnalyticsEndpointDistribution</returns>
-        public AnalyticsEndpointDistribution V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet (int? enterpriseId, string filter = null)
+        public AnalyticsEndpointDistribution GetEndpointDistribution (int? enterpriseId, string filter = null)
         {
-             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo(enterpriseId, filter);
+             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = GetEndpointDistributionWithHttpInfo(enterpriseId, filter);
              return localVarResponse.Data;
         }
 
@@ -458,11 +458,11 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>ApiResponse of AnalyticsEndpointDistribution</returns>
-        public ApiResponse< AnalyticsEndpointDistribution > V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetWithHttpInfo (int? enterpriseId, string filter = null)
+        public ApiResponse< AnalyticsEndpointDistribution > GetEndpointDistributionWithHttpInfo (int? enterpriseId, string filter = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetEndpointDistribution");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
             var localVarPathParams = new Dictionary<String, String>();
@@ -507,7 +507,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetEndpointDistribution", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -524,9 +524,9 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>Task of AnalyticsEndpointDistribution</returns>
-        public async System.Threading.Tasks.Task<AnalyticsEndpointDistribution> V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsync (int? enterpriseId, string filter = null)
+        public async System.Threading.Tasks.Task<AnalyticsEndpointDistribution> GetEndpointDistributionAsync (int? enterpriseId, string filter = null)
         {
-             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = await V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsyncWithHttpInfo(enterpriseId, filter);
+             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = await GetEndpointDistributionAsyncWithHttpInfo(enterpriseId, filter);
              return localVarResponse.Data;
 
         }
@@ -538,11 +538,11 @@ namespace IO.Swagger.Api
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
         /// <returns>Task of ApiResponse (AnalyticsEndpointDistribution)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetAsyncWithHttpInfo (int? enterpriseId, string filter = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> GetEndpointDistributionAsyncWithHttpInfo (int? enterpriseId, string filter = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetEndpointDistribution");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
             var localVarPathParams = new Dictionary<String, String>();
@@ -586,7 +586,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetEndpointDistribution", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -604,9 +604,9 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>AnalyticsFeedbackComments</returns>
-        public AnalyticsFeedbackComments V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet (int? enterpriseId, string start, string end)
+        public AnalyticsFeedbackComments GetFeedbackComments (int? enterpriseId, string start, string end)
         {
-             ApiResponse<AnalyticsFeedbackComments> localVarResponse = V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo(enterpriseId, start, end);
+             ApiResponse<AnalyticsFeedbackComments> localVarResponse = GetFeedbackCommentsWithHttpInfo(enterpriseId, start, end);
              return localVarResponse.Data;
         }
 
@@ -618,17 +618,17 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>ApiResponse of AnalyticsFeedbackComments</returns>
-        public ApiResponse< AnalyticsFeedbackComments > V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetWithHttpInfo (int? enterpriseId, string start, string end)
+        public ApiResponse< AnalyticsFeedbackComments > GetFeedbackCommentsWithHttpInfo (int? enterpriseId, string start, string end)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetFeedbackComments");
             // verify the required parameter 'start' is set
             if (start == null)
-                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->GetFeedbackComments");
             // verify the required parameter 'end' is set
             if (end == null)
-                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->GetFeedbackComments");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -674,7 +674,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetFeedbackComments", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -692,9 +692,9 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of AnalyticsFeedbackComments</returns>
-        public async System.Threading.Tasks.Task<AnalyticsFeedbackComments> V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsync (int? enterpriseId, string start, string end)
+        public async System.Threading.Tasks.Task<AnalyticsFeedbackComments> GetFeedbackCommentsAsync (int? enterpriseId, string start, string end)
         {
-             ApiResponse<AnalyticsFeedbackComments> localVarResponse = await V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsyncWithHttpInfo(enterpriseId, start, end);
+             ApiResponse<AnalyticsFeedbackComments> localVarResponse = await GetFeedbackCommentsAsyncWithHttpInfo(enterpriseId, start, end);
              return localVarResponse.Data;
 
         }
@@ -707,17 +707,17 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of ApiResponse (AnalyticsFeedbackComments)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetAsyncWithHttpInfo (int? enterpriseId, string start, string end)
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> GetFeedbackCommentsAsyncWithHttpInfo (int? enterpriseId, string start, string end)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetFeedbackComments");
             // verify the required parameter 'start' is set
             if (start == null)
-                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->GetFeedbackComments");
             // verify the required parameter 'end' is set
             if (end == null)
-                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet");
+                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->GetFeedbackComments");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -762,499 +762,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetFeedbackComments", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
-            
-        }
-
-        /// <summary>
-        /// Meeting Usage Over Time This endpoint reports on meeting usage.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>AnalyticsUsage</returns>
-        public AnalyticsUsage V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet (int? enterpriseId, string clientTZ = null, string filter = null)
-        {
-             ApiResponse<AnalyticsUsage> localVarResponse = V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo(enterpriseId, clientTZ, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Meeting Usage Over Time This endpoint reports on meeting usage.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>ApiResponse of AnalyticsUsage</returns>
-        public ApiResponse< AnalyticsUsage > V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
-            
-        }
-
-        /// <summary>
-        /// Meeting Usage Over Time This endpoint reports on meeting usage.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>Task of AnalyticsUsage</returns>
-        public async System.Threading.Tasks.Task<AnalyticsUsage> V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsync (int? enterpriseId, string clientTZ = null, string filter = null)
-        {
-             ApiResponse<AnalyticsUsage> localVarResponse = await V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsyncWithHttpInfo(enterpriseId, clientTZ, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Meeting Usage Over Time This endpoint reports on meeting usage.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
-        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
-            
-        }
-
-        /// <summary>
-        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>AnalyticsRoiData</returns>
-        public AnalyticsRoiData V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet (int? enterpriseId, string filter)
-        {
-             ApiResponse<AnalyticsRoiData> localVarResponse = V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo(enterpriseId, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>ApiResponse of AnalyticsRoiData</returns>
-        public ApiResponse< AnalyticsRoiData > V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetWithHttpInfo (int? enterpriseId, string filter)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet");
-            // verify the required parameter 'filter' is set
-            if (filter == null)
-                throw new ApiException(400, "Missing required parameter 'filter' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
-            
-        }
-
-        /// <summary>
-        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>Task of AnalyticsRoiData</returns>
-        public async System.Threading.Tasks.Task<AnalyticsRoiData> V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsync (int? enterpriseId, string filter)
-        {
-             ApiResponse<AnalyticsRoiData> localVarResponse = await V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsyncWithHttpInfo(enterpriseId, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string</param>
-        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetAsyncWithHttpInfo (int? enterpriseId, string filter)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet");
-            // verify the required parameter 'filter' is set
-            if (filter == null)
-                throw new ApiException(400, "Missing required parameter 'filter' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
-            
-        }
-
-        /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>AnalyticsTopUsers</returns>
-        public AnalyticsTopUsers V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet (int? enterpriseId, string filter = null)
-        {
-             ApiResponse<AnalyticsTopUsers> localVarResponse = V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo(enterpriseId, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
-        public ApiResponse< AnalyticsTopUsers > V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetWithHttpInfo (int? enterpriseId, string filter = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
-            
-        }
-
-        /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>Task of AnalyticsTopUsers</returns>
-        public async System.Threading.Tasks.Task<AnalyticsTopUsers> V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsync (int? enterpriseId, string filter = null)
-        {
-             ApiResponse<AnalyticsTopUsers> localVarResponse = await V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsyncWithHttpInfo(enterpriseId, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
-        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetAsyncWithHttpInfo (int? enterpriseId, string filter = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
             
         }
 
@@ -1266,9 +780,9 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>AnalyticsFeedbackScores</returns>
-        public AnalyticsFeedbackScores V1EnterpriseEnterpriseIdIndigoFeedbackCountGet (int? enterpriseId, string start, string end)
+        public AnalyticsFeedbackScores GetFeedbackCount (int? enterpriseId, string start, string end)
         {
-             ApiResponse<AnalyticsFeedbackScores> localVarResponse = V1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo(enterpriseId, start, end);
+             ApiResponse<AnalyticsFeedbackScores> localVarResponse = GetFeedbackCountWithHttpInfo(enterpriseId, start, end);
              return localVarResponse.Data;
         }
 
@@ -1280,17 +794,17 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>ApiResponse of AnalyticsFeedbackScores</returns>
-        public ApiResponse< AnalyticsFeedbackScores > V1EnterpriseEnterpriseIdIndigoFeedbackCountGetWithHttpInfo (int? enterpriseId, string start, string end)
+        public ApiResponse< AnalyticsFeedbackScores > GetFeedbackCountWithHttpInfo (int? enterpriseId, string start, string end)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetFeedbackCount");
             // verify the required parameter 'start' is set
             if (start == null)
-                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->GetFeedbackCount");
             // verify the required parameter 'end' is set
             if (end == null)
-                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->GetFeedbackCount");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1336,7 +850,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoFeedbackCountGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetFeedbackCount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1354,9 +868,9 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of AnalyticsFeedbackScores</returns>
-        public async System.Threading.Tasks.Task<AnalyticsFeedbackScores> V1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsync (int? enterpriseId, string start, string end)
+        public async System.Threading.Tasks.Task<AnalyticsFeedbackScores> GetFeedbackCountAsync (int? enterpriseId, string start, string end)
         {
-             ApiResponse<AnalyticsFeedbackScores> localVarResponse = await V1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsyncWithHttpInfo(enterpriseId, start, end);
+             ApiResponse<AnalyticsFeedbackScores> localVarResponse = await GetFeedbackCountAsyncWithHttpInfo(enterpriseId, start, end);
              return localVarResponse.Data;
 
         }
@@ -1369,17 +883,17 @@ namespace IO.Swagger.Api
         /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
         /// <returns>Task of ApiResponse (AnalyticsFeedbackScores)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> V1EnterpriseEnterpriseIdIndigoFeedbackCountGetAsyncWithHttpInfo (int? enterpriseId, string start, string end)
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> GetFeedbackCountAsyncWithHttpInfo (int? enterpriseId, string start, string end)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetFeedbackCount");
             // verify the required parameter 'start' is set
             if (start == null)
-                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'start' when calling AnalyticsApi->GetFeedbackCount");
             // verify the required parameter 'end' is set
             if (end == null)
-                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->V1EnterpriseEnterpriseIdIndigoFeedbackCountGet");
+                throw new ApiException(400, "Missing required parameter 'end' when calling AnalyticsApi->GetFeedbackCount");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1424,13 +938,499 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoFeedbackCountGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetFeedbackCount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+            
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>AnalyticsUsage</returns>
+        public AnalyticsUsage GetMeetingUsage (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+             ApiResponse<AnalyticsUsage> localVarResponse = GetMeetingUsageWithHttpInfo(enterpriseId, clientTZ, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsUsage</returns>
+        public ApiResponse< AnalyticsUsage > GetMeetingUsageWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetMeetingUsage");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+            
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of AnalyticsUsage</returns>
+        public async System.Threading.Tasks.Task<AnalyticsUsage> GetMeetingUsageAsync (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+             ApiResponse<AnalyticsUsage> localVarResponse = await GetMeetingUsageAsyncWithHttpInfo(enterpriseId, clientTZ, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> GetMeetingUsageAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetMeetingUsage");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+            
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>AnalyticsRoiData</returns>
+        public AnalyticsRoiData GetRoiRanges (int? enterpriseId, string filter)
+        {
+             ApiResponse<AnalyticsRoiData> localVarResponse = GetRoiRangesWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>ApiResponse of AnalyticsRoiData</returns>
+        public ApiResponse< AnalyticsRoiData > GetRoiRangesWithHttpInfo (int? enterpriseId, string filter)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetRoiRanges");
+            // verify the required parameter 'filter' is set
+            if (filter == null)
+                throw new ApiException(400, "Missing required parameter 'filter' when calling AnalyticsApi->GetRoiRanges");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoiRanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+            
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of AnalyticsRoiData</returns>
+        public async System.Threading.Tasks.Task<AnalyticsRoiData> GetRoiRangesAsync (int? enterpriseId, string filter)
+        {
+             ApiResponse<AnalyticsRoiData> localVarResponse = await GetRoiRangesAsyncWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> GetRoiRangesAsyncWithHttpInfo (int? enterpriseId, string filter)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetRoiRanges");
+            // verify the required parameter 'filter' is set
+            if (filter == null)
+                throw new ApiException(400, "Missing required parameter 'filter' when calling AnalyticsApi->GetRoiRanges");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoiRanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+            
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>AnalyticsTopUsers</returns>
+        public AnalyticsTopUsers GetTopUsers (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsTopUsers> localVarResponse = GetTopUsersWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
+        public ApiResponse< AnalyticsTopUsers > GetTopUsersWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetTopUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTopUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+            
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of AnalyticsTopUsers</returns>
+        public async System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersAsync (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsTopUsers> localVarResponse = await GetTopUsersAsyncWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top useres by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersAsyncWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling AnalyticsApi->GetTopUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTopUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
             
         }
 

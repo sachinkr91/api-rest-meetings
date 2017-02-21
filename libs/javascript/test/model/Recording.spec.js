@@ -65,6 +65,96 @@
       //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Recording);
     });
 
+    it('should have the property recordingEntityId (base name: "recordingEntityId")', function() {
+      // uncomment below and update the code to test the property recordingEntityId
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property recordingEntityGuid (base name: "recordingEntityGuid")', function() {
+      // uncomment below and update the code to test the property recordingEntityGuid
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property recordingName (base name: "recordingName")', function() {
+      // uncomment below and update the code to test the property recordingName
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property meetingGuid (base name: "meetingGuid")', function() {
+      // uncomment below and update the code to test the property meetingGuid
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property chapterCount (base name: "chapterCount")', function() {
+      // uncomment below and update the code to test the property chapterCount
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalSize (base name: "totalSize")', function() {
+      // uncomment below and update the code to test the property totalSize
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalDuration (base name: "totalDuration")', function() {
+      // uncomment below and update the code to test the property totalDuration
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastRecordingDate (base name: "lastRecordingDate")', function() {
+      // uncomment below and update the code to test the property lastRecordingDate
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property aggregatedStatus (base name: "aggregatedStatus")', function() {
+      // uncomment below and update the code to test the property aggregatedStatus
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property recordingThumbnail (base name: "recordingThumbnail")', function() {
+      // uncomment below and update the code to test the property recordingThumbnail
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created (base name: "created")', function() {
+      // uncomment below and update the code to test the property created
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property aggregatedViewCount (base name: "aggregatedViewCount")', function() {
+      // uncomment below and update the code to test the property aggregatedViewCount
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property isPremiumRecording (base name: "isPremiumRecording")', function() {
+      // uncomment below and update the code to test the property isPremiumRecording
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property showPremiumRecordingTag (base name: "showPremiumRecordingTag")', function() {
+      // uncomment below and update the code to test the property showPremiumRecordingTag
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property recordingChapters (base name: "recordingChapters")', function() {
+      // uncomment below and update the code to test the property recordingChapters
+      //var instane = new BlueJeansOnVideoRestApi.Recording();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -51,6 +51,809 @@ class MeetingApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def cancel_meeting(self, user_id, meeting_id, **kwargs):
+        """
+        Cancel Meeting
+        This endpoint deletes a scheuled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.cancel_meeting(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.cancel_meeting_with_http_info(user_id, meeting_id, **kwargs)
+        else:
+            (data) = self.cancel_meeting_with_http_info(user_id, meeting_id, **kwargs)
+            return data
+
+    def cancel_meeting_with_http_info(self, user_id, meeting_id, **kwargs):
+        """
+        Cancel Meeting
+        This endpoint deletes a scheuled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.cancel_meeting_with_http_info(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cancel_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `cancel_meeting`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `cancel_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def create_meeting(self, user_id, meeting, **kwargs):
+        """
+        Create Meeting
+        This endpoint will create a scheduled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_meeting(user_id, meeting, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :param bool email: If set to true, sends invitation emails to all listed participants.
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.create_meeting_with_http_info(user_id, meeting, **kwargs)
+        else:
+            (data) = self.create_meeting_with_http_info(user_id, meeting, **kwargs)
+            return data
+
+    def create_meeting_with_http_info(self, user_id, meeting, **kwargs):
+        """
+        Create Meeting
+        This endpoint will create a scheduled meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_meeting_with_http_info(user_id, meeting, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :param bool email: If set to true, sends invitation emails to all listed participants.
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting', 'email']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `create_meeting`")
+        # verify the required parameter 'meeting' is set
+        if ('meeting' not in params) or (params['meeting'] is None):
+            raise ValueError("Missing the required parameter `meeting` when calling `create_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+        if 'email' in params:
+            query_params['email'] = params['email']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'meeting' in params:
+            body_params = params['meeting']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Meeting',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_default_meeting(self, user_id, **kwargs):
+        """
+        Get Meeting Settings
+        This endpoint gets a user’s default meeting settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_default_meeting(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_default_meeting_with_http_info(user_id, **kwargs)
+        else:
+            (data) = self.get_default_meeting_with_http_info(user_id, **kwargs)
+            return data
+
+    def get_default_meeting_with_http_info(self, user_id, **kwargs):
+        """
+        Get Meeting Settings
+        This endpoint gets a user’s default meeting settings.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_default_meeting_with_http_info(user_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :return: list[Meeting]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_default_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_default_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='list[Meeting]',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_endpoint_layout(self, user_id, meeting_id, endpoint_guid, **kwargs):
+        """
+        Get Endpoint Layout
+        This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_endpoint_layout(user_id, meeting_id, endpoint_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+        :return: Layout
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
+        else:
+            (data) = self.get_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
+            return data
+
+    def get_endpoint_layout_with_http_info(self, user_id, meeting_id, endpoint_guid, **kwargs):
+        """
+        Get Endpoint Layout
+        This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+        :return: Layout
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id', 'endpoint_guid']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_endpoint_layout" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_endpoint_layout`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `get_endpoint_layout`")
+        # verify the required parameter 'endpoint_guid' is set
+        if ('endpoint_guid' not in params) or (params['endpoint_guid'] is None):
+            raise ValueError("Missing the required parameter `endpoint_guid` when calling `get_endpoint_layout`")
+
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+        if 'endpoint_guid' in params:
+            path_params['endpoint_guid'] = params['endpoint_guid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Layout',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_meeting(self, user_id, meeting_id, **kwargs):
+        """
+        Get Meeting
+        This endpoint gets the settings for a user's meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_meeting_with_http_info(user_id, meeting_id, **kwargs)
+        else:
+            (data) = self.get_meeting_with_http_info(user_id, meeting_id, **kwargs)
+            return data
+
+    def get_meeting_with_http_info(self, user_id, meeting_id, **kwargs):
+        """
+        Get Meeting
+        This endpoint gets the settings for a user's meeting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_with_http_info(user_id, meeting_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_meeting`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `get_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Meeting',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_endpoint_layout(self, user_id, meeting_id, endpoint_guid, **kwargs):
+        """
+        Update Endpoint Layout
+        This endpoint allows you to update an individual endpoint’s current layout setting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_endpoint_layout(user_id, meeting_id, endpoint_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+        :param bool is_leader: 
+        :param bool push: 
+        :return: Layout
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
+        else:
+            (data) = self.update_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
+            return data
+
+    def update_endpoint_layout_with_http_info(self, user_id, meeting_id, endpoint_guid, **kwargs):
+        """
+        Update Endpoint Layout
+        This endpoint allows you to update an individual endpoint’s current layout setting.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_endpoint_layout_with_http_info(user_id, meeting_id, endpoint_guid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+        :param bool is_leader: 
+        :param bool push: 
+        :return: Layout
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id', 'endpoint_guid', 'is_leader', 'push']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_endpoint_layout" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `update_endpoint_layout`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `update_endpoint_layout`")
+        # verify the required parameter 'endpoint_guid' is set
+        if ('endpoint_guid' not in params) or (params['endpoint_guid'] is None):
+            raise ValueError("Missing the required parameter `endpoint_guid` when calling `update_endpoint_layout`")
+
+        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+        if 'endpoint_guid' in params:
+            path_params['endpoint_guid'] = params['endpoint_guid']
+
+        query_params = {}
+        if 'is_leader' in params:
+            query_params['isLeader'] = params['is_leader']
+        if 'push' in params:
+            query_params['push'] = params['push']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Layout',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_meeting(self, user_id, meeting_id, meeting, **kwargs):
+        """
+        Update Meeting
+        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_meeting(user_id, meeting_id, meeting, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_meeting_with_http_info(user_id, meeting_id, meeting, **kwargs)
+        else:
+            (data) = self.update_meeting_with_http_info(user_id, meeting_id, meeting, **kwargs)
+            return data
+
+    def update_meeting_with_http_info(self, user_id, meeting_id, meeting, **kwargs):
+        """
+        Update Meeting
+        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_meeting_with_http_info(user_id, meeting_id, meeting, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
+        :param Meeting meeting: The user's room details that you wish to update. (required)
+        :return: Meeting
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_id', 'meeting']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_meeting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `update_meeting`")
+        # verify the required parameter 'meeting_id' is set
+        if ('meeting_id' not in params) or (params['meeting_id'] is None):
+            raise ValueError("Missing the required parameter `meeting_id` when calling `update_meeting`")
+        # verify the required parameter 'meeting' is set
+        if ('meeting' not in params) or (params['meeting'] is None):
+            raise ValueError("Missing the required parameter `meeting` when calling `update_meeting`")
+
+        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_id' in params:
+            path_params['meeting_id'] = params['meeting_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'meeting' in params:
+            body_params = params['meeting']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='Meeting',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get(self, user_id, meeting_id, endpoint_guid, **kwargs):
         """
         Get Endpoint Information
@@ -165,250 +968,6 @@ class MeetingApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='Endpoint',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(self, user_id, meeting_id, endpoint_guid, **kwargs):
-        """
-        Get Endpoint Layout
-        This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get(user_id, meeting_id, endpoint_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Layout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
-            return data
-
-    def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get_with_http_info(self, user_id, meeting_id, endpoint_guid, **kwargs):
-        """
-        Get Endpoint Layout
-        This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get_with_http_info(user_id, meeting_id, endpoint_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :return: Layout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id', 'endpoint_guid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get`")
-        # verify the required parameter 'endpoint_guid' is set
-        if ('endpoint_guid' not in params) or (params['endpoint_guid'] is None):
-            raise ValueError("Missing the required parameter `endpoint_guid` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_get`")
-
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-        if 'endpoint_guid' in params:
-            path_params['endpoint_guid'] = params['endpoint_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Layout',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put(self, user_id, meeting_id, endpoint_guid, **kwargs):
-        """
-        Update Endpoint Layout
-        This endpoint allows you to update an individual endpoint’s current layout setting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put(user_id, meeting_id, endpoint_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :param bool is_leader: 
-        :param bool push: 
-        :return: Layout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put_with_http_info(user_id, meeting_id, endpoint_guid, **kwargs)
-            return data
-
-    def v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put_with_http_info(self, user_id, meeting_id, endpoint_guid, **kwargs):
-        """
-        Update Endpoint Layout
-        This endpoint allows you to update an individual endpoint’s current layout setting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put_with_http_info(user_id, meeting_id, endpoint_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str endpoint_guid: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-        :param bool is_leader: 
-        :param bool push: 
-        :return: Layout
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id', 'endpoint_guid', 'is_leader', 'push']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put`")
-        # verify the required parameter 'endpoint_guid' is set
-        if ('endpoint_guid' not in params) or (params['endpoint_guid'] is None):
-            raise ValueError("Missing the required parameter `endpoint_guid` when calling `v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_layout_put`")
-
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-        if 'endpoint_guid' in params:
-            path_params['endpoint_guid'] = params['endpoint_guid']
-
-        query_params = {}
-        if 'is_leader' in params:
-            query_params['isLeader'] = params['is_leader']
-        if 'push' in params:
-            query_params['push'] = params['push']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Layout',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -1339,221 +1898,6 @@ class MeetingApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_scheduled_meeting_get(self, user_id, **kwargs):
-        """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_get(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, **kwargs)
-            return data
-
-    def v1_user_user_id_scheduled_meeting_get_with_http_info(self, user_id, **kwargs):
-        """
-        Get Meeting Settings
-        This endpoint gets a user’s default meeting settings.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_get_with_http_info(user_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: list[Meeting]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_get`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='list[Meeting]',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_delete(self, user_id, meeting_id, **kwargs):
-        """
-        Cancel Meeting
-        This endpoint deletes a scheuled meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_delete(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_meeting_id_delete_with_http_info(user_id, meeting_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_scheduled_meeting_meeting_id_delete_with_http_info(user_id, meeting_id, **kwargs)
-            return data
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_delete_with_http_info(self, user_id, meeting_id, **kwargs):
-        """
-        Cancel Meeting
-        This endpoint deletes a scheuled meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_delete_with_http_info(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_meeting_id_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_delete`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_delete`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'DELETE',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
     def v1_user_user_id_scheduled_meeting_meeting_id_emails_get(self, user_id, meeting_id, **kwargs):
         """
         Get Meeting Email
@@ -1666,350 +2010,6 @@ class MeetingApi(object):
         auth_settings = ['access_token']
 
         return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Meeting',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_get(self, user_id, meeting_id, **kwargs):
-        """
-        Get Meeting
-        This endpoint gets the settings for a user's meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_get(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_meeting_id_get_with_http_info(user_id, meeting_id, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_scheduled_meeting_meeting_id_get_with_http_info(user_id, meeting_id, **kwargs)
-            return data
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_get_with_http_info(self, user_id, meeting_id, **kwargs):
-        """
-        Get Meeting
-        This endpoint gets the settings for a user's meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_get_with_http_info(user_id, meeting_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_meeting_id_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_get`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_get`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Meeting',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_put(self, user_id, meeting_id, meeting, **kwargs):
-        """
-        Update Meeting
-        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_put(user_id, meeting_id, meeting, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_meeting_id_put_with_http_info(user_id, meeting_id, meeting, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_scheduled_meeting_meeting_id_put_with_http_info(user_id, meeting_id, meeting, **kwargs)
-            return data
-
-    def v1_user_user_id_scheduled_meeting_meeting_id_put_with_http_info(self, user_id, meeting_id, meeting, **kwargs):
-        """
-        Update Meeting
-        This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_meeting_id_put_with_http_info(user_id, meeting_id, meeting, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id', 'meeting']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_meeting_id_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_put`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_scheduled_meeting_meeting_id_put`")
-        # verify the required parameter 'meeting' is set
-        if ('meeting' not in params) or (params['meeting'] is None):
-            raise ValueError("Missing the required parameter `meeting` when calling `v1_user_user_id_scheduled_meeting_meeting_id_put`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'meeting' in params:
-            body_params = params['meeting']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='Meeting',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def v1_user_user_id_scheduled_meeting_post(self, user_id, meeting, **kwargs):
-        """
-        Create Meeting
-        This endpoint will create a scheduled meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_post(user_id, meeting, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
-        :param bool email: If set to true, sends invitation emails to all listed participants.
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_scheduled_meeting_post_with_http_info(user_id, meeting, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_scheduled_meeting_post_with_http_info(user_id, meeting, **kwargs)
-            return data
-
-    def v1_user_user_id_scheduled_meeting_post_with_http_info(self, user_id, meeting, **kwargs):
-        """
-        Create Meeting
-        This endpoint will create a scheduled meeting.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_scheduled_meeting_post_with_http_info(user_id, meeting, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param Meeting meeting: The user's room details that you wish to update. (required)
-        :param bool email: If set to true, sends invitation emails to all listed participants.
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting', 'email']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_scheduled_meeting_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_scheduled_meeting_post`")
-        # verify the required parameter 'meeting' is set
-        if ('meeting' not in params) or (params['meeting'] is None):
-            raise ValueError("Missing the required parameter `meeting` when calling `v1_user_user_id_scheduled_meeting_post`")
-
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-
-        query_params = {}
-        if 'email' in params:
-            query_params['email'] = params['email']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'meeting' in params:
-            body_params = params['meeting']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,

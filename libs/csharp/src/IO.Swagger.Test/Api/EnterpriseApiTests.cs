@@ -77,57 +77,57 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdUsersGet
+        /// Test CreateEnterpriseUser
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdUsersGetTest()
+        public void CreateEnterpriseUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? enterpriseId = null;
+            //bool? forcePasswordChange = null;
+            //bool? sendVerificationMail = null;
+            //var response = instance.CreateEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+            //Assert.IsInstanceOf<Room> (response, "response is Room");
+        }
+        
+        /// <summary>
+        /// Test GetEnterpriseProfile
+        /// </summary>
+        [Test]
+        public void GetEnterpriseProfileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.GetEnterpriseProfile(userId);
+            //Assert.IsInstanceOf<Enterprise> (response, "response is Enterprise");
+        }
+        
+        /// <summary>
+        /// Test ListUsers
+        /// </summary>
+        [Test]
+        public void ListUsersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //int? pageSize = null;
             //int? pageNumber = null;
             //string emailId = null;
-            //var response = instance.V1EnterpriseEnterpriseIdUsersGet(enterpriseId, pageSize, pageNumber, emailId);
-            //Assert.IsInstanceOf<Room> (response, "response is Room");
+            //var response = instance.ListUsers(enterpriseId, pageSize, pageNumber, emailId);
+            //Assert.IsInstanceOf<EnterpriseUserList> (response, "response is EnterpriseUserList");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdUsersPost
+        /// Test RemoveEnterpriseUser
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdUsersPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? enterpriseId = null;
-            //bool? forcePasswordChange = null;
-            //bool? sendVerificationMail = null;
-            //var response = instance.V1EnterpriseEnterpriseIdUsersPost(enterpriseId, forcePasswordChange, sendVerificationMail);
-            //Assert.IsInstanceOf<Room> (response, "response is Room");
-        }
-        
-        /// <summary>
-        /// Test V1EnterpriseEnterpriseIdUsersUserIdDelete
-        /// </summary>
-        [Test]
-        public void V1EnterpriseEnterpriseIdUsersUserIdDeleteTest()
+        public void RemoveEnterpriseUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //int? userId = null;
-            //var response = instance.V1EnterpriseEnterpriseIdUsersUserIdDelete(enterpriseId, userId);
+            //var response = instance.RemoveEnterpriseUser(enterpriseId, userId);
             //Assert.IsInstanceOf<Room> (response, "response is Room");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdEnterpriseProfileGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdEnterpriseProfileGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //var response = instance.V1UserUserIdEnterpriseProfileGet(userId);
-            //Assert.IsInstanceOf<Enterprise> (response, "response is Enterprise");
         }
         
     }

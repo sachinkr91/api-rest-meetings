@@ -4,17 +4,17 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigoanalyticsendpointsdistributionget) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
-[**V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigoanalyticsfeedbackcommentsget) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
-[**V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigoanalyticsmeetingsusageget) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage | Meeting Usage Over Time
-[**V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigoanalyticsroirangesget) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges | ROI Data
-[**V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigoanalyticsusersusageget) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage | Top Users
-[**V1EnterpriseEnterpriseIdIndigoFeedbackCountGet**](AnalyticsApi.md#v1enterpriseenterpriseidindigofeedbackcountget) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
+[**GetEndpointDistribution**](AnalyticsApi.md#getendpointdistribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
+[**GetFeedbackComments**](AnalyticsApi.md#getfeedbackcomments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
+[**GetFeedbackCount**](AnalyticsApi.md#getfeedbackcount) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
+[**GetMeetingUsage**](AnalyticsApi.md#getmeetingusage) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage | Meeting Usage Over Time
+[**GetRoiRanges**](AnalyticsApi.md#getroiranges) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges | ROI Data
+[**GetTopUsers**](AnalyticsApi.md#gettopusers) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage | Top Users
 
 
-<a name="v1enterpriseenterpriseidindigoanalyticsendpointsdistributionget"></a>
-# **V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet**
-> AnalyticsEndpointDistribution V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet (int? enterpriseId, string filter = null)
+<a name="getendpointdistribution"></a>
+# **GetEndpointDistribution**
+> AnalyticsEndpointDistribution GetEndpointDistribution (int? enterpriseId, string filter = null)
 
 Endpoint Distribution
 
@@ -30,7 +30,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGetExample
+    public class GetEndpointDistributionExample
     {
         public void main()
         {
@@ -47,12 +47,12 @@ namespace Example
             try
             {
                 // Endpoint Distribution
-                AnalyticsEndpointDistribution result = apiInstance.V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet(enterpriseId, filter);
+                AnalyticsEndpointDistribution result = apiInstance.GetEndpointDistribution(enterpriseId, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoAnalyticsEndpointsDistributionGet: " + e.Message );
+                Debug.Print("Exception when calling AnalyticsApi.GetEndpointDistribution: " + e.Message );
             }
         }
     }
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1enterpriseenterpriseidindigoanalyticsfeedbackcommentsget"></a>
-# **V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet**
-> AnalyticsFeedbackComments V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet (int? enterpriseId, string start, string end)
+<a name="getfeedbackcomments"></a>
+# **GetFeedbackComments**
+> AnalyticsFeedbackComments GetFeedbackComments (int? enterpriseId, string start, string end)
 
 Survey Feedback Comments
 
@@ -99,7 +99,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGetExample
+    public class GetFeedbackCommentsExample
     {
         public void main()
         {
@@ -117,12 +117,12 @@ namespace Example
             try
             {
                 // Survey Feedback Comments
-                AnalyticsFeedbackComments result = apiInstance.V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet(enterpriseId, start, end);
+                AnalyticsFeedbackComments result = apiInstance.GetFeedbackComments(enterpriseId, start, end);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoAnalyticsFeedbackCommentsGet: " + e.Message );
+                Debug.Print("Exception when calling AnalyticsApi.GetFeedbackComments: " + e.Message );
             }
         }
     }
@@ -152,9 +152,80 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1enterpriseenterpriseidindigoanalyticsmeetingsusageget"></a>
-# **V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet**
-> AnalyticsUsage V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet (int? enterpriseId, string clientTZ = null, string filter = null)
+<a name="getfeedbackcount"></a>
+# **GetFeedbackCount**
+> AnalyticsFeedbackScores GetFeedbackCount (int? enterpriseId, string start, string end)
+
+Survey Feedback Scores
+
+This endpoint lists end of meeting survey scores by enterprise by time period.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class GetFeedbackCountExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new AnalyticsApi();
+            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
+            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
+
+            try
+            {
+                // Survey Feedback Scores
+                AnalyticsFeedbackScores result = apiInstance.GetFeedbackCount(enterpriseId, start, end);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AnalyticsApi.GetFeedbackCount: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+
+### Return type
+
+[**AnalyticsFeedbackScores**](AnalyticsFeedbackScores.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeetingusage"></a>
+# **GetMeetingUsage**
+> AnalyticsUsage GetMeetingUsage (int? enterpriseId, string clientTZ = null, string filter = null)
 
 Meeting Usage Over Time
 
@@ -170,7 +241,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGetExample
+    public class GetMeetingUsageExample
     {
         public void main()
         {
@@ -188,12 +259,12 @@ namespace Example
             try
             {
                 // Meeting Usage Over Time
-                AnalyticsUsage result = apiInstance.V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet(enterpriseId, clientTZ, filter);
+                AnalyticsUsage result = apiInstance.GetMeetingUsage(enterpriseId, clientTZ, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoAnalyticsMeetingsUsageGet: " + e.Message );
+                Debug.Print("Exception when calling AnalyticsApi.GetMeetingUsage: " + e.Message );
             }
         }
     }
@@ -223,9 +294,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1enterpriseenterpriseidindigoanalyticsroirangesget"></a>
-# **V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet**
-> AnalyticsRoiData V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet (int? enterpriseId, string filter)
+<a name="getroiranges"></a>
+# **GetRoiRanges**
+> AnalyticsRoiData GetRoiRanges (int? enterpriseId, string filter)
 
 ROI Data
 
@@ -241,7 +312,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGetExample
+    public class GetRoiRangesExample
     {
         public void main()
         {
@@ -258,12 +329,12 @@ namespace Example
             try
             {
                 // ROI Data
-                AnalyticsRoiData result = apiInstance.V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet(enterpriseId, filter);
+                AnalyticsRoiData result = apiInstance.GetRoiRanges(enterpriseId, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoAnalyticsRoiRangesGet: " + e.Message );
+                Debug.Print("Exception when calling AnalyticsApi.GetRoiRanges: " + e.Message );
             }
         }
     }
@@ -292,9 +363,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1enterpriseenterpriseidindigoanalyticsusersusageget"></a>
-# **V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet**
-> AnalyticsTopUsers V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet (int? enterpriseId, string filter = null)
+<a name="gettopusers"></a>
+# **GetTopUsers**
+> AnalyticsTopUsers GetTopUsers (int? enterpriseId, string filter = null)
 
 Top Users
 
@@ -310,7 +381,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGetExample
+    public class GetTopUsersExample
     {
         public void main()
         {
@@ -327,12 +398,12 @@ namespace Example
             try
             {
                 // Top Users
-                AnalyticsTopUsers result = apiInstance.V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet(enterpriseId, filter);
+                AnalyticsTopUsers result = apiInstance.GetTopUsers(enterpriseId, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoAnalyticsUsersUsageGet: " + e.Message );
+                Debug.Print("Exception when calling AnalyticsApi.GetTopUsers: " + e.Message );
             }
         }
     }
@@ -349,77 +420,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AnalyticsTopUsers**](AnalyticsTopUsers.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1enterpriseenterpriseidindigofeedbackcountget"></a>
-# **V1EnterpriseEnterpriseIdIndigoFeedbackCountGet**
-> AnalyticsFeedbackScores V1EnterpriseEnterpriseIdIndigoFeedbackCountGet (int? enterpriseId, string start, string end)
-
-Survey Feedback Scores
-
-This endpoint lists end of meeting survey scores by enterprise by time period.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class V1EnterpriseEnterpriseIdIndigoFeedbackCountGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new AnalyticsApi();
-            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
-
-            try
-            {
-                // Survey Feedback Scores
-                AnalyticsFeedbackScores result = apiInstance.V1EnterpriseEnterpriseIdIndigoFeedbackCountGet(enterpriseId, start, end);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AnalyticsApi.V1EnterpriseEnterpriseIdIndigoFeedbackCountGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
-
-### Return type
-
-[**AnalyticsFeedbackScores**](AnalyticsFeedbackScores.md)
 
 ### Authorization
 

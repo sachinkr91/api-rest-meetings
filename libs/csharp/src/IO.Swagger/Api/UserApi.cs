@@ -37,115 +37,6 @@ namespace IO.Swagger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Enterprise Profile
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the enterprise profile associated with the user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Enterprise</returns>
-        Enterprise V1UserUserIdEnterpriseProfileGet (int? userId);
-
-        /// <summary>
-        /// Get Enterprise Profile
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the enterprise profile associated with the user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Enterprise</returns>
-        ApiResponse<Enterprise> V1UserUserIdEnterpriseProfileGetWithHttpInfo (int? userId);
-        /// <summary>
-        /// Get User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the basic account details for a given user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>User</returns>
-        User V1UserUserIdGet (int? userId);
-
-        /// <summary>
-        /// Get User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the basic account details for a given user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> V1UserUserIdGetWithHttpInfo (int? userId);
-        /// <summary>
-        /// Update User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s basic account details.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>User</returns>
-        User V1UserUserIdPut (int? userId, User user);
-
-        /// <summary>
-        /// Update User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s basic account details.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> V1UserUserIdPutWithHttpInfo (int? userId, User user);
-        /// <summary>
-        /// Get User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        Room V1UserUserIdRoomGet (int? userId);
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> V1UserUserIdRoomGetWithHttpInfo (int? userId);
-        /// <summary>
-        /// Update User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Room</returns>
-        Room V1UserUserIdRoomPut (int? userId, Room room);
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>ApiResponse of Room</returns>
-        ApiResponse<Room> V1UserUserIdRoomPutWithHttpInfo (int? userId, Room room);
-        /// <summary>
         /// Get Meeting Settings
         /// </summary>
         /// <remarks>
@@ -154,7 +45,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>List&lt;Meeting&gt;</returns>
-        List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId);
+        List<Meeting> GetDefaultMeeting (int? userId);
 
         /// <summary>
         /// Get Meeting Settings
@@ -165,118 +56,118 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of List&lt;Meeting&gt;</returns>
-        ApiResponse<List<Meeting>> V1UserUserIdScheduledMeetingGetWithHttpInfo (int? userId);
+        ApiResponse<List<Meeting>> GetDefaultMeetingWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get Enterprise Profile
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the enterprise profile associated with the user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Enterprise</returns>
+        Enterprise GetEnterpriseProfile (int? userId);
+
+        /// <summary>
+        /// Get Enterprise Profile
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the enterprise profile associated with the user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Enterprise</returns>
+        ApiResponse<Enterprise> GetEnterpriseProfileWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Room</returns>
+        Room GetRoom (int? userId);
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Room</returns>
+        ApiResponse<Room> GetRoomWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the basic account details for a given user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>User</returns>
+        User GetUser (int? userId);
+
+        /// <summary>
+        /// Get User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the basic account details for a given user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of User</returns>
+        ApiResponse<User> GetUserWithHttpInfo (int? userId);
+        /// <summary>
+        /// Update User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Room</returns>
+        Room UpdateRoom (int? userId, Room room);
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>ApiResponse of Room</returns>
+        ApiResponse<Room> UpdateRoomWithHttpInfo (int? userId, Room room);
+        /// <summary>
+        /// Update User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s basic account details.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>User</returns>
+        User UpdateUser (int? userId, User user);
+
+        /// <summary>
+        /// Update User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s basic account details.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>ApiResponse of User</returns>
+        ApiResponse<User> UpdateUserWithHttpInfo (int? userId, User user);
         #endregion Synchronous Operations
         #region Asynchronous Operations
-        /// <summary>
-        /// Get Enterprise Profile
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the enterprise profile associated with the user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Enterprise</returns>
-        System.Threading.Tasks.Task<Enterprise> V1UserUserIdEnterpriseProfileGetAsync (int? userId);
-
-        /// <summary>
-        /// Get Enterprise Profile
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the enterprise profile associated with the user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Enterprise)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Enterprise>> V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo (int? userId);
-        /// <summary>
-        /// Get User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the basic account details for a given user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> V1UserUserIdGetAsync (int? userId);
-
-        /// <summary>
-        /// Get User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the basic account details for a given user.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> V1UserUserIdGetAsyncWithHttpInfo (int? userId);
-        /// <summary>
-        /// Update User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s basic account details.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> V1UserUserIdPutAsync (int? userId, User user);
-
-        /// <summary>
-        /// Update User Account Details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s basic account details.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> V1UserUserIdPutAsyncWithHttpInfo (int? userId, User user);
-        /// <summary>
-        /// Get User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> V1UserUserIdRoomGetAsync (int? userId);
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint gets a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> V1UserUserIdRoomGetAsyncWithHttpInfo (int? userId);
-        /// <summary>
-        /// Update User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Task of Room</returns>
-        System.Threading.Tasks.Task<Room> V1UserUserIdRoomPutAsync (int? userId, Room room);
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows updating a user’s default meeting settings.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Room>> V1UserUserIdRoomPutAsyncWithHttpInfo (int? userId, Room room);
         /// <summary>
         /// Get Meeting Settings
         /// </summary>
@@ -286,7 +177,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of List&lt;Meeting&gt;</returns>
-        System.Threading.Tasks.Task<List<Meeting>> V1UserUserIdScheduledMeetingGetAsync (int? userId);
+        System.Threading.Tasks.Task<List<Meeting>> GetDefaultMeetingAsync (int? userId);
 
         /// <summary>
         /// Get Meeting Settings
@@ -297,7 +188,116 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (List&lt;Meeting&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> V1UserUserIdScheduledMeetingGetAsyncWithHttpInfo (int? userId);
+        System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> GetDefaultMeetingAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get Enterprise Profile
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the enterprise profile associated with the user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Enterprise</returns>
+        System.Threading.Tasks.Task<Enterprise> GetEnterpriseProfileAsync (int? userId);
+
+        /// <summary>
+        /// Get Enterprise Profile
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the enterprise profile associated with the user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Enterprise)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Enterprise>> GetEnterpriseProfileAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Room</returns>
+        System.Threading.Tasks.Task<Room> GetRoomAsync (int? userId);
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint gets a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Room>> GetRoomAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Get User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the basic account details for a given user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of User</returns>
+        System.Threading.Tasks.Task<User> GetUserAsync (int? userId);
+
+        /// <summary>
+        /// Get User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the basic account details for a given user.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (User)</returns>
+        System.Threading.Tasks.Task<ApiResponse<User>> GetUserAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Update User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Task of Room</returns>
+        System.Threading.Tasks.Task<Room> UpdateRoomAsync (int? userId, Room room);
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s default meeting settings.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Room>> UpdateRoomAsyncWithHttpInfo (int? userId, Room room);
+        /// <summary>
+        /// Update User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s basic account details.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>Task of User</returns>
+        System.Threading.Tasks.Task<User> UpdateUserAsync (int? userId, User user);
+
+        /// <summary>
+        /// Update User Account Details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows updating a user’s basic account details.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>Task of ApiResponse (User)</returns>
+        System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserAsyncWithHttpInfo (int? userId, User user);
         #endregion Asynchronous Operations
     }
 
@@ -411,826 +411,14 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Enterprise</returns>
-        public Enterprise V1UserUserIdEnterpriseProfileGet (int? userId)
-        {
-             ApiResponse<Enterprise> localVarResponse = V1UserUserIdEnterpriseProfileGetWithHttpInfo(userId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Enterprise</returns>
-        public ApiResponse< Enterprise > V1UserUserIdEnterpriseProfileGetWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdEnterpriseProfileGet");
-
-            var localVarPath = "/v1/user/{user_id}/enterprise_profile";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdEnterpriseProfileGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Enterprise>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Enterprise) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Enterprise)));
-            
-        }
-
-        /// <summary>
-        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Enterprise</returns>
-        public async System.Threading.Tasks.Task<Enterprise> V1UserUserIdEnterpriseProfileGetAsync (int? userId)
-        {
-             ApiResponse<Enterprise> localVarResponse = await V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo(userId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Enterprise)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Enterprise>> V1UserUserIdEnterpriseProfileGetAsyncWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdEnterpriseProfileGet");
-
-            var localVarPath = "/v1/user/{user_id}/enterprise_profile";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdEnterpriseProfileGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Enterprise>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Enterprise) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Enterprise)));
-            
-        }
-
-        /// <summary>
-        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>User</returns>
-        public User V1UserUserIdGet (int? userId)
-        {
-             ApiResponse<User> localVarResponse = V1UserUserIdGetWithHttpInfo(userId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of User</returns>
-        public ApiResponse< User > V1UserUserIdGetWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdGet");
-
-            var localVarPath = "/v1/user/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<User>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
-            
-        }
-
-        /// <summary>
-        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> V1UserUserIdGetAsync (int? userId)
-        {
-             ApiResponse<User> localVarResponse = await V1UserUserIdGetAsyncWithHttpInfo(userId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<User>> V1UserUserIdGetAsyncWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdGet");
-
-            var localVarPath = "/v1/user/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<User>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
-            
-        }
-
-        /// <summary>
-        /// Update User Account Details This endpoint allows updating a user’s basic account details.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>User</returns>
-        public User V1UserUserIdPut (int? userId, User user)
-        {
-             ApiResponse<User> localVarResponse = V1UserUserIdPutWithHttpInfo(userId, user);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update User Account Details This endpoint allows updating a user’s basic account details.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>ApiResponse of User</returns>
-        public ApiResponse< User > V1UserUserIdPutWithHttpInfo (int? userId, User user)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdPut");
-            // verify the required parameter 'user' is set
-            if (user == null)
-                throw new ApiException(400, "Missing required parameter 'user' when calling UserApi->V1UserUserIdPut");
-
-            var localVarPath = "/v1/user/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (user != null && user.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = user; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<User>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
-            
-        }
-
-        /// <summary>
-        /// Update User Account Details This endpoint allows updating a user’s basic account details.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> V1UserUserIdPutAsync (int? userId, User user)
-        {
-             ApiResponse<User> localVarResponse = await V1UserUserIdPutAsyncWithHttpInfo(userId, user);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update User Account Details This endpoint allows updating a user’s basic account details.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="user">The user details that you wish to update.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<User>> V1UserUserIdPutAsyncWithHttpInfo (int? userId, User user)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdPut");
-            // verify the required parameter 'user' is set
-            if (user == null)
-                throw new ApiException(400, "Missing required parameter 'user' when calling UserApi->V1UserUserIdPut");
-
-            var localVarPath = "/v1/user/{user_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (user != null && user.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = user; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<User>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
-            
-        }
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Room</returns>
-        public Room V1UserUserIdRoomGet (int? userId)
-        {
-             ApiResponse<Room> localVarResponse = V1UserUserIdRoomGetWithHttpInfo(userId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > V1UserUserIdRoomGetWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdRoomGet");
-
-            var localVarPath = "/v1/user/{user_id}/room";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdRoomGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> V1UserUserIdRoomGetAsync (int? userId)
-        {
-             ApiResponse<Room> localVarResponse = await V1UserUserIdRoomGetAsyncWithHttpInfo(userId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> V1UserUserIdRoomGetAsyncWithHttpInfo (int? userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdRoomGet");
-
-            var localVarPath = "/v1/user/{user_id}/room";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdRoomGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Room</returns>
-        public Room V1UserUserIdRoomPut (int? userId, Room room)
-        {
-             ApiResponse<Room> localVarResponse = V1UserUserIdRoomPutWithHttpInfo(userId, room);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>ApiResponse of Room</returns>
-        public ApiResponse< Room > V1UserUserIdRoomPutWithHttpInfo (int? userId, Room room)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdRoomPut");
-            // verify the required parameter 'room' is set
-            if (room == null)
-                throw new ApiException(400, "Missing required parameter 'room' when calling UserApi->V1UserUserIdRoomPut");
-
-            var localVarPath = "/v1/user/{user_id}/room";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (room != null && room.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(room); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = room; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdRoomPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Task of Room</returns>
-        public async System.Threading.Tasks.Task<Room> V1UserUserIdRoomPutAsync (int? userId, Room room)
-        {
-             ApiResponse<Room> localVarResponse = await V1UserUserIdRoomPutAsyncWithHttpInfo(userId, room);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="room">The user&#39;s room details that you wish to update.</param>
-        /// <returns>Task of ApiResponse (Room)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Room>> V1UserUserIdRoomPutAsyncWithHttpInfo (int? userId, Room room)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdRoomPut");
-            // verify the required parameter 'room' is set
-            if (room == null)
-                throw new ApiException(400, "Missing required parameter 'room' when calling UserApi->V1UserUserIdRoomPut");
-
-            var localVarPath = "/v1/user/{user_id}/room";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (room != null && room.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(room); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = room; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdRoomPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Room>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
-            
-        }
-
-        /// <summary>
         /// Get Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>List&lt;Meeting&gt;</returns>
-        public List<Meeting> V1UserUserIdScheduledMeetingGet (int? userId)
+        public List<Meeting> GetDefaultMeeting (int? userId)
         {
-             ApiResponse<List<Meeting>> localVarResponse = V1UserUserIdScheduledMeetingGetWithHttpInfo(userId);
+             ApiResponse<List<Meeting>> localVarResponse = GetDefaultMeetingWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -1240,11 +428,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of List&lt;Meeting&gt;</returns>
-        public ApiResponse< List<Meeting> > V1UserUserIdScheduledMeetingGetWithHttpInfo (int? userId)
+        public ApiResponse< List<Meeting> > GetDefaultMeetingWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdScheduledMeetingGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetDefaultMeeting");
 
             var localVarPath = "/v1/user/{user_id}/scheduled_meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1288,7 +476,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdScheduledMeetingGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetDefaultMeeting", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1304,9 +492,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of List&lt;Meeting&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Meeting>> V1UserUserIdScheduledMeetingGetAsync (int? userId)
+        public async System.Threading.Tasks.Task<List<Meeting>> GetDefaultMeetingAsync (int? userId)
         {
-             ApiResponse<List<Meeting>> localVarResponse = await V1UserUserIdScheduledMeetingGetAsyncWithHttpInfo(userId);
+             ApiResponse<List<Meeting>> localVarResponse = await GetDefaultMeetingAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -1317,11 +505,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (List&lt;Meeting&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> V1UserUserIdScheduledMeetingGetAsyncWithHttpInfo (int? userId)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> GetDefaultMeetingAsyncWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->V1UserUserIdScheduledMeetingGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetDefaultMeeting");
 
             var localVarPath = "/v1/user/{user_id}/scheduled_meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1364,13 +552,825 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdScheduledMeetingGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetDefaultMeeting", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<List<Meeting>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (List<Meeting>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Meeting>)));
+            
+        }
+
+        /// <summary>
+        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Enterprise</returns>
+        public Enterprise GetEnterpriseProfile (int? userId)
+        {
+             ApiResponse<Enterprise> localVarResponse = GetEnterpriseProfileWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Enterprise</returns>
+        public ApiResponse< Enterprise > GetEnterpriseProfileWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetEnterpriseProfile");
+
+            var localVarPath = "/v1/user/{user_id}/enterprise_profile";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEnterpriseProfile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Enterprise>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Enterprise) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Enterprise)));
+            
+        }
+
+        /// <summary>
+        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Enterprise</returns>
+        public async System.Threading.Tasks.Task<Enterprise> GetEnterpriseProfileAsync (int? userId)
+        {
+             ApiResponse<Enterprise> localVarResponse = await GetEnterpriseProfileAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Enterprise Profile This endpoint retrieves the enterprise profile associated with the user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Enterprise)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Enterprise>> GetEnterpriseProfileAsyncWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetEnterpriseProfile");
+
+            var localVarPath = "/v1/user/{user_id}/enterprise_profile";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEnterpriseProfile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Enterprise>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Enterprise) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Enterprise)));
+            
+        }
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Room</returns>
+        public Room GetRoom (int? userId)
+        {
+             ApiResponse<Room> localVarResponse = GetRoomWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of Room</returns>
+        public ApiResponse< Room > GetRoomWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetRoom");
+
+            var localVarPath = "/v1/user/{user_id}/room";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoom", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+            
+        }
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of Room</returns>
+        public async System.Threading.Tasks.Task<Room> GetRoomAsync (int? userId)
+        {
+             ApiResponse<Room> localVarResponse = await GetRoomAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Room>> GetRoomAsyncWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetRoom");
+
+            var localVarPath = "/v1/user/{user_id}/room";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoom", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+            
+        }
+
+        /// <summary>
+        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>User</returns>
+        public User GetUser (int? userId)
+        {
+             ApiResponse<User> localVarResponse = GetUserWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of User</returns>
+        public ApiResponse< User > GetUserWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetUser");
+
+            var localVarPath = "/v1/user/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<User>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
+            
+        }
+
+        /// <summary>
+        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of User</returns>
+        public async System.Threading.Tasks.Task<User> GetUserAsync (int? userId)
+        {
+             ApiResponse<User> localVarResponse = await GetUserAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get User Account Details This endpoint retrieves the basic account details for a given user.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (User)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<User>> GetUserAsyncWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetUser");
+
+            var localVarPath = "/v1/user/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<User>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
+            
+        }
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Room</returns>
+        public Room UpdateRoom (int? userId, Room room)
+        {
+             ApiResponse<Room> localVarResponse = UpdateRoomWithHttpInfo(userId, room);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>ApiResponse of Room</returns>
+        public ApiResponse< Room > UpdateRoomWithHttpInfo (int? userId, Room room)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->UpdateRoom");
+            // verify the required parameter 'room' is set
+            if (room == null)
+                throw new ApiException(400, "Missing required parameter 'room' when calling UserApi->UpdateRoom");
+
+            var localVarPath = "/v1/user/{user_id}/room";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (room != null && room.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(room); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = room; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateRoom", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+            
+        }
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Task of Room</returns>
+        public async System.Threading.Tasks.Task<Room> UpdateRoomAsync (int? userId, Room room)
+        {
+             ApiResponse<Room> localVarResponse = await UpdateRoomAsyncWithHttpInfo(userId, room);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update User’s Default Meeting Settings This endpoint allows updating a user’s default meeting settings.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="room">The user&#39;s room details that you wish to update.</param>
+        /// <returns>Task of ApiResponse (Room)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Room>> UpdateRoomAsyncWithHttpInfo (int? userId, Room room)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->UpdateRoom");
+            // verify the required parameter 'room' is set
+            if (room == null)
+                throw new ApiException(400, "Missing required parameter 'room' when calling UserApi->UpdateRoom");
+
+            var localVarPath = "/v1/user/{user_id}/room";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (room != null && room.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(room); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = room; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateRoom", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Room>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Room) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Room)));
+            
+        }
+
+        /// <summary>
+        /// Update User Account Details This endpoint allows updating a user’s basic account details.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>User</returns>
+        public User UpdateUser (int? userId, User user)
+        {
+             ApiResponse<User> localVarResponse = UpdateUserWithHttpInfo(userId, user);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update User Account Details This endpoint allows updating a user’s basic account details.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>ApiResponse of User</returns>
+        public ApiResponse< User > UpdateUserWithHttpInfo (int? userId, User user)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->UpdateUser");
+            // verify the required parameter 'user' is set
+            if (user == null)
+                throw new ApiException(400, "Missing required parameter 'user' when calling UserApi->UpdateUser");
+
+            var localVarPath = "/v1/user/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<User>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
+            
+        }
+
+        /// <summary>
+        /// Update User Account Details This endpoint allows updating a user’s basic account details.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>Task of User</returns>
+        public async System.Threading.Tasks.Task<User> UpdateUserAsync (int? userId, User user)
+        {
+             ApiResponse<User> localVarResponse = await UpdateUserAsyncWithHttpInfo(userId, user);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update User Account Details This endpoint allows updating a user’s basic account details.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="user">The user details that you wish to update.</param>
+        /// <returns>Task of ApiResponse (User)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<User>> UpdateUserAsyncWithHttpInfo (int? userId, User user)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->UpdateUser");
+            // verify the required parameter 'user' is set
+            if (user == null)
+                throw new ApiException(400, "Missing required parameter 'user' when calling UserApi->UpdateUser");
+
+            var localVarPath = "/v1/user/{user_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<User>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
             
         }
 

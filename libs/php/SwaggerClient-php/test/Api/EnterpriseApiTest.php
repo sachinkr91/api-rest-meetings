@@ -90,45 +90,45 @@ class EnterpriseApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdUsersGet
-     *
-     * List Enterprise Users.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdUsersGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdUsersPost
+     * Test case for createEnterpriseUser
      *
      * Create Enterprise User.
      *
      */
-    public function testV1EnterpriseEnterpriseIdUsersPost()
+    public function testCreateEnterpriseUser()
     {
 
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdUsersUserIdDelete
-     *
-     * Remove Enterprise User.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdUsersUserIdDelete()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdEnterpriseProfileGet
+     * Test case for getEnterpriseProfile
      *
      * Get Enterprise Profile.
      *
      */
-    public function testV1UserUserIdEnterpriseProfileGet()
+    public function testGetEnterpriseProfile()
+    {
+
+    }
+
+    /**
+     * Test case for listUsers
+     *
+     * List Enterprise Users.
+     *
+     */
+    public function testListUsers()
+    {
+
+    }
+
+    /**
+     * Test case for removeEnterpriseUser
+     *
+     * Remove Enterprise User.
+     *
+     */
+    public function testRemoveEnterpriseUser()
     {
 
     }

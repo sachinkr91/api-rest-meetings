@@ -77,77 +77,77 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test V1UserUserIdEnterpriseProfileGet
+        /// Test GetDefaultMeeting
         /// </summary>
         [Test]
-        public void V1UserUserIdEnterpriseProfileGetTest()
+        public void GetDefaultMeetingTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //var response = instance.V1UserUserIdEnterpriseProfileGet(userId);
+            //var response = instance.GetDefaultMeeting(userId);
+            //Assert.IsInstanceOf<List<Meeting>> (response, "response is List<Meeting>");
+        }
+        
+        /// <summary>
+        /// Test GetEnterpriseProfile
+        /// </summary>
+        [Test]
+        public void GetEnterpriseProfileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.GetEnterpriseProfile(userId);
             //Assert.IsInstanceOf<Enterprise> (response, "response is Enterprise");
         }
         
         /// <summary>
-        /// Test V1UserUserIdGet
+        /// Test GetRoom
         /// </summary>
         [Test]
-        public void V1UserUserIdGetTest()
+        public void GetRoomTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //var response = instance.V1UserUserIdGet(userId);
-            //Assert.IsInstanceOf<User> (response, "response is User");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdPut
-        /// </summary>
-        [Test]
-        public void V1UserUserIdPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //User user = null;
-            //var response = instance.V1UserUserIdPut(userId, user);
-            //Assert.IsInstanceOf<User> (response, "response is User");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdRoomGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdRoomGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //var response = instance.V1UserUserIdRoomGet(userId);
+            //var response = instance.GetRoom(userId);
             //Assert.IsInstanceOf<Room> (response, "response is Room");
         }
         
         /// <summary>
-        /// Test V1UserUserIdRoomPut
+        /// Test GetUser
         /// </summary>
         [Test]
-        public void V1UserUserIdRoomPutTest()
+        public void GetUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.GetUser(userId);
+            //Assert.IsInstanceOf<User> (response, "response is User");
+        }
+        
+        /// <summary>
+        /// Test UpdateRoom
+        /// </summary>
+        [Test]
+        public void UpdateRoomTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //Room room = null;
-            //var response = instance.V1UserUserIdRoomPut(userId, room);
+            //var response = instance.UpdateRoom(userId, room);
             //Assert.IsInstanceOf<Room> (response, "response is Room");
         }
         
         /// <summary>
-        /// Test V1UserUserIdScheduledMeetingGet
+        /// Test UpdateUser
         /// </summary>
         [Test]
-        public void V1UserUserIdScheduledMeetingGetTest()
+        public void UpdateUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //var response = instance.V1UserUserIdScheduledMeetingGet(userId);
-            //Assert.IsInstanceOf<List<Meeting>> (response, "response is List<Meeting>");
+            //User user = null;
+            //var response = instance.UpdateUser(userId, user);
+            //Assert.IsInstanceOf<User> (response, "response is User");
         }
         
     }
