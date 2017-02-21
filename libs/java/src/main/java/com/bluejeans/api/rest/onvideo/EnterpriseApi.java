@@ -68,13 +68,13 @@ public class EnterpriseApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createEnterpriseUser */
-    private com.squareup.okhttp.Call createEnterpriseUserCall(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for createUser */
+    private com.squareup.okhttp.Call createUserCall(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling createEnterpriseUser(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling createUser(Async)");
         }
         
 
@@ -129,8 +129,8 @@ public class EnterpriseApi {
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room createEnterpriseUser(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        ApiResponse<Room> resp = createEnterpriseUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
+    public Room createUser(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        ApiResponse<Room> resp = createUserWithHttpInfo(enterpriseId, forcePasswordChange, sendVerificationMail);
         return resp.getData();
     }
 
@@ -143,8 +143,8 @@ public class EnterpriseApi {
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> createEnterpriseUserWithHttpInfo(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
-        com.squareup.okhttp.Call call = createEnterpriseUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, null, null);
+    public ApiResponse<Room> createUserWithHttpInfo(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail) throws ApiException {
+        com.squareup.okhttp.Call call = createUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, null, null);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -159,7 +159,7 @@ public class EnterpriseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createEnterpriseUserAsync(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call createUserAsync(Integer enterpriseId, Boolean forcePasswordChange, Boolean sendVerificationMail, final ApiCallback<Room> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,7 +180,7 @@ public class EnterpriseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createEnterpriseUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createUserCall(enterpriseId, forcePasswordChange, sendVerificationMail, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -414,18 +414,18 @@ public class EnterpriseApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for removeEnterpriseUser */
-    private com.squareup.okhttp.Call removeEnterpriseUserCall(Integer enterpriseId, Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for removeUser */
+    private com.squareup.okhttp.Call removeUserCall(Integer enterpriseId, Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling removeEnterpriseUser(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling removeUser(Async)");
         }
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling removeEnterpriseUser(Async)");
+            throw new ApiException("Missing the required parameter 'userId' when calling removeUser(Async)");
         }
         
 
@@ -476,8 +476,8 @@ public class EnterpriseApi {
      * @return Room
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Room removeEnterpriseUser(Integer enterpriseId, Integer userId) throws ApiException {
-        ApiResponse<Room> resp = removeEnterpriseUserWithHttpInfo(enterpriseId, userId);
+    public Room removeUser(Integer enterpriseId, Integer userId) throws ApiException {
+        ApiResponse<Room> resp = removeUserWithHttpInfo(enterpriseId, userId);
         return resp.getData();
     }
 
@@ -489,8 +489,8 @@ public class EnterpriseApi {
      * @return ApiResponse&lt;Room&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Room> removeEnterpriseUserWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = removeEnterpriseUserCall(enterpriseId, userId, null, null);
+    public ApiResponse<Room> removeUserWithHttpInfo(Integer enterpriseId, Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = removeUserCall(enterpriseId, userId, null, null);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -504,7 +504,7 @@ public class EnterpriseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeEnterpriseUserAsync(Integer enterpriseId, Integer userId, final ApiCallback<Room> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeUserAsync(Integer enterpriseId, Integer userId, final ApiCallback<Room> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -525,7 +525,7 @@ public class EnterpriseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeEnterpriseUserCall(enterpriseId, userId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeUserCall(enterpriseId, userId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Room>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -77,18 +77,6 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test GetDefaultMeeting
-        /// </summary>
-        [Test]
-        public void GetDefaultMeetingTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //var response = instance.GetDefaultMeeting(userId);
-            //Assert.IsInstanceOf<List<Meeting>> (response, "response is List<Meeting>");
-        }
-        
-        /// <summary>
         /// Test GetEnterpriseProfile
         /// </summary>
         [Test]

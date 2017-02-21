@@ -59,16 +59,6 @@
   }
 
   describe('UserApi', function() {
-    describe('getDefaultMeeting', function() {
-      it('should call getDefaultMeeting successfully', function(done) {
-        //uncomment below and update the code to test getDefaultMeeting
-        //instance.getDefaultMeeting(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getEnterpriseProfile', function() {
       it('should call getEnterpriseProfile successfully', function(done) {
         //uncomment below and update the code to test getEnterpriseProfile

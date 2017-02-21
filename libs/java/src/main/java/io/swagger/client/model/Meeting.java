@@ -29,53 +29,216 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.MeetingAdvancedMeetingOptions;
 
 
 /**
  * Meeting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:13:24.966-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:43:18.826-07:00")
 public class Meeting   {
-  @SerializedName("locked")
-  private Boolean locked = null;
+  @SerializedName("id")
+  private Integer id = null;
 
-  @SerializedName("status")
-  private String status = null;
+  @SerializedName("title")
+  private String title = "My Test Meeting";
 
-  public Meeting locked(Boolean locked) {
-    this.locked = locked;
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("start")
+  private Integer start = null;
+
+  @SerializedName("end")
+  private Integer end = null;
+
+  @SerializedName("timezone")
+  private String timezone = "America/New_York";
+
+  @SerializedName("numericMeetingId")
+  private String numericMeetingId = null;
+
+  @SerializedName("attendeePasscode")
+  private String attendeePasscode = null;
+
+  @SerializedName("endPointVersion")
+  private String endPointVersion = "2.10";
+
+  @SerializedName("endPointType")
+  private String endPointType = "WEB_APP";
+
+  @SerializedName("advancedMeetingOptions")
+  private MeetingAdvancedMeetingOptions advancedMeetingOptions = null;
+
+   /**
+   * Unique identifier for meeting.
+   * @return id
+  **/
+  @ApiModelProperty(example = "null", value = "Unique identifier for meeting.")
+  public Integer getId() {
+    return id;
+  }
+
+  public Meeting title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * True to lock, false to unlock.
-   * @return locked
+   * Get title
+   * @return title
   **/
-  @ApiModelProperty(example = "null", value = "True to lock, false to unlock.")
-  public Boolean getLocked() {
-    return locked;
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public String getTitle() {
+    return title;
   }
 
-  public void setLocked(Boolean locked) {
-    this.locked = locked;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
-  public Meeting status(String status) {
-    this.status = status;
+  public Meeting description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Set to \"terminated\" to end the meeting.
-   * @return status
+   * Get description
+   * @return description
   **/
-  @ApiModelProperty(example = "null", value = "Set to \"terminated\" to end the meeting.")
-  public String getStatus() {
-    return status;
+  @ApiModelProperty(example = "null", value = "")
+  public String getDescription() {
+    return description;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Meeting start(Integer start) {
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @return start
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "A [UNIX Timestamp](https://currentmillis.com/) in milliseconds")
+  public Integer getStart() {
+    return start;
+  }
+
+  public void setStart(Integer start) {
+    this.start = start;
+  }
+
+  public Meeting end(Integer end) {
+    this.end = end;
+    return this;
+  }
+
+   /**
+   * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @return end
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "A [UNIX Timestamp](https://currentmillis.com/) in milliseconds")
+  public Integer getEnd() {
+    return end;
+  }
+
+  public void setEnd(Integer end) {
+    this.end = end;
+  }
+
+  public Meeting timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+   /**
+   * Get timezone
+   * @return timezone
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+   /**
+   * Get numericMeetingId
+   * @return numericMeetingId
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getNumericMeetingId() {
+    return numericMeetingId;
+  }
+
+   /**
+   * Get attendeePasscode
+   * @return attendeePasscode
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getAttendeePasscode() {
+    return attendeePasscode;
+  }
+
+  public Meeting endPointVersion(String endPointVersion) {
+    this.endPointVersion = endPointVersion;
+    return this;
+  }
+
+   /**
+   * Get endPointVersion
+   * @return endPointVersion
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public String getEndPointVersion() {
+    return endPointVersion;
+  }
+
+  public void setEndPointVersion(String endPointVersion) {
+    this.endPointVersion = endPointVersion;
+  }
+
+  public Meeting endPointType(String endPointType) {
+    this.endPointType = endPointType;
+    return this;
+  }
+
+   /**
+   * Get endPointType
+   * @return endPointType
+  **/
+  @ApiModelProperty(example = "null", required = true, value = "")
+  public String getEndPointType() {
+    return endPointType;
+  }
+
+  public void setEndPointType(String endPointType) {
+    this.endPointType = endPointType;
+  }
+
+  public Meeting advancedMeetingOptions(MeetingAdvancedMeetingOptions advancedMeetingOptions) {
+    this.advancedMeetingOptions = advancedMeetingOptions;
+    return this;
+  }
+
+   /**
+   * Get advancedMeetingOptions
+   * @return advancedMeetingOptions
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public MeetingAdvancedMeetingOptions getAdvancedMeetingOptions() {
+    return advancedMeetingOptions;
+  }
+
+  public void setAdvancedMeetingOptions(MeetingAdvancedMeetingOptions advancedMeetingOptions) {
+    this.advancedMeetingOptions = advancedMeetingOptions;
   }
 
 
@@ -88,13 +251,22 @@ public class Meeting   {
       return false;
     }
     Meeting meeting = (Meeting) o;
-    return Objects.equals(this.locked, meeting.locked) &&
-        Objects.equals(this.status, meeting.status);
+    return Objects.equals(this.id, meeting.id) &&
+        Objects.equals(this.title, meeting.title) &&
+        Objects.equals(this.description, meeting.description) &&
+        Objects.equals(this.start, meeting.start) &&
+        Objects.equals(this.end, meeting.end) &&
+        Objects.equals(this.timezone, meeting.timezone) &&
+        Objects.equals(this.numericMeetingId, meeting.numericMeetingId) &&
+        Objects.equals(this.attendeePasscode, meeting.attendeePasscode) &&
+        Objects.equals(this.endPointVersion, meeting.endPointVersion) &&
+        Objects.equals(this.endPointType, meeting.endPointType) &&
+        Objects.equals(this.advancedMeetingOptions, meeting.advancedMeetingOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locked, status);
+    return Objects.hash(id, title, description, start, end, timezone, numericMeetingId, attendeePasscode, endPointVersion, endPointType, advancedMeetingOptions);
   }
 
   @Override
@@ -102,8 +274,17 @@ public class Meeting   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Meeting {\n");
     
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("    numericMeetingId: ").append(toIndentedString(numericMeetingId)).append("\n");
+    sb.append("    attendeePasscode: ").append(toIndentedString(attendeePasscode)).append("\n");
+    sb.append("    endPointVersion: ").append(toIndentedString(endPointVersion)).append("\n");
+    sb.append("    endPointType: ").append(toIndentedString(endPointType)).append("\n");
+    sb.append("    advancedMeetingOptions: ").append(toIndentedString(advancedMeetingOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -54,11 +54,11 @@ public class EnterpriseApiTest {
      *          if the Api call fails
      */
     @Test
-    public void createEnterpriseUserTest() throws ApiException {
+    public void createUserTest() throws ApiException {
         Integer enterpriseId = null;
         Boolean forcePasswordChange = null;
         Boolean sendVerificationMail = null;
-        // Room response = api.createEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+        // Room response = api.createUser(enterpriseId, forcePasswordChange, sendVerificationMail);
 
         // TODO: test validations
     }
@@ -107,10 +107,10 @@ public class EnterpriseApiTest {
      *          if the Api call fails
      */
     @Test
-    public void removeEnterpriseUserTest() throws ApiException {
+    public void removeUserTest() throws ApiException {
         Integer enterpriseId = null;
         Integer userId = null;
-        // Room response = api.removeEnterpriseUser(enterpriseId, userId);
+        // Room response = api.removeUser(enterpriseId, userId);
 
         // TODO: test validations
     }

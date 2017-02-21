@@ -42,9 +42,9 @@ class TestEnterpriseApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_enterprise_user(self):
+    def test_create_user(self):
         """
-        Test case for create_enterprise_user
+        Test case for create_user
 
         Create Enterprise User
         """
@@ -66,9 +66,9 @@ class TestEnterpriseApi(unittest.TestCase):
         """
         pass
 
-    def test_remove_enterprise_user(self):
+    def test_remove_user(self):
         """
-        Test case for remove_enterprise_user
+        Test case for remove_user
 
         Remove Enterprise User
         """

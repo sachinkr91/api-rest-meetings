@@ -1715,14 +1715,14 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\Meeting $meeting The meeting properties that you wish to update. (required)
+     * @param \Swagger\Client\Model\PayloadMeetingState $payload_meeting_state The meeting properties that you wish to update. (required)
      * @param int $delay Number of seconds to delay the end meeting operation. (optional)
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay = null)
+    public function v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $payload_meeting_state, $delay = null)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $delay);
+        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay);
         return $response;
     }
 
@@ -1733,12 +1733,12 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\Meeting $meeting The meeting properties that you wish to update. (required)
+     * @param \Swagger\Client\Model\PayloadMeetingState $payload_meeting_state The meeting properties that you wish to update. (required)
      * @param int $delay Number of seconds to delay the end meeting operation. (optional)
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $meeting, $delay = null)
+    public function v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1748,9 +1748,9 @@ class MeetingApi
         if ($meeting_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdPut');
         }
-        // verify the required parameter 'meeting' is set
-        if ($meeting === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting when calling v1UserUserIdLiveMeetingsMeetingIdPut');
+        // verify the required parameter 'payload_meeting_state' is set
+        if ($payload_meeting_state === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payload_meeting_state when calling v1UserUserIdLiveMeetingsMeetingIdPut');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
@@ -1789,8 +1789,8 @@ class MeetingApi
 
         // body params
         $_tempBody = null;
-        if (isset($meeting)) {
-            $_tempBody = $meeting;
+        if (isset($payload_meeting_state)) {
+            $_tempBody = $payload_meeting_state;
         }
 
         // for model (json/xml)

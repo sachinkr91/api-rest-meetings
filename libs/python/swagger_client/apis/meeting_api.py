@@ -1665,7 +1665,7 @@ class MeetingApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def v1_user_user_id_live_meetings_meeting_id_put(self, user_id, meeting_id, meeting, **kwargs):
+    def v1_user_user_id_live_meetings_meeting_id_put(self, user_id, meeting_id, payload_meeting_state, **kwargs):
         """
         Update Meeting State
         This endpoint’s purpose is to be able to modify a meeting.
@@ -1676,13 +1676,13 @@ class MeetingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, meeting, callback=callback_function)
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, payload_meeting_state, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param Meeting meeting: The meeting properties that you wish to update. (required)
+        :param PayloadMeetingState payload_meeting_state: The meeting properties that you wish to update. (required)
         :param int delay: Number of seconds to delay the end meeting operation.
         :return: Meeting
                  If the method is called asynchronously,
@@ -1690,12 +1690,12 @@ class MeetingApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, meeting, **kwargs)
+            return self.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, payload_meeting_state, **kwargs)
         else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, meeting, **kwargs)
+            (data) = self.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, payload_meeting_state, **kwargs)
             return data
 
-    def v1_user_user_id_live_meetings_meeting_id_put_with_http_info(self, user_id, meeting_id, meeting, **kwargs):
+    def v1_user_user_id_live_meetings_meeting_id_put_with_http_info(self, user_id, meeting_id, payload_meeting_state, **kwargs):
         """
         Update Meeting State
         This endpoint’s purpose is to be able to modify a meeting.
@@ -1706,20 +1706,20 @@ class MeetingApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, meeting, callback=callback_function)
+        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_put_with_http_info(user_id, meeting_id, payload_meeting_state, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param Meeting meeting: The meeting properties that you wish to update. (required)
+        :param PayloadMeetingState payload_meeting_state: The meeting properties that you wish to update. (required)
         :param int delay: Number of seconds to delay the end meeting operation.
         :return: Meeting
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'meeting_id', 'meeting', 'delay']
+        all_params = ['user_id', 'meeting_id', 'payload_meeting_state', 'delay']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1738,9 +1738,9 @@ class MeetingApi(object):
         # verify the required parameter 'meeting_id' is set
         if ('meeting_id' not in params) or (params['meeting_id'] is None):
             raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_put`")
-        # verify the required parameter 'meeting' is set
-        if ('meeting' not in params) or (params['meeting'] is None):
-            raise ValueError("Missing the required parameter `meeting` when calling `v1_user_user_id_live_meetings_meeting_id_put`")
+        # verify the required parameter 'payload_meeting_state' is set
+        if ('payload_meeting_state' not in params) or (params['payload_meeting_state'] is None):
+            raise ValueError("Missing the required parameter `payload_meeting_state` when calling `v1_user_user_id_live_meetings_meeting_id_put`")
 
         resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}'.replace('{format}', 'json')
         path_params = {}
@@ -1759,8 +1759,8 @@ class MeetingApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'meeting' in params:
-            body_params = params['meeting']
+        if 'payload_meeting_state' in params:
+            body_params = params['payload_meeting_state']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\

@@ -44,6 +44,7 @@ import io.swagger.client.model.Layout;
 import io.swagger.client.model.Endpoint;
 import io.swagger.client.model.Endpoints;
 import io.swagger.client.model.MeetingState;
+import io.swagger.client.model.PayloadMeetingState;
 import io.swagger.client.model.Numbers;
 
 import java.lang.reflect.Type;
@@ -1762,8 +1763,8 @@ public class MeetingApi {
         return call;
     }
     /* Build call for v1UserUserIdLiveMeetingsMeetingIdPut */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutCall(Integer userId, Integer meetingId, Meeting meeting, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = meeting;
+    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutCall(Integer userId, Integer meetingId, PayloadMeetingState payloadMeetingState, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = payloadMeetingState;
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -1775,9 +1776,9 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPut(Async)");
         }
         
-        // verify the required parameter 'meeting' is set
-        if (meeting == null) {
-            throw new ApiException("Missing the required parameter 'meeting' when calling v1UserUserIdLiveMeetingsMeetingIdPut(Async)");
+        // verify the required parameter 'payloadMeetingState' is set
+        if (payloadMeetingState == null) {
+            throw new ApiException("Missing the required parameter 'payloadMeetingState' when calling v1UserUserIdLiveMeetingsMeetingIdPut(Async)");
         }
         
 
@@ -1827,13 +1828,13 @@ public class MeetingApi {
      * This endpoint’s purpose is to be able to modify a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meeting The meeting properties that you wish to update. (required)
+     * @param payloadMeetingState The meeting properties that you wish to update. (required)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdPut(Integer userId, Integer meetingId, Meeting meeting, Integer delay) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, meeting, delay);
+    public Meeting v1UserUserIdLiveMeetingsMeetingIdPut(Integer userId, Integer meetingId, PayloadMeetingState payloadMeetingState, Integer delay) throws ApiException {
+        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
         return resp.getData();
     }
 
@@ -1842,13 +1843,13 @@ public class MeetingApi {
      * This endpoint’s purpose is to be able to modify a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meeting The meeting properties that you wish to update. (required)
+     * @param payloadMeetingState The meeting properties that you wish to update. (required)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(Integer userId, Integer meetingId, Meeting meeting, Integer delay) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, delay, null, null);
+    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(Integer userId, Integer meetingId, PayloadMeetingState payloadMeetingState, Integer delay) throws ApiException {
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, payloadMeetingState, delay, null, null);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1858,13 +1859,13 @@ public class MeetingApi {
      * This endpoint’s purpose is to be able to modify a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meeting The meeting properties that you wish to update. (required)
+     * @param payloadMeetingState The meeting properties that you wish to update. (required)
      * @param delay Number of seconds to delay the end meeting operation. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutAsync(Integer userId, Integer meetingId, Meeting meeting, Integer delay, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdPutAsync(Integer userId, Integer meetingId, PayloadMeetingState payloadMeetingState, Integer delay, final ApiCallback<Meeting> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1885,7 +1886,7 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, meeting, delay, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdPutCall(userId, meetingId, payloadMeetingState, delay, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

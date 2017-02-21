@@ -4,8 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locked** | **Boolean** | True to lock, false to unlock. |  [optional]
-**status** | **String** | Set to \&quot;terminated\&quot; to end the meeting. |  [optional]
+**id** | **Integer** | Unique identifier for meeting. |  [optional]
+**title** | **String** |  | 
+**description** | **String** |  |  [optional]
+**start** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**end** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**timezone** | **String** |  |  [optional]
+**numericMeetingId** | **String** |  |  [optional]
+**attendeePasscode** | **String** |  |  [optional]
+**endPointVersion** | **String** |  | 
+**endPointType** | **String** |  | 
+**advancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  |  [optional]
 
 
 

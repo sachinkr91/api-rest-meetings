@@ -3,8 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locked** | **bool?** | True to lock, false to unlock. | [optional] 
-**Status** | **string** | Set to \&quot;terminated\&quot; to end the meeting. | [optional] 
+**Id** | **int?** | Unique identifier for meeting. | [optional] 
+**Title** | **string** |  | [default to "My Test Meeting"]
+**Description** | **string** |  | [optional] 
+**Start** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**End** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**Timezone** | **string** |  | [optional] [default to "America/New_York"]
+**NumericMeetingId** | **string** |  | [optional] 
+**AttendeePasscode** | **string** |  | [optional] 
+**EndPointVersion** | **string** |  | [default to "2.10"]
+**EndPointType** | **string** |  | [default to "WEB_APP"]
+**AdvancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

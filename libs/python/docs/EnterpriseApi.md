@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_enterprise_user**](EnterpriseApi.md#create_enterprise_user) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**create_user**](EnterpriseApi.md#create_user) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 [**get_enterprise_profile**](EnterpriseApi.md#get_enterprise_profile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**list_users**](EnterpriseApi.md#list_users) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**remove_enterprise_user**](EnterpriseApi.md#remove_enterprise_user) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+[**remove_user**](EnterpriseApi.md#remove_user) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-# **create_enterprise_user**
-> Room create_enterprise_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
+# **create_user**
+> Room create_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
 
 Create Enterprise User
 
@@ -37,10 +37,10 @@ send_verification_mail = true # bool | Prevents welcome emails from being sent t
 
 try: 
     # Create Enterprise User
-    api_response = api_instance.create_enterprise_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
+    api_response = api_instance.create_user(enterprise_id, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling EnterpriseApi->create_enterprise_user: %s\n" % e
+    print "Exception when calling EnterpriseApi->create_user: %s\n" % e
 ```
 
 ### Parameters
@@ -176,8 +176,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **remove_enterprise_user**
-> Room remove_enterprise_user(enterprise_id, user_id)
+# **remove_user**
+> Room remove_user(enterprise_id, user_id)
 
 Remove Enterprise User
 
@@ -202,10 +202,10 @@ user_id = 56 # int | The ID of the user of interest. This value is an integer wh
 
 try: 
     # Remove Enterprise User
-    api_response = api_instance.remove_enterprise_user(enterprise_id, user_id)
+    api_response = api_instance.remove_user(enterprise_id, user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling EnterpriseApi->remove_enterprise_user: %s\n" % e
+    print "Exception when calling EnterpriseApi->remove_user: %s\n" % e
 ```
 
 ### Parameters

@@ -113,10 +113,10 @@ Class | Method | HTTP request | Description
 *CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**](docs/CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by Enterprise
 *CommandCenterApi* | [**v1UserUserIdIndigoMeetingsGet**](docs/CommandCenterApi.md#v1UserUserIdIndigoMeetingsGet) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
 *CommandCenterApi* | [**v1UserUserIdIndigoMeetingsMeetingGuidGet**](docs/CommandCenterApi.md#v1UserUserIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by User
-*EnterpriseApi* | [**createEnterpriseUser**](docs/EnterpriseApi.md#createEnterpriseUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+*EnterpriseApi* | [**createUser**](docs/EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 *EnterpriseApi* | [**getEnterpriseProfile**](docs/EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 *EnterpriseApi* | [**listUsers**](docs/EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-*EnterpriseApi* | [**removeEnterpriseUser**](docs/EnterpriseApi.md#removeEnterpriseUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+*EnterpriseApi* | [**removeUser**](docs/EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 *HistoryApi* | [**getRecording**](docs/HistoryApi.md#getRecording) | **GET** /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id} | Get Recording
 *HistoryApi* | [**listMeetingsByEnterprise**](docs/HistoryApi.md#listMeetingsByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List Meetings
 *HistoryApi* | [**listMeetingsByUser**](docs/HistoryApi.md#listMeetingsByUser) | **GET** /v1/user/{user_id}/meeting_history | List Meetings
@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
 *RecordingApi* | [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](docs/RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
-*UserApi* | [**getDefaultMeeting**](docs/UserApi.md#getDefaultMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 *UserApi* | [**getEnterpriseProfile**](docs/UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 *UserApi* | [**getRoom**](docs/UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 *UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
@@ -201,6 +200,7 @@ Class | Method | HTTP request | Description
  - [NumbersLabel](docs/NumbersLabel.md)
  - [NumbersNumbers](docs/NumbersNumbers.md)
  - [Partition](docs/Partition.md)
+ - [PayloadMeetingState](docs/PayloadMeetingState.md)
  - [Recording](docs/Recording.md)
  - [RecordingRecordingChapters](docs/RecordingRecordingChapters.md)
  - [RecordingRecordingSessions](docs/RecordingRecordingSessions.md)

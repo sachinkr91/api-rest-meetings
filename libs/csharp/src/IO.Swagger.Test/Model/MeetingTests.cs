@@ -77,20 +77,92 @@ namespace IO.Swagger.Test
         }
 
         /// <summary>
-        /// Test the property 'Locked'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void LockedTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'Locked'
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'Title'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void TitleTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property 'Title'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'Start'
+        /// </summary>
+        [Test]
+        public void StartTest()
+        {
+            // TODO unit test for the property 'Start'
+        }
+        /// <summary>
+        /// Test the property 'End'
+        /// </summary>
+        [Test]
+        public void EndTest()
+        {
+            // TODO unit test for the property 'End'
+        }
+        /// <summary>
+        /// Test the property 'Timezone'
+        /// </summary>
+        [Test]
+        public void TimezoneTest()
+        {
+            // TODO unit test for the property 'Timezone'
+        }
+        /// <summary>
+        /// Test the property 'NumericMeetingId'
+        /// </summary>
+        [Test]
+        public void NumericMeetingIdTest()
+        {
+            // TODO unit test for the property 'NumericMeetingId'
+        }
+        /// <summary>
+        /// Test the property 'AttendeePasscode'
+        /// </summary>
+        [Test]
+        public void AttendeePasscodeTest()
+        {
+            // TODO unit test for the property 'AttendeePasscode'
+        }
+        /// <summary>
+        /// Test the property 'EndPointVersion'
+        /// </summary>
+        [Test]
+        public void EndPointVersionTest()
+        {
+            // TODO unit test for the property 'EndPointVersion'
+        }
+        /// <summary>
+        /// Test the property 'EndPointType'
+        /// </summary>
+        [Test]
+        public void EndPointTypeTest()
+        {
+            // TODO unit test for the property 'EndPointType'
+        }
+        /// <summary>
+        /// Test the property 'AdvancedMeetingOptions'
+        /// </summary>
+        [Test]
+        public void AdvancedMeetingOptionsTest()
+        {
+            // TODO unit test for the property 'AdvancedMeetingOptions'
         }
 
     }

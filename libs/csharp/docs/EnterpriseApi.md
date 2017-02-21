@@ -4,15 +4,15 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEnterpriseUser**](EnterpriseApi.md#createenterpriseuser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**CreateUser**](EnterpriseApi.md#createuser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 [**GetEnterpriseProfile**](EnterpriseApi.md#getenterpriseprofile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**ListUsers**](EnterpriseApi.md#listusers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**RemoveEnterpriseUser**](EnterpriseApi.md#removeenterpriseuser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+[**RemoveUser**](EnterpriseApi.md#removeuser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-<a name="createenterpriseuser"></a>
-# **CreateEnterpriseUser**
-> Room CreateEnterpriseUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
+<a name="createuser"></a>
+# **CreateUser**
+> Room CreateUser (int? enterpriseId, bool? forcePasswordChange = null, bool? sendVerificationMail = null)
 
 Create Enterprise User
 
@@ -28,7 +28,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class CreateEnterpriseUserExample
+    public class CreateUserExample
     {
         public void main()
         {
@@ -46,12 +46,12 @@ namespace Example
             try
             {
                 // Create Enterprise User
-                Room result = apiInstance.CreateEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+                Room result = apiInstance.CreateUser(enterpriseId, forcePasswordChange, sendVerificationMail);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling EnterpriseApi.CreateEnterpriseUser: " + e.Message );
+                Debug.Print("Exception when calling EnterpriseApi.CreateUser: " + e.Message );
             }
         }
     }
@@ -221,9 +221,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removeenterpriseuser"></a>
-# **RemoveEnterpriseUser**
-> Room RemoveEnterpriseUser (int? enterpriseId, int? userId)
+<a name="removeuser"></a>
+# **RemoveUser**
+> Room RemoveUser (int? enterpriseId, int? userId)
 
 Remove Enterprise User
 
@@ -239,7 +239,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class RemoveEnterpriseUserExample
+    public class RemoveUserExample
     {
         public void main()
         {
@@ -256,12 +256,12 @@ namespace Example
             try
             {
                 // Remove Enterprise User
-                Room result = apiInstance.RemoveEnterpriseUser(enterpriseId, userId);
+                Room result = apiInstance.RemoveUser(enterpriseId, userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling EnterpriseApi.RemoveEnterpriseUser: " + e.Message );
+                Debug.Print("Exception when calling EnterpriseApi.RemoveUser: " + e.Message );
             }
         }
     }

@@ -845,7 +845,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdPut"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, meeting, delay)
+> Meeting v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, delay)
 
 Update Meeting State
 
@@ -871,10 +871,10 @@ access_token.setApiKey("YOUR API KEY");
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-Meeting meeting = new Meeting(); // Meeting | The meeting properties that you wish to update.
+PayloadMeetingState payloadMeetingState = new PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 Integer delay = 56; // Integer | Number of seconds to delay the end meeting operation.
 try {
-    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, meeting, delay);
+    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, delay);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdPut");
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **meeting** | [**Meeting**](Meeting.md)| The meeting properties that you wish to update. |
+ **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **Integer**| Number of seconds to delay the end meeting operation. | [optional]
 
 ### Return type

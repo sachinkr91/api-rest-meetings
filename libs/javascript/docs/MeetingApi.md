@@ -845,7 +845,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdLiveMeetingsMeetingIdPut"></a>
 # **v1UserUserIdLiveMeetingsMeetingIdPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, meeting, opts)
+> Meeting v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, opts)
 
 Update Meeting State
 
@@ -868,7 +868,7 @@ var userId = 56; // Integer | The ID of the user of interest. This value is an i
 
 var meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
-var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The meeting properties that you wish to update.
+var payloadMeetingState = new BlueJeansOnVideoRestApi.PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 
 var opts = { 
   'delay': 56 // Integer | Number of seconds to delay the end meeting operation.
@@ -881,7 +881,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, meeting, opts, callback);
+apiInstance.v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, opts, callback);
 ```
 
 ### Parameters
@@ -890,7 +890,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **meeting** | [**Meeting**](Meeting.md)| The meeting properties that you wish to update. | 
+ **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. | 
  **delay** | **Integer**| Number of seconds to delay the end meeting operation. | [optional] 
 
 ### Return type

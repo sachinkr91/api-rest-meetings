@@ -42,14 +42,6 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_default_meeting(self):
-        """
-        Test case for get_default_meeting
-
-        Get Meeting Settings
-        """
-        pass
-
     def test_get_enterprise_profile(self):
         """
         Test case for get_enterprise_profile

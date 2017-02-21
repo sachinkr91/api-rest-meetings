@@ -4,15 +4,15 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEnterpriseUser**](EnterpriseApi.md#createEnterpriseUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**createUser**](EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 [**getEnterpriseProfile**](EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**listUsers**](EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**removeEnterpriseUser**](EnterpriseApi.md#removeEnterpriseUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+[**removeUser**](EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-<a name="createEnterpriseUser"></a>
-# **createEnterpriseUser**
-> Room createEnterpriseUser(enterpriseId, opts)
+<a name="createUser"></a>
+# **createUser**
+> Room createUser(enterpriseId, opts)
 
 Create Enterprise User
 
@@ -45,7 +45,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.createEnterpriseUser(enterpriseId, opts, callback);
+apiInstance.createUser(enterpriseId, opts, callback);
 ```
 
 ### Parameters
@@ -183,9 +183,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="removeEnterpriseUser"></a>
-# **removeEnterpriseUser**
-> Room removeEnterpriseUser(enterpriseId, userId)
+<a name="removeUser"></a>
+# **removeUser**
+> Room removeUser(enterpriseId, userId)
 
 Remove Enterprise User
 
@@ -216,7 +216,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.removeEnterpriseUser(enterpriseId, userId, callback);
+apiInstance.removeUser(enterpriseId, userId, callback);
 ```
 
 ### Parameters

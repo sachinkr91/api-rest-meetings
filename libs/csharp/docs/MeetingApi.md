@@ -1013,7 +1013,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridlivemeetingsmeetingidput"></a>
 # **V1UserUserIdLiveMeetingsMeetingIdPut**
-> Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, Meeting meeting, int? delay = null)
+> Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
 
 Update Meeting State
 
@@ -1042,13 +1042,13 @@ namespace Example
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-            var meeting = new Meeting(); // Meeting | The meeting properties that you wish to update.
+            var payloadMeetingState = new PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
             var delay = 56;  // int? | Number of seconds to delay the end meeting operation. (optional) 
 
             try
             {
                 // Update Meeting State
-                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, meeting, delay);
+                Meeting result = apiInstance.V1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, delay);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1066,7 +1066,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **meeting** | [**Meeting**](Meeting.md)| The meeting properties that you wish to update. | 
+ **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. | 
  **delay** | **int?**| Number of seconds to delay the end meeting operation. | [optional] 
 
 ### Return type

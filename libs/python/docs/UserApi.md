@@ -4,65 +4,12 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_default_meeting**](UserApi.md#get_default_meeting) | **GET** /v1/user/{user_id}/scheduled_meeting | Get Meeting Settings
 [**get_enterprise_profile**](UserApi.md#get_enterprise_profile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**get_room**](UserApi.md#get_room) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**get_user**](UserApi.md#get_user) | **GET** /v1/user/{user_id} | Get User Account Details
 [**update_room**](UserApi.md#update_room) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**update_user**](UserApi.md#update_user) | **PUT** /v1/user/{user_id} | Update User Account Details
 
-
-# **get_default_meeting**
-> list[Meeting] get_default_meeting(user_id)
-
-Get Meeting Settings
-
-This endpoint gets a user’s default meeting settings.
-
-### Example 
-```python
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.UserApi()
-user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-
-try: 
-    # Get Meeting Settings
-    api_response = api_instance.get_default_meeting(user_id)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling UserApi->get_default_meeting: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
-
-### Return type
-
-[**list[Meeting]**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_enterprise_profile**
 > Enterprise get_enterprise_profile(user_id)

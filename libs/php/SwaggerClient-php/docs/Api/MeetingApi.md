@@ -774,7 +774,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdLiveMeetingsMeetingIdPut**
-> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay)
+> \Swagger\Client\Model\Meeting v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $payload_meeting_state, $delay)
 
 Update Meeting State
 
@@ -793,11 +793,11 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-$meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The meeting properties that you wish to update.
+$payload_meeting_state = new \Swagger\Client\Model\PayloadMeetingState(); // \Swagger\Client\Model\PayloadMeetingState | The meeting properties that you wish to update.
 $delay = 56; // int | Number of seconds to delay the end meeting operation.
 
 try {
-    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $meeting, $delay);
+    $result = $api_instance->v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $payload_meeting_state, $delay);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->v1UserUserIdLiveMeetingsMeetingIdPut: ', $e->getMessage(), PHP_EOL;
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The meeting properties that you wish to update. |
+ **payload_meeting_state** | [**\Swagger\Client\Model\PayloadMeetingState**](../Model/\Swagger\Client\Model\PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **int**| Number of seconds to delay the end meeting operation. | [optional]
 
 ### Return type

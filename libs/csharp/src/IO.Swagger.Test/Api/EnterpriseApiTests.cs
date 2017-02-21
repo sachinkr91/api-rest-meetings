@@ -77,16 +77,16 @@ namespace IO.Swagger.Test
 
         
         /// <summary>
-        /// Test CreateEnterpriseUser
+        /// Test CreateUser
         /// </summary>
         [Test]
-        public void CreateEnterpriseUserTest()
+        public void CreateUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //bool? forcePasswordChange = null;
             //bool? sendVerificationMail = null;
-            //var response = instance.CreateEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+            //var response = instance.CreateUser(enterpriseId, forcePasswordChange, sendVerificationMail);
             //Assert.IsInstanceOf<Room> (response, "response is Room");
         }
         
@@ -118,15 +118,15 @@ namespace IO.Swagger.Test
         }
         
         /// <summary>
-        /// Test RemoveEnterpriseUser
+        /// Test RemoveUser
         /// </summary>
         [Test]
-        public void RemoveEnterpriseUserTest()
+        public void RemoveUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //int? userId = null;
-            //var response = instance.RemoveEnterpriseUser(enterpriseId, userId);
+            //var response = instance.RemoveUser(enterpriseId, userId);
             //Assert.IsInstanceOf<Room> (response, "response is Room");
         }
         

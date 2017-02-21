@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/Numbers'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadMeetingState', 'model/Numbers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/Numbers'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
   }
-}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, Numbers) {
+}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadMeetingState, Numbers) {
   'use strict';
 
   /**
@@ -859,15 +859,15 @@
      * This endpoint’s purpose is to be able to modify a meeting.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:model/Meeting} meeting The meeting properties that you wish to update.
+     * @param {module:model/PayloadMeetingState} payloadMeetingState The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.delay Number of seconds to delay the end meeting operation.
      * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdPut = function(userId, meetingId, meeting, opts, callback) {
+    this.v1UserUserIdLiveMeetingsMeetingIdPut = function(userId, meetingId, payloadMeetingState, opts, callback) {
       opts = opts || {};
-      var postBody = meeting;
+      var postBody = payloadMeetingState;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
@@ -879,9 +879,9 @@
         throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
       }
 
-      // verify the required parameter 'meeting' is set
-      if (meeting == undefined || meeting == null) {
-        throw "Missing the required parameter 'meeting' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
+      // verify the required parameter 'payloadMeetingState' is set
+      if (payloadMeetingState == undefined || payloadMeetingState == null) {
+        throw "Missing the required parameter 'payloadMeetingState' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
       }
 
 

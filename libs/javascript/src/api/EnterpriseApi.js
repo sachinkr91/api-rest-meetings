@@ -57,8 +57,8 @@
 
 
     /**
-     * Callback function to receive the result of the createEnterpriseUser operation.
-     * @callback module:api/EnterpriseApi~createEnterpriseUserCallback
+     * Callback function to receive the result of the createUser operation.
+     * @callback module:api/EnterpriseApi~createUserCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -71,16 +71,16 @@
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.forcePasswordChange Forces the user to change his or her password on first log in.
      * @param {Boolean} opts.sendVerificationMail Prevents welcome emails from being sent to the newly created user.
-     * @param {module:api/EnterpriseApi~createEnterpriseUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/EnterpriseApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.createEnterpriseUser = function(enterpriseId, opts, callback) {
+    this.createUser = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling createEnterpriseUser";
+        throw "Missing the required parameter 'enterpriseId' when calling createUser";
       }
 
 
@@ -209,8 +209,8 @@
     }
 
     /**
-     * Callback function to receive the result of the removeEnterpriseUser operation.
-     * @callback module:api/EnterpriseApi~removeEnterpriseUserCallback
+     * Callback function to receive the result of the removeUser operation.
+     * @callback module:api/EnterpriseApi~removeUserCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Room} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -221,20 +221,20 @@
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/EnterpriseApi~removeEnterpriseUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/EnterpriseApi~removeUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
-    this.removeEnterpriseUser = function(enterpriseId, userId, callback) {
+    this.removeUser = function(enterpriseId, userId, callback) {
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling removeEnterpriseUser";
+        throw "Missing the required parameter 'enterpriseId' when calling removeUser";
       }
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling removeEnterpriseUser";
+        throw "Missing the required parameter 'userId' when calling removeUser";
       }
 
 

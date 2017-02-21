@@ -103,7 +103,7 @@ class EnterpriseApi
     }
 
     /**
-     * Operation createEnterpriseUser
+     * Operation createUser
      *
      * Create Enterprise User
      *
@@ -113,14 +113,14 @@ class EnterpriseApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function createEnterpriseUser($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createUser($enterprise_id, $force_password_change = null, $send_verification_mail = null)
     {
-        list($response) = $this->createEnterpriseUserWithHttpInfo($enterprise_id, $force_password_change, $send_verification_mail);
+        list($response) = $this->createUserWithHttpInfo($enterprise_id, $force_password_change, $send_verification_mail);
         return $response;
     }
 
     /**
-     * Operation createEnterpriseUserWithHttpInfo
+     * Operation createUserWithHttpInfo
      *
      * Create Enterprise User
      *
@@ -130,11 +130,11 @@ class EnterpriseApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function createEnterpriseUserWithHttpInfo($enterprise_id, $force_password_change = null, $send_verification_mail = null)
+    public function createUserWithHttpInfo($enterprise_id, $force_password_change = null, $send_verification_mail = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling createEnterpriseUser');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling createUser');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/users";
@@ -415,7 +415,7 @@ class EnterpriseApi
     }
 
     /**
-     * Operation removeEnterpriseUser
+     * Operation removeUser
      *
      * Remove Enterprise User
      *
@@ -424,14 +424,14 @@ class EnterpriseApi
      * @return \Swagger\Client\Model\Room
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function removeEnterpriseUser($enterprise_id, $user_id)
+    public function removeUser($enterprise_id, $user_id)
     {
-        list($response) = $this->removeEnterpriseUserWithHttpInfo($enterprise_id, $user_id);
+        list($response) = $this->removeUserWithHttpInfo($enterprise_id, $user_id);
         return $response;
     }
 
     /**
-     * Operation removeEnterpriseUserWithHttpInfo
+     * Operation removeUserWithHttpInfo
      *
      * Remove Enterprise User
      *
@@ -440,15 +440,15 @@ class EnterpriseApi
      * @return Array of \Swagger\Client\Model\Room, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function removeEnterpriseUserWithHttpInfo($enterprise_id, $user_id)
+    public function removeUserWithHttpInfo($enterprise_id, $user_id)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling removeEnterpriseUser');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling removeUser');
         }
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling removeEnterpriseUser');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling removeUser');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/users/{user_id}";

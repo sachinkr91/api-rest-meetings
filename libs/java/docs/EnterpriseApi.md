@@ -4,15 +4,15 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEnterpriseUser**](EnterpriseApi.md#createEnterpriseUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**createUser**](EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 [**getEnterpriseProfile**](EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**listUsers**](EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**removeEnterpriseUser**](EnterpriseApi.md#removeEnterpriseUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+[**removeUser**](EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-<a name="createEnterpriseUser"></a>
-# **createEnterpriseUser**
-> Room createEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail)
+<a name="createUser"></a>
+# **createUser**
+> Room createUser(enterpriseId, forcePasswordChange, sendVerificationMail)
 
 Create Enterprise User
 
@@ -40,10 +40,10 @@ Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. Th
 Boolean forcePasswordChange = true; // Boolean | Forces the user to change his or her password on first log in.
 Boolean sendVerificationMail = true; // Boolean | Prevents welcome emails from being sent to the newly created user.
 try {
-    Room result = apiInstance.createEnterpriseUser(enterpriseId, forcePasswordChange, sendVerificationMail);
+    Room result = apiInstance.createUser(enterpriseId, forcePasswordChange, sendVerificationMail);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EnterpriseApi#createEnterpriseUser");
+    System.err.println("Exception when calling EnterpriseApi#createUser");
     e.printStackTrace();
 }
 ```
@@ -185,9 +185,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="removeEnterpriseUser"></a>
-# **removeEnterpriseUser**
-> Room removeEnterpriseUser(enterpriseId, userId)
+<a name="removeUser"></a>
+# **removeUser**
+> Room removeUser(enterpriseId, userId)
 
 Remove Enterprise User
 
@@ -214,10 +214,10 @@ EnterpriseApi apiInstance = new EnterpriseApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 try {
-    Room result = apiInstance.removeEnterpriseUser(enterpriseId, userId);
+    Room result = apiInstance.removeUser(enterpriseId, userId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EnterpriseApi#removeEnterpriseUser");
+    System.err.println("Exception when calling EnterpriseApi#removeUser");
     e.printStackTrace();
 }
 ```

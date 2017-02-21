@@ -59,15 +59,24 @@ class Meeting implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'meeting';
+    protected static $swaggerModelName = 'Meeting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'locked' => 'bool',
-        'status' => 'string'
+        'id' => 'int',
+        'title' => 'string',
+        'description' => 'string',
+        'start' => 'int',
+        'end' => 'int',
+        'timezone' => 'string',
+        'numeric_meeting_id' => 'string',
+        'attendee_passcode' => 'string',
+        'end_point_version' => 'string',
+        'end_point_type' => 'string',
+        'advanced_meeting_options' => '\Swagger\Client\Model\MeetingAdvancedMeetingOptions'
     );
 
     public static function swaggerTypes()
@@ -80,8 +89,17 @@ class Meeting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'locked' => 'locked',
-        'status' => 'status'
+        'id' => 'id',
+        'title' => 'title',
+        'description' => 'description',
+        'start' => 'start',
+        'end' => 'end',
+        'timezone' => 'timezone',
+        'numeric_meeting_id' => 'numericMeetingId',
+        'attendee_passcode' => 'attendeePasscode',
+        'end_point_version' => 'endPointVersion',
+        'end_point_type' => 'endPointType',
+        'advanced_meeting_options' => 'advancedMeetingOptions'
     );
 
     public static function attributeMap()
@@ -94,8 +112,17 @@ class Meeting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'locked' => 'setLocked',
-        'status' => 'setStatus'
+        'id' => 'setId',
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'start' => 'setStart',
+        'end' => 'setEnd',
+        'timezone' => 'setTimezone',
+        'numeric_meeting_id' => 'setNumericMeetingId',
+        'attendee_passcode' => 'setAttendeePasscode',
+        'end_point_version' => 'setEndPointVersion',
+        'end_point_type' => 'setEndPointType',
+        'advanced_meeting_options' => 'setAdvancedMeetingOptions'
     );
 
     public static function setters()
@@ -108,8 +135,17 @@ class Meeting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'locked' => 'getLocked',
-        'status' => 'getStatus'
+        'id' => 'getId',
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'start' => 'getStart',
+        'end' => 'getEnd',
+        'timezone' => 'getTimezone',
+        'numeric_meeting_id' => 'getNumericMeetingId',
+        'attendee_passcode' => 'getAttendeePasscode',
+        'end_point_version' => 'getEndPointVersion',
+        'end_point_type' => 'getEndPointType',
+        'advanced_meeting_options' => 'getAdvancedMeetingOptions'
     );
 
     public static function getters()
@@ -133,8 +169,17 @@ class Meeting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : 'My Test Meeting';
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : 'America/New_York';
+        $this->container['numeric_meeting_id'] = isset($data['numeric_meeting_id']) ? $data['numeric_meeting_id'] : null;
+        $this->container['attendee_passcode'] = isset($data['attendee_passcode']) ? $data['attendee_passcode'] : null;
+        $this->container['end_point_version'] = isset($data['end_point_version']) ? $data['end_point_version'] : '2.10';
+        $this->container['end_point_type'] = isset($data['end_point_type']) ? $data['end_point_type'] : 'WEB_APP';
+        $this->container['advanced_meeting_options'] = isset($data['advanced_meeting_options']) ? $data['advanced_meeting_options'] : null;
     }
 
     /**
@@ -145,6 +190,21 @@ class Meeting implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if ($this->container['title'] === null) {
+            $invalid_properties[] = "'title' can't be null";
+        }
+        if ($this->container['start'] === null) {
+            $invalid_properties[] = "'start' can't be null";
+        }
+        if ($this->container['end'] === null) {
+            $invalid_properties[] = "'end' can't be null";
+        }
+        if ($this->container['end_point_version'] === null) {
+            $invalid_properties[] = "'end_point_version' can't be null";
+        }
+        if ($this->container['end_point_type'] === null) {
+            $invalid_properties[] = "'end_point_type' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -156,48 +216,252 @@ class Meeting implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['title'] === null) {
+            return false;
+        }
+        if ($this->container['start'] === null) {
+            return false;
+        }
+        if ($this->container['end'] === null) {
+            return false;
+        }
+        if ($this->container['end_point_version'] === null) {
+            return false;
+        }
+        if ($this->container['end_point_type'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets locked
-     * @return bool
+     * Gets id
+     * @return int
      */
-    public function getLocked()
+    public function getId()
     {
-        return $this->container['locked'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets locked
-     * @param bool $locked True to lock, false to unlock.
+     * Sets id
+     * @param int $id Unique identifier for meeting.
      * @return $this
      */
-    public function setLocked($locked)
+    public function setId($id)
     {
-        $this->container['locked'] = $locked;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets title
      * @return string
      */
-    public function getStatus()
+    public function getTitle()
     {
-        return $this->container['status'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets status
-     * @param string $status Set to \"terminated\" to end the meeting.
+     * Sets title
+     * @param string $title
      * @return $this
      */
-    public function setStatus($status)
+    public function setTitle($title)
     {
-        $this->container['status'] = $status;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     * @return int
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     * @param int $start A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+     * @return $this
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     * @return int
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     * @param int $end A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+     * @return $this
+     */
+    public function setEnd($end)
+    {
+        $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     * @param string $timezone
+     * @return $this
+     */
+    public function setTimezone($timezone)
+    {
+        $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets numeric_meeting_id
+     * @return string
+     */
+    public function getNumericMeetingId()
+    {
+        return $this->container['numeric_meeting_id'];
+    }
+
+    /**
+     * Sets numeric_meeting_id
+     * @param string $numeric_meeting_id
+     * @return $this
+     */
+    public function setNumericMeetingId($numeric_meeting_id)
+    {
+        $this->container['numeric_meeting_id'] = $numeric_meeting_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets attendee_passcode
+     * @return string
+     */
+    public function getAttendeePasscode()
+    {
+        return $this->container['attendee_passcode'];
+    }
+
+    /**
+     * Sets attendee_passcode
+     * @param string $attendee_passcode
+     * @return $this
+     */
+    public function setAttendeePasscode($attendee_passcode)
+    {
+        $this->container['attendee_passcode'] = $attendee_passcode;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_point_version
+     * @return string
+     */
+    public function getEndPointVersion()
+    {
+        return $this->container['end_point_version'];
+    }
+
+    /**
+     * Sets end_point_version
+     * @param string $end_point_version
+     * @return $this
+     */
+    public function setEndPointVersion($end_point_version)
+    {
+        $this->container['end_point_version'] = $end_point_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_point_type
+     * @return string
+     */
+    public function getEndPointType()
+    {
+        return $this->container['end_point_type'];
+    }
+
+    /**
+     * Sets end_point_type
+     * @param string $end_point_type
+     * @return $this
+     */
+    public function setEndPointType($end_point_type)
+    {
+        $this->container['end_point_type'] = $end_point_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets advanced_meeting_options
+     * @return \Swagger\Client\Model\MeetingAdvancedMeetingOptions
+     */
+    public function getAdvancedMeetingOptions()
+    {
+        return $this->container['advanced_meeting_options'];
+    }
+
+    /**
+     * Sets advanced_meeting_options
+     * @param \Swagger\Client\Model\MeetingAdvancedMeetingOptions $advanced_meeting_options
+     * @return $this
+     */
+    public function setAdvancedMeetingOptions($advanced_meeting_options)
+    {
+        $this->container['advanced_meeting_options'] = $advanced_meeting_options;
 
         return $this;
     }

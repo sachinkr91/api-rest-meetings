@@ -4,14 +4,14 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEnterpriseUser**](EnterpriseApi.md#createEnterpriseUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**createUser**](EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 [**getEnterpriseProfile**](EnterpriseApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**listUsers**](EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
-[**removeEnterpriseUser**](EnterpriseApi.md#removeEnterpriseUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
+[**removeUser**](EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
 
-# **createEnterpriseUser**
-> \Swagger\Client\Model\Room createEnterpriseUser($enterprise_id, $force_password_change, $send_verification_mail)
+# **createUser**
+> \Swagger\Client\Model\Room createUser($enterprise_id, $force_password_change, $send_verification_mail)
 
 Create Enterprise User
 
@@ -33,10 +33,10 @@ $force_password_change = true; // bool | Forces the user to change his or her pa
 $send_verification_mail = true; // bool | Prevents welcome emails from being sent to the newly created user.
 
 try {
-    $result = $api_instance->createEnterpriseUser($enterprise_id, $force_password_change, $send_verification_mail);
+    $result = $api_instance->createUser($enterprise_id, $force_password_change, $send_verification_mail);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EnterpriseApi->createEnterpriseUser: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EnterpriseApi->createUser: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **removeEnterpriseUser**
-> \Swagger\Client\Model\Room removeEnterpriseUser($enterprise_id, $user_id)
+# **removeUser**
+> \Swagger\Client\Model\Room removeUser($enterprise_id, $user_id)
 
 Remove Enterprise User
 
@@ -192,10 +192,10 @@ $enterprise_id = 56; // int | The ID of the enterprise of interest. This value i
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
-    $result = $api_instance->removeEnterpriseUser($enterprise_id, $user_id);
+    $result = $api_instance->removeUser($enterprise_id, $user_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EnterpriseApi->removeEnterpriseUser: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EnterpriseApi->removeUser: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

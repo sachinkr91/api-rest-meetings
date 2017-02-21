@@ -96,17 +96,89 @@ class MeetingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "locked"
+     * Test attribute "id"
      */
-    public function testPropertyLocked()
+    public function testPropertyId()
     {
 
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "title"
      */
-    public function testPropertyStatus()
+    public function testPropertyTitle()
+    {
+
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+
+    }
+
+    /**
+     * Test attribute "start"
+     */
+    public function testPropertyStart()
+    {
+
+    }
+
+    /**
+     * Test attribute "end"
+     */
+    public function testPropertyEnd()
+    {
+
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
+    {
+
+    }
+
+    /**
+     * Test attribute "numeric_meeting_id"
+     */
+    public function testPropertyNumericMeetingId()
+    {
+
+    }
+
+    /**
+     * Test attribute "attendee_passcode"
+     */
+    public function testPropertyAttendeePasscode()
+    {
+
+    }
+
+    /**
+     * Test attribute "end_point_version"
+     */
+    public function testPropertyEndPointVersion()
+    {
+
+    }
+
+    /**
+     * Test attribute "end_point_type"
+     */
+    public function testPropertyEndPointType()
+    {
+
+    }
+
+    /**
+     * Test attribute "advanced_meeting_options"
+     */
+    public function testPropertyAdvancedMeetingOptions()
     {
 
     }

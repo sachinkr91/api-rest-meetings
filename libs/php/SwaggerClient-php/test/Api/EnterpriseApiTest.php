@@ -90,12 +90,12 @@ class EnterpriseApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for createEnterpriseUser
+     * Test case for createUser
      *
      * Create Enterprise User.
      *
      */
-    public function testCreateEnterpriseUser()
+    public function testCreateUser()
     {
 
     }
@@ -123,12 +123,12 @@ class EnterpriseApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for removeEnterpriseUser
+     * Test case for removeUser
      *
      * Remove Enterprise User.
      *
      */
-    public function testRemoveEnterpriseUser()
+    public function testRemoveUser()
     {
 
     }

@@ -59,10 +59,10 @@
   }
 
   describe('EnterpriseApi', function() {
-    describe('createEnterpriseUser', function() {
-      it('should call createEnterpriseUser successfully', function(done) {
-        //uncomment below and update the code to test createEnterpriseUser
-        //instance.createEnterpriseUser(pet, function(error) {
+    describe('createUser', function() {
+      it('should call createUser successfully', function(done) {
+        //uncomment below and update the code to test createUser
+        //instance.createUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -89,10 +89,10 @@
         done();
       });
     });
-    describe('removeEnterpriseUser', function() {
-      it('should call removeEnterpriseUser successfully', function(done) {
-        //uncomment below and update the code to test removeEnterpriseUser
-        //instance.removeEnterpriseUser(pet, function(error) {
+    describe('removeUser', function() {
+      it('should call removeUser successfully', function(done) {
+        //uncomment below and update the code to test removeUser
+        //instance.removeUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

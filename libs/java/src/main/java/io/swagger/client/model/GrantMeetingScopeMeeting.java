@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * GrantMeetingScopeMeeting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:13:24.966-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:43:18.826-07:00")
 public class GrantMeetingScopeMeeting   {
   @SerializedName("id")
   private Integer id = null;

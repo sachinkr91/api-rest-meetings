@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/MeetingAdvancedMeetingOptions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./MeetingAdvancedMeetingOptions'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.Meeting = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+    root.BlueJeansOnVideoRestApi.Meeting = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, MeetingAdvancedMeetingOptions) {
   'use strict';
 
 
@@ -52,11 +52,25 @@
    * Constructs a new <code>Meeting</code>.
    * @alias module:model/Meeting
    * @class
+   * @param title {String} 
+   * @param start {Integer} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @param end {Integer} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @param endPointVersion {String} 
+   * @param endPointType {String} 
    */
-  var exports = function() {
+  var exports = function(title, start, end, endPointVersion, endPointType) {
     var _this = this;
 
 
+    _this['title'] = title;
+
+    _this['start'] = start;
+    _this['end'] = end;
+
+
+
+    _this['endPointVersion'] = endPointVersion;
+    _this['endPointType'] = endPointType;
 
   };
 
@@ -71,26 +85,94 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('locked')) {
-        obj['locked'] = ApiClient.convertToType(data['locked'], 'Boolean');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('start')) {
+        obj['start'] = ApiClient.convertToType(data['start'], 'Integer');
+      }
+      if (data.hasOwnProperty('end')) {
+        obj['end'] = ApiClient.convertToType(data['end'], 'Integer');
+      }
+      if (data.hasOwnProperty('timezone')) {
+        obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+      }
+      if (data.hasOwnProperty('numericMeetingId')) {
+        obj['numericMeetingId'] = ApiClient.convertToType(data['numericMeetingId'], 'String');
+      }
+      if (data.hasOwnProperty('attendeePasscode')) {
+        obj['attendeePasscode'] = ApiClient.convertToType(data['attendeePasscode'], 'String');
+      }
+      if (data.hasOwnProperty('endPointVersion')) {
+        obj['endPointVersion'] = ApiClient.convertToType(data['endPointVersion'], 'String');
+      }
+      if (data.hasOwnProperty('endPointType')) {
+        obj['endPointType'] = ApiClient.convertToType(data['endPointType'], 'String');
+      }
+      if (data.hasOwnProperty('advancedMeetingOptions')) {
+        obj['advancedMeetingOptions'] = MeetingAdvancedMeetingOptions.constructFromObject(data['advancedMeetingOptions']);
       }
     }
     return obj;
   }
 
   /**
-   * True to lock, false to unlock.
-   * @member {Boolean} locked
+   * Unique identifier for meeting.
+   * @member {Integer} id
    */
-  exports.prototype['locked'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
-   * Set to \"terminated\" to end the meeting.
-   * @member {String} status
+   * @member {String} title
+   * @default 'My Test Meeting'
    */
-  exports.prototype['status'] = undefined;
+  exports.prototype['title'] = 'My Test Meeting';
+  /**
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @member {Integer} start
+   */
+  exports.prototype['start'] = undefined;
+  /**
+   * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @member {Integer} end
+   */
+  exports.prototype['end'] = undefined;
+  /**
+   * @member {String} timezone
+   * @default 'America/New_York'
+   */
+  exports.prototype['timezone'] = 'America/New_York';
+  /**
+   * @member {String} numericMeetingId
+   */
+  exports.prototype['numericMeetingId'] = undefined;
+  /**
+   * @member {String} attendeePasscode
+   */
+  exports.prototype['attendeePasscode'] = undefined;
+  /**
+   * @member {String} endPointVersion
+   * @default '2.10'
+   */
+  exports.prototype['endPointVersion'] = '2.10';
+  /**
+   * @member {String} endPointType
+   * @default 'WEB_APP'
+   */
+  exports.prototype['endPointType'] = 'WEB_APP';
+  /**
+   * @member {module:model/MeetingAdvancedMeetingOptions} advancedMeetingOptions
+   */
+  exports.prototype['advancedMeetingOptions'] = undefined;
 
 
 

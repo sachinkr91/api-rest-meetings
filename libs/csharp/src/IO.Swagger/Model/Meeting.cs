@@ -42,26 +42,137 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Meeting" /> class.
         /// </summary>
-        /// <param name="Locked">True to lock, false to unlock..</param>
-        /// <param name="Status">Set to \&quot;terminated\&quot; to end the meeting..</param>
-        public Meeting(bool? Locked = null, string Status = null)
+        [JsonConstructorAttribute]
+        protected Meeting() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Meeting" /> class.
+        /// </summary>
+        /// <param name="Title">Title (required) (default to &quot;My Test Meeting&quot;).</param>
+        /// <param name="Description">Description.</param>
+        /// <param name="Start">A [UNIX Timestamp](https://currentmillis.com/) in milliseconds (required).</param>
+        /// <param name="End">A [UNIX Timestamp](https://currentmillis.com/) in milliseconds (required).</param>
+        /// <param name="Timezone">Timezone (default to &quot;America/New_York&quot;).</param>
+        /// <param name="EndPointVersion">EndPointVersion (required) (default to &quot;2.10&quot;).</param>
+        /// <param name="EndPointType">EndPointType (required) (default to &quot;WEB_APP&quot;).</param>
+        /// <param name="AdvancedMeetingOptions">AdvancedMeetingOptions.</param>
+        public Meeting(string Title = null, string Description = null, int? Start = null, int? End = null, string Timezone = null, string EndPointVersion = null, string EndPointType = null, MeetingAdvancedMeetingOptions AdvancedMeetingOptions = null)
         {
-            this.Locked = Locked;
-            this.Status = Status;
+            // to ensure "Title" is required (not null)
+            if (Title == null)
+            {
+                throw new InvalidDataException("Title is a required property for Meeting and cannot be null");
+            }
+            else
+            {
+                this.Title = Title;
+            }
+            // to ensure "Start" is required (not null)
+            if (Start == null)
+            {
+                throw new InvalidDataException("Start is a required property for Meeting and cannot be null");
+            }
+            else
+            {
+                this.Start = Start;
+            }
+            // to ensure "End" is required (not null)
+            if (End == null)
+            {
+                throw new InvalidDataException("End is a required property for Meeting and cannot be null");
+            }
+            else
+            {
+                this.End = End;
+            }
+            // to ensure "EndPointVersion" is required (not null)
+            if (EndPointVersion == null)
+            {
+                throw new InvalidDataException("EndPointVersion is a required property for Meeting and cannot be null");
+            }
+            else
+            {
+                this.EndPointVersion = EndPointVersion;
+            }
+            // to ensure "EndPointType" is required (not null)
+            if (EndPointType == null)
+            {
+                throw new InvalidDataException("EndPointType is a required property for Meeting and cannot be null");
+            }
+            else
+            {
+                this.EndPointType = EndPointType;
+            }
+            this.Description = Description;
+            // use default value if no "Timezone" provided
+            if (Timezone == null)
+            {
+                this.Timezone = "America/New_York";
+            }
+            else
+            {
+                this.Timezone = Timezone;
+            }
+            this.AdvancedMeetingOptions = AdvancedMeetingOptions;
         }
         
         /// <summary>
-        /// True to lock, false to unlock.
+        /// Unique identifier for meeting.
         /// </summary>
-        /// <value>True to lock, false to unlock.</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
-        public bool? Locked { get; set; }
+        /// <value>Unique identifier for meeting.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public int? Id { get; private set; }
         /// <summary>
-        /// Set to \&quot;terminated\&quot; to end the meeting.
+        /// Gets or Sets Title
         /// </summary>
-        /// <value>Set to \&quot;terminated\&quot; to end the meeting.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        [DataMember(Name="title", EmitDefaultValue=false)]
+        public string Title { get; set; }
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+        /// <summary>
+        /// A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+        /// </summary>
+        /// <value>A [UNIX Timestamp](https://currentmillis.com/) in milliseconds</value>
+        [DataMember(Name="start", EmitDefaultValue=false)]
+        public int? Start { get; set; }
+        /// <summary>
+        /// A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+        /// </summary>
+        /// <value>A [UNIX Timestamp](https://currentmillis.com/) in milliseconds</value>
+        [DataMember(Name="end", EmitDefaultValue=false)]
+        public int? End { get; set; }
+        /// <summary>
+        /// Gets or Sets Timezone
+        /// </summary>
+        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        public string Timezone { get; set; }
+        /// <summary>
+        /// Gets or Sets NumericMeetingId
+        /// </summary>
+        [DataMember(Name="numericMeetingId", EmitDefaultValue=false)]
+        public string NumericMeetingId { get; private set; }
+        /// <summary>
+        /// Gets or Sets AttendeePasscode
+        /// </summary>
+        [DataMember(Name="attendeePasscode", EmitDefaultValue=false)]
+        public string AttendeePasscode { get; private set; }
+        /// <summary>
+        /// Gets or Sets EndPointVersion
+        /// </summary>
+        [DataMember(Name="endPointVersion", EmitDefaultValue=false)]
+        public string EndPointVersion { get; set; }
+        /// <summary>
+        /// Gets or Sets EndPointType
+        /// </summary>
+        [DataMember(Name="endPointType", EmitDefaultValue=false)]
+        public string EndPointType { get; set; }
+        /// <summary>
+        /// Gets or Sets AdvancedMeetingOptions
+        /// </summary>
+        [DataMember(Name="advancedMeetingOptions", EmitDefaultValue=false)]
+        public MeetingAdvancedMeetingOptions AdvancedMeetingOptions { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -70,8 +181,17 @@ namespace IO.Swagger.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Meeting {\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Start: ").Append(Start).Append("\n");
+            sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  NumericMeetingId: ").Append(NumericMeetingId).Append("\n");
+            sb.Append("  AttendeePasscode: ").Append(AttendeePasscode).Append("\n");
+            sb.Append("  EndPointVersion: ").Append(EndPointVersion).Append("\n");
+            sb.Append("  EndPointType: ").Append(EndPointType).Append("\n");
+            sb.Append("  AdvancedMeetingOptions: ").Append(AdvancedMeetingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,14 +229,59 @@ namespace IO.Swagger.Model
 
             return 
                 (
-                    this.Locked == other.Locked ||
-                    this.Locked != null &&
-                    this.Locked.Equals(other.Locked)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Title == other.Title ||
+                    this.Title != null &&
+                    this.Title.Equals(other.Title)
+                ) && 
+                (
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
+                ) && 
+                (
+                    this.Start == other.Start ||
+                    this.Start != null &&
+                    this.Start.Equals(other.Start)
+                ) && 
+                (
+                    this.End == other.End ||
+                    this.End != null &&
+                    this.End.Equals(other.End)
+                ) && 
+                (
+                    this.Timezone == other.Timezone ||
+                    this.Timezone != null &&
+                    this.Timezone.Equals(other.Timezone)
+                ) && 
+                (
+                    this.NumericMeetingId == other.NumericMeetingId ||
+                    this.NumericMeetingId != null &&
+                    this.NumericMeetingId.Equals(other.NumericMeetingId)
+                ) && 
+                (
+                    this.AttendeePasscode == other.AttendeePasscode ||
+                    this.AttendeePasscode != null &&
+                    this.AttendeePasscode.Equals(other.AttendeePasscode)
+                ) && 
+                (
+                    this.EndPointVersion == other.EndPointVersion ||
+                    this.EndPointVersion != null &&
+                    this.EndPointVersion.Equals(other.EndPointVersion)
+                ) && 
+                (
+                    this.EndPointType == other.EndPointType ||
+                    this.EndPointType != null &&
+                    this.EndPointType.Equals(other.EndPointType)
+                ) && 
+                (
+                    this.AdvancedMeetingOptions == other.AdvancedMeetingOptions ||
+                    this.AdvancedMeetingOptions != null &&
+                    this.AdvancedMeetingOptions.Equals(other.AdvancedMeetingOptions)
                 );
         }
 
@@ -131,10 +296,28 @@ namespace IO.Swagger.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Locked != null)
-                    hash = hash * 59 + this.Locked.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.Title != null)
+                    hash = hash * 59 + this.Title.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
+                if (this.Start != null)
+                    hash = hash * 59 + this.Start.GetHashCode();
+                if (this.End != null)
+                    hash = hash * 59 + this.End.GetHashCode();
+                if (this.Timezone != null)
+                    hash = hash * 59 + this.Timezone.GetHashCode();
+                if (this.NumericMeetingId != null)
+                    hash = hash * 59 + this.NumericMeetingId.GetHashCode();
+                if (this.AttendeePasscode != null)
+                    hash = hash * 59 + this.AttendeePasscode.GetHashCode();
+                if (this.EndPointVersion != null)
+                    hash = hash * 59 + this.EndPointVersion.GetHashCode();
+                if (this.EndPointType != null)
+                    hash = hash * 59 + this.EndPointType.GetHashCode();
+                if (this.AdvancedMeetingOptions != null)
+                    hash = hash * 59 + this.AdvancedMeetingOptions.GetHashCode();
                 return hash;
             }
         }

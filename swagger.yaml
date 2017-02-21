@@ -296,7 +296,7 @@ paths:
     post:
       summary: Create Enterprise User
       description: This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
-      operationId: createEnterpriseUser
+      operationId: createUser
       tags:
         - Enterprise
       security:
@@ -328,7 +328,7 @@ paths:
     delete:
       summary: Remove Enterprise User
       description: This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-      operationId: removeEnterpriseUser
+      operationId: removeUser
       tags:
         - Enterprise
       security:
@@ -412,7 +412,6 @@ paths:
       description: This endpoint gets a user’s default meeting settings.
       operationId: getDefaultMeeting
       tags:
-        - User
         - Meeting
       security:
         - access_token: []
@@ -684,7 +683,7 @@ paths:
           in: query
           description: Number of seconds to delay the end meeting operation.
           type: integer
-        - name: meeting
+        - name: PayloadMeetingState
           in: body
           description: The meeting properties that you wish to update.
           required: true

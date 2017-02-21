@@ -51,7 +51,7 @@ class EnterpriseApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def create_enterprise_user(self, enterprise_id, **kwargs):
+    def create_user(self, enterprise_id, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -62,7 +62,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_enterprise_user(enterprise_id, callback=callback_function)
+        >>> thread = api.create_user(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -75,12 +75,12 @@ class EnterpriseApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.create_enterprise_user_with_http_info(enterprise_id, **kwargs)
+            return self.create_user_with_http_info(enterprise_id, **kwargs)
         else:
-            (data) = self.create_enterprise_user_with_http_info(enterprise_id, **kwargs)
+            (data) = self.create_user_with_http_info(enterprise_id, **kwargs)
             return data
 
-    def create_enterprise_user_with_http_info(self, enterprise_id, **kwargs):
+    def create_user_with_http_info(self, enterprise_id, **kwargs):
         """
         Create Enterprise User
         This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
@@ -91,7 +91,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.create_enterprise_user_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.create_user_with_http_info(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -112,13 +112,13 @@ class EnterpriseApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_enterprise_user" % key
+                    " to method create_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `create_enterprise_user`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `create_user`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
         path_params = {}
@@ -383,7 +383,7 @@ class EnterpriseApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def remove_enterprise_user(self, enterprise_id, user_id, **kwargs):
+    def remove_user(self, enterprise_id, user_id, **kwargs):
         """
         Remove Enterprise User
         This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
@@ -394,7 +394,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.remove_enterprise_user(enterprise_id, user_id, callback=callback_function)
+        >>> thread = api.remove_user(enterprise_id, user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -406,12 +406,12 @@ class EnterpriseApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.remove_enterprise_user_with_http_info(enterprise_id, user_id, **kwargs)
+            return self.remove_user_with_http_info(enterprise_id, user_id, **kwargs)
         else:
-            (data) = self.remove_enterprise_user_with_http_info(enterprise_id, user_id, **kwargs)
+            (data) = self.remove_user_with_http_info(enterprise_id, user_id, **kwargs)
             return data
 
-    def remove_enterprise_user_with_http_info(self, enterprise_id, user_id, **kwargs):
+    def remove_user_with_http_info(self, enterprise_id, user_id, **kwargs):
         """
         Remove Enterprise User
         This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
@@ -422,7 +422,7 @@ class EnterpriseApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.remove_enterprise_user_with_http_info(enterprise_id, user_id, callback=callback_function)
+        >>> thread = api.remove_user_with_http_info(enterprise_id, user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -442,16 +442,16 @@ class EnterpriseApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method remove_enterprise_user" % key
+                    " to method remove_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `remove_enterprise_user`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `remove_user`")
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `remove_enterprise_user`")
+            raise ValueError("Missing the required parameter `user_id` when calling `remove_user`")
 
         resource_path = '/v1/enterprise/{enterprise_id}/users/{user_id}'.replace('{format}', 'json')
         path_params = {}

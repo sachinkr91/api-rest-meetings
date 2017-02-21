@@ -802,7 +802,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_live_meetings_meeting_id_put**
-> Meeting v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, meeting, delay=delay)
+> Meeting v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, payload_meeting_state, delay=delay)
 
 Update Meeting State
 
@@ -824,12 +824,12 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-meeting = swagger_client.Meeting() # Meeting | The meeting properties that you wish to update.
+payload_meeting_state = swagger_client.PayloadMeetingState() # PayloadMeetingState | The meeting properties that you wish to update.
 delay = 56 # int | Number of seconds to delay the end meeting operation. (optional)
 
 try: 
     # Update Meeting State
-    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, meeting, delay=delay)
+    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_put(user_id, meeting_id, payload_meeting_state, delay=delay)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling MeetingApi->v1_user_user_id_live_meetings_meeting_id_put: %s\n" % e
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **meeting** | [**Meeting**](Meeting.md)| The meeting properties that you wish to update. | 
+ **payload_meeting_state** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. | 
  **delay** | **int**| Number of seconds to delay the end meeting operation. | [optional] 
 
 ### Return type

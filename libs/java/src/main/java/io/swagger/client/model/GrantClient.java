@@ -35,7 +35,7 @@ import io.swagger.client.model.GrantClientScope;
 /**
  * GrantClient
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:13:24.966-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T14:43:18.826-07:00")
 public class GrantClient   {
   @SerializedName("access_token")
   private String accessToken = null;

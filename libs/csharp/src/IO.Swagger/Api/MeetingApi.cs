@@ -391,10 +391,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, Meeting meeting, int? delay = null);
+        Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -405,10 +405,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null);
+        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         /// <summary>
         /// Get Meeting Join Info
         /// </summary>
@@ -818,10 +818,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, Meeting meeting, int? delay = null);
+        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -832,10 +832,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null);
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         /// <summary>
         /// Get Meeting Join Info
         /// </summary>
@@ -3422,12 +3422,12 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, Meeting meeting, int? delay = null)
+        public Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, meeting, delay);
+             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
         }
 
@@ -3437,10 +3437,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null)
+        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3448,9 +3448,9 @@ namespace IO.Swagger.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
-            // verify the required parameter 'meeting' is set
-            if (meeting == null)
-                throw new ApiException(400, "Missing required parameter 'meeting' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+            // verify the required parameter 'payloadMeetingState' is set
+            if (payloadMeetingState == null)
+                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3479,13 +3479,13 @@ namespace IO.Swagger.Api
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
             if (delay != null) localVarQueryParams.Add("delay", Configuration.ApiClient.ParameterToString(delay)); // query parameter
-            if (meeting != null && meeting.GetType() != typeof(byte[]))
+            if (payloadMeetingState != null && payloadMeetingState.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(meeting); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadMeetingState); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = meeting; // byte array
+                localVarPostBody = payloadMeetingState; // byte array
             }
 
             // authentication (access_token) required
@@ -3520,12 +3520,12 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, Meeting meeting, int? delay = null)
+        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo(userId, meetingId, meeting, delay);
+             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
 
         }
@@ -3536,10 +3536,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meeting">The meeting properties that you wish to update.</param>
+        /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, Meeting meeting, int? delay = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3547,9 +3547,9 @@ namespace IO.Swagger.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
-            // verify the required parameter 'meeting' is set
-            if (meeting == null)
-                throw new ApiException(400, "Missing required parameter 'meeting' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+            // verify the required parameter 'payloadMeetingState' is set
+            if (payloadMeetingState == null)
+                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3578,13 +3578,13 @@ namespace IO.Swagger.Api
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
             if (delay != null) localVarQueryParams.Add("delay", Configuration.ApiClient.ParameterToString(delay)); // query parameter
-            if (meeting != null && meeting.GetType() != typeof(byte[]))
+            if (payloadMeetingState != null && payloadMeetingState.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(meeting); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadMeetingState); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = meeting; // byte array
+                localVarPostBody = payloadMeetingState; // byte array
             }
 
             // authentication (access_token) required
