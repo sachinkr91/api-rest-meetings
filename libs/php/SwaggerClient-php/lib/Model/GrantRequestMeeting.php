@@ -1,6 +1,6 @@
 <?php
 /**
- * GrantTypeClient
+ * GrantRequestMeeting
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * GrantTypeClient Class Doc Comment
+ * GrantRequestMeeting Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GrantTypeClient implements ArrayAccess
+class GrantRequestMeeting implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GrantTypeClient';
+    protected static $swaggerModelName = 'GrantRequestMeeting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,8 +67,8 @@ class GrantTypeClient implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'grant_type' => 'string',
-        'client_id' => 'string',
-        'client_secret' => 'string'
+        'meeting_numeric_id' => 'string',
+        'meeting_passcode' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,8 +82,8 @@ class GrantTypeClient implements ArrayAccess
      */
     protected static $attributeMap = array(
         'grant_type' => 'grant_type',
-        'client_id' => 'client_id',
-        'client_secret' => 'client_secret'
+        'meeting_numeric_id' => 'meetingNumericId',
+        'meeting_passcode' => 'meetingPasscode'
     );
 
     public static function attributeMap()
@@ -97,8 +97,8 @@ class GrantTypeClient implements ArrayAccess
      */
     protected static $setters = array(
         'grant_type' => 'setGrantType',
-        'client_id' => 'setClientId',
-        'client_secret' => 'setClientSecret'
+        'meeting_numeric_id' => 'setMeetingNumericId',
+        'meeting_passcode' => 'setMeetingPasscode'
     );
 
     public static function setters()
@@ -112,8 +112,8 @@ class GrantTypeClient implements ArrayAccess
      */
     protected static $getters = array(
         'grant_type' => 'getGrantType',
-        'client_id' => 'getClientId',
-        'client_secret' => 'getClientSecret'
+        'meeting_numeric_id' => 'getMeetingNumericId',
+        'meeting_passcode' => 'getMeetingPasscode'
     );
 
     public static function getters()
@@ -137,9 +137,9 @@ class GrantTypeClient implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['grant_type'] = isset($data['grant_type']) ? $data['grant_type'] : 'client_credentials';
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
+        $this->container['grant_type'] = isset($data['grant_type']) ? $data['grant_type'] : 'meeting_passcode';
+        $this->container['meeting_numeric_id'] = isset($data['meeting_numeric_id']) ? $data['meeting_numeric_id'] : null;
+        $this->container['meeting_passcode'] = isset($data['meeting_passcode']) ? $data['meeting_passcode'] : null;
     }
 
     /**
@@ -153,11 +153,11 @@ class GrantTypeClient implements ArrayAccess
         if ($this->container['grant_type'] === null) {
             $invalid_properties[] = "'grant_type' can't be null";
         }
-        if ($this->container['client_id'] === null) {
-            $invalid_properties[] = "'client_id' can't be null";
+        if ($this->container['meeting_numeric_id'] === null) {
+            $invalid_properties[] = "'meeting_numeric_id' can't be null";
         }
-        if ($this->container['client_secret'] === null) {
-            $invalid_properties[] = "'client_secret' can't be null";
+        if ($this->container['meeting_passcode'] === null) {
+            $invalid_properties[] = "'meeting_passcode' can't be null";
         }
         return $invalid_properties;
     }
@@ -173,10 +173,10 @@ class GrantTypeClient implements ArrayAccess
         if ($this->container['grant_type'] === null) {
             return false;
         }
-        if ($this->container['client_id'] === null) {
+        if ($this->container['meeting_numeric_id'] === null) {
             return false;
         }
-        if ($this->container['client_secret'] === null) {
+        if ($this->container['meeting_passcode'] === null) {
             return false;
         }
         return true;
@@ -205,43 +205,43 @@ class GrantTypeClient implements ArrayAccess
     }
 
     /**
-     * Gets client_id
+     * Gets meeting_numeric_id
      * @return string
      */
-    public function getClientId()
+    public function getMeetingNumericId()
     {
-        return $this->container['client_id'];
+        return $this->container['meeting_numeric_id'];
     }
 
     /**
-     * Sets client_id
-     * @param string $client_id The value given within the BlueJeans Enterprise Administration console.
+     * Sets meeting_numeric_id
+     * @param string $meeting_numeric_id Meeting ID
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setMeetingNumericId($meeting_numeric_id)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['meeting_numeric_id'] = $meeting_numeric_id;
 
         return $this;
     }
 
     /**
-     * Gets client_secret
+     * Gets meeting_passcode
      * @return string
      */
-    public function getClientSecret()
+    public function getMeetingPasscode()
     {
-        return $this->container['client_secret'];
+        return $this->container['meeting_passcode'];
     }
 
     /**
-     * Sets client_secret
-     * @param string $client_secret The value given within the BlueJeans Enterprise Administration console.
+     * Sets meeting_passcode
+     * @param string $meeting_passcode Pin
      * @return $this
      */
-    public function setClientSecret($client_secret)
+    public function setMeetingPasscode($meeting_passcode)
     {
-        $this->container['client_secret'] = $client_secret;
+        $this->container['meeting_passcode'] = $meeting_passcode;
 
         return $this;
     }

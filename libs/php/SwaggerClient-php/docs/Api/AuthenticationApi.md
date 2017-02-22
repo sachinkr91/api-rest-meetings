@@ -27,7 +27,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$grant_type_client = new \Swagger\Client\Model\GrantTypeClient(); // \Swagger\Client\Model\GrantTypeClient | Contains information about the type of grant you are requesting.
+$grant_type_client = new \Swagger\Client\Model\GrantRequestClient(); // \Swagger\Client\Model\GrantRequestClient | Contains information about the type of grant you are requesting.
 
 try {
     $result = $api_instance->getTokenByClient($grant_type_client);
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_client** | [**\Swagger\Client\Model\GrantTypeClient**](../Model/\Swagger\Client\Model\GrantTypeClient.md)| Contains information about the type of grant you are requesting. |
+ **grant_type_client** | [**\Swagger\Client\Model\GrantRequestClient**](../Model/\Swagger\Client\Model\GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
@@ -77,7 +77,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$grant_type_meeting = new \Swagger\Client\Model\GrantTypeMeeting(); // \Swagger\Client\Model\GrantTypeMeeting | Contains information about the type of grant you are requesting.
+$grant_type_meeting = new \Swagger\Client\Model\GrantRequestMeeting(); // \Swagger\Client\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 try {
     $result = $api_instance->getTokenByMeeting($grant_type_meeting);
@@ -92,7 +92,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_meeting** | [**\Swagger\Client\Model\GrantTypeMeeting**](../Model/\Swagger\Client\Model\GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. |
+ **grant_type_meeting** | [**\Swagger\Client\Model\GrantRequestMeeting**](../Model/\Swagger\Client\Model\GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

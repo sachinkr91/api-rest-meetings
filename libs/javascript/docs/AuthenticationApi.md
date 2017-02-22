@@ -30,7 +30,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
 
-var grantTypeClient = new BlueJeansOnVideoRestApi.GrantTypeClient(); // GrantTypeClient | Contains information about the type of grant you are requesting.
+var grantTypeClient = new BlueJeansOnVideoRestApi.GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
 
 
 var callback = function(error, data, response) {
@@ -47,7 +47,7 @@ apiInstance.getTokenByClient(grantTypeClient, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeClient** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
@@ -83,7 +83,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
 
-var grantTypeMeeting = new BlueJeansOnVideoRestApi.GrantTypeMeeting(); // GrantTypeMeeting | Contains information about the type of grant you are requesting.
+var grantTypeMeeting = new BlueJeansOnVideoRestApi.GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 
 var callback = function(error, data, response) {
@@ -100,7 +100,7 @@ apiInstance.getTokenByMeeting(grantTypeMeeting, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeMeeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

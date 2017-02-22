@@ -1,5 +1,5 @@
 
-# GrantTypeMeeting
+# GrantRequestMeeting
 
 ## Properties
 Name | Type | Description | Notes

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * PairingCodeTurnservers
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:05:02.193-07:00")
 public class PairingCodeTurnservers   {
   @SerializedName("credential")
   private String credential = null;

@@ -35,7 +35,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantTypeClient grantTypeClient = new GrantTypeClient(); // GrantTypeClient | Contains information about the type of grant you are requesting.
+GrantRequestClient grantTypeClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
 try {
     GrantClient result = apiInstance.getTokenByClient(grantTypeClient);
     System.out.println(result);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeClient** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. |
+ **grantTypeClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
@@ -90,7 +90,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantTypeMeeting grantTypeMeeting = new GrantTypeMeeting(); // GrantTypeMeeting | Contains information about the type of grant you are requesting.
+GrantRequestMeeting grantTypeMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
 try {
     GrantMeeting result = apiInstance.getTokenByMeeting(grantTypeMeeting);
     System.out.println(result);
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeMeeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. |
+ **grantTypeMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

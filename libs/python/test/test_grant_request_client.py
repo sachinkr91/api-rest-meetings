@@ -30,11 +30,11 @@ import unittest
 
 import swagger_client
 from swagger_client.rest import ApiException
-from swagger_client.models.grant_type_client import GrantTypeClient
+from swagger_client.models.grant_request_client import GrantRequestClient
 
 
-class TestGrantTypeClient(unittest.TestCase):
-    """ GrantTypeClient unit test stubs """
+class TestGrantRequestClient(unittest.TestCase):
+    """ GrantRequestClient unit test stubs """
 
     def setUp(self):
         pass
@@ -42,11 +42,11 @@ class TestGrantTypeClient(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGrantTypeClient(self):
+    def testGrantRequestClient(self):
         """
-        Test GrantTypeClient
+        Test GrantRequestClient
         """
-        model = swagger_client.models.grant_type_client.GrantTypeClient()
+        model = swagger_client.models.grant_request_client.GrantRequestClient()
 
 
 if __name__ == '__main__':

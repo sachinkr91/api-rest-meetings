@@ -27,10 +27,10 @@ package com.bluejeans.api.rest.onvideo;
 
 import com.bluejeans.api.rest.ApiException;
 import io.swagger.client.model.GrantClient;
-import io.swagger.client.model.GrantTypeClient;
+import io.swagger.client.model.GrantRequestClient;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.GrantMeeting;
-import io.swagger.client.model.GrantTypeMeeting;
+import io.swagger.client.model.GrantRequestMeeting;
 import io.swagger.client.model.GrantPassword;
 import io.swagger.client.model.GrantRequestPassword;
 import org.junit.Test;
@@ -58,7 +58,7 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenByClientTest() throws ApiException {
-        GrantTypeClient grantTypeClient = null;
+        GrantRequestClient grantTypeClient = null;
         // GrantClient response = api.getTokenByClient(grantTypeClient);
 
         // TODO: test validations
@@ -74,7 +74,7 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenByMeetingTest() throws ApiException {
-        GrantTypeMeeting grantTypeMeeting = null;
+        GrantRequestMeeting grantTypeMeeting = null;
         // GrantMeeting response = api.getTokenByMeeting(grantTypeMeeting);
 
         // TODO: test validations

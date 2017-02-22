@@ -32,20 +32,20 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 /**
- * GrantTypeMeeting
+ * GrantRequestClient
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
-public class GrantTypeMeeting   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:05:02.193-07:00")
+public class GrantRequestClient   {
   @SerializedName("grant_type")
-  private String grantType = "meeting_passcode";
+  private String grantType = "client_credentials";
 
-  @SerializedName("meetingNumericId")
-  private String meetingNumericId = null;
+  @SerializedName("client_id")
+  private String clientId = null;
 
-  @SerializedName("meetingPasscode")
-  private String meetingPasscode = null;
+  @SerializedName("client_secret")
+  private String clientSecret = null;
 
-  public GrantTypeMeeting grantType(String grantType) {
+  public GrantRequestClient grantType(String grantType) {
     this.grantType = grantType;
     return this;
   }
@@ -63,40 +63,40 @@ public class GrantTypeMeeting   {
     this.grantType = grantType;
   }
 
-  public GrantTypeMeeting meetingNumericId(String meetingNumericId) {
-    this.meetingNumericId = meetingNumericId;
+  public GrantRequestClient clientId(String clientId) {
+    this.clientId = clientId;
     return this;
   }
 
    /**
-   * Meeting ID
-   * @return meetingNumericId
+   * The value given within the BlueJeans Enterprise Administration console.
+   * @return clientId
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Meeting ID")
-  public String getMeetingNumericId() {
-    return meetingNumericId;
+  @ApiModelProperty(example = "null", required = true, value = "The value given within the BlueJeans Enterprise Administration console.")
+  public String getClientId() {
+    return clientId;
   }
 
-  public void setMeetingNumericId(String meetingNumericId) {
-    this.meetingNumericId = meetingNumericId;
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
   }
 
-  public GrantTypeMeeting meetingPasscode(String meetingPasscode) {
-    this.meetingPasscode = meetingPasscode;
+  public GrantRequestClient clientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
     return this;
   }
 
    /**
-   * Pin
-   * @return meetingPasscode
+   * The value given within the BlueJeans Enterprise Administration console.
+   * @return clientSecret
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Pin")
-  public String getMeetingPasscode() {
-    return meetingPasscode;
+  @ApiModelProperty(example = "null", required = true, value = "The value given within the BlueJeans Enterprise Administration console.")
+  public String getClientSecret() {
+    return clientSecret;
   }
 
-  public void setMeetingPasscode(String meetingPasscode) {
-    this.meetingPasscode = meetingPasscode;
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
   }
 
 
@@ -108,25 +108,25 @@ public class GrantTypeMeeting   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GrantTypeMeeting grantTypeMeeting = (GrantTypeMeeting) o;
-    return Objects.equals(this.grantType, grantTypeMeeting.grantType) &&
-        Objects.equals(this.meetingNumericId, grantTypeMeeting.meetingNumericId) &&
-        Objects.equals(this.meetingPasscode, grantTypeMeeting.meetingPasscode);
+    GrantRequestClient grantRequestClient = (GrantRequestClient) o;
+    return Objects.equals(this.grantType, grantRequestClient.grantType) &&
+        Objects.equals(this.clientId, grantRequestClient.clientId) &&
+        Objects.equals(this.clientSecret, grantRequestClient.clientSecret);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantType, meetingNumericId, meetingPasscode);
+    return Objects.hash(grantType, clientId, clientSecret);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GrantTypeMeeting {\n");
+    sb.append("class GrantRequestClient {\n");
     
     sb.append("    grantType: ").append(toIndentedString(grantType)).append("\n");
-    sb.append("    meetingNumericId: ").append(toIndentedString(meetingNumericId)).append("\n");
-    sb.append("    meetingPasscode: ").append(toIndentedString(meetingPasscode)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("}");
     return sb.toString();
   }

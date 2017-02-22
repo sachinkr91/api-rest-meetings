@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GrantTypeMeeting
+# IO.Swagger.Model.GrantRequestMeeting
 ## Properties
 
 Name | Type | Description | Notes

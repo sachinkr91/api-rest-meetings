@@ -1,6 +1,6 @@
 <?php
 /**
- * GrantTypeMeetingTest
+ * GrantRequestMeetingTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Swagger\Client;
 
 /**
- * GrantTypeMeetingTest Class Doc Comment
+ * GrantRequestMeetingTest Class Doc Comment
  *
  * @category    Class */
-// * @description GrantTypeMeeting
+// * @description GrantRequestMeeting
 /**
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GrantTypeMeetingTest extends \PHPUnit_Framework_TestCase
+class GrantRequestMeetingTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class GrantTypeMeetingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "GrantTypeMeeting"
+     * Test "GrantRequestMeeting"
      */
-    public function testGrantTypeMeeting()
+    public function testGrantRequestMeeting()
     {
 
     }

@@ -34,7 +34,7 @@
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.GrantTypeMeeting = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+    root.BlueJeansOnVideoRestApi.GrantRequestClient = factory(root.BlueJeansOnVideoRestApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,33 +43,33 @@
 
 
   /**
-   * The GrantTypeMeeting model module.
-   * @module model/GrantTypeMeeting
+   * The GrantRequestClient model module.
+   * @module model/GrantRequestClient
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>GrantTypeMeeting</code>.
-   * @alias module:model/GrantTypeMeeting
+   * Constructs a new <code>GrantRequestClient</code>.
+   * @alias module:model/GrantRequestClient
    * @class
    * @param grantType {String} The type of access token you are requesting.
-   * @param meetingNumericId {String} Meeting ID
-   * @param meetingPasscode {String} Pin
+   * @param clientId {String} The value given within the BlueJeans Enterprise Administration console.
+   * @param clientSecret {String} The value given within the BlueJeans Enterprise Administration console.
    */
-  var exports = function(grantType, meetingNumericId, meetingPasscode) {
+  var exports = function(grantType, clientId, clientSecret) {
     var _this = this;
 
     _this['grant_type'] = grantType;
-    _this['meetingNumericId'] = meetingNumericId;
-    _this['meetingPasscode'] = meetingPasscode;
+    _this['client_id'] = clientId;
+    _this['client_secret'] = clientSecret;
   };
 
   /**
-   * Constructs a <code>GrantTypeMeeting</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GrantRequestClient</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/GrantTypeMeeting} obj Optional instance to populate.
-   * @return {module:model/GrantTypeMeeting} The populated <code>GrantTypeMeeting</code> instance.
+   * @param {module:model/GrantRequestClient} obj Optional instance to populate.
+   * @return {module:model/GrantRequestClient} The populated <code>GrantRequestClient</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -78,11 +78,11 @@
       if (data.hasOwnProperty('grant_type')) {
         obj['grant_type'] = ApiClient.convertToType(data['grant_type'], 'String');
       }
-      if (data.hasOwnProperty('meetingNumericId')) {
-        obj['meetingNumericId'] = ApiClient.convertToType(data['meetingNumericId'], 'String');
+      if (data.hasOwnProperty('client_id')) {
+        obj['client_id'] = ApiClient.convertToType(data['client_id'], 'String');
       }
-      if (data.hasOwnProperty('meetingPasscode')) {
-        obj['meetingPasscode'] = ApiClient.convertToType(data['meetingPasscode'], 'String');
+      if (data.hasOwnProperty('client_secret')) {
+        obj['client_secret'] = ApiClient.convertToType(data['client_secret'], 'String');
       }
     }
     return obj;
@@ -91,19 +91,19 @@
   /**
    * The type of access token you are requesting.
    * @member {String} grant_type
-   * @default 'meeting_passcode'
+   * @default 'client_credentials'
    */
-  exports.prototype['grant_type'] = 'meeting_passcode';
+  exports.prototype['grant_type'] = 'client_credentials';
   /**
-   * Meeting ID
-   * @member {String} meetingNumericId
+   * The value given within the BlueJeans Enterprise Administration console.
+   * @member {String} client_id
    */
-  exports.prototype['meetingNumericId'] = undefined;
+  exports.prototype['client_id'] = undefined;
   /**
-   * Pin
-   * @member {String} meetingPasscode
+   * The value given within the BlueJeans Enterprise Administration console.
+   * @member {String} client_secret
    */
-  exports.prototype['meetingPasscode'] = undefined;
+  exports.prototype['client_secret'] = undefined;
 
 
 

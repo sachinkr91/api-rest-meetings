@@ -34,50 +34,50 @@ using Newtonsoft.Json.Converters;
 namespace IO.Swagger.Model
 {
     /// <summary>
-    /// GrantTypeMeeting
+    /// GrantRequestClient
     /// </summary>
     [DataContract]
-    public partial class GrantTypeMeeting :  IEquatable<GrantTypeMeeting>
+    public partial class GrantRequestClient :  IEquatable<GrantRequestClient>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrantTypeMeeting" /> class.
+        /// Initializes a new instance of the <see cref="GrantRequestClient" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GrantTypeMeeting() { }
+        protected GrantRequestClient() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrantTypeMeeting" /> class.
+        /// Initializes a new instance of the <see cref="GrantRequestClient" /> class.
         /// </summary>
-        /// <param name="GrantType">The type of access token you are requesting. (required) (default to &quot;meeting_passcode&quot;).</param>
-        /// <param name="MeetingNumericId">Meeting ID (required).</param>
-        /// <param name="MeetingPasscode">Pin (required).</param>
-        public GrantTypeMeeting(string GrantType = null, string MeetingNumericId = null, string MeetingPasscode = null)
+        /// <param name="GrantType">The type of access token you are requesting. (required) (default to &quot;client_credentials&quot;).</param>
+        /// <param name="ClientId">The value given within the BlueJeans Enterprise Administration console. (required).</param>
+        /// <param name="ClientSecret">The value given within the BlueJeans Enterprise Administration console. (required).</param>
+        public GrantRequestClient(string GrantType = null, string ClientId = null, string ClientSecret = null)
         {
             // to ensure "GrantType" is required (not null)
             if (GrantType == null)
             {
-                throw new InvalidDataException("GrantType is a required property for GrantTypeMeeting and cannot be null");
+                throw new InvalidDataException("GrantType is a required property for GrantRequestClient and cannot be null");
             }
             else
             {
                 this.GrantType = GrantType;
             }
-            // to ensure "MeetingNumericId" is required (not null)
-            if (MeetingNumericId == null)
+            // to ensure "ClientId" is required (not null)
+            if (ClientId == null)
             {
-                throw new InvalidDataException("MeetingNumericId is a required property for GrantTypeMeeting and cannot be null");
+                throw new InvalidDataException("ClientId is a required property for GrantRequestClient and cannot be null");
             }
             else
             {
-                this.MeetingNumericId = MeetingNumericId;
+                this.ClientId = ClientId;
             }
-            // to ensure "MeetingPasscode" is required (not null)
-            if (MeetingPasscode == null)
+            // to ensure "ClientSecret" is required (not null)
+            if (ClientSecret == null)
             {
-                throw new InvalidDataException("MeetingPasscode is a required property for GrantTypeMeeting and cannot be null");
+                throw new InvalidDataException("ClientSecret is a required property for GrantRequestClient and cannot be null");
             }
             else
             {
-                this.MeetingPasscode = MeetingPasscode;
+                this.ClientSecret = ClientSecret;
             }
         }
         
@@ -88,17 +88,17 @@ namespace IO.Swagger.Model
         [DataMember(Name="grant_type", EmitDefaultValue=false)]
         public string GrantType { get; set; }
         /// <summary>
-        /// Meeting ID
+        /// The value given within the BlueJeans Enterprise Administration console.
         /// </summary>
-        /// <value>Meeting ID</value>
-        [DataMember(Name="meetingNumericId", EmitDefaultValue=false)]
-        public string MeetingNumericId { get; set; }
+        /// <value>The value given within the BlueJeans Enterprise Administration console.</value>
+        [DataMember(Name="client_id", EmitDefaultValue=false)]
+        public string ClientId { get; set; }
         /// <summary>
-        /// Pin
+        /// The value given within the BlueJeans Enterprise Administration console.
         /// </summary>
-        /// <value>Pin</value>
-        [DataMember(Name="meetingPasscode", EmitDefaultValue=false)]
-        public string MeetingPasscode { get; set; }
+        /// <value>The value given within the BlueJeans Enterprise Administration console.</value>
+        [DataMember(Name="client_secret", EmitDefaultValue=false)]
+        public string ClientSecret { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -106,10 +106,10 @@ namespace IO.Swagger.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GrantTypeMeeting {\n");
+            sb.Append("class GrantRequestClient {\n");
             sb.Append("  GrantType: ").Append(GrantType).Append("\n");
-            sb.Append("  MeetingNumericId: ").Append(MeetingNumericId).Append("\n");
-            sb.Append("  MeetingPasscode: ").Append(MeetingPasscode).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,15 +131,15 @@ namespace IO.Swagger.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as GrantTypeMeeting);
+            return this.Equals(obj as GrantRequestClient);
         }
 
         /// <summary>
-        /// Returns true if GrantTypeMeeting instances are equal
+        /// Returns true if GrantRequestClient instances are equal
         /// </summary>
-        /// <param name="other">Instance of GrantTypeMeeting to be compared</param>
+        /// <param name="other">Instance of GrantRequestClient to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GrantTypeMeeting other)
+        public bool Equals(GrantRequestClient other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -152,14 +152,14 @@ namespace IO.Swagger.Model
                     this.GrantType.Equals(other.GrantType)
                 ) && 
                 (
-                    this.MeetingNumericId == other.MeetingNumericId ||
-                    this.MeetingNumericId != null &&
-                    this.MeetingNumericId.Equals(other.MeetingNumericId)
+                    this.ClientId == other.ClientId ||
+                    this.ClientId != null &&
+                    this.ClientId.Equals(other.ClientId)
                 ) && 
                 (
-                    this.MeetingPasscode == other.MeetingPasscode ||
-                    this.MeetingPasscode != null &&
-                    this.MeetingPasscode.Equals(other.MeetingPasscode)
+                    this.ClientSecret == other.ClientSecret ||
+                    this.ClientSecret != null &&
+                    this.ClientSecret.Equals(other.ClientSecret)
                 );
         }
 
@@ -176,10 +176,10 @@ namespace IO.Swagger.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.GrantType != null)
                     hash = hash * 59 + this.GrantType.GetHashCode();
-                if (this.MeetingNumericId != null)
-                    hash = hash * 59 + this.MeetingNumericId.GetHashCode();
-                if (this.MeetingPasscode != null)
-                    hash = hash * 59 + this.MeetingPasscode.GetHashCode();
+                if (this.ClientId != null)
+                    hash = hash * 59 + this.ClientId.GetHashCode();
+                if (this.ClientSecret != null)
+                    hash = hash * 59 + this.ClientSecret.GetHashCode();
                 return hash;
             }
         }

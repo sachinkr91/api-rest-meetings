@@ -103,21 +103,7 @@ paths:
           in: body
           required: true
           schema:
-            required:
-              - grant_type
-              - meetingNumericId
-              - meetingPasscode
-            properties:
-              grant_type:
-                type: string
-                default: meeting_passcode
-                description: The type of access token you are requesting.
-              meetingNumericId:
-                type: string
-                description: Meeting ID
-              meetingPasscode:
-                type: string
-                description: Pin
+            $ref: '#/definitions/GrantRequestMeeting'
       responses:
         '200':
           description: The information about the grant.
@@ -142,21 +128,7 @@ paths:
           in: body
           required: true
           schema:
-            required:
-              - grant_type
-              - client_id
-              - client_secret
-            properties:
-              grant_type:
-                type: string
-                default: client_credentials
-                description: The type of access token you are requesting.
-              client_id:
-                type: string
-                description: The value given within the BlueJeans Enterprise Administration console.
-              client_secret:
-                type: string
-                description: The value given within the BlueJeans Enterprise Administration console.
+            $ref: '#/definitions/GrantRequestClient'
       responses:
         '200':
           description: The information about the grant.
@@ -1839,6 +1811,10 @@ definitions:
         type: string
         description: Your user password that you use to login to our site.
         format: password
+    required:
+      - grant_type
+      - username
+      - password
   GrantPassword:
     type: object
     properties:
@@ -1861,6 +1837,23 @@ definitions:
             description: The name of the partition you are on.
           partition:
             $ref: '#/definitions/Partition'
+  GrantRequestMeeting:
+    type: object
+    properties:
+      grant_type:
+        type: string
+        default: meeting_passcode
+        description: The type of access token you are requesting.
+      meetingNumericId:
+        type: string
+        description: Meeting ID
+      meetingPasscode:
+        type: string
+        description: Pin
+    required:
+      - grant_type
+      - meetingNumericId
+      - meetingPasscode
   GrantMeeting:
     type: object
     properties:
@@ -1897,6 +1890,23 @@ definitions:
             description: The name of the partition you are on.
           partition:
             $ref: '#/definitions/Partition'
+  GrantRequestClient:
+    type: object
+    properties:
+      grant_type:
+        type: string
+        default: client_credentials
+        description: The type of access token you are requesting.
+      client_id:
+        type: string
+        description: The value given within the BlueJeans Enterprise Administration console.
+      client_secret:
+        type: string
+        description: The value given within the BlueJeans Enterprise Administration console.
+    required:
+      - grant_type
+      - client_id
+      - client_secret
   GrantClient:
     type: object
     properties:

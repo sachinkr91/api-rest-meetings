@@ -1,4 +1,4 @@
-# GrantTypeClient
+# GrantRequestClient
 
 ## Properties
 Name | Type | Description | Notes

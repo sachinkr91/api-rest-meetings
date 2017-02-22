@@ -30,7 +30,7 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_type_client = swagger_client.GrantTypeClient() # GrantTypeClient | Contains information about the type of grant you are requesting.
+grant_type_client = swagger_client.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Client Grant Type
@@ -44,7 +44,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_client** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. | 
+ **grant_type_client** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
@@ -82,7 +82,7 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_type_meeting = swagger_client.GrantTypeMeeting() # GrantTypeMeeting | Contains information about the type of grant you are requesting.
+grant_type_meeting = swagger_client.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Meeting Grant Type
@@ -96,7 +96,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_meeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. | 
+ **grant_type_meeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

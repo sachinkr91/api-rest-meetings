@@ -42,22 +42,43 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GrantRequestPassword" /> class.
         /// </summary>
-        /// <param name="GrantType">The type of access token you are requesting. (default to &quot;password&quot;).</param>
-        /// <param name="Username">Your user name that you use to login to our site..</param>
-        /// <param name="Password">Your user password that you use to login to our site..</param>
+        [JsonConstructorAttribute]
+        protected GrantRequestPassword() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrantRequestPassword" /> class.
+        /// </summary>
+        /// <param name="GrantType">The type of access token you are requesting. (required) (default to &quot;password&quot;).</param>
+        /// <param name="Username">Your user name that you use to login to our site. (required).</param>
+        /// <param name="Password">Your user password that you use to login to our site. (required).</param>
         public GrantRequestPassword(string GrantType = null, string Username = null, string Password = null)
         {
-            // use default value if no "GrantType" provided
+            // to ensure "GrantType" is required (not null)
             if (GrantType == null)
             {
-                this.GrantType = "password";
+                throw new InvalidDataException("GrantType is a required property for GrantRequestPassword and cannot be null");
             }
             else
             {
                 this.GrantType = GrantType;
             }
-            this.Username = Username;
-            this.Password = Password;
+            // to ensure "Username" is required (not null)
+            if (Username == null)
+            {
+                throw new InvalidDataException("Username is a required property for GrantRequestPassword and cannot be null");
+            }
+            else
+            {
+                this.Username = Username;
+            }
+            // to ensure "Password" is required (not null)
+            if (Password == null)
+            {
+                throw new InvalidDataException("Password is a required property for GrantRequestPassword and cannot be null");
+            }
+            else
+            {
+                this.Password = Password;
+            }
         }
         
         /// <summary>

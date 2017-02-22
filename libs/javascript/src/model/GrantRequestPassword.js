@@ -52,13 +52,16 @@
    * Constructs a new <code>GrantRequestPassword</code>.
    * @alias module:model/GrantRequestPassword
    * @class
+   * @param grantType {String} The type of access token you are requesting.
+   * @param username {String} Your user name that you use to login to our site.
+   * @param password {String} Your user password that you use to login to our site.
    */
-  var exports = function() {
+  var exports = function(grantType, username, password) {
     var _this = this;
 
-
-
-
+    _this['grant_type'] = grantType;
+    _this['username'] = username;
+    _this['password'] = password;
   };
 
   /**

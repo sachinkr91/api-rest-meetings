@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="gettokenbyclient"></a>
 # **GetTokenByClient**
-> GrantClient GetTokenByClient (GrantTypeClient grantTypeClient)
+> GrantClient GetTokenByClient (GrantRequestClient grantTypeClient)
 
 Authentication via Client Grant Type
 
@@ -38,7 +38,7 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var grantTypeClient = new GrantTypeClient(); // GrantTypeClient | Contains information about the type of grant you are requesting.
+            var grantTypeClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
 
             try
             {
@@ -59,7 +59,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeClient** | [**GrantTypeClient**](GrantTypeClient.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="gettokenbymeeting"></a>
 # **GetTokenByMeeting**
-> GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting)
+> GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting)
 
 Authentication via Meeting Grant Type
 
@@ -105,7 +105,7 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var grantTypeMeeting = new GrantTypeMeeting(); // GrantTypeMeeting | Contains information about the type of grant you are requesting.
+            var grantTypeMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
             try
             {
@@ -126,7 +126,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeMeeting** | [**GrantTypeMeeting**](GrantTypeMeeting.md)| Contains information about the type of grant you are requesting. | 
+ **grantTypeMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

@@ -150,6 +150,15 @@ class GrantRequestPassword implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if ($this->container['grant_type'] === null) {
+            $invalid_properties[] = "'grant_type' can't be null";
+        }
+        if ($this->container['username'] === null) {
+            $invalid_properties[] = "'username' can't be null";
+        }
+        if ($this->container['password'] === null) {
+            $invalid_properties[] = "'password' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -161,6 +170,15 @@ class GrantRequestPassword implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['grant_type'] === null) {
+            return false;
+        }
+        if ($this->container['username'] === null) {
+            return false;
+        }
+        if ($this->container['password'] === null) {
+            return false;
+        }
         return true;
     }
 

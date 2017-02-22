@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GrantTypeClient
+# IO.Swagger.Model.GrantRequestClient
 ## Properties
 
 Name | Type | Description | Notes

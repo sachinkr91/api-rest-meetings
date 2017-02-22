@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantTypeClient();
+    instance = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,28 +58,28 @@
       object[property] = value;
   }
 
-  describe('GrantTypeClient', function() {
-    it('should create an instance of GrantTypeClient', function() {
-      // uncomment below and update the code to test GrantTypeClient
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeClient();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantTypeClient);
+  describe('GrantRequestMeeting', function() {
+    it('should create an instance of GrantRequestMeeting', function() {
+      // uncomment below and update the code to test GrantRequestMeeting
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestMeeting);
     });
 
     it('should have the property grantType (base name: "grant_type")', function() {
       // uncomment below and update the code to test the property grantType
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeClient();
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 
-    it('should have the property clientId (base name: "client_id")', function() {
-      // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeClient();
+    it('should have the property meetingNumericId (base name: "meetingNumericId")', function() {
+      // uncomment below and update the code to test the property meetingNumericId
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 
-    it('should have the property clientSecret (base name: "client_secret")', function() {
-      // uncomment below and update the code to test the property clientSecret
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeClient();
+    it('should have the property meetingPasscode (base name: "meetingPasscode")', function() {
+      // uncomment below and update the code to test the property meetingPasscode
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 

@@ -66,7 +66,7 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypeClient grant_type_client: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestClient grant_type_client: Contains information about the type of grant you are requesting. (required)
         :return: GrantClient
                  If the method is called asynchronously,
                  returns the request thread.
@@ -93,7 +93,7 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypeClient grant_type_client: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestClient grant_type_client: Contains information about the type of grant you are requesting. (required)
         :return: GrantClient
                  If the method is called asynchronously,
                  returns the request thread.
@@ -170,7 +170,7 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypeMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
         :return: GrantMeeting
                  If the method is called asynchronously,
                  returns the request thread.
@@ -197,7 +197,7 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantTypeMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
         :return: GrantMeeting
                  If the method is called asynchronously,
                  returns the request thread.

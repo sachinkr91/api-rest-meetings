@@ -24,90 +24,65 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
-    }
-    root.BlueJeansOnVideoRestApi.GrantTypeClient = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+    factory(root.expect, root.BlueJeansOnVideoRestApi);
   }
-}(this, function(ApiClient) {
+}(this, function(expect, BlueJeansOnVideoRestApi) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new BlueJeansOnVideoRestApi.GrantRequestClient();
+  });
 
-
-  /**
-   * The GrantTypeClient model module.
-   * @module model/GrantTypeClient
-   * @version 1.0.0
-   */
-
-  /**
-   * Constructs a new <code>GrantTypeClient</code>.
-   * @alias module:model/GrantTypeClient
-   * @class
-   * @param grantType {String} The type of access token you are requesting.
-   * @param clientId {String} The value given within the BlueJeans Enterprise Administration console.
-   * @param clientSecret {String} The value given within the BlueJeans Enterprise Administration console.
-   */
-  var exports = function(grantType, clientId, clientSecret) {
-    var _this = this;
-
-    _this['grant_type'] = grantType;
-    _this['client_id'] = clientId;
-    _this['client_secret'] = clientSecret;
-  };
-
-  /**
-   * Constructs a <code>GrantTypeClient</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/GrantTypeClient} obj Optional instance to populate.
-   * @return {module:model/GrantTypeClient} The populated <code>GrantTypeClient</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('grant_type')) {
-        obj['grant_type'] = ApiClient.convertToType(data['grant_type'], 'String');
-      }
-      if (data.hasOwnProperty('client_id')) {
-        obj['client_id'] = ApiClient.convertToType(data['client_id'], 'String');
-      }
-      if (data.hasOwnProperty('client_secret')) {
-        obj['client_secret'] = ApiClient.convertToType(data['client_secret'], 'String');
-      }
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-  /**
-   * The type of access token you are requesting.
-   * @member {String} grant_type
-   * @default 'client_credentials'
-   */
-  exports.prototype['grant_type'] = 'client_credentials';
-  /**
-   * The value given within the BlueJeans Enterprise Administration console.
-   * @member {String} client_id
-   */
-  exports.prototype['client_id'] = undefined;
-  /**
-   * The value given within the BlueJeans Enterprise Administration console.
-   * @member {String} client_secret
-   */
-  exports.prototype['client_secret'] = undefined;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('GrantRequestClient', function() {
+    it('should create an instance of GrantRequestClient', function() {
+      // uncomment below and update the code to test GrantRequestClient
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestClient();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestClient);
+    });
 
+    it('should have the property grantType (base name: "grant_type")', function() {
+      // uncomment below and update the code to test the property grantType
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestClient();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+    it('should have the property clientId (base name: "client_id")', function() {
+      // uncomment below and update the code to test the property clientId
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestClient();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property clientSecret (base name: "client_secret")', function() {
+      // uncomment below and update the code to test the property clientSecret
+      //var instane = new BlueJeansOnVideoRestApi.GrantRequestClient();
+      //expect(instance).to.be();
+    });
+
+  });
+
 }));
-
-

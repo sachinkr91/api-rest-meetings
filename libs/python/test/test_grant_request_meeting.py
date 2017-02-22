@@ -30,11 +30,11 @@ import unittest
 
 import swagger_client
 from swagger_client.rest import ApiException
-from swagger_client.models.grant_type_meeting import GrantTypeMeeting
+from swagger_client.models.grant_request_meeting import GrantRequestMeeting
 
 
-class TestGrantTypeMeeting(unittest.TestCase):
-    """ GrantTypeMeeting unit test stubs """
+class TestGrantRequestMeeting(unittest.TestCase):
+    """ GrantRequestMeeting unit test stubs """
 
     def setUp(self):
         pass
@@ -42,11 +42,11 @@ class TestGrantTypeMeeting(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGrantTypeMeeting(self):
+    def testGrantRequestMeeting(self):
         """
-        Test GrantTypeMeeting
+        Test GrantRequestMeeting
         """
-        model = swagger_client.models.grant_type_meeting.GrantTypeMeeting()
+        model = swagger_client.models.grant_request_meeting.GrantRequestMeeting()
 
 
 if __name__ == '__main__':

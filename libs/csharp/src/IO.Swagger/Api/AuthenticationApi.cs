@@ -45,7 +45,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantClient</returns>
-        GrantClient GetTokenByClient (GrantTypeClient grantTypeClient);
+        GrantClient GetTokenByClient (GrantRequestClient grantTypeClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -56,7 +56,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantClient</returns>
-        ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantTypeClient grantTypeClient);
+        ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantRequestClient grantTypeClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -66,7 +66,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantMeeting</returns>
-        GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting);
+        GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -77,7 +77,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
-        ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantTypeMeeting grantTypeMeeting);
+        ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantTypeMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -110,7 +110,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantClient</returns>
-        System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantTypeClient grantTypeClient);
+        System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantTypeClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -121,7 +121,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantTypeClient grantTypeClient);
+        System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantTypeClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -131,7 +131,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantMeeting</returns>
-        System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantTypeMeeting grantTypeMeeting);
+        System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantTypeMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -142,7 +142,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantTypeMeeting grantTypeMeeting);
+        System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantTypeMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -282,7 +282,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantClient</returns>
-        public GrantClient GetTokenByClient (GrantTypeClient grantTypeClient)
+        public GrantClient GetTokenByClient (GrantRequestClient grantTypeClient)
         {
              ApiResponse<GrantClient> localVarResponse = GetTokenByClientWithHttpInfo(grantTypeClient);
              return localVarResponse.Data;
@@ -294,7 +294,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantClient</returns>
-        public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantTypeClient grantTypeClient)
+        public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantRequestClient grantTypeClient)
         {
             // verify the required parameter 'grantTypeClient' is set
             if (grantTypeClient == null)
@@ -366,7 +366,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantClient</returns>
-        public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantTypeClient grantTypeClient)
+        public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantTypeClient)
         {
              ApiResponse<GrantClient> localVarResponse = await GetTokenByClientAsyncWithHttpInfo(grantTypeClient);
              return localVarResponse.Data;
@@ -379,7 +379,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantTypeClient grantTypeClient)
+        public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantTypeClient)
         {
             // verify the required parameter 'grantTypeClient' is set
             if (grantTypeClient == null)
@@ -450,7 +450,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantMeeting</returns>
-        public GrantMeeting GetTokenByMeeting (GrantTypeMeeting grantTypeMeeting)
+        public GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting)
         {
              ApiResponse<GrantMeeting> localVarResponse = GetTokenByMeetingWithHttpInfo(grantTypeMeeting);
              return localVarResponse.Data;
@@ -462,7 +462,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
-        public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantTypeMeeting grantTypeMeeting)
+        public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantTypeMeeting)
         {
             // verify the required parameter 'grantTypeMeeting' is set
             if (grantTypeMeeting == null)
@@ -534,7 +534,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantMeeting</returns>
-        public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantTypeMeeting grantTypeMeeting)
+        public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantTypeMeeting)
         {
              ApiResponse<GrantMeeting> localVarResponse = await GetTokenByMeetingAsyncWithHttpInfo(grantTypeMeeting);
              return localVarResponse.Data;
@@ -547,7 +547,7 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantTypeMeeting grantTypeMeeting)
+        public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantTypeMeeting)
         {
             // verify the required parameter 'grantTypeMeeting' is set
             if (grantTypeMeeting == null)

@@ -24,65 +24,90 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    if (!root.BlueJeansOnVideoRestApi) {
+      root.BlueJeansOnVideoRestApi = {};
+    }
+    root.BlueJeansOnVideoRestApi.GrantRequestMeeting = factory(root.BlueJeansOnVideoRestApi.ApiClient);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(ApiClient) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantTypeMeeting();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The GrantRequestMeeting model module.
+   * @module model/GrantRequestMeeting
+   * @version 1.0.0
+   */
+
+  /**
+   * Constructs a new <code>GrantRequestMeeting</code>.
+   * @alias module:model/GrantRequestMeeting
+   * @class
+   * @param grantType {String} The type of access token you are requesting.
+   * @param meetingNumericId {String} Meeting ID
+   * @param meetingPasscode {String} Pin
+   */
+  var exports = function(grantType, meetingNumericId, meetingPasscode) {
+    var _this = this;
+
+    _this['grant_type'] = grantType;
+    _this['meetingNumericId'] = meetingNumericId;
+    _this['meetingPasscode'] = meetingPasscode;
+  };
+
+  /**
+   * Constructs a <code>GrantRequestMeeting</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/GrantRequestMeeting} obj Optional instance to populate.
+   * @return {module:model/GrantRequestMeeting} The populated <code>GrantRequestMeeting</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('grant_type')) {
+        obj['grant_type'] = ApiClient.convertToType(data['grant_type'], 'String');
+      }
+      if (data.hasOwnProperty('meetingNumericId')) {
+        obj['meetingNumericId'] = ApiClient.convertToType(data['meetingNumericId'], 'String');
+      }
+      if (data.hasOwnProperty('meetingPasscode')) {
+        obj['meetingPasscode'] = ApiClient.convertToType(data['meetingPasscode'], 'String');
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * The type of access token you are requesting.
+   * @member {String} grant_type
+   * @default 'meeting_passcode'
+   */
+  exports.prototype['grant_type'] = 'meeting_passcode';
+  /**
+   * Meeting ID
+   * @member {String} meetingNumericId
+   */
+  exports.prototype['meetingNumericId'] = undefined;
+  /**
+   * Pin
+   * @member {String} meetingPasscode
+   */
+  exports.prototype['meetingPasscode'] = undefined;
 
-  describe('GrantTypeMeeting', function() {
-    it('should create an instance of GrantTypeMeeting', function() {
-      // uncomment below and update the code to test GrantTypeMeeting
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeMeeting();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantTypeMeeting);
-    });
 
-    it('should have the property grantType (base name: "grant_type")', function() {
-      // uncomment below and update the code to test the property grantType
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeMeeting();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property meetingNumericId (base name: "meetingNumericId")', function() {
-      // uncomment below and update the code to test the property meetingNumericId
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeMeeting();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property meetingPasscode (base name: "meetingPasscode")', function() {
-      // uncomment below and update the code to test the property meetingPasscode
-      //var instane = new BlueJeansOnVideoRestApi.GrantTypeMeeting();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

@@ -39,10 +39,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import io.swagger.client.model.GrantClient;
-import io.swagger.client.model.GrantTypeClient;
+import io.swagger.client.model.GrantRequestClient;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.GrantMeeting;
-import io.swagger.client.model.GrantTypeMeeting;
+import io.swagger.client.model.GrantRequestMeeting;
 import io.swagger.client.model.GrantPassword;
 import io.swagger.client.model.GrantRequestPassword;
 
@@ -72,7 +72,7 @@ public class AuthenticationApi {
     }
 
     /* Build call for getTokenByClient */
-    private com.squareup.okhttp.Call getTokenByClientCall(GrantTypeClient grantTypeClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTokenByClientCall(GrantRequestClient grantTypeClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = grantTypeClient;
         
         // verify the required parameter 'grantTypeClient' is set
@@ -125,7 +125,7 @@ public class AuthenticationApi {
      * @return GrantClient
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GrantClient getTokenByClient(GrantTypeClient grantTypeClient) throws ApiException {
+    public GrantClient getTokenByClient(GrantRequestClient grantTypeClient) throws ApiException {
         ApiResponse<GrantClient> resp = getTokenByClientWithHttpInfo(grantTypeClient);
         return resp.getData();
     }
@@ -137,7 +137,7 @@ public class AuthenticationApi {
      * @return ApiResponse&lt;GrantClient&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GrantClient> getTokenByClientWithHttpInfo(GrantTypeClient grantTypeClient) throws ApiException {
+    public ApiResponse<GrantClient> getTokenByClientWithHttpInfo(GrantRequestClient grantTypeClient) throws ApiException {
         com.squareup.okhttp.Call call = getTokenByClientCall(grantTypeClient, null, null);
         Type localVarReturnType = new TypeToken<GrantClient>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -151,7 +151,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenByClientAsync(GrantTypeClient grantTypeClient, final ApiCallback<GrantClient> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByClientAsync(GrantRequestClient grantTypeClient, final ApiCallback<GrantClient> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -178,7 +178,7 @@ public class AuthenticationApi {
         return call;
     }
     /* Build call for getTokenByMeeting */
-    private com.squareup.okhttp.Call getTokenByMeetingCall(GrantTypeMeeting grantTypeMeeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTokenByMeetingCall(GrantRequestMeeting grantTypeMeeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = grantTypeMeeting;
         
         // verify the required parameter 'grantTypeMeeting' is set
@@ -231,7 +231,7 @@ public class AuthenticationApi {
      * @return GrantMeeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GrantMeeting getTokenByMeeting(GrantTypeMeeting grantTypeMeeting) throws ApiException {
+    public GrantMeeting getTokenByMeeting(GrantRequestMeeting grantTypeMeeting) throws ApiException {
         ApiResponse<GrantMeeting> resp = getTokenByMeetingWithHttpInfo(grantTypeMeeting);
         return resp.getData();
     }
@@ -243,7 +243,7 @@ public class AuthenticationApi {
      * @return ApiResponse&lt;GrantMeeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GrantMeeting> getTokenByMeetingWithHttpInfo(GrantTypeMeeting grantTypeMeeting) throws ApiException {
+    public ApiResponse<GrantMeeting> getTokenByMeetingWithHttpInfo(GrantRequestMeeting grantTypeMeeting) throws ApiException {
         com.squareup.okhttp.Call call = getTokenByMeetingCall(grantTypeMeeting, null, null);
         Type localVarReturnType = new TypeToken<GrantMeeting>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -257,7 +257,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenByMeetingAsync(GrantTypeMeeting grantTypeMeeting, final ApiCallback<GrantMeeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenByMeetingAsync(GrantRequestMeeting grantTypeMeeting, final ApiCallback<GrantMeeting> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

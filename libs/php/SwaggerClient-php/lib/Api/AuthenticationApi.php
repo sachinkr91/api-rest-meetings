@@ -107,7 +107,7 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypeClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestClient $grant_type_client Contains information about the type of grant you are requesting. (required)
      * @return \Swagger\Client\Model\GrantClient
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -122,7 +122,7 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypeClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestClient $grant_type_client Contains information about the type of grant you are requesting. (required)
      * @return Array of \Swagger\Client\Model\GrantClient, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -198,7 +198,7 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypeMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
      * @return \Swagger\Client\Model\GrantMeeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
@@ -213,7 +213,7 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\GrantTypeMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
      * @return Array of \Swagger\Client\Model\GrantMeeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * GrantRequestPassword
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T16:58:20.737-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:05:02.193-07:00")
 public class GrantRequestPassword   {
   @SerializedName("grant_type")
   private String grantType = "password";
@@ -54,7 +54,7 @@ public class GrantRequestPassword   {
    * The type of access token you are requesting.
    * @return grantType
   **/
-  @ApiModelProperty(example = "null", value = "The type of access token you are requesting.")
+  @ApiModelProperty(example = "null", required = true, value = "The type of access token you are requesting.")
   public String getGrantType() {
     return grantType;
   }
@@ -72,7 +72,7 @@ public class GrantRequestPassword   {
    * Your user name that you use to login to our site.
    * @return username
   **/
-  @ApiModelProperty(example = "null", value = "Your user name that you use to login to our site.")
+  @ApiModelProperty(example = "null", required = true, value = "Your user name that you use to login to our site.")
   public String getUsername() {
     return username;
   }
@@ -90,7 +90,7 @@ public class GrantRequestPassword   {
    * Your user password that you use to login to our site.
    * @return password
   **/
-  @ApiModelProperty(example = "null", value = "Your user password that you use to login to our site.")
+  @ApiModelProperty(example = "null", required = true, value = "Your user password that you use to login to our site.")
   public String getPassword() {
     return password;
   }
