@@ -58,8 +58,8 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenByClientTest() throws ApiException {
-        GrantRequestClient grantTypeClient = null;
-        // GrantClient response = api.getTokenByClient(grantTypeClient);
+        GrantRequestClient grantRequestClient = null;
+        // GrantClient response = api.getTokenByClient(grantRequestClient);
 
         // TODO: test validations
     }
@@ -74,8 +74,8 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenByMeetingTest() throws ApiException {
-        GrantRequestMeeting grantTypeMeeting = null;
-        // GrantMeeting response = api.getTokenByMeeting(grantTypeMeeting);
+        GrantRequestMeeting grantRequestMeeting = null;
+        // GrantMeeting response = api.getTokenByMeeting(grantRequestMeeting);
 
         // TODO: test validations
     }

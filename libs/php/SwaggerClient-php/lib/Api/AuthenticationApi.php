@@ -107,13 +107,13 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\GrantRequestClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting. (required)
      * @return \Swagger\Client\Model\GrantClient
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByClient($grant_type_client)
+    public function getTokenByClient($grant_request_client)
     {
-        list($response) = $this->getTokenByClientWithHttpInfo($grant_type_client);
+        list($response) = $this->getTokenByClientWithHttpInfo($grant_request_client);
         return $response;
     }
 
@@ -122,15 +122,15 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \Swagger\Client\Model\GrantRequestClient $grant_type_client Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting. (required)
      * @return Array of \Swagger\Client\Model\GrantClient, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByClientWithHttpInfo($grant_type_client)
+    public function getTokenByClientWithHttpInfo($grant_request_client)
     {
-        // verify the required parameter 'grant_type_client' is set
-        if ($grant_type_client === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type_client when calling getTokenByClient');
+        // verify the required parameter 'grant_request_client' is set
+        if ($grant_request_client === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_client when calling getTokenByClient');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Client";
@@ -149,8 +149,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($grant_type_client)) {
-            $_tempBody = $grant_type_client;
+        if (isset($grant_request_client)) {
+            $_tempBody = $grant_request_client;
         }
 
         // for model (json/xml)
@@ -198,13 +198,13 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting. (required)
      * @return \Swagger\Client\Model\GrantMeeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByMeeting($grant_type_meeting)
+    public function getTokenByMeeting($grant_request_meeting)
     {
-        list($response) = $this->getTokenByMeetingWithHttpInfo($grant_type_meeting);
+        list($response) = $this->getTokenByMeetingWithHttpInfo($grant_request_meeting);
         return $response;
     }
 
@@ -213,15 +213,15 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_type_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \Swagger\Client\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting. (required)
      * @return Array of \Swagger\Client\Model\GrantMeeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function getTokenByMeetingWithHttpInfo($grant_type_meeting)
+    public function getTokenByMeetingWithHttpInfo($grant_request_meeting)
     {
-        // verify the required parameter 'grant_type_meeting' is set
-        if ($grant_type_meeting === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type_meeting when calling getTokenByMeeting');
+        // verify the required parameter 'grant_request_meeting' is set
+        if ($grant_request_meeting === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_meeting when calling getTokenByMeeting');
         }
         // parse inputs
         $resourcePath = "/oauth2/token?Meeting";
@@ -240,8 +240,8 @@ class AuthenticationApi
 
         // body params
         $_tempBody = null;
-        if (isset($grant_type_meeting)) {
-            $_tempBody = $grant_type_meeting;
+        if (isset($grant_request_meeting)) {
+            $_tempBody = $grant_request_meeting;
         }
 
         // for model (json/xml)

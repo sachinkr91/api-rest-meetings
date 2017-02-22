@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * MeetingHistory
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:05:02.193-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:09:33.741-07:00")
 public class MeetingHistory   {
   @SerializedName("meetingGuid")
   private String meetingGuid = null;

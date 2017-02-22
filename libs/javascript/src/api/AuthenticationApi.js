@@ -67,16 +67,16 @@
     /**
      * Authentication via Client Grant Type
      * This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
-     * @param {module:model/GrantRequestClient} grantTypeClient Contains information about the type of grant you are requesting.
+     * @param {module:model/GrantRequestClient} grantRequestClient Contains information about the type of grant you are requesting.
      * @param {module:api/AuthenticationApi~getTokenByClientCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GrantClient}
      */
-    this.getTokenByClient = function(grantTypeClient, callback) {
-      var postBody = grantTypeClient;
+    this.getTokenByClient = function(grantRequestClient, callback) {
+      var postBody = grantRequestClient;
 
-      // verify the required parameter 'grantTypeClient' is set
-      if (grantTypeClient == undefined || grantTypeClient == null) {
-        throw "Missing the required parameter 'grantTypeClient' when calling getTokenByClient";
+      // verify the required parameter 'grantRequestClient' is set
+      if (grantRequestClient == undefined || grantRequestClient == null) {
+        throw "Missing the required parameter 'grantRequestClient' when calling getTokenByClient";
       }
 
 
@@ -112,16 +112,16 @@
     /**
      * Authentication via Meeting Grant Type
      * This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
-     * @param {module:model/GrantRequestMeeting} grantTypeMeeting Contains information about the type of grant you are requesting.
+     * @param {module:model/GrantRequestMeeting} grantRequestMeeting Contains information about the type of grant you are requesting.
      * @param {module:api/AuthenticationApi~getTokenByMeetingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GrantMeeting}
      */
-    this.getTokenByMeeting = function(grantTypeMeeting, callback) {
-      var postBody = grantTypeMeeting;
+    this.getTokenByMeeting = function(grantRequestMeeting, callback) {
+      var postBody = grantRequestMeeting;
 
-      // verify the required parameter 'grantTypeMeeting' is set
-      if (grantTypeMeeting == undefined || grantTypeMeeting == null) {
-        throw "Missing the required parameter 'grantTypeMeeting' when calling getTokenByMeeting";
+      // verify the required parameter 'grantRequestMeeting' is set
+      if (grantRequestMeeting == undefined || grantRequestMeeting == null) {
+        throw "Missing the required parameter 'grantRequestMeeting' when calling getTokenByMeeting";
       }
 
 

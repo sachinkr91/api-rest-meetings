@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getTokenByClient**
-> \Swagger\Client\Model\GrantClient getTokenByClient($grant_type_client)
+> \Swagger\Client\Model\GrantClient getTokenByClient($grant_request_client)
 
 Authentication via Client Grant Type
 
@@ -27,10 +27,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$grant_type_client = new \Swagger\Client\Model\GrantRequestClient(); // \Swagger\Client\Model\GrantRequestClient | Contains information about the type of grant you are requesting.
+$grant_request_client = new \Swagger\Client\Model\GrantRequestClient(); // \Swagger\Client\Model\GrantRequestClient | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->getTokenByClient($grant_type_client);
+    $result = $api_instance->getTokenByClient($grant_request_client);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByClient: ', $e->getMessage(), PHP_EOL;
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_client** | [**\Swagger\Client\Model\GrantRequestClient**](../Model/\Swagger\Client\Model\GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
+ **grant_request_client** | [**\Swagger\Client\Model\GrantRequestClient**](../Model/\Swagger\Client\Model\GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByMeeting**
-> \Swagger\Client\Model\GrantMeeting getTokenByMeeting($grant_type_meeting)
+> \Swagger\Client\Model\GrantMeeting getTokenByMeeting($grant_request_meeting)
 
 Authentication via Meeting Grant Type
 
@@ -77,10 +77,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\AuthenticationApi();
-$grant_type_meeting = new \Swagger\Client\Model\GrantRequestMeeting(); // \Swagger\Client\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.
+$grant_request_meeting = new \Swagger\Client\Model\GrantRequestMeeting(); // \Swagger\Client\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 try {
-    $result = $api_instance->getTokenByMeeting($grant_type_meeting);
+    $result = $api_instance->getTokenByMeeting($grant_request_meeting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByMeeting: ', $e->getMessage(), PHP_EOL;
@@ -92,7 +92,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_meeting** | [**\Swagger\Client\Model\GrantRequestMeeting**](../Model/\Swagger\Client\Model\GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
+ **grant_request_meeting** | [**\Swagger\Client\Model\GrantRequestMeeting**](../Model/\Swagger\Client\Model\GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

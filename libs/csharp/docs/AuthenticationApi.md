@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="gettokenbyclient"></a>
 # **GetTokenByClient**
-> GrantClient GetTokenByClient (GrantRequestClient grantTypeClient)
+> GrantClient GetTokenByClient (GrantRequestClient grantRequestClient)
 
 Authentication via Client Grant Type
 
@@ -38,12 +38,12 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var grantTypeClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
+            var grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Client Grant Type
-                GrantClient result = apiInstance.GetTokenByClient(grantTypeClient);
+                GrantClient result = apiInstance.GetTokenByClient(grantRequestClient);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -59,7 +59,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
+ **grantRequestClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="gettokenbymeeting"></a>
 # **GetTokenByMeeting**
-> GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting)
+> GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantRequestMeeting)
 
 Authentication via Meeting Grant Type
 
@@ -105,12 +105,12 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
-            var grantTypeMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
+            var grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
             try
             {
                 // Authentication via Meeting Grant Type
-                GrantMeeting result = apiInstance.GetTokenByMeeting(grantTypeMeeting);
+                GrantMeeting result = apiInstance.GetTokenByMeeting(grantRequestMeeting);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -126,7 +126,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
+ **grantRequestMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

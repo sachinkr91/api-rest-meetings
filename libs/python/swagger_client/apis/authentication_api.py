@@ -51,7 +51,7 @@ class AuthenticationApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def get_token_by_client(self, grant_type_client, **kwargs):
+    def get_token_by_client(self, grant_request_client, **kwargs):
         """
         Authentication via Client Grant Type
         This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
@@ -62,23 +62,23 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_client(grant_type_client, callback=callback_function)
+        >>> thread = api.get_token_by_client(grant_request_client, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantRequestClient grant_type_client: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestClient grant_request_client: Contains information about the type of grant you are requesting. (required)
         :return: GrantClient
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.get_token_by_client_with_http_info(grant_type_client, **kwargs)
+            return self.get_token_by_client_with_http_info(grant_request_client, **kwargs)
         else:
-            (data) = self.get_token_by_client_with_http_info(grant_type_client, **kwargs)
+            (data) = self.get_token_by_client_with_http_info(grant_request_client, **kwargs)
             return data
 
-    def get_token_by_client_with_http_info(self, grant_type_client, **kwargs):
+    def get_token_by_client_with_http_info(self, grant_request_client, **kwargs):
         """
         Authentication via Client Grant Type
         This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
@@ -89,17 +89,17 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_client_with_http_info(grant_type_client, callback=callback_function)
+        >>> thread = api.get_token_by_client_with_http_info(grant_request_client, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantRequestClient grant_type_client: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestClient grant_request_client: Contains information about the type of grant you are requesting. (required)
         :return: GrantClient
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['grant_type_client']
+        all_params = ['grant_request_client']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -112,9 +112,9 @@ class AuthenticationApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'grant_type_client' is set
-        if ('grant_type_client' not in params) or (params['grant_type_client'] is None):
-            raise ValueError("Missing the required parameter `grant_type_client` when calling `get_token_by_client`")
+        # verify the required parameter 'grant_request_client' is set
+        if ('grant_request_client' not in params) or (params['grant_request_client'] is None):
+            raise ValueError("Missing the required parameter `grant_request_client` when calling `get_token_by_client`")
 
         resource_path = '/oauth2/token?Client'.replace('{format}', 'json')
         path_params = {}
@@ -127,8 +127,8 @@ class AuthenticationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'grant_type_client' in params:
-            body_params = params['grant_type_client']
+        if 'grant_request_client' in params:
+            body_params = params['grant_request_client']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -155,7 +155,7 @@ class AuthenticationApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def get_token_by_meeting(self, grant_type_meeting, **kwargs):
+    def get_token_by_meeting(self, grant_request_meeting, **kwargs):
         """
         Authentication via Meeting Grant Type
         This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
@@ -166,23 +166,23 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_meeting(grant_type_meeting, callback=callback_function)
+        >>> thread = api.get_token_by_meeting(grant_request_meeting, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantRequestMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestMeeting grant_request_meeting: Contains information about the type of grant you are requesting. (required)
         :return: GrantMeeting
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.get_token_by_meeting_with_http_info(grant_type_meeting, **kwargs)
+            return self.get_token_by_meeting_with_http_info(grant_request_meeting, **kwargs)
         else:
-            (data) = self.get_token_by_meeting_with_http_info(grant_type_meeting, **kwargs)
+            (data) = self.get_token_by_meeting_with_http_info(grant_request_meeting, **kwargs)
             return data
 
-    def get_token_by_meeting_with_http_info(self, grant_type_meeting, **kwargs):
+    def get_token_by_meeting_with_http_info(self, grant_request_meeting, **kwargs):
         """
         Authentication via Meeting Grant Type
         This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
@@ -193,17 +193,17 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_token_by_meeting_with_http_info(grant_type_meeting, callback=callback_function)
+        >>> thread = api.get_token_by_meeting_with_http_info(grant_request_meeting, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GrantRequestMeeting grant_type_meeting: Contains information about the type of grant you are requesting. (required)
+        :param GrantRequestMeeting grant_request_meeting: Contains information about the type of grant you are requesting. (required)
         :return: GrantMeeting
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['grant_type_meeting']
+        all_params = ['grant_request_meeting']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -216,9 +216,9 @@ class AuthenticationApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'grant_type_meeting' is set
-        if ('grant_type_meeting' not in params) or (params['grant_type_meeting'] is None):
-            raise ValueError("Missing the required parameter `grant_type_meeting` when calling `get_token_by_meeting`")
+        # verify the required parameter 'grant_request_meeting' is set
+        if ('grant_request_meeting' not in params) or (params['grant_request_meeting'] is None):
+            raise ValueError("Missing the required parameter `grant_request_meeting` when calling `get_token_by_meeting`")
 
         resource_path = '/oauth2/token?Meeting'.replace('{format}', 'json')
         path_params = {}
@@ -231,8 +231,8 @@ class AuthenticationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'grant_type_meeting' in params:
-            body_params = params['grant_type_meeting']
+        if 'grant_request_meeting' in params:
+            body_params = params['grant_request_meeting']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\

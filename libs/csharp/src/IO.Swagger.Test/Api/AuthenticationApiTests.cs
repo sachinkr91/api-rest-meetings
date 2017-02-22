@@ -83,8 +83,8 @@ namespace IO.Swagger.Test
         public void GetTokenByClientTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //GrantRequestClient grantTypeClient = null;
-            //var response = instance.GetTokenByClient(grantTypeClient);
+            //GrantRequestClient grantRequestClient = null;
+            //var response = instance.GetTokenByClient(grantRequestClient);
             //Assert.IsInstanceOf<GrantClient> (response, "response is GrantClient");
         }
         
@@ -95,8 +95,8 @@ namespace IO.Swagger.Test
         public void GetTokenByMeetingTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //GrantRequestMeeting grantTypeMeeting = null;
-            //var response = instance.GetTokenByMeeting(grantTypeMeeting);
+            //GrantRequestMeeting grantRequestMeeting = null;
+            //var response = instance.GetTokenByMeeting(grantRequestMeeting);
             //Assert.IsInstanceOf<GrantMeeting> (response, "response is GrantMeeting");
         }
         

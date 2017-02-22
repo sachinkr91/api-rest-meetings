@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getTokenByClient"></a>
 # **getTokenByClient**
-> GrantClient getTokenByClient(grantTypeClient)
+> GrantClient getTokenByClient(grantRequestClient)
 
 Authentication via Client Grant Type
 
@@ -35,9 +35,9 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestClient grantTypeClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
+GrantRequestClient grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
 try {
-    GrantClient result = apiInstance.getTokenByClient(grantTypeClient);
+    GrantClient result = apiInstance.getTokenByClient(grantRequestClient);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthenticationApi#getTokenByClient");
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 <a name="getTokenByMeeting"></a>
 # **getTokenByMeeting**
-> GrantMeeting getTokenByMeeting(grantTypeMeeting)
+> GrantMeeting getTokenByMeeting(grantRequestMeeting)
 
 Authentication via Meeting Grant Type
 
@@ -90,9 +90,9 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestMeeting grantTypeMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
+GrantRequestMeeting grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
 try {
-    GrantMeeting result = apiInstance.getTokenByMeeting(grantTypeMeeting);
+    GrantMeeting result = apiInstance.getTokenByMeeting(grantRequestMeeting);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthenticationApi#getTokenByMeeting");
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantTypeMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
 
 ### Return type
 

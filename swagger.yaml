@@ -98,7 +98,7 @@ paths:
       consumes:
         - application/json
       parameters:
-        - name: GrantTypeMeeting
+        - name: GrantRequestMeeting
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true
@@ -123,7 +123,7 @@ paths:
       consumes:
         - application/json
       parameters:
-        - name: GrantTypeClient
+        - name: GrantRequestClient
           description: Contains information about the type of grant you are requesting.
           in: body
           required: true

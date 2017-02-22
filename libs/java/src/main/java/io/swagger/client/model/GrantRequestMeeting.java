@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * GrantRequestMeeting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:05:02.193-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-21T17:09:33.741-07:00")
 public class GrantRequestMeeting   {
   @SerializedName("grant_type")
   private String grantType = "meeting_passcode";

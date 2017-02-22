@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_token_by_client**
-> GrantClient get_token_by_client(grant_type_client)
+> GrantClient get_token_by_client(grant_request_client)
 
 Authentication via Client Grant Type
 
@@ -30,11 +30,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_type_client = swagger_client.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
+grant_request_client = swagger_client.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Client Grant Type
-    api_response = api_instance.get_token_by_client(grant_type_client)
+    api_response = api_instance.get_token_by_client(grant_request_client)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e
@@ -44,7 +44,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_client** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
+ **grant_request_client** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_token_by_meeting**
-> GrantMeeting get_token_by_meeting(grant_type_meeting)
+> GrantMeeting get_token_by_meeting(grant_request_meeting)
 
 Authentication via Meeting Grant Type
 
@@ -82,11 +82,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_type_meeting = swagger_client.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.
+grant_request_meeting = swagger_client.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Meeting Grant Type
-    api_response = api_instance.get_token_by_meeting(grant_type_meeting)
+    api_response = api_instance.get_token_by_meeting(grant_request_meeting)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e
@@ -96,7 +96,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type_meeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
+ **grant_request_meeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. | 
 
 ### Return type
 

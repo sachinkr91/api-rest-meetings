@@ -43,9 +43,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantClient</returns>
-        GrantClient GetTokenByClient (GrantRequestClient grantTypeClient);
+        GrantClient GetTokenByClient (GrantRequestClient grantRequestClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -54,9 +54,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantClient</returns>
-        ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantRequestClient grantTypeClient);
+        ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantRequestClient grantRequestClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -64,9 +64,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantMeeting</returns>
-        GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting);
+        GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantRequestMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -75,9 +75,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
-        ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantTypeMeeting);
+        ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantRequestMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -108,9 +108,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantClient</returns>
-        System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantTypeClient);
+        System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantRequestClient);
 
         /// <summary>
         /// Authentication via Client Grant Type
@@ -119,9 +119,9 @@ namespace IO.Swagger.Api
         /// This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantTypeClient);
+        System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantRequestClient);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -129,9 +129,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantMeeting</returns>
-        System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantTypeMeeting);
+        System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantRequestMeeting);
 
         /// <summary>
         /// Authentication via Meeting Grant Type
@@ -140,9 +140,9 @@ namespace IO.Swagger.Api
         /// This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantTypeMeeting);
+        System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantRequestMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
@@ -280,11 +280,11 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantClient</returns>
-        public GrantClient GetTokenByClient (GrantRequestClient grantTypeClient)
+        public GrantClient GetTokenByClient (GrantRequestClient grantRequestClient)
         {
-             ApiResponse<GrantClient> localVarResponse = GetTokenByClientWithHttpInfo(grantTypeClient);
+             ApiResponse<GrantClient> localVarResponse = GetTokenByClientWithHttpInfo(grantRequestClient);
              return localVarResponse.Data;
         }
 
@@ -292,13 +292,13 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantClient</returns>
-        public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantRequestClient grantTypeClient)
+        public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantRequestClient grantRequestClient)
         {
-            // verify the required parameter 'grantTypeClient' is set
-            if (grantTypeClient == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypeClient' when calling AuthenticationApi->GetTokenByClient");
+            // verify the required parameter 'grantRequestClient' is set
+            if (grantRequestClient == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestClient' when calling AuthenticationApi->GetTokenByClient");
 
             var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
@@ -325,13 +325,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypeClient != null && grantTypeClient.GetType() != typeof(byte[]))
+            if (grantRequestClient != null && grantRequestClient.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeClient); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestClient); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypeClient; // byte array
+                localVarPostBody = grantRequestClient; // byte array
             }
 
             // authentication (access_token) required
@@ -364,11 +364,11 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantClient</returns>
-        public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantTypeClient)
+        public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantRequestClient)
         {
-             ApiResponse<GrantClient> localVarResponse = await GetTokenByClientAsyncWithHttpInfo(grantTypeClient);
+             ApiResponse<GrantClient> localVarResponse = await GetTokenByClientAsyncWithHttpInfo(grantRequestClient);
              return localVarResponse.Data;
 
         }
@@ -377,13 +377,13 @@ namespace IO.Swagger.Api
         /// Authentication via Client Grant Type This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantTypeClient)
+        public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantRequestClient)
         {
-            // verify the required parameter 'grantTypeClient' is set
-            if (grantTypeClient == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypeClient' when calling AuthenticationApi->GetTokenByClient");
+            // verify the required parameter 'grantRequestClient' is set
+            if (grantRequestClient == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestClient' when calling AuthenticationApi->GetTokenByClient");
 
             var localVarPath = "/oauth2/token?Client";
             var localVarPathParams = new Dictionary<String, String>();
@@ -410,13 +410,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypeClient != null && grantTypeClient.GetType() != typeof(byte[]))
+            if (grantRequestClient != null && grantRequestClient.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeClient); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestClient); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypeClient; // byte array
+                localVarPostBody = grantRequestClient; // byte array
             }
 
             // authentication (access_token) required
@@ -448,11 +448,11 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>GrantMeeting</returns>
-        public GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantTypeMeeting)
+        public GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantRequestMeeting)
         {
-             ApiResponse<GrantMeeting> localVarResponse = GetTokenByMeetingWithHttpInfo(grantTypeMeeting);
+             ApiResponse<GrantMeeting> localVarResponse = GetTokenByMeetingWithHttpInfo(grantRequestMeeting);
              return localVarResponse.Data;
         }
 
@@ -460,13 +460,13 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
-        public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantTypeMeeting)
+        public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantRequestMeeting)
         {
-            // verify the required parameter 'grantTypeMeeting' is set
-            if (grantTypeMeeting == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypeMeeting' when calling AuthenticationApi->GetTokenByMeeting");
+            // verify the required parameter 'grantRequestMeeting' is set
+            if (grantRequestMeeting == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestMeeting' when calling AuthenticationApi->GetTokenByMeeting");
 
             var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -493,13 +493,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypeMeeting != null && grantTypeMeeting.GetType() != typeof(byte[]))
+            if (grantRequestMeeting != null && grantRequestMeeting.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeMeeting); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestMeeting); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypeMeeting; // byte array
+                localVarPostBody = grantRequestMeeting; // byte array
             }
 
             // authentication (access_token) required
@@ -532,11 +532,11 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of GrantMeeting</returns>
-        public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantTypeMeeting)
+        public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantRequestMeeting)
         {
-             ApiResponse<GrantMeeting> localVarResponse = await GetTokenByMeetingAsyncWithHttpInfo(grantTypeMeeting);
+             ApiResponse<GrantMeeting> localVarResponse = await GetTokenByMeetingAsyncWithHttpInfo(grantRequestMeeting);
              return localVarResponse.Data;
 
         }
@@ -545,13 +545,13 @@ namespace IO.Swagger.Api
         /// Authentication via Meeting Grant Type This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantTypeMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantTypeMeeting)
+        public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantRequestMeeting)
         {
-            // verify the required parameter 'grantTypeMeeting' is set
-            if (grantTypeMeeting == null)
-                throw new ApiException(400, "Missing required parameter 'grantTypeMeeting' when calling AuthenticationApi->GetTokenByMeeting");
+            // verify the required parameter 'grantRequestMeeting' is set
+            if (grantRequestMeeting == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestMeeting' when calling AuthenticationApi->GetTokenByMeeting");
 
             var localVarPath = "/oauth2/token?Meeting";
             var localVarPathParams = new Dictionary<String, String>();
@@ -578,13 +578,13 @@ namespace IO.Swagger.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (grantTypeMeeting != null && grantTypeMeeting.GetType() != typeof(byte[]))
+            if (grantRequestMeeting != null && grantRequestMeeting.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(grantTypeMeeting); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestMeeting); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = grantTypeMeeting; // byte array
+                localVarPostBody = grantRequestMeeting; // byte array
             }
 
             // authentication (access_token) required
