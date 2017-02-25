@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * AnalyticsEndpointDistribution
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-24T23:02:57.495-07:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-24T23:12:23.620-07:00")
 public class AnalyticsEndpointDistribution   {
   @SerializedName("distribution")
   private List<AnalyticsEndpointDistributionDistribution> distribution = new ArrayList<AnalyticsEndpointDistributionDistribution>();
