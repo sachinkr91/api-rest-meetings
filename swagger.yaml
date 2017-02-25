@@ -1943,6 +1943,7 @@ definitions:
         readOnly: true
       username:
         type: string
+        description: User's username
       firstName:
         type: string
         description: User's first name
@@ -2094,9 +2095,11 @@ definitions:
         type: string
       start:
         type: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string

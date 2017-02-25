@@ -131,6 +131,7 @@
    */
   exports.prototype['id'] = undefined;
   /**
+   * User's username
    * @member {String} username
    */
   exports.prototype['username'] = undefined;

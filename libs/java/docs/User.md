@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier for the user. |  [optional]
-**username** | **String** |  |  [optional]
+**username** | **String** | User&#39;s username |  [optional]
 **firstName** | **String** | User&#39;s first name |  [optional]
 **middleName** | **String** | User&#39;s middle name |  [optional]
 **lastName** | **String** | User&#39;s last name |  [optional]

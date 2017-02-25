@@ -102,7 +102,7 @@ class User(object):
     def username(self):
         """
         Gets the username of this User.
-
+        User's username
 
         :return: The username of this User.
         :rtype: str
@@ -113,7 +113,7 @@ class User(object):
     def username(self, username):
         """
         Sets the username of this User.
-
+        User's username
 
         :param username: The username of this User.
         :type: str

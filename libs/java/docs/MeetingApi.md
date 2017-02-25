@@ -35,11 +35,11 @@ This endpoint deletes a scheuled meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -91,11 +91,11 @@ This endpoint will create a scheduled meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -150,11 +150,11 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -209,11 +209,11 @@ This endpoint gets the settings for a user&#39;s meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -266,11 +266,11 @@ This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -321,11 +321,11 @@ This endpoint allows you to update an individual endpoint’s current layout set
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -384,11 +384,11 @@ This endpoint changes the settings for a user&#39;s meeting. For example, use fo
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -443,11 +443,11 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -502,11 +502,11 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -567,11 +567,11 @@ This endpoint returns an array of all endpoints in the current meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -624,11 +624,11 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -684,11 +684,11 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -741,11 +741,11 @@ This endpoint generates an email invite to the specified meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -799,11 +799,11 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -858,11 +858,11 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -919,11 +919,11 @@ This endpoint’s purpose is to be able to modify a meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -980,11 +980,11 @@ This endpoint retrieves the join information for a scheduled meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1037,11 +1037,11 @@ This endpoint retrieves the email object for a scheduled meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.MeetingApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

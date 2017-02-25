@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Id** | **int?** | Unique identifier for meeting. | [optional] 
 **Title** | **string** |  | [default to "My Test Meeting"]
 **Description** | **string** |  | [optional] 
-**Start** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
-**End** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**Start** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**End** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **Timezone** | **string** |  | [optional] [default to "America/New_York"]
 **NumericMeetingId** | **string** |  | [optional] 
 **AttendeePasscode** | **string** |  | [optional] 

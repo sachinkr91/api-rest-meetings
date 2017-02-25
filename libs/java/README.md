@@ -1,4 +1,4 @@
-# api
+# api-rest-onvideo
 
 ## Requirements
 
@@ -27,7 +27,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>com.bluejeans</groupId>
-    <artifactId>api</artifactId>
+    <artifactId>api-rest-onvideo</artifactId>
     <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.bluejeans:api:1.0.0"
+compile "com.bluejeans:api-rest-onvideo:1.0.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/api-1.0.0.jar
+* target/api-rest-onvideo-1.0.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -58,10 +58,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import com.bluejeans.api.rest.*;
-import com.bluejeans.api.rest.auth.*;
-import com.bluejeans.api.rest.model.*;
-import com.bluejeans.api.rest.onvideo.AnalyticsApi;
+import com.bluejeans.api.rest.onvideo.*;
+import com.bluejeans.api.rest.onvideo.auth.*;
+import com.bluejeans.api.rest.onvideo.model.*;
+import com.bluejeans.api.rest.onvideo.api.AnalyticsApi;
 
 import java.io.File;
 import java.util.*;

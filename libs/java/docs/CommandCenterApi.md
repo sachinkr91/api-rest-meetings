@@ -23,11 +23,11 @@ This endpoint lists completed meetings by enterprise.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -84,11 +84,11 @@ This endpoint lists meetings in progress by enterprise.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -139,11 +139,11 @@ This endpoint lists endpoints for a given meeting in progress.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -196,11 +196,11 @@ This endpoint lists meeting endpoints for completed meetings by enterprise.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -253,11 +253,11 @@ This endpoint lists completed meetings by user.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -308,11 +308,11 @@ This endpoint lists meeting endpoints for completed meetings by user.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.CommandCenterApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

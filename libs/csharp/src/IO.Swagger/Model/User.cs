@@ -42,7 +42,7 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
-        /// <param name="Username">Username.</param>
+        /// <param name="Username">User&#39;s username.</param>
         /// <param name="FirstName">User&#39;s first name.</param>
         /// <param name="MiddleName">User&#39;s middle name.</param>
         /// <param name="LastName">User&#39;s last name.</param>
@@ -77,8 +77,9 @@ namespace IO.Swagger.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int? Id { get; private set; }
         /// <summary>
-        /// Gets or Sets Username
+        /// User&#39;s username
         /// </summary>
+        /// <value>User&#39;s username</value>
         [DataMember(Name="username", EmitDefaultValue=false)]
         public string Username { get; set; }
         /// <summary>

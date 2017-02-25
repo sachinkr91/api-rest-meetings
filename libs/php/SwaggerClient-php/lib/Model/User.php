@@ -247,7 +247,7 @@ class User implements ArrayAccess
 
     /**
      * Sets username
-     * @param string $username
+     * @param string $username User's username
      * @return $this
      */
     public function setUsername($username)

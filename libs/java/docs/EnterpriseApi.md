@@ -20,11 +20,11 @@ This endpoint allows adding a user to an existing enterprise. Requires enterpris
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.EnterpriseApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.EnterpriseApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -81,11 +81,11 @@ This endpoint allows listing the users that are associated with an enterprise ac
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.EnterpriseApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.EnterpriseApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -142,11 +142,11 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.ApiClient;
-//import com.bluejeans.api.rest.ApiException;
-//import com.bluejeans.api.rest.Configuration;
-//import com.bluejeans.api.rest.auth.*;
-//import com.bluejeans.api.rest.onvideo.EnterpriseApi;
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.EnterpriseApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

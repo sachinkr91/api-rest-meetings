@@ -55,7 +55,7 @@ namespace IO.Swagger.Model
         /// <param name="EndPointVersion">EndPointVersion (required) (default to &quot;2.10&quot;).</param>
         /// <param name="EndPointType">EndPointType (required) (default to &quot;WEB_APP&quot;).</param>
         /// <param name="AdvancedMeetingOptions">AdvancedMeetingOptions.</param>
-        public Meeting(string Title = null, string Description = null, int? Start = null, int? End = null, string Timezone = null, string EndPointVersion = null, string EndPointType = null, MeetingAdvancedMeetingOptions AdvancedMeetingOptions = null)
+        public Meeting(string Title = null, string Description = null, long? Start = null, long? End = null, string Timezone = null, string EndPointVersion = null, string EndPointType = null, MeetingAdvancedMeetingOptions AdvancedMeetingOptions = null)
         {
             // to ensure "Title" is required (not null)
             if (Title == null)
@@ -136,13 +136,13 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <value>A [UNIX Timestamp](https://currentmillis.com/) in milliseconds</value>
         [DataMember(Name="start", EmitDefaultValue=false)]
-        public int? Start { get; set; }
+        public long? Start { get; set; }
         /// <summary>
         /// A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
         /// </summary>
         /// <value>A [UNIX Timestamp](https://currentmillis.com/) in milliseconds</value>
         [DataMember(Name="end", EmitDefaultValue=false)]
-        public int? End { get; set; }
+        public long? End { get; set; }
         /// <summary>
         /// Gets or Sets Timezone
         /// </summary>

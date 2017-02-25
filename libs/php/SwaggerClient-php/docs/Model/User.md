@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Unique identifier for the user. | [optional] 
-**username** | **string** |  | [optional] 
+**username** | **string** | User&#39;s username | [optional] 
 **first_name** | **string** | User&#39;s first name | [optional] 
 **middle_name** | **string** | User&#39;s middle name | [optional] 
 **last_name** | **string** | User&#39;s last name | [optional] 
