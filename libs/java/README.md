@@ -167,6 +167,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsTopUsersUsage](docs/AnalyticsTopUsersUsage.md)
  - [AnalyticsUsage](docs/AnalyticsUsage.md)
  - [AnalyticsUsageUsage](docs/AnalyticsUsageUsage.md)
+ - [Attendee](docs/Attendee.md)
  - [Content](docs/Content.md)
  - [ContentContentProperties](docs/ContentContentProperties.md)
  - [ContentContentPropertiesLevels](docs/ContentContentPropertiesLevels.md)

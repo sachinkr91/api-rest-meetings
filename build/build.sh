@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rm -rf ../libs/java
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api-rest-onvideo --api-package com.bluejeans.api.rest.onvideo.api --model-package com.bluejeans.api.rest.onvideo.model --invoker-package com.bluejeans.api.rest.onvideo
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api-rest-onvideo --api-package com.bluejeans.api.rest.onvideo.api --model-package com.bluejeans.api.rest.onvideo.model --invoker-package com.bluejeans.api.rest.onvideo --config config.java.json
 cd ../libs/java
 mvn package
 mkdir ../../bin

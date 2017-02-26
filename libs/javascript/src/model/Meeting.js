@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/MeetingAdvancedMeetingOptions'], factory);
+    define(['ApiClient', 'model/Attendee', 'model/MeetingAdvancedMeetingOptions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./MeetingAdvancedMeetingOptions'));
+    module.exports = factory(require('../ApiClient'), require('./Attendee'), require('./MeetingAdvancedMeetingOptions'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.Meeting = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions);
+    root.BlueJeansOnVideoRestApi.Meeting = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Attendee, root.BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions);
   }
-}(this, function(ApiClient, MeetingAdvancedMeetingOptions) {
+}(this, function(ApiClient, Attendee, MeetingAdvancedMeetingOptions) {
   'use strict';
 
 
@@ -71,6 +71,7 @@
 
     _this['endPointVersion'] = endPointVersion;
     _this['endPointType'] = endPointType;
+
 
   };
 
@@ -114,6 +115,9 @@
       }
       if (data.hasOwnProperty('endPointType')) {
         obj['endPointType'] = ApiClient.convertToType(data['endPointType'], 'String');
+      }
+      if (data.hasOwnProperty('attendees')) {
+        obj['attendees'] = ApiClient.convertToType(data['attendees'], [Attendee]);
       }
       if (data.hasOwnProperty('advancedMeetingOptions')) {
         obj['advancedMeetingOptions'] = MeetingAdvancedMeetingOptions.constructFromObject(data['advancedMeetingOptions']);
@@ -169,6 +173,10 @@
    * @default 'WEB_APP'
    */
   exports.prototype['endPointType'] = 'WEB_APP';
+  /**
+   * @member {Array.<module:model/Attendee>} attendees
+   */
+  exports.prototype['attendees'] = undefined;
   /**
    * @member {module:model/MeetingAdvancedMeetingOptions} advancedMeetingOptions
    */

@@ -26,16 +26,19 @@
 package com.bluejeans.api.rest.onvideo.model;
 
 import java.util.Objects;
+import com.bluejeans.api.rest.onvideo.model.Attendee;
 import com.bluejeans.api.rest.onvideo.model.MeetingAdvancedMeetingOptions;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Meeting
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-02-24T23:12:23.620-07:00")
+
 public class Meeting   {
   @SerializedName("id")
   private Integer id = null;
@@ -66,6 +69,9 @@ public class Meeting   {
 
   @SerializedName("endPointType")
   private String endPointType = "WEB_APP";
+
+  @SerializedName("attendees")
+  private List<Attendee> attendees = new ArrayList<Attendee>();
 
   @SerializedName("advancedMeetingOptions")
   private MeetingAdvancedMeetingOptions advancedMeetingOptions = null;
@@ -223,6 +229,29 @@ public class Meeting   {
     this.endPointType = endPointType;
   }
 
+  public Meeting attendees(List<Attendee> attendees) {
+    this.attendees = attendees;
+    return this;
+  }
+
+  public Meeting addAttendeesItem(Attendee attendeesItem) {
+    this.attendees.add(attendeesItem);
+    return this;
+  }
+
+   /**
+   * Get attendees
+   * @return attendees
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Attendee> getAttendees() {
+    return attendees;
+  }
+
+  public void setAttendees(List<Attendee> attendees) {
+    this.attendees = attendees;
+  }
+
   public Meeting advancedMeetingOptions(MeetingAdvancedMeetingOptions advancedMeetingOptions) {
     this.advancedMeetingOptions = advancedMeetingOptions;
     return this;
@@ -261,12 +290,13 @@ public class Meeting   {
         Objects.equals(this.attendeePasscode, meeting.attendeePasscode) &&
         Objects.equals(this.endPointVersion, meeting.endPointVersion) &&
         Objects.equals(this.endPointType, meeting.endPointType) &&
+        Objects.equals(this.attendees, meeting.attendees) &&
         Objects.equals(this.advancedMeetingOptions, meeting.advancedMeetingOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, start, end, timezone, numericMeetingId, attendeePasscode, endPointVersion, endPointType, advancedMeetingOptions);
+    return Objects.hash(id, title, description, start, end, timezone, numericMeetingId, attendeePasscode, endPointVersion, endPointType, attendees, advancedMeetingOptions);
   }
 
   @Override
@@ -284,6 +314,7 @@ public class Meeting   {
     sb.append("    attendeePasscode: ").append(toIndentedString(attendeePasscode)).append("\n");
     sb.append("    endPointVersion: ").append(toIndentedString(endPointVersion)).append("\n");
     sb.append("    endPointType: ").append(toIndentedString(endPointType)).append("\n");
+    sb.append("    attendees: ").append(toIndentedString(attendees)).append("\n");
     sb.append("    advancedMeetingOptions: ").append(toIndentedString(advancedMeetingOptions)).append("\n");
     sb.append("}");
     return sb.toString();

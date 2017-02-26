@@ -157,6 +157,14 @@ namespace IO.Swagger.Test
             // TODO unit test for the property 'EndPointType'
         }
         /// <summary>
+        /// Test the property 'Attendees'
+        /// </summary>
+        [Test]
+        public void AttendeesTest()
+        {
+            // TODO unit test for the property 'Attendees'
+        }
+        /// <summary>
         /// Test the property 'AdvancedMeetingOptions'
         /// </summary>
         [Test]

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **attendeePasscode** | **String** |  |  [optional]
 **endPointVersion** | **String** |  | 
 **endPointType** | **String** |  | 
+**attendees** | [**List&lt;Attendee&gt;**](Attendee.md) |  |  [optional]
 **advancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  |  [optional]
 
 

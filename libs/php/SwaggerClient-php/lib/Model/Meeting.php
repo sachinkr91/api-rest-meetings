@@ -76,6 +76,7 @@ class Meeting implements ArrayAccess
         'attendee_passcode' => 'string',
         'end_point_version' => 'string',
         'end_point_type' => 'string',
+        'attendees' => '\Swagger\Client\Model\Attendee[]',
         'advanced_meeting_options' => '\Swagger\Client\Model\MeetingAdvancedMeetingOptions'
     );
 
@@ -99,6 +100,7 @@ class Meeting implements ArrayAccess
         'attendee_passcode' => 'attendeePasscode',
         'end_point_version' => 'endPointVersion',
         'end_point_type' => 'endPointType',
+        'attendees' => 'attendees',
         'advanced_meeting_options' => 'advancedMeetingOptions'
     );
 
@@ -122,6 +124,7 @@ class Meeting implements ArrayAccess
         'attendee_passcode' => 'setAttendeePasscode',
         'end_point_version' => 'setEndPointVersion',
         'end_point_type' => 'setEndPointType',
+        'attendees' => 'setAttendees',
         'advanced_meeting_options' => 'setAdvancedMeetingOptions'
     );
 
@@ -145,6 +148,7 @@ class Meeting implements ArrayAccess
         'attendee_passcode' => 'getAttendeePasscode',
         'end_point_version' => 'getEndPointVersion',
         'end_point_type' => 'getEndPointType',
+        'attendees' => 'getAttendees',
         'advanced_meeting_options' => 'getAdvancedMeetingOptions'
     );
 
@@ -179,6 +183,7 @@ class Meeting implements ArrayAccess
         $this->container['attendee_passcode'] = isset($data['attendee_passcode']) ? $data['attendee_passcode'] : null;
         $this->container['end_point_version'] = isset($data['end_point_version']) ? $data['end_point_version'] : '2.10';
         $this->container['end_point_type'] = isset($data['end_point_type']) ? $data['end_point_type'] : 'WEB_APP';
+        $this->container['attendees'] = isset($data['attendees']) ? $data['attendees'] : null;
         $this->container['advanced_meeting_options'] = isset($data['advanced_meeting_options']) ? $data['advanced_meeting_options'] : null;
     }
 
@@ -441,6 +446,27 @@ class Meeting implements ArrayAccess
     public function setEndPointType($end_point_type)
     {
         $this->container['end_point_type'] = $end_point_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets attendees
+     * @return \Swagger\Client\Model\Attendee[]
+     */
+    public function getAttendees()
+    {
+        return $this->container['attendees'];
+    }
+
+    /**
+     * Sets attendees
+     * @param \Swagger\Client\Model\Attendee[] $attendees
+     * @return $this
+     */
+    public function setAttendees($attendees)
+    {
+        $this->container['attendees'] = $attendees;
 
         return $this;
     }

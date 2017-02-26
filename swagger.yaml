@@ -2116,6 +2116,10 @@ definitions:
       endPointType:
         type: string
         default: "WEB_APP"
+      attendees:
+        type: array
+        items:
+          $ref: '#/definitions/Attendee'
       advancedMeetingOptions:
         type: object
         properties:
@@ -2140,6 +2144,11 @@ definitions:
             type: boolean
           showAllAttendeesInMeetingInvite:
             type: boolean
+  Attendee:
+    type: object
+    properties:
+      email:
+        type: string
   Numbers:
     type: object
     properties:

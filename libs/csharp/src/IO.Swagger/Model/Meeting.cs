@@ -54,8 +54,9 @@ namespace IO.Swagger.Model
         /// <param name="Timezone">Timezone (default to &quot;America/New_York&quot;).</param>
         /// <param name="EndPointVersion">EndPointVersion (required) (default to &quot;2.10&quot;).</param>
         /// <param name="EndPointType">EndPointType (required) (default to &quot;WEB_APP&quot;).</param>
+        /// <param name="Attendees">Attendees.</param>
         /// <param name="AdvancedMeetingOptions">AdvancedMeetingOptions.</param>
-        public Meeting(string Title = null, string Description = null, long? Start = null, long? End = null, string Timezone = null, string EndPointVersion = null, string EndPointType = null, MeetingAdvancedMeetingOptions AdvancedMeetingOptions = null)
+        public Meeting(string Title = null, string Description = null, long? Start = null, long? End = null, string Timezone = null, string EndPointVersion = null, string EndPointType = null, List<Attendee> Attendees = null, MeetingAdvancedMeetingOptions AdvancedMeetingOptions = null)
         {
             // to ensure "Title" is required (not null)
             if (Title == null)
@@ -112,6 +113,7 @@ namespace IO.Swagger.Model
             {
                 this.Timezone = Timezone;
             }
+            this.Attendees = Attendees;
             this.AdvancedMeetingOptions = AdvancedMeetingOptions;
         }
         
@@ -169,6 +171,11 @@ namespace IO.Swagger.Model
         [DataMember(Name="endPointType", EmitDefaultValue=false)]
         public string EndPointType { get; set; }
         /// <summary>
+        /// Gets or Sets Attendees
+        /// </summary>
+        [DataMember(Name="attendees", EmitDefaultValue=false)]
+        public List<Attendee> Attendees { get; set; }
+        /// <summary>
         /// Gets or Sets AdvancedMeetingOptions
         /// </summary>
         [DataMember(Name="advancedMeetingOptions", EmitDefaultValue=false)]
@@ -191,6 +198,7 @@ namespace IO.Swagger.Model
             sb.Append("  AttendeePasscode: ").Append(AttendeePasscode).Append("\n");
             sb.Append("  EndPointVersion: ").Append(EndPointVersion).Append("\n");
             sb.Append("  EndPointType: ").Append(EndPointType).Append("\n");
+            sb.Append("  Attendees: ").Append(Attendees).Append("\n");
             sb.Append("  AdvancedMeetingOptions: ").Append(AdvancedMeetingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -279,6 +287,11 @@ namespace IO.Swagger.Model
                     this.EndPointType.Equals(other.EndPointType)
                 ) && 
                 (
+                    this.Attendees == other.Attendees ||
+                    this.Attendees != null &&
+                    this.Attendees.SequenceEqual(other.Attendees)
+                ) && 
+                (
                     this.AdvancedMeetingOptions == other.AdvancedMeetingOptions ||
                     this.AdvancedMeetingOptions != null &&
                     this.AdvancedMeetingOptions.Equals(other.AdvancedMeetingOptions)
@@ -316,6 +329,8 @@ namespace IO.Swagger.Model
                     hash = hash * 59 + this.EndPointVersion.GetHashCode();
                 if (this.EndPointType != null)
                     hash = hash * 59 + this.EndPointType.GetHashCode();
+                if (this.Attendees != null)
+                    hash = hash * 59 + this.Attendees.GetHashCode();
                 if (this.AdvancedMeetingOptions != null)
                     hash = hash * 59 + this.AdvancedMeetingOptions.GetHashCode();
                 return hash;

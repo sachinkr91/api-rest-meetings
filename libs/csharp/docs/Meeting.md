@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AttendeePasscode** | **string** |  | [optional] 
 **EndPointVersion** | **string** |  | [default to "2.10"]
 **EndPointType** | **string** |  | [default to "WEB_APP"]
+**Attendees** | [**List&lt;Attendee&gt;**](Attendee.md) |  | [optional] 
 **AdvancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

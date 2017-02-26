@@ -176,6 +176,14 @@ class MeetingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "attendees"
+     */
+    public function testPropertyAttendees()
+    {
+
+    }
+
+    /**
      * Test attribute "advanced_meeting_options"
      */
     public function testPropertyAdvancedMeetingOptions()

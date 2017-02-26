@@ -36,6 +36,7 @@ from .models.analytics_top_users import AnalyticsTopUsers
 from .models.analytics_top_users_usage import AnalyticsTopUsersUsage
 from .models.analytics_usage import AnalyticsUsage
 from .models.analytics_usage_usage import AnalyticsUsageUsage
+from .models.attendee import Attendee
 from .models.content import Content
 from .models.content_content_properties import ContentContentProperties
 from .models.content_content_properties_levels import ContentContentPropertiesLevels

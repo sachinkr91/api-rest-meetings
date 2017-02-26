@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **attendeePasscode** | **String** |  | [optional] 
 **endPointVersion** | **String** |  | [default to &#39;2.10&#39;]
 **endPointType** | **String** |  | [default to &#39;WEB_APP&#39;]
+**attendees** | [**[Attendee]**](Attendee.md) |  | [optional] 
 **advancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
 
 

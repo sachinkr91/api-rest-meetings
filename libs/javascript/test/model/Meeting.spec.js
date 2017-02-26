@@ -125,6 +125,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property attendees (base name: "attendees")', function() {
+      // uncomment below and update the code to test the property attendees
+      //var instane = new BlueJeansOnVideoRestApi.Meeting();
+      //expect(instance).to.be();
+    });
+
     it('should have the property advancedMeetingOptions (base name: "advancedMeetingOptions")', function() {
       // uncomment below and update the code to test the property advancedMeetingOptions
       //var instane = new BlueJeansOnVideoRestApi.Meeting();
