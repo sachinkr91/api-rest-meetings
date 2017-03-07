@@ -50,7 +50,7 @@ externalDocs:
   description: >
     Find more info here
   url: https://swagger.io
-host: api.bluejeans.com
+host: api-a.bluejeans.com
 securityDefinitions:
   access_token:
     type: apiKey
@@ -63,7 +63,7 @@ schemes:
 produces:
   - application/json
 paths:
-  /oauth2/token?Password:
+  /seamapi/oauth2/token?Password:
     post:
       summary: Authentication via Password Grant Type
       description: An access token can be obtained by using a user’s username and password.
