@@ -50,7 +50,7 @@ externalDocs:
   description: >
     Find more info here
   url: https://swagger.io
-host: a.bluejeans.com
+host: api.bluejeans.com
 securityDefinitions:
   access_token:
     type: apiKey
@@ -63,7 +63,7 @@ schemes:
 produces:
   - application/json
 paths:
-  /seamapi/oauth2/token?Password:
+  /oauth2/token?Password:
     post:
       summary: Authentication via Password Grant Type
       description: An access token can be obtained by using a user’s username and password.
@@ -138,7 +138,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /seamapi/v1/user/{user_id}:
+  /v1/user/{user_id}:
     get:
       summary: Get User Account Details
       description: This endpoint retrieves the basic account details for a given user.
