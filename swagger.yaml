@@ -518,6 +518,7 @@ paths:
     get:
       summary: Get Meeting Email
       description: This endpoint retrieves the email object for a scheduled meeting.
+      operationId: getMeetingEmails
       tags:
         - Meeting
       security:
@@ -569,6 +570,7 @@ paths:
     get:
       summary: Get Meeting Join Info
       description: This endpoint retrieves the join information for a scheduled meeting.
+      operationId: getMeetingNumbers
       tags:
         - Meeting
       security:
@@ -597,6 +599,7 @@ paths:
     get:
       summary: Get Meeting State
       description: This endpoint’s purpose is to return whether the meeting is in progress or not.
+      operationId: getMeetingState
       tags:
         - Meeting
       security:
@@ -624,6 +627,7 @@ paths:
     put:
       summary: Update Meeting State
       description: This endpoint’s purpose is to be able to modify a meeting.
+      operationId: updateMeetingState
       tags:
         - Meeting
       security:
@@ -669,6 +673,7 @@ paths:
     get:
       summary: List Meeting Endpoints
       description: This endpoint returns an array of all endpoints in the current meeting.
+      operationId: getMeetingEndpoints
       tags:
         - Meeting
       security:
@@ -696,6 +701,7 @@ paths:
     put:
       summary: Update Meeting Endpoints State
       description: This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+      operationId: updateMeetingEndpoints
       tags:
         - Meeting
       security:
@@ -739,6 +745,7 @@ paths:
     get:
       summary: Get Endpoint Information
       description: This endpoint allows you to retrieve information about an endpoint in the meeting.
+      operationId: getMeetingEndpoint
       tags:
         - Meeting
       security:
@@ -771,6 +778,7 @@ paths:
     put:
       summary: Update Endpoint Video/Audio State
       description: This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+      operationId: updateMeetingEndpoint
       tags:
         - Meeting
       security:
@@ -889,6 +897,7 @@ paths:
     post:
       summary: Generate Pairing Code (SIP)
       description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+      operationId: generatePairingCodeSip
       tags:
         - Meeting
       security:
@@ -935,6 +944,7 @@ paths:
     post:
       summary: Generate Pairing Code (WebRTC)
       description: This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+      operationId: generatePairingCodeWebRtc
       tags:
         - Meeting
       security:
@@ -985,6 +995,7 @@ paths:
     post:
       summary: Send Email Invite
       description: This endpoint generates an email invite to the specified meeting.
+      operationId: sendMeetingInvite
       tags:
         - Meeting
       security:
@@ -1288,7 +1299,8 @@ paths:
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     get:
       summary: Get All Recordings for a Specified Meeting ID
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint lists the recordings for a meeting.
+      operationId: getMeetingRecordings
       tags:
         - Recording
       security:
