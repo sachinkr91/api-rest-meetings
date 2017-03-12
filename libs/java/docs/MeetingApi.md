@@ -6,22 +6,22 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
+[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**getMeeting**](MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
+[**getMeetingEmails**](MeetingApi.md#getMeetingEmails) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
+[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**getMeetingNumbers**](MeetingApi.md#getMeetingNumbers) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
+[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
 [**listMeetings**](MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
+[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
 [**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**updateMeeting**](MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
-[**v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
-[**v1UserUserIdLiveMeetingsMeetingIdGet**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
-[**v1UserUserIdLiveMeetingsMeetingIdInvitePost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdInvitePost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
-[**v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
-[**v1UserUserIdLiveMeetingsMeetingIdPut**](MeetingApi.md#v1UserUserIdLiveMeetingsMeetingIdPut) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-[**v1UserUserIdMeetingsMeetingIdNumbersGet**](MeetingApi.md#v1UserUserIdMeetingsMeetingIdNumbersGet) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**v1UserUserIdScheduledMeetingMeetingIdEmailsGet**](MeetingApi.md#v1UserUserIdScheduledMeetingMeetingIdEmailsGet) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
+[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
+[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
+[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 
 
 <a name="cancelMeeting"></a>
@@ -129,6 +129,126 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="generatePairingCodeSip"></a>
+# **generatePairingCodeSip**
+> PairingCode generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP)
+
+Generate Pairing Code (SIP)
+
+This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
+try {
+    PairingCode result = apiInstance.generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#generatePairingCodeSip");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  |
+
+### Return type
+
+[**PairingCode**](PairingCode.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="generatePairingCodeWebRtc"></a>
+# **generatePairingCodeWebRtc**
+> PairingCode generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role)
+
+Generate Pairing Code (WebRTC)
+
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = new PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
+String role = "USER"; // String | 
+try {
+    PairingCode result = apiInstance.generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#generatePairingCodeWebRtc");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payloadPairingCodeWebRTC** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  |
+ **role** | **String**|  | [optional] [default to USER]
+
+### Return type
+
+[**PairingCode**](PairingCode.md)
 
 ### Authorization
 
@@ -255,6 +375,299 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getMeetingEmails"></a>
+# **getMeetingEmails**
+> Meeting getMeetingEmails(userId, meetingId, type, role, action)
+
+Get Meeting Email
+
+This endpoint retrieves the email object for a scheduled meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+String type = "type_example"; // String | TEXT, ICS, HTML
+String role = "role_example"; // String | moderator, participant
+String action = "action_example"; // String | create, edit, delete
+try {
+    Meeting result = apiInstance.getMeetingEmails(userId, meetingId, type, role, action);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#getMeetingEmails");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **type** | **String**| TEXT, ICS, HTML | [optional] [enum: TEXT, ICS, HTML]
+ **role** | **String**| moderator, participant | [optional] [enum: moderator, participant]
+ **action** | **String**| create, edit, delete | [optional] [enum: create, edit, delete]
+
+### Return type
+
+[**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingEndpoint"></a>
+# **getMeetingEndpoint**
+> Endpoint getMeetingEndpoint(userId, meetingId, endpointGuid)
+
+Get Endpoint Information
+
+This endpoint allows you to retrieve information about an endpoint in the meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+try {
+    Endpoint result = apiInstance.getMeetingEndpoint(userId, meetingId, endpointGuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#getMeetingEndpoint");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
+
+### Return type
+
+[**Endpoint**](Endpoint.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingEndpoints"></a>
+# **getMeetingEndpoints**
+> Endpoints getMeetingEndpoints(userId, meetingId)
+
+List Meeting Endpoints
+
+This endpoint returns an array of all endpoints in the current meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+try {
+    Endpoints result = apiInstance.getMeetingEndpoints(userId, meetingId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#getMeetingEndpoints");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+[**Endpoints**](Endpoints.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingNumbers"></a>
+# **getMeetingNumbers**
+> Numbers getMeetingNumbers(userId, meetingId)
+
+Get Meeting Join Info
+
+This endpoint retrieves the join information for a scheduled meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+try {
+    Numbers result = apiInstance.getMeetingNumbers(userId, meetingId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#getMeetingNumbers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+[**Numbers**](Numbers.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingState"></a>
+# **getMeetingState**
+> MeetingState getMeetingState(userId, meetingId)
+
+Get Meeting State
+
+This endpoint’s purpose is to return whether the meeting is in progress or not.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+try {
+    MeetingState result = apiInstance.getMeetingState(userId, meetingId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#getMeetingState");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+
+### Return type
+
+[**MeetingState**](MeetingState.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listMeetings"></a>
 # **listMeetings**
 > List&lt;Meeting&gt; listMeetings(userId)
@@ -300,6 +713,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;Meeting&gt;**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="sendMeetingInvite"></a>
+# **sendMeetingInvite**
+> sendMeetingInvite(userId, meetingId, payloadInvite)
+
+Send Email Invite
+
+This endpoint generates an email invite to the specified meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+PayloadInvite payloadInvite = new PayloadInvite(); // PayloadInvite | 
+try {
+    apiInstance.sendMeetingInvite(userId, meetingId, payloadInvite);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#sendMeetingInvite");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -432,68 +903,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet**
-> Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid)
-
-Get Endpoint Information
-
-This endpoint allows you to retrieve information about an endpoint in the meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
-try {
-    Endpoint result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(userId, meetingId, endpointGuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
-
-### Return type
-
-[**Endpoint**](Endpoint.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut**
-> Endpoint v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
+<a name="updateMeetingEndpoint"></a>
+# **updateMeetingEndpoint**
+> Endpoint updateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
 
 Update Endpoint Video/Audio State
 
@@ -524,10 +936,10 @@ Boolean muteAudio = true; // Boolean | Toggle the audio source mute.
 Boolean muteVideo = true; // Boolean | Toggle the video source mute.
 Boolean leaveMeeting = true; // Boolean | Remove the user from the meeting.
 try {
-    Endpoint result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+    Endpoint result = apiInstance.updateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+    System.err.println("Exception when calling MeetingApi#updateMeetingEndpoint");
     e.printStackTrace();
 }
 ```
@@ -556,66 +968,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsGet"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdEndpointsGet**
-> Endpoints v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId)
-
-List Meeting Endpoints
-
-This endpoint returns an array of all endpoints in the current meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-try {
-    Endpoints result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(userId, meetingId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdEndpointsGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
-
-### Return type
-
-[**Endpoints**](Endpoints.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdEndpointsPut"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdEndpointsPut**
-> v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(userId, meetingId, mute, media)
+<a name="updateMeetingEndpoints"></a>
+# **updateMeetingEndpoints**
+> updateMeetingEndpoints(userId, meetingId, mute, media)
 
 Update Meeting Endpoints State
 
@@ -644,9 +999,9 @@ Integer meetingId = 56; // Integer | The ID of the meeting you want to view. Thi
 Boolean mute = true; // Boolean | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
 String media = "media_example"; // String | Specify the type of media you which to mute/unmute.
 try {
-    apiInstance.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(userId, meetingId, mute, media);
+    apiInstance.updateMeetingEndpoints(userId, meetingId, mute, media);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdEndpointsPut");
+    System.err.println("Exception when calling MeetingApi#updateMeetingEndpoints");
     e.printStackTrace();
 }
 ```
@@ -673,244 +1028,9 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="v1UserUserIdLiveMeetingsMeetingIdGet"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdGet**
-> MeetingState v1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId)
-
-Get Meeting State
-
-This endpoint’s purpose is to return whether the meeting is in progress or not.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-try {
-    MeetingState result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdGet(userId, meetingId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
-
-### Return type
-
-[**MeetingState**](MeetingState.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdInvitePost"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdInvitePost**
-> v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite)
-
-Send Email Invite
-
-This endpoint generates an email invite to the specified meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-PayloadInvite payloadInvite = new PayloadInvite(); // PayloadInvite | 
-try {
-    apiInstance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(userId, meetingId, payloadInvite);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdInvitePost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost**
-> PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(userId, meetingId, payloadPairingCodeSIP)
-
-Generate Pairing Code (SIP)
-
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
-try {
-    PairingCode result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(userId, meetingId, payloadPairingCodeSIP);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  |
-
-### Return type
-
-[**PairingCode**](PairingCode.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost**
-> PairingCode v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(userId, meetingId, payloadPairingCodeWebRTC, role)
-
-Generate Pairing Code (WebRTC)
-
-This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = new PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
-String role = "USER"; // String | 
-try {
-    PairingCode result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(userId, meetingId, payloadPairingCodeWebRTC, role);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **payloadPairingCodeWebRTC** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  |
- **role** | **String**|  | [optional] [default to USER]
-
-### Return type
-
-[**PairingCode**](PairingCode.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdLiveMeetingsMeetingIdPut"></a>
-# **v1UserUserIdLiveMeetingsMeetingIdPut**
-> Meeting v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, delay)
+<a name="updateMeetingState"></a>
+# **updateMeetingState**
+> Meeting updateMeetingState(userId, meetingId, payloadMeetingState, delay)
 
 Update Meeting State
 
@@ -939,10 +1059,10 @@ Integer meetingId = 56; // Integer | The ID of the meeting you want to view. Thi
 PayloadMeetingState payloadMeetingState = new PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 Integer delay = 56; // Integer | Number of seconds to delay the end meeting operation.
 try {
-    Meeting result = apiInstance.v1UserUserIdLiveMeetingsMeetingIdPut(userId, meetingId, payloadMeetingState, delay);
+    Meeting result = apiInstance.updateMeetingState(userId, meetingId, payloadMeetingState, delay);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdLiveMeetingsMeetingIdPut");
+    System.err.println("Exception when calling MeetingApi#updateMeetingState");
     e.printStackTrace();
 }
 ```
@@ -955,126 +1075,6 @@ Name | Type | Description  | Notes
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
  **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **Integer**| Number of seconds to delay the end meeting operation. | [optional]
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdMeetingsMeetingIdNumbersGet"></a>
-# **v1UserUserIdMeetingsMeetingIdNumbersGet**
-> Numbers v1UserUserIdMeetingsMeetingIdNumbersGet(userId, meetingId)
-
-Get Meeting Join Info
-
-This endpoint retrieves the join information for a scheduled meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-try {
-    Numbers result = apiInstance.v1UserUserIdMeetingsMeetingIdNumbersGet(userId, meetingId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdMeetingsMeetingIdNumbersGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
-
-### Return type
-
-[**Numbers**](Numbers.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdScheduledMeetingMeetingIdEmailsGet"></a>
-# **v1UserUserIdScheduledMeetingMeetingIdEmailsGet**
-> Meeting v1UserUserIdScheduledMeetingMeetingIdEmailsGet(userId, meetingId, type, role, action)
-
-Get Meeting Email
-
-This endpoint retrieves the email object for a scheduled meeting.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-MeetingApi apiInstance = new MeetingApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-String type = "type_example"; // String | TEXT, ICS, HTML
-String role = "role_example"; // String | moderator, participant
-String action = "action_example"; // String | create, edit, delete
-try {
-    Meeting result = apiInstance.v1UserUserIdScheduledMeetingMeetingIdEmailsGet(userId, meetingId, type, role, action);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MeetingApi#v1UserUserIdScheduledMeetingMeetingIdEmailsGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **type** | **String**| TEXT, ICS, HTML | [optional] [enum: TEXT, ICS, HTML]
- **role** | **String**| moderator, participant | [optional] [enum: moderator, participant]
- **action** | **String**| create, edit, delete | [optional] [enum: create, edit, delete]
 
 ### Return type
 

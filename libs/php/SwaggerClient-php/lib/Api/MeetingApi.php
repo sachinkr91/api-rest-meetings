@@ -13,7 +13,7 @@
 /**
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided.
+ * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -318,6 +318,250 @@ class MeetingApi
     }
 
     /**
+     * Operation generatePairingCodeSip
+     *
+     * Generate Pairing Code (SIP)
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
+     * @return \Swagger\Client\Model\PairingCode
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function generatePairingCodeSip($user_id, $meeting_id, $payload_pairing_code_sip)
+    {
+        list($response) = $this->generatePairingCodeSipWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_sip);
+        return $response;
+    }
+
+    /**
+     * Operation generatePairingCodeSipWithHttpInfo
+     *
+     * Generate Pairing Code (SIP)
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
+     * @return Array of \Swagger\Client\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function generatePairingCodeSipWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_sip)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling generatePairingCodeSip');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling generatePairingCodeSip');
+        }
+        // verify the required parameter 'payload_pairing_code_sip' is set
+        if ($payload_pairing_code_sip === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_sip when calling generatePairingCodeSip');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($payload_pairing_code_sip)) {
+            $_tempBody = $payload_pairing_code_sip;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\PairingCode',
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PairingCode', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PairingCode', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generatePairingCodeWebRtc
+     *
+     * Generate Pairing Code (WebRTC)
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
+     * @param string $role  (optional, default to USER)
+     * @return \Swagger\Client\Model\PairingCode
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function generatePairingCodeWebRtc($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role = null)
+    {
+        list($response) = $this->generatePairingCodeWebRtcWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role);
+        return $response;
+    }
+
+    /**
+     * Operation generatePairingCodeWebRtcWithHttpInfo
+     *
+     * Generate Pairing Code (WebRTC)
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
+     * @param string $role  (optional, default to USER)
+     * @return Array of \Swagger\Client\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function generatePairingCodeWebRtcWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role = null)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling generatePairingCodeWebRtc');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling generatePairingCodeWebRtc');
+        }
+        // verify the required parameter 'payload_pairing_code_web_rtc' is set
+        if ($payload_pairing_code_web_rtc === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_web_rtc when calling generatePairingCodeWebRtc');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // query params
+        if ($role !== null) {
+            $queryParams['role'] = $this->apiClient->getSerializer()->toQueryValue($role);
+        }
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($payload_pairing_code_web_rtc)) {
+            $_tempBody = $payload_pairing_code_web_rtc;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\PairingCode',
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PairingCode', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PairingCode', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getEndpointLayout
      *
      * Get Endpoint Layout
@@ -548,6 +792,578 @@ class MeetingApi
     }
 
     /**
+     * Operation getMeetingEmails
+     *
+     * Get Meeting Email
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $type TEXT, ICS, HTML (optional)
+     * @param string $role moderator, participant (optional)
+     * @param string $action create, edit, delete (optional)
+     * @return \Swagger\Client\Model\Meeting
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEmails($user_id, $meeting_id, $type = null, $role = null, $action = null)
+    {
+        list($response) = $this->getMeetingEmailsWithHttpInfo($user_id, $meeting_id, $type, $role, $action);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingEmailsWithHttpInfo
+     *
+     * Get Meeting Email
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $type TEXT, ICS, HTML (optional)
+     * @param string $role moderator, participant (optional)
+     * @param string $action create, edit, delete (optional)
+     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEmailsWithHttpInfo($user_id, $meeting_id, $type = null, $role = null, $action = null)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingEmails');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingEmails');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // query params
+        if ($type !== null) {
+            $queryParams['type'] = $this->apiClient->getSerializer()->toQueryValue($type);
+        }
+        // query params
+        if ($role !== null) {
+            $queryParams['role'] = $this->apiClient->getSerializer()->toQueryValue($role);
+        }
+        // query params
+        if ($action !== null) {
+            $queryParams['action'] = $this->apiClient->getSerializer()->toQueryValue($action);
+        }
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Meeting',
+                '/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingEndpoint
+     *
+     * Get Endpoint Information
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+     * @return \Swagger\Client\Model\Endpoint
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEndpoint($user_id, $meeting_id, $endpoint_guid)
+    {
+        list($response) = $this->getMeetingEndpointWithHttpInfo($user_id, $meeting_id, $endpoint_guid);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingEndpointWithHttpInfo
+     *
+     * Get Endpoint Information
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
+     * @return Array of \Swagger\Client\Model\Endpoint, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEndpointWithHttpInfo($user_id, $meeting_id, $endpoint_guid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingEndpoint');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingEndpoint');
+        }
+        // verify the required parameter 'endpoint_guid' is set
+        if ($endpoint_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $endpoint_guid when calling getMeetingEndpoint');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($endpoint_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "endpoint_guid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($endpoint_guid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Endpoint',
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoint', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoint', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingEndpoints
+     *
+     * List Meeting Endpoints
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return \Swagger\Client\Model\Endpoints
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEndpoints($user_id, $meeting_id)
+    {
+        list($response) = $this->getMeetingEndpointsWithHttpInfo($user_id, $meeting_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingEndpointsWithHttpInfo
+     *
+     * List Meeting Endpoints
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return Array of \Swagger\Client\Model\Endpoints, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingEndpointsWithHttpInfo($user_id, $meeting_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingEndpoints');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingEndpoints');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Endpoints',
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoints', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoints', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingNumbers
+     *
+     * Get Meeting Join Info
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return \Swagger\Client\Model\Numbers
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingNumbers($user_id, $meeting_id)
+    {
+        list($response) = $this->getMeetingNumbersWithHttpInfo($user_id, $meeting_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingNumbersWithHttpInfo
+     *
+     * Get Meeting Join Info
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return Array of \Swagger\Client\Model\Numbers, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingNumbersWithHttpInfo($user_id, $meeting_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingNumbers');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingNumbers');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Numbers',
+                '/v1/user/{user_id}/meetings/{meeting_id}/numbers'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Numbers', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Numbers', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingState
+     *
+     * Get Meeting State
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return \Swagger\Client\Model\MeetingState
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingState($user_id, $meeting_id)
+    {
+        list($response) = $this->getMeetingStateWithHttpInfo($user_id, $meeting_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingStateWithHttpInfo
+     *
+     * Get Meeting State
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @return Array of \Swagger\Client\Model\MeetingState, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function getMeetingStateWithHttpInfo($user_id, $meeting_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingState');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingState');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MeetingState',
+                '/v1/user/{user_id}/live_meetings/{meeting_id}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingState', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingState', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation listMeetings
      *
      * List Meetings
@@ -631,6 +1447,121 @@ class MeetingApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendMeetingInvite
+     *
+     * Send Email Invite
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
+     * @return void
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function sendMeetingInvite($user_id, $meeting_id, $payload_invite)
+    {
+        list($response) = $this->sendMeetingInviteWithHttpInfo($user_id, $meeting_id, $payload_invite);
+        return $response;
+    }
+
+    /**
+     * Operation sendMeetingInviteWithHttpInfo
+     *
+     * Send Email Invite
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     */
+    public function sendMeetingInviteWithHttpInfo($user_id, $meeting_id, $payload_invite)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling sendMeetingInvite');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling sendMeetingInvite');
+        }
+        // verify the required parameter 'payload_invite' is set
+        if ($payload_invite === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payload_invite when calling sendMeetingInvite');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($payload_invite)) {
+            $_tempBody = $payload_invite;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/invite'
+            );
+
+            return array(null, $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -895,129 +1826,7 @@ class MeetingApi
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet
-     *
-     * Get Endpoint Information
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return \Swagger\Client\Model\Endpoint
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet($user_id, $meeting_id, $endpoint_guid)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo($user_id, $meeting_id, $endpoint_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo
-     *
-     * Get Endpoint Information
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $endpoint_guid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
-     * @return Array of \Swagger\Client\Model\Endpoint, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo($user_id, $meeting_id, $endpoint_guid)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet');
-        }
-        // verify the required parameter 'endpoint_guid' is set
-        if ($endpoint_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $endpoint_guid when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($endpoint_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "endpoint_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($endpoint_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Endpoint',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoint', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoint', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut
+     * Operation updateMeetingEndpoint
      *
      * Update Endpoint Video/Audio State
      *
@@ -1030,14 +1839,14 @@ class MeetingApi
      * @return \Swagger\Client\Model\Endpoint
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
+    public function updateMeetingEndpoint($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
+        list($response) = $this->updateMeetingEndpointWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo
+     * Operation updateMeetingEndpointWithHttpInfo
      *
      * Update Endpoint Video/Audio State
      *
@@ -1050,19 +1859,19 @@ class MeetingApi
      * @return Array of \Swagger\Client\Model\Endpoint, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
+    public function updateMeetingEndpointWithHttpInfo($user_id, $meeting_id, $endpoint_guid, $mute_audio = null, $mute_video = null, $leave_meeting = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateMeetingEndpoint');
         }
         // verify the required parameter 'meeting_id' is set
         if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling updateMeetingEndpoint');
         }
         // verify the required parameter 'endpoint_guid' is set
         if ($endpoint_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $endpoint_guid when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $endpoint_guid when calling updateMeetingEndpoint');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
@@ -1157,115 +1966,7 @@ class MeetingApi
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsGet
-     *
-     * List Meeting Endpoints
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Endpoints
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsGet($user_id, $meeting_id)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo($user_id, $meeting_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo
-     *
-     * List Meeting Endpoints
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Endpoints, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo($user_id, $meeting_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Endpoints',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Endpoints', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Endpoints', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
+     * Operation updateMeetingEndpoints
      *
      * Update Meeting Endpoints State
      *
@@ -1276,14 +1977,14 @@ class MeetingApi
      * @return void
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsPut($user_id, $meeting_id, $mute = null, $media = null)
+    public function updateMeetingEndpoints($user_id, $meeting_id, $mute = null, $media = null)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo($user_id, $meeting_id, $mute, $media);
+        list($response) = $this->updateMeetingEndpointsWithHttpInfo($user_id, $meeting_id, $mute, $media);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo
+     * Operation updateMeetingEndpointsWithHttpInfo
      *
      * Update Meeting Endpoints State
      *
@@ -1294,15 +1995,15 @@ class MeetingApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo($user_id, $meeting_id, $mute = null, $media = null)
+    public function updateMeetingEndpointsWithHttpInfo($user_id, $meeting_id, $mute = null, $media = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateMeetingEndpoints');
         }
         // verify the required parameter 'meeting_id' is set
         if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling updateMeetingEndpoints');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
@@ -1385,474 +2086,7 @@ class MeetingApi
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdGet
-     *
-     * Get Meeting State
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\MeetingState
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdGet($user_id, $meeting_id)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo($user_id, $meeting_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo
-     *
-     * Get Meeting State
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\MeetingState, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo($user_id, $meeting_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\MeetingState',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingState', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingState', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdInvitePost
-     *
-     * Send Email Invite
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
-     * @return void
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdInvitePost($user_id, $meeting_id, $payload_invite)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id, $payload_invite);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo
-     *
-     * Send Email Invite
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadInvite $payload_invite  (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo($user_id, $meeting_id, $payload_invite)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost');
-        }
-        // verify the required parameter 'payload_invite' is set
-        if ($payload_invite === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload_invite when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($payload_invite)) {
-            $_tempBody = $payload_invite;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                null,
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/invite'
-            );
-
-            return array(null, $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
-     *
-     * Generate Pairing Code (SIP)
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
-     * @return \Swagger\Client\Model\PairingCode
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost($user_id, $meeting_id, $payload_pairing_code_sip)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_sip);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo
-     *
-     * Generate Pairing Code (SIP)
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
-     * @return Array of \Swagger\Client\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_sip)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost');
-        }
-        // verify the required parameter 'payload_pairing_code_sip' is set
-        if ($payload_pairing_code_sip === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_sip when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($payload_pairing_code_sip)) {
-            $_tempBody = $payload_pairing_code_sip;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\PairingCode',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PairingCode', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PairingCode', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
-     *
-     * Generate Pairing Code (WebRTC)
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
-     * @param string $role  (optional, default to USER)
-     * @return \Swagger\Client\Model\PairingCode
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role = null)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo
-     *
-     * Generate Pairing Code (WebRTC)
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param \Swagger\Client\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
-     * @param string $role  (optional, default to USER)
-     * @return Array of \Swagger\Client\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role = null)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost');
-        }
-        // verify the required parameter 'payload_pairing_code_web_rtc' is set
-        if ($payload_pairing_code_web_rtc === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_web_rtc when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // query params
-        if ($role !== null) {
-            $queryParams['role'] = $this->apiClient->getSerializer()->toQueryValue($role);
-        }
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($payload_pairing_code_web_rtc)) {
-            $_tempBody = $payload_pairing_code_web_rtc;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\PairingCode',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PairingCode', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PairingCode', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPut
+     * Operation updateMeetingState
      *
      * Update Meeting State
      *
@@ -1863,14 +2097,14 @@ class MeetingApi
      * @return \Swagger\Client\Model\Meeting
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPut($user_id, $meeting_id, $payload_meeting_state, $delay = null)
+    public function updateMeetingState($user_id, $meeting_id, $payload_meeting_state, $delay = null)
     {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay);
+        list($response) = $this->updateMeetingStateWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo
+     * Operation updateMeetingStateWithHttpInfo
      *
      * Update Meeting State
      *
@@ -1881,19 +2115,19 @@ class MeetingApi
      * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay = null)
+    public function updateMeetingStateWithHttpInfo($user_id, $meeting_id, $payload_meeting_state, $delay = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdPut');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateMeetingState');
         }
         // verify the required parameter 'meeting_id' is set
         if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdPut');
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling updateMeetingState');
         }
         // verify the required parameter 'payload_meeting_state' is set
         if ($payload_meeting_state === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payload_meeting_state when calling v1UserUserIdLiveMeetingsMeetingIdPut');
+            throw new \InvalidArgumentException('Missing the required parameter $payload_meeting_state when calling updateMeetingState');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
@@ -1957,240 +2191,6 @@ class MeetingApi
                 $headerParams,
                 '\Swagger\Client\Model\Meeting',
                 '/v1/user/{user_id}/live_meetings/{meeting_id}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingsMeetingIdNumbersGet
-     *
-     * Get Meeting Join Info
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return \Swagger\Client\Model\Numbers
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdMeetingsMeetingIdNumbersGet($user_id, $meeting_id)
-    {
-        list($response) = $this->v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo($user_id, $meeting_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo
-     *
-     * Get Meeting Join Info
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Array of \Swagger\Client\Model\Numbers, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo($user_id, $meeting_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingsMeetingIdNumbersGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdMeetingsMeetingIdNumbersGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Numbers',
-                '/v1/user/{user_id}/meetings/{meeting_id}/numbers'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Numbers', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Numbers', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdScheduledMeetingMeetingIdEmailsGet
-     *
-     * Get Meeting Email
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $type TEXT, ICS, HTML (optional)
-     * @param string $role moderator, participant (optional)
-     * @param string $action create, edit, delete (optional)
-     * @return \Swagger\Client\Model\Meeting
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdScheduledMeetingMeetingIdEmailsGet($user_id, $meeting_id, $type = null, $role = null, $action = null)
-    {
-        list($response) = $this->v1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo($user_id, $meeting_id, $type, $role, $action);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo
-     *
-     * Get Meeting Email
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $type TEXT, ICS, HTML (optional)
-     * @param string $role moderator, participant (optional)
-     * @param string $action create, edit, delete (optional)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     */
-    public function v1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo($user_id, $meeting_id, $type = null, $role = null, $action = null)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdScheduledMeetingMeetingIdEmailsGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdScheduledMeetingMeetingIdEmailsGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-
-        // query params
-        if ($type !== null) {
-            $queryParams['type'] = $this->apiClient->getSerializer()->toQueryValue($type);
-        }
-        // query params
-        if ($role !== null) {
-            $queryParams['role'] = $this->apiClient->getSerializer()->toQueryValue($role);
-        }
-        // query params
-        if ($action !== null) {
-            $queryParams['action'] = $this->apiClient->getSerializer()->toQueryValue($action);
-        }
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);

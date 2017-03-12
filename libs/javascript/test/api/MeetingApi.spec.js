@@ -1,6 +1,6 @@
 /**
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+ * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -79,6 +79,26 @@
         done();
       });
     });
+    describe('generatePairingCodeSip', function() {
+      it('should call generatePairingCodeSip successfully', function(done) {
+        //uncomment below and update the code to test generatePairingCodeSip
+        //instance.generatePairingCodeSip(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('generatePairingCodeWebRtc', function() {
+      it('should call generatePairingCodeWebRtc successfully', function(done) {
+        //uncomment below and update the code to test generatePairingCodeWebRtc
+        //instance.generatePairingCodeWebRtc(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getEndpointLayout', function() {
       it('should call getEndpointLayout successfully', function(done) {
         //uncomment below and update the code to test getEndpointLayout
@@ -99,10 +119,70 @@
         done();
       });
     });
+    describe('getMeetingEmails', function() {
+      it('should call getMeetingEmails successfully', function(done) {
+        //uncomment below and update the code to test getMeetingEmails
+        //instance.getMeetingEmails(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMeetingEndpoint', function() {
+      it('should call getMeetingEndpoint successfully', function(done) {
+        //uncomment below and update the code to test getMeetingEndpoint
+        //instance.getMeetingEndpoint(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMeetingEndpoints', function() {
+      it('should call getMeetingEndpoints successfully', function(done) {
+        //uncomment below and update the code to test getMeetingEndpoints
+        //instance.getMeetingEndpoints(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMeetingNumbers', function() {
+      it('should call getMeetingNumbers successfully', function(done) {
+        //uncomment below and update the code to test getMeetingNumbers
+        //instance.getMeetingNumbers(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMeetingState', function() {
+      it('should call getMeetingState successfully', function(done) {
+        //uncomment below and update the code to test getMeetingState
+        //instance.getMeetingState(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listMeetings', function() {
       it('should call listMeetings successfully', function(done) {
         //uncomment below and update the code to test listMeetings
         //instance.listMeetings(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('sendMeetingInvite', function() {
+      it('should call sendMeetingInvite successfully', function(done) {
+        //uncomment below and update the code to test sendMeetingInvite
+        //instance.sendMeetingInvite(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -129,110 +209,30 @@
         done();
       });
     });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet(pet, function(error) {
+    describe('updateMeetingEndpoint', function() {
+      it('should call updateMeetingEndpoint successfully', function(done) {
+        //uncomment below and update the code to test updateMeetingEndpoint
+        //instance.updateMeetingEndpoint(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut(pet, function(error) {
+    describe('updateMeetingEndpoints', function() {
+      it('should call updateMeetingEndpoints successfully', function(done) {
+        //uncomment below and update the code to test updateMeetingEndpoints
+        //instance.updateMeetingEndpoints(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsGet', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsGet
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdEndpointsPut', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdEndpointsPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
-        //instance.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdGet', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdGet
-        //instance.v1UserUserIdLiveMeetingsMeetingIdGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdInvitePost', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdInvitePost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdInvitePost
-        //instance.v1UserUserIdLiveMeetingsMeetingIdInvitePost(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
-        //instance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
-        //instance.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdLiveMeetingsMeetingIdPut', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdPut successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdPut
-        //instance.v1UserUserIdLiveMeetingsMeetingIdPut(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdMeetingsMeetingIdNumbersGet', function() {
-      it('should call v1UserUserIdMeetingsMeetingIdNumbersGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdMeetingsMeetingIdNumbersGet
-        //instance.v1UserUserIdMeetingsMeetingIdNumbersGet(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('v1UserUserIdScheduledMeetingMeetingIdEmailsGet', function() {
-      it('should call v1UserUserIdScheduledMeetingMeetingIdEmailsGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdScheduledMeetingMeetingIdEmailsGet
-        //instance.v1UserUserIdScheduledMeetingMeetingIdEmailsGet(pet, function(error) {
+    describe('updateMeetingState', function() {
+      it('should call updateMeetingState successfully', function(done) {
+        //uncomment below and update the code to test updateMeetingState
+        //instance.updateMeetingState(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

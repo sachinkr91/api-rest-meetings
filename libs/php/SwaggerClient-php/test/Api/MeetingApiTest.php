@@ -13,7 +13,7 @@
 /**
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided.
+ * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -112,6 +112,28 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for generatePairingCodeSip
+     *
+     * Generate Pairing Code (SIP).
+     *
+     */
+    public function testGeneratePairingCodeSip()
+    {
+
+    }
+
+    /**
+     * Test case for generatePairingCodeWebRtc
+     *
+     * Generate Pairing Code (WebRTC).
+     *
+     */
+    public function testGeneratePairingCodeWebRtc()
+    {
+
+    }
+
+    /**
      * Test case for getEndpointLayout
      *
      * Get Endpoint Layout.
@@ -134,12 +156,78 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getMeetingEmails
+     *
+     * Get Meeting Email.
+     *
+     */
+    public function testGetMeetingEmails()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingEndpoint
+     *
+     * Get Endpoint Information.
+     *
+     */
+    public function testGetMeetingEndpoint()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingEndpoints
+     *
+     * List Meeting Endpoints.
+     *
+     */
+    public function testGetMeetingEndpoints()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingNumbers
+     *
+     * Get Meeting Join Info.
+     *
+     */
+    public function testGetMeetingNumbers()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingState
+     *
+     * Get Meeting State.
+     *
+     */
+    public function testGetMeetingState()
+    {
+
+    }
+
+    /**
      * Test case for listMeetings
      *
      * List Meetings.
      *
      */
     public function testListMeetings()
+    {
+
+    }
+
+    /**
+     * Test case for sendMeetingInvite
+     *
+     * Send Email Invite.
+     *
+     */
+    public function testSendMeetingInvite()
     {
 
     }
@@ -167,122 +255,34 @@ class MeetingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet
-     *
-     * Get Endpoint Information.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut
+     * Test case for updateMeetingEndpoint
      *
      * Update Endpoint Video/Audio State.
      *
      */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut()
+    public function testUpdateMeetingEndpoint()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsGet
-     *
-     * List Meeting Endpoints.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdEndpointsPut
+     * Test case for updateMeetingEndpoints
      *
      * Update Meeting Endpoints State.
      *
      */
-    public function testV1UserUserIdLiveMeetingsMeetingIdEndpointsPut()
+    public function testUpdateMeetingEndpoints()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdGet
-     *
-     * Get Meeting State.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdInvitePost
-     *
-     * Send Email Invite.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdInvitePost()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost
-     *
-     * Generate Pairing Code (SIP).
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost
-     *
-     * Generate Pairing Code (WebRTC).
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdPut
+     * Test case for updateMeetingState
      *
      * Update Meeting State.
      *
      */
-    public function testV1UserUserIdLiveMeetingsMeetingIdPut()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdMeetingsMeetingIdNumbersGet
-     *
-     * Get Meeting Join Info.
-     *
-     */
-    public function testV1UserUserIdMeetingsMeetingIdNumbersGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdScheduledMeetingMeetingIdEmailsGet
-     *
-     * Get Meeting Email.
-     *
-     */
-    public function testV1UserUserIdScheduledMeetingMeetingIdEmailsGet()
+    public function testUpdateMeetingState()
     {
 
     }

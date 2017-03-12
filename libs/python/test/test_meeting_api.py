@@ -3,7 +3,7 @@
 """
     BlueJeans onVideo REST API
 
-    _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+    _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
 
     OpenAPI spec version: 1.0.0
     Contact: brandon@bluejeans.com
@@ -58,6 +58,22 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_pairing_code_sip(self):
+        """
+        Test case for generate_pairing_code_sip
+
+        Generate Pairing Code (SIP)
+        """
+        pass
+
+    def test_generate_pairing_code_web_rtc(self):
+        """
+        Test case for generate_pairing_code_web_rtc
+
+        Generate Pairing Code (WebRTC)
+        """
+        pass
+
     def test_get_endpoint_layout(self):
         """
         Test case for get_endpoint_layout
@@ -74,11 +90,59 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
+    def test_get_meeting_emails(self):
+        """
+        Test case for get_meeting_emails
+
+        Get Meeting Email
+        """
+        pass
+
+    def test_get_meeting_endpoint(self):
+        """
+        Test case for get_meeting_endpoint
+
+        Get Endpoint Information
+        """
+        pass
+
+    def test_get_meeting_endpoints(self):
+        """
+        Test case for get_meeting_endpoints
+
+        List Meeting Endpoints
+        """
+        pass
+
+    def test_get_meeting_numbers(self):
+        """
+        Test case for get_meeting_numbers
+
+        Get Meeting Join Info
+        """
+        pass
+
+    def test_get_meeting_state(self):
+        """
+        Test case for get_meeting_state
+
+        Get Meeting State
+        """
+        pass
+
     def test_list_meetings(self):
         """
         Test case for list_meetings
 
         List Meetings
+        """
+        pass
+
+    def test_send_meeting_invite(self):
+        """
+        Test case for send_meeting_invite
+
+        Send Email Invite
         """
         pass
 
@@ -98,91 +162,27 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get(self):
+    def test_update_meeting_endpoint(self):
         """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_get
-
-        Get Endpoint Information
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_endpoint_guid_put
+        Test case for update_meeting_endpoint
 
         Update Endpoint Video/Audio State
         """
         pass
 
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_get(self):
+    def test_update_meeting_endpoints(self):
         """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_get
-
-        List Meeting Endpoints
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_endpoints_put(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_endpoints_put
+        Test case for update_meeting_endpoints
 
         Update Meeting Endpoints State
         """
         pass
 
-    def test_v1_user_user_id_live_meetings_meeting_id_get(self):
+    def test_update_meeting_state(self):
         """
-        Test case for v1_user_user_id_live_meetings_meeting_id_get
-
-        Get Meeting State
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_invite_post(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_invite_post
-
-        Send Email Invite
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_sip_post
-
-        Generate Pairing Code (SIP)
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_pairing_code_webrtc_post
-
-        Generate Pairing Code (WebRTC)
-        """
-        pass
-
-    def test_v1_user_user_id_live_meetings_meeting_id_put(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_put
+        Test case for update_meeting_state
 
         Update Meeting State
-        """
-        pass
-
-    def test_v1_user_user_id_meetings_meeting_id_numbers_get(self):
-        """
-        Test case for v1_user_user_id_meetings_meeting_id_numbers_get
-
-        Get Meeting Join Info
-        """
-        pass
-
-    def test_v1_user_user_id_scheduled_meeting_meeting_id_emails_get(self):
-        """
-        Test case for v1_user_user_id_scheduled_meeting_meeting_id_emails_get
-
-        Get Meeting Email
         """
         pass
 

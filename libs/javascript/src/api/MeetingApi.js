@@ -1,6 +1,6 @@
 /**
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+ * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/MeetingState', 'model/PayloadInvite', 'model/PairingCode', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC', 'model/PayloadMeetingState', 'model/Numbers'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/PairingCode', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/Numbers', 'model/MeetingState', 'model/PayloadInvite', 'model/PayloadMeetingState'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PairingCode'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'), require('../model/PayloadMeetingState'), require('../model/Numbers'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/PairingCode'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Numbers'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.Numbers);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState);
   }
-}(this, function(ApiClient, Error, Meeting, Layout, Endpoint, Endpoints, MeetingState, PayloadInvite, PairingCode, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC, PayloadMeetingState, Numbers) {
+}(this, function(ApiClient, Error, Meeting, PairingCode, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC, Layout, Endpoint, Endpoints, Numbers, MeetingState, PayloadInvite, PayloadMeetingState) {
   'use strict';
 
   /**
@@ -165,6 +165,128 @@
     }
 
     /**
+     * Callback function to receive the result of the generatePairingCodeSip operation.
+     * @callback module:api/MeetingApi~generatePairingCodeSipCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PairingCode} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate Pairing Code (SIP)
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
+     * @param {module:api/MeetingApi~generatePairingCodeSipCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PairingCode}
+     */
+    this.generatePairingCodeSip = function(userId, meetingId, payloadPairingCodeSIP, callback) {
+      var postBody = payloadPairingCodeSIP;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling generatePairingCodeSip";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling generatePairingCodeSip";
+      }
+
+      // verify the required parameter 'payloadPairingCodeSIP' is set
+      if (payloadPairingCodeSIP == undefined || payloadPairingCodeSIP == null) {
+        throw "Missing the required parameter 'payloadPairingCodeSIP' when calling generatePairingCodeSip";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = PairingCode;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the generatePairingCodeWebRtc operation.
+     * @callback module:api/MeetingApi~generatePairingCodeWebRtcCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PairingCode} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate Pairing Code (WebRTC)
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.role  (default to USER)
+     * @param {module:api/MeetingApi~generatePairingCodeWebRtcCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PairingCode}
+     */
+    this.generatePairingCodeWebRtc = function(userId, meetingId, payloadPairingCodeWebRTC, opts, callback) {
+      opts = opts || {};
+      var postBody = payloadPairingCodeWebRTC;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling generatePairingCodeWebRtc";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling generatePairingCodeWebRtc";
+      }
+
+      // verify the required parameter 'payloadPairingCodeWebRTC' is set
+      if (payloadPairingCodeWebRTC == undefined || payloadPairingCodeWebRTC == null) {
+        throw "Missing the required parameter 'payloadPairingCodeWebRTC' when calling generatePairingCodeWebRtc";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+        'role': opts['role']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = PairingCode;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getEndpointLayout operation.
      * @callback module:api/MeetingApi~getEndpointLayoutCallback
      * @param {String} error Error message, if any.
@@ -278,6 +400,286 @@
     }
 
     /**
+     * Callback function to receive the result of the getMeetingEmails operation.
+     * @callback module:api/MeetingApi~getMeetingEmailsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meeting Email
+     * This endpoint retrieves the email object for a scheduled meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.type TEXT, ICS, HTML
+     * @param {module:model/String} opts.role moderator, participant
+     * @param {module:model/String} opts.action create, edit, delete
+     * @param {module:api/MeetingApi~getMeetingEmailsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Meeting}
+     */
+    this.getMeetingEmails = function(userId, meetingId, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getMeetingEmails";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling getMeetingEmails";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+        'type': opts['type'],
+        'role': opts['role'],
+        'action': opts['action']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Meeting;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingEndpoint operation.
+     * @callback module:api/MeetingApi~getMeetingEndpointCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Endpoint} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Endpoint Information
+     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+     * @param {module:api/MeetingApi~getMeetingEndpointCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Endpoint}
+     */
+    this.getMeetingEndpoint = function(userId, meetingId, endpointGuid, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getMeetingEndpoint";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling getMeetingEndpoint";
+      }
+
+      // verify the required parameter 'endpointGuid' is set
+      if (endpointGuid == undefined || endpointGuid == null) {
+        throw "Missing the required parameter 'endpointGuid' when calling getMeetingEndpoint";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId,
+        'endpoint_guid': endpointGuid
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Endpoint;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingEndpoints operation.
+     * @callback module:api/MeetingApi~getMeetingEndpointsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Endpoints} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meeting Endpoints
+     * This endpoint returns an array of all endpoints in the current meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:api/MeetingApi~getMeetingEndpointsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Endpoints}
+     */
+    this.getMeetingEndpoints = function(userId, meetingId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getMeetingEndpoints";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling getMeetingEndpoints";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Endpoints;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingNumbers operation.
+     * @callback module:api/MeetingApi~getMeetingNumbersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Numbers} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meeting Join Info
+     * This endpoint retrieves the join information for a scheduled meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:api/MeetingApi~getMeetingNumbersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Numbers}
+     */
+    this.getMeetingNumbers = function(userId, meetingId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getMeetingNumbers";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling getMeetingNumbers";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Numbers;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/meetings/{meeting_id}/numbers', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingState operation.
+     * @callback module:api/MeetingApi~getMeetingStateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingState} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meeting State
+     * This endpoint’s purpose is to return whether the meeting is in progress or not.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:api/MeetingApi~getMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingState}
+     */
+    this.getMeetingState = function(userId, meetingId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getMeetingState";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling getMeetingState";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingState;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listMeetings operation.
      * @callback module:api/MeetingApi~listMeetingsCallback
      * @param {String} error Error message, if any.
@@ -318,6 +720,64 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/scheduled_meeting', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the sendMeetingInvite operation.
+     * @callback module:api/MeetingApi~sendMeetingInviteCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Send Email Invite
+     * This endpoint generates an email invite to the specified meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {module:model/PayloadInvite} payloadInvite 
+     * @param {module:api/MeetingApi~sendMeetingInviteCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.sendMeetingInvite = function(userId, meetingId, payloadInvite, callback) {
+      var postBody = payloadInvite;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling sendMeetingInvite";
+      }
+
+      // verify the required parameter 'meetingId' is set
+      if (meetingId == undefined || meetingId == null) {
+        throw "Missing the required parameter 'meetingId' when calling sendMeetingInvite";
+      }
+
+      // verify the required parameter 'payloadInvite' is set
+      if (payloadInvite == undefined || payloadInvite == null) {
+        throw "Missing the required parameter 'payloadInvite' when calling sendMeetingInvite";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_id': meetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{meeting_id}/invite', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -449,68 +909,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Endpoint} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Endpoint Information
-     * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Endpoint}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet = function(userId, meetingId, endpointGuid, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet";
-      }
-
-      // verify the required parameter 'endpointGuid' is set
-      if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId,
-        'endpoint_guid': endpointGuid
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Endpoint;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutCallback
+     * Callback function to receive the result of the updateMeetingEndpoint operation.
+     * @callback module:api/MeetingApi~updateMeetingEndpointCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Endpoint} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -526,26 +926,26 @@
      * @param {Boolean} opts.muteAudio Toggle the audio source mute.
      * @param {Boolean} opts.muteVideo Toggle the video source mute.
      * @param {Boolean} opts.leaveMeeting Remove the user from the meeting.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeetingApi~updateMeetingEndpointCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoint}
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut = function(userId, meetingId, endpointGuid, opts, callback) {
+    this.updateMeetingEndpoint = function(userId, meetingId, endpointGuid, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut";
+        throw "Missing the required parameter 'userId' when calling updateMeetingEndpoint";
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut";
+        throw "Missing the required parameter 'meetingId' when calling updateMeetingEndpoint";
       }
 
       // verify the required parameter 'endpointGuid' is set
       if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut";
+        throw "Missing the required parameter 'endpointGuid' when calling updateMeetingEndpoint";
       }
 
 
@@ -577,61 +977,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdEndpointsGet operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Endpoints} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meeting Endpoints
-     * This endpoint returns an array of all endpoints in the current meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Endpoints}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdEndpointsGet = function(userId, meetingId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsGet";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Endpoints;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdEndpointsPut operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCallback
+     * Callback function to receive the result of the updateMeetingEndpoints operation.
+     * @callback module:api/MeetingApi~updateMeetingEndpointsCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -645,20 +992,20 @@
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
      * @param {module:model/String} opts.media Specify the type of media you which to mute/unmute.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdEndpointsPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeetingApi~updateMeetingEndpointsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdEndpointsPut = function(userId, meetingId, opts, callback) {
+    this.updateMeetingEndpoints = function(userId, meetingId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut";
+        throw "Missing the required parameter 'userId' when calling updateMeetingEndpoints";
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdEndpointsPut";
+        throw "Missing the required parameter 'meetingId' when calling updateMeetingEndpoints";
       }
 
 
@@ -688,241 +1035,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdGet operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MeetingState} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Meeting State
-     * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MeetingState}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdGet = function(userId, meetingId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdGet";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = MeetingState;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdInvitePost operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdInvitePostCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Send Email Invite
-     * This endpoint generates an email invite to the specified meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:model/PayloadInvite} payloadInvite 
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdInvitePostCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdInvitePost = function(userId, meetingId, payloadInvite, callback) {
-      var postBody = payloadInvite;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost";
-      }
-
-      // verify the required parameter 'payloadInvite' is set
-      if (payloadInvite == undefined || payloadInvite == null) {
-        throw "Missing the required parameter 'payloadInvite' when calling v1UserUserIdLiveMeetingsMeetingIdInvitePost";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/invite', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PairingCode} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Generate Pairing Code (SIP)
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PairingCode}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost = function(userId, meetingId, payloadPairingCodeSIP, callback) {
-      var postBody = payloadPairingCodeSIP;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
-      }
-
-      // verify the required parameter 'payloadPairingCodeSIP' is set
-      if (payloadPairingCodeSIP == undefined || payloadPairingCodeSIP == null) {
-        throw "Missing the required parameter 'payloadPairingCodeSIP' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = PairingCode;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PairingCode} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Generate Pairing Code (WebRTC)
-     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.role  (default to USER)
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PairingCode}
-     */
-    this.v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost = function(userId, meetingId, payloadPairingCodeWebRTC, opts, callback) {
-      opts = opts || {};
-      var postBody = payloadPairingCodeWebRTC;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
-      }
-
-      // verify the required parameter 'payloadPairingCodeWebRTC' is set
-      if (payloadPairingCodeWebRTC == undefined || payloadPairingCodeWebRTC == null) {
-        throw "Missing the required parameter 'payloadPairingCodeWebRTC' when calling v1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-        'role': opts['role']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = PairingCode;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdLiveMeetingsMeetingIdPut operation.
-     * @callback module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPutCallback
+     * Callback function to receive the result of the updateMeetingState operation.
+     * @callback module:api/MeetingApi~updateMeetingStateCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Meeting} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -936,26 +1050,26 @@
      * @param {module:model/PayloadMeetingState} payloadMeetingState The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.delay Number of seconds to delay the end meeting operation.
-     * @param {module:api/MeetingApi~v1UserUserIdLiveMeetingsMeetingIdPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeetingApi~updateMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
-    this.v1UserUserIdLiveMeetingsMeetingIdPut = function(userId, meetingId, payloadMeetingState, opts, callback) {
+    this.updateMeetingState = function(userId, meetingId, payloadMeetingState, opts, callback) {
       opts = opts || {};
       var postBody = payloadMeetingState;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
+        throw "Missing the required parameter 'userId' when calling updateMeetingState";
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
+        throw "Missing the required parameter 'meetingId' when calling updateMeetingState";
       }
 
       // verify the required parameter 'payloadMeetingState' is set
       if (payloadMeetingState == undefined || payloadMeetingState == null) {
-        throw "Missing the required parameter 'payloadMeetingState' when calling v1UserUserIdLiveMeetingsMeetingIdPut";
+        throw "Missing the required parameter 'payloadMeetingState' when calling updateMeetingState";
       }
 
 
@@ -978,120 +1092,6 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/live_meetings/{meeting_id}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdMeetingsMeetingIdNumbersGet operation.
-     * @callback module:api/MeetingApi~v1UserUserIdMeetingsMeetingIdNumbersGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Numbers} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Meeting Join Info
-     * This endpoint retrieves the join information for a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {module:api/MeetingApi~v1UserUserIdMeetingsMeetingIdNumbersGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Numbers}
-     */
-    this.v1UserUserIdMeetingsMeetingIdNumbersGet = function(userId, meetingId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingsMeetingIdNumbersGet";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdMeetingsMeetingIdNumbersGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Numbers;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/meetings/{meeting_id}/numbers', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdScheduledMeetingMeetingIdEmailsGet operation.
-     * @callback module:api/MeetingApi~v1UserUserIdScheduledMeetingMeetingIdEmailsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Meeting Email
-     * This endpoint retrieves the email object for a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.type TEXT, ICS, HTML
-     * @param {module:model/String} opts.role moderator, participant
-     * @param {module:model/String} opts.action create, edit, delete
-     * @param {module:api/MeetingApi~v1UserUserIdScheduledMeetingMeetingIdEmailsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1UserUserIdScheduledMeetingMeetingIdEmailsGet = function(userId, meetingId, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdScheduledMeetingMeetingIdEmailsGet";
-      }
-
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdScheduledMeetingMeetingIdEmailsGet";
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_id': meetingId
-      };
-      var queryParams = {
-        'type': opts['type'],
-        'role': opts['role'],
-        'action': opts['action']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -1,7 +1,7 @@
 /* 
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authenticate button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+ * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -85,6 +85,58 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> CreateMeetingWithHttpInfo (int? userId, Meeting meeting, bool? email = null);
         /// <summary>
+        /// Generate Pairing Code (SIP)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>PairingCode</returns>
+        PairingCode GeneratePairingCodeSip (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+
+        /// <summary>
+        /// Generate Pairing Code (SIP)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>ApiResponse of PairingCode</returns>
+        ApiResponse<PairingCode> GeneratePairingCodeSipWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        /// <summary>
+        /// Generate Pairing Code (WebRTC)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>PairingCode</returns>
+        PairingCode GeneratePairingCodeWebRtc (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>ApiResponse of PairingCode</returns>
+        ApiResponse<PairingCode> GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        /// <summary>
         /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
@@ -133,6 +185,129 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> GetMeetingWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
+        /// Get Meeting Email
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the email object for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Meeting</returns>
+        Meeting GetMeetingEmails (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+
+        /// <summary>
+        /// Get Meeting Email
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the email object for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        ApiResponse<Meeting> GetMeetingEmailsWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+        /// <summary>
+        /// Get Endpoint Information
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Endpoint</returns>
+        Endpoint GetMeetingEndpoint (int? userId, int? meetingId, string endpointGuid);
+
+        /// <summary>
+        /// Get Endpoint Information
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>ApiResponse of Endpoint</returns>
+        ApiResponse<Endpoint> GetMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <summary>
+        /// List Meeting Endpoints
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns an array of all endpoints in the current meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Endpoints</returns>
+        Endpoints GetMeetingEndpoints (int? userId, int? meetingId);
+
+        /// <summary>
+        /// List Meeting Endpoints
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns an array of all endpoints in the current meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Endpoints</returns>
+        ApiResponse<Endpoints> GetMeetingEndpointsWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Numbers</returns>
+        Numbers GetMeetingNumbers (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Numbers</returns>
+        ApiResponse<Numbers> GetMeetingNumbersWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting State
+        /// </summary>
+        /// <remarks>
+        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>MeetingState</returns>
+        MeetingState GetMeetingState (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting State
+        /// </summary>
+        /// <remarks>
+        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of MeetingState</returns>
+        ApiResponse<MeetingState> GetMeetingStateWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
         /// List Meetings
         /// </summary>
         /// <remarks>
@@ -153,6 +328,31 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of List&lt;Meeting&gt;</returns>
         ApiResponse<List<Meeting>> ListMeetingsWithHttpInfo (int? userId);
+        /// <summary>
+        /// Send Email Invite
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an email invite to the specified meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns></returns>
+        void SendMeetingInvite (int? userId, int? meetingId, PayloadInvite payloadInvite);
+
+        /// <summary>
+        /// Send Email Invite
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an email invite to the specified meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -208,31 +408,6 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> UpdateMeetingWithHttpInfo (int? userId, int? meetingId, Meeting meeting);
         /// <summary>
-        /// Get Endpoint Information
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Endpoint</returns>
-        Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid);
-
-        /// <summary>
-        /// Get Endpoint Information
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Endpoint</returns>
-        ApiResponse<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
-        /// <summary>
         /// Update Endpoint Video/Audio State
         /// </summary>
         /// <remarks>
@@ -246,7 +421,7 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Endpoint</returns>
-        Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        Endpoint UpdateMeetingEndpoint (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -262,30 +437,7 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        ApiResponse<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
-        /// <summary>
-        /// List Meeting Endpoints
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns an array of all endpoints in the current meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Endpoints</returns>
-        Endpoints V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId);
-
-        /// <summary>
-        /// List Meeting Endpoints
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns an array of all endpoints in the current meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Endpoints</returns>
-        ApiResponse<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId);
+        ApiResponse<Endpoint> UpdateMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -298,7 +450,7 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns></returns>
-        void V1UserUserIdLiveMeetingsMeetingIdEndpointsPut (int? userId, int? meetingId, bool? mute = null, string media = null);
+        void UpdateMeetingEndpoints (int? userId, int? meetingId, bool? mute = null, string media = null);
 
         /// <summary>
         /// Update Meeting Endpoints State
@@ -312,107 +464,7 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> V1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
-        /// <summary>
-        /// Get Meeting State
-        /// </summary>
-        /// <remarks>
-        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>MeetingState</returns>
-        MeetingState V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId);
-
-        /// <summary>
-        /// Get Meeting State
-        /// </summary>
-        /// <remarks>
-        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of MeetingState</returns>
-        ApiResponse<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId);
-        /// <summary>
-        /// Send Email Invite
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an email invite to the specified meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns></returns>
-        void V1UserUserIdLiveMeetingsMeetingIdInvitePost (int? userId, int? meetingId, PayloadInvite payloadInvite);
-
-        /// <summary>
-        /// Send Email Invite
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an email invite to the specified meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> V1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
-        /// <summary>
-        /// Generate Pairing Code (SIP)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>PairingCode</returns>
-        PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
-
-        /// <summary>
-        /// Generate Pairing Code (SIP)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>ApiResponse of PairingCode</returns>
-        ApiResponse<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
-        /// <summary>
-        /// Generate Pairing Code (WebRTC)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>PairingCode</returns>
-        PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>ApiResponse of PairingCode</returns>
-        ApiResponse<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
         /// <summary>
         /// Update Meeting State
         /// </summary>
@@ -425,7 +477,7 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        Meeting UpdateMeetingState (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -439,59 +491,7 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
-        /// <summary>
-        /// Get Meeting Join Info
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the join information for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Numbers</returns>
-        Numbers V1UserUserIdMeetingsMeetingIdNumbersGet (int? userId, int? meetingId);
-
-        /// <summary>
-        /// Get Meeting Join Info
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the join information for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Numbers</returns>
-        ApiResponse<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo (int? userId, int? meetingId);
-        /// <summary>
-        /// Get Meeting Email
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the email object for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdScheduledMeetingMeetingIdEmailsGet (int? userId, int? meetingId, string type = null, string role = null, string action = null);
-
-        /// <summary>
-        /// Get Meeting Email
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the email object for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+        ApiResponse<Meeting> UpdateMeetingStateWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -543,6 +543,58 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> CreateMeetingAsyncWithHttpInfo (int? userId, Meeting meeting, bool? email = null);
         /// <summary>
+        /// Generate Pairing Code (SIP)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>Task of PairingCode</returns>
+        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+
+        /// <summary>
+        /// Generate Pairing Code (SIP)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>Task of ApiResponse (PairingCode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        /// <summary>
+        /// Generate Pairing Code (WebRTC)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>Task of PairingCode</returns>
+        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC)
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>Task of ApiResponse (PairingCode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        /// <summary>
         /// Get Endpoint Layout
         /// </summary>
         /// <remarks>
@@ -591,6 +643,129 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> GetMeetingAsyncWithHttpInfo (int? userId, int? meetingId);
         /// <summary>
+        /// Get Meeting Email
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the email object for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Task of Meeting</returns>
+        System.Threading.Tasks.Task<Meeting> GetMeetingEmailsAsync (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+
+        /// <summary>
+        /// Get Meeting Email
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the email object for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> GetMeetingEmailsAsyncWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+        /// <summary>
+        /// Get Endpoint Information
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Task of Endpoint</returns>
+        System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid);
+
+        /// <summary>
+        /// Get Endpoint Information
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        /// <summary>
+        /// List Meeting Endpoints
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns an array of all endpoints in the current meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Endpoints</returns>
+        System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? meetingId);
+
+        /// <summary>
+        /// List Meeting Endpoints
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns an array of all endpoints in the current meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Endpoints)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Numbers</returns>
+        System.Threading.Tasks.Task<Numbers> GetMeetingNumbersAsync (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting Join Info
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the join information for a scheduled meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Numbers)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Numbers>> GetMeetingNumbersAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
+        /// Get Meeting State
+        /// </summary>
+        /// <remarks>
+        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of MeetingState</returns>
+        System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? meetingId);
+
+        /// <summary>
+        /// Get Meeting State
+        /// </summary>
+        /// <remarks>
+        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (MeetingState)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <summary>
         /// List Meetings
         /// </summary>
         /// <remarks>
@@ -611,6 +786,31 @@ namespace IO.Swagger.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (List&lt;Meeting&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Meeting>>> ListMeetingsAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Send Email Invite
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an email invite to the specified meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? meetingId, PayloadInvite payloadInvite);
+
+        /// <summary>
+        /// Send Email Invite
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an email invite to the specified meeting.
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -666,31 +866,6 @@ namespace IO.Swagger.Api
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingAsyncWithHttpInfo (int? userId, int? meetingId, Meeting meeting);
         /// <summary>
-        /// Get Endpoint Information
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Endpoint</returns>
-        System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid);
-
-        /// <summary>
-        /// Get Endpoint Information
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Endpoint)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
-        /// <summary>
         /// Update Endpoint Video/Audio State
         /// </summary>
         /// <remarks>
@@ -704,7 +879,7 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of Endpoint</returns>
-        System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -720,30 +895,7 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
-        /// <summary>
-        /// List Meeting Endpoints
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns an array of all endpoints in the current meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Endpoints</returns>
-        System.Threading.Tasks.Task<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId);
-
-        /// <summary>
-        /// List Meeting Endpoints
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns an array of all endpoints in the current meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Endpoints)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoints>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -756,7 +908,7 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task V1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsync (int? userId, int? meetingId, bool? mute = null, string media = null);
+        System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? meetingId, bool? mute = null, string media = null);
 
         /// <summary>
         /// Update Meeting Endpoints State
@@ -770,107 +922,7 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
-        /// <summary>
-        /// Get Meeting State
-        /// </summary>
-        /// <remarks>
-        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of MeetingState</returns>
-        System.Threading.Tasks.Task<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId);
-
-        /// <summary>
-        /// Get Meeting State
-        /// </summary>
-        /// <remarks>
-        /// This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (MeetingState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingState>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId);
-        /// <summary>
-        /// Send Email Invite
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an email invite to the specified meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task V1UserUserIdLiveMeetingsMeetingIdInvitePostAsync (int? userId, int? meetingId, PayloadInvite payloadInvite);
-
-        /// <summary>
-        /// Send Email Invite
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an email invite to the specified meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdLiveMeetingsMeetingIdInvitePostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
-        /// <summary>
-        /// Generate Pairing Code (SIP)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>Task of PairingCode</returns>
-        System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
-
-        /// <summary>
-        /// Generate Pairing Code (SIP)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>Task of ApiResponse (PairingCode)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PairingCode>> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
-        /// <summary>
-        /// Generate Pairing Code (WebRTC)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>Task of PairingCode</returns>
-        System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>Task of ApiResponse (PairingCode)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PairingCode>> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
         /// <summary>
         /// Update Meeting State
         /// </summary>
@@ -883,7 +935,7 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -897,59 +949,7 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
-        /// <summary>
-        /// Get Meeting Join Info
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the join information for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Numbers</returns>
-        System.Threading.Tasks.Task<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetAsync (int? userId, int? meetingId);
-
-        /// <summary>
-        /// Get Meeting Join Info
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the join information for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Numbers)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Numbers>> V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo (int? userId, int? meetingId);
-        /// <summary>
-        /// Get Meeting Email
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the email object for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsync (int? userId, int? meetingId, string type = null, string role = null, string action = null);
-
-        /// <summary>
-        /// Get Meeting Email
-        /// </summary>
-        /// <remarks>
-        /// This endpoint retrieves the email object for a scheduled meeting.
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsyncWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null);
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         #endregion Asynchronous Operations
     }
 
@@ -1409,6 +1409,392 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>PairingCode</returns>
+        public PairingCode GeneratePairingCodeSip (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        {
+             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeSipWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>ApiResponse of PairingCode</returns>
+        public ApiResponse< PairingCode > GeneratePairingCodeSipWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'payloadPairingCodeSIP' is set
+            if (payloadPairingCodeSIP == null)
+                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadPairingCodeSIP; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePairingCodeSip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PairingCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
+            
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>Task of PairingCode</returns>
+        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        {
+             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeSipAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeSIP"></param>
+        /// <returns>Task of ApiResponse (PairingCode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'payloadPairingCodeSIP' is set
+            if (payloadPairingCodeSIP == null)
+                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadPairingCodeSIP; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePairingCodeSip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PairingCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
+            
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>PairingCode</returns>
+        public PairingCode GeneratePairingCodeWebRtc (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        {
+             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeWebRtcWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>ApiResponse of PairingCode</returns>
+        public ApiResponse< PairingCode > GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'payloadPairingCodeWebRTC' is set
+            if (payloadPairingCodeWebRTC == null)
+                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->GeneratePairingCodeWebRtc");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
+            if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeWebRTC); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadPairingCodeWebRTC; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePairingCodeWebRtc", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PairingCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
+            
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>Task of PairingCode</returns>
+        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        {
+             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeWebRtcAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadPairingCodeWebRTC"></param>
+        /// <param name="role"> (optional, default to USER)</param>
+        /// <returns>Task of ApiResponse (PairingCode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'payloadPairingCodeWebRTC' is set
+            if (payloadPairingCodeWebRTC == null)
+                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->GeneratePairingCodeWebRtc");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
+            if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeWebRTC); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadPairingCodeWebRTC; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePairingCodeWebRtc", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PairingCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
+            
+        }
+
+        /// <summary>
         /// Get Endpoint Layout This endpoint allows you to retrieve an individual endpoint’s current layout setting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1749,6 +2135,856 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Meeting</returns>
+        public Meeting GetMeetingEmails (int? userId, int? meetingId, string type = null, string role = null, string action = null)
+        {
+             ApiResponse<Meeting> localVarResponse = GetMeetingEmailsWithHttpInfo(userId, meetingId, type, role, action);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>ApiResponse of Meeting</returns>
+        public ApiResponse< Meeting > GetMeetingEmailsWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEmails");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEmails");
+
+            var localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (type != null) localVarQueryParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // query parameter
+            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Task of Meeting</returns>
+        public async System.Threading.Tasks.Task<Meeting> GetMeetingEmailsAsync (int? userId, int? meetingId, string type = null, string role = null, string action = null)
+        {
+             ApiResponse<Meeting> localVarResponse = await GetMeetingEmailsAsyncWithHttpInfo(userId, meetingId, type, role, action);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="type">TEXT, ICS, HTML (optional)</param>
+        /// <param name="role">moderator, participant (optional)</param>
+        /// <param name="action">create, edit, delete (optional)</param>
+        /// <returns>Task of ApiResponse (Meeting)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> GetMeetingEmailsAsyncWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEmails");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEmails");
+
+            var localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (type != null) localVarQueryParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // query parameter
+            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEmails", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Meeting>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Endpoint</returns>
+        public Endpoint GetMeetingEndpoint (int? userId, int? meetingId, string endpointGuid)
+        {
+             ApiResponse<Endpoint> localVarResponse = GetMeetingEndpointWithHttpInfo(userId, meetingId, endpointGuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>ApiResponse of Endpoint</returns>
+        public ApiResponse< Endpoint > GetMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'endpointGuid' is set
+            if (endpointGuid == null)
+                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetMeetingEndpoint");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEndpoint", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Endpoint>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
+            
+        }
+
+        /// <summary>
+        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Task of Endpoint</returns>
+        public async System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid)
+        {
+             ApiResponse<Endpoint> localVarResponse = await GetMeetingEndpointAsyncWithHttpInfo(userId, meetingId, endpointGuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <returns>Task of ApiResponse (Endpoint)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'endpointGuid' is set
+            if (endpointGuid == null)
+                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetMeetingEndpoint");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEndpoint", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Endpoint>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Endpoints</returns>
+        public Endpoints GetMeetingEndpoints (int? userId, int? meetingId)
+        {
+             ApiResponse<Endpoints> localVarResponse = GetMeetingEndpointsWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Endpoints</returns>
+        public ApiResponse< Endpoints > GetMeetingEndpointsWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoints");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoints");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEndpoints", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Endpoints>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Endpoints</returns>
+        public async System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? meetingId)
+        {
+             ApiResponse<Endpoints> localVarResponse = await GetMeetingEndpointsAsyncWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Endpoints)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoints");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoints");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingEndpoints", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Endpoints>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Numbers</returns>
+        public Numbers GetMeetingNumbers (int? userId, int? meetingId)
+        {
+             ApiResponse<Numbers> localVarResponse = GetMeetingNumbersWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of Numbers</returns>
+        public ApiResponse< Numbers > GetMeetingNumbersWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingNumbers");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingNumbers");
+
+            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingNumbers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Numbers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of Numbers</returns>
+        public async System.Threading.Tasks.Task<Numbers> GetMeetingNumbersAsync (int? userId, int? meetingId)
+        {
+             ApiResponse<Numbers> localVarResponse = await GetMeetingNumbersAsyncWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (Numbers)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Numbers>> GetMeetingNumbersAsyncWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingNumbers");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingNumbers");
+
+            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingNumbers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Numbers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>MeetingState</returns>
+        public MeetingState GetMeetingState (int? userId, int? meetingId)
+        {
+             ApiResponse<MeetingState> localVarResponse = GetMeetingStateWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>ApiResponse of MeetingState</returns>
+        public ApiResponse< MeetingState > GetMeetingStateWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingState");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingState");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingState", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingState>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of MeetingState</returns>
+        public async System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? meetingId)
+        {
+             ApiResponse<MeetingState> localVarResponse = await GetMeetingStateAsyncWithHttpInfo(userId, meetingId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <returns>Task of ApiResponse (MeetingState)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingState");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingState");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingState", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingState>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
+            
+        }
+
+        /// <summary>
         /// List Meetings This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1898,6 +3134,194 @@ namespace IO.Swagger.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (List<Meeting>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Meeting>)));
             
+        }
+
+        /// <summary>
+        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns></returns>
+        public void SendMeetingInvite (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        {
+             SendMeetingInviteWithHttpInfo(userId, meetingId, payloadInvite);
+        }
+
+        /// <summary>
+        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'payloadInvite' is set
+            if (payloadInvite == null)
+                throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->SendMeetingInvite");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadInvite; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendMeetingInvite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        {
+             await SendMeetingInviteAsyncWithHttpInfo(userId, meetingId, payloadInvite);
+
+        }
+
+        /// <summary>
+        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="payloadInvite"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'meetingId' is set
+            if (meetingId == null)
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'payloadInvite' is set
+            if (payloadInvite == null)
+                throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->SendMeetingInvite");
+
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = payloadInvite; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendMeetingInvite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -2279,182 +3703,6 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Endpoint</returns>
-        public Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet (int? userId, int? meetingId, string endpointGuid)
-        {
-             ApiResponse<Endpoint> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo(userId, meetingId, endpointGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>ApiResponse of Endpoint</returns>
-        public ApiResponse< Endpoint > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-            // verify the required parameter 'endpointGuid' is set
-            if (endpointGuid == null)
-                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Endpoint>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
-            
-        }
-
-        /// <summary>
-        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of Endpoint</returns>
-        public async System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsync (int? userId, int? meetingId, string endpointGuid)
-        {
-             ApiResponse<Endpoint> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo(userId, meetingId, endpointGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Endpoint Information This endpoint allows you to retrieve information about an endpoint in the meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
-        /// <returns>Task of ApiResponse (Endpoint)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-            // verify the required parameter 'endpointGuid' is set
-            if (endpointGuid == null)
-                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Endpoint>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoint) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
-            
-        }
-
-        /// <summary>
         /// Update Endpoint Video/Audio State This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2465,9 +3713,9 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Endpoint</returns>
-        public Endpoint V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public Endpoint UpdateMeetingEndpoint (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = UpdateMeetingEndpointWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
         }
 
@@ -2482,17 +3730,17 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        public ApiResponse< Endpoint > V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public ApiResponse< Endpoint > UpdateMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
-                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateMeetingEndpoint");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2541,7 +3789,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingEndpoint", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2562,9 +3810,9 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of Endpoint</returns>
-        public async System.Threading.Tasks.Task<Endpoint> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public async System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = await UpdateMeetingEndpointAsyncWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
 
         }
@@ -2580,17 +3828,17 @@ namespace IO.Swagger.Api
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
-                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut");
+                throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateMeetingEndpoint");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2638,7 +3886,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsEndpointGuidPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingEndpoint", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2649,170 +3897,6 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Endpoints</returns>
-        public Endpoints V1UserUserIdLiveMeetingsMeetingIdEndpointsGet (int? userId, int? meetingId)
-        {
-             ApiResponse<Endpoints> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Endpoints</returns>
-        public ApiResponse< Endpoints > V1UserUserIdLiveMeetingsMeetingIdEndpointsGetWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Endpoints>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Endpoints</returns>
-        public async System.Threading.Tasks.Task<Endpoints> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsync (int? userId, int? meetingId)
-        {
-             ApiResponse<Endpoints> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints This endpoint returns an array of all endpoints in the current meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Endpoints)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoints>> V1UserUserIdLiveMeetingsMeetingIdEndpointsGetAsyncWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Endpoints>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoints) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoints)));
-            
-        }
-
-        /// <summary>
         /// Update Meeting Endpoints State This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2821,9 +3905,9 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns></returns>
-        public void V1UserUserIdLiveMeetingsMeetingIdEndpointsPut (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public void UpdateMeetingEndpoints (int? userId, int? meetingId, bool? mute = null, string media = null)
         {
-             V1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo(userId, meetingId, mute, media);
+             UpdateMeetingEndpointsWithHttpInfo(userId, meetingId, mute, media);
         }
 
         /// <summary>
@@ -2835,14 +3919,14 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> V1UserUserIdLiveMeetingsMeetingIdEndpointsPutWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoints");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoints");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2889,7 +3973,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingEndpoints", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2908,9 +3992,9 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task V1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsync (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public async System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? meetingId, bool? mute = null, string media = null)
         {
-             await V1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsyncWithHttpInfo(userId, meetingId, mute, media);
+             await UpdateMeetingEndpointsAsyncWithHttpInfo(userId, meetingId, mute, media);
 
         }
 
@@ -2923,14 +4007,14 @@ namespace IO.Swagger.Api
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdLiveMeetingsMeetingIdEndpointsPutAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoints");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdEndpointsPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoints");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2976,7 +4060,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdEndpointsPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingEndpoints", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2984,744 +4068,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
-        }
-
-        /// <summary>
-        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>MeetingState</returns>
-        public MeetingState V1UserUserIdLiveMeetingsMeetingIdGet (int? userId, int? meetingId)
-        {
-             ApiResponse<MeetingState> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of MeetingState</returns>
-        public ApiResponse< MeetingState > V1UserUserIdLiveMeetingsMeetingIdGetWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
-            
-        }
-
-        /// <summary>
-        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of MeetingState</returns>
-        public async System.Threading.Tasks.Task<MeetingState> V1UserUserIdLiveMeetingsMeetingIdGetAsync (int? userId, int? meetingId)
-        {
-             ApiResponse<MeetingState> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Meeting State This endpoint’s purpose is to return whether the meeting is in progress or not.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (MeetingState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingState>> V1UserUserIdLiveMeetingsMeetingIdGetAsyncWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingState) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingState)));
-            
-        }
-
-        /// <summary>
-        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns></returns>
-        public void V1UserUserIdLiveMeetingsMeetingIdInvitePost (int? userId, int? meetingId, PayloadInvite payloadInvite)
-        {
-             V1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo(userId, meetingId, payloadInvite);
-        }
-
-        /// <summary>
-        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> V1UserUserIdLiveMeetingsMeetingIdInvitePostWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-            // verify the required parameter 'payloadInvite' is set
-            if (payloadInvite == null)
-                throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadInvite; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdInvitePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
-        }
-
-        /// <summary>
-        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task V1UserUserIdLiveMeetingsMeetingIdInvitePostAsync (int? userId, int? meetingId, PayloadInvite payloadInvite)
-        {
-             await V1UserUserIdLiveMeetingsMeetingIdInvitePostAsyncWithHttpInfo(userId, meetingId, payloadInvite);
-
-        }
-
-        /// <summary>
-        /// Send Email Invite This endpoint generates an email invite to the specified meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadInvite"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1UserUserIdLiveMeetingsMeetingIdInvitePostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-            // verify the required parameter 'payloadInvite' is set
-            if (payloadInvite == null)
-                throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdInvitePost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadInvite; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdInvitePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>PairingCode</returns>
-        public PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
-        {
-             ApiResponse<PairingCode> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>ApiResponse of PairingCode</returns>
-        public ApiResponse< PairingCode > V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-            // verify the required parameter 'payloadPairingCodeSIP' is set
-            if (payloadPairingCodeSIP == null)
-                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadPairingCodeSIP; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PairingCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
-            
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>Task of PairingCode</returns>
-        public async System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
-        {
-             ApiResponse<PairingCode> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (SIP) This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
-        /// <returns>Task of ApiResponse (PairingCode)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-            // verify the required parameter 'payloadPairingCodeSIP' is set
-            if (payloadPairingCodeSIP == null)
-                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadPairingCodeSIP; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPairingCodeSipPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PairingCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
-            
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>PairingCode</returns>
-        public PairingCode V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
-        {
-             ApiResponse<PairingCode> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>ApiResponse of PairingCode</returns>
-        public ApiResponse< PairingCode > V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-            // verify the required parameter 'payloadPairingCodeWebRTC' is set
-            if (payloadPairingCodeWebRTC == null)
-                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
-            if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeWebRTC); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadPairingCodeWebRTC; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PairingCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
-            
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>Task of PairingCode</returns>
-        public async System.Threading.Tasks.Task<PairingCode> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
-        {
-             ApiResponse<PairingCode> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Generate Pairing Code (WebRTC) This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="payloadPairingCodeWebRTC"></param>
-        /// <param name="role"> (optional, default to USER)</param>
-        /// <returns>Task of ApiResponse (PairingCode)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPostAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-            // verify the required parameter 'payloadPairingCodeWebRTC' is set
-            if (payloadPairingCodeWebRTC == null)
-                throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
-            if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeWebRTC); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = payloadPairingCodeWebRTC; // byte array
-            }
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPairingCodeWebrtcPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PairingCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PairingCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PairingCode)));
-            
         }
 
         /// <summary>
@@ -3733,9 +4079,9 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdPut (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public Meeting UpdateMeetingState (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
+             ApiResponse<Meeting> localVarResponse = UpdateMeetingStateWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
         }
 
@@ -3748,17 +4094,17 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdPutWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public ApiResponse< Meeting > UpdateMeetingStateWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'payloadMeetingState' is set
             if (payloadMeetingState == null)
-                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->UpdateMeetingState");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3812,7 +4158,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingState", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3831,9 +4177,9 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdPutAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public async System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
+             ApiResponse<Meeting> localVarResponse = await UpdateMeetingStateAsyncWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
 
         }
@@ -3847,17 +4193,17 @@ namespace IO.Swagger.Api
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdPutAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'payloadMeetingState' is set
             if (payloadMeetingState == null)
-                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->V1UserUserIdLiveMeetingsMeetingIdPut");
+                throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->UpdateMeetingState");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3910,353 +4256,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Numbers</returns>
-        public Numbers V1UserUserIdMeetingsMeetingIdNumbersGet (int? userId, int? meetingId)
-        {
-             ApiResponse<Numbers> localVarResponse = V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Numbers</returns>
-        public ApiResponse< Numbers > V1UserUserIdMeetingsMeetingIdNumbersGetWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
-
-            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingsMeetingIdNumbersGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Numbers>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
-            
-        }
-
-        /// <summary>
-        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Numbers</returns>
-        public async System.Threading.Tasks.Task<Numbers> V1UserUserIdMeetingsMeetingIdNumbersGetAsync (int? userId, int? meetingId)
-        {
-             ApiResponse<Numbers> localVarResponse = await V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo(userId, meetingId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Meeting Join Info This endpoint retrieves the join information for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Numbers)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Numbers>> V1UserUserIdMeetingsMeetingIdNumbersGetAsyncWithHttpInfo (int? userId, int? meetingId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdMeetingsMeetingIdNumbersGet");
-
-            var localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdMeetingsMeetingIdNumbersGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Numbers>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Numbers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Numbers)));
-            
-        }
-
-        /// <summary>
-        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdScheduledMeetingMeetingIdEmailsGet (int? userId, int? meetingId, string type = null, string role = null, string action = null)
-        {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo(userId, meetingId, type, role, action);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdScheduledMeetingMeetingIdEmailsGetWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdScheduledMeetingMeetingIdEmailsGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdScheduledMeetingMeetingIdEmailsGet");
-
-            var localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (type != null) localVarQueryParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // query parameter
-            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
-            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdScheduledMeetingMeetingIdEmailsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsync (int? userId, int? meetingId, string type = null, string role = null, string action = null)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsyncWithHttpInfo(userId, meetingId, type, role, action);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Meeting Email This endpoint retrieves the email object for a scheduled meeting.
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="type">TEXT, ICS, HTML (optional)</param>
-        /// <param name="role">moderator, participant (optional)</param>
-        /// <param name="action">create, edit, delete (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdScheduledMeetingMeetingIdEmailsGetAsyncWithHttpInfo (int? userId, int? meetingId, string type = null, string role = null, string action = null)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->V1UserUserIdScheduledMeetingMeetingIdEmailsGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->V1UserUserIdScheduledMeetingMeetingIdEmailsGet");
-
-            var localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (type != null) localVarQueryParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // query parameter
-            if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
-            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdScheduledMeetingMeetingIdEmailsGet", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateMeetingState", localVarResponse);
                 if (exception != null) throw exception;
             }
 
