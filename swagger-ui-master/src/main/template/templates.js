@@ -26,16 +26,20 @@ templates['auth_button'] = template({"compiler":[7,">= 4.0.0"],"main":function(c
     return "<a class='authorize__btn' href=\"#\">Authorize</a>\n";
 },"useData":true});
 templates['auth_button_operation'] = template({"1":function(container,depth0,helpers,partials,data) {
-    return "        authorize__btn_operation_login\n";
+    return "        Click to Logout\n";
 },"3":function(container,depth0,helpers,partials,data) {
-    return "        authorize__btn_operation_logout\n";
+    return "        Must Authorize\n";
 },"5":function(container,depth0,helpers,partials,data) {
+    return "        authorize__btn_operation_login\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "        authorize__btn_operation_logout\n";
+},"9":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "        <ul class=\"authorize-scopes\">\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.scopes : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.scopes : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </ul>\n";
-},"6":function(container,depth0,helpers,partials,data) {
+},"10":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing;
 
   return "                <li class=\"authorize__scope\" title=\""
@@ -46,10 +50,12 @@ templates['auth_button_operation'] = template({"1":function(container,depth0,hel
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {};
 
-  return "<div class=\"authorize__btn authorize__btn_operation\n"
+  return "<div class=\"authorize__btn authorize_btn_prompt\">\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.isLogout : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "</div>\n<div class=\"authorize__btn authorize__btn_operation\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.isLogout : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "\">\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.scopes : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.scopes : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"useData":true});
 templates['auth_view'] = template({"1":function(container,depth0,helpers,partials,data) {

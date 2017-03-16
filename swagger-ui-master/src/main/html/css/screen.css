@@ -1230,6 +1230,11 @@
   display: inline-block;
   background: url(../images/explorer_icons.png) no-repeat;
 }
+.swagger-section .authorize_btn_prompt {
+  height: 18px;
+  vertical-align: middle;
+  display: inline-block;
+}
 .swagger-section .authorize__btn_operation_login {
   background-position: 0 0;
   width: 18px;
