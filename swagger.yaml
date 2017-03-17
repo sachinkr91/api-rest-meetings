@@ -2,8 +2,9 @@ swagger: '2.0'
 info:
   title: BlueJeans onVideo REST API
   description: >
-    _Video That Works Where You Do, from the world's leader in cloud video communication._
-
+    _Video That Works Where You Do._
+    Use these API's to quickly integrate **BlueJeans** video into your applications.  
+     
     # Authentication
 
     Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification.
@@ -62,6 +63,33 @@ schemes:
   - https
 produces:
   - application/json
+
+tags:
+  -
+    name: Authentication
+    description:  Initiate a session with BlueJeans
+  -
+    name: User
+    description:  Manage End User Accounts
+  -
+    name: Enterprise
+    description:  Manage Enterprise User Accounts
+  -
+    name: Meeting
+    description:  Manage Video Meetings and Endpoints
+  -
+    name: History
+    description:  Access Historical Meeting Data
+  -
+    name: Recording
+    description:  Manage Meeting Recordings
+  -
+    name: Command Center
+    description:  Access Status of Current Meetings
+  -
+    name: Analytics
+    description:  Access Enterprise Usage Information
+
 paths:
   /oauth2/token?Password:
     post:

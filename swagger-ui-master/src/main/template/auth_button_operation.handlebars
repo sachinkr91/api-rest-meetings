@@ -1,8 +1,14 @@
-<div class="authorize__btn authorize_btn_prompt">
+<div class="authorize__btn authorize__btn_prompt 
+    {{#if isLogout}}
+        authorize__btn_prompt_login
+    {{else}}
+        authorize__btn_prompt_logout
+    {{/if}}
+">
     {{#if isLogout}}
         Click to Logout
     {{else}}
-        Must Authorize
+         Authorize Needed
     {{/if}}
 </div>
 <div class="authorize__btn authorize__btn_operation

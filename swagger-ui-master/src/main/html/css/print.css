@@ -1230,10 +1230,16 @@
   display: inline-block;
   background: url(../images/explorer_icons.png) no-repeat;
 }
-.swagger-section .authorize_btn_prompt {
+.swagger-section .authorize__btn_prompt {
   height: 18px;
   vertical-align: middle;
   display: inline-block;
+}
+.swagger-section .authorize__btn_prompt_login {
+  color: #4387FD;
+}
+.swagger-section .authorize__btn_prompt_logout {
+  color: #E04A3F;
 }
 .swagger-section .authorize__btn_operation_login {
   background-position: 0 0;
