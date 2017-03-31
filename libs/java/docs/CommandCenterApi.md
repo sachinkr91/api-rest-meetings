@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 <a name="v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet"></a>
 # **v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> Meeting v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid)
+> MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints)
 
 List Meeting Endpoints &amp; Stats by Enterprise
 
@@ -213,8 +213,9 @@ access_token.setApiKey("YOUR API KEY");
 CommandCenterApi apiInstance = new CommandCenterApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+Boolean includeEndpoints = true; // Boolean | Option to include detailed data on endpoints
 try {
-    Meeting result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid);
+    MeetingIndigo result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandCenterApi#v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
@@ -228,10 +229,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
  **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
+ **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional]
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 
@@ -299,7 +301,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdIndigoMeetingsMeetingGuidGet"></a>
 # **v1UserUserIdIndigoMeetingsMeetingGuidGet**
-> Meeting v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid)
+> MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid)
 
 List Meeting Endpoints &amp; Stats by User
 
@@ -326,7 +328,7 @@ CommandCenterApi apiInstance = new CommandCenterApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 try {
-    Meeting result = apiInstance.v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
+    MeetingIndigo result = apiInstance.v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandCenterApi#v1UserUserIdIndigoMeetingsMeetingGuidGet");
@@ -343,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 

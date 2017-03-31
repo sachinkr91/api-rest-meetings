@@ -1,6 +1,6 @@
 /**
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+ * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use on of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error'], factory);
+    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/MeetingIndigo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'));
+    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/MeetingIndigo'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error);
+    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingIndigo);
   }
-}(this, function(ApiClient, Meeting, Error) {
+}(this, function(ApiClient, Meeting, Error, MeetingIndigo) {
   'use strict';
 
   /**
@@ -213,7 +213,7 @@
      * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet operation.
      * @callback module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/MeetingIndigo} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -222,10 +222,13 @@
      * This endpoint lists meeting endpoints for completed meetings by enterprise.
      * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.includeEndpoints Option to include detailed data on endpoints
      * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * data is of type: {@link module:model/MeetingIndigo}
      */
-    this.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet = function(enterpriseId, meetingGuid, callback) {
+    this.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet = function(enterpriseId, meetingGuid, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
@@ -244,6 +247,7 @@
         'meeting_guid': meetingGuid
       };
       var queryParams = {
+        'includeEndpoints': opts['includeEndpoints']
       };
       var headerParams = {
       };
@@ -253,7 +257,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = MeetingIndigo;
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}', 'GET',
@@ -312,7 +316,7 @@
      * Callback function to receive the result of the v1UserUserIdIndigoMeetingsMeetingGuidGet operation.
      * @callback module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/MeetingIndigo} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -322,7 +326,7 @@
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * data is of type: {@link module:model/MeetingIndigo}
      */
     this.v1UserUserIdIndigoMeetingsMeetingGuidGet = function(userId, meetingGuid, callback) {
       var postBody = null;
@@ -352,7 +356,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = MeetingIndigo;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/indigo/meetings/{meeting_guid}', 'GET',

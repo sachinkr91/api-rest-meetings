@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 <a name="v1enterpriseenterpriseidindigomeetingsmeetingguidget"></a>
 # **V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> Meeting V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid)
+> MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -252,11 +252,12 @@ namespace Example
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
             var meetingGuid = meetingGuid_example;  // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+            var includeEndpoints = true;  // bool? | Option to include detailed data on endpoints (optional) 
 
             try
             {
                 // List Meeting Endpoints & Stats by Enterprise
-                Meeting result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid);
+                MeetingIndigo result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -274,10 +275,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meetingGuid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
+ **includeEndpoints** | **bool?**| Option to include detailed data on endpoints | [optional] 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 
@@ -359,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="v1useruseridindigomeetingsmeetingguidget"></a>
 # **V1UserUserIdIndigoMeetingsMeetingGuidGet**
-> Meeting V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
+> MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
 
 List Meeting Endpoints & Stats by User
 
@@ -392,7 +394,7 @@ namespace Example
             try
             {
                 // List Meeting Endpoints & Stats by User
-                Meeting result = apiInstance.V1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
+                MeetingIndigo result = apiInstance.V1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -413,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 

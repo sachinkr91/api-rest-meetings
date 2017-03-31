@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get**
-> Meeting v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid)
+> MeetingIndigo v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid, include_endpoints=include_endpoints)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -199,10 +199,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+include_endpoints = true # bool | Option to include detailed data on endpoints (optional)
 
 try: 
     # List Meeting Endpoints & Stats by Enterprise
-    api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid)
+    api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid, include_endpoints=include_endpoints)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get: %s\n" % e
@@ -214,10 +215,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meeting_guid** | **str**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
+ **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional] 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 
@@ -283,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_user_user_id_indigo_meetings_meeting_guid_get**
-> Meeting v1_user_user_id_indigo_meetings_meeting_guid_get(user_id, meeting_guid)
+> MeetingIndigo v1_user_user_id_indigo_meetings_meeting_guid_get(user_id, meeting_guid)
 
 List Meeting Endpoints & Stats by User
 
@@ -323,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 

@@ -1612,11 +1612,15 @@ paths:
           description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
           required: true
           type: string
+        - name: includeEndpoints
+          in: query
+          description: Option to include detailed data on endpoints
+          type: boolean
       responses:
         '200':
           description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingIndigo'
         default:
           description: Unexpected error
           schema:
@@ -1644,7 +1648,7 @@ paths:
         '200':
           description: The results for this user.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingIndigo'
         default:
           description: Unexpected error
           schema:
@@ -2881,6 +2885,471 @@ definitions:
                 type: string
               participantGuid:
                 type: string
+  MeetingIndigo:
+    type: object
+    properties:
+      meetingId:
+        type: string
+      meetingUUID:
+        type: string
+      userName:
+        type: string
+      email:
+        type: string
+      encryptionType:
+        type: integer
+      title:
+        type: string
+      userFullName:
+        type: string
+      phoneNumber:
+        type: string
+      userFeatures:
+        type: string
+      scheduledFrom:
+        type: string
+        enum:
+        - WEB_APP
+      inviteeCount:
+        type: integer
+      personal:
+        type: boolean
+      muteOnEntry:
+        type: boolean
+      autoRecord:
+        type: boolean
+      enterpriseName:
+        type: string
+      moderatorLess:
+        type: boolean
+      startTime:
+        type: integer
+        format: int64
+      endTime:
+        type: integer
+        format: int64
+      totalCallSeconds:
+        type: integer
+      createTime:
+        type: integer
+        format: int64
+      endpointsCount:
+        type: integer
+      concurrentEndpoints:
+        type: integer
+      liveVisibleEndpointsCount:
+        type: integer
+      qualarooRating:
+        type: integer
+      qualarooCount:
+        type: integer
+      meetingRecording:
+        type: boolean
+      videoShare:
+        type: boolean
+      contentShare:
+        type: boolean
+      liveRecording:
+        type: boolean
+      liveVideoShare:
+        type: boolean
+      liveContentShare:
+        type: boolean
+      largeMeeting:
+        type: boolean
+      roiDistance:
+        type: number
+        format: float
+      mpls:
+        type: boolean
+      id:
+        type: string
+      endpoints:
+        type: array
+        items:
+          $ref: '#/definitions/EndpointIndigo'
+  EndpointIndigo:
+    type: object
+    properties:
+      id:
+        type: integer
+      callguid:
+        type: string
+      name:
+        type: string
+      endpoint:
+        type: string
+      vendor:
+        type: string
+      version:
+        type: string
+      uniqId:
+        type: string
+      remoteAddress:
+        type: string
+      leader:
+        type: boolean
+      secureCall:
+        type: boolean
+      natDetected:
+        type: boolean
+      proxy:
+        type: boolean
+      roiDistance:
+        type: number
+        format: float
+      mpls:
+        type: boolean
+      videoShare:
+        type: boolean
+      recording:
+        type: boolean
+      creationTime:
+        type: integer
+        format: int64
+      meetingJoinTime:
+        type: integer
+        format: int64
+      meetingLeaveTime:
+        type: integer
+        format: int64
+      didNumber:
+        type: string
+      location:
+        type: object
+        properties:
+          id:
+            type: integer
+          countryCode:
+            type: string
+          countryName:
+            type: string
+          latitude:
+            type: number
+          longitude:
+            type: number
+      summaryStats:
+        type: object
+        properties:
+          audioRecvCodec:
+            type: string
+          audioSendCodec:
+            type: string
+          contentRecv:
+            type: boolean
+          contentSend:
+            type: boolean
+          talkDetected:
+            type: boolean
+          sessionRelay:
+            type: boolean
+          sessionInRelay:
+            type: boolean
+          sessionOutRelay:
+            type: boolean
+          audioRtpRelay:
+            type: boolean
+          callRate:
+            type: integer
+          cumulLoss_Percent_AI:
+            type: number
+          cumulLoss_Percent_AO:
+            type: number
+          cumulLoss_Percent_VI:
+            type: number
+          cumulLoss_Percent_VO:
+            type: number
+          cumulLoss_Percent_VIC:
+            type: number
+          cumulLoss_Percent_VOC:
+            type: number
+          cumulLoss_AI:
+            type: number
+          cumulLoss_AO:
+            type: number
+          cumulLoss_VI:
+            type: number
+          cumulLoss_VO:
+            type: number
+          cumulLoss_VIC:
+            type: number
+          cumulLoss_VOC:
+            type: number
+          discontinuityCount:
+            type: number
+          droppedPackets_AI:
+            type: number
+          droppedPackets_VI:
+            type: number
+          droppedPackets_VIC:
+            type: number
+          mixUnderRuns_AI:
+            type: number
+          networkAvgLoss_AI:
+            type: number
+          networkAvgLoss_AO:
+            type: number
+          networkAvgLoss_VI:
+            type: number
+          networkAvgLoss_VO:
+            type: number
+          networkCumulLoss_AI:
+            type: number
+          networkCumulLoss_AO:
+            type: number
+          networkCumulLoss_VI:
+            type: number
+          networkCumulLoss_VO:
+            type: number
+          networkLoss_AI:
+            type: number
+          networkLoss_AO:
+            type: number
+          networkLoss_VI:
+            type: number
+          networkLoss_VO:
+            type: number
+          callQuality_Min:
+            type: number
+          callQuality_Max:
+            type: number
+          callQuality_Avg:
+            type: number
+          fps_Min_VI:
+            type: number
+          fps_Min_VO:
+            type: number
+          fps_Min_VIC:
+            type: number
+          fps_Min_VOC:
+            type: number
+          fps_Max_VI:
+            type: number
+          fps_Max_VO:
+            type: number
+          fps_Max_VIC:
+            type: number
+          fps_Max_VOC:
+            type: number
+          fps_Avg_VI:
+            type: number
+          fps_Avg_VO:
+            type: number
+          fps_Avg_VIC:
+            type: number
+          fps_Avg_VOC:
+            type: number
+          bitrate_Min_AI:
+            type: number
+          bitrate_Min_AO:
+            type: number
+          bitrate_Min_VI:
+            type: number
+          bitrate_Min_VO:
+            type: number
+          bitrate_Min_VIC:
+            type: number
+          bitrate_Min_VOC:
+            type: number
+          bitrate_Max_AI:
+            type: number
+          bitrate_Max_AO:
+            type: number
+          bitrate_Max_VI:
+            type: number
+          bitrate_Max_VO:
+            type: number
+          bitrate_Max_VIC:
+            type: number
+          bitrate_Max_VOC:
+            type: number
+          bitrate_Avg_AI:
+            type: number
+          bitrate_Avg_AO:
+            type: number
+          bitrate_Avg_VI:
+            type: number
+          bitrate_Avg_VO:
+            type: number
+          bitrate_Avg_VIC:
+            type: number
+          bitrate_Avg_VOC:
+            type: number
+          jitter_Min_AI:
+            type: number
+          jitter_Min_AO:
+            type: number
+          jitter_Min_VI:
+            type: number
+          jitter_Min_VO:
+            type: number
+          jitter_Min_VIC:
+            type: number
+          jitter_Min_VOC:
+            type: number
+          jitter_Max_AI:
+            type: number
+          jitter_Max_AO:
+            type: number
+          jitter_Max_VI:
+            type: number
+          jitter_Max_VO:
+            type: number
+          jitter_Max_VIC:
+            type: number
+          jitter_Max_VOC:
+            type: number
+          jitter_Avg_AI:
+            type: number
+          jitter_Avg_AO:
+            type: number
+          jitter_Avg_VI:
+            type: number
+          jitter_Avg_VO:
+            type: number
+          jitter_Avg_VIC:
+            type: number
+          jitter_Avg_VOC:
+            type: number
+          maxJitter_Min_AI:
+            type: number
+          maxJitter_Min_VI:
+            type: number
+          maxJitter_Min_VIC:
+            type: number
+          maxJitter_Max_AI:
+            type: number
+          maxJitter_Max_VI:
+            type: number
+          maxJitter_Max_VIC:
+            type: number
+          maxJitter_Avg_AI:
+            type: number
+          maxJitter_Avg_VI:
+            type: number
+          maxJitter_Avg_VIC:
+            type: number
+          videoRecvHeight_Min:
+            type: number
+          videoRecvHeight_Max:
+            type: number
+          videoRecvWidth_Min:
+            type: number
+          videoRecvWidth_Max:
+            type: number
+          videoSendHeight_Min:
+            type: number
+          videoSendHeight_Max:
+            type: number
+          videoSendWidth_Min:
+            type: number
+          videoSendWidth_Max:
+            type: number
+          contentRecvHeight_Min:
+            type: number
+          contentRecvHeight_Max:
+            type: number
+          contentRecvWidth_Min:
+            type: number
+          contentRecvWidth_Max:
+            type: number
+          contentSendHeight_Min:
+            type: number
+          contentSendHeight_Max:
+            type: number
+          contentSendWidth_Min:
+            type: number
+          contentSendWidth_Max:
+            type: number
+          roundTripDelay_Min:
+            type: number
+          roundTripDelay_Max:
+            type: number
+          roundTripDelay_Avg:
+            type: number
+          rfactor_Min:
+            type: number
+          rfactor_Max:
+            type: number
+          rfactor_Avg:
+            type: number
+          processCpuLoad_Min:
+            type: number
+          processCpuLoad_Max:
+            type: number
+          processCpuLoad_Avg:
+            type: number
+          systemCpuLoad_Min:
+            type: number
+          systemCpuLoad_Max:
+            type: number
+          systemCpuLoad_Avg:
+            type: number
+          wifiRecvStrength_Min:
+            type: number
+          wifiRecvStrength_Max:
+            type: number
+          wifiRecvStrength_Avg:
+            type: number
+          keyFrameRate_Avg_VI:
+            type: number
+          keyFrameRate_Avg_VO:
+            type: number
+          keyFrameRate_Avg_VIC:
+            type: number
+          keyFrameRate_Avg_VOC:
+            type: number
+          keyFrameRate_Min_VI:
+            type: number
+          keyFrameRate_Min_VO:
+            type: number
+          keyFrameRate_Min_VIC:
+            type: number
+          keyFrameRate_Min_VOC:
+            type: number
+          keyFrameRate_Max_VI:
+            type: number
+          keyFrameRate_Max_VO:
+            type: number
+          keyFrameRate_Max_VIC:
+            type: number
+          keyFrameRate_Max_VOC:
+            type: number
+          roundTripDelay_Avg_VO:
+            type: number
+          roundTripDelay_Avg_VOC:
+            type: number
+          roundTripDelay_Avg_AO:
+            type: number
+      endpointAttributes1:
+        type: object
+        properties:
+          reIceCount:
+            type: integer
+          remoteConnectionCount:
+            type: integer
+      traceroute:
+        type: object
+        properties:
+          tracePath:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                ip:
+                  type: string
+                delay1:
+                  type: number
+                delay2:
+                  type: number
+                delay3:
+                  type: number
+                asapath:
+                  type: string
+      mhtaskStopped:
+        type: boolean
   Content:
     type: object
     properties:

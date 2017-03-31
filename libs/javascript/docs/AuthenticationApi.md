@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Authentication via Client Grant Type
 
-This grant type is commonly used by an app. Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console.
+This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
 
 ### Example
 ```javascript
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 Authentication via Meeting Grant Type
 
-This is not a traditional OAuth grant type, but it behaves closely to the password grant type. This level of authentication allows for obtaining access to the meeting only. If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will have a limited scope of access that an attendee has within a meeting.
+This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
 
 ### Example
 ```javascript
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 Authentication via Password Grant Type
 
-An access token can be obtained by using a user’s username and password.
+This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
 
 ### Example
 ```javascript

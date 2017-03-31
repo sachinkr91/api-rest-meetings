@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 <a name="v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet"></a>
 # **v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> Meeting v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid)
+> MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, opts)
 
 List Meeting Endpoints &amp; Stats by Enterprise
 
@@ -207,6 +207,9 @@ var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This v
 
 var meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
+var opts = { 
+  'includeEndpoints': true // Boolean | Option to include detailed data on endpoints
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -215,7 +218,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, callback);
+apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, opts, callback);
 ```
 
 ### Parameters
@@ -224,10 +227,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
+ **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional] 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 
@@ -293,7 +297,7 @@ Name | Type | Description  | Notes
 
 <a name="v1UserUserIdIndigoMeetingsMeetingGuidGet"></a>
 # **v1UserUserIdIndigoMeetingsMeetingGuidGet**
-> Meeting v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid)
+> MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid)
 
 List Meeting Endpoints &amp; Stats by User
 
@@ -336,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigo**](MeetingIndigo.md)
 
 ### Authorization
 

@@ -13,7 +13,7 @@
 /**
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided.
+ * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use on of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -423,12 +423,13 @@ class CommandCenterApi
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @return \Swagger\Client\Model\MeetingIndigo
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid)
+    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints = null)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid);
+        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid, $include_endpoints);
         return $response;
     }
 
@@ -439,10 +440,11 @@ class CommandCenterApi
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @return Array of \Swagger\Client\Model\MeetingIndigo, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid)
+    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid, $include_endpoints = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
@@ -464,6 +466,10 @@ class CommandCenterApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
+        // query params
+        if ($include_endpoints !== null) {
+            $queryParams['includeEndpoints'] = $this->apiClient->getSerializer()->toQueryValue($include_endpoints);
+        }
         // path params
         if ($enterprise_id !== null) {
             $resourcePath = str_replace(
@@ -503,15 +509,15 @@ class CommandCenterApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\MeetingIndigo',
                 '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigo', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigo', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -625,7 +631,7 @@ class CommandCenterApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\MeetingIndigo
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid)
@@ -641,7 +647,7 @@ class CommandCenterApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Swagger\Client\Model\MeetingIndigo, HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
     public function v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo($user_id, $meeting_guid)
@@ -705,15 +711,15 @@ class CommandCenterApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\MeetingIndigo',
                 '/v1/user/{user_id}/indigo/meetings/{meeting_guid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigo', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigo', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

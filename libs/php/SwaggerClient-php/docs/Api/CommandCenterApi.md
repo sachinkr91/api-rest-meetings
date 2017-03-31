@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> \Swagger\Client\Model\Meeting v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid)
+> \Swagger\Client\Model\MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -190,9 +190,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 $api_instance = new Swagger\Client\Api\CommandCenterApi();
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+$include_endpoints = true; // bool | Option to include detailed data on endpoints
 
 try {
-    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid);
+    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet: ', $e->getMessage(), PHP_EOL;
@@ -206,10 +207,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
  **meeting_guid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
+ **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\MeetingIndigo**](../Model/MeetingIndigo.md)
 
 ### Authorization
 
@@ -273,7 +275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdIndigoMeetingsMeetingGuidGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid)
+> \Swagger\Client\Model\MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid)
 
 List Meeting Endpoints & Stats by User
 
@@ -311,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\MeetingIndigo**](../Model/MeetingIndigo.md)
 
 ### Authorization
 

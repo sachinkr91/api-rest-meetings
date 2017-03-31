@@ -1,7 +1,7 @@
 /* 
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do, from the world's leader in cloud video communication._ # Authentication Each API request that is sent to BlueJeans requires an access token, which is obtained through the BlueJeans Authentication API. There are several methods (grant types) for obtaining an access token, which follow the OAuth2.0 specification. ## Grant Types * Authorization Code Grant – This grant type is used in an authentication flow commonly referred to as \"three-legged OAuth\". The user authenticates via a BlueJeans page, which provides an authorization code. This code, along with a few other elements, can be used to obtain an access code. * Password Credentials Grant – This grant type is used in a two-legged OAuth flow. Username and password are sent to retrieve an access code. * Client Credentials Grant – This grant type is used in a two-legged OAuth flow.  ## Access & Permissions The access level that is associated with each access token is referred to as the scope. There are three basic levels of access that BlueJeans allows, which affect the level of scope.  Three access levels exist within the Blue Jeans service today. * Meeting-level – Authentication takes place using a meeting ID and passcode, and the scope is limited to APIs that relate to the individual meeting. * User-level – Authentication either takes place via three-legged OAuth, or else a direct authorization token request containing a username or password. Access level depends on the requested scope permissions. * App-level – An application is provisioned either by BlueJeans personnel, or within the BlueJeans Enterprise Admin interface. When provisioning an app, a client key and secret are provided, which is then used to obtain an access token, via the BlueJeans Authentication API. The scope that is associated with the token will provide access to an entire enterprise and all of its users.  All endpoints in this document that require Enterprise Admin access will be marked as such. ## Testing In order to make effective use of this page, you will first use one of the authentication methods to obtain an access token. Once the token is given, use the Authorize button up in the header to store the token. Each BlueJeans API called after that will use the access token provided. 
+ * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use on of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -116,8 +116,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid);
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>MeetingIndigo</returns>
+        MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
 
         /// <summary>
         /// List Meeting Endpoints &amp; Stats by Enterprise
@@ -128,8 +129,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid);
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>ApiResponse of MeetingIndigo</returns>
+        ApiResponse<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -160,8 +162,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid);
+        /// <returns>MeetingIndigo</returns>
+        MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid);
 
         /// <summary>
         /// List Meeting Endpoints &amp; Stats by User
@@ -172,8 +174,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid);
+        /// <returns>ApiResponse of MeetingIndigo</returns>
+        ApiResponse<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -256,8 +258,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid);
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of MeetingIndigo</returns>
+        System.Threading.Tasks.Task<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
 
         /// <summary>
         /// List Meeting Endpoints &amp; Stats by Enterprise
@@ -268,8 +271,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid);
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -300,8 +304,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid);
+        /// <returns>Task of MeetingIndigo</returns>
+        System.Threading.Tasks.Task<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid);
 
         /// <summary>
         /// List Meeting Endpoints &amp; Stats by User
@@ -312,8 +316,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid);
+        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid);
         #endregion Asynchronous Operations
     }
 
@@ -918,10 +922,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid)
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>MeetingIndigo</returns>
+        public MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo(enterpriseId, meetingGuid);
+             ApiResponse<MeetingIndigo> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo(enterpriseId, meetingGuid, includeEndpoints);
              return localVarResponse.Data;
         }
 
@@ -931,8 +936,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid)
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>ApiResponse of MeetingIndigo</returns>
+        public ApiResponse< MeetingIndigo > V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -967,6 +973,7 @@ namespace IO.Swagger.Api
             localVarPathParams.Add("format", "json");
             if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
             if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -988,9 +995,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
             
         }
 
@@ -1000,10 +1007,11 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid)
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of MeetingIndigo</returns>
+        public async System.Threading.Tasks.Task<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(enterpriseId, meetingGuid);
+             ApiResponse<MeetingIndigo> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(enterpriseId, meetingGuid, includeEndpoints);
              return localVarResponse.Data;
 
         }
@@ -1014,8 +1022,9 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid)
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -1050,6 +1059,7 @@ namespace IO.Swagger.Api
             localVarPathParams.Add("format", "json");
             if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
             if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -1070,9 +1080,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
             
         }
 
@@ -1234,10 +1244,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
+        /// <returns>MeetingIndigo</returns>
+        public MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo(userId, meetingGuid);
+             ApiResponse<MeetingIndigo> localVarResponse = V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo(userId, meetingGuid);
              return localVarResponse.Data;
         }
 
@@ -1247,8 +1257,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid)
+        /// <returns>ApiResponse of MeetingIndigo</returns>
+        public ApiResponse< MeetingIndigo > V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1304,9 +1314,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
             
         }
 
@@ -1316,10 +1326,10 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid)
+        /// <returns>Task of MeetingIndigo</returns>
+        public async System.Threading.Tasks.Task<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(userId, meetingGuid);
+             ApiResponse<MeetingIndigo> localVarResponse = await V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(userId, meetingGuid);
              return localVarResponse.Data;
 
         }
@@ -1330,8 +1340,8 @@ namespace IO.Swagger.Api
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid)
+        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1386,9 +1396,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
             
         }
 
