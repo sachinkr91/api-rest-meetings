@@ -16,6 +16,6 @@
 language: csharp
 mono:
   - latest
-solution: IO.Swagger.sln
+solution: com.bluejeans.api.rest.onvideo.sln
 script:
   - /bin/sh ./mono_nunit_test.sh

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MeetingState
+# com.bluejeans.api.rest.onvideo.Model.MeetingState
 ## Properties
 
 Name | Type | Description | Notes

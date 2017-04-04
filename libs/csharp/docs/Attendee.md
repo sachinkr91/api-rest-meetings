@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Attendee
+# com.bluejeans.api.rest.onvideo.Model.Attendee
 ## Properties
 
 Name | Type | Description | Notes

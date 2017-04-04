@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 <a name="listMeetings"></a>
 # **listMeetings**
-> [Meeting] listMeetings(userId)
+> [Meeting] listMeetings(userId, opts)
 
 List Meetings
 
@@ -691,6 +691,9 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
+var opts = { 
+  'numericMeetingId': "numericMeetingId_example" // String | Filter the results by the meeting ID that participants will see and use to join the conference.
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -699,7 +702,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.listMeetings(userId, callback);
+apiInstance.listMeetings(userId, opts, callback);
 ```
 
 ### Parameters
@@ -707,6 +710,7 @@ apiInstance.listMeetings(userId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **numericMeetingId** | **String**| Filter the results by the meeting ID that participants will see and use to join the conference. | [optional] 
 
 ### Return type
 

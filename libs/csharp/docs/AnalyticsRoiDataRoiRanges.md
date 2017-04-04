@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AnalyticsRoiDataRoiRanges
+# com.bluejeans.api.rest.onvideo.Model.AnalyticsRoiDataRoiRanges
 ## Properties
 
 Name | Type | Description | Notes

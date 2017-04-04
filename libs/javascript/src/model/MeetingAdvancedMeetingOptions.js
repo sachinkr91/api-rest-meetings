@@ -115,9 +115,8 @@
   exports.prototype['muteParticipantsOnEntry'] = undefined;
   /**
    * @member {module:model/MeetingAdvancedMeetingOptions.EncryptionTypeEnum} encryptionType
-   * @default 'NO_ENCRYPTION'
    */
-  exports.prototype['encryptionType'] = 'NO_ENCRYPTION';
+  exports.prototype['encryptionType'] = undefined;
   /**
    * @member {Boolean} moderatorLess
    */

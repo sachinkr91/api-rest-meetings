@@ -691,10 +691,13 @@
      * List Meetings
      * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
      * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.numericMeetingId Filter the results by the meeting ID that participants will see and use to join the conference.
      * @param {module:api/MeetingApi~listMeetingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Meeting>}
      */
-    this.listMeetings = function(userId, callback) {
+    this.listMeetings = function(userId, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'userId' is set
@@ -707,6 +710,7 @@
         'user_id': userId
       };
       var queryParams = {
+        'numericMeetingId': opts['numericMeetingId']
       };
       var headerParams = {
       };

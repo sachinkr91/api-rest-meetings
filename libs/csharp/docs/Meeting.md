@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Meeting
+# com.bluejeans.api.rest.onvideo.Model.Meeting
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Start** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **End** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **Timezone** | **string** |  | [optional] [default to "America/New_York"]
-**NumericMeetingId** | **string** |  | [optional] 
+**NumericMeetingId** | **string** | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | [optional] 
 **AttendeePasscode** | **string** |  | [optional] 
 **EndPointVersion** | **string** |  | [default to "2.10"]
 **EndPointType** | **string** |  | [default to "WEB_APP"]

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Endpoints
+# com.bluejeans.api.rest.onvideo.Model.Endpoints
 ## Properties
 
 Name | Type | Description | Notes

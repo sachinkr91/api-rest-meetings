@@ -1336,6 +1336,7 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param str numeric_meeting_id: Filter the results by the meeting ID that participants will see and use to join the conference.
         :return: list[Meeting]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1363,12 +1364,13 @@ class MeetingApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param str numeric_meeting_id: Filter the results by the meeting ID that participants will see and use to join the conference.
         :return: list[Meeting]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id']
+        all_params = ['user_id', 'numeric_meeting_id']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1391,6 +1393,8 @@ class MeetingApi(object):
             path_params['user_id'] = params['user_id']
 
         query_params = {}
+        if 'numeric_meeting_id' in params:
+            query_params['numericMeetingId'] = params['numeric_meeting_id']
 
         header_params = {}
 

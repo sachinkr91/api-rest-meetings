@@ -1,4 +1,4 @@
-# IO.Swagger.Model.ContentContentPropertiesLevels
+# com.bluejeans.api.rest.onvideo.Model.ContentContentPropertiesLevels
 ## Properties
 
 Name | Type | Description | Notes

@@ -636,7 +636,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_meetings**
-> list[Meeting] list_meetings(user_id)
+> list[Meeting] list_meetings(user_id, numeric_meeting_id=numeric_meeting_id)
 
 List Meetings
 
@@ -657,10 +657,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+numeric_meeting_id = 'numeric_meeting_id_example' # str | Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
 
 try: 
     # List Meetings
-    api_response = api_instance.list_meetings(user_id)
+    api_response = api_instance.list_meetings(user_id, numeric_meeting_id=numeric_meeting_id)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling MeetingApi->list_meetings: %s\n" % e
@@ -671,6 +672,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **numeric_meeting_id** | **str**| Filter the results by the meeting ID that participants will see and use to join the conference. | [optional] 
 
 ### Return type
 

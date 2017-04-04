@@ -1,4 +1,4 @@
-# IO.Swagger.Api.CommandCenterApi
+# com.bluejeans.api.rest.onvideo.Api.CommandCenterApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -24,9 +24,9 @@ This endpoint lists completed meetings by enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -97,9 +97,9 @@ This endpoint lists meetings in progress by enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -164,9 +164,9 @@ This endpoint lists endpoints for a given meeting in progress.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -233,9 +233,9 @@ This endpoint lists meeting endpoints for completed meetings by enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -304,9 +304,9 @@ This endpoint lists completed meetings by user.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -371,9 +371,9 @@ This endpoint lists meeting endpoints for completed meetings by user.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {

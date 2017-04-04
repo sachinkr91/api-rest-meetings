@@ -1,4 +1,4 @@
-# IO.Swagger.Model.EndpointsInnerConnections
+# com.bluejeans.api.rest.onvideo.Model.EndpointsInnerConnections
 ## Properties
 
 Name | Type | Description | Notes

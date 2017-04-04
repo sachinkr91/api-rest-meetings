@@ -2185,7 +2185,6 @@ definitions:
             type: boolean
           encryptionType:
             type: string
-            default: NO_ENCRYPTION
             enum:
               - NO_ENCRYPTION
               - ENCRYPTED_ONLY

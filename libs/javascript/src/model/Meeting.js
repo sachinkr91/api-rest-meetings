@@ -156,6 +156,7 @@
    */
   exports.prototype['timezone'] = 'America/New_York';
   /**
+   * The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
    * @member {String} numericMeetingId
    */
   exports.prototype['numericMeetingId'] = undefined;

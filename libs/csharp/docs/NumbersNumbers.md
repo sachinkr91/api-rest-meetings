@@ -1,4 +1,4 @@
-# IO.Swagger.Model.NumbersNumbers
+# com.bluejeans.api.rest.onvideo.Model.NumbersNumbers
 ## Properties
 
 Name | Type | Description | Notes

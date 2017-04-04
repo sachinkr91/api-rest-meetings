@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AnalyticsEndpointDistributionDistribution
+# com.bluejeans.api.rest.onvideo.Model.AnalyticsEndpointDistributionDistribution
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RecordingRecordingSessions
+# com.bluejeans.api.rest.onvideo.Model.RecordingRecordingSessions
 ## Properties
 
 Name | Type | Description | Notes

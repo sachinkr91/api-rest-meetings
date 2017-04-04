@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PairingCodeTurnservers
+# com.bluejeans.api.rest.onvideo.Model.PairingCodeTurnservers
 ## Properties
 
 Name | Type | Description | Notes

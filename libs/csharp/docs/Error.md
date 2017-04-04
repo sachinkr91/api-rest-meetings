@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Error
+# com.bluejeans.api.rest.onvideo.Model.Error
 ## Properties
 
 Name | Type | Description | Notes

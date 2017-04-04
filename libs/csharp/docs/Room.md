@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Room
+# com.bluejeans.api.rest.onvideo.Model.Room
 ## Properties
 
 Name | Type | Description | Notes

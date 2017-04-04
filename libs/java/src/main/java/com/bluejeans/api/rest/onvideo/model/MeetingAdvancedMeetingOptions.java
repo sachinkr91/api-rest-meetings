@@ -68,7 +68,7 @@ public class MeetingAdvancedMeetingOptions   {
   }
 
   @SerializedName("encryptionType")
-  private EncryptionTypeEnum encryptionType = EncryptionTypeEnum.NO_ENCRYPTION;
+  private EncryptionTypeEnum encryptionType = null;
 
   @SerializedName("moderatorLess")
   private Boolean moderatorLess = null;

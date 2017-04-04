@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **autoRecord** | **Boolean** |  | [optional] 
 **muteParticipantsOnEntry** | **Boolean** |  | [optional] 
-**encryptionType** | **String** |  | [optional] [default to &#39;NO_ENCRYPTION&#39;]
+**encryptionType** | **String** |  | [optional] 
 **moderatorLess** | **Boolean** |  | [optional] 
 **videoBestFit** | **Boolean** |  | [optional] 
 **disallowChat** | **Boolean** |  | [optional] 

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PayloadPairingCodeSIP
+# com.bluejeans.api.rest.onvideo.Model.PayloadPairingCodeSIP
 ## Properties
 
 Name | Type | Description | Notes

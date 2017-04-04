@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PayloadInvite
+# com.bluejeans.api.rest.onvideo.Model.PayloadInvite
 ## Properties
 
 Name | Type | Description | Notes

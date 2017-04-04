@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PayloadPairingCodeWebRTC
+# com.bluejeans.api.rest.onvideo.Model.PayloadPairingCodeWebRTC
 ## Properties
 
 Name | Type | Description | Notes

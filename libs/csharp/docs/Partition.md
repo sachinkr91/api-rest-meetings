@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Partition
+# com.bluejeans.api.rest.onvideo.Model.Partition
 ## Properties
 
 Name | Type | Description | Notes

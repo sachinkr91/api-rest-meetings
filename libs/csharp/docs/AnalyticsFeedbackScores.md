@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AnalyticsFeedbackScores
+# com.bluejeans.api.rest.onvideo.Model.AnalyticsFeedbackScores
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.EndpointIndigoTraceroute
+# com.bluejeans.api.rest.onvideo.Model.EndpointIndigoTraceroute
 ## Properties
 
 Name | Type | Description | Notes

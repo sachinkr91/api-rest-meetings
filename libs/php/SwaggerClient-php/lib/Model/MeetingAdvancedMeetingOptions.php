@@ -175,7 +175,7 @@ class MeetingAdvancedMeetingOptions implements ArrayAccess
     {
         $this->container['auto_record'] = isset($data['auto_record']) ? $data['auto_record'] : null;
         $this->container['mute_participants_on_entry'] = isset($data['mute_participants_on_entry']) ? $data['mute_participants_on_entry'] : null;
-        $this->container['encryption_type'] = isset($data['encryption_type']) ? $data['encryption_type'] : 'NO_ENCRYPTION';
+        $this->container['encryption_type'] = isset($data['encryption_type']) ? $data['encryption_type'] : null;
         $this->container['moderator_less'] = isset($data['moderator_less']) ? $data['moderator_less'] : null;
         $this->container['video_best_fit'] = isset($data['video_best_fit']) ? $data['video_best_fit'] : null;
         $this->container['disallow_chat'] = isset($data['disallow_chat']) ? $data['disallow_chat'] : null;

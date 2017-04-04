@@ -176,10 +176,10 @@ public class Meeting   {
   }
 
    /**
-   * Get numericMeetingId
+   * The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
    * @return numericMeetingId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.")
   public String getNumericMeetingId() {
     return numericMeetingId;
   }

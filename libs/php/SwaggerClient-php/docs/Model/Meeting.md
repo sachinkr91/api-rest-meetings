@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **start** | **int** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **end** | **int** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **timezone** | **string** |  | [optional] [default to 'America/New_York']
-**numeric_meeting_id** | **string** |  | [optional] 
+**numeric_meeting_id** | **string** | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | [optional] 
 **attendee_passcode** | **string** |  | [optional] 
 **end_point_version** | **string** |  | [default to '2.10']
 **end_point_type** | **string** |  | [default to 'WEB_APP']

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MeetingHistoryParticipantList
+# com.bluejeans.api.rest.onvideo.Model.MeetingHistoryParticipantList
 ## Properties
 
 Name | Type | Description | Notes

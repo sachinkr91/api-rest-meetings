@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MeetingIndigo
+# com.bluejeans.api.rest.onvideo.Model.MeetingIndigo
 ## Properties
 
 Name | Type | Description | Notes

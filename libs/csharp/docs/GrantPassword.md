@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GrantPassword
+# com.bluejeans.api.rest.onvideo.Model.GrantPassword
 ## Properties
 
 Name | Type | Description | Notes

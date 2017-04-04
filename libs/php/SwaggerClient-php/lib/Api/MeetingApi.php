@@ -1369,12 +1369,13 @@ class MeetingApi
      * List Meetings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $numeric_meeting_id Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
      * @return \Swagger\Client\Model\Meeting[]
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetings($user_id)
+    public function listMeetings($user_id, $numeric_meeting_id = null)
     {
-        list($response) = $this->listMeetingsWithHttpInfo($user_id);
+        list($response) = $this->listMeetingsWithHttpInfo($user_id, $numeric_meeting_id);
         return $response;
     }
 
@@ -1384,10 +1385,11 @@ class MeetingApi
      * List Meetings
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $numeric_meeting_id Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
      * @return Array of \Swagger\Client\Model\Meeting[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Swagger\Client\ApiException on non-2xx response
      */
-    public function listMeetingsWithHttpInfo($user_id)
+    public function listMeetingsWithHttpInfo($user_id, $numeric_meeting_id = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -1405,6 +1407,10 @@ class MeetingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
 
+        // query params
+        if ($numeric_meeting_id !== null) {
+            $queryParams['numericMeetingId'] = $this->apiClient->getSerializer()->toQueryValue($numeric_meeting_id);
+        }
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(

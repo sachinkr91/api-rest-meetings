@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Layout
+# com.bluejeans.api.rest.onvideo.Model.Layout
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GrantPasswordScope
+# com.bluejeans.api.rest.onvideo.Model.GrantPasswordScope
 ## Properties
 
 Name | Type | Description | Notes

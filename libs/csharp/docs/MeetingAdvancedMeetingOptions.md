@@ -1,11 +1,11 @@
-# IO.Swagger.Model.MeetingAdvancedMeetingOptions
+# com.bluejeans.api.rest.onvideo.Model.MeetingAdvancedMeetingOptions
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoRecord** | **bool?** |  | [optional] 
 **MuteParticipantsOnEntry** | **bool?** |  | [optional] 
-**EncryptionType** | **string** |  | [optional] [default to "NO_ENCRYPTION"]
+**EncryptionType** | **string** |  | [optional] 
 **ModeratorLess** | **bool?** |  | [optional] 
 **VideoBestFit** | **bool?** |  | [optional] 
 **DisallowChat** | **bool?** |  | [optional] 

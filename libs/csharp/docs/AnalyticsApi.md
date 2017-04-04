@@ -1,4 +1,4 @@
-# IO.Swagger.Api.AnalyticsApi
+# com.bluejeans.api.rest.onvideo.Api.AnalyticsApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -24,9 +24,9 @@ This endpoint retrieves endpoint connection type distribution by enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -93,9 +93,9 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -164,9 +164,9 @@ This endpoint lists end of meeting survey scores by enterprise by time period.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -235,9 +235,9 @@ This endpoint reports on meeting usage.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -306,9 +306,9 @@ This endpoint lists return on investment (ROI) data for meetings.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -375,9 +375,9 @@ This endpoint retrieves the top users by usage for an enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {

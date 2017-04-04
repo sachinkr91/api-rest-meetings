@@ -1,4 +1,4 @@
-# IO.Swagger.Api.AuthenticationApi
+# com.bluejeans.api.rest.onvideo.Api.AuthenticationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -21,9 +21,9 @@ This API is typically called from an application.  Client ID and Secret are prov
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -88,9 +88,9 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -155,9 +155,9 @@ This API performs an authentication based upon a username and password.   Call t
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {

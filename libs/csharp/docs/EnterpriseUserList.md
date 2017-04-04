@@ -1,4 +1,4 @@
-# IO.Swagger.Model.EnterpriseUserList
+# com.bluejeans.api.rest.onvideo.Model.EnterpriseUserList
 ## Properties
 
 Name | Type | Description | Notes

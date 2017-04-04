@@ -1,4 +1,4 @@
-# IO.Swagger.Api.HistoryApi
+# com.bluejeans.api.rest.onvideo.Api.HistoryApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -24,9 +24,9 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -93,9 +93,9 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -162,9 +162,9 @@ This endpoint retrieves the details about a meeting recording.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -231,9 +231,9 @@ This endpoint retrieves a list of meeting histories by the given enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -298,9 +298,9 @@ This endpoint retrieves a list of meeting histories by the given user.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -377,9 +377,9 @@ This endpoint retrieves a list of meeting recordings.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {

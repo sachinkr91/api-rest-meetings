@@ -1,4 +1,4 @@
-# IO.Swagger.Model.EndpointIndigoSummaryStats
+# com.bluejeans.api.rest.onvideo.Model.EndpointIndigoSummaryStats
 ## Properties
 
 Name | Type | Description | Notes

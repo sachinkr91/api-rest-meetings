@@ -1,4 +1,4 @@
-# IO.Swagger.Model.EndpointIndigoLocation
+# com.bluejeans.api.rest.onvideo.Model.EndpointIndigoLocation
 ## Properties
 
 Name | Type | Description | Notes

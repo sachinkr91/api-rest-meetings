@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listMeetings**
-> \Swagger\Client\Model\Meeting[] listMeetings($user_id)
+> \Swagger\Client\Model\Meeting[] listMeetings($user_id, $numeric_meeting_id)
 
 List Meetings
 
@@ -632,9 +632,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$numeric_meeting_id = "numeric_meeting_id_example"; // string | Filter the results by the meeting ID that participants will see and use to join the conference.
 
 try {
-    $result = $api_instance->listMeetings($user_id);
+    $result = $api_instance->listMeetings($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->listMeetings: ', $e->getMessage(), PHP_EOL;
@@ -647,6 +648,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **numeric_meeting_id** | **string**| Filter the results by the meeting ID that participants will see and use to join the conference. | [optional]
 
 ### Return type
 

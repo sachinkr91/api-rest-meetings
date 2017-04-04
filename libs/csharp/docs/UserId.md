@@ -1,4 +1,4 @@
-# IO.Swagger.Model.UserId
+# com.bluejeans.api.rest.onvideo.Model.UserId
 ## Properties
 
 Name | Type | Description | Notes

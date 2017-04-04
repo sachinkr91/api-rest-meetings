@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RecordingRecordingChapters
+# com.bluejeans.api.rest.onvideo.Model.RecordingRecordingChapters
 ## Properties
 
 Name | Type | Description | Notes

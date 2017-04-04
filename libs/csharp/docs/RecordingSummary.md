@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RecordingSummary
+# com.bluejeans.api.rest.onvideo.Model.RecordingSummary
 ## Properties
 
 Name | Type | Description | Notes

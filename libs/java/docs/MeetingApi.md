@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 <a name="listMeetings"></a>
 # **listMeetings**
-> List&lt;Meeting&gt; listMeetings(userId)
+> List&lt;Meeting&gt; listMeetings(userId, numericMeetingId)
 
 List Meetings
 
@@ -695,8 +695,9 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+String numericMeetingId = "numericMeetingId_example"; // String | Filter the results by the meeting ID that participants will see and use to join the conference.
 try {
-    List<Meeting> result = apiInstance.listMeetings(userId);
+    List<Meeting> result = apiInstance.listMeetings(userId, numericMeetingId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#listMeetings");
@@ -709,6 +710,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **numericMeetingId** | **String**| Filter the results by the meeting ID that participants will see and use to join the conference. | [optional]
 
 ### Return type
 

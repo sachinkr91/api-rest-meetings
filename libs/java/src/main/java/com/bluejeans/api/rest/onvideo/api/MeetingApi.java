@@ -1407,7 +1407,7 @@ public class MeetingApi {
         return call;
     }
     /* Build call for listMeetings */
-    private com.squareup.okhttp.Call listMeetingsCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listMeetingsCall(Integer userId, String numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'userId' is set
@@ -1421,6 +1421,8 @@ public class MeetingApi {
         .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (numericMeetingId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "numericMeetingId", numericMeetingId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1458,11 +1460,12 @@ public class MeetingApi {
      * List Meetings
      * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param numericMeetingId Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
      * @return List&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Meeting> listMeetings(Integer userId) throws ApiException {
-        ApiResponse<List<Meeting>> resp = listMeetingsWithHttpInfo(userId);
+    public List<Meeting> listMeetings(Integer userId, String numericMeetingId) throws ApiException {
+        ApiResponse<List<Meeting>> resp = listMeetingsWithHttpInfo(userId, numericMeetingId);
         return resp.getData();
     }
 
@@ -1470,11 +1473,12 @@ public class MeetingApi {
      * List Meetings
      * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param numericMeetingId Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
      * @return ApiResponse&lt;List&lt;Meeting&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Meeting>> listMeetingsWithHttpInfo(Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = listMeetingsCall(userId, null, null);
+    public ApiResponse<List<Meeting>> listMeetingsWithHttpInfo(Integer userId, String numericMeetingId) throws ApiException {
+        com.squareup.okhttp.Call call = listMeetingsCall(userId, numericMeetingId, null, null);
         Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1483,11 +1487,12 @@ public class MeetingApi {
      * List Meetings (asynchronously)
      * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param numericMeetingId Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listMeetingsAsync(Integer userId, final ApiCallback<List<Meeting>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listMeetingsAsync(Integer userId, String numericMeetingId, final ApiCallback<List<Meeting>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1508,7 +1513,7 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listMeetingsCall(userId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listMeetingsCall(userId, numericMeetingId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Meeting>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

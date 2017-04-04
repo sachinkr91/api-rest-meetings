@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AnalyticsFeedbackComments
+# com.bluejeans.api.rest.onvideo.Model.AnalyticsFeedbackComments
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GrantRequestMeeting
+# com.bluejeans.api.rest.onvideo.Model.GrantRequestMeeting
 ## Properties
 
 Name | Type | Description | Notes

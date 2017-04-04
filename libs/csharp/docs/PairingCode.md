@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PairingCode
+# com.bluejeans.api.rest.onvideo.Model.PairingCode
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RecordingStartedBy
+# com.bluejeans.api.rest.onvideo.Model.RecordingStartedBy
 ## Properties
 
 Name | Type | Description | Notes

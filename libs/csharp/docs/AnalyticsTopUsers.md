@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AnalyticsTopUsers
+# com.bluejeans.api.rest.onvideo.Model.AnalyticsTopUsers
 ## Properties
 
 Name | Type | Description | Notes

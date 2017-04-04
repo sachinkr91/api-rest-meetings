@@ -214,7 +214,7 @@ class Meeting(object):
     def numeric_meeting_id(self):
         """
         Gets the numeric_meeting_id of this Meeting.
-
+        The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
         :return: The numeric_meeting_id of this Meeting.
         :rtype: str

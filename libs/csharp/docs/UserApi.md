@@ -1,4 +1,4 @@
-# IO.Swagger.Api.UserApi
+# com.bluejeans.api.rest.onvideo.Api.UserApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -23,9 +23,9 @@ This endpoint retrieves the enterprise profile associated with the user.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -90,9 +90,9 @@ This endpoint gets a user’s default meeting settings.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -157,9 +157,9 @@ This endpoint retrieves the basic account details for a given user.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -224,9 +224,9 @@ This endpoint allows updating a user’s default meeting settings.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
@@ -293,9 +293,9 @@ This endpoint allows updating a user’s basic account details.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {

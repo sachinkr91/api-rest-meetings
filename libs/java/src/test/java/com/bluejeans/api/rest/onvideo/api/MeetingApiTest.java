@@ -260,7 +260,8 @@ public class MeetingApiTest {
     @Test
     public void listMeetingsTest() throws ApiException {
         Integer userId = null;
-        // List<Meeting> response = api.listMeetings(userId);
+        String numericMeetingId = null;
+        // List<Meeting> response = api.listMeetings(userId, numericMeetingId);
 
         // TODO: test validations
     }
