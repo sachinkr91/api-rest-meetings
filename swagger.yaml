@@ -416,6 +416,10 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
+        - name: numericMeetingId
+          description: Filter the results by the meeting ID that participants will see and use to join the conference.
+          type: string
+          in: query
       responses:
         '200':
           description: A list of meetings. 
@@ -2157,6 +2161,7 @@ definitions:
         default: America/New_York
       numericMeetingId:
         type: string
+        description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
         readOnly: true
       attendeePasscode:
         type: string
