@@ -22,83 +22,78 @@
  * limitations under the License.
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
-  }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
-  'use strict';
 
-  var instance;
+package com.bluejeans.api.rest.onvideo.model;
 
-  beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AuthenticationApi();
-  });
+import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+/**
+ * InlineResponse200
+ */
+
+public class InlineResponse200   {
+  @SerializedName("user")
+  private Integer user = null;
+
+  public InlineResponse200 user(Integer user) {
+    this.user = user;
+    return this;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
+   /**
+   * The ID of the user who this token corresponds to.
+   * @return user
+  **/
+  @ApiModelProperty(example = "null", value = "The ID of the user who this token corresponds to.")
+  public Integer getUser() {
+    return user;
   }
 
-  describe('AuthenticationApi', function() {
-    describe('getTokenByClient', function() {
-      it('should call getTokenByClient successfully', function(done) {
-        //uncomment below and update the code to test getTokenByClient
-        //instance.getTokenByClient(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTokenByMeeting', function() {
-      it('should call getTokenByMeeting successfully', function(done) {
-        //uncomment below and update the code to test getTokenByMeeting
-        //instance.getTokenByMeeting(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTokenByPassword', function() {
-      it('should call getTokenByPassword successfully', function(done) {
-        //uncomment below and update the code to test getTokenByPassword
-        //instance.getTokenByPassword(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTokenInfo', function() {
-      it('should call getTokenInfo successfully', function(done) {
-        //uncomment below and update the code to test getTokenInfo
-        //instance.getTokenInfo(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-  });
+  public void setUser(Integer user) {
+    this.user = user;
+  }
 
-}));
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
+    return Objects.equals(this.user, inlineResponse200.user);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(user);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class InlineResponse200 {\n");
+    
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

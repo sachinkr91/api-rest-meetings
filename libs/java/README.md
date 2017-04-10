@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**getTokenByClient**](docs/AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
 *AuthenticationApi* | [**getTokenByMeeting**](docs/AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 *AuthenticationApi* | [**getTokenByPassword**](docs/AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+*AuthenticationApi* | [**getTokenInfo**](docs/AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
 *CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsGet**](docs/CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
 *CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**](docs/CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
 *CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**](docs/CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/ | List Live Meeting Endpoints by Enterprise
@@ -195,6 +196,7 @@ Class | Method | HTTP request | Description
  - [GrantRequestClient](docs/GrantRequestClient.md)
  - [GrantRequestMeeting](docs/GrantRequestMeeting.md)
  - [GrantRequestPassword](docs/GrantRequestPassword.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [Layout](docs/Layout.md)
  - [Meeting](docs/Meeting.md)
  - [MeetingAdvancedMeetingOptions](docs/MeetingAdvancedMeetingOptions.md)

@@ -173,6 +173,28 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /oauth2/tokenInfo:
+    get:
+      summary: Validate a Token
+      description: This endpoint will validate if a token is valid or not.
+      operationId: getTokenInfo
+      tags:
+        - Authentication
+      security:
+        - access_token: []
+      responses:
+        '200':
+          description: Any information about the token.
+          schema:
+            type: object
+            properties:
+              user:
+                type: integer
+                description: The ID of the user who this token corresponds to.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/user/{user_id}:
     get:
       summary: Get User Account Details

@@ -33,6 +33,7 @@ import com.bluejeans.api.rest.onvideo.model.GrantMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantPassword;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestPassword;
+import com.bluejeans.api.rest.onvideo.model.InlineResponse200;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -92,6 +93,21 @@ public class AuthenticationApiTest {
     public void getTokenByPasswordTest() throws ApiException {
         GrantRequestPassword grantRequestPassword = null;
         // GrantPassword response = api.getTokenByPassword(grantRequestPassword);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a Token
+     *
+     * This endpoint will validate if a token is valid or not.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTokenInfoTest() throws ApiException {
+        // InlineResponse200 response = api.getTokenInfo();
 
         // TODO: test validations
     }

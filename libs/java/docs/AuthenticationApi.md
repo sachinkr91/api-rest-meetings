@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**getTokenByClient**](AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
 [**getTokenByMeeting**](AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 [**getTokenByPassword**](AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**getTokenInfo**](AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
 
 
 <a name="getTokenByClient"></a>
@@ -172,5 +173,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getTokenInfo"></a>
+# **getTokenInfo**
+> InlineResponse200 getTokenInfo()
+
+Validate a Token
+
+This endpoint will validate if a token is valid or not.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+AuthenticationApi apiInstance = new AuthenticationApi();
+try {
+    InlineResponse200 result = apiInstance.getTokenInfo();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AuthenticationApi#getTokenInfo");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

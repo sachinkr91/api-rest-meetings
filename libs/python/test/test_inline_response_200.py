@@ -30,49 +30,23 @@ import unittest
 
 import swagger_client
 from swagger_client.rest import ApiException
-from swagger_client.apis.authentication_api import AuthenticationApi
+from swagger_client.models.inline_response_200 import InlineResponse200
 
 
-class TestAuthenticationApi(unittest.TestCase):
-    """ AuthenticationApi unit test stubs """
+class TestInlineResponse200(unittest.TestCase):
+    """ InlineResponse200 unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.authentication_api.AuthenticationApi()
+        pass
 
     def tearDown(self):
         pass
 
-    def test_get_token_by_client(self):
+    def testInlineResponse200(self):
         """
-        Test case for get_token_by_client
-
-        Authentication via Client Grant Type
+        Test InlineResponse200
         """
-        pass
-
-    def test_get_token_by_meeting(self):
-        """
-        Test case for get_token_by_meeting
-
-        Authentication via Meeting Grant Type
-        """
-        pass
-
-    def test_get_token_by_password(self):
-        """
-        Test case for get_token_by_password
-
-        Authentication via Password Grant Type
-        """
-        pass
-
-    def test_get_token_info(self):
-        """
-        Test case for get_token_info
-
-        Validate a Token
-        """
-        pass
+        model = swagger_client.models.inline_response_200.InlineResponse200()
 
 
 if __name__ == '__main__':

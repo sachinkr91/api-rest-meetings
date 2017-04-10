@@ -64,6 +64,7 @@ from .grant_password_scope import GrantPasswordScope
 from .grant_request_client import GrantRequestClient
 from .grant_request_meeting import GrantRequestMeeting
 from .grant_request_password import GrantRequestPassword
+from .inline_response_200 import InlineResponse200
 from .layout import Layout
 from .meeting import Meeting
 from .meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions

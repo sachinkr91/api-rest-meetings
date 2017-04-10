@@ -99,6 +99,25 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantPassword</returns>
         ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword);
+        /// <summary>
+        /// Validate a Token
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will validate if a token is valid or not.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetTokenInfo ();
+
+        /// <summary>
+        /// Validate a Token
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will validate if a token is valid or not.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetTokenInfoWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -164,6 +183,25 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword);
+        /// <summary>
+        /// Validate a Token
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will validate if a token is valid or not.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync ();
+
+        /// <summary>
+        /// Validate a Token
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will validate if a token is valid or not.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -777,6 +815,146 @@ namespace com.bluejeans.api.rest.onvideo.Api
             return new ApiResponse<GrantPassword>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (GrantPassword) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantPassword)));
+            
+        }
+
+        /// <summary>
+        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetTokenInfo ()
+        {
+             ApiResponse<InlineResponse200> localVarResponse = GetTokenInfoWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse< InlineResponse200 > GetTokenInfoWithHttpInfo ()
+        {
+
+            var localVarPath = "/oauth2/tokenInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+            
+        }
+
+        /// <summary>
+        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync ()
+        {
+             ApiResponse<InlineResponse200> localVarResponse = await GetTokenInfoAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/oauth2/tokenInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
             
         }
 

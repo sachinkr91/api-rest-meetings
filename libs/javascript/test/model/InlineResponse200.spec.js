@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+    instance = new BlueJeansOnVideoRestApi.InlineResponse200();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,47 +58,19 @@
       object[property] = value;
   }
 
-  describe('AuthenticationApi', function() {
-    describe('getTokenByClient', function() {
-      it('should call getTokenByClient successfully', function(done) {
-        //uncomment below and update the code to test getTokenByClient
-        //instance.getTokenByClient(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('InlineResponse200', function() {
+    it('should create an instance of InlineResponse200', function() {
+      // uncomment below and update the code to test InlineResponse200
+      //var instane = new BlueJeansOnVideoRestApi.InlineResponse200();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.InlineResponse200);
     });
-    describe('getTokenByMeeting', function() {
-      it('should call getTokenByMeeting successfully', function(done) {
-        //uncomment below and update the code to test getTokenByMeeting
-        //instance.getTokenByMeeting(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property user (base name: "user")', function() {
+      // uncomment below and update the code to test the property user
+      //var instane = new BlueJeansOnVideoRestApi.InlineResponse200();
+      //expect(instance).to.be();
     });
-    describe('getTokenByPassword', function() {
-      it('should call getTokenByPassword successfully', function(done) {
-        //uncomment below and update the code to test getTokenByPassword
-        //instance.getTokenByPassword(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTokenInfo', function() {
-      it('should call getTokenInfo successfully', function(done) {
-        //uncomment below and update the code to test getTokenInfo
-        //instance.getTokenInfo(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));
