@@ -1303,6 +1303,37 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history/{meeting_guid}/sharing:
+    get:
+      summary: Get Meeting History Sharing by User
+      description: This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+      operationId: getHistorySharingByUser
+      tags:
+        - History
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meeting_guid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The meeting history sharing object.
+          schema:
+            $ref: '#/definitions/MeetingHistorySharing'
+        '404':
+          description: Sharing is not allowed. Recording marked private.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action=start:
     post:
       summary: Start Recording
@@ -2911,6 +2942,43 @@ definitions:
                 type: string
               participantGuid:
                 type: string
+  MeetingHistorySharing:
+    type: object
+    properties:
+      id:
+        type: integer
+      meetingGuid:
+        type: string
+      ownerId:
+        type: integer
+        description: Numeric user ID for the meeting owner.
+      sharingUrl:
+        type: string
+      recepientType:
+        type: string
+        enum:
+          - ENTERPRISE
+          - PUBLIC
+      properties:
+        type: string
+      status:
+        type: string
+        enum:
+          - ACTIVE
+      downloadable:
+        type: boolean
+      passcode:
+        type: string
+      validity:
+        type: string
+      created:
+        type: integer
+        format: int64
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+      lastmodified:
+        type: integer
+        format: int64
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
   MeetingIndigo:
     type: object
     properties:

@@ -30,73 +30,23 @@ import unittest
 
 import swagger_client
 from swagger_client.rest import ApiException
-from swagger_client.apis.history_api import HistoryApi
+from swagger_client.models.meeting_history_sharing import MeetingHistorySharing
 
 
-class TestHistoryApi(unittest.TestCase):
-    """ HistoryApi unit test stubs """
+class TestMeetingHistorySharing(unittest.TestCase):
+    """ MeetingHistorySharing unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.history_api.HistoryApi()
+        pass
 
     def tearDown(self):
         pass
 
-    def test_get_history_by_enterprise(self):
+    def testMeetingHistorySharing(self):
         """
-        Test case for get_history_by_enterprise
-
-        Get Meeting History by Enterprise
+        Test MeetingHistorySharing
         """
-        pass
-
-    def test_get_history_by_user(self):
-        """
-        Test case for get_history_by_user
-
-        Get Meeting History by User
-        """
-        pass
-
-    def test_get_history_sharing_by_user(self):
-        """
-        Test case for get_history_sharing_by_user
-
-        Get Meeting History Sharing by User
-        """
-        pass
-
-    def test_get_recording(self):
-        """
-        Test case for get_recording
-
-        Get Recording
-        """
-        pass
-
-    def test_list_history_by_enterprise(self):
-        """
-        Test case for list_history_by_enterprise
-
-        List History by Enterprise
-        """
-        pass
-
-    def test_list_history_by_user(self):
-        """
-        Test case for list_history_by_user
-
-        List History by User
-        """
-        pass
-
-    def test_list_recordings(self):
-        """
-        Test case for list_recordings
-
-        List Meeting Recordings
-        """
-        pass
+        model = swagger_client.models.meeting_history_sharing.MeetingHistorySharing()
 
 
 if __name__ == '__main__':

@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.HistoryApi();
+    instance = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,77 +58,85 @@
       object[property] = value;
   }
 
-  describe('HistoryApi', function() {
-    describe('getHistoryByEnterprise', function() {
-      it('should call getHistoryByEnterprise successfully', function(done) {
-        //uncomment below and update the code to test getHistoryByEnterprise
-        //instance.getHistoryByEnterprise(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('MeetingHistorySharing', function() {
+    it('should create an instance of MeetingHistorySharing', function() {
+      // uncomment below and update the code to test MeetingHistorySharing
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.MeetingHistorySharing);
     });
-    describe('getHistoryByUser', function() {
-      it('should call getHistoryByUser successfully', function(done) {
-        //uncomment below and update the code to test getHistoryByUser
-        //instance.getHistoryByUser(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
-    describe('getHistorySharingByUser', function() {
-      it('should call getHistorySharingByUser successfully', function(done) {
-        //uncomment below and update the code to test getHistorySharingByUser
-        //instance.getHistorySharingByUser(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property meetingGuid (base name: "meetingGuid")', function() {
+      // uncomment below and update the code to test the property meetingGuid
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
-    describe('getRecording', function() {
-      it('should call getRecording successfully', function(done) {
-        //uncomment below and update the code to test getRecording
-        //instance.getRecording(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property ownerId (base name: "ownerId")', function() {
+      // uncomment below and update the code to test the property ownerId
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
-    describe('listHistoryByEnterprise', function() {
-      it('should call listHistoryByEnterprise successfully', function(done) {
-        //uncomment below and update the code to test listHistoryByEnterprise
-        //instance.listHistoryByEnterprise(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property sharingUrl (base name: "sharingUrl")', function() {
+      // uncomment below and update the code to test the property sharingUrl
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
-    describe('listHistoryByUser', function() {
-      it('should call listHistoryByUser successfully', function(done) {
-        //uncomment below and update the code to test listHistoryByUser
-        //instance.listHistoryByUser(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property recepientType (base name: "recepientType")', function() {
+      // uncomment below and update the code to test the property recepientType
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
-    describe('listRecordings', function() {
-      it('should call listRecordings successfully', function(done) {
-        //uncomment below and update the code to test listRecordings
-        //instance.listRecordings(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property properties (base name: "properties")', function() {
+      // uncomment below and update the code to test the property properties
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
     });
+
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property downloadable (base name: "downloadable")', function() {
+      // uncomment below and update the code to test the property downloadable
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property passcode (base name: "passcode")', function() {
+      // uncomment below and update the code to test the property passcode
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property validity (base name: "validity")', function() {
+      // uncomment below and update the code to test the property validity
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created (base name: "created")', function() {
+      // uncomment below and update the code to test the property created
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastmodified (base name: "lastmodified")', function() {
+      // uncomment below and update the code to test the property lastmodified
+      //var instane = new BlueJeansOnVideoRestApi.MeetingHistorySharing();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

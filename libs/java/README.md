@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *EnterpriseApi* | [**removeUser**](docs/EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 *HistoryApi* | [**getHistoryByEnterprise**](docs/HistoryApi.md#getHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | Get Meeting History by Enterprise
 *HistoryApi* | [**getHistoryByUser**](docs/HistoryApi.md#getHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | Get Meeting History by User
+*HistoryApi* | [**getHistorySharingByUser**](docs/HistoryApi.md#getHistorySharingByUser) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid}/sharing | Get Meeting History Sharing by User
 *HistoryApi* | [**getRecording**](docs/HistoryApi.md#getRecording) | **GET** /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id} | Get Recording
 *HistoryApi* | [**listHistoryByEnterprise**](docs/HistoryApi.md#listHistoryByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List History by Enterprise
 *HistoryApi* | [**listHistoryByUser**](docs/HistoryApi.md#listHistoryByUser) | **GET** /v1/user/{user_id}/meeting_history | List History by User
@@ -203,6 +204,7 @@ Class | Method | HTTP request | Description
  - [MeetingHistory](docs/MeetingHistory.md)
  - [MeetingHistoryLeaderInfo](docs/MeetingHistoryLeaderInfo.md)
  - [MeetingHistoryParticipantList](docs/MeetingHistoryParticipantList.md)
+ - [MeetingHistorySharing](docs/MeetingHistorySharing.md)
  - [MeetingIndigo](docs/MeetingIndigo.md)
  - [MeetingState](docs/MeetingState.md)
  - [MeetingStateRecordinginfo](docs/MeetingStateRecordinginfo.md)

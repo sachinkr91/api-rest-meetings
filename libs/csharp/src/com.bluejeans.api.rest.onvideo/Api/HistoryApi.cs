@@ -83,6 +83,29 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>ApiResponse of Meeting</returns>
         ApiResponse<Meeting> GetHistoryByUserWithHttpInfo (int? userId, string meetingGuid);
         /// <summary>
+        /// Get Meeting History Sharing by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>MeetingHistorySharing</returns>
+        MeetingHistorySharing GetHistorySharingByUser (int? userId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History Sharing by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of MeetingHistorySharing</returns>
+        ApiResponse<MeetingHistorySharing> GetHistorySharingByUserWithHttpInfo (int? userId, string meetingGuid);
+        /// <summary>
         /// Get Recording
         /// </summary>
         /// <remarks>
@@ -236,6 +259,29 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<Meeting>> GetHistoryByUserAsyncWithHttpInfo (int? userId, string meetingGuid);
+        /// <summary>
+        /// Get Meeting History Sharing by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of MeetingHistorySharing</returns>
+        System.Threading.Tasks.Task<MeetingHistorySharing> GetHistorySharingByUserAsync (int? userId, string meetingGuid);
+
+        /// <summary>
+        /// Get Meeting History Sharing by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (MeetingHistorySharing)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingHistorySharing>> GetHistorySharingByUserAsyncWithHttpInfo (int? userId, string meetingGuid);
         /// <summary>
         /// Get Recording
         /// </summary>
@@ -779,6 +825,170 @@ namespace com.bluejeans.api.rest.onvideo.Api
             return new ApiResponse<Meeting>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting History Sharing by User This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>MeetingHistorySharing</returns>
+        public MeetingHistorySharing GetHistorySharingByUser (int? userId, string meetingGuid)
+        {
+             ApiResponse<MeetingHistorySharing> localVarResponse = GetHistorySharingByUserWithHttpInfo(userId, meetingGuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Meeting History Sharing by User This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>ApiResponse of MeetingHistorySharing</returns>
+        public ApiResponse< MeetingHistorySharing > GetHistorySharingByUserWithHttpInfo (int? userId, string meetingGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetHistorySharingByUser");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistorySharingByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/sharing";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistorySharingByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingHistorySharing>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingHistorySharing) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingHistorySharing)));
+            
+        }
+
+        /// <summary>
+        /// Get Meeting History Sharing by User This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of MeetingHistorySharing</returns>
+        public async System.Threading.Tasks.Task<MeetingHistorySharing> GetHistorySharingByUserAsync (int? userId, string meetingGuid)
+        {
+             ApiResponse<MeetingHistorySharing> localVarResponse = await GetHistorySharingByUserAsyncWithHttpInfo(userId, meetingGuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Meeting History Sharing by User This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
+        /// <returns>Task of ApiResponse (MeetingHistorySharing)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingHistorySharing>> GetHistorySharingByUserAsyncWithHttpInfo (int? userId, string meetingGuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling HistoryApi->GetHistorySharingByUser");
+            // verify the required parameter 'meetingGuid' is set
+            if (meetingGuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling HistoryApi->GetHistorySharingByUser");
+
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/sharing";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHistorySharingByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingHistorySharing>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingHistorySharing) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingHistorySharing)));
             
         }
 

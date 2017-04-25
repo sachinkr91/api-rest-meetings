@@ -28,6 +28,7 @@ package com.bluejeans.api.rest.onvideo.api;
 import com.bluejeans.api.rest.onvideo.ApiException;
 import com.bluejeans.api.rest.onvideo.model.Meeting;
 import com.bluejeans.api.rest.onvideo.model.Error;
+import com.bluejeans.api.rest.onvideo.model.MeetingHistorySharing;
 import com.bluejeans.api.rest.onvideo.model.Recording;
 import com.bluejeans.api.rest.onvideo.model.MeetingHistory;
 import com.bluejeans.api.rest.onvideo.model.RecordingSummary;
@@ -76,6 +77,23 @@ public class HistoryApiTest {
         Integer userId = null;
         String meetingGuid = null;
         // Meeting response = api.getHistoryByUser(userId, meetingGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Meeting History Sharing by User
+     *
+     * This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHistorySharingByUserTest() throws ApiException {
+        Integer userId = null;
+        String meetingGuid = null;
+        // MeetingHistorySharing response = api.getHistorySharingByUser(userId, meetingGuid);
 
         // TODO: test validations
     }

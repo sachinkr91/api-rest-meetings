@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/Recording', 'model/MeetingHistory', 'model/RecordingSummary'], factory);
+    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/MeetingHistorySharing', 'model/Recording', 'model/MeetingHistory', 'model/RecordingSummary'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/Recording'), require('../model/MeetingHistory'), require('../model/RecordingSummary'));
+    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/MeetingHistorySharing'), require('../model/Recording'), require('../model/MeetingHistory'), require('../model/RecordingSummary'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Recording, root.BlueJeansOnVideoRestApi.MeetingHistory, root.BlueJeansOnVideoRestApi.RecordingSummary);
+    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingHistorySharing, root.BlueJeansOnVideoRestApi.Recording, root.BlueJeansOnVideoRestApi.MeetingHistory, root.BlueJeansOnVideoRestApi.RecordingSummary);
   }
-}(this, function(ApiClient, Meeting, Error, Recording, MeetingHistory, RecordingSummary) {
+}(this, function(ApiClient, Meeting, Error, MeetingHistorySharing, Recording, MeetingHistory, RecordingSummary) {
   'use strict';
 
   /**
@@ -157,6 +157,59 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/meeting_history/{meeting_guid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getHistorySharingByUser operation.
+     * @callback module:api/HistoryApi~getHistorySharingByUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingHistorySharing} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Meeting History Sharing by User
+     * This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+     * @param {module:api/HistoryApi~getHistorySharingByUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingHistorySharing}
+     */
+    this.getHistorySharingByUser = function(userId, meetingGuid, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getHistorySharingByUser";
+      }
+
+      // verify the required parameter 'meetingGuid' is set
+      if (meetingGuid == undefined || meetingGuid == null) {
+        throw "Missing the required parameter 'meetingGuid' when calling getHistorySharingByUser";
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_guid': meetingGuid
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingHistorySharing;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/meeting_history/{meeting_guid}/sharing', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

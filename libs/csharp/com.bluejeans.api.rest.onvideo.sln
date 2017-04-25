@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.bluejeans.api.rest.onvideo", "src\com.bluejeans.api.rest.onvideo\com.bluejeans.api.rest.onvideo.csproj", "{FB47A436-3E7E-4C6C-842A-3AA8E7A80A49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.bluejeans.api.rest.onvideo", "src\com.bluejeans.api.rest.onvideo\com.bluejeans.api.rest.onvideo.csproj", "{E23203FE-292F-46F7-8A75-6F3D0BEF5B04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.bluejeans.api.rest.onvideo.Test", "src\com.bluejeans.api.rest.onvideo.Test\com.bluejeans.api.rest.onvideo.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Debug|Any CPU = Debug|Any CPU
 Release|Any CPU = Release|Any CPU
 EndGlobalSection
 GlobalSection(ProjectConfigurationPlatforms) = postSolution
-{FB47A436-3E7E-4C6C-842A-3AA8E7A80A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-{FB47A436-3E7E-4C6C-842A-3AA8E7A80A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-{FB47A436-3E7E-4C6C-842A-3AA8E7A80A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-{FB47A436-3E7E-4C6C-842A-3AA8E7A80A49}.Release|Any CPU.Build.0 = Release|Any CPU
+{E23203FE-292F-46F7-8A75-6F3D0BEF5B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{E23203FE-292F-46F7-8A75-6F3D0BEF5B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{E23203FE-292F-46F7-8A75-6F3D0BEF5B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{E23203FE-292F-46F7-8A75-6F3D0BEF5B04}.Release|Any CPU.Build.0 = Release|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

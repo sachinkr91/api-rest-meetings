@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_history_by_enterprise**](HistoryApi.md#get_history_by_enterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid} | Get Meeting History by Enterprise
 [**get_history_by_user**](HistoryApi.md#get_history_by_user) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid} | Get Meeting History by User
+[**get_history_sharing_by_user**](HistoryApi.md#get_history_sharing_by_user) | **GET** /v1/user/{user_id}/meeting_history/{meeting_guid}/sharing | Get Meeting History Sharing by User
 [**get_recording**](HistoryApi.md#get_recording) | **GET** /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id} | Get Recording
 [**list_history_by_enterprise**](HistoryApi.md#list_history_by_enterprise) | **GET** /v1/enterprise/{enterprise_id}/meeting_history | List History by Enterprise
 [**list_history_by_user**](HistoryApi.md#list_history_by_user) | **GET** /v1/user/{user_id}/meeting_history | List History by User
@@ -108,6 +109,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_history_sharing_by_user**
+> MeetingHistorySharing get_history_sharing_by_user(user_id, meeting_guid)
+
+Get Meeting History Sharing by User
+
+This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
+
+### Example 
+```python
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.HistoryApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+
+try: 
+    # Get Meeting History Sharing by User
+    api_response = api_instance.get_history_sharing_by_user(user_id, meeting_guid)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling HistoryApi->get_history_sharing_by_user: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meeting_guid** | **str**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
+
+### Return type
+
+[**MeetingHistorySharing**](MeetingHistorySharing.md)
 
 ### Authorization
 
