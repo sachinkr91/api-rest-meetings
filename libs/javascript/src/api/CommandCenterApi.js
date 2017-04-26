@@ -9,34 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/MeetingIndigo'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/MeetingIndigo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/MeetingIndigo'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/MeetingIndigo'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingIndigo);
+    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingIndigo);
   }
-}(this, function(ApiClient, Meeting, Error, MeetingIndigo) {
+}(this, function(ApiClient, Error, Meeting, MeetingIndigo) {
   'use strict';
 
   /**
@@ -67,10 +56,10 @@
     /**
      * List Past Meetings by Enterprise
      * This endpoint lists completed meetings by enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
-     * @param {Integer} opts.offset Page Number
-     * @param {Integer} opts.limit Per page
+     * @param {Number} opts.offset Page Number
+     * @param {Number} opts.limit Per page
      * @param {String} opts.filter URL-encoded JSON string
      * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -81,7 +70,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsGet";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsGet");
       }
 
 
@@ -121,7 +110,7 @@
     /**
      * Live Meetings Summary by Enterprise
      * This endpoint lists meetings in progress by enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -130,7 +119,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet");
       }
 
 
@@ -167,7 +156,7 @@
     /**
      * List Live Meeting Endpoints by Enterprise
      * This endpoint lists endpoints for a given meeting in progress.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -177,12 +166,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
       }
 
 
@@ -220,7 +209,7 @@
     /**
      * List Meeting Endpoints &amp; Stats by Enterprise
      * This endpoint lists meeting endpoints for completed meetings by enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeEndpoints Option to include detailed data on endpoints
@@ -233,12 +222,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
       }
 
 
@@ -277,7 +266,7 @@
     /**
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -286,7 +275,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsGet";
+        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsGet");
       }
 
 
@@ -323,7 +312,7 @@
     /**
      * List Meeting Endpoints &amp; Stats by User
      * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingIndigo}
@@ -333,12 +322,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet";
+        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet");
       }
 
 

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | **Integer** | The ID of the user who this token corresponds to. | [optional] 
+**user** | **Number** | The ID of the user who this token corresponds to. | [optional] 
 
 

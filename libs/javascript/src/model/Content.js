@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -84,7 +73,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('contentType')) {
         obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
@@ -96,16 +85,16 @@
         obj['contentUrl'] = ApiClient.convertToType(data['contentUrl'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'Integer');
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('contentLocation')) {
         obj['contentLocation'] = ApiClient.convertToType(data['contentLocation'], 'String');
       }
       if (data.hasOwnProperty('created')) {
-        obj['created'] = ApiClient.convertToType(data['created'], 'Integer');
+        obj['created'] = ApiClient.convertToType(data['created'], 'Number');
       }
       if (data.hasOwnProperty('modified')) {
-        obj['modified'] = ApiClient.convertToType(data['modified'], 'Integer');
+        obj['modified'] = ApiClient.convertToType(data['modified'], 'Number');
       }
       if (data.hasOwnProperty('contentStatus')) {
         obj['contentStatus'] = ApiClient.convertToType(data['contentStatus'], 'String');
@@ -117,10 +106,10 @@
         obj['contentCategory'] = ApiClient.convertToType(data['contentCategory'], 'String');
       }
       if (data.hasOwnProperty('contentSize')) {
-        obj['contentSize'] = ApiClient.convertToType(data['contentSize'], 'Integer');
+        obj['contentSize'] = ApiClient.convertToType(data['contentSize'], 'Number');
       }
       if (data.hasOwnProperty('contentDuration')) {
-        obj['contentDuration'] = ApiClient.convertToType(data['contentDuration'], 'Integer');
+        obj['contentDuration'] = ApiClient.convertToType(data['contentDuration'], 'Number');
       }
       if (data.hasOwnProperty('contentProperties')) {
         obj['contentProperties'] = ContentContentProperties.constructFromObject(data['contentProperties']);
@@ -130,7 +119,7 @@
   }
 
   /**
-   * @member {Integer} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -146,7 +135,7 @@
    */
   exports.prototype['contentUrl'] = undefined;
   /**
-   * @member {Integer} userId
+   * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
@@ -154,11 +143,11 @@
    */
   exports.prototype['contentLocation'] = undefined;
   /**
-   * @member {Integer} created
+   * @member {Number} created
    */
   exports.prototype['created'] = undefined;
   /**
-   * @member {Integer} modified
+   * @member {Number} modified
    */
   exports.prototype['modified'] = undefined;
   /**
@@ -174,11 +163,11 @@
    */
   exports.prototype['contentCategory'] = undefined;
   /**
-   * @member {Integer} contentSize
+   * @member {Number} contentSize
    */
   exports.prototype['contentSize'] = undefined;
   /**
-   * @member {Integer} contentDuration
+   * @member {Number} contentDuration
    */
   exports.prototype['contentDuration'] = undefined;
   /**

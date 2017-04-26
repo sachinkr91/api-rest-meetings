@@ -21,6 +21,7 @@ This endpoint lists completed meetings by enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -43,7 +44,7 @@ try:
     api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_get(enterprise_id, offset=offset, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -79,6 +80,7 @@ This endpoint lists meetings in progress by enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -98,7 +100,7 @@ try:
     api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_live_get(enterprise_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_live_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_live_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -131,6 +133,7 @@ This endpoint lists endpoints for a given meeting in progress.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -151,7 +154,7 @@ try:
     api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get(enterprise_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -185,6 +188,7 @@ This endpoint lists meeting endpoints for completed meetings by enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -206,7 +210,7 @@ try:
     api_response = api_instance.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid, include_endpoints=include_endpoints)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -241,6 +245,7 @@ This endpoint lists completed meetings by user.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -260,7 +265,7 @@ try:
     api_response = api_instance.v1_user_user_id_indigo_meetings_get(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_user_user_id_indigo_meetings_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_user_user_id_indigo_meetings_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -293,6 +298,7 @@ This endpoint lists meeting endpoints for completed meetings by user.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -313,7 +319,7 @@ try:
     api_response = api_instance.v1_user_user_id_indigo_meetings_meeting_guid_get(user_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CommandCenterApi->v1_user_user_id_indigo_meetings_meeting_guid_get: %s\n" % e
+    print("Exception when calling CommandCenterApi->v1_user_user_id_indigo_meetings_meeting_guid_get: %s\n" % e)
 ```
 
 ### Parameters

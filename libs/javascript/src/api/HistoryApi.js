@@ -9,34 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/MeetingHistorySharing', 'model/Recording', 'model/MeetingHistory', 'model/RecordingSummary'], factory);
+    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/MeetingHistory', 'model/MeetingHistorySharing', 'model/Recording', 'model/RecordingSummary'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/MeetingHistorySharing'), require('../model/Recording'), require('../model/MeetingHistory'), require('../model/RecordingSummary'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/MeetingHistory'), require('../model/MeetingHistorySharing'), require('../model/Recording'), require('../model/RecordingSummary'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingHistorySharing, root.BlueJeansOnVideoRestApi.Recording, root.BlueJeansOnVideoRestApi.MeetingHistory, root.BlueJeansOnVideoRestApi.RecordingSummary);
+    root.BlueJeansOnVideoRestApi.HistoryApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingHistory, root.BlueJeansOnVideoRestApi.MeetingHistorySharing, root.BlueJeansOnVideoRestApi.Recording, root.BlueJeansOnVideoRestApi.RecordingSummary);
   }
-}(this, function(ApiClient, Meeting, Error, MeetingHistorySharing, Recording, MeetingHistory, RecordingSummary) {
+}(this, function(ApiClient, Error, Meeting, MeetingHistory, MeetingHistorySharing, Recording, RecordingSummary) {
   'use strict';
 
   /**
@@ -67,7 +56,7 @@
     /**
      * Get Meeting History by Enterprise
      * This endpoint retrieves the meeting history for a specific instance of a meeting.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/HistoryApi~getHistoryByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -77,12 +66,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getHistoryByEnterprise";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getHistoryByEnterprise");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling getHistoryByEnterprise";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling getHistoryByEnterprise");
       }
 
 
@@ -120,7 +109,7 @@
     /**
      * Get Meeting History by User
      * This endpoint retrieves the meeting history for a specific instance of a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/HistoryApi~getHistoryByUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -130,12 +119,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getHistoryByUser";
+        throw new Error("Missing the required parameter 'userId' when calling getHistoryByUser");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling getHistoryByUser";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling getHistoryByUser");
       }
 
 
@@ -173,7 +162,7 @@
     /**
      * Get Meeting History Sharing by User
      * This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/HistoryApi~getHistorySharingByUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingHistorySharing}
@@ -183,12 +172,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getHistorySharingByUser";
+        throw new Error("Missing the required parameter 'userId' when calling getHistorySharingByUser");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling getHistorySharingByUser";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling getHistorySharingByUser");
       }
 
 
@@ -226,8 +215,8 @@
     /**
      * Get Recording
      * This endpoint retrieves the details about a meeting recording.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} recordingEntityId The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
      * @param {module:api/HistoryApi~getRecordingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Recording}
      */
@@ -236,12 +225,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getRecording";
+        throw new Error("Missing the required parameter 'userId' when calling getRecording");
       }
 
       // verify the required parameter 'recordingEntityId' is set
       if (recordingEntityId == undefined || recordingEntityId == null) {
-        throw "Missing the required parameter 'recordingEntityId' when calling getRecording";
+        throw new Error("Missing the required parameter 'recordingEntityId' when calling getRecording");
       }
 
 
@@ -279,7 +268,7 @@
     /**
      * List History by Enterprise
      * This endpoint retrieves a list of meeting histories by the given enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {module:api/HistoryApi~listHistoryByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MeetingHistory>}
      */
@@ -288,7 +277,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling listHistoryByEnterprise";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling listHistoryByEnterprise");
       }
 
 
@@ -325,13 +314,13 @@
     /**
      * List History by User
      * This endpoint retrieves a list of meeting histories by the given user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.meetingId Return only meetings with the specified meeting numeric ID.
      * @param {String} opts.startDate Return meetings starting from the specified date. MM/DD/YYYY
      * @param {String} opts.endDate Return meetings up until the specified date. MM/DD/YYYY
-     * @param {Integer} opts.pageSize Sets number of items returned per page.
-     * @param {Integer} opts.pageNumber Selects which page of results to return.
+     * @param {Number} opts.pageSize Sets number of items returned per page.
+     * @param {Number} opts.pageNumber Selects which page of results to return.
      * @param {String} opts.order Puts results in ascending or descending order. asc/desc
      * @param {module:api/HistoryApi~listHistoryByUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MeetingHistory>}
@@ -342,7 +331,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling listHistoryByUser";
+        throw new Error("Missing the required parameter 'userId' when calling listHistoryByUser");
       }
 
 
@@ -385,10 +374,10 @@
     /**
      * List Meeting Recordings
      * This endpoint retrieves a list of meeting recordings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Object} opts Optional parameters
-     * @param {Integer} opts.pageSize Sets number of items returned per page. (default to 10)
-     * @param {Integer} opts.pageNumber Selects which page of results to return. (default to 1)
+     * @param {Number} opts.pageSize Sets number of items returned per page. (default to 10)
+     * @param {Number} opts.pageNumber Selects which page of results to return. (default to 1)
      * @param {String} opts.sortBy Selects which page of results to return. (default to start_time)
      * @param {module:model/String} opts.order Puts results in ascending or descending order. (default to desc)
      * @param {module:api/HistoryApi~listRecordingsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -400,7 +389,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling listRecordings";
+        throw new Error("Missing the required parameter 'userId' when calling listRecordings");
       }
 
 

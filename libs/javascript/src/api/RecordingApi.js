@@ -9,34 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meeting', 'model/Error', 'model/Content'], factory);
+    define(['ApiClient', 'model/Content', 'model/Error', 'model/Meeting'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Meeting'), require('../model/Error'), require('../model/Content'));
+    module.exports = factory(require('../ApiClient'), require('../model/Content'), require('../model/Error'), require('../model/Meeting'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.RecordingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Content);
+    root.BlueJeansOnVideoRestApi.RecordingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Content, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting);
   }
-}(this, function(ApiClient, Meeting, Error, Content) {
+}(this, function(ApiClient, Content, Error, Meeting) {
   'use strict';
 
   /**
@@ -67,8 +56,8 @@
     /**
      * Get All Recordings for a Specified Meeting ID
      * This endpoint lists the recordings for a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~getMeetingRecordingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -77,12 +66,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingRecordings";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingRecordings");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingRecordings";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingRecordings");
       }
 
 
@@ -120,8 +109,8 @@
     /**
      * Get Recording Download Link
      * This endpoint retrieves properties about the recording chapter.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} contentId The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} contentId The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
      * @param {module:api/RecordingApi~getRecordingContentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Content}
      */
@@ -130,12 +119,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getRecordingContent";
+        throw new Error("Missing the required parameter 'userId' when calling getRecordingContent");
       }
 
       // verify the required parameter 'contentId' is set
       if (contentId == undefined || contentId == null) {
-        throw "Missing the required parameter 'contentId' when calling getRecordingContent";
+        throw new Error("Missing the required parameter 'contentId' when calling getRecordingContent");
       }
 
 
@@ -173,8 +162,8 @@
     /**
      * Start Recording
      * This endpoint starts recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~startRecordingCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.startRecording = function(userId, meetingId, callback) {
@@ -182,12 +171,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling startRecording";
+        throw new Error("Missing the required parameter 'userId' when calling startRecording");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling startRecording";
+        throw new Error("Missing the required parameter 'meetingId' when calling startRecording");
       }
 
 
@@ -225,8 +214,8 @@
     /**
      * Stop Recording
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~stopRecordingCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.stopRecording = function(userId, meetingId, callback) {
@@ -234,12 +223,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling stopRecording";
+        throw new Error("Missing the required parameter 'userId' when calling stopRecording");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling stopRecording";
+        throw new Error("Missing the required parameter 'meetingId' when calling stopRecording");
       }
 
 
@@ -277,8 +266,8 @@
     /**
      * Get All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/RecordingApi~v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -288,17 +277,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet";
+        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet";
+        throw new Error("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
       }
 
 
@@ -337,7 +326,7 @@
     /**
      * Delete All Recordings for a Specified Meeting GUID
      * This endpoint stops recording for a meeting in progress. 
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
      * @param {module:api/RecordingApi~v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -347,12 +336,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete";
+        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete");
       }
 
       // verify the required parameter 'meetingGuid' is set
       if (meetingGuid == undefined || meetingGuid == null) {
-        throw "Missing the required parameter 'meetingGuid' when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete";
+        throw new Error("Missing the required parameter 'meetingGuid' when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete");
       }
 
 
@@ -390,9 +379,9 @@
     /**
      * Delete a Specified Recording Chapter
      * This endpoint stops recording for a meeting in progress.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
-     * @param {Integer} recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} recordingChapterId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/RecordingApi~v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -401,17 +390,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete";
+        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete";
+        throw new Error("Missing the required parameter 'meetingId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete");
       }
 
       // verify the required parameter 'recordingChapterId' is set
       if (recordingChapterId == undefined || recordingChapterId == null) {
-        throw "Missing the required parameter 'recordingChapterId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete";
+        throw new Error("Missing the required parameter 'recordingChapterId' when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete");
       }
 
 

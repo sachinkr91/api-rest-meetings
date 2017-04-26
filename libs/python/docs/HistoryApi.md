@@ -22,6 +22,7 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -42,7 +43,7 @@ try:
     api_response = api_instance.get_history_by_enterprise(enterprise_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->get_history_by_enterprise: %s\n" % e
+    print("Exception when calling HistoryApi->get_history_by_enterprise: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,6 +77,7 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -96,7 +98,7 @@ try:
     api_response = api_instance.get_history_by_user(user_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->get_history_by_user: %s\n" % e
+    print("Exception when calling HistoryApi->get_history_by_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -130,6 +132,7 @@ This endpoint retrieves the meeting history sharing for a specific instance of a
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -150,7 +153,7 @@ try:
     api_response = api_instance.get_history_sharing_by_user(user_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->get_history_sharing_by_user: %s\n" % e
+    print("Exception when calling HistoryApi->get_history_sharing_by_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -184,6 +187,7 @@ This endpoint retrieves the details about a meeting recording.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -204,7 +208,7 @@ try:
     api_response = api_instance.get_recording(user_id, recording_entity_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->get_recording: %s\n" % e
+    print("Exception when calling HistoryApi->get_recording: %s\n" % e)
 ```
 
 ### Parameters
@@ -238,6 +242,7 @@ This endpoint retrieves a list of meeting histories by the given enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -257,7 +262,7 @@ try:
     api_response = api_instance.list_history_by_enterprise(enterprise_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->list_history_by_enterprise: %s\n" % e
+    print("Exception when calling HistoryApi->list_history_by_enterprise: %s\n" % e)
 ```
 
 ### Parameters
@@ -290,6 +295,7 @@ This endpoint retrieves a list of meeting histories by the given user.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -315,7 +321,7 @@ try:
     api_response = api_instance.list_history_by_user(user_id, meeting_id=meeting_id, start_date=start_date, end_date=end_date, page_size=page_size, page_number=page_number, order=order)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->list_history_by_user: %s\n" % e
+    print("Exception when calling HistoryApi->list_history_by_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -354,6 +360,7 @@ This endpoint retrieves a list of meeting recordings.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -377,7 +384,7 @@ try:
     api_response = api_instance.list_recordings(user_id, page_size=page_size, page_number=page_number, sort_by=sort_by, order=order)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling HistoryApi->list_recordings: %s\n" % e
+    print("Exception when calling HistoryApi->list_recordings: %s\n" % e)
 ```
 
 ### Parameters

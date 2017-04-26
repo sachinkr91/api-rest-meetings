@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -62,7 +51,7 @@
     describe('getTokenByClient', function() {
       it('should call getTokenByClient successfully', function(done) {
         //uncomment below and update the code to test getTokenByClient
-        //instance.getTokenByClient(pet, function(error) {
+        //instance.getTokenByClient(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -72,7 +61,7 @@
     describe('getTokenByMeeting', function() {
       it('should call getTokenByMeeting successfully', function(done) {
         //uncomment below and update the code to test getTokenByMeeting
-        //instance.getTokenByMeeting(pet, function(error) {
+        //instance.getTokenByMeeting(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -82,7 +71,7 @@
     describe('getTokenByPassword', function() {
       it('should call getTokenByPassword successfully', function(done) {
         //uncomment below and update the code to test getTokenByPassword
-        //instance.getTokenByPassword(pet, function(error) {
+        //instance.getTokenByPassword(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -92,7 +81,7 @@
     describe('getTokenInfo', function() {
       it('should call getTokenInfo successfully', function(done) {
         //uncomment below and update the code to test getTokenInfo
-        //instance.getTokenInfo(pet, function(error) {
+        //instance.getTokenInfo(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

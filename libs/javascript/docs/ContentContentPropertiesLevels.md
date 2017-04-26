@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file** | **String** |  | [optional] 
-**width** | **Integer** |  | [optional] 
-**bitrate** | **Integer** |  | [optional] 
-**height** | **Integer** |  | [optional] 
+**width** | **Number** |  | [optional] 
+**bitrate** | **Number** |  | [optional] 
+**height** | **Number** |  | [optional] 
 
 

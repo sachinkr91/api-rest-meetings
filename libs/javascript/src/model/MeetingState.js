@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -133,10 +122,10 @@
         obj['pinnedEndpointGuid'] = ApiClient.convertToType(data['pinnedEndpointGuid'], 'String');
       }
       if (data.hasOwnProperty('audioEndpointCount')) {
-        obj['audioEndpointCount'] = ApiClient.convertToType(data['audioEndpointCount'], 'Integer');
+        obj['audioEndpointCount'] = ApiClient.convertToType(data['audioEndpointCount'], 'Number');
       }
       if (data.hasOwnProperty('videoEndpointCount')) {
-        obj['videoEndpointCount'] = ApiClient.convertToType(data['videoEndpointCount'], 'Integer');
+        obj['videoEndpointCount'] = ApiClient.convertToType(data['videoEndpointCount'], 'Number');
       }
       if (data.hasOwnProperty('recordingEnabled')) {
         obj['recordingEnabled'] = ApiClient.convertToType(data['recordingEnabled'], 'Boolean');
@@ -151,7 +140,7 @@
         obj['features'] = ApiClient.convertToType(data['features'], ['String']);
       }
       if (data.hasOwnProperty('delayedMeetingEndTime')) {
-        obj['delayedMeetingEndTime'] = ApiClient.convertToType(data['delayedMeetingEndTime'], 'Integer');
+        obj['delayedMeetingEndTime'] = ApiClient.convertToType(data['delayedMeetingEndTime'], 'Number');
       }
       if (data.hasOwnProperty('smStreams')) {
         obj['smStreams'] = ApiClient.convertToType(data['smStreams'], 'String');
@@ -222,11 +211,11 @@
    */
   exports.prototype['pinnedEndpointGuid'] = undefined;
   /**
-   * @member {Integer} audioEndpointCount
+   * @member {Number} audioEndpointCount
    */
   exports.prototype['audioEndpointCount'] = undefined;
   /**
-   * @member {Integer} videoEndpointCount
+   * @member {Number} videoEndpointCount
    */
   exports.prototype['videoEndpointCount'] = undefined;
   /**
@@ -246,7 +235,7 @@
    */
   exports.prototype['features'] = undefined;
   /**
-   * @member {Integer} delayedMeetingEndTime
+   * @member {Number} delayedMeetingEndTime
    */
   exports.prototype['delayedMeetingEndTime'] = undefined;
   /**

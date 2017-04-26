@@ -21,6 +21,7 @@ This endpoint retrieves endpoint connection type distribution by enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -41,7 +42,7 @@ try:
     api_response = api_instance.get_endpoint_distribution(enterprise_id, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_endpoint_distribution: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_endpoint_distribution: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,6 +76,7 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -96,7 +98,7 @@ try:
     api_response = api_instance.get_feedback_comments(enterprise_id, start, end)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_feedback_comments: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_feedback_comments: %s\n" % e)
 ```
 
 ### Parameters
@@ -131,6 +133,7 @@ This endpoint lists end of meeting survey scores by enterprise by time period.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -152,7 +155,7 @@ try:
     api_response = api_instance.get_feedback_count(enterprise_id, start, end)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_feedback_count: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_feedback_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -187,6 +190,7 @@ This endpoint reports on meeting usage.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -208,7 +212,7 @@ try:
     api_response = api_instance.get_meeting_usage(enterprise_id, client_tz=client_tz, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_meeting_usage: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_meeting_usage: %s\n" % e)
 ```
 
 ### Parameters
@@ -243,6 +247,7 @@ This endpoint lists return on investment (ROI) data for meetings.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -263,7 +268,7 @@ try:
     api_response = api_instance.get_roi_ranges(enterprise_id, filter)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_roi_ranges: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_roi_ranges: %s\n" % e)
 ```
 
 ### Parameters
@@ -297,6 +302,7 @@ This endpoint retrieves the top users by usage for an enterprise.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -317,7 +323,7 @@ try:
     api_response = api_instance.get_top_users(enterprise_id, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AnalyticsApi->get_top_users: %s\n" % e
+    print("Exception when calling AnalyticsApi->get_top_users: %s\n" % e)
 ```
 
 ### Parameters

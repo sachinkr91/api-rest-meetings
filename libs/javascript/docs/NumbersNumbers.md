@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
+**id** | **Number** |  | [optional] 
 **_number** | **String** |  | [optional] 
 **tollfree** | **Boolean** |  | [optional] 
 **premium** | **Boolean** |  | [optional] 

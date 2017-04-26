@@ -3,19 +3,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
+**id** | **Number** |  | [optional] 
 **contentType** | **String** |  | [optional] 
 **contentDescription** | **String** |  | [optional] 
 **contentUrl** | **String** |  | [optional] 
-**userId** | **Integer** |  | [optional] 
+**userId** | **Number** |  | [optional] 
 **contentLocation** | **String** |  | [optional] 
-**created** | **Integer** |  | [optional] 
-**modified** | **Integer** |  | [optional] 
+**created** | **Number** |  | [optional] 
+**modified** | **Number** |  | [optional] 
 **contentStatus** | **String** |  | [optional] 
 **contentName** | **String** |  | [optional] 
 **contentCategory** | **String** |  | [optional] 
-**contentSize** | **Integer** |  | [optional] 
-**contentDuration** | **Integer** |  | [optional] 
+**contentSize** | **Number** |  | [optional] 
+**contentDuration** | **Number** |  | [optional] 
 **contentProperties** | [**ContentContentProperties**](ContentContentProperties.md) |  | [optional] 
 
 

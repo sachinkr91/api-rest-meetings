@@ -9,34 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/PairingCode', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC', 'model/Layout', 'model/Endpoint', 'model/Endpoints', 'model/Numbers', 'model/MeetingState', 'model/PayloadInvite', 'model/PayloadMeetingState'], factory);
+    define(['ApiClient', 'model/Endpoint', 'model/Endpoints', 'model/Error', 'model/Layout', 'model/Meeting', 'model/MeetingState', 'model/Numbers', 'model/PairingCode', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/PairingCode'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'), require('../model/Layout'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Numbers'), require('../model/MeetingState'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'));
+    module.exports = factory(require('../ApiClient'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCode'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
   }
-}(this, function(ApiClient, Error, Meeting, PairingCode, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC, Layout, Endpoint, Endpoints, Numbers, MeetingState, PayloadInvite, PayloadMeetingState) {
+}(this, function(ApiClient, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCode, PayloadInvite, PayloadMeetingState, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
   'use strict';
 
   /**
@@ -67,8 +56,8 @@
     /**
      * Cancel Meeting
      * This endpoint deletes a scheuled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~cancelMeetingCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.cancelMeeting = function(userId, meetingId, callback) {
@@ -76,12 +65,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling cancelMeeting";
+        throw new Error("Missing the required parameter 'userId' when calling cancelMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling cancelMeeting";
+        throw new Error("Missing the required parameter 'meetingId' when calling cancelMeeting");
       }
 
 
@@ -119,7 +108,7 @@
     /**
      * Create Meeting
      * This endpoint will create a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Meeting} meeting The details of the meeting.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.email If set to true, sends invitation emails to all listed participants.
@@ -132,12 +121,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling createMeeting";
+        throw new Error("Missing the required parameter 'userId' when calling createMeeting");
       }
 
       // verify the required parameter 'meeting' is set
       if (meeting == undefined || meeting == null) {
-        throw "Missing the required parameter 'meeting' when calling createMeeting";
+        throw new Error("Missing the required parameter 'meeting' when calling createMeeting");
       }
 
 
@@ -175,8 +164,8 @@
     /**
      * Generate Pairing Code (SIP)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
      * @param {module:api/MeetingApi~generatePairingCodeSipCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PairingCode}
@@ -186,17 +175,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling generatePairingCodeSip";
+        throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeSip");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling generatePairingCodeSip";
+        throw new Error("Missing the required parameter 'meetingId' when calling generatePairingCodeSip");
       }
 
       // verify the required parameter 'payloadPairingCodeSIP' is set
       if (payloadPairingCodeSIP == undefined || payloadPairingCodeSIP == null) {
-        throw "Missing the required parameter 'payloadPairingCodeSIP' when calling generatePairingCodeSip";
+        throw new Error("Missing the required parameter 'payloadPairingCodeSIP' when calling generatePairingCodeSip");
       }
 
 
@@ -234,8 +223,8 @@
     /**
      * Generate Pairing Code (WebRTC)
      * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 
      * @param {Object} opts Optional parameters
      * @param {String} opts.role  (default to USER)
@@ -248,17 +237,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling generatePairingCodeWebRtc";
+        throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeWebRtc");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling generatePairingCodeWebRtc";
+        throw new Error("Missing the required parameter 'meetingId' when calling generatePairingCodeWebRtc");
       }
 
       // verify the required parameter 'payloadPairingCodeWebRTC' is set
       if (payloadPairingCodeWebRTC == undefined || payloadPairingCodeWebRTC == null) {
-        throw "Missing the required parameter 'payloadPairingCodeWebRTC' when calling generatePairingCodeWebRtc";
+        throw new Error("Missing the required parameter 'payloadPairingCodeWebRTC' when calling generatePairingCodeWebRtc");
       }
 
 
@@ -297,8 +286,8 @@
     /**
      * Get Endpoint Layout
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~getEndpointLayoutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Layout}
@@ -308,17 +297,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getEndpointLayout";
+        throw new Error("Missing the required parameter 'userId' when calling getEndpointLayout");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getEndpointLayout";
+        throw new Error("Missing the required parameter 'meetingId' when calling getEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
       if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling getEndpointLayout";
+        throw new Error("Missing the required parameter 'endpointGuid' when calling getEndpointLayout");
       }
 
 
@@ -357,8 +346,8 @@
     /**
      * Get Meeting
      * This endpoint gets the settings for a user&#39;s meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. This is not the numeric meeting ID visible to users.
      * @param {module:api/MeetingApi~getMeetingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -367,12 +356,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeeting";
+        throw new Error("Missing the required parameter 'userId' when calling getMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeeting";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeeting");
       }
 
 
@@ -410,8 +399,8 @@
     /**
      * Get Meeting Email
      * This endpoint retrieves the email object for a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.type TEXT, ICS, HTML
      * @param {module:model/String} opts.role moderator, participant
@@ -425,12 +414,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingEmails";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingEmails");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingEmails";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEmails");
       }
 
 
@@ -471,8 +460,8 @@
     /**
      * Get Endpoint Information
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~getMeetingEndpointCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoint}
@@ -482,17 +471,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingEndpoint";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoint");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingEndpoint";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
       if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling getMeetingEndpoint";
+        throw new Error("Missing the required parameter 'endpointGuid' when calling getMeetingEndpoint");
       }
 
 
@@ -531,8 +520,8 @@
     /**
      * List Meeting Endpoints
      * This endpoint returns an array of all endpoints in the current meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~getMeetingEndpointsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoints}
      */
@@ -541,12 +530,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingEndpoints";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoints");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingEndpoints";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEndpoints");
       }
 
 
@@ -584,8 +573,8 @@
     /**
      * Get Meeting Join Info
      * This endpoint retrieves the join information for a scheduled meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~getMeetingNumbersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Numbers}
      */
@@ -594,12 +583,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingNumbers";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingNumbers");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingNumbers";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingNumbers");
       }
 
 
@@ -637,8 +626,8 @@
     /**
      * Get Meeting State
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:api/MeetingApi~getMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingState}
      */
@@ -647,12 +636,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getMeetingState";
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingState");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling getMeetingState";
+        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingState");
       }
 
 
@@ -690,7 +679,7 @@
     /**
      * List Meetings
      * This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.numericMeetingId Filter the results by the meeting ID that participants will see and use to join the conference.
      * @param {module:api/MeetingApi~listMeetingsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -702,7 +691,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling listMeetings";
+        throw new Error("Missing the required parameter 'userId' when calling listMeetings");
       }
 
 
@@ -740,8 +729,8 @@
     /**
      * Send Email Invite
      * This endpoint generates an email invite to the specified meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/PayloadInvite} payloadInvite 
      * @param {module:api/MeetingApi~sendMeetingInviteCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -750,17 +739,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling sendMeetingInvite";
+        throw new Error("Missing the required parameter 'userId' when calling sendMeetingInvite");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling sendMeetingInvite";
+        throw new Error("Missing the required parameter 'meetingId' when calling sendMeetingInvite");
       }
 
       // verify the required parameter 'payloadInvite' is set
       if (payloadInvite == undefined || payloadInvite == null) {
-        throw "Missing the required parameter 'payloadInvite' when calling sendMeetingInvite";
+        throw new Error("Missing the required parameter 'payloadInvite' when calling sendMeetingInvite");
       }
 
 
@@ -798,8 +787,8 @@
     /**
      * Update Endpoint Layout
      * This endpoint allows you to update an individual endpoint’s current layout setting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.isLeader 
@@ -813,17 +802,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateEndpointLayout";
+        throw new Error("Missing the required parameter 'userId' when calling updateEndpointLayout");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling updateEndpointLayout";
+        throw new Error("Missing the required parameter 'meetingId' when calling updateEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
       if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling updateEndpointLayout";
+        throw new Error("Missing the required parameter 'endpointGuid' when calling updateEndpointLayout");
       }
 
 
@@ -864,8 +853,8 @@
     /**
      * Update Meeting
      * This endpoint changes the settings for a user&#39;s meeting. For example, use for rescheduling.
-     * @param {Integer} userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/Meeting} meeting The user&#39;s room details that you wish to update.
      * @param {module:api/MeetingApi~updateMeetingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
@@ -875,17 +864,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateMeeting";
+        throw new Error("Missing the required parameter 'userId' when calling updateMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling updateMeeting";
+        throw new Error("Missing the required parameter 'meetingId' when calling updateMeeting");
       }
 
       // verify the required parameter 'meeting' is set
       if (meeting == undefined || meeting == null) {
-        throw "Missing the required parameter 'meeting' when calling updateMeeting";
+        throw new Error("Missing the required parameter 'meeting' when calling updateMeeting");
       }
 
 
@@ -923,8 +912,8 @@
     /**
      * Update Endpoint Video/Audio State
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.muteAudio Toggle the audio source mute.
@@ -939,17 +928,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateMeetingEndpoint";
+        throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoint");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling updateMeetingEndpoint";
+        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
       if (endpointGuid == undefined || endpointGuid == null) {
-        throw "Missing the required parameter 'endpointGuid' when calling updateMeetingEndpoint";
+        throw new Error("Missing the required parameter 'endpointGuid' when calling updateMeetingEndpoint");
       }
 
 
@@ -991,8 +980,8 @@
     /**
      * Update Meeting Endpoints State
      * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
      * @param {module:model/String} opts.media Specify the type of media you which to mute/unmute.
@@ -1004,12 +993,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateMeetingEndpoints";
+        throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoints");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling updateMeetingEndpoints";
+        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingEndpoints");
       }
 
 
@@ -1049,11 +1038,11 @@
     /**
      * Update Meeting State
      * This endpoint’s purpose is to be able to modify a meeting.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Integer} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
      * @param {module:model/PayloadMeetingState} payloadMeetingState The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
-     * @param {Integer} opts.delay Number of seconds to delay the end meeting operation.
+     * @param {Number} opts.delay Number of seconds to delay the end meeting operation.
      * @param {module:api/MeetingApi~updateMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
@@ -1063,17 +1052,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateMeetingState";
+        throw new Error("Missing the required parameter 'userId' when calling updateMeetingState");
       }
 
       // verify the required parameter 'meetingId' is set
       if (meetingId == undefined || meetingId == null) {
-        throw "Missing the required parameter 'meetingId' when calling updateMeetingState";
+        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingState");
       }
 
       // verify the required parameter 'payloadMeetingState' is set
       if (payloadMeetingState == undefined || payloadMeetingState == null) {
-        throw "Missing the required parameter 'payloadMeetingState' when calling updateMeetingState";
+        throw new Error("Missing the required parameter 'payloadMeetingState' when calling updateMeetingState");
       }
 
 

@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -80,7 +69,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('contentStatus')) {
         obj['contentStatus'] = ApiClient.convertToType(data['contentStatus'], 'String');
@@ -89,19 +78,19 @@
         obj['recordingType'] = ApiClient.convertToType(data['recordingType'], 'String');
       }
       if (data.hasOwnProperty('contentId')) {
-        obj['contentId'] = ApiClient.convertToType(data['contentId'], 'Integer');
+        obj['contentId'] = ApiClient.convertToType(data['contentId'], 'Number');
       }
       if (data.hasOwnProperty('thumbnailUrl')) {
         obj['thumbnailUrl'] = ApiClient.convertToType(data['thumbnailUrl'], 'String');
       }
       if (data.hasOwnProperty('startTimeOffset')) {
-        obj['startTimeOffset'] = ApiClient.convertToType(data['startTimeOffset'], 'Integer');
+        obj['startTimeOffset'] = ApiClient.convertToType(data['startTimeOffset'], 'Number');
       }
       if (data.hasOwnProperty('endTimeOffset')) {
-        obj['endTimeOffset'] = ApiClient.convertToType(data['endTimeOffset'], 'Integer');
+        obj['endTimeOffset'] = ApiClient.convertToType(data['endTimeOffset'], 'Number');
       }
       if (data.hasOwnProperty('duration')) {
-        obj['duration'] = ApiClient.convertToType(data['duration'], 'Integer');
+        obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
       }
       if (data.hasOwnProperty('startedBy')) {
         obj['startedBy'] = RecordingStartedBy.constructFromObject(data['startedBy']);
@@ -114,7 +103,7 @@
   }
 
   /**
-   * @member {Integer} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -126,7 +115,7 @@
    */
   exports.prototype['recordingType'] = undefined;
   /**
-   * @member {Integer} contentId
+   * @member {Number} contentId
    */
   exports.prototype['contentId'] = undefined;
   /**
@@ -134,15 +123,15 @@
    */
   exports.prototype['thumbnailUrl'] = undefined;
   /**
-   * @member {Integer} startTimeOffset
+   * @member {Number} startTimeOffset
    */
   exports.prototype['startTimeOffset'] = undefined;
   /**
-   * @member {Integer} endTimeOffset
+   * @member {Number} endTimeOffset
    */
   exports.prototype['endTimeOffset'] = undefined;
   /**
-   * @member {Integer} duration
+   * @member {Number} duration
    */
   exports.prototype['duration'] = undefined;
   /**

@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -67,7 +56,7 @@
     /**
      * Get Enterprise Profile
      * This endpoint retrieves the enterprise profile associated with the user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~getEnterpriseProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Enterprise}
      */
@@ -76,7 +65,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getEnterpriseProfile";
+        throw new Error("Missing the required parameter 'userId' when calling getEnterpriseProfile");
       }
 
 
@@ -113,7 +102,7 @@
     /**
      * Get User’s Default Meeting Settings
      * This endpoint gets a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~getRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
      */
@@ -122,7 +111,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getRoom";
+        throw new Error("Missing the required parameter 'userId' when calling getRoom");
       }
 
 
@@ -159,7 +148,7 @@
     /**
      * Get User Account Details
      * This endpoint retrieves the basic account details for a given user.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -168,7 +157,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getUser";
+        throw new Error("Missing the required parameter 'userId' when calling getUser");
       }
 
 
@@ -205,7 +194,7 @@
     /**
      * Update User’s Default Meeting Settings
      * This endpoint allows updating a user’s default meeting settings.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Room} room The user&#39;s room details that you wish to update.
      * @param {module:api/UserApi~updateRoomCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Room}
@@ -215,12 +204,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateRoom";
+        throw new Error("Missing the required parameter 'userId' when calling updateRoom");
       }
 
       // verify the required parameter 'room' is set
       if (room == undefined || room == null) {
-        throw "Missing the required parameter 'room' when calling updateRoom";
+        throw new Error("Missing the required parameter 'room' when calling updateRoom");
       }
 
 
@@ -257,7 +246,7 @@
     /**
      * Update User Account Details
      * This endpoint allows updating a user’s basic account details.
-     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/User} user The user details that you wish to update.
      * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
@@ -267,12 +256,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateUser";
+        throw new Error("Missing the required parameter 'userId' when calling updateUser");
       }
 
       // verify the required parameter 'user' is set
       if (user == undefined || user == null) {
-        throw "Missing the required parameter 'user' when calling updateUser";
+        throw new Error("Missing the required parameter 'user' when calling updateUser");
       }
 
 

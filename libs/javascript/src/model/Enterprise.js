@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -75,19 +64,19 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('enterprise')) {
-        obj['enterprise'] = ApiClient.convertToType(data['enterprise'], 'Integer');
+        obj['enterprise'] = ApiClient.convertToType(data['enterprise'], 'Number');
       }
       if (data.hasOwnProperty('enterpriseAdmin')) {
         obj['enterpriseAdmin'] = ApiClient.convertToType(data['enterpriseAdmin'], 'Boolean');
       }
       if (data.hasOwnProperty('joinDate')) {
-        obj['joinDate'] = ApiClient.convertToType(data['joinDate'], 'Integer');
+        obj['joinDate'] = ApiClient.convertToType(data['joinDate'], 'Number');
       }
       if (data.hasOwnProperty('expiryDate')) {
-        obj['expiryDate'] = ApiClient.convertToType(data['expiryDate'], 'Integer');
+        obj['expiryDate'] = ApiClient.convertToType(data['expiryDate'], 'Number');
       }
     }
     return obj;
@@ -95,12 +84,12 @@
 
   /**
    * Unique identifier for the user.
-   * @member {Integer} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
    * Unique identifier for the enterprise.
-   * @member {Integer} enterprise
+   * @member {Number} enterprise
    */
   exports.prototype['enterprise'] = undefined;
   /**
@@ -110,12 +99,12 @@
   exports.prototype['enterpriseAdmin'] = undefined;
   /**
    * Date of enterprise join
-   * @member {Integer} joinDate
+   * @member {Number} joinDate
    */
   exports.prototype['joinDate'] = undefined;
   /**
    * Date of expiration; null if not set
-   * @member {Integer} expiryDate
+   * @member {Number} expiryDate
    */
   exports.prototype['expiryDate'] = undefined;
 

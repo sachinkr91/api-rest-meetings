@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **sessionInRelay** | **Boolean** |  | [optional] 
 **sessionOutRelay** | **Boolean** |  | [optional] 
 **audioRtpRelay** | **Boolean** |  | [optional] 
-**callRate** | **Integer** |  | [optional] 
+**callRate** | **Number** |  | [optional] 
 **cumulLossPercentAI** | **Number** |  | [optional] 
 **cumulLossPercentAO** | **Number** |  | [optional] 
 **cumulLossPercentVI** | **Number** |  | [optional] 

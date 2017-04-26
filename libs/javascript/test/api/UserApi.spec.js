@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -62,7 +51,7 @@
     describe('getEnterpriseProfile', function() {
       it('should call getEnterpriseProfile successfully', function(done) {
         //uncomment below and update the code to test getEnterpriseProfile
-        //instance.getEnterpriseProfile(pet, function(error) {
+        //instance.getEnterpriseProfile(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -72,7 +61,7 @@
     describe('getRoom', function() {
       it('should call getRoom successfully', function(done) {
         //uncomment below and update the code to test getRoom
-        //instance.getRoom(pet, function(error) {
+        //instance.getRoom(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -82,7 +71,7 @@
     describe('getUser', function() {
       it('should call getUser successfully', function(done) {
         //uncomment below and update the code to test getUser
-        //instance.getUser(pet, function(error) {
+        //instance.getUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -92,7 +81,7 @@
     describe('updateRoom', function() {
       it('should call updateRoom successfully', function(done) {
         //uncomment below and update the code to test updateRoom
-        //instance.updateRoom(pet, function(error) {
+        //instance.updateRoom(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -102,7 +91,7 @@
     describe('updateUser', function() {
       it('should call updateUser successfully', function(done) {
         //uncomment below and update the code to test updateUser
-        //instance.updateUser(pet, function(error) {
+        //instance.updateUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

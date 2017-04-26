@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -53,8 +42,8 @@
    * @alias module:model/Meeting
    * @class
    * @param title {String} 
-   * @param start {Integer} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
-   * @param end {Integer} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @param start {Number} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+   * @param end {Number} A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
    * @param endPointVersion {String} 
    * @param endPointType {String} 
    */
@@ -87,7 +76,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -96,10 +85,10 @@
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
       if (data.hasOwnProperty('start')) {
-        obj['start'] = ApiClient.convertToType(data['start'], 'Integer');
+        obj['start'] = ApiClient.convertToType(data['start'], 'Number');
       }
       if (data.hasOwnProperty('end')) {
-        obj['end'] = ApiClient.convertToType(data['end'], 'Integer');
+        obj['end'] = ApiClient.convertToType(data['end'], 'Number');
       }
       if (data.hasOwnProperty('timezone')) {
         obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
@@ -128,7 +117,7 @@
 
   /**
    * Unique identifier for meeting.
-   * @member {Integer} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -142,12 +131,12 @@
   exports.prototype['description'] = undefined;
   /**
    * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
-   * @member {Integer} start
+   * @member {Number} start
    */
   exports.prototype['start'] = undefined;
   /**
    * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
-   * @member {Integer} end
+   * @member {Number} end
    */
   exports.prototype['end'] = undefined;
   /**

@@ -3,16 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recordingEntityId** | **Integer** |  | [optional] 
+**recordingEntityId** | **Number** |  | [optional] 
 **recordingName** | **String** |  | [optional] 
 **meetingGuid** | **String** |  | [optional] 
-**chapterCount** | **Integer** |  | [optional] 
-**totalSize** | **Integer** |  | [optional] 
-**totalDuration** | **Integer** |  | [optional] 
+**chapterCount** | **Number** |  | [optional] 
+**totalSize** | **Number** |  | [optional] 
+**totalDuration** | **Number** |  | [optional] 
 **lastRecordingDate** | **String** |  | [optional] 
 **aggregatedStatus** | **String** |  | [optional] 
 **recordingThumbnail** | **String** |  | [optional] 
-**created** | **Integer** |  | [optional] 
+**created** | **Number** |  | [optional] 
 **isPremiumRecording** | **Boolean** |  | [optional] 
 **showPremiumRecordingTag** | **Boolean** |  | [optional] 
 

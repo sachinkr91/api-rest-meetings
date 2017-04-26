@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -62,7 +51,7 @@
     describe('v1EnterpriseEnterpriseIdIndigoMeetingsGet', function() {
       it('should call v1EnterpriseEnterpriseIdIndigoMeetingsGet successfully', function(done) {
         //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsGet(pet, function(error) {
+        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -72,7 +61,7 @@
     describe('v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet', function() {
       it('should call v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet successfully', function(done) {
         //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(pet, function(error) {
+        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -82,7 +71,7 @@
     describe('v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet', function() {
       it('should call v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet successfully', function(done) {
         //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(pet, function(error) {
+        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -92,7 +81,7 @@
     describe('v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet', function() {
       it('should call v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet successfully', function(done) {
         //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(pet, function(error) {
+        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -102,7 +91,7 @@
     describe('v1UserUserIdIndigoMeetingsGet', function() {
       it('should call v1UserUserIdIndigoMeetingsGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdIndigoMeetingsGet
-        //instance.v1UserUserIdIndigoMeetingsGet(pet, function(error) {
+        //instance.v1UserUserIdIndigoMeetingsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -112,7 +101,7 @@
     describe('v1UserUserIdIndigoMeetingsMeetingGuidGet', function() {
       it('should call v1UserUserIdIndigoMeetingsMeetingGuidGet successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdIndigoMeetingsMeetingGuidGet
-        //instance.v1UserUserIdIndigoMeetingsMeetingGuidGet(pet, function(error) {
+        //instance.v1UserUserIdIndigoMeetingsMeetingGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

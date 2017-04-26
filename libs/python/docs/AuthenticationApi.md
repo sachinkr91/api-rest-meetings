@@ -19,6 +19,7 @@ This API is typically called from an application.  Client ID and Secret are prov
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -38,7 +39,7 @@ try:
     api_response = api_instance.get_token_by_client(grant_request_client)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e)
 ```
 
 ### Parameters
@@ -71,6 +72,7 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -90,7 +92,7 @@ try:
     api_response = api_instance.get_token_by_meeting(grant_request_meeting)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -123,6 +125,7 @@ This API performs an authentication based upon a username and password.   Call t
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -142,7 +145,7 @@ try:
     api_response = api_instance.get_token_by_password(grant_request_password)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e)
 ```
 
 ### Parameters
@@ -175,6 +178,7 @@ This endpoint will validate if a token is valid or not.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
@@ -193,7 +197,7 @@ try:
     api_response = api_instance.get_token_info()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_info: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_info: %s\n" % e)
 ```
 
 ### Parameters

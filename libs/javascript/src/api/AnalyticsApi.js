@@ -9,34 +9,23 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/Error', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsUsage', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers'], factory);
+    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers', 'model/AnalyticsUsage', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/Error'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/AnalyticsUsage'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'));
+    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'), require('../model/AnalyticsUsage'), require('../model/Error'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AnalyticsApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers);
+    root.BlueJeansOnVideoRestApi.AnalyticsApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.Error);
   }
-}(this, function(ApiClient, AnalyticsEndpointDistribution, Error, AnalyticsFeedbackComments, AnalyticsFeedbackScores, AnalyticsUsage, AnalyticsRoiData, AnalyticsTopUsers) {
+}(this, function(ApiClient, AnalyticsEndpointDistribution, AnalyticsFeedbackComments, AnalyticsFeedbackScores, AnalyticsRoiData, AnalyticsTopUsers, AnalyticsUsage, Error) {
   'use strict';
 
   /**
@@ -67,7 +56,7 @@
     /**
      * Endpoint Distribution
      * This endpoint retrieves endpoint connection type distribution by enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])
      * @param {module:api/AnalyticsApi~getEndpointDistributionCallback} callback The callback function, accepting three arguments: error, data, response
@@ -79,7 +68,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getEndpointDistribution";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getEndpointDistribution");
       }
 
 
@@ -117,7 +106,7 @@
     /**
      * Survey Feedback Comments
      * This endpoint lists end of meeting survey comments by enterprise by time period.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {module:api/AnalyticsApi~getFeedbackCommentsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -128,17 +117,17 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackComments";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getFeedbackComments");
       }
 
       // verify the required parameter 'start' is set
       if (start == undefined || start == null) {
-        throw "Missing the required parameter 'start' when calling getFeedbackComments";
+        throw new Error("Missing the required parameter 'start' when calling getFeedbackComments");
       }
 
       // verify the required parameter 'end' is set
       if (end == undefined || end == null) {
-        throw "Missing the required parameter 'end' when calling getFeedbackComments";
+        throw new Error("Missing the required parameter 'end' when calling getFeedbackComments");
       }
 
 
@@ -177,7 +166,7 @@
     /**
      * Survey Feedback Scores
      * This endpoint lists end of meeting survey scores by enterprise by time period.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {module:api/AnalyticsApi~getFeedbackCountCallback} callback The callback function, accepting three arguments: error, data, response
@@ -188,17 +177,17 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackCount";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getFeedbackCount");
       }
 
       // verify the required parameter 'start' is set
       if (start == undefined || start == null) {
-        throw "Missing the required parameter 'start' when calling getFeedbackCount";
+        throw new Error("Missing the required parameter 'start' when calling getFeedbackCount");
       }
 
       // verify the required parameter 'end' is set
       if (end == undefined || end == null) {
-        throw "Missing the required parameter 'end' when calling getFeedbackCount";
+        throw new Error("Missing the required parameter 'end' when calling getFeedbackCount");
       }
 
 
@@ -237,7 +226,7 @@
     /**
      * Meeting Usage Over Time
      * This endpoint reports on meeting usage.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientTZ Based on standard TZ code. (default to America/Denver)
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])
@@ -250,7 +239,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getMeetingUsage";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingUsage");
       }
 
 
@@ -289,7 +278,7 @@
     /**
      * ROI Data
      * This endpoint lists return on investment (ROI) data for meetings.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} filter URL-encoded JSON string
      * @param {module:api/AnalyticsApi~getRoiRangesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsRoiData}
@@ -299,12 +288,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getRoiRanges";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getRoiRanges");
       }
 
       // verify the required parameter 'filter' is set
       if (filter == undefined || filter == null) {
-        throw "Missing the required parameter 'filter' when calling getRoiRanges";
+        throw new Error("Missing the required parameter 'filter' when calling getRoiRanges");
       }
 
 
@@ -342,7 +331,7 @@
     /**
      * Top Users
      * This endpoint retrieves the top users by usage for an enterprise.
-     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])
      * @param {module:api/AnalyticsApi~getTopUsersCallback} callback The callback function, accepting three arguments: error, data, response
@@ -354,7 +343,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw "Missing the required parameter 'enterpriseId' when calling getTopUsers";
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getTopUsers");
       }
 
 

@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -62,7 +51,7 @@
     describe('getEndpointDistribution', function() {
       it('should call getEndpointDistribution successfully', function(done) {
         //uncomment below and update the code to test getEndpointDistribution
-        //instance.getEndpointDistribution(pet, function(error) {
+        //instance.getEndpointDistribution(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -72,7 +61,7 @@
     describe('getFeedbackComments', function() {
       it('should call getFeedbackComments successfully', function(done) {
         //uncomment below and update the code to test getFeedbackComments
-        //instance.getFeedbackComments(pet, function(error) {
+        //instance.getFeedbackComments(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -82,7 +71,7 @@
     describe('getFeedbackCount', function() {
       it('should call getFeedbackCount successfully', function(done) {
         //uncomment below and update the code to test getFeedbackCount
-        //instance.getFeedbackCount(pet, function(error) {
+        //instance.getFeedbackCount(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -92,7 +81,7 @@
     describe('getMeetingUsage', function() {
       it('should call getMeetingUsage successfully', function(done) {
         //uncomment below and update the code to test getMeetingUsage
-        //instance.getMeetingUsage(pet, function(error) {
+        //instance.getMeetingUsage(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -102,7 +91,7 @@
     describe('getRoiRanges', function() {
       it('should call getRoiRanges successfully', function(done) {
         //uncomment below and update the code to test getRoiRanges
-        //instance.getRoiRanges(pet, function(error) {
+        //instance.getRoiRanges(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -112,7 +101,7 @@
     describe('getTopUsers', function() {
       it('should call getTopUsers successfully', function(done) {
         //uncomment below and update the code to test getTopUsers
-        //instance.getTopUsers(pet, function(error) {
+        //instance.getTopUsers(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
