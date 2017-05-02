@@ -51,8 +51,8 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeetingIndigo" /> class.
         /// </summary>
-        /// <param name="MeetingId">MeetingId.</param>
-        /// <param name="MeetingUUID">MeetingUUID.</param>
+        /// <param name="MeetingId">This is the same as the numericMeetingId found elsewhere. We should have been more consistent..</param>
+        /// <param name="MeetingUUID">The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes..</param>
         /// <param name="UserName">UserName.</param>
         /// <param name="Email">Email.</param>
         /// <param name="EncryptionType">EncryptionType.</param>
@@ -85,9 +85,8 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <param name="LargeMeeting">LargeMeeting.</param>
         /// <param name="RoiDistance">RoiDistance.</param>
         /// <param name="Mpls">Mpls.</param>
-        /// <param name="Id">Id.</param>
-        /// <param name="Endpoints">Endpoints.</param>
-        public MeetingIndigo(string MeetingId = default(string), string MeetingUUID = default(string), string UserName = default(string), string Email = default(string), int? EncryptionType = default(int?), string Title = default(string), string UserFullName = default(string), string PhoneNumber = default(string), string UserFeatures = default(string), ScheduledFromEnum? ScheduledFrom = default(ScheduledFromEnum?), int? InviteeCount = default(int?), bool? Personal = default(bool?), bool? MuteOnEntry = default(bool?), bool? AutoRecord = default(bool?), string EnterpriseName = default(string), bool? ModeratorLess = default(bool?), long? StartTime = default(long?), long? EndTime = default(long?), int? TotalCallSeconds = default(int?), long? CreateTime = default(long?), int? EndpointsCount = default(int?), int? ConcurrentEndpoints = default(int?), int? LiveVisibleEndpointsCount = default(int?), int? QualarooRating = default(int?), int? QualarooCount = default(int?), bool? MeetingRecording = default(bool?), bool? VideoShare = default(bool?), bool? ContentShare = default(bool?), bool? LiveRecording = default(bool?), bool? LiveVideoShare = default(bool?), bool? LiveContentShare = default(bool?), bool? LargeMeeting = default(bool?), float? RoiDistance = default(float?), bool? Mpls = default(bool?), string Id = default(string), List<EndpointIndigo> Endpoints = default(List<EndpointIndigo>))
+        /// <param name="Id">Same as the meetingUUID property in this object..</param>
+        public MeetingIndigo(string MeetingId = default(string), string MeetingUUID = default(string), string UserName = default(string), string Email = default(string), int? EncryptionType = default(int?), string Title = default(string), string UserFullName = default(string), string PhoneNumber = default(string), string UserFeatures = default(string), ScheduledFromEnum? ScheduledFrom = default(ScheduledFromEnum?), int? InviteeCount = default(int?), bool? Personal = default(bool?), bool? MuteOnEntry = default(bool?), bool? AutoRecord = default(bool?), string EnterpriseName = default(string), bool? ModeratorLess = default(bool?), long? StartTime = default(long?), long? EndTime = default(long?), int? TotalCallSeconds = default(int?), long? CreateTime = default(long?), int? EndpointsCount = default(int?), int? ConcurrentEndpoints = default(int?), int? LiveVisibleEndpointsCount = default(int?), int? QualarooRating = default(int?), int? QualarooCount = default(int?), bool? MeetingRecording = default(bool?), bool? VideoShare = default(bool?), bool? ContentShare = default(bool?), bool? LiveRecording = default(bool?), bool? LiveVideoShare = default(bool?), bool? LiveContentShare = default(bool?), bool? LargeMeeting = default(bool?), float? RoiDistance = default(float?), bool? Mpls = default(bool?), string Id = default(string))
         {
             this.MeetingId = MeetingId;
             this.MeetingUUID = MeetingUUID;
@@ -124,17 +123,18 @@ namespace com.bluejeans.api.rest.onvideo.Model
             this.RoiDistance = RoiDistance;
             this.Mpls = Mpls;
             this.Id = Id;
-            this.Endpoints = Endpoints;
         }
         
         /// <summary>
-        /// Gets or Sets MeetingId
+        /// This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
         /// </summary>
+        /// <value>This is the same as the numericMeetingId found elsewhere. We should have been more consistent.</value>
         [DataMember(Name="meetingId", EmitDefaultValue=false)]
         public string MeetingId { get; set; }
         /// <summary>
-        /// Gets or Sets MeetingUUID
+        /// The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
         /// </summary>
+        /// <value>The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.</value>
         [DataMember(Name="meetingUUID", EmitDefaultValue=false)]
         public string MeetingUUID { get; set; }
         /// <summary>
@@ -293,15 +293,11 @@ namespace com.bluejeans.api.rest.onvideo.Model
         [DataMember(Name="mpls", EmitDefaultValue=false)]
         public bool? Mpls { get; set; }
         /// <summary>
-        /// Gets or Sets Id
+        /// Same as the meetingUUID property in this object.
         /// </summary>
+        /// <value>Same as the meetingUUID property in this object.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-        /// <summary>
-        /// Gets or Sets Endpoints
-        /// </summary>
-        [DataMember(Name="endpoints", EmitDefaultValue=false)]
-        public List<EndpointIndigo> Endpoints { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -345,7 +341,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
             sb.Append("  RoiDistance: ").Append(RoiDistance).Append("\n");
             sb.Append("  Mpls: ").Append(Mpls).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Endpoints: ").Append(Endpoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -556,11 +551,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this.Endpoints == other.Endpoints ||
-                    this.Endpoints != null &&
-                    this.Endpoints.SequenceEqual(other.Endpoints)
                 );
         }
 
@@ -645,8 +635,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     hash = hash * 59 + this.Mpls.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.Endpoints != null)
-                    hash = hash * 59 + this.Endpoints.GetHashCode();
                 return hash;
             }
         }

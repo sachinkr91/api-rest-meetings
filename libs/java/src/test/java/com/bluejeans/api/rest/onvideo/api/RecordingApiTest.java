@@ -63,7 +63,8 @@ public class RecordingApiTest {
     public void getRecordingContentTest() throws ApiException {
         Integer userId = null;
         Integer contentId = null;
-        Content response = api.getRecordingContent(userId, contentId);
+        Boolean isDownloadable = null;
+        Content response = api.getRecordingContent(userId, contentId, isDownloadable);
 
         // TODO: test validations
     }
@@ -71,7 +72,7 @@ public class RecordingApiTest {
     /**
      * Start Recording
      *
-     * This endpoint starts recording for a meeting in progress.
+     * This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -80,7 +81,8 @@ public class RecordingApiTest {
     public void startRecordingTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        api.startRecording(userId, meetingId);
+        String action = null;
+        api.startRecording(userId, meetingId, action);
 
         // TODO: test validations
     }
@@ -88,7 +90,7 @@ public class RecordingApiTest {
     /**
      * Stop Recording
      *
-     * This endpoint stops recording for a meeting in progress.
+     * This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -97,7 +99,8 @@ public class RecordingApiTest {
     public void stopRecordingTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        api.stopRecording(userId, meetingId);
+        String action = null;
+        api.stopRecording(userId, meetingId, action);
 
         // TODO: test validations
     }

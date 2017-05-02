@@ -1334,10 +1334,10 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action=start:
+  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     post:
       summary: Start Recording
-      description: This endpoint starts recording for a meeting in progress.
+      description: This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
       operationId: startRecording
       tags:
         - Recording
@@ -1354,6 +1354,14 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
+        - name: action
+          in: query
+          required: true
+          type: string
+          enum:
+          - start
+          default: start
+          description: Always set to "start" in order to start recording.
       responses:
         '204':
           description: Empty response on success.
@@ -1361,10 +1369,9 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action=stop:
     put:
       summary: Stop Recording
-      description: This endpoint stops recording for a meeting in progress.
+      description: This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
       operationId: stopRecording
       tags:
         - Recording
@@ -1381,6 +1388,14 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
+        - name: action
+          in: query
+          required: true
+          type: string
+          enum:
+          - stop
+          default: stop
+          description: Always set to "stop" in order to stop recording.
       responses:
         '204':
           description: Empty response on success.
@@ -1388,7 +1403,6 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     get:
       summary: Get All Recordings for a Specified Meeting ID
       description: This endpoint lists the recordings for a meeting.
@@ -1512,7 +1526,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/cms/{content_id}?isDownloadable=true:
+  /v1/user/{user_id}/cms/{content_id}:
     get:
       summary: Get Recording Download Link
       description: This endpoint retrieves properties about the recording chapter.
@@ -1532,6 +1546,12 @@ paths:
           description: The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
           required: true
           type: integer
+        - name: isDownloadable
+          in: query
+          required: true
+          type: boolean
+          description: Set to true.
+          default: true
       responses:
         '200':
           description: The results for this content item.
@@ -1545,6 +1565,7 @@ paths:
     get:
       summary: Live Meetings Summary by Enterprise
       description: This endpoint lists meetings in progress by enterprise.
+      operationId: getMeetingsLiveByEnterprise
       tags:
         - Command Center
       security:
@@ -1559,15 +1580,16 @@ paths:
         '200':
           description: TBD
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingIndigoList'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/:
+  /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/:
     get:
       summary: List Live Meeting Endpoints by Enterprise
       description: This endpoint lists endpoints for a given meeting in progress.
+      operationId: getMeetingLiveByEnterprise
       tags:
         - Command Center
       security:
@@ -1578,16 +1600,16 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
-        - name: meeting_guid
+        - name: meeting_uuid
           in: path
-          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          description: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
           required: true
           type: string
       responses:
         '200':
           description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingExtendedIndigo'
         default:
           description: Unexpected error
           schema:
@@ -1596,6 +1618,7 @@ paths:
     get:
       summary: List Past Meetings by Enterprise
       description: This endpoint lists completed meetings by enterprise.
+      operationId: getMeetingsPastByEnterprise
       tags:
         - Command Center
       security:
@@ -1622,7 +1645,7 @@ paths:
         '200':
           description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingIndigoList'
         default:
           description: Unexpected error
           schema:
@@ -1631,6 +1654,7 @@ paths:
     get:
       summary: List Past Meetings by User
       description: This endpoint lists completed meetings by user.
+      operationId: getMeetingsPastByUser
       tags:
         - Command Center
       security:
@@ -1645,15 +1669,16 @@ paths:
         '200':
           description: The results for this user.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingIndigoList'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}:
+  /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by Enterprise
       description: This endpoint lists meeting endpoints for completed meetings by enterprise.
+      operationId: getMeetingPastByEnterprise
       tags:
         - Command Center
       security:
@@ -1664,9 +1689,9 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
-        - name: meeting_guid
+        - name: meeting_uuid
           in: path
-          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          description: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
           required: true
           type: string
         - name: includeEndpoints
@@ -1677,15 +1702,16 @@ paths:
         '200':
           description: The results for this enterprise.
           schema:
-            $ref: '#/definitions/MeetingIndigo'
+            $ref: '#/definitions/MeetingExtendedIndigo'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/indigo/meetings/{meeting_guid}:
+  /v1/user/{user_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by User
       description: This endpoint lists meeting endpoints for completed meetings by user.
+      operationId: getMeetingPastByUser
       tags:
         - Command Center
       security:
@@ -1696,16 +1722,16 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_guid
+        - name: meeting_uuid
           in: path
-          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+          description: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
           required: true
           type: string
       responses:
         '200':
           description: The results for this user.
           schema:
-            $ref: '#/definitions/MeetingIndigo'
+            $ref: '#/definitions/MeetingExtendedIndigo'
         default:
           description: Unexpected error
           schema:
@@ -2979,13 +3005,22 @@ definitions:
         type: integer
         format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+  MeetingIndigoList:
+    type: object
+    properties:
+      meetings:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingIndigo'
   MeetingIndigo:
     type: object
     properties:
       meetingId:
         type: string
+        description: This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
       meetingUUID:
         type: string
+        description: The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
       userName:
         type: string
       email:
@@ -3058,10 +3093,16 @@ definitions:
         type: boolean
       id:
         type: string
-      endpoints:
-        type: array
-        items:
-          $ref: '#/definitions/EndpointIndigo'
+        description: Same as the meetingUUID property in this object.
+  MeetingExtendedIndigo:
+    allOf:
+    - $ref: '#/definitions/MeetingIndigo'
+    - type: object
+      properties:
+        endpoints:
+          type: array
+          items:
+            $ref: '#/definitions/EndpointIndigo'
   EndpointIndigo:
     type: object
     properties:

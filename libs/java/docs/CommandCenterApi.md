@@ -4,17 +4,245 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1EnterpriseEnterpriseIdIndigoMeetingsGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/ | List Live Meeting Endpoints by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by Enterprise
-[**v1UserUserIdIndigoMeetingsGet**](CommandCenterApi.md#v1UserUserIdIndigoMeetingsGet) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
-[**v1UserUserIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1UserUserIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by User
+[**getMeetingLiveByEnterprise**](CommandCenterApi.md#getMeetingLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/ | List Live Meeting Endpoints by Enterprise
+[**getMeetingPastByEnterprise**](CommandCenterApi.md#getMeetingPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by Enterprise
+[**getMeetingPastByUser**](CommandCenterApi.md#getMeetingPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by User
+[**getMeetingsLiveByEnterprise**](CommandCenterApi.md#getMeetingsLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
+[**getMeetingsPastByEnterprise**](CommandCenterApi.md#getMeetingsPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
+[**getMeetingsPastByUser**](CommandCenterApi.md#getMeetingsPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
 
 
-<a name="v1EnterpriseEnterpriseIdIndigoMeetingsGet"></a>
-# **v1EnterpriseEnterpriseIdIndigoMeetingsGet**
-> Meeting v1EnterpriseEnterpriseIdIndigoMeetingsGet(enterpriseId, offset, limit, filter)
+<a name="getMeetingLiveByEnterprise"></a>
+# **getMeetingLiveByEnterprise**
+> MeetingExtendedIndigo getMeetingLiveByEnterprise(enterpriseId, meetingUuid)
+
+List Live Meeting Endpoints by Enterprise
+
+This endpoint lists endpoints for a given meeting in progress.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+CommandCenterApi apiInstance = new CommandCenterApi();
+Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+String meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+try {
+    MeetingExtendedIndigo result = apiInstance.getMeetingLiveByEnterprise(enterpriseId, meetingUuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CommandCenterApi#getMeetingLiveByEnterprise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingPastByEnterprise"></a>
+# **getMeetingPastByEnterprise**
+> MeetingExtendedIndigo getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints)
+
+List Meeting Endpoints &amp; Stats by Enterprise
+
+This endpoint lists meeting endpoints for completed meetings by enterprise.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+CommandCenterApi apiInstance = new CommandCenterApi();
+Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+String meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+Boolean includeEndpoints = true; // Boolean | Option to include detailed data on endpoints
+try {
+    MeetingExtendedIndigo result = apiInstance.getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CommandCenterApi#getMeetingPastByEnterprise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+ **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional]
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingPastByUser"></a>
+# **getMeetingPastByUser**
+> MeetingExtendedIndigo getMeetingPastByUser(userId, meetingUuid)
+
+List Meeting Endpoints &amp; Stats by User
+
+This endpoint lists meeting endpoints for completed meetings by user.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+CommandCenterApi apiInstance = new CommandCenterApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+String meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+try {
+    MeetingExtendedIndigo result = apiInstance.getMeetingPastByUser(userId, meetingUuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CommandCenterApi#getMeetingPastByUser");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingsLiveByEnterprise"></a>
+# **getMeetingsLiveByEnterprise**
+> MeetingIndigoList getMeetingsLiveByEnterprise(enterpriseId)
+
+Live Meetings Summary by Enterprise
+
+This endpoint lists meetings in progress by enterprise.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+CommandCenterApi apiInstance = new CommandCenterApi();
+Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+try {
+    MeetingIndigoList result = apiInstance.getMeetingsLiveByEnterprise(enterpriseId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CommandCenterApi#getMeetingsLiveByEnterprise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+
+### Return type
+
+[**MeetingIndigoList**](MeetingIndigoList.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMeetingsPastByEnterprise"></a>
+# **getMeetingsPastByEnterprise**
+> MeetingIndigoList getMeetingsPastByEnterprise(enterpriseId, offset, limit, filter)
 
 List Past Meetings by Enterprise
 
@@ -43,10 +271,10 @@ Integer offset = 56; // Integer | Page Number
 Integer limit = 56; // Integer | Per page
 String filter = "filter_example"; // String | URL-encoded JSON string
 try {
-    Meeting result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsGet(enterpriseId, offset, limit, filter);
+    MeetingIndigoList result = apiInstance.getMeetingsPastByEnterprise(enterpriseId, offset, limit, filter);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1EnterpriseEnterpriseIdIndigoMeetingsGet");
+    System.err.println("Exception when calling CommandCenterApi#getMeetingsPastByEnterprise");
     e.printStackTrace();
 }
 ```
@@ -62,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigoList**](MeetingIndigoList.md)
 
 ### Authorization
 
@@ -73,180 +301,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet"></a>
-# **v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**
-> Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(enterpriseId)
-
-Live Meetings Summary by Enterprise
-
-This endpoint lists meetings in progress by enterprise.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-CommandCenterApi apiInstance = new CommandCenterApi();
-Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-try {
-    Meeting result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(enterpriseId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet"></a>
-# **v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**
-> Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(enterpriseId, meetingGuid)
-
-List Live Meeting Endpoints by Enterprise
-
-This endpoint lists endpoints for a given meeting in progress.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-CommandCenterApi apiInstance = new CommandCenterApi();
-Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-try {
-    Meeting result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(enterpriseId, meetingGuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet"></a>
-# **v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints)
-
-List Meeting Endpoints &amp; Stats by Enterprise
-
-This endpoint lists meeting endpoints for completed meetings by enterprise.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-CommandCenterApi apiInstance = new CommandCenterApi();
-Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-Boolean includeEndpoints = true; // Boolean | Option to include detailed data on endpoints
-try {
-    MeetingIndigo result = apiInstance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
- **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional]
-
-### Return type
-
-[**MeetingIndigo**](MeetingIndigo.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdIndigoMeetingsGet"></a>
-# **v1UserUserIdIndigoMeetingsGet**
-> Meeting v1UserUserIdIndigoMeetingsGet(userId)
+<a name="getMeetingsPastByUser"></a>
+# **getMeetingsPastByUser**
+> MeetingIndigoList getMeetingsPastByUser(userId)
 
 List Past Meetings by User
 
@@ -272,10 +329,10 @@ access_token.setApiKey("YOUR API KEY");
 CommandCenterApi apiInstance = new CommandCenterApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 try {
-    Meeting result = apiInstance.v1UserUserIdIndigoMeetingsGet(userId);
+    MeetingIndigoList result = apiInstance.getMeetingsPastByUser(userId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1UserUserIdIndigoMeetingsGet");
+    System.err.println("Exception when calling CommandCenterApi#getMeetingsPastByUser");
     e.printStackTrace();
 }
 ```
@@ -288,64 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="v1UserUserIdIndigoMeetingsMeetingGuidGet"></a>
-# **v1UserUserIdIndigoMeetingsMeetingGuidGet**
-> MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid)
-
-List Meeting Endpoints &amp; Stats by User
-
-This endpoint lists meeting endpoints for completed meetings by user.
-
-### Example
-```java
-// Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.CommandCenterApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
-
-CommandCenterApi apiInstance = new CommandCenterApi();
-Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-try {
-    MeetingIndigo result = apiInstance.v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CommandCenterApi#v1UserUserIdIndigoMeetingsMeetingGuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**MeetingIndigo**](MeetingIndigo.md)
+[**MeetingIndigoList**](MeetingIndigoList.md)
 
 ### Authorization
 

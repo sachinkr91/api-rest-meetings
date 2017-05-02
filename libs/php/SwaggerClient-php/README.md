@@ -92,12 +92,12 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**getTokenByMeeting**](docs/Api/AuthenticationApi.md#gettokenbymeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 *AuthenticationApi* | [**getTokenByPassword**](docs/Api/AuthenticationApi.md#gettokenbypassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 *AuthenticationApi* | [**getTokenInfo**](docs/Api/AuthenticationApi.md#gettokeninfo) | **GET** /oauth2/tokenInfo | Validate a Token
-*CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsGet**](docs/Api/CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
-*CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**](docs/Api/CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsliveget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
-*CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**](docs/Api/CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingslivemeetingguidendpointsget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/ | List Live Meeting Endpoints by Enterprise
-*CommandCenterApi* | [**v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**](docs/Api/CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsmeetingguidget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by Enterprise
-*CommandCenterApi* | [**v1UserUserIdIndigoMeetingsGet**](docs/Api/CommandCenterApi.md#v1useruseridindigomeetingsget) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
-*CommandCenterApi* | [**v1UserUserIdIndigoMeetingsMeetingGuidGet**](docs/Api/CommandCenterApi.md#v1useruseridindigomeetingsmeetingguidget) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by User
+*CommandCenterApi* | [**getMeetingLiveByEnterprise**](docs/Api/CommandCenterApi.md#getmeetinglivebyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/ | List Live Meeting Endpoints by Enterprise
+*CommandCenterApi* | [**getMeetingPastByEnterprise**](docs/Api/CommandCenterApi.md#getmeetingpastbyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by Enterprise
+*CommandCenterApi* | [**getMeetingPastByUser**](docs/Api/CommandCenterApi.md#getmeetingpastbyuser) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by User
+*CommandCenterApi* | [**getMeetingsLiveByEnterprise**](docs/Api/CommandCenterApi.md#getmeetingslivebyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
+*CommandCenterApi* | [**getMeetingsPastByEnterprise**](docs/Api/CommandCenterApi.md#getmeetingspastbyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
+*CommandCenterApi* | [**getMeetingsPastByUser**](docs/Api/CommandCenterApi.md#getmeetingspastbyuser) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
 *EnterpriseApi* | [**createUser**](docs/Api/EnterpriseApi.md#createuser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 *EnterpriseApi* | [**listUsers**](docs/Api/EnterpriseApi.md#listusers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
 *EnterpriseApi* | [**removeUser**](docs/Api/EnterpriseApi.md#removeuser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
@@ -127,9 +127,9 @@ Class | Method | HTTP request | Description
 *MeetingApi* | [**updateMeetingEndpoints**](docs/Api/MeetingApi.md#updatemeetingendpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 *MeetingApi* | [**updateMeetingState**](docs/Api/MeetingApi.md#updatemeetingstate) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
 *RecordingApi* | [**getMeetingRecordings**](docs/Api/RecordingApi.md#getmeetingrecordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
-*RecordingApi* | [**getRecordingContent**](docs/Api/RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
-*RecordingApi* | [**startRecording**](docs/Api/RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start | Start Recording
-*RecordingApi* | [**stopRecording**](docs/Api/RecordingApi.md#stoprecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
+*RecordingApi* | [**getRecordingContent**](docs/Api/RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
+*RecordingApi* | [**startRecording**](docs/Api/RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
+*RecordingApi* | [**stopRecording**](docs/Api/RecordingApi.md#stoprecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
 *RecordingApi* | [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](docs/Api/RecordingApi.md#v1useruseridlivemeetingsmeetingidrecordingsmeetingguidmeetingguidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/Api/RecordingApi.md#v1useruseridmeetinghistorymeetingguidrecordingsdelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](docs/Api/RecordingApi.md#v1useruseridmeetinghistorymeetingidrecordingsrecordingchapteriddelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
@@ -185,11 +185,13 @@ Class | Method | HTTP request | Description
  - [Layout](docs/Model/Layout.md)
  - [Meeting](docs/Model/Meeting.md)
  - [MeetingAdvancedMeetingOptions](docs/Model/MeetingAdvancedMeetingOptions.md)
+ - [MeetingExtendedIndigo](docs/Model/MeetingExtendedIndigo.md)
  - [MeetingHistory](docs/Model/MeetingHistory.md)
  - [MeetingHistoryLeaderInfo](docs/Model/MeetingHistoryLeaderInfo.md)
  - [MeetingHistoryParticipantList](docs/Model/MeetingHistoryParticipantList.md)
  - [MeetingHistorySharing](docs/Model/MeetingHistorySharing.md)
  - [MeetingIndigo](docs/Model/MeetingIndigo.md)
+ - [MeetingIndigoList](docs/Model/MeetingIndigoList.md)
  - [MeetingState](docs/Model/MeetingState.md)
  - [MeetingStateRecordinginfo](docs/Model/MeetingStateRecordinginfo.md)
  - [Numbers](docs/Model/Numbers.md)

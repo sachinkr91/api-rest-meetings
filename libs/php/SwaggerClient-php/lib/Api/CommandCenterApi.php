@@ -88,25 +88,431 @@ class CommandCenterApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsGet
+     * Operation getMeetingLiveByEnterprise
      *
-     * List Past Meetings by Enterprise
+     * List Live Meeting Endpoints by Enterprise
      *
      * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param int $offset Page Number (optional)
-     * @param int $limit Per page (optional)
-     * @param string $filter URL-encoded JSON string (optional)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\MeetingExtendedIndigo
      */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsGet($enterprise_id, $offset = null, $limit = null, $filter = null)
+    public function getMeetingLiveByEnterprise($enterprise_id, $meeting_uuid)
     {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo($enterprise_id, $offset, $limit, $filter);
+        list($response) = $this->getMeetingLiveByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid);
         return $response;
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo
+     * Operation getMeetingLiveByEnterpriseWithHttpInfo
+     *
+     * List Live Meeting Endpoints by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MeetingExtendedIndigo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeetingLiveByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getMeetingLiveByEnterprise');
+        }
+        // verify the required parameter 'meeting_uuid' is set
+        if ($meeting_uuid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_uuid when calling getMeetingLiveByEnterprise');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_uuid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_uuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_uuid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MeetingExtendedIndigo',
+                '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingExtendedIndigo', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingExtendedIndigo', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingPastByEnterprise
+     *
+     * List Meeting Endpoints & Stats by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\MeetingExtendedIndigo
+     */
+    public function getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    {
+        list($response) = $this->getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingPastByEnterpriseWithHttpInfo
+     *
+     * List Meeting Endpoints & Stats by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MeetingExtendedIndigo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getMeetingPastByEnterprise');
+        }
+        // verify the required parameter 'meeting_uuid' is set
+        if ($meeting_uuid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_uuid when calling getMeetingPastByEnterprise');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // query params
+        if ($include_endpoints !== null) {
+            $queryParams['includeEndpoints'] = $this->apiClient->getSerializer()->toQueryValue($include_endpoints);
+        }
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_uuid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_uuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_uuid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MeetingExtendedIndigo',
+                '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingExtendedIndigo', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingExtendedIndigo', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingPastByUser
+     *
+     * List Meeting Endpoints & Stats by User
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\MeetingExtendedIndigo
+     */
+    public function getMeetingPastByUser($user_id, $meeting_uuid)
+    {
+        list($response) = $this->getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingPastByUserWithHttpInfo
+     *
+     * List Meeting Endpoints & Stats by User
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MeetingExtendedIndigo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingPastByUser');
+        }
+        // verify the required parameter 'meeting_uuid' is set
+        if ($meeting_uuid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_uuid when calling getMeetingPastByUser');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_uuid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_uuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_uuid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MeetingExtendedIndigo',
+                '/v1/user/{user_id}/indigo/meetings/{meeting_uuid}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingExtendedIndigo', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingExtendedIndigo', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingsLiveByEnterprise
+     *
+     * Live Meetings Summary by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\MeetingIndigoList
+     */
+    public function getMeetingsLiveByEnterprise($enterprise_id)
+    {
+        list($response) = $this->getMeetingsLiveByEnterpriseWithHttpInfo($enterprise_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingsLiveByEnterpriseWithHttpInfo
+     *
+     * Live Meetings Summary by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MeetingIndigoList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeetingsLiveByEnterpriseWithHttpInfo($enterprise_id)
+    {
+        // verify the required parameter 'enterprise_id' is set
+        if ($enterprise_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getMeetingsLiveByEnterprise');
+        }
+        // parse inputs
+        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($enterprise_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "enterprise_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MeetingIndigoList',
+                '/v1/enterprise/{enterprise_id}/indigo/meetings/live'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigoList', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigoList', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeetingsPastByEnterprise
      *
      * List Past Meetings by Enterprise
      *
@@ -115,13 +521,31 @@ class CommandCenterApi
      * @param int $limit Per page (optional)
      * @param string $filter URL-encoded JSON string (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return \Swagger\Client\Model\MeetingIndigoList
      */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo($enterprise_id, $offset = null, $limit = null, $filter = null)
+    public function getMeetingsPastByEnterprise($enterprise_id, $offset = null, $limit = null, $filter = null)
+    {
+        list($response) = $this->getMeetingsPastByEnterpriseWithHttpInfo($enterprise_id, $offset, $limit, $filter);
+        return $response;
+    }
+
+    /**
+     * Operation getMeetingsPastByEnterpriseWithHttpInfo
+     *
+     * List Past Meetings by Enterprise
+     *
+     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param int $offset Page Number (optional)
+     * @param int $limit Per page (optional)
+     * @param string $filter URL-encoded JSON string (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MeetingIndigoList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeetingsPastByEnterpriseWithHttpInfo($enterprise_id, $offset = null, $limit = null, $filter = null)
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoMeetingsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling getMeetingsPastByEnterprise');
         }
         // parse inputs
         $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings";
@@ -178,15 +602,15 @@ class CommandCenterApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\MeetingIndigoList',
                 '/v1/enterprise/{enterprise_id}/indigo/meetings'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigoList', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigoList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:
@@ -200,350 +624,34 @@ class CommandCenterApi
     }
 
     /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet
-     *
-     * Live Meetings Summary by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet($enterprise_id)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo($enterprise_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo
-     *
-     * Live Meetings Summary by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo($enterprise_id)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/enterprise/{enterprise_id}/indigo/meetings/live'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 0:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet
-     *
-     * List Live Meeting Endpoints by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet($enterprise_id, $meeting_guid)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo($enterprise_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo
-     *
-     * List Live Meeting Endpoints by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo($enterprise_id, $meeting_guid)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 0:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet
-     *
-     * List Meeting Endpoints & Stats by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\MeetingIndigo
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints = null)
-    {
-        list($response) = $this->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid, $include_endpoints);
-        return $response;
-    }
-
-    /**
-     * Operation v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo
-     *
-     * List Meeting Endpoints & Stats by Enterprise
-     *
-     * @param int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param bool $include_endpoints Option to include detailed data on endpoints (optional)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\MeetingIndigo, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo($enterprise_id, $meeting_guid, $include_endpoints = null)
-    {
-        // verify the required parameter 'enterprise_id' is set
-        if ($enterprise_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $enterprise_id when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // query params
-        if ($include_endpoints !== null) {
-            $queryParams['includeEndpoints'] = $this->apiClient->getSerializer()->toQueryValue($include_endpoints);
-        }
-        // path params
-        if ($enterprise_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "enterprise_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($enterprise_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\MeetingIndigo',
-                '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigo', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigo', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 0:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdIndigoMeetingsGet
+     * Operation getMeetingsPastByUser
      *
      * List Past Meetings by User
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\MeetingIndigoList
      */
-    public function v1UserUserIdIndigoMeetingsGet($user_id)
+    public function getMeetingsPastByUser($user_id)
     {
-        list($response) = $this->v1UserUserIdIndigoMeetingsGetWithHttpInfo($user_id);
+        list($response) = $this->getMeetingsPastByUserWithHttpInfo($user_id);
         return $response;
     }
 
     /**
-     * Operation v1UserUserIdIndigoMeetingsGetWithHttpInfo
+     * Operation getMeetingsPastByUserWithHttpInfo
      *
      * List Past Meetings by User
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\MeetingIndigoList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1UserUserIdIndigoMeetingsGetWithHttpInfo($user_id)
+    public function getMeetingsPastByUserWithHttpInfo($user_id)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdIndigoMeetingsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getMeetingsPastByUser');
         }
         // parse inputs
         $resourcePath = "/v1/user/{user_id}/indigo/meetings";
@@ -588,123 +696,15 @@ class CommandCenterApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
+                '\Swagger\Client\Model\MeetingIndigoList',
                 '/v1/user/{user_id}/indigo/meetings'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigoList', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 0:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdIndigoMeetingsMeetingGuidGet
-     *
-     * List Meeting Endpoints & Stats by User
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\MeetingIndigo
-     */
-    public function v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid)
-    {
-        list($response) = $this->v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo($user_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo
-     *
-     * List Meeting Endpoints & Stats by User
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\MeetingIndigo, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo($user_id, $meeting_guid)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdIndigoMeetingsMeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1UserUserIdIndigoMeetingsMeetingGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/indigo/meetings/{meeting_guid}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\MeetingIndigo',
-                '/v1/user/{user_id}/indigo/meetings/{meeting_guid}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MeetingIndigo', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigo', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MeetingIndigoList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:

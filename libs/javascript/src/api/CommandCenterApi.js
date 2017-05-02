@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Meeting', 'model/MeetingIndigo'], factory);
+    define(['ApiClient', 'model/Error', 'model/MeetingExtendedIndigo', 'model/MeetingIndigoList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Meeting'), require('../model/MeetingIndigo'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/MeetingExtendedIndigo'), require('../model/MeetingIndigoList'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingIndigo);
+    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingExtendedIndigo, root.BlueJeansOnVideoRestApi.MeetingIndigoList);
   }
-}(this, function(ApiClient, Error, Meeting, MeetingIndigo) {
+}(this, function(ApiClient, Error, MeetingExtendedIndigo, MeetingIndigoList) {
   'use strict';
 
   /**
@@ -46,10 +46,219 @@
 
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoMeetingsGet operation.
-     * @callback module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsGetCallback
+     * Callback function to receive the result of the getMeetingLiveByEnterprise operation.
+     * @callback module:api/CommandCenterApi~getMeetingLiveByEnterpriseCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/MeetingExtendedIndigo} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Live Meeting Endpoints by Enterprise
+     * This endpoint lists endpoints for a given meeting in progress.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+     * @param {module:api/CommandCenterApi~getMeetingLiveByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingExtendedIndigo}
+     */
+    this.getMeetingLiveByEnterprise = function(enterpriseId, meetingUuid, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'enterpriseId' is set
+      if (enterpriseId == undefined || enterpriseId == null) {
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingLiveByEnterprise");
+      }
+
+      // verify the required parameter 'meetingUuid' is set
+      if (meetingUuid == undefined || meetingUuid == null) {
+        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingLiveByEnterprise");
+      }
+
+
+      var pathParams = {
+        'enterprise_id': enterpriseId,
+        'meeting_uuid': meetingUuid
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingExtendedIndigo;
+
+      return this.apiClient.callApi(
+        '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingPastByEnterprise operation.
+     * @callback module:api/CommandCenterApi~getMeetingPastByEnterpriseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingExtendedIndigo} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meeting Endpoints &amp; Stats by Enterprise
+     * This endpoint lists meeting endpoints for completed meetings by enterprise.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.includeEndpoints Option to include detailed data on endpoints
+     * @param {module:api/CommandCenterApi~getMeetingPastByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingExtendedIndigo}
+     */
+    this.getMeetingPastByEnterprise = function(enterpriseId, meetingUuid, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'enterpriseId' is set
+      if (enterpriseId == undefined || enterpriseId == null) {
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingPastByEnterprise");
+      }
+
+      // verify the required parameter 'meetingUuid' is set
+      if (meetingUuid == undefined || meetingUuid == null) {
+        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingPastByEnterprise");
+      }
+
+
+      var pathParams = {
+        'enterprise_id': enterpriseId,
+        'meeting_uuid': meetingUuid
+      };
+      var queryParams = {
+        'includeEndpoints': opts['includeEndpoints']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingExtendedIndigo;
+
+      return this.apiClient.callApi(
+        '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingPastByUser operation.
+     * @callback module:api/CommandCenterApi~getMeetingPastByUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingExtendedIndigo} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List Meeting Endpoints &amp; Stats by User
+     * This endpoint lists meeting endpoints for completed meetings by user.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+     * @param {module:api/CommandCenterApi~getMeetingPastByUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingExtendedIndigo}
+     */
+    this.getMeetingPastByUser = function(userId, meetingUuid, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingPastByUser");
+      }
+
+      // verify the required parameter 'meetingUuid' is set
+      if (meetingUuid == undefined || meetingUuid == null) {
+        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingPastByUser");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'meeting_uuid': meetingUuid
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingExtendedIndigo;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/indigo/meetings/{meeting_uuid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingsLiveByEnterprise operation.
+     * @callback module:api/CommandCenterApi~getMeetingsLiveByEnterpriseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingIndigoList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Live Meetings Summary by Enterprise
+     * This endpoint lists meetings in progress by enterprise.
+     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {module:api/CommandCenterApi~getMeetingsLiveByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingIndigoList}
+     */
+    this.getMeetingsLiveByEnterprise = function(enterpriseId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'enterpriseId' is set
+      if (enterpriseId == undefined || enterpriseId == null) {
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingsLiveByEnterprise");
+      }
+
+
+      var pathParams = {
+        'enterprise_id': enterpriseId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = MeetingIndigoList;
+
+      return this.apiClient.callApi(
+        '/v1/enterprise/{enterprise_id}/indigo/meetings/live', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeetingsPastByEnterprise operation.
+     * @callback module:api/CommandCenterApi~getMeetingsPastByEnterpriseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/MeetingIndigoList} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -61,16 +270,16 @@
      * @param {Number} opts.offset Page Number
      * @param {Number} opts.limit Per page
      * @param {String} opts.filter URL-encoded JSON string
-     * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * @param {module:api/CommandCenterApi~getMeetingsPastByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingIndigoList}
      */
-    this.v1EnterpriseEnterpriseIdIndigoMeetingsGet = function(enterpriseId, opts, callback) {
+    this.getMeetingsPastByEnterprise = function(enterpriseId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsGet");
+        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingsPastByEnterprise");
       }
 
 
@@ -90,7 +299,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = MeetingIndigoList;
 
       return this.apiClient.callApi(
         '/v1/enterprise/{enterprise_id}/indigo/meetings', 'GET',
@@ -100,166 +309,10 @@
     }
 
     /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet operation.
-     * @callback module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetCallback
+     * Callback function to receive the result of the getMeetingsPastByUser operation.
+     * @callback module:api/CommandCenterApi~getMeetingsPastByUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Live Meetings Summary by Enterprise
-     * This endpoint lists meetings in progress by enterprise.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet = function(enterpriseId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'enterpriseId' is set
-      if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet");
-      }
-
-
-      var pathParams = {
-        'enterprise_id': enterpriseId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/enterprise/{enterprise_id}/indigo/meetings/live', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet operation.
-     * @callback module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Live Meeting Endpoints by Enterprise
-     * This endpoint lists endpoints for a given meeting in progress.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-     * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
-     */
-    this.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet = function(enterpriseId, meetingGuid, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'enterpriseId' is set
-      if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-      }
-
-      // verify the required parameter 'meetingGuid' is set
-      if (meetingGuid == undefined || meetingGuid == null) {
-        throw new Error("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-      }
-
-
-      var pathParams = {
-        'enterprise_id': enterpriseId,
-        'meeting_guid': meetingGuid
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Meeting;
-
-      return this.apiClient.callApi(
-        '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet operation.
-     * @callback module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MeetingIndigo} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meeting Endpoints &amp; Stats by Enterprise
-     * This endpoint lists meeting endpoints for completed meetings by enterprise.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includeEndpoints Option to include detailed data on endpoints
-     * @param {module:api/CommandCenterApi~v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MeetingIndigo}
-     */
-    this.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet = function(enterpriseId, meetingGuid, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'enterpriseId' is set
-      if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-      }
-
-      // verify the required parameter 'meetingGuid' is set
-      if (meetingGuid == undefined || meetingGuid == null) {
-        throw new Error("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-      }
-
-
-      var pathParams = {
-        'enterprise_id': enterpriseId,
-        'meeting_guid': meetingGuid
-      };
-      var queryParams = {
-        'includeEndpoints': opts['includeEndpoints']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = MeetingIndigo;
-
-      return this.apiClient.callApi(
-        '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdIndigoMeetingsGet operation.
-     * @callback module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Meeting} data The data returned by the service call.
+     * @param {module:model/MeetingIndigoList} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -267,15 +320,15 @@
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Meeting}
+     * @param {module:api/CommandCenterApi~getMeetingsPastByUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/MeetingIndigoList}
      */
-    this.v1UserUserIdIndigoMeetingsGet = function(userId, callback) {
+    this.getMeetingsPastByUser = function(userId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsGet");
+        throw new Error("Missing the required parameter 'userId' when calling getMeetingsPastByUser");
       }
 
 
@@ -292,63 +345,10 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Meeting;
+      var returnType = MeetingIndigoList;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/indigo/meetings', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the v1UserUserIdIndigoMeetingsMeetingGuidGet operation.
-     * @callback module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MeetingIndigo} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List Meeting Endpoints &amp; Stats by User
-     * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {String} meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-     * @param {module:api/CommandCenterApi~v1UserUserIdIndigoMeetingsMeetingGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MeetingIndigo}
-     */
-    this.v1UserUserIdIndigoMeetingsMeetingGuidGet = function(userId, meetingGuid, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet");
-      }
-
-      // verify the required parameter 'meetingGuid' is set
-      if (meetingGuid == undefined || meetingGuid == null) {
-        throw new Error("Missing the required parameter 'meetingGuid' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet");
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'meeting_guid': meetingGuid
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = MeetingIndigo;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/indigo/meetings/{meeting_guid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

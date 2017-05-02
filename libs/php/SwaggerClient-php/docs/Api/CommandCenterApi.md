@@ -4,16 +4,224 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1EnterpriseEnterpriseIdIndigoMeetingsGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/ | List Live Meeting Endpoints by Enterprise
-[**v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by Enterprise
-[**v1UserUserIdIndigoMeetingsGet**](CommandCenterApi.md#v1UserUserIdIndigoMeetingsGet) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
-[**v1UserUserIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1UserUserIdIndigoMeetingsMeetingGuidGet) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by User
+[**getMeetingLiveByEnterprise**](CommandCenterApi.md#getMeetingLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/ | List Live Meeting Endpoints by Enterprise
+[**getMeetingPastByEnterprise**](CommandCenterApi.md#getMeetingPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by Enterprise
+[**getMeetingPastByUser**](CommandCenterApi.md#getMeetingPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by User
+[**getMeetingsLiveByEnterprise**](CommandCenterApi.md#getMeetingsLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
+[**getMeetingsPastByEnterprise**](CommandCenterApi.md#getMeetingsPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
+[**getMeetingsPastByUser**](CommandCenterApi.md#getMeetingsPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
 
 
-# **v1EnterpriseEnterpriseIdIndigoMeetingsGet**
-> \Swagger\Client\Model\Meeting v1EnterpriseEnterpriseIdIndigoMeetingsGet($enterprise_id, $offset, $limit, $filter)
+# **getMeetingLiveByEnterprise**
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingLiveByEnterprise($enterprise_id, $meeting_uuid)
+
+List Live Meeting Endpoints by Enterprise
+
+This endpoint lists endpoints for a given meeting in progress.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\CommandCenterApi();
+$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+$meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+
+try {
+    $result = $api_instance->getMeetingLiveByEnterprise($enterprise_id, $meeting_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandCenterApi->getMeetingLiveByEnterprise: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **meeting_uuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+
+### Return type
+
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getMeetingPastByEnterprise**
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints)
+
+List Meeting Endpoints & Stats by Enterprise
+
+This endpoint lists meeting endpoints for completed meetings by enterprise.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\CommandCenterApi();
+$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+$meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+$include_endpoints = true; // bool | Option to include detailed data on endpoints
+
+try {
+    $result = $api_instance->getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandCenterApi->getMeetingPastByEnterprise: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **meeting_uuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+ **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getMeetingPastByUser**
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingPastByUser($user_id, $meeting_uuid)
+
+List Meeting Endpoints & Stats by User
+
+This endpoint lists meeting endpoints for completed meetings by user.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\CommandCenterApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+
+try {
+    $result = $api_instance->getMeetingPastByUser($user_id, $meeting_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandCenterApi->getMeetingPastByUser: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **meeting_uuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+
+### Return type
+
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getMeetingsLiveByEnterprise**
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsLiveByEnterprise($enterprise_id)
+
+Live Meetings Summary by Enterprise
+
+This endpoint lists meetings in progress by enterprise.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\CommandCenterApi();
+$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+
+try {
+    $result = $api_instance->getMeetingsLiveByEnterprise($enterprise_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommandCenterApi->getMeetingsLiveByEnterprise: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+
+### Return type
+
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getMeetingsPastByEnterprise**
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter)
 
 List Past Meetings by Enterprise
 
@@ -36,10 +244,10 @@ $limit = 56; // int | Per page
 $filter = "filter_example"; // string | URL-encoded JSON string
 
 try {
-    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsGet($enterprise_id, $offset, $limit, $filter);
+    $result = $api_instance->getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1EnterpriseEnterpriseIdIndigoMeetingsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CommandCenterApi->getMeetingsPastByEnterprise: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -55,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
 
 ### Authorization
 
@@ -68,164 +276,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**
-> \Swagger\Client\Model\Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet($enterprise_id)
-
-Live Meetings Summary by Enterprise
-
-This endpoint lists meetings in progress by enterprise.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\CommandCenterApi();
-$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-
-try {
-    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet($enterprise_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
-
-### Return type
-
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**
-> \Swagger\Client\Model\Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet($enterprise_id, $meeting_guid)
-
-List Live Meeting Endpoints by Enterprise
-
-This endpoint lists endpoints for a given meeting in progress.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\CommandCenterApi();
-$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-
-try {
-    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet($enterprise_id, $meeting_guid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **meeting_guid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> \Swagger\Client\Model\MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints)
-
-List Meeting Endpoints & Stats by Enterprise
-
-This endpoint lists meeting endpoints for completed meetings by enterprise.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\CommandCenterApi();
-$enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-$include_endpoints = true; // bool | Option to include detailed data on endpoints
-
-try {
-    $result = $api_instance->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet($enterprise_id, $meeting_guid, $include_endpoints);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **meeting_guid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
- **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional]
-
-### Return type
-
-[**\Swagger\Client\Model\MeetingIndigo**](../Model/MeetingIndigo.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **v1UserUserIdIndigoMeetingsGet**
-> \Swagger\Client\Model\Meeting v1UserUserIdIndigoMeetingsGet($user_id)
+# **getMeetingsPastByUser**
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsPastByUser($user_id)
 
 List Past Meetings by User
 
@@ -245,10 +297,10 @@ $api_instance = new Swagger\Client\Api\CommandCenterApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
-    $result = $api_instance->v1UserUserIdIndigoMeetingsGet($user_id);
+    $result = $api_instance->getMeetingsPastByUser($user_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1UserUserIdIndigoMeetingsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CommandCenterApi->getMeetingsPastByUser: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -261,59 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
-
-### Authorization
-
-[access_token](../../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **v1UserUserIdIndigoMeetingsMeetingGuidGet**
-> \Swagger\Client\Model\MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid)
-
-List Meeting Endpoints & Stats by User
-
-This endpoint lists meeting endpoints for completed meetings by user.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: access_token
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\CommandCenterApi();
-$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-
-try {
-    $result = $api_instance->v1UserUserIdIndigoMeetingsMeetingGuidGet($user_id, $meeting_guid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CommandCenterApi->v1UserUserIdIndigoMeetingsMeetingGuidGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_guid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. |
-
-### Return type
-
-[**\Swagger\Client\Model\MeetingIndigo**](../Model/MeetingIndigo.md)
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
 
 ### Authorization
 

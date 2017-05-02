@@ -5,9 +5,9 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_meeting_recordings**](RecordingApi.md#get_meeting_recordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
-[**get_recording_content**](RecordingApi.md#get_recording_content) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
-[**start_recording**](RecordingApi.md#start_recording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start | Start Recording
-[**stop_recording**](RecordingApi.md#stop_recording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
+[**get_recording_content**](RecordingApi.md#get_recording_content) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
+[**start_recording**](RecordingApi.md#start_recording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
+[**stop_recording**](RecordingApi.md#stop_recording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
 [**v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get**](RecordingApi.md#v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 [**v1_user_user_id_meeting_history_meeting_guid_recordings_delete**](RecordingApi.md#v1_user_user_id_meeting_history_meeting_guid_recordings_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 [**v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete**](RecordingApi.md#v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recording_content**
-> Content get_recording_content(user_id, content_id)
+> Content get_recording_content(user_id, content_id, is_downloadable)
 
 Get Recording Download Link
 
@@ -92,10 +92,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 content_id = 56 # int | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
+is_downloadable = true # bool | Set to true. (default to true)
 
 try: 
     # Get Recording Download Link
-    api_response = api_instance.get_recording_content(user_id, content_id)
+    api_response = api_instance.get_recording_content(user_id, content_id, is_downloadable)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RecordingApi->get_recording_content: %s\n" % e)
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **content_id** | **int**| The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. | 
+ **is_downloadable** | **bool**| Set to true. | [default to true]
 
 ### Return type
 
@@ -124,11 +126,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_recording**
-> start_recording(user_id, meeting_id)
+> start_recording(user_id, meeting_id, action)
 
 Start Recording
 
-This endpoint starts recording for a meeting in progress.
+This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
 
 ### Example 
 ```python
@@ -147,10 +149,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+action = 'start' # str | Always set to \"start\" in order to start recording. (default to start)
 
 try: 
     # Start Recording
-    api_instance.start_recording(user_id, meeting_id)
+    api_instance.start_recording(user_id, meeting_id, action)
 except ApiException as e:
     print("Exception when calling RecordingApi->start_recording: %s\n" % e)
 ```
@@ -161,6 +164,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **str**| Always set to \&quot;start\&quot; in order to start recording. | [default to start]
 
 ### Return type
 
@@ -178,11 +182,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_recording**
-> stop_recording(user_id, meeting_id)
+> stop_recording(user_id, meeting_id, action)
 
 Stop Recording
 
-This endpoint stops recording for a meeting in progress.
+This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
 
 ### Example 
 ```python
@@ -201,10 +205,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+action = 'stop' # str | Always set to \"stop\" in order to stop recording. (default to stop)
 
 try: 
     # Stop Recording
-    api_instance.stop_recording(user_id, meeting_id)
+    api_instance.stop_recording(user_id, meeting_id, action)
 except ApiException as e:
     print("Exception when calling RecordingApi->stop_recording: %s\n" % e)
 ```
@@ -215,6 +220,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **str**| Always set to \&quot;stop\&quot; in order to stop recording. | [default to stop]
 
 ### Return type
 

@@ -77,67 +77,67 @@ class CommandCenterApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoMeetingsGet
-     *
-     * List Past Meetings by Enterprise.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdIndigoMeetingsGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet
-     *
-     * Live Meetings Summary by Enterprise.
-     *
-     */
-    public function testV1EnterpriseEnterpriseIdIndigoMeetingsLiveGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet
+     * Test case for getMeetingLiveByEnterprise
      *
      * List Live Meeting Endpoints by Enterprise.
      *
      */
-    public function testV1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet()
+    public function testGetMeetingLiveByEnterprise()
     {
 
     }
 
     /**
-     * Test case for v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet
+     * Test case for getMeetingPastByEnterprise
      *
      * List Meeting Endpoints & Stats by Enterprise.
      *
      */
-    public function testV1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet()
+    public function testGetMeetingPastByEnterprise()
     {
 
     }
 
     /**
-     * Test case for v1UserUserIdIndigoMeetingsGet
-     *
-     * List Past Meetings by User.
-     *
-     */
-    public function testV1UserUserIdIndigoMeetingsGet()
-    {
-
-    }
-
-    /**
-     * Test case for v1UserUserIdIndigoMeetingsMeetingGuidGet
+     * Test case for getMeetingPastByUser
      *
      * List Meeting Endpoints & Stats by User.
      *
      */
-    public function testV1UserUserIdIndigoMeetingsMeetingGuidGet()
+    public function testGetMeetingPastByUser()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingsLiveByEnterprise
+     *
+     * Live Meetings Summary by Enterprise.
+     *
+     */
+    public function testGetMeetingsLiveByEnterprise()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingsPastByEnterprise
+     *
+     * List Past Meetings by Enterprise.
+     *
+     */
+    public function testGetMeetingsPastByEnterprise()
+    {
+
+    }
+
+    /**
+     * Test case for getMeetingsPastByUser
+     *
+     * List Past Meetings by User.
+     *
+     */
+    public function testGetMeetingsPastByUser()
     {
 
     }

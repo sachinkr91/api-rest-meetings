@@ -14,17 +14,14 @@
 package com.bluejeans.api.rest.onvideo.model;
 
 import java.util.Objects;
-import com.bluejeans.api.rest.onvideo.model.EndpointIndigo;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * MeetingIndigo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-26T17:15:49.025-06:00")
+
 public class MeetingIndigo {
   @SerializedName("meetingId")
   private String meetingId = null;
@@ -150,19 +147,16 @@ public class MeetingIndigo {
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("endpoints")
-  private List<EndpointIndigo> endpoints = new ArrayList<EndpointIndigo>();
-
   public MeetingIndigo meetingId(String meetingId) {
     this.meetingId = meetingId;
     return this;
   }
 
    /**
-   * Get meetingId
+   * This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
    * @return meetingId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "This is the same as the numericMeetingId found elsewhere. We should have been more consistent.")
   public String getMeetingId() {
     return meetingId;
   }
@@ -177,10 +171,10 @@ public class MeetingIndigo {
   }
 
    /**
-   * Get meetingUUID
+   * The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
    * @return meetingUUID
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.")
   public String getMeetingUUID() {
     return meetingUUID;
   }
@@ -771,39 +765,16 @@ public class MeetingIndigo {
   }
 
    /**
-   * Get id
+   * Same as the meetingUUID property in this object.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Same as the meetingUUID property in this object.")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public MeetingIndigo endpoints(List<EndpointIndigo> endpoints) {
-    this.endpoints = endpoints;
-    return this;
-  }
-
-  public MeetingIndigo addEndpointsItem(EndpointIndigo endpointsItem) {
-    this.endpoints.add(endpointsItem);
-    return this;
-  }
-
-   /**
-   * Get endpoints
-   * @return endpoints
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<EndpointIndigo> getEndpoints() {
-    return endpoints;
-  }
-
-  public void setEndpoints(List<EndpointIndigo> endpoints) {
-    this.endpoints = endpoints;
   }
 
 
@@ -850,13 +821,12 @@ public class MeetingIndigo {
         Objects.equals(this.largeMeeting, meetingIndigo.largeMeeting) &&
         Objects.equals(this.roiDistance, meetingIndigo.roiDistance) &&
         Objects.equals(this.mpls, meetingIndigo.mpls) &&
-        Objects.equals(this.id, meetingIndigo.id) &&
-        Objects.equals(this.endpoints, meetingIndigo.endpoints);
+        Objects.equals(this.id, meetingIndigo.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(meetingId, meetingUUID, userName, email, encryptionType, title, userFullName, phoneNumber, userFeatures, scheduledFrom, inviteeCount, personal, muteOnEntry, autoRecord, enterpriseName, moderatorLess, startTime, endTime, totalCallSeconds, createTime, endpointsCount, concurrentEndpoints, liveVisibleEndpointsCount, qualarooRating, qualarooCount, meetingRecording, videoShare, contentShare, liveRecording, liveVideoShare, liveContentShare, largeMeeting, roiDistance, mpls, id, endpoints);
+    return Objects.hash(meetingId, meetingUUID, userName, email, encryptionType, title, userFullName, phoneNumber, userFeatures, scheduledFrom, inviteeCount, personal, muteOnEntry, autoRecord, enterpriseName, moderatorLess, startTime, endTime, totalCallSeconds, createTime, endpointsCount, concurrentEndpoints, liveVisibleEndpointsCount, qualarooRating, qualarooCount, meetingRecording, videoShare, contentShare, liveRecording, liveVideoShare, liveContentShare, largeMeeting, roiDistance, mpls, id);
   }
 
 
@@ -900,7 +870,6 @@ public class MeetingIndigo {
     sb.append("    roiDistance: ").append(toIndentedString(roiDistance)).append("\n");
     sb.append("    mpls: ").append(toIndentedString(mpls)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -202,12 +202,13 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $content_id The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. (required)
+     * @param bool $is_downloadable Set to true. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\Content
      */
-    public function getRecordingContent($user_id, $content_id)
+    public function getRecordingContent($user_id, $content_id, $is_downloadable)
     {
-        list($response) = $this->getRecordingContentWithHttpInfo($user_id, $content_id);
+        list($response) = $this->getRecordingContentWithHttpInfo($user_id, $content_id, $is_downloadable);
         return $response;
     }
 
@@ -218,10 +219,11 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $content_id The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. (required)
+     * @param bool $is_downloadable Set to true. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\Content, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRecordingContentWithHttpInfo($user_id, $content_id)
+    public function getRecordingContentWithHttpInfo($user_id, $content_id, $is_downloadable)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -231,8 +233,12 @@ class RecordingApi
         if ($content_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $content_id when calling getRecordingContent');
         }
+        // verify the required parameter 'is_downloadable' is set
+        if ($is_downloadable === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $is_downloadable when calling getRecordingContent');
+        }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true";
+        $resourcePath = "/v1/user/{user_id}/cms/{content_id}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -243,6 +249,10 @@ class RecordingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($is_downloadable !== null) {
+            $queryParams['isDownloadable'] = $this->apiClient->getSerializer()->toQueryValue($is_downloadable);
+        }
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
@@ -283,7 +293,7 @@ class RecordingApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Content',
-                '/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true'
+                '/v1/user/{user_id}/cms/{content_id}'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Content', $httpHeader), $statusCode, $httpHeader];
@@ -310,12 +320,13 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $action Always set to \&quot;start\&quot; in order to start recording. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return void
      */
-    public function startRecording($user_id, $meeting_id)
+    public function startRecording($user_id, $meeting_id, $action)
     {
-        list($response) = $this->startRecordingWithHttpInfo($user_id, $meeting_id);
+        list($response) = $this->startRecordingWithHttpInfo($user_id, $meeting_id, $action);
         return $response;
     }
 
@@ -326,10 +337,11 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $action Always set to \&quot;start\&quot; in order to start recording. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function startRecordingWithHttpInfo($user_id, $meeting_id)
+    public function startRecordingWithHttpInfo($user_id, $meeting_id, $action)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -339,8 +351,12 @@ class RecordingApi
         if ($meeting_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling startRecording');
         }
+        // verify the required parameter 'action' is set
+        if ($action === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $action when calling startRecording');
+        }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start";
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -351,6 +367,10 @@ class RecordingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($action !== null) {
+            $queryParams['action'] = $this->apiClient->getSerializer()->toQueryValue($action);
+        }
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
@@ -391,7 +411,7 @@ class RecordingApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start'
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'
             );
 
             return [null, $statusCode, $httpHeader];
@@ -414,12 +434,13 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $action Always set to \&quot;stop\&quot; in order to stop recording. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return void
      */
-    public function stopRecording($user_id, $meeting_id)
+    public function stopRecording($user_id, $meeting_id, $action)
     {
-        list($response) = $this->stopRecordingWithHttpInfo($user_id, $meeting_id);
+        list($response) = $this->stopRecordingWithHttpInfo($user_id, $meeting_id, $action);
         return $response;
     }
 
@@ -430,10 +451,11 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $action Always set to \&quot;stop\&quot; in order to stop recording. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function stopRecordingWithHttpInfo($user_id, $meeting_id)
+    public function stopRecordingWithHttpInfo($user_id, $meeting_id, $action)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -443,8 +465,12 @@ class RecordingApi
         if ($meeting_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling stopRecording');
         }
+        // verify the required parameter 'action' is set
+        if ($action === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $action when calling stopRecording');
+        }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop";
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -455,6 +481,10 @@ class RecordingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($action !== null) {
+            $queryParams['action'] = $this->apiClient->getSerializer()->toQueryValue($action);
+        }
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
@@ -495,7 +525,7 @@ class RecordingApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop'
+                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'
             );
 
             return [null, $statusCode, $httpHeader];

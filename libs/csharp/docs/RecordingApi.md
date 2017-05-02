@@ -5,9 +5,9 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetMeetingRecordings**](RecordingApi.md#getmeetingrecordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
-[**GetRecordingContent**](RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
-[**StartRecording**](RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start | Start Recording
-[**StopRecording**](RecordingApi.md#stoprecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
+[**GetRecordingContent**](RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
+[**StartRecording**](RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
+[**StopRecording**](RecordingApi.md#stoprecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
 [**V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](RecordingApi.md#v1useruseridlivemeetingsmeetingidrecordingsmeetingguidmeetingguidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 [**V1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](RecordingApi.md#v1useruseridmeetinghistorymeetingguidrecordingsdelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 [**V1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](RecordingApi.md#v1useruseridmeetinghistorymeetingidrecordingsrecordingchapteriddelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecordingcontent"></a>
 # **GetRecordingContent**
-> Content GetRecordingContent (int? userId, int? contentId)
+> Content GetRecordingContent (int? userId, int? contentId, bool? isDownloadable)
 
 Get Recording Download Link
 
@@ -113,11 +113,12 @@ namespace Example
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var contentId = 56;  // int? | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
+            var isDownloadable = true;  // bool? | Set to true. (default to true)
 
             try
             {
                 // Get Recording Download Link
-                Content result = apiInstance.GetRecordingContent(userId, contentId);
+                Content result = apiInstance.GetRecordingContent(userId, contentId, isDownloadable);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -135,6 +136,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **contentId** | **int?**| The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. | 
+ **isDownloadable** | **bool?**| Set to true. | [default to true]
 
 ### Return type
 
@@ -153,11 +155,11 @@ Name | Type | Description  | Notes
 
 <a name="startrecording"></a>
 # **StartRecording**
-> void StartRecording (int? userId, int? meetingId)
+> void StartRecording (int? userId, int? meetingId, string action)
 
 Start Recording
 
-This endpoint starts recording for a meeting in progress.
+This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
 
 ### Example
 ```csharp
@@ -182,11 +184,12 @@ namespace Example
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var action = action_example;  // string | Always set to \"start\" in order to start recording. (default to start)
 
             try
             {
                 // Start Recording
-                apiInstance.StartRecording(userId, meetingId);
+                apiInstance.StartRecording(userId, meetingId, action);
             }
             catch (Exception e)
             {
@@ -203,6 +206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **string**| Always set to \&quot;start\&quot; in order to start recording. | [default to start]
 
 ### Return type
 
@@ -221,11 +225,11 @@ void (empty response body)
 
 <a name="stoprecording"></a>
 # **StopRecording**
-> void StopRecording (int? userId, int? meetingId)
+> void StopRecording (int? userId, int? meetingId, string action)
 
 Stop Recording
 
-This endpoint stops recording for a meeting in progress.
+This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
 
 ### Example
 ```csharp
@@ -250,11 +254,12 @@ namespace Example
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var action = action_example;  // string | Always set to \"stop\" in order to stop recording. (default to stop)
 
             try
             {
                 // Stop Recording
-                apiInstance.StopRecording(userId, meetingId);
+                apiInstance.StopRecording(userId, meetingId, action);
             }
             catch (Exception e)
             {
@@ -271,6 +276,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **string**| Always set to \&quot;stop\&quot; in order to stop recording. | [default to stop]
 
 ### Return type
 

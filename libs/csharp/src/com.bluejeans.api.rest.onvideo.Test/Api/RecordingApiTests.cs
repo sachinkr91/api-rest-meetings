@@ -86,7 +86,8 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? contentId = null;
-            //var response = instance.GetRecordingContent(userId, contentId);
+            //bool? isDownloadable = null;
+            //var response = instance.GetRecordingContent(userId, contentId, isDownloadable);
             //Assert.IsInstanceOf<Content> (response, "response is Content");
         }
         
@@ -99,7 +100,8 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? meetingId = null;
-            //instance.StartRecording(userId, meetingId);
+            //string action = null;
+            //instance.StartRecording(userId, meetingId, action);
             
         }
         
@@ -112,7 +114,8 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? meetingId = null;
-            //instance.StopRecording(userId, meetingId);
+            //string action = null;
+            //instance.StopRecording(userId, meetingId, action);
             
         }
         

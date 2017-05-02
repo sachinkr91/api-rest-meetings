@@ -264,12 +264,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property endpoints (base name: "endpoints")', function() {
-      // uncomment below and update the code to test the property endpoints
-      //var instane = new BlueJeansOnVideoRestApi.MeetingIndigo();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

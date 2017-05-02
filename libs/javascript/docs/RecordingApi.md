@@ -5,9 +5,9 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMeetingRecordings**](RecordingApi.md#getMeetingRecordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
-[**getRecordingContent**](RecordingApi.md#getRecordingContent) | **GET** /v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true | Get Recording Download Link
-[**startRecording**](RecordingApi.md#startRecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start | Start Recording
-[**stopRecording**](RecordingApi.md#stopRecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop | Stop Recording
+[**getRecordingContent**](RecordingApi.md#getRecordingContent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
+[**startRecording**](RecordingApi.md#startRecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
+[**stopRecording**](RecordingApi.md#stopRecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
 [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
 [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
 [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](RecordingApi.md#v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getRecordingContent"></a>
 # **getRecordingContent**
-> Content getRecordingContent(userId, contentId)
+> Content getRecordingContent(userId, contentId, isDownloadable)
 
 Get Recording Download Link
 
@@ -94,6 +94,8 @@ var userId = 56; // Number | The ID of the user of interest. This value is an in
 
 var contentId = 56; // Number | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
 
+var isDownloadable = true; // Boolean | Set to true.
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -102,7 +104,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getRecordingContent(userId, contentId, callback);
+apiInstance.getRecordingContent(userId, contentId, isDownloadable, callback);
 ```
 
 ### Parameters
@@ -111,6 +113,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **contentId** | **Number**| The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument. | 
+ **isDownloadable** | **Boolean**| Set to true. | [default to true]
 
 ### Return type
 
@@ -127,11 +130,11 @@ Name | Type | Description  | Notes
 
 <a name="startRecording"></a>
 # **startRecording**
-> startRecording(userId, meetingId)
+> startRecording(userId, meetingId, action)
 
 Start Recording
 
-This endpoint starts recording for a meeting in progress.
+This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
 
 ### Example
 ```javascript
@@ -150,6 +153,8 @@ var userId = 56; // Number | The ID of the user of interest. This value is an in
 
 var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
+var action = "start"; // String | Always set to \"start\" in order to start recording.
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -158,7 +163,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.startRecording(userId, meetingId, callback);
+apiInstance.startRecording(userId, meetingId, action, callback);
 ```
 
 ### Parameters
@@ -167,6 +172,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **String**| Always set to \&quot;start\&quot; in order to start recording. | [default to start]
 
 ### Return type
 
@@ -183,11 +189,11 @@ null (empty response body)
 
 <a name="stopRecording"></a>
 # **stopRecording**
-> stopRecording(userId, meetingId)
+> stopRecording(userId, meetingId, action)
 
 Stop Recording
 
-This endpoint stops recording for a meeting in progress.
+This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
 
 ### Example
 ```javascript
@@ -206,6 +212,8 @@ var userId = 56; // Number | The ID of the user of interest. This value is an in
 
 var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
+var action = "stop"; // String | Always set to \"stop\" in order to stop recording.
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -214,7 +222,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.stopRecording(userId, meetingId, callback);
+apiInstance.stopRecording(userId, meetingId, action, callback);
 ```
 
 ### Parameters
@@ -223,6 +231,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **action** | **String**| Always set to \&quot;stop\&quot; in order to stop recording. | [default to stop]
 
 ### Return type
 

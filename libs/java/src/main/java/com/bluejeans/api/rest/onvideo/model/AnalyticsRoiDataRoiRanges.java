@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 /**
  * AnalyticsRoiDataRoiRanges
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-26T17:15:49.025-06:00")
+
 public class AnalyticsRoiDataRoiRanges {
   @SerializedName("distance")
   private BigDecimal distance = null;

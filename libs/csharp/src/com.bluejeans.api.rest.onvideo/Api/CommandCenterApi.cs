@@ -25,6 +25,98 @@ namespace com.bluejeans.api.rest.onvideo.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// List Live Meeting Endpoints by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists endpoints for a given meeting in progress.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        MeetingExtendedIndigo GetMeetingLiveByEnterprise (int? enterpriseId, string meetingUuid);
+
+        /// <summary>
+        /// List Live Meeting Endpoints by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists endpoints for a given meeting in progress.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        ApiResponse<MeetingExtendedIndigo> GetMeetingLiveByEnterpriseWithHttpInfo (int? enterpriseId, string meetingUuid);
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        MeetingExtendedIndigo GetMeetingPastByEnterprise (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null);
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        ApiResponse<MeetingExtendedIndigo> GetMeetingPastByEnterpriseWithHttpInfo (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null);
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        MeetingExtendedIndigo GetMeetingPastByUser (int? userId, string meetingUuid);
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        ApiResponse<MeetingExtendedIndigo> GetMeetingPastByUserWithHttpInfo (int? userId, string meetingUuid);
+        /// <summary>
+        /// Live Meetings Summary by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meetings in progress by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>MeetingIndigoList</returns>
+        MeetingIndigoList GetMeetingsLiveByEnterprise (int? enterpriseId);
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meetings in progress by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        ApiResponse<MeetingIndigoList> GetMeetingsLiveByEnterpriseWithHttpInfo (int? enterpriseId);
+        /// <summary>
         /// List Past Meetings by Enterprise
         /// </summary>
         /// <remarks>
@@ -35,8 +127,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdIndigoMeetingsGet (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
+        /// <returns>MeetingIndigoList</returns>
+        MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// List Past Meetings by Enterprise
@@ -49,77 +141,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
-        /// <summary>
-        /// Live Meetings Summary by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meetings in progress by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet (int? enterpriseId);
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meetings in progress by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo (int? enterpriseId);
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists endpoints for a given meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet (int? enterpriseId, string meetingGuid);
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists endpoints for a given meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo (int? enterpriseId, string meetingGuid);
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>MeetingIndigo</returns>
-        MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>ApiResponse of MeetingIndigo</returns>
-        ApiResponse<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        ApiResponse<MeetingIndigoList> GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -128,8 +151,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdIndigoMeetingsGet (int? userId);
+        /// <returns>MeetingIndigoList</returns>
+        MeetingIndigoList GetMeetingsPastByUser (int? userId);
 
         /// <summary>
         /// List Past Meetings by User
@@ -139,34 +162,103 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdIndigoMeetingsGetWithHttpInfo (int? userId);
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by user.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>MeetingIndigo</returns>
-        MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid);
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by user.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of MeetingIndigo</returns>
-        ApiResponse<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid);
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        ApiResponse<MeetingIndigoList> GetMeetingsPastByUserWithHttpInfo (int? userId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// List Live Meeting Endpoints by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists endpoints for a given meeting in progress.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingLiveByEnterpriseAsync (int? enterpriseId, string meetingUuid);
+
+        /// <summary>
+        /// List Live Meeting Endpoints by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists endpoints for a given meeting in progress.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingLiveByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingUuid);
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingPastByEnterpriseAsync (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null);
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null);
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingPastByUserAsync (int? userId, string meetingUuid);
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meeting endpoints for completed meetings by user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingPastByUserAsyncWithHttpInfo (int? userId, string meetingUuid);
+        /// <summary>
+        /// Live Meetings Summary by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meetings in progress by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>Task of MeetingIndigoList</returns>
+        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsLiveByEnterpriseAsync (int? enterpriseId);
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists meetings in progress by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsLiveByEnterpriseAsyncWithHttpInfo (int? enterpriseId);
+        /// <summary>
         /// List Past Meetings by Enterprise
         /// </summary>
         /// <remarks>
@@ -177,8 +269,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsGetAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
+        /// <returns>Task of MeetingIndigoList</returns>
+        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// List Past Meetings by Enterprise
@@ -191,77 +283,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsGetAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
-        /// <summary>
-        /// Live Meetings Summary by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meetings in progress by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsync (int? enterpriseId);
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meetings in progress by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsyncWithHttpInfo (int? enterpriseId);
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists endpoints for a given meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsync (int? enterpriseId, string meetingGuid);
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists endpoints for a given meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid);
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>Task of MeetingIndigo</returns>
-        System.Threading.Tasks.Task<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null);
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -270,8 +293,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdIndigoMeetingsGetAsync (int? userId);
+        /// <returns>Task of MeetingIndigoList</returns>
+        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId);
 
         /// <summary>
         /// List Past Meetings by User
@@ -281,31 +304,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdIndigoMeetingsGetAsyncWithHttpInfo (int? userId);
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by user.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of MeetingIndigo</returns>
-        System.Threading.Tasks.Task<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid);
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User
-        /// </summary>
-        /// <remarks>
-        /// This endpoint lists meeting endpoints for completed meetings by user.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid);
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId);
         #endregion Asynchronous Operations
     }
 
@@ -419,6 +419,656 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
+        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        public MeetingExtendedIndigo GetMeetingLiveByEnterprise (int? enterpriseId, string meetingUuid)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = GetMeetingLiveByEnterpriseWithHttpInfo(enterpriseId, meetingUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        public ApiResponse< MeetingExtendedIndigo > GetMeetingLiveByEnterpriseWithHttpInfo (int? enterpriseId, string meetingUuid)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingLiveByEnterprise");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingLiveByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingLiveByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        public async System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingLiveByEnterpriseAsync (int? enterpriseId, string meetingUuid)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = await GetMeetingLiveByEnterpriseAsyncWithHttpInfo(enterpriseId, meetingUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingLiveByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingUuid)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingLiveByEnterprise");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingLiveByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingLiveByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        public MeetingExtendedIndigo GetMeetingPastByEnterprise (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = GetMeetingPastByEnterpriseWithHttpInfo(enterpriseId, meetingUuid, includeEndpoints);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        public ApiResponse< MeetingExtendedIndigo > GetMeetingPastByEnterpriseWithHttpInfo (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingPastByEnterprise");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingPastByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingPastByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        public async System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingPastByEnterpriseAsync (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = await GetMeetingPastByEnterpriseAsyncWithHttpInfo(enterpriseId, meetingUuid, includeEndpoints);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingPastByEnterprise");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingPastByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingPastByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>MeetingExtendedIndigo</returns>
+        public MeetingExtendedIndigo GetMeetingPastByUser (int? userId, string meetingUuid)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = GetMeetingPastByUserWithHttpInfo(userId, meetingUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
+        public ApiResponse< MeetingExtendedIndigo > GetMeetingPastByUserWithHttpInfo (int? userId, string meetingUuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->GetMeetingPastByUser");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingPastByUser");
+
+            var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingPastByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of MeetingExtendedIndigo</returns>
+        public async System.Threading.Tasks.Task<MeetingExtendedIndigo> GetMeetingPastByUserAsync (int? userId, string meetingUuid)
+        {
+             ApiResponse<MeetingExtendedIndigo> localVarResponse = await GetMeetingPastByUserAsyncWithHttpInfo(userId, meetingUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="meetingUuid">The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.</param>
+        /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingPastByUserAsyncWithHttpInfo (int? userId, string meetingUuid)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->GetMeetingPastByUser");
+            // verify the required parameter 'meetingUuid' is set
+            if (meetingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'meetingUuid' when calling CommandCenterApi->GetMeetingPastByUser");
+
+            var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingPastByUser", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+            
+        }
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>MeetingIndigoList</returns>
+        public MeetingIndigoList GetMeetingsLiveByEnterprise (int? enterpriseId)
+        {
+             ApiResponse<MeetingIndigoList> localVarResponse = GetMeetingsLiveByEnterpriseWithHttpInfo(enterpriseId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        public ApiResponse< MeetingIndigoList > GetMeetingsLiveByEnterpriseWithHttpInfo (int? enterpriseId)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingsLiveByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingsLiveByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+            
+        }
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>Task of MeetingIndigoList</returns>
+        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsLiveByEnterpriseAsync (int? enterpriseId)
+        {
+             ApiResponse<MeetingIndigoList> localVarResponse = await GetMeetingsLiveByEnterpriseAsyncWithHttpInfo(enterpriseId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsLiveByEnterpriseAsyncWithHttpInfo (int? enterpriseId)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingsLiveByEnterprise");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingsLiveByEnterprise", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+            
+        }
+
+        /// <summary>
         /// List Past Meetings by Enterprise This endpoint lists completed meetings by enterprise.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
@@ -426,10 +1076,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdIndigoMeetingsGet (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
+        /// <returns>MeetingIndigoList</returns>
+        public MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
         {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo(enterpriseId, offset, limit, filter);
+             ApiResponse<MeetingIndigoList> localVarResponse = GetMeetingsPastByEnterpriseWithHttpInfo(enterpriseId, offset, limit, filter);
              return localVarResponse.Data;
         }
 
@@ -441,12 +1091,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        public ApiResponse< MeetingIndigoList > GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingsPastByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
@@ -493,13 +1143,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetMeetingsPastByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
             
         }
 
@@ -511,10 +1161,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsGetAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
+        /// <returns>Task of MeetingIndigoList</returns>
+        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
         {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsGetAsyncWithHttpInfo(enterpriseId, offset, limit, filter);
+             ApiResponse<MeetingIndigoList> localVarResponse = await GetMeetingsPastByEnterpriseAsyncWithHttpInfo(enterpriseId, offset, limit, filter);
              return localVarResponse.Data;
 
         }
@@ -527,12 +1177,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="offset">Page Number (optional)</param>
         /// <param name="limit">Per page (optional)</param>
         /// <param name="filter">URL-encoded JSON string (optional)</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsGetAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsGet");
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingsPastByEnterprise");
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
@@ -578,499 +1228,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetMeetingsPastByEnterprise", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet (int? enterpriseId)
-        {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo(enterpriseId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo (int? enterpriseId)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsync (int? enterpriseId)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsyncWithHttpInfo(enterpriseId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsyncWithHttpInfo (int? enterpriseId)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet (int? enterpriseId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo(enterpriseId, meetingGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo (int? enterpriseId, string meetingGuid)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsync (int? enterpriseId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsyncWithHttpInfo(enterpriseId, meetingGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Live Meeting Endpoints by Enterprise This endpoint lists endpoints for a given meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>MeetingIndigo</returns>
-        public MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
-        {
-             ApiResponse<MeetingIndigo> localVarResponse = V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo(enterpriseId, meetingGuid, includeEndpoints);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>ApiResponse of MeetingIndigo</returns>
-        public ApiResponse< MeetingIndigo > V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>Task of MeetingIndigo</returns>
-        public async System.Threading.Tasks.Task<MeetingIndigo> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
-        {
-             ApiResponse<MeetingIndigo> localVarResponse = await V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(enterpriseId, meetingGuid, includeEndpoints);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by Enterprise This endpoint lists meeting endpoints for completed meetings by enterprise.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <param name="includeEndpoints">Option to include detailed data on endpoints (optional)</param>
-        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
-        {
-            // verify the required parameter 'enterpriseId' is set
-            if (enterpriseId == null)
-                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet");
-
-            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
             
         }
 
@@ -1079,10 +1243,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdIndigoMeetingsGet (int? userId)
+        /// <returns>MeetingIndigoList</returns>
+        public MeetingIndigoList GetMeetingsPastByUser (int? userId)
         {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdIndigoMeetingsGetWithHttpInfo(userId);
+             ApiResponse<MeetingIndigoList> localVarResponse = GetMeetingsPastByUserWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -1091,12 +1255,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdIndigoMeetingsGetWithHttpInfo (int? userId)
+        /// <returns>ApiResponse of MeetingIndigoList</returns>
+        public ApiResponse< MeetingIndigoList > GetMeetingsPastByUserWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->GetMeetingsPastByUser");
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1140,13 +1304,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdIndigoMeetingsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetMeetingsPastByUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
             
         }
 
@@ -1155,10 +1319,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdIndigoMeetingsGetAsync (int? userId)
+        /// <returns>Task of MeetingIndigoList</returns>
+        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId)
         {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdIndigoMeetingsGetAsyncWithHttpInfo(userId);
+             ApiResponse<MeetingIndigoList> localVarResponse = await GetMeetingsPastByUserAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -1168,12 +1332,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdIndigoMeetingsGetAsyncWithHttpInfo (int? userId)
+        /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsGet");
+                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->GetMeetingsPastByUser");
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1216,177 +1380,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("V1UserUserIdIndigoMeetingsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetMeetingsPastByUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>MeetingIndigo</returns>
-        public MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
-        {
-             ApiResponse<MeetingIndigo> localVarResponse = V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo(userId, meetingGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of MeetingIndigo</returns>
-        public ApiResponse< MeetingIndigo > V1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo (int? userId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsMeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdIndigoMeetingsMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
-            
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of MeetingIndigo</returns>
-        public async System.Threading.Tasks.Task<MeetingIndigo> V1UserUserIdIndigoMeetingsMeetingGuidGetAsync (int? userId, string meetingGuid)
-        {
-             ApiResponse<MeetingIndigo> localVarResponse = await V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo(userId, meetingGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Meeting Endpoints &amp; Stats by User This endpoint lists meeting endpoints for completed meetings by user.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (MeetingIndigo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigo>> V1UserUserIdIndigoMeetingsMeetingGuidGetAsyncWithHttpInfo (int? userId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsMeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling CommandCenterApi->V1UserUserIdIndigoMeetingsMeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdIndigoMeetingsMeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MeetingIndigo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigo)));
+                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
             
         }
 

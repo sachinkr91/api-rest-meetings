@@ -57,11 +57,13 @@ from .models.inline_response_200 import InlineResponse200
 from .models.layout import Layout
 from .models.meeting import Meeting
 from .models.meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions
+from .models.meeting_extended_indigo import MeetingExtendedIndigo
 from .models.meeting_history import MeetingHistory
 from .models.meeting_history_leader_info import MeetingHistoryLeaderInfo
 from .models.meeting_history_participant_list import MeetingHistoryParticipantList
 from .models.meeting_history_sharing import MeetingHistorySharing
 from .models.meeting_indigo import MeetingIndigo
+from .models.meeting_indigo_list import MeetingIndigoList
 from .models.meeting_state import MeetingState
 from .models.meeting_state_recordinginfo import MeetingStateRecordinginfo
 from .models.numbers import Numbers

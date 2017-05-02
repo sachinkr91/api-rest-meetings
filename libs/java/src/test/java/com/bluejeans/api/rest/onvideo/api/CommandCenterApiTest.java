@@ -15,8 +15,8 @@ package com.bluejeans.api.rest.onvideo.api;
 
 import com.bluejeans.api.rest.onvideo.ApiException;
 import com.bluejeans.api.rest.onvideo.model.Error;
-import com.bluejeans.api.rest.onvideo.model.Meeting;
-import com.bluejeans.api.rest.onvideo.model.MeetingIndigo;
+import com.bluejeans.api.rest.onvideo.model.MeetingExtendedIndigo;
+import com.bluejeans.api.rest.onvideo.model.MeetingIndigoList;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -35,41 +35,6 @@ public class CommandCenterApiTest {
 
     
     /**
-     * List Past Meetings by Enterprise
-     *
-     * This endpoint lists completed meetings by enterprise.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdIndigoMeetingsGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        Integer offset = null;
-        Integer limit = null;
-        String filter = null;
-        Meeting response = api.v1EnterpriseEnterpriseIdIndigoMeetingsGet(enterpriseId, offset, limit, filter);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Live Meetings Summary by Enterprise
-     *
-     * This endpoint lists meetings in progress by enterprise.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetTest() throws ApiException {
-        Integer enterpriseId = null;
-        Meeting response = api.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(enterpriseId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List Live Meeting Endpoints by Enterprise
      *
      * This endpoint lists endpoints for a given meeting in progress.
@@ -78,10 +43,10 @@ public class CommandCenterApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetTest() throws ApiException {
+    public void getMeetingLiveByEnterpriseTest() throws ApiException {
         Integer enterpriseId = null;
-        String meetingGuid = null;
-        Meeting response = api.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(enterpriseId, meetingGuid);
+        String meetingUuid = null;
+        MeetingExtendedIndigo response = api.getMeetingLiveByEnterprise(enterpriseId, meetingUuid);
 
         // TODO: test validations
     }
@@ -95,27 +60,11 @@ public class CommandCenterApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetTest() throws ApiException {
+    public void getMeetingPastByEnterpriseTest() throws ApiException {
         Integer enterpriseId = null;
-        String meetingGuid = null;
+        String meetingUuid = null;
         Boolean includeEndpoints = null;
-        MeetingIndigo response = api.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Past Meetings by User
-     *
-     * This endpoint lists completed meetings by user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdIndigoMeetingsGetTest() throws ApiException {
-        Integer userId = null;
-        Meeting response = api.v1UserUserIdIndigoMeetingsGet(userId);
+        MeetingExtendedIndigo response = api.getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
 
         // TODO: test validations
     }
@@ -129,10 +78,61 @@ public class CommandCenterApiTest {
      *          if the Api call fails
      */
     @Test
-    public void v1UserUserIdIndigoMeetingsMeetingGuidGetTest() throws ApiException {
+    public void getMeetingPastByUserTest() throws ApiException {
         Integer userId = null;
-        String meetingGuid = null;
-        MeetingIndigo response = api.v1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
+        String meetingUuid = null;
+        MeetingExtendedIndigo response = api.getMeetingPastByUser(userId, meetingUuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Live Meetings Summary by Enterprise
+     *
+     * This endpoint lists meetings in progress by enterprise.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeetingsLiveByEnterpriseTest() throws ApiException {
+        Integer enterpriseId = null;
+        MeetingIndigoList response = api.getMeetingsLiveByEnterprise(enterpriseId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Past Meetings by Enterprise
+     *
+     * This endpoint lists completed meetings by enterprise.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeetingsPastByEnterpriseTest() throws ApiException {
+        Integer enterpriseId = null;
+        Integer offset = null;
+        Integer limit = null;
+        String filter = null;
+        MeetingIndigoList response = api.getMeetingsPastByEnterprise(enterpriseId, offset, limit, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Past Meetings by User
+     *
+     * This endpoint lists completed meetings by user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeetingsPastByUserTest() throws ApiException {
+        Integer userId = null;
+        MeetingIndigoList response = api.getMeetingsPastByUser(userId);
 
         // TODO: test validations
     }

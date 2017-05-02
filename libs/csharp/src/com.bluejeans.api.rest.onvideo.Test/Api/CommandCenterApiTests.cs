@@ -65,82 +65,82 @@ namespace com.bluejeans.api.rest.onvideo.Test
 
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoMeetingsGet
+        /// Test GetMeetingLiveByEnterprise
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoMeetingsGetTest()
+        public void GetMeetingLiveByEnterpriseTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? enterpriseId = null;
+            //string meetingUuid = null;
+            //var response = instance.GetMeetingLiveByEnterprise(enterpriseId, meetingUuid);
+            //Assert.IsInstanceOf<MeetingExtendedIndigo> (response, "response is MeetingExtendedIndigo");
+        }
+        
+        /// <summary>
+        /// Test GetMeetingPastByEnterprise
+        /// </summary>
+        [Test]
+        public void GetMeetingPastByEnterpriseTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? enterpriseId = null;
+            //string meetingUuid = null;
+            //bool? includeEndpoints = null;
+            //var response = instance.GetMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
+            //Assert.IsInstanceOf<MeetingExtendedIndigo> (response, "response is MeetingExtendedIndigo");
+        }
+        
+        /// <summary>
+        /// Test GetMeetingPastByUser
+        /// </summary>
+        [Test]
+        public void GetMeetingPastByUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //string meetingUuid = null;
+            //var response = instance.GetMeetingPastByUser(userId, meetingUuid);
+            //Assert.IsInstanceOf<MeetingExtendedIndigo> (response, "response is MeetingExtendedIndigo");
+        }
+        
+        /// <summary>
+        /// Test GetMeetingsLiveByEnterprise
+        /// </summary>
+        [Test]
+        public void GetMeetingsLiveByEnterpriseTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? enterpriseId = null;
+            //var response = instance.GetMeetingsLiveByEnterprise(enterpriseId);
+            //Assert.IsInstanceOf<MeetingIndigoList> (response, "response is MeetingIndigoList");
+        }
+        
+        /// <summary>
+        /// Test GetMeetingsPastByEnterprise
+        /// </summary>
+        [Test]
+        public void GetMeetingsPastByEnterpriseTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? enterpriseId = null;
             //int? offset = null;
             //int? limit = null;
             //string filter = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoMeetingsGet(enterpriseId, offset, limit, filter);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+            //var response = instance.GetMeetingsPastByEnterprise(enterpriseId, offset, limit, filter);
+            //Assert.IsInstanceOf<MeetingIndigoList> (response, "response is MeetingIndigoList");
         }
         
         /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet
+        /// Test GetMeetingsPastByUser
         /// </summary>
         [Test]
-        public void V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? enterpriseId = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(enterpriseId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet
-        /// </summary>
-        [Test]
-        public void V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? enterpriseId = null;
-            //string meetingGuid = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(enterpriseId, meetingGuid);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet
-        /// </summary>
-        [Test]
-        public void V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? enterpriseId = null;
-            //string meetingGuid = null;
-            //bool? includeEndpoints = null;
-            //var response = instance.V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
-            //Assert.IsInstanceOf<MeetingIndigo> (response, "response is MeetingIndigo");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdIndigoMeetingsGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdIndigoMeetingsGetTest()
+        public void GetMeetingsPastByUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //var response = instance.V1UserUserIdIndigoMeetingsGet(userId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdIndigoMeetingsMeetingGuidGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdIndigoMeetingsMeetingGuidGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //string meetingGuid = null;
-            //var response = instance.V1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
-            //Assert.IsInstanceOf<MeetingIndigo> (response, "response is MeetingIndigo");
+            //var response = instance.GetMeetingsPastByUser(userId);
+            //Assert.IsInstanceOf<MeetingIndigoList> (response, "response is MeetingIndigoList");
         }
         
     }

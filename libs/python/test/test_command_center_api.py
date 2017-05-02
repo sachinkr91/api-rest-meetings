@@ -31,51 +31,51 @@ class TestCommandCenterApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_meetings_get(self):
+    def test_get_meeting_live_by_enterprise(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_meetings_get
-
-        List Past Meetings by Enterprise
-        """
-        pass
-
-    def test_v1_enterprise_enterprise_id_indigo_meetings_live_get(self):
-        """
-        Test case for v1_enterprise_enterprise_id_indigo_meetings_live_get
-
-        Live Meetings Summary by Enterprise
-        """
-        pass
-
-    def test_v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get(self):
-        """
-        Test case for v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get
+        Test case for get_meeting_live_by_enterprise
 
         List Live Meeting Endpoints by Enterprise
         """
         pass
 
-    def test_v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(self):
+    def test_get_meeting_past_by_enterprise(self):
         """
-        Test case for v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get
+        Test case for get_meeting_past_by_enterprise
 
         List Meeting Endpoints & Stats by Enterprise
         """
         pass
 
-    def test_v1_user_user_id_indigo_meetings_get(self):
+    def test_get_meeting_past_by_user(self):
         """
-        Test case for v1_user_user_id_indigo_meetings_get
+        Test case for get_meeting_past_by_user
 
-        List Past Meetings by User
+        List Meeting Endpoints & Stats by User
         """
         pass
 
-    def test_v1_user_user_id_indigo_meetings_meeting_guid_get(self):
+    def test_get_meetings_live_by_enterprise(self):
         """
-        Test case for v1_user_user_id_indigo_meetings_meeting_guid_get
+        Test case for get_meetings_live_by_enterprise
 
-        List Meeting Endpoints & Stats by User
+        Live Meetings Summary by Enterprise
+        """
+        pass
+
+    def test_get_meetings_past_by_enterprise(self):
+        """
+        Test case for get_meetings_past_by_enterprise
+
+        List Past Meetings by Enterprise
+        """
+        pass
+
+    def test_get_meetings_past_by_user(self):
+        """
+        Test case for get_meetings_past_by_user
+
+        List Past Meetings by User
         """
         pass
 

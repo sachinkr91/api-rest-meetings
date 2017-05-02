@@ -40,36 +40,444 @@ class CommandCenterApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def v1_enterprise_enterprise_id_indigo_meetings_get(self, enterprise_id, **kwargs):
+    def get_meeting_live_by_enterprise(self, enterprise_id, meeting_uuid, **kwargs):
         """
-        List Past Meetings by Enterprise
-        This endpoint lists completed meetings by enterprise.
+        List Live Meeting Endpoints by Enterprise
+        This endpoint lists endpoints for a given meeting in progress.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_get(enterprise_id, callback=callback_function)
+        >>> thread = api.get_meeting_live_by_enterprise(enterprise_id, meeting_uuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param int offset: Page Number
-        :param int limit: Per page
-        :param str filter: URL-encoded JSON string
-        :return: Meeting
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :return: MeetingExtendedIndigo
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_meetings_get_with_http_info(enterprise_id, **kwargs)
+            return self.get_meeting_live_by_enterprise_with_http_info(enterprise_id, meeting_uuid, **kwargs)
         else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_meetings_get_with_http_info(enterprise_id, **kwargs)
+            (data) = self.get_meeting_live_by_enterprise_with_http_info(enterprise_id, meeting_uuid, **kwargs)
             return data
 
-    def v1_enterprise_enterprise_id_indigo_meetings_get_with_http_info(self, enterprise_id, **kwargs):
+    def get_meeting_live_by_enterprise_with_http_info(self, enterprise_id, meeting_uuid, **kwargs):
+        """
+        List Live Meeting Endpoints by Enterprise
+        This endpoint lists endpoints for a given meeting in progress.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_live_by_enterprise_with_http_info(enterprise_id, meeting_uuid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :return: MeetingExtendedIndigo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enterprise_id', 'meeting_uuid']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_meeting_live_by_enterprise" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'enterprise_id' is set
+        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_meeting_live_by_enterprise`")
+        # verify the required parameter 'meeting_uuid' is set
+        if ('meeting_uuid' not in params) or (params['meeting_uuid'] is None):
+            raise ValueError("Missing the required parameter `meeting_uuid` when calling `get_meeting_live_by_enterprise`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/'.replace('{format}', 'json')
+        path_params = {}
+        if 'enterprise_id' in params:
+            path_params['enterprise_id'] = params['enterprise_id']
+        if 'meeting_uuid' in params:
+            path_params['meeting_uuid'] = params['meeting_uuid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='MeetingExtendedIndigo',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_meeting_past_by_enterprise(self, enterprise_id, meeting_uuid, **kwargs):
+        """
+        List Meeting Endpoints & Stats by Enterprise
+        This endpoint lists meeting endpoints for completed meetings by enterprise.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :param bool include_endpoints: Option to include detailed data on endpoints
+        :return: MeetingExtendedIndigo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_meeting_past_by_enterprise_with_http_info(enterprise_id, meeting_uuid, **kwargs)
+        else:
+            (data) = self.get_meeting_past_by_enterprise_with_http_info(enterprise_id, meeting_uuid, **kwargs)
+            return data
+
+    def get_meeting_past_by_enterprise_with_http_info(self, enterprise_id, meeting_uuid, **kwargs):
+        """
+        List Meeting Endpoints & Stats by Enterprise
+        This endpoint lists meeting endpoints for completed meetings by enterprise.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_past_by_enterprise_with_http_info(enterprise_id, meeting_uuid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :param bool include_endpoints: Option to include detailed data on endpoints
+        :return: MeetingExtendedIndigo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enterprise_id', 'meeting_uuid', 'include_endpoints']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_meeting_past_by_enterprise" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'enterprise_id' is set
+        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_meeting_past_by_enterprise`")
+        # verify the required parameter 'meeting_uuid' is set
+        if ('meeting_uuid' not in params) or (params['meeting_uuid'] is None):
+            raise ValueError("Missing the required parameter `meeting_uuid` when calling `get_meeting_past_by_enterprise`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'enterprise_id' in params:
+            path_params['enterprise_id'] = params['enterprise_id']
+        if 'meeting_uuid' in params:
+            path_params['meeting_uuid'] = params['meeting_uuid']
+
+        query_params = {}
+        if 'include_endpoints' in params:
+            query_params['includeEndpoints'] = params['include_endpoints']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='MeetingExtendedIndigo',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_meeting_past_by_user(self, user_id, meeting_uuid, **kwargs):
+        """
+        List Meeting Endpoints & Stats by User
+        This endpoint lists meeting endpoints for completed meetings by user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_past_by_user(user_id, meeting_uuid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :return: MeetingExtendedIndigo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_meeting_past_by_user_with_http_info(user_id, meeting_uuid, **kwargs)
+        else:
+            (data) = self.get_meeting_past_by_user_with_http_info(user_id, meeting_uuid, **kwargs)
+            return data
+
+    def get_meeting_past_by_user_with_http_info(self, user_id, meeting_uuid, **kwargs):
+        """
+        List Meeting Endpoints & Stats by User
+        This endpoint lists meeting endpoints for completed meetings by user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meeting_past_by_user_with_http_info(user_id, meeting_uuid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param str meeting_uuid: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+        :return: MeetingExtendedIndigo
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'meeting_uuid']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_meeting_past_by_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `get_meeting_past_by_user`")
+        # verify the required parameter 'meeting_uuid' is set
+        if ('meeting_uuid' not in params) or (params['meeting_uuid'] is None):
+            raise ValueError("Missing the required parameter `meeting_uuid` when calling `get_meeting_past_by_user`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/user/{user_id}/indigo/meetings/{meeting_uuid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'meeting_uuid' in params:
+            path_params['meeting_uuid'] = params['meeting_uuid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='MeetingExtendedIndigo',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_meetings_live_by_enterprise(self, enterprise_id, **kwargs):
+        """
+        Live Meetings Summary by Enterprise
+        This endpoint lists meetings in progress by enterprise.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meetings_live_by_enterprise(enterprise_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :return: MeetingIndigoList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_meetings_live_by_enterprise_with_http_info(enterprise_id, **kwargs)
+        else:
+            (data) = self.get_meetings_live_by_enterprise_with_http_info(enterprise_id, **kwargs)
+            return data
+
+    def get_meetings_live_by_enterprise_with_http_info(self, enterprise_id, **kwargs):
+        """
+        Live Meetings Summary by Enterprise
+        This endpoint lists meetings in progress by enterprise.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meetings_live_by_enterprise_with_http_info(enterprise_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :return: MeetingIndigoList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['enterprise_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_meetings_live_by_enterprise" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'enterprise_id' is set
+        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_meetings_live_by_enterprise`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live'.replace('{format}', 'json')
+        path_params = {}
+        if 'enterprise_id' in params:
+            path_params['enterprise_id'] = params['enterprise_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='MeetingIndigoList',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_meetings_past_by_enterprise(self, enterprise_id, **kwargs):
         """
         List Past Meetings by Enterprise
         This endpoint lists completed meetings by enterprise.
@@ -79,7 +487,7 @@ class CommandCenterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_get_with_http_info(enterprise_id, callback=callback_function)
+        >>> thread = api.get_meetings_past_by_enterprise(enterprise_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -87,7 +495,36 @@ class CommandCenterApi(object):
         :param int offset: Page Number
         :param int limit: Per page
         :param str filter: URL-encoded JSON string
-        :return: Meeting
+        :return: MeetingIndigoList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_meetings_past_by_enterprise_with_http_info(enterprise_id, **kwargs)
+        else:
+            (data) = self.get_meetings_past_by_enterprise_with_http_info(enterprise_id, **kwargs)
+            return data
+
+    def get_meetings_past_by_enterprise_with_http_info(self, enterprise_id, **kwargs):
+        """
+        List Past Meetings by Enterprise
+        This endpoint lists completed meetings by enterprise.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_meetings_past_by_enterprise_with_http_info(enterprise_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+        :param int offset: Page Number
+        :param int limit: Per page
+        :param str filter: URL-encoded JSON string
+        :return: MeetingIndigoList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -103,13 +540,13 @@ class CommandCenterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_meetings_get" % key
+                    " to method get_meetings_past_by_enterprise" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'enterprise_id' is set
         if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_meetings_get`")
+            raise ValueError("Missing the required parameter `enterprise_id` when calling `get_meetings_past_by_enterprise`")
 
 
         collection_formats = {}
@@ -147,7 +584,7 @@ class CommandCenterApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='Meeting',
+                                        response_type='MeetingIndigoList',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -155,334 +592,7 @@ class CommandCenterApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def v1_enterprise_enterprise_id_indigo_meetings_live_get(self, enterprise_id, **kwargs):
-        """
-        Live Meetings Summary by Enterprise
-        This endpoint lists meetings in progress by enterprise.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_live_get(enterprise_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_meetings_live_get_with_http_info(enterprise_id, **kwargs)
-        else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_meetings_live_get_with_http_info(enterprise_id, **kwargs)
-            return data
-
-    def v1_enterprise_enterprise_id_indigo_meetings_live_get_with_http_info(self, enterprise_id, **kwargs):
-        """
-        Live Meetings Summary by Enterprise
-        This endpoint lists meetings in progress by enterprise.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_live_get_with_http_info(enterprise_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_meetings_live_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_meetings_live_get`")
-
-
-        collection_formats = {}
-
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live'.replace('{format}', 'json')
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='Meeting',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get(self, enterprise_id, meeting_guid, **kwargs):
-        """
-        List Live Meeting Endpoints by Enterprise
-        This endpoint lists endpoints for a given meeting in progress.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get(enterprise_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get_with_http_info(enterprise_id, meeting_guid, **kwargs)
-        else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get_with_http_info(enterprise_id, meeting_guid, **kwargs)
-            return data
-
-    def v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get_with_http_info(self, enterprise_id, meeting_guid, **kwargs):
-        """
-        List Live Meeting Endpoints by Enterprise
-        This endpoint lists endpoints for a given meeting in progress.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get_with_http_info(enterprise_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id', 'meeting_guid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get`")
-        # verify the required parameter 'meeting_guid' is set
-        if ('meeting_guid' not in params) or (params['meeting_guid'] is None):
-            raise ValueError("Missing the required parameter `meeting_guid` when calling `v1_enterprise_enterprise_id_indigo_meetings_live_meeting_guid_endpoints_get`")
-
-
-        collection_formats = {}
-
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/'.replace('{format}', 'json')
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-        if 'meeting_guid' in params:
-            path_params['meeting_guid'] = params['meeting_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='Meeting',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(self, enterprise_id, meeting_guid, **kwargs):
-        """
-        List Meeting Endpoints & Stats by Enterprise
-        This endpoint lists meeting endpoints for completed meetings by enterprise.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get(enterprise_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :param bool include_endpoints: Option to include detailed data on endpoints
-        :return: MeetingIndigo
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get_with_http_info(enterprise_id, meeting_guid, **kwargs)
-        else:
-            (data) = self.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get_with_http_info(enterprise_id, meeting_guid, **kwargs)
-            return data
-
-    def v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get_with_http_info(self, enterprise_id, meeting_guid, **kwargs):
-        """
-        List Meeting Endpoints & Stats by Enterprise
-        This endpoint lists meeting endpoints for completed meetings by enterprise.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get_with_http_info(enterprise_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int enterprise_id: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :param bool include_endpoints: Option to include detailed data on endpoints
-        :return: MeetingIndigo
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id', 'meeting_guid', 'include_endpoints']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params) or (params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get`")
-        # verify the required parameter 'meeting_guid' is set
-        if ('meeting_guid' not in params) or (params['meeting_guid'] is None):
-            raise ValueError("Missing the required parameter `meeting_guid` when calling `v1_enterprise_enterprise_id_indigo_meetings_meeting_guid_get`")
-
-
-        collection_formats = {}
-
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-        if 'meeting_guid' in params:
-            path_params['meeting_guid'] = params['meeting_guid']
-
-        query_params = {}
-        if 'include_endpoints' in params:
-            query_params['includeEndpoints'] = params['include_endpoints']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='MeetingIndigo',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def v1_user_user_id_indigo_meetings_get(self, user_id, **kwargs):
+    def get_meetings_past_by_user(self, user_id, **kwargs):
         """
         List Past Meetings by User
         This endpoint lists completed meetings by user.
@@ -492,23 +602,23 @@ class CommandCenterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_indigo_meetings_get(user_id, callback=callback_function)
+        >>> thread = api.get_meetings_past_by_user(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Meeting
+        :return: MeetingIndigoList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.v1_user_user_id_indigo_meetings_get_with_http_info(user_id, **kwargs)
+            return self.get_meetings_past_by_user_with_http_info(user_id, **kwargs)
         else:
-            (data) = self.v1_user_user_id_indigo_meetings_get_with_http_info(user_id, **kwargs)
+            (data) = self.get_meetings_past_by_user_with_http_info(user_id, **kwargs)
             return data
 
-    def v1_user_user_id_indigo_meetings_get_with_http_info(self, user_id, **kwargs):
+    def get_meetings_past_by_user_with_http_info(self, user_id, **kwargs):
         """
         List Past Meetings by User
         This endpoint lists completed meetings by user.
@@ -518,12 +628,12 @@ class CommandCenterApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.v1_user_user_id_indigo_meetings_get_with_http_info(user_id, callback=callback_function)
+        >>> thread = api.get_meetings_past_by_user_with_http_info(user_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :return: Meeting
+        :return: MeetingIndigoList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -539,13 +649,13 @@ class CommandCenterApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_indigo_meetings_get" % key
+                    " to method get_meetings_past_by_user" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_indigo_meetings_get`")
+            raise ValueError("Missing the required parameter `user_id` when calling `get_meetings_past_by_user`")
 
 
         collection_formats = {}
@@ -577,117 +687,7 @@ class CommandCenterApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='Meeting',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def v1_user_user_id_indigo_meetings_meeting_guid_get(self, user_id, meeting_guid, **kwargs):
-        """
-        List Meeting Endpoints & Stats by User
-        This endpoint lists meeting endpoints for completed meetings by user.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_indigo_meetings_meeting_guid_get(user_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: MeetingIndigo
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_indigo_meetings_meeting_guid_get_with_http_info(user_id, meeting_guid, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_indigo_meetings_meeting_guid_get_with_http_info(user_id, meeting_guid, **kwargs)
-            return data
-
-    def v1_user_user_id_indigo_meetings_meeting_guid_get_with_http_info(self, user_id, meeting_guid, **kwargs):
-        """
-        List Meeting Endpoints & Stats by User
-        This endpoint lists meeting endpoints for completed meetings by user.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_indigo_meetings_meeting_guid_get_with_http_info(user_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: MeetingIndigo
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_guid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_indigo_meetings_meeting_guid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_indigo_meetings_meeting_guid_get`")
-        # verify the required parameter 'meeting_guid' is set
-        if ('meeting_guid' not in params) or (params['meeting_guid'] is None):
-            raise ValueError("Missing the required parameter `meeting_guid` when calling `v1_user_user_id_indigo_meetings_meeting_guid_get`")
-
-
-        collection_formats = {}
-
-        resource_path = '/v1/user/{user_id}/indigo/meetings/{meeting_guid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_guid' in params:
-            path_params['meeting_guid'] = params['meeting_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='MeetingIndigo',
+                                        response_type='MeetingIndigoList',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

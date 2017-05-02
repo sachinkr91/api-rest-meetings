@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meetingId** | **String** |  |  [optional]
-**meetingUUID** | **String** |  |  [optional]
+**meetingId** | **String** | This is the same as the numericMeetingId found elsewhere. We should have been more consistent. |  [optional]
+**meetingUUID** | **String** | The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes. |  [optional]
 **userName** | **String** |  |  [optional]
 **email** | **String** |  |  [optional]
 **encryptionType** | **Integer** |  |  [optional]
@@ -38,8 +38,7 @@ Name | Type | Description | Notes
 **largeMeeting** | **Boolean** |  |  [optional]
 **roiDistance** | **Float** |  |  [optional]
 **mpls** | **Boolean** |  |  [optional]
-**id** | **String** |  |  [optional]
-**endpoints** | [**List&lt;EndpointIndigo&gt;**](EndpointIndigo.md) |  |  [optional]
+**id** | **String** | Same as the meetingUUID property in this object. |  [optional]
 
 
 <a name="ScheduledFromEnum"></a>

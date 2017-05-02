@@ -1,4 +1,4 @@
 {
-	"hideGenerationTimestamp": false,
+	"hideGenerationTimestamp": true,
 	"packageName": "com.bluejeans.api.rest.onvideo"
 }

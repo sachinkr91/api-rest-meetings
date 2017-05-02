@@ -18,7 +18,7 @@ import com.bluejeans.api.rest.onvideo.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-26T17:15:49.025-06:00")
+
 public class OAuth implements Authentication {
   private String accessToken;
 

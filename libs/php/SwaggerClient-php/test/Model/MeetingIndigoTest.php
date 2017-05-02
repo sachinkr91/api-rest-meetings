@@ -362,12 +362,4 @@ class MeetingIndigoTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    /**
-     * Test attribute "endpoints"
-     */
-    public function testPropertyEndpoints()
-    {
-
-    }
-
 }

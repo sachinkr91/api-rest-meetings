@@ -344,14 +344,6 @@ namespace com.bluejeans.api.rest.onvideo.Test
         {
             // TODO unit test for the property 'Id'
         }
-        /// <summary>
-        /// Test the property 'Endpoints'
-        /// </summary>
-        [Test]
-        public void EndpointsTest()
-        {
-            // TODO unit test for the property 'Endpoints'
-        }
 
     }
 

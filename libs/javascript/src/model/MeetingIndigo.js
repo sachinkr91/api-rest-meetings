@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/EndpointIndigo'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./EndpointIndigo'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingIndigo = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.EndpointIndigo);
+    root.BlueJeansOnVideoRestApi.MeetingIndigo = factory(root.BlueJeansOnVideoRestApi.ApiClient);
   }
-}(this, function(ApiClient, EndpointIndigo) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -44,7 +44,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -199,18 +198,17 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('endpoints')) {
-        obj['endpoints'] = ApiClient.convertToType(data['endpoints'], [EndpointIndigo]);
-      }
     }
     return obj;
   }
 
   /**
+   * This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
    * @member {String} meetingId
    */
   exports.prototype['meetingId'] = undefined;
   /**
+   * The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
    * @member {String} meetingUUID
    */
   exports.prototype['meetingUUID'] = undefined;
@@ -343,13 +341,10 @@
    */
   exports.prototype['mpls'] = undefined;
   /**
+   * Same as the meetingUUID property in this object.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
-  /**
-   * @member {Array.<module:model/EndpointIndigo>} endpoints
-   */
-  exports.prototype['endpoints'] = undefined;
 
 
   /**

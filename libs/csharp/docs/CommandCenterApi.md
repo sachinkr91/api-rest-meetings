@@ -4,17 +4,293 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1EnterpriseEnterpriseIdIndigoMeetingsGet**](CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
-[**V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**](CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsliveget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
-[**V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**](CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingslivemeetingguidendpointsget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/ | List Live Meeting Endpoints by Enterprise
-[**V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1enterpriseenterpriseidindigomeetingsmeetingguidget) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by Enterprise
-[**V1UserUserIdIndigoMeetingsGet**](CommandCenterApi.md#v1useruseridindigomeetingsget) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
-[**V1UserUserIdIndigoMeetingsMeetingGuidGet**](CommandCenterApi.md#v1useruseridindigomeetingsmeetingguidget) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_guid} | List Meeting Endpoints &amp; Stats by User
+[**GetMeetingLiveByEnterprise**](CommandCenterApi.md#getmeetinglivebyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/ | List Live Meeting Endpoints by Enterprise
+[**GetMeetingPastByEnterprise**](CommandCenterApi.md#getmeetingpastbyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by Enterprise
+[**GetMeetingPastByUser**](CommandCenterApi.md#getmeetingpastbyuser) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by User
+[**GetMeetingsLiveByEnterprise**](CommandCenterApi.md#getmeetingslivebyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
+[**GetMeetingsPastByEnterprise**](CommandCenterApi.md#getmeetingspastbyenterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
+[**GetMeetingsPastByUser**](CommandCenterApi.md#getmeetingspastbyuser) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
 
 
-<a name="v1enterpriseenterpriseidindigomeetingsget"></a>
-# **V1EnterpriseEnterpriseIdIndigoMeetingsGet**
-> Meeting V1EnterpriseEnterpriseIdIndigoMeetingsGet (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
+<a name="getmeetinglivebyenterprise"></a>
+# **GetMeetingLiveByEnterprise**
+> MeetingExtendedIndigo GetMeetingLiveByEnterprise (int? enterpriseId, string meetingUuid)
+
+List Live Meeting Endpoints by Enterprise
+
+This endpoint lists endpoints for a given meeting in progress.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
+
+namespace Example
+{
+    public class GetMeetingLiveByEnterpriseExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new CommandCenterApi();
+            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+            var meetingUuid = meetingUuid_example;  // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+
+            try
+            {
+                // List Live Meeting Endpoints by Enterprise
+                MeetingExtendedIndigo result = apiInstance.GetMeetingLiveByEnterprise(enterpriseId, meetingUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingLiveByEnterprise: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **meetingUuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeetingpastbyenterprise"></a>
+# **GetMeetingPastByEnterprise**
+> MeetingExtendedIndigo GetMeetingPastByEnterprise (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+
+List Meeting Endpoints & Stats by Enterprise
+
+This endpoint lists meeting endpoints for completed meetings by enterprise.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
+
+namespace Example
+{
+    public class GetMeetingPastByEnterpriseExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new CommandCenterApi();
+            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+            var meetingUuid = meetingUuid_example;  // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+            var includeEndpoints = true;  // bool? | Option to include detailed data on endpoints (optional) 
+
+            try
+            {
+                // List Meeting Endpoints & Stats by Enterprise
+                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingPastByEnterprise: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **meetingUuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+ **includeEndpoints** | **bool?**| Option to include detailed data on endpoints | [optional] 
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeetingpastbyuser"></a>
+# **GetMeetingPastByUser**
+> MeetingExtendedIndigo GetMeetingPastByUser (int? userId, string meetingUuid)
+
+List Meeting Endpoints & Stats by User
+
+This endpoint lists meeting endpoints for completed meetings by user.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
+
+namespace Example
+{
+    public class GetMeetingPastByUserExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new CommandCenterApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var meetingUuid = meetingUuid_example;  // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+
+            try
+            {
+                // List Meeting Endpoints & Stats by User
+                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByUser(userId, meetingUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingPastByUser: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **meetingUuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+
+### Return type
+
+[**MeetingExtendedIndigo**](MeetingExtendedIndigo.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeetingslivebyenterprise"></a>
+# **GetMeetingsLiveByEnterprise**
+> MeetingIndigoList GetMeetingsLiveByEnterprise (int? enterpriseId)
+
+Live Meetings Summary by Enterprise
+
+This endpoint lists meetings in progress by enterprise.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.bluejeans.api.rest.onvideo.Api;
+using com.bluejeans.api.rest.onvideo.Client;
+using com.bluejeans.api.rest.onvideo.Model;
+
+namespace Example
+{
+    public class GetMeetingsLiveByEnterpriseExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: access_token
+            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+
+            var apiInstance = new CommandCenterApi();
+            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+
+            try
+            {
+                // Live Meetings Summary by Enterprise
+                MeetingIndigoList result = apiInstance.GetMeetingsLiveByEnterprise(enterpriseId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingsLiveByEnterprise: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+
+### Return type
+
+[**MeetingIndigoList**](MeetingIndigoList.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmeetingspastbyenterprise"></a>
+# **GetMeetingsPastByEnterprise**
+> MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null)
 
 List Past Meetings by Enterprise
 
@@ -30,7 +306,7 @@ using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
-    public class V1EnterpriseEnterpriseIdIndigoMeetingsGetExample
+    public class GetMeetingsPastByEnterpriseExample
     {
         public void main()
         {
@@ -49,12 +325,12 @@ namespace Example
             try
             {
                 // List Past Meetings by Enterprise
-                Meeting result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsGet(enterpriseId, offset, limit, filter);
+                MeetingIndigoList result = apiInstance.GetMeetingsPastByEnterprise(enterpriseId, offset, limit, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CommandCenterApi.V1EnterpriseEnterpriseIdIndigoMeetingsGet: " + e.Message );
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingsPastByEnterprise: " + e.Message );
             }
         }
     }
@@ -72,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingIndigoList**](MeetingIndigoList.md)
 
 ### Authorization
 
@@ -85,216 +361,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1enterpriseenterpriseidindigomeetingsliveget"></a>
-# **V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet**
-> Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet (int? enterpriseId)
-
-Live Meetings Summary by Enterprise
-
-This endpoint lists meetings in progress by enterprise.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
-
-namespace Example
-{
-    public class V1EnterpriseEnterpriseIdIndigoMeetingsLiveGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new CommandCenterApi();
-            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-
-            try
-            {
-                // Live Meetings Summary by Enterprise
-                Meeting result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(enterpriseId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandCenterApi.V1EnterpriseEnterpriseIdIndigoMeetingsLiveGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1enterpriseenterpriseidindigomeetingslivemeetingguidendpointsget"></a>
-# **V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet**
-> Meeting V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet (int? enterpriseId, string meetingGuid)
-
-List Live Meeting Endpoints by Enterprise
-
-This endpoint lists endpoints for a given meeting in progress.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
-
-namespace Example
-{
-    public class V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new CommandCenterApi();
-            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var meetingGuid = meetingGuid_example;  // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-
-            try
-            {
-                // List Live Meeting Endpoints by Enterprise
-                Meeting result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(enterpriseId, meetingGuid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandCenterApi.V1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **meetingGuid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
-
-### Return type
-
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1enterpriseenterpriseidindigomeetingsmeetingguidget"></a>
-# **V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet**
-> MeetingIndigo V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet (int? enterpriseId, string meetingGuid, bool? includeEndpoints = null)
-
-List Meeting Endpoints & Stats by Enterprise
-
-This endpoint lists meeting endpoints for completed meetings by enterprise.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
-
-namespace Example
-{
-    public class V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new CommandCenterApi();
-            var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var meetingGuid = meetingGuid_example;  // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-            var includeEndpoints = true;  // bool? | Option to include detailed data on endpoints (optional) 
-
-            try
-            {
-                // List Meeting Endpoints & Stats by Enterprise
-                MeetingIndigo result = apiInstance.V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(enterpriseId, meetingGuid, includeEndpoints);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandCenterApi.V1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **meetingGuid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
- **includeEndpoints** | **bool?**| Option to include detailed data on endpoints | [optional] 
-
-### Return type
-
-[**MeetingIndigo**](MeetingIndigo.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridindigomeetingsget"></a>
-# **V1UserUserIdIndigoMeetingsGet**
-> Meeting V1UserUserIdIndigoMeetingsGet (int? userId)
+<a name="getmeetingspastbyuser"></a>
+# **GetMeetingsPastByUser**
+> MeetingIndigoList GetMeetingsPastByUser (int? userId)
 
 List Past Meetings by User
 
@@ -310,7 +379,7 @@ using com.bluejeans.api.rest.onvideo.Model;
 
 namespace Example
 {
-    public class V1UserUserIdIndigoMeetingsGetExample
+    public class GetMeetingsPastByUserExample
     {
         public void main()
         {
@@ -326,12 +395,12 @@ namespace Example
             try
             {
                 // List Past Meetings by User
-                Meeting result = apiInstance.V1UserUserIdIndigoMeetingsGet(userId);
+                MeetingIndigoList result = apiInstance.GetMeetingsPastByUser(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CommandCenterApi.V1UserUserIdIndigoMeetingsGet: " + e.Message );
+                Debug.Print("Exception when calling CommandCenterApi.GetMeetingsPastByUser: " + e.Message );
             }
         }
     }
@@ -346,76 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="v1useruseridindigomeetingsmeetingguidget"></a>
-# **V1UserUserIdIndigoMeetingsMeetingGuidGet**
-> MeetingIndigo V1UserUserIdIndigoMeetingsMeetingGuidGet (int? userId, string meetingGuid)
-
-List Meeting Endpoints & Stats by User
-
-This endpoint lists meeting endpoints for completed meetings by user.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
-
-namespace Example
-{
-    public class V1UserUserIdIndigoMeetingsMeetingGuidGetExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
-            var apiInstance = new CommandCenterApi();
-            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingGuid = meetingGuid_example;  // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-
-            try
-            {
-                // List Meeting Endpoints & Stats by User
-                MeetingIndigo result = apiInstance.V1UserUserIdIndigoMeetingsMeetingGuidGet(userId, meetingGuid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CommandCenterApi.V1UserUserIdIndigoMeetingsMeetingGuidGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingGuid** | **string**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
-
-### Return type
-
-[**MeetingIndigo**](MeetingIndigo.md)
+[**MeetingIndigoList**](MeetingIndigoList.md)
 
 ### Authorization
 

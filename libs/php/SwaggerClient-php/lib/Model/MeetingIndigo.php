@@ -88,8 +88,7 @@ class MeetingIndigo implements ArrayAccess
         'large_meeting' => 'bool',
         'roi_distance' => 'float',
         'mpls' => 'bool',
-        'id' => 'string',
-        'endpoints' => '\Swagger\Client\Model\EndpointIndigo[]'
+        'id' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -136,8 +135,7 @@ class MeetingIndigo implements ArrayAccess
         'large_meeting' => 'largeMeeting',
         'roi_distance' => 'roiDistance',
         'mpls' => 'mpls',
-        'id' => 'id',
-        'endpoints' => 'endpoints'
+        'id' => 'id'
     ];
 
 
@@ -180,8 +178,7 @@ class MeetingIndigo implements ArrayAccess
         'large_meeting' => 'setLargeMeeting',
         'roi_distance' => 'setRoiDistance',
         'mpls' => 'setMpls',
-        'id' => 'setId',
-        'endpoints' => 'setEndpoints'
+        'id' => 'setId'
     ];
 
 
@@ -224,8 +221,7 @@ class MeetingIndigo implements ArrayAccess
         'large_meeting' => 'getLargeMeeting',
         'roi_distance' => 'getRoiDistance',
         'mpls' => 'getMpls',
-        'id' => 'getId',
-        'endpoints' => 'getEndpoints'
+        'id' => 'getId'
     ];
 
     public static function attributeMap()
@@ -306,7 +302,6 @@ class MeetingIndigo implements ArrayAccess
         $this->container['roi_distance'] = isset($data['roi_distance']) ? $data['roi_distance'] : null;
         $this->container['mpls'] = isset($data['mpls']) ? $data['mpls'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
     }
 
     /**
@@ -354,7 +349,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets meeting_id
-     * @param string $meeting_id
+     * @param string $meeting_id This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
      * @return $this
      */
     public function setMeetingId($meeting_id)
@@ -375,7 +370,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets meeting_uuid
-     * @param string $meeting_uuid
+     * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
      * @return $this
      */
     public function setMeetingUuid($meeting_uuid)
@@ -1072,33 +1067,12 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id
+     * @param string $id Same as the meetingUUID property in this object.
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets endpoints
-     * @return \Swagger\Client\Model\EndpointIndigo[]
-     */
-    public function getEndpoints()
-    {
-        return $this->container['endpoints'];
-    }
-
-    /**
-     * Sets endpoints
-     * @param \Swagger\Client\Model\EndpointIndigo[] $endpoints
-     * @return $this
-     */
-    public function setEndpoints($endpoints)
-    {
-        $this->container['endpoints'] = $endpoints;
 
         return $this;
     }

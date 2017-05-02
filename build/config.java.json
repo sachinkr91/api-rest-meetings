@@ -1,1 +1,7 @@
-{"hideGenerationTimestamp": false}
+{
+	"hideGenerationTimestamp": true,
+	"developerEmail":"brandon@bluejeans.com",
+	"developerName":"Brandon Fuller",
+	"developerOrganization":"Blue Jeans Network",
+	"developerOrganizationUrl":"http://bluejeans.com/"
+}

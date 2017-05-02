@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meeting_id** | **string** |  | [optional] 
-**meeting_uuid** | **string** |  | [optional] 
+**meeting_id** | **string** | This is the same as the numericMeetingId found elsewhere. We should have been more consistent. | [optional] 
+**meeting_uuid** | **string** | The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes. | [optional] 
 **user_name** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
 **encryption_type** | **int** |  | [optional] 
@@ -37,8 +37,7 @@ Name | Type | Description | Notes
 **large_meeting** | **bool** |  | [optional] 
 **roi_distance** | **float** |  | [optional] 
 **mpls** | **bool** |  | [optional] 
-**id** | **string** |  | [optional] 
-**endpoints** | [**\Swagger\Client\Model\EndpointIndigo[]**](EndpointIndigo.md) |  | [optional] 
+**id** | **string** | Same as the meetingUUID property in this object. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

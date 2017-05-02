@@ -56,8 +56,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Content</returns>
-        Content GetRecordingContent (int? userId, int? contentId);
+        Content GetRecordingContent (int? userId, int? contentId, bool? isDownloadable);
 
         /// <summary>
         /// Get Recording Download Link
@@ -68,54 +69,59 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>ApiResponse of Content</returns>
-        ApiResponse<Content> GetRecordingContentWithHttpInfo (int? userId, int? contentId);
+        ApiResponse<Content> GetRecordingContentWithHttpInfo (int? userId, int? contentId, bool? isDownloadable);
         /// <summary>
         /// Start Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint starts recording for a meeting in progress.
+        /// This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns></returns>
-        void StartRecording (int? userId, int? meetingId);
+        void StartRecording (int? userId, int? meetingId, string action);
 
         /// <summary>
         /// Start Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint starts recording for a meeting in progress.
+        /// This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> StartRecordingWithHttpInfo (int? userId, int? meetingId);
+        ApiResponse<Object> StartRecordingWithHttpInfo (int? userId, int? meetingId, string action);
         /// <summary>
         /// Stop Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
+        /// This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns></returns>
-        void StopRecording (int? userId, int? meetingId);
+        void StopRecording (int? userId, int? meetingId, string action);
 
         /// <summary>
         /// Stop Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
+        /// This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> StopRecordingWithHttpInfo (int? userId, int? meetingId);
+        ApiResponse<Object> StopRecordingWithHttpInfo (int? userId, int? meetingId, string action);
         /// <summary>
         /// Get All Recordings for a Specified Meeting GUID
         /// </summary>
@@ -223,8 +229,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Task of Content</returns>
-        System.Threading.Tasks.Task<Content> GetRecordingContentAsync (int? userId, int? contentId);
+        System.Threading.Tasks.Task<Content> GetRecordingContentAsync (int? userId, int? contentId, bool? isDownloadable);
 
         /// <summary>
         /// Get Recording Download Link
@@ -235,54 +242,59 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Task of ApiResponse (Content)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Content>> GetRecordingContentAsyncWithHttpInfo (int? userId, int? contentId);
+        System.Threading.Tasks.Task<ApiResponse<Content>> GetRecordingContentAsyncWithHttpInfo (int? userId, int? contentId, bool? isDownloadable);
         /// <summary>
         /// Start Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint starts recording for a meeting in progress.
+        /// This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task StartRecordingAsync (int? userId, int? meetingId);
+        System.Threading.Tasks.Task StartRecordingAsync (int? userId, int? meetingId, string action);
 
         /// <summary>
         /// Start Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint starts recording for a meeting in progress.
+        /// This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> StartRecordingAsyncWithHttpInfo (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> StartRecordingAsyncWithHttpInfo (int? userId, int? meetingId, string action);
         /// <summary>
         /// Stop Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
+        /// This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task StopRecordingAsync (int? userId, int? meetingId);
+        System.Threading.Tasks.Task StopRecordingAsync (int? userId, int? meetingId, string action);
 
         /// <summary>
         /// Stop Recording
         /// </summary>
         /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
+        /// This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> StopRecordingAsyncWithHttpInfo (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> StopRecordingAsyncWithHttpInfo (int? userId, int? meetingId, string action);
         /// <summary>
         /// Get All Recordings for a Specified Meeting GUID
         /// </summary>
@@ -638,10 +650,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Content</returns>
-        public Content GetRecordingContent (int? userId, int? contentId)
+        public Content GetRecordingContent (int? userId, int? contentId, bool? isDownloadable)
         {
-             ApiResponse<Content> localVarResponse = GetRecordingContentWithHttpInfo(userId, contentId);
+             ApiResponse<Content> localVarResponse = GetRecordingContentWithHttpInfo(userId, contentId, isDownloadable);
              return localVarResponse.Data;
         }
 
@@ -651,8 +664,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>ApiResponse of Content</returns>
-        public ApiResponse< Content > GetRecordingContentWithHttpInfo (int? userId, int? contentId)
+        public ApiResponse< Content > GetRecordingContentWithHttpInfo (int? userId, int? contentId, bool? isDownloadable)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -660,8 +674,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'contentId' is set
             if (contentId == null)
                 throw new ApiException(400, "Missing required parameter 'contentId' when calling RecordingApi->GetRecordingContent");
+            // verify the required parameter 'isDownloadable' is set
+            if (isDownloadable == null)
+                throw new ApiException(400, "Missing required parameter 'isDownloadable' when calling RecordingApi->GetRecordingContent");
 
-            var localVarPath = "/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true";
+            var localVarPath = "/v1/user/{user_id}/cms/{content_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -687,6 +704,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (contentId != null) localVarPathParams.Add("content_id", Configuration.ApiClient.ParameterToString(contentId)); // path parameter
+            if (isDownloadable != null) localVarQueryParams.Add("isDownloadable", Configuration.ApiClient.ParameterToString(isDownloadable)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -720,10 +738,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Task of Content</returns>
-        public async System.Threading.Tasks.Task<Content> GetRecordingContentAsync (int? userId, int? contentId)
+        public async System.Threading.Tasks.Task<Content> GetRecordingContentAsync (int? userId, int? contentId, bool? isDownloadable)
         {
-             ApiResponse<Content> localVarResponse = await GetRecordingContentAsyncWithHttpInfo(userId, contentId);
+             ApiResponse<Content> localVarResponse = await GetRecordingContentAsyncWithHttpInfo(userId, contentId, isDownloadable);
              return localVarResponse.Data;
 
         }
@@ -734,8 +753,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="contentId">The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.</param>
+        /// <param name="isDownloadable">Set to true.</param>
         /// <returns>Task of ApiResponse (Content)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Content>> GetRecordingContentAsyncWithHttpInfo (int? userId, int? contentId)
+        public async System.Threading.Tasks.Task<ApiResponse<Content>> GetRecordingContentAsyncWithHttpInfo (int? userId, int? contentId, bool? isDownloadable)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -743,8 +763,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'contentId' is set
             if (contentId == null)
                 throw new ApiException(400, "Missing required parameter 'contentId' when calling RecordingApi->GetRecordingContent");
+            // verify the required parameter 'isDownloadable' is set
+            if (isDownloadable == null)
+                throw new ApiException(400, "Missing required parameter 'isDownloadable' when calling RecordingApi->GetRecordingContent");
 
-            var localVarPath = "/v1/user/{user_id}/cms/{content_id}?isDownloadable&#x3D;true";
+            var localVarPath = "/v1/user/{user_id}/cms/{content_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -770,6 +793,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (contentId != null) localVarPathParams.Add("content_id", Configuration.ApiClient.ParameterToString(contentId)); // path parameter
+            if (isDownloadable != null) localVarQueryParams.Add("isDownloadable", Configuration.ApiClient.ParameterToString(isDownloadable)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -797,25 +821,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Start Recording This endpoint starts recording for a meeting in progress.
+        /// Start Recording This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns></returns>
-        public void StartRecording (int? userId, int? meetingId)
+        public void StartRecording (int? userId, int? meetingId, string action)
         {
-             StartRecordingWithHttpInfo(userId, meetingId);
+             StartRecordingWithHttpInfo(userId, meetingId, action);
         }
 
         /// <summary>
-        /// Start Recording This endpoint starts recording for a meeting in progress.
+        /// Start Recording This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> StartRecordingWithHttpInfo (int? userId, int? meetingId)
+        public ApiResponse<Object> StartRecordingWithHttpInfo (int? userId, int? meetingId, string action)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -823,8 +849,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->StartRecording");
+            // verify the required parameter 'action' is set
+            if (action == null)
+                throw new ApiException(400, "Missing required parameter 'action' when calling RecordingApi->StartRecording");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -850,6 +879,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -878,26 +908,28 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Start Recording This endpoint starts recording for a meeting in progress.
+        /// Start Recording This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task StartRecordingAsync (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task StartRecordingAsync (int? userId, int? meetingId, string action)
         {
-             await StartRecordingAsyncWithHttpInfo(userId, meetingId);
+             await StartRecordingAsyncWithHttpInfo(userId, meetingId, action);
 
         }
 
         /// <summary>
-        /// Start Recording This endpoint starts recording for a meeting in progress.
+        /// Start Recording This endpoint starts recording for a meeting in progress. Note that this is a POST operation. Stop is a PUT operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;start\&quot; in order to start recording.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> StartRecordingAsyncWithHttpInfo (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> StartRecordingAsyncWithHttpInfo (int? userId, int? meetingId, string action)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -905,8 +937,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->StartRecording");
+            // verify the required parameter 'action' is set
+            if (action == null)
+                throw new ApiException(400, "Missing required parameter 'action' when calling RecordingApi->StartRecording");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings/?action&#x3D;start";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -932,6 +967,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -959,25 +995,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Stop Recording This endpoint stops recording for a meeting in progress.
+        /// Stop Recording This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns></returns>
-        public void StopRecording (int? userId, int? meetingId)
+        public void StopRecording (int? userId, int? meetingId, string action)
         {
-             StopRecordingWithHttpInfo(userId, meetingId);
+             StopRecordingWithHttpInfo(userId, meetingId, action);
         }
 
         /// <summary>
-        /// Stop Recording This endpoint stops recording for a meeting in progress.
+        /// Stop Recording This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> StopRecordingWithHttpInfo (int? userId, int? meetingId)
+        public ApiResponse<Object> StopRecordingWithHttpInfo (int? userId, int? meetingId, string action)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -985,8 +1023,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->StopRecording");
+            // verify the required parameter 'action' is set
+            if (action == null)
+                throw new ApiException(400, "Missing required parameter 'action' when calling RecordingApi->StopRecording");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1012,6 +1053,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -1040,26 +1082,28 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Stop Recording This endpoint stops recording for a meeting in progress.
+        /// Stop Recording This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task StopRecordingAsync (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task StopRecordingAsync (int? userId, int? meetingId, string action)
         {
-             await StopRecordingAsyncWithHttpInfo(userId, meetingId);
+             await StopRecordingAsyncWithHttpInfo(userId, meetingId, action);
 
         }
 
         /// <summary>
-        /// Stop Recording This endpoint stops recording for a meeting in progress.
+        /// Stop Recording This endpoint stops recording for a meeting in progress. Note that this is a PUT operation. Start is a POST operation.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> StopRecordingAsyncWithHttpInfo (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> StopRecordingAsyncWithHttpInfo (int? userId, int? meetingId, string action)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1067,8 +1111,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // verify the required parameter 'meetingId' is set
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->StopRecording");
+            // verify the required parameter 'action' is set
+            if (action == null)
+                throw new ApiException(400, "Missing required parameter 'action' when calling RecordingApi->StopRecording");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?action&#x3D;stop";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1094,6 +1141,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (action != null) localVarQueryParams.Add("action", Configuration.ApiClient.ParameterToString(action)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))

@@ -48,60 +48,60 @@
   }
 
   describe('CommandCenterApi', function() {
-    describe('v1EnterpriseEnterpriseIdIndigoMeetingsGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoMeetingsGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsGet(function(error) {
+    describe('getMeetingLiveByEnterprise', function() {
+      it('should call getMeetingLiveByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test getMeetingLiveByEnterprise
+        //instance.getMeetingLiveByEnterprise(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(function(error) {
+    describe('getMeetingPastByEnterprise', function() {
+      it('should call getMeetingPastByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test getMeetingPastByEnterprise
+        //instance.getMeetingPastByEnterprise(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(function(error) {
+    describe('getMeetingPastByUser', function() {
+      it('should call getMeetingPastByUser successfully', function(done) {
+        //uncomment below and update the code to test getMeetingPastByUser
+        //instance.getMeetingPastByUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet', function() {
-      it('should call v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet
-        //instance.v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(function(error) {
+    describe('getMeetingsLiveByEnterprise', function() {
+      it('should call getMeetingsLiveByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test getMeetingsLiveByEnterprise
+        //instance.getMeetingsLiveByEnterprise(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdIndigoMeetingsGet', function() {
-      it('should call v1UserUserIdIndigoMeetingsGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdIndigoMeetingsGet
-        //instance.v1UserUserIdIndigoMeetingsGet(function(error) {
+    describe('getMeetingsPastByEnterprise', function() {
+      it('should call getMeetingsPastByEnterprise successfully', function(done) {
+        //uncomment below and update the code to test getMeetingsPastByEnterprise
+        //instance.getMeetingsPastByEnterprise(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('v1UserUserIdIndigoMeetingsMeetingGuidGet', function() {
-      it('should call v1UserUserIdIndigoMeetingsMeetingGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdIndigoMeetingsMeetingGuidGet
-        //instance.v1UserUserIdIndigoMeetingsMeetingGuidGet(function(error) {
+    describe('getMeetingsPastByUser', function() {
+      it('should call getMeetingsPastByUser successfully', function(done) {
+        //uncomment below and update the code to test getMeetingsPastByUser
+        //instance.getMeetingsPastByUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

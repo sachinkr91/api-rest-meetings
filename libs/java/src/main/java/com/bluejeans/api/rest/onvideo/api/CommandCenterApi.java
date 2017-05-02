@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import com.bluejeans.api.rest.onvideo.model.Error;
-import com.bluejeans.api.rest.onvideo.model.Meeting;
-import com.bluejeans.api.rest.onvideo.model.MeetingIndigo;
+import com.bluejeans.api.rest.onvideo.model.MeetingExtendedIndigo;
+import com.bluejeans.api.rest.onvideo.model.MeetingIndigoList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,8 +56,516 @@ public class CommandCenterApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for v1EnterpriseEnterpriseIdIndigoMeetingsGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsGetCall(Integer enterpriseId, Integer offset, Integer limit, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getMeetingLiveByEnterprise */
+    private com.squareup.okhttp.Call getMeetingLiveByEnterpriseCall(Integer enterpriseId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
+        .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMeetingLiveByEnterpriseValidateBeforeCall(Integer enterpriseId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingLiveByEnterprise(Async)");
+        }
+        
+        // verify the required parameter 'meetingUuid' is set
+        if (meetingUuid == null) {
+            throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingLiveByEnterprise(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getMeetingLiveByEnterpriseCall(enterpriseId, meetingUuid, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List Live Meeting Endpoints by Enterprise
+     * This endpoint lists endpoints for a given meeting in progress.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @return MeetingExtendedIndigo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MeetingExtendedIndigo getMeetingLiveByEnterprise(Integer enterpriseId, String meetingUuid) throws ApiException {
+        ApiResponse<MeetingExtendedIndigo> resp = getMeetingLiveByEnterpriseWithHttpInfo(enterpriseId, meetingUuid);
+        return resp.getData();
+    }
+
+    /**
+     * List Live Meeting Endpoints by Enterprise
+     * This endpoint lists endpoints for a given meeting in progress.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @return ApiResponse&lt;MeetingExtendedIndigo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MeetingExtendedIndigo> getMeetingLiveByEnterpriseWithHttpInfo(Integer enterpriseId, String meetingUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingLiveByEnterpriseValidateBeforeCall(enterpriseId, meetingUuid, null, null);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Live Meeting Endpoints by Enterprise (asynchronously)
+     * This endpoint lists endpoints for a given meeting in progress.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeetingLiveByEnterpriseAsync(Integer enterpriseId, String meetingUuid, final ApiCallback<MeetingExtendedIndigo> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeetingLiveByEnterpriseValidateBeforeCall(enterpriseId, meetingUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMeetingPastByEnterprise */
+    private com.squareup.okhttp.Call getMeetingPastByEnterpriseCall(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
+        .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (includeEndpoints != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeEndpoints", includeEndpoints));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMeetingPastByEnterpriseValidateBeforeCall(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingPastByEnterprise(Async)");
+        }
+        
+        // verify the required parameter 'meetingUuid' is set
+        if (meetingUuid == null) {
+            throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingPastByEnterprise(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getMeetingPastByEnterpriseCall(enterpriseId, meetingUuid, includeEndpoints, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by Enterprise
+     * This endpoint lists meeting endpoints for completed meetings by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param includeEndpoints Option to include detailed data on endpoints (optional)
+     * @return MeetingExtendedIndigo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MeetingExtendedIndigo getMeetingPastByEnterprise(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints) throws ApiException {
+        ApiResponse<MeetingExtendedIndigo> resp = getMeetingPastByEnterpriseWithHttpInfo(enterpriseId, meetingUuid, includeEndpoints);
+        return resp.getData();
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by Enterprise
+     * This endpoint lists meeting endpoints for completed meetings by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param includeEndpoints Option to include detailed data on endpoints (optional)
+     * @return ApiResponse&lt;MeetingExtendedIndigo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MeetingExtendedIndigo> getMeetingPastByEnterpriseWithHttpInfo(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingPastByEnterpriseValidateBeforeCall(enterpriseId, meetingUuid, includeEndpoints, null, null);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by Enterprise (asynchronously)
+     * This endpoint lists meeting endpoints for completed meetings by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param includeEndpoints Option to include detailed data on endpoints (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeetingPastByEnterpriseAsync(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints, final ApiCallback<MeetingExtendedIndigo> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeetingPastByEnterpriseValidateBeforeCall(enterpriseId, meetingUuid, includeEndpoints, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMeetingPastByUser */
+    private com.squareup.okhttp.Call getMeetingPastByUserCall(Integer userId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMeetingPastByUserValidateBeforeCall(Integer userId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getMeetingPastByUser(Async)");
+        }
+        
+        // verify the required parameter 'meetingUuid' is set
+        if (meetingUuid == null) {
+            throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingPastByUser(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getMeetingPastByUserCall(userId, meetingUuid, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by User
+     * This endpoint lists meeting endpoints for completed meetings by user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @return MeetingExtendedIndigo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MeetingExtendedIndigo getMeetingPastByUser(Integer userId, String meetingUuid) throws ApiException {
+        ApiResponse<MeetingExtendedIndigo> resp = getMeetingPastByUserWithHttpInfo(userId, meetingUuid);
+        return resp.getData();
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by User
+     * This endpoint lists meeting endpoints for completed meetings by user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @return ApiResponse&lt;MeetingExtendedIndigo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MeetingExtendedIndigo> getMeetingPastByUserWithHttpInfo(Integer userId, String meetingUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingPastByUserValidateBeforeCall(userId, meetingUuid, null, null);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Meeting Endpoints &amp; Stats by User (asynchronously)
+     * This endpoint lists meeting endpoints for completed meetings by user.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeetingPastByUserAsync(Integer userId, String meetingUuid, final ApiCallback<MeetingExtendedIndigo> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeetingPastByUserValidateBeforeCall(userId, meetingUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingExtendedIndigo>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMeetingsLiveByEnterprise */
+    private com.squareup.okhttp.Call getMeetingsLiveByEnterpriseCall(Integer enterpriseId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMeetingsLiveByEnterpriseValidateBeforeCall(Integer enterpriseId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'enterpriseId' is set
+        if (enterpriseId == null) {
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingsLiveByEnterprise(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getMeetingsLiveByEnterpriseCall(enterpriseId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Live Meetings Summary by Enterprise
+     * This endpoint lists meetings in progress by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @return MeetingIndigoList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MeetingIndigoList getMeetingsLiveByEnterprise(Integer enterpriseId) throws ApiException {
+        ApiResponse<MeetingIndigoList> resp = getMeetingsLiveByEnterpriseWithHttpInfo(enterpriseId);
+        return resp.getData();
+    }
+
+    /**
+     * Live Meetings Summary by Enterprise
+     * This endpoint lists meetings in progress by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @return ApiResponse&lt;MeetingIndigoList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MeetingIndigoList> getMeetingsLiveByEnterpriseWithHttpInfo(Integer enterpriseId) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingsLiveByEnterpriseValidateBeforeCall(enterpriseId, null, null);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Live Meetings Summary by Enterprise (asynchronously)
+     * This endpoint lists meetings in progress by enterprise.
+     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeetingsLiveByEnterpriseAsync(Integer enterpriseId, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeetingsLiveByEnterpriseValidateBeforeCall(enterpriseId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMeetingsPastByEnterprise */
+    private com.squareup.okhttp.Call getMeetingsPastByEnterpriseCall(Integer enterpriseId, Integer offset, Integer limit, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -105,15 +613,15 @@ public class CommandCenterApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsGetValidateBeforeCall(Integer enterpriseId, Integer offset, Integer limit, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingsPastByEnterpriseValidateBeforeCall(Integer enterpriseId, Integer offset, Integer limit, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsGet(Async)");
+            throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingsPastByEnterprise(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsGetCall(enterpriseId, offset, limit, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMeetingsPastByEnterpriseCall(enterpriseId, offset, limit, filter, progressListener, progressRequestListener);
         return call;
 
         
@@ -129,11 +637,11 @@ public class CommandCenterApi {
      * @param offset Page Number (optional)
      * @param limit Per page (optional)
      * @param filter URL-encoded JSON string (optional)
-     * @return Meeting
+     * @return MeetingIndigoList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1EnterpriseEnterpriseIdIndigoMeetingsGet(Integer enterpriseId, Integer offset, Integer limit, String filter) throws ApiException {
-        ApiResponse<Meeting> resp = v1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo(enterpriseId, offset, limit, filter);
+    public MeetingIndigoList getMeetingsPastByEnterprise(Integer enterpriseId, Integer offset, Integer limit, String filter) throws ApiException {
+        ApiResponse<MeetingIndigoList> resp = getMeetingsPastByEnterpriseWithHttpInfo(enterpriseId, offset, limit, filter);
         return resp.getData();
     }
 
@@ -144,12 +652,12 @@ public class CommandCenterApi {
      * @param offset Page Number (optional)
      * @param limit Per page (optional)
      * @param filter URL-encoded JSON string (optional)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @return ApiResponse&lt;MeetingIndigoList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1EnterpriseEnterpriseIdIndigoMeetingsGetWithHttpInfo(Integer enterpriseId, Integer offset, Integer limit, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsGetValidateBeforeCall(enterpriseId, offset, limit, filter, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+    public ApiResponse<MeetingIndigoList> getMeetingsPastByEnterpriseWithHttpInfo(Integer enterpriseId, Integer offset, Integer limit, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingsPastByEnterpriseValidateBeforeCall(enterpriseId, offset, limit, filter, null, null);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -164,7 +672,7 @@ public class CommandCenterApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsGetAsync(Integer enterpriseId, Integer offset, Integer limit, String filter, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByEnterpriseAsync(Integer enterpriseId, Integer offset, Integer limit, String filter, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -185,393 +693,13 @@ public class CommandCenterApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsGetValidateBeforeCall(enterpriseId, offset, limit, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        com.squareup.okhttp.Call call = getMeetingsPastByEnterpriseValidateBeforeCall(enterpriseId, offset, limit, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetCall(Integer enterpriseId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetValidateBeforeCall(Integer enterpriseId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetCall(enterpriseId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Live Meetings Summary by Enterprise
-     * This endpoint lists meetings in progress by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @return Meeting
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveGet(Integer enterpriseId) throws ApiException {
-        ApiResponse<Meeting> resp = v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo(enterpriseId);
-        return resp.getData();
-    }
-
-    /**
-     * Live Meetings Summary by Enterprise
-     * This endpoint lists meetings in progress by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @return ApiResponse&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Meeting> v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetWithHttpInfo(Integer enterpriseId) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetValidateBeforeCall(enterpriseId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Live Meetings Summary by Enterprise (asynchronously)
-     * This endpoint lists meetings in progress by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetAsync(Integer enterpriseId, final ApiCallback<Meeting> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveGetValidateBeforeCall(enterpriseId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetCall(Integer enterpriseId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_guid}/endpoints/".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
-        .replaceAll("\\{" + "meeting_guid" + "\\}", apiClient.escapeString(meetingGuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetValidateBeforeCall(Integer enterpriseId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(Async)");
-        }
-        
-        // verify the required parameter 'meetingGuid' is set
-        if (meetingGuid == null) {
-            throw new ApiException("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetCall(enterpriseId, meetingGuid, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List Live Meeting Endpoints by Enterprise
-     * This endpoint lists endpoints for a given meeting in progress.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Meeting
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Meeting v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGet(Integer enterpriseId, String meetingGuid) throws ApiException {
-        ApiResponse<Meeting> resp = v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo(enterpriseId, meetingGuid);
-        return resp.getData();
-    }
-
-    /**
-     * List Live Meeting Endpoints by Enterprise
-     * This endpoint lists endpoints for a given meeting in progress.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return ApiResponse&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Meeting> v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetWithHttpInfo(Integer enterpriseId, String meetingGuid) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetValidateBeforeCall(enterpriseId, meetingGuid, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List Live Meeting Endpoints by Enterprise (asynchronously)
-     * This endpoint lists endpoints for a given meeting in progress.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetAsync(Integer enterpriseId, String meetingGuid, final ApiCallback<Meeting> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsLiveMeetingGuidEndpointsGetValidateBeforeCall(enterpriseId, meetingGuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet */
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCall(Integer enterpriseId, String meetingGuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_guid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
-        .replaceAll("\\{" + "meeting_guid" + "\\}", apiClient.escapeString(meetingGuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (includeEndpoints != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeEndpoints", includeEndpoints));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(Integer enterpriseId, String meetingGuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'enterpriseId' is set
-        if (enterpriseId == null) {
-            throw new ApiException("Missing the required parameter 'enterpriseId' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(Async)");
-        }
-        
-        // verify the required parameter 'meetingGuid' is set
-        if (meetingGuid == null) {
-            throw new ApiException("Missing the required parameter 'meetingGuid' when calling v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetCall(enterpriseId, meetingGuid, includeEndpoints, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by Enterprise
-     * This endpoint lists meeting endpoints for completed meetings by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param includeEndpoints Option to include detailed data on endpoints (optional)
-     * @return MeetingIndigo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public MeetingIndigo v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGet(Integer enterpriseId, String meetingGuid, Boolean includeEndpoints) throws ApiException {
-        ApiResponse<MeetingIndigo> resp = v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo(enterpriseId, meetingGuid, includeEndpoints);
-        return resp.getData();
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by Enterprise
-     * This endpoint lists meeting endpoints for completed meetings by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param includeEndpoints Option to include detailed data on endpoints (optional)
-     * @return ApiResponse&lt;MeetingIndigo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<MeetingIndigo> v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetWithHttpInfo(Integer enterpriseId, String meetingGuid, Boolean includeEndpoints) throws ApiException {
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(enterpriseId, meetingGuid, includeEndpoints, null, null);
-        Type localVarReturnType = new TypeToken<MeetingIndigo>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by Enterprise (asynchronously)
-     * This endpoint lists meeting endpoints for completed meetings by enterprise.
-     * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param includeEndpoints Option to include detailed data on endpoints (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetAsync(Integer enterpriseId, String meetingGuid, Boolean includeEndpoints, final ApiCallback<MeetingIndigo> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1EnterpriseEnterpriseIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(enterpriseId, meetingGuid, includeEndpoints, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<MeetingIndigo>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1UserUserIdIndigoMeetingsGet */
-    private com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsGetCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getMeetingsPastByUser */
+    private com.squareup.okhttp.Call getMeetingsPastByUserCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -613,15 +741,15 @@ public class CommandCenterApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsGetValidateBeforeCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingsPastByUserValidateBeforeCall(Integer userId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsGet(Async)");
+            throw new ApiException("Missing the required parameter 'userId' when calling getMeetingsPastByUser(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsGetCall(userId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMeetingsPastByUserCall(userId, progressListener, progressRequestListener);
         return call;
 
         
@@ -634,11 +762,11 @@ public class CommandCenterApi {
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return Meeting
+     * @return MeetingIndigoList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting v1UserUserIdIndigoMeetingsGet(Integer userId) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdIndigoMeetingsGetWithHttpInfo(userId);
+    public MeetingIndigoList getMeetingsPastByUser(Integer userId) throws ApiException {
+        ApiResponse<MeetingIndigoList> resp = getMeetingsPastByUserWithHttpInfo(userId);
         return resp.getData();
     }
 
@@ -646,12 +774,12 @@ public class CommandCenterApi {
      * List Past Meetings by User
      * This endpoint lists completed meetings by user.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @return ApiResponse&lt;MeetingIndigoList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> v1UserUserIdIndigoMeetingsGetWithHttpInfo(Integer userId) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsGetValidateBeforeCall(userId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+    public ApiResponse<MeetingIndigoList> getMeetingsPastByUserWithHttpInfo(Integer userId) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingsPastByUserValidateBeforeCall(userId, null, null);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -663,7 +791,7 @@ public class CommandCenterApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsGetAsync(Integer userId, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByUserAsync(Integer userId, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -684,136 +812,8 @@ public class CommandCenterApi {
             };
         }
 
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsGetValidateBeforeCall(userId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for v1UserUserIdIndigoMeetingsMeetingGuidGet */
-    private com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsMeetingGuidGetCall(Integer userId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_guid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-        .replaceAll("\\{" + "meeting_guid" + "\\}", apiClient.escapeString(meetingGuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(Integer userId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet(Async)");
-        }
-        
-        // verify the required parameter 'meetingGuid' is set
-        if (meetingGuid == null) {
-            throw new ApiException("Missing the required parameter 'meetingGuid' when calling v1UserUserIdIndigoMeetingsMeetingGuidGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsMeetingGuidGetCall(userId, meetingGuid, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by User
-     * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return MeetingIndigo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public MeetingIndigo v1UserUserIdIndigoMeetingsMeetingGuidGet(Integer userId, String meetingGuid) throws ApiException {
-        ApiResponse<MeetingIndigo> resp = v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo(userId, meetingGuid);
-        return resp.getData();
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by User
-     * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return ApiResponse&lt;MeetingIndigo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<MeetingIndigo> v1UserUserIdIndigoMeetingsMeetingGuidGetWithHttpInfo(Integer userId, String meetingGuid) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(userId, meetingGuid, null, null);
-        Type localVarReturnType = new TypeToken<MeetingIndigo>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List Meeting Endpoints &amp; Stats by User (asynchronously)
-     * This endpoint lists meeting endpoints for completed meetings by user.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1UserUserIdIndigoMeetingsMeetingGuidGetAsync(Integer userId, String meetingGuid, final ApiCallback<MeetingIndigo> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1UserUserIdIndigoMeetingsMeetingGuidGetValidateBeforeCall(userId, meetingGuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<MeetingIndigo>(){}.getType();
+        com.squareup.okhttp.Call call = getMeetingsPastByUserValidateBeforeCall(userId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
