@@ -4,17 +4,16 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_meeting_recordings**](RecordingApi.md#get_meeting_recordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
+[**get_meeting_recordings**](RecordingApi.md#get_meeting_recordings) | **GET** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
 [**get_recording_content**](RecordingApi.md#get_recording_content) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
 [**start_recording**](RecordingApi.md#start_recording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
 [**stop_recording**](RecordingApi.md#stop_recording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
-[**v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get**](RecordingApi.md#v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
-[**v1_user_user_id_meeting_history_meeting_guid_recordings_delete**](RecordingApi.md#v1_user_user_id_meeting_history_meeting_guid_recordings_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
+[**v1_user_user_id_meeting_history_meeting_guid_recordings_delete**](RecordingApi.md#v1_user_user_id_meeting_history_meeting_guid_recordings_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 [**v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete**](RecordingApi.md#v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 
 
 # **get_meeting_recordings**
-> Meeting get_meeting_recordings(user_id, meeting_id)
+> RecordingHistoryList get_meeting_recordings(user_id, meeting_id, meeting_guid=meeting_guid)
 
 Get All Recordings for a Specified Meeting ID
 
@@ -37,10 +36,11 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = swagger_client.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
 
 try: 
     # Get All Recordings for a Specified Meeting ID
-    api_response = api_instance.get_meeting_recordings(user_id, meeting_id)
+    api_response = api_instance.get_meeting_recordings(user_id, meeting_id, meeting_guid=meeting_guid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RecordingApi->get_meeting_recordings: %s\n" % e)
@@ -52,10 +52,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **meeting_guid** | **str**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | [optional] 
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**RecordingHistoryList**](RecordingHistoryList.md)
 
 ### Authorization
 
@@ -225,63 +226,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get**
-> Meeting v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get(user_id, meeting_id, meeting_guid)
-
-Get All Recordings for a Specified Meeting GUID
-
-This endpoint stops recording for a meeting in progress.
-
-### Example 
-```python
-from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.RecordingApi()
-user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-
-try: 
-    # Get All Recordings for a Specified Meeting GUID
-    api_response = api_instance.v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get(user_id, meeting_id, meeting_guid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecordingApi->v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **meeting_guid** | **str**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
-
-### Return type
-
-[**Meeting**](Meeting.md)
 
 ### Authorization
 

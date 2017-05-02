@@ -74,7 +74,7 @@ Contact: brandon@bluejeans.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\com.bluejeans.api.rest.onvideo\com.bluejeans.api.rest.onvideo.csproj">
-          <Project>{917301E6-265A-4A3B-A538-02E3683D691E}</Project>
+          <Project>{18A8B478-9841-4CB6-B2F4-3AA2A112CB1F}</Project>
           <Name>com.bluejeans.api.rest.onvideo</Name>
       </ProjectReference>
   </ItemGroup>

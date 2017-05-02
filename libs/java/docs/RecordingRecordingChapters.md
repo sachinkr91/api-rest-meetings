@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **compositeContentStatus** | **String** |  |  [optional]
 **parentRecordingId** | **Integer** |  |  [optional]
 **viewCount** | **Integer** |  |  [optional]
-**recordingSessions** | [**List&lt;RecordingRecordingSessions&gt;**](RecordingRecordingSessions.md) |  |  [optional]
+**recordingSessions** | [**List&lt;RecordingSession&gt;**](RecordingSession.md) |  |  [optional]
 
 
 

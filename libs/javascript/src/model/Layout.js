@@ -75,6 +75,7 @@
    */
   exports.prototype['layoutMode'] = undefined;
   /**
+   * Misspelling in value.
    * @member {module:model/Layout.SubLayoutModeEnum} subLayoutMode
    */
   exports.prototype['subLayoutMode'] = undefined;

@@ -44,8 +44,9 @@ namespace com.bluejeans.api.rest.onvideo.Model
         }
 
         /// <summary>
-        /// Gets or Sets SubLayoutMode
+        /// Misspelling in value.
         /// </summary>
+        /// <value>Misspelling in value.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SubLayoutModeEnum
         {
@@ -63,15 +64,16 @@ namespace com.bluejeans.api.rest.onvideo.Model
         [DataMember(Name="layoutMode", EmitDefaultValue=false)]
         public LayoutModeEnum? LayoutMode { get; set; }
         /// <summary>
-        /// Gets or Sets SubLayoutMode
+        /// Misspelling in value.
         /// </summary>
+        /// <value>Misspelling in value.</value>
         [DataMember(Name="subLayoutMode", EmitDefaultValue=false)]
         public SubLayoutModeEnum? SubLayoutMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Layout" /> class.
         /// </summary>
         /// <param name="LayoutMode">LayoutMode.</param>
-        /// <param name="SubLayoutMode">SubLayoutMode.</param>
+        /// <param name="SubLayoutMode">Misspelling in value..</param>
         public Layout(LayoutModeEnum? LayoutMode = default(LayoutModeEnum?), SubLayoutModeEnum? SubLayoutMode = default(SubLayoutModeEnum?))
         {
             this.LayoutMode = LayoutMode;

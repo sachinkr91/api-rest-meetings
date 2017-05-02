@@ -11,7 +11,7 @@ Contact: brandon@bluejeans.com
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{917301E6-265A-4A3B-A538-02E3683D691E}</ProjectGuid>
+    <ProjectGuid>{18A8B478-9841-4CB6-B2F4-3AA2A112CB1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>com.bluejeans.api.rest.onvideo</RootNamespace>

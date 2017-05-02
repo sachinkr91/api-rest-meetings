@@ -88,16 +88,6 @@
         done();
       });
     });
-    describe('v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet', function() {
-      it('should call v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet successfully', function(done) {
-        //uncomment below and update the code to test v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet
-        //instance.v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete', function() {
       it('should call v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete

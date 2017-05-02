@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **composite_content_status** | **str** |  | [optional] 
 **parent_recording_id** | **int** |  | [optional] 
 **view_count** | **int** |  | [optional] 
-**recording_sessions** | [**list[RecordingRecordingSessions]**](RecordingRecordingSessions.md) |  | [optional] 
+**recording_sessions** | [**list[RecordingSession]**](RecordingSession.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

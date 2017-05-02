@@ -77,9 +77,11 @@ from .models.payload_meeting_state import PayloadMeetingState
 from .models.payload_pairing_code_sip import PayloadPairingCodeSIP
 from .models.payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 from .models.recording import Recording
+from .models.recording_history import RecordingHistory
+from .models.recording_history_list import RecordingHistoryList
 from .models.recording_recording_chapters import RecordingRecordingChapters
-from .models.recording_recording_sessions import RecordingRecordingSessions
-from .models.recording_started_by import RecordingStartedBy
+from .models.recording_session import RecordingSession
+from .models.recording_session_started_by import RecordingSessionStartedBy
 from .models.recording_summary import RecordingSummary
 from .models.room import Room
 from .models.user import User

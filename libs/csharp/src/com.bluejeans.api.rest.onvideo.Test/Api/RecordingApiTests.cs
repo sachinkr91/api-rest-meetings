@@ -73,8 +73,9 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
             //int? meetingId = null;
-            //var response = instance.GetMeetingRecordings(userId, meetingId);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
+            //string meetingGuid = null;
+            //var response = instance.GetMeetingRecordings(userId, meetingId, meetingGuid);
+            //Assert.IsInstanceOf<RecordingHistoryList> (response, "response is RecordingHistoryList");
         }
         
         /// <summary>
@@ -117,20 +118,6 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //string action = null;
             //instance.StopRecording(userId, meetingId, action);
             
-        }
-        
-        /// <summary>
-        /// Test V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet
-        /// </summary>
-        [Test]
-        public void V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? userId = null;
-            //int? meetingId = null;
-            //string meetingGuid = null;
-            //var response = instance.V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(userId, meetingId, meetingGuid);
-            //Assert.IsInstanceOf<Meeting> (response, "response is Meeting");
         }
         
         /// <summary>

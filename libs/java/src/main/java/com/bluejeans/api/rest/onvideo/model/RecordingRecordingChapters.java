@@ -14,7 +14,7 @@
 package com.bluejeans.api.rest.onvideo.model;
 
 import java.util.Objects;
-import com.bluejeans.api.rest.onvideo.model.RecordingRecordingSessions;
+import com.bluejeans.api.rest.onvideo.model.RecordingSession;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -57,7 +57,7 @@ public class RecordingRecordingChapters {
   private Integer viewCount = null;
 
   @SerializedName("recordingSessions")
-  private List<RecordingRecordingSessions> recordingSessions = new ArrayList<RecordingRecordingSessions>();
+  private List<RecordingSession> recordingSessions = new ArrayList<RecordingSession>();
 
   public RecordingRecordingChapters chapterId(String chapterId) {
     this.chapterId = chapterId;
@@ -239,12 +239,12 @@ public class RecordingRecordingChapters {
     this.viewCount = viewCount;
   }
 
-  public RecordingRecordingChapters recordingSessions(List<RecordingRecordingSessions> recordingSessions) {
+  public RecordingRecordingChapters recordingSessions(List<RecordingSession> recordingSessions) {
     this.recordingSessions = recordingSessions;
     return this;
   }
 
-  public RecordingRecordingChapters addRecordingSessionsItem(RecordingRecordingSessions recordingSessionsItem) {
+  public RecordingRecordingChapters addRecordingSessionsItem(RecordingSession recordingSessionsItem) {
     this.recordingSessions.add(recordingSessionsItem);
     return this;
   }
@@ -254,11 +254,11 @@ public class RecordingRecordingChapters {
    * @return recordingSessions
   **/
   @ApiModelProperty(example = "null", value = "")
-  public List<RecordingRecordingSessions> getRecordingSessions() {
+  public List<RecordingSession> getRecordingSessions() {
     return recordingSessions;
   }
 
-  public void setRecordingSessions(List<RecordingRecordingSessions> recordingSessions) {
+  public void setRecordingSessions(List<RecordingSession> recordingSessions) {
     this.recordingSessions = recordingSessions;
   }
 

@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/RecordingRecordingSessions'], factory);
+    define(['ApiClient', 'model/RecordingSession'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./RecordingRecordingSessions'));
+    module.exports = factory(require('../ApiClient'), require('./RecordingSession'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.RecordingRecordingChapters = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.RecordingRecordingSessions);
+    root.BlueJeansOnVideoRestApi.RecordingRecordingChapters = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.RecordingSession);
   }
-}(this, function(ApiClient, RecordingRecordingSessions) {
+}(this, function(ApiClient, RecordingSession) {
   'use strict';
 
 
@@ -100,7 +100,7 @@
         obj['viewCount'] = ApiClient.convertToType(data['viewCount'], 'Number');
       }
       if (data.hasOwnProperty('recordingSessions')) {
-        obj['recordingSessions'] = ApiClient.convertToType(data['recordingSessions'], [RecordingRecordingSessions]);
+        obj['recordingSessions'] = ApiClient.convertToType(data['recordingSessions'], [RecordingSession]);
       }
     }
     return obj;
@@ -147,7 +147,7 @@
    */
   exports.prototype['viewCount'] = undefined;
   /**
-   * @member {Array.<module:model/RecordingRecordingSessions>} recordingSessions
+   * @member {Array.<module:model/RecordingSession>} recordingSessions
    */
   exports.prototype['recordingSessions'] = undefined;
 

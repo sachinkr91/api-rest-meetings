@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.bluejeans.api.rest.onvideo.model.Content;
 import com.bluejeans.api.rest.onvideo.model.Error;
 import com.bluejeans.api.rest.onvideo.model.Meeting;
+import com.bluejeans.api.rest.onvideo.model.RecordingHistoryList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,15 +58,17 @@ public class RecordingApi {
     }
 
     /* Build call for getMeetingRecordings */
-    private com.squareup.okhttp.Call getMeetingRecordingsCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingRecordingsCall(Integer userId, Integer meetingId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings".replaceAll("\\{format\\}","json")
+        String localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
         .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (meetingGuid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "meetingGuid", meetingGuid));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -100,7 +103,7 @@ public class RecordingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMeetingRecordingsValidateBeforeCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingRecordingsValidateBeforeCall(Integer userId, Integer meetingId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -113,7 +116,7 @@ public class RecordingApi {
         }
         
         
-        com.squareup.okhttp.Call call = getMeetingRecordingsCall(userId, meetingId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMeetingRecordingsCall(userId, meetingId, meetingGuid, progressListener, progressRequestListener);
         return call;
 
         
@@ -127,11 +130,12 @@ public class RecordingApi {
      * This endpoint lists the recordings for a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return Meeting
+     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
+     * @return RecordingHistoryList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting getMeetingRecordings(Integer userId, Integer meetingId) throws ApiException {
-        ApiResponse<Meeting> resp = getMeetingRecordingsWithHttpInfo(userId, meetingId);
+    public RecordingHistoryList getMeetingRecordings(Integer userId, Integer meetingId, String meetingGuid) throws ApiException {
+        ApiResponse<RecordingHistoryList> resp = getMeetingRecordingsWithHttpInfo(userId, meetingId, meetingGuid);
         return resp.getData();
     }
 
@@ -140,12 +144,13 @@ public class RecordingApi {
      * This endpoint lists the recordings for a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
+     * @return ApiResponse&lt;RecordingHistoryList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> getMeetingRecordingsWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = getMeetingRecordingsValidateBeforeCall(userId, meetingId, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+    public ApiResponse<RecordingHistoryList> getMeetingRecordingsWithHttpInfo(Integer userId, Integer meetingId, String meetingGuid) throws ApiException {
+        com.squareup.okhttp.Call call = getMeetingRecordingsValidateBeforeCall(userId, meetingId, meetingGuid, null, null);
+        Type localVarReturnType = new TypeToken<RecordingHistoryList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -154,11 +159,12 @@ public class RecordingApi {
      * This endpoint lists the recordings for a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMeetingRecordingsAsync(Integer userId, Integer meetingId, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingRecordingsAsync(Integer userId, Integer meetingId, String meetingGuid, final ApiCallback<RecordingHistoryList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -179,8 +185,8 @@ public class RecordingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getMeetingRecordingsValidateBeforeCall(userId, meetingId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        com.squareup.okhttp.Call call = getMeetingRecordingsValidateBeforeCall(userId, meetingId, meetingGuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RecordingHistoryList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -590,149 +596,12 @@ public class RecordingApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet */
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetCall(Integer userId, Integer meetingId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid={meeting_guid}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-        .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()))
-        .replaceAll("\\{" + "meeting_guid" + "\\}", apiClient.escapeString(meetingGuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetValidateBeforeCall(Integer userId, Integer meetingId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new ApiException("Missing the required parameter 'userId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(Async)");
-        }
-        
-        // verify the required parameter 'meetingId' is set
-        if (meetingId == null) {
-            throw new ApiException("Missing the required parameter 'meetingId' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(Async)");
-        }
-        
-        // verify the required parameter 'meetingGuid' is set
-        if (meetingGuid == null) {
-            throw new ApiException("Missing the required parameter 'meetingGuid' when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetCall(userId, meetingId, meetingGuid, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Get All Recordings for a Specified Meeting GUID
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return Meeting
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Meeting v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(Integer userId, Integer meetingId, String meetingGuid) throws ApiException {
-        ApiResponse<Meeting> resp = v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo(userId, meetingId, meetingGuid);
-        return resp.getData();
-    }
-
-    /**
-     * Get All Recordings for a Specified Meeting GUID
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @return ApiResponse&lt;Meeting&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Meeting> v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo(Integer userId, Integer meetingId, String meetingGuid) throws ApiException {
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetValidateBeforeCall(userId, meetingId, meetingGuid, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get All Recordings for a Specified Meeting GUID (asynchronously)
-     * This endpoint stops recording for a meeting in progress.
-     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param meetingGuid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsync(Integer userId, Integer meetingId, String meetingGuid, final ApiCallback<Meeting> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetValidateBeforeCall(userId, meetingId, meetingGuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete */
     private com.squareup.okhttp.Call v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteCall(Integer userId, String meetingGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings".replaceAll("\\{format\\}","json")
+        String localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
         .replaceAll("\\{" + "meeting_guid" + "\\}", apiClient.escapeString(meetingGuid.toString()));
 

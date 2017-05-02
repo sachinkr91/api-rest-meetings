@@ -43,7 +43,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <param name="ParentRecordingId">ParentRecordingId.</param>
         /// <param name="ViewCount">ViewCount.</param>
         /// <param name="RecordingSessions">RecordingSessions.</param>
-        public RecordingRecordingChapters(string ChapterId = default(string), int? Id = default(int?), int? StartTimeOffset = default(int?), int? EndTimeOffset = default(int?), string ChapterName = default(string), int? TotalSize = default(int?), int? CompositeContentId = default(int?), string CompositeContentStatus = default(string), int? ParentRecordingId = default(int?), int? ViewCount = default(int?), List<RecordingRecordingSessions> RecordingSessions = default(List<RecordingRecordingSessions>))
+        public RecordingRecordingChapters(string ChapterId = default(string), int? Id = default(int?), int? StartTimeOffset = default(int?), int? EndTimeOffset = default(int?), string ChapterName = default(string), int? TotalSize = default(int?), int? CompositeContentId = default(int?), string CompositeContentStatus = default(string), int? ParentRecordingId = default(int?), int? ViewCount = default(int?), List<RecordingSession> RecordingSessions = default(List<RecordingSession>))
         {
             this.ChapterId = ChapterId;
             this.Id = Id;
@@ -112,7 +112,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// Gets or Sets RecordingSessions
         /// </summary>
         [DataMember(Name="recordingSessions", EmitDefaultValue=false)]
-        public List<RecordingRecordingSessions> RecordingSessions { get; set; }
+        public List<RecordingSession> RecordingSessions { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

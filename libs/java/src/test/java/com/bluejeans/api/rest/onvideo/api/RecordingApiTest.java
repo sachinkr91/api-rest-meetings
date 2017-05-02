@@ -17,6 +17,7 @@ import com.bluejeans.api.rest.onvideo.ApiException;
 import com.bluejeans.api.rest.onvideo.model.Content;
 import com.bluejeans.api.rest.onvideo.model.Error;
 import com.bluejeans.api.rest.onvideo.model.Meeting;
+import com.bluejeans.api.rest.onvideo.model.RecordingHistoryList;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -46,7 +47,8 @@ public class RecordingApiTest {
     public void getMeetingRecordingsTest() throws ApiException {
         Integer userId = null;
         Integer meetingId = null;
-        Meeting response = api.getMeetingRecordings(userId, meetingId);
+        String meetingGuid = null;
+        RecordingHistoryList response = api.getMeetingRecordings(userId, meetingId, meetingGuid);
 
         // TODO: test validations
     }
@@ -101,24 +103,6 @@ public class RecordingApiTest {
         Integer meetingId = null;
         String action = null;
         api.stopRecording(userId, meetingId, action);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get All Recordings for a Specified Meeting GUID
-     *
-     * This endpoint stops recording for a meeting in progress.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetTest() throws ApiException {
-        Integer userId = null;
-        Integer meetingId = null;
-        String meetingGuid = null;
-        Meeting response = api.v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet(userId, meetingId, meetingGuid);
 
         // TODO: test validations
     }

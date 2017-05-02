@@ -33,8 +33,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        Meeting GetMeetingRecordings (int? userId, int? meetingId);
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>RecordingHistoryList</returns>
+        RecordingHistoryList GetMeetingRecordings (int? userId, int? meetingId, string meetingGuid = null);
 
         /// <summary>
         /// Get All Recordings for a Specified Meeting ID
@@ -45,8 +46,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> GetMeetingRecordingsWithHttpInfo (int? userId, int? meetingId);
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>ApiResponse of RecordingHistoryList</returns>
+        ApiResponse<RecordingHistoryList> GetMeetingRecordingsWithHttpInfo (int? userId, int? meetingId, string meetingGuid = null);
         /// <summary>
         /// Get Recording Download Link
         /// </summary>
@@ -123,31 +125,6 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> StopRecordingWithHttpInfo (int? userId, int? meetingId, string action);
         /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        Meeting V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet (int? userId, int? meetingId, string meetingGuid);
-
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo (int? userId, int? meetingId, string meetingGuid);
-        /// <summary>
         /// Delete All Recordings for a Specified Meeting GUID
         /// </summary>
         /// <remarks>
@@ -206,8 +183,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> GetMeetingRecordingsAsync (int? userId, int? meetingId);
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>Task of RecordingHistoryList</returns>
+        System.Threading.Tasks.Task<RecordingHistoryList> GetMeetingRecordingsAsync (int? userId, int? meetingId, string meetingGuid = null);
 
         /// <summary>
         /// Get All Recordings for a Specified Meeting ID
@@ -218,8 +196,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> GetMeetingRecordingsAsyncWithHttpInfo (int? userId, int? meetingId);
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>Task of ApiResponse (RecordingHistoryList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RecordingHistoryList>> GetMeetingRecordingsAsyncWithHttpInfo (int? userId, int? meetingId, string meetingGuid = null);
         /// <summary>
         /// Get Recording Download Link
         /// </summary>
@@ -295,31 +274,6 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="action">Always set to \&quot;stop\&quot; in order to stop recording.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> StopRecordingAsyncWithHttpInfo (int? userId, int? meetingId, string action);
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsync (int? userId, int? meetingId, string meetingGuid);
-
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint stops recording for a meeting in progress.
-        /// </remarks>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string meetingGuid);
         /// <summary>
         /// Delete All Recordings for a Specified Meeting GUID
         /// </summary>
@@ -486,10 +440,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Meeting</returns>
-        public Meeting GetMeetingRecordings (int? userId, int? meetingId)
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>RecordingHistoryList</returns>
+        public RecordingHistoryList GetMeetingRecordings (int? userId, int? meetingId, string meetingGuid = null)
         {
-             ApiResponse<Meeting> localVarResponse = GetMeetingRecordingsWithHttpInfo(userId, meetingId);
+             ApiResponse<RecordingHistoryList> localVarResponse = GetMeetingRecordingsWithHttpInfo(userId, meetingId, meetingGuid);
              return localVarResponse.Data;
         }
 
@@ -499,8 +454,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > GetMeetingRecordingsWithHttpInfo (int? userId, int? meetingId)
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>ApiResponse of RecordingHistoryList</returns>
+        public ApiResponse< RecordingHistoryList > GetMeetingRecordingsWithHttpInfo (int? userId, int? meetingId, string meetingGuid = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -509,7 +465,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->GetMeetingRecordings");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -535,6 +491,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (meetingGuid != null) localVarQueryParams.Add("meetingGuid", Configuration.ApiClient.ParameterToString(meetingGuid)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -556,9 +513,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<RecordingHistoryList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (RecordingHistoryList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RecordingHistoryList)));
             
         }
 
@@ -568,10 +525,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> GetMeetingRecordingsAsync (int? userId, int? meetingId)
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>Task of RecordingHistoryList</returns>
+        public async System.Threading.Tasks.Task<RecordingHistoryList> GetMeetingRecordingsAsync (int? userId, int? meetingId, string meetingGuid = null)
         {
-             ApiResponse<Meeting> localVarResponse = await GetMeetingRecordingsAsyncWithHttpInfo(userId, meetingId);
+             ApiResponse<RecordingHistoryList> localVarResponse = await GetMeetingRecordingsAsyncWithHttpInfo(userId, meetingId, meetingGuid);
              return localVarResponse.Data;
 
         }
@@ -582,8 +540,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> GetMeetingRecordingsAsyncWithHttpInfo (int? userId, int? meetingId)
+        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)</param>
+        /// <returns>Task of ApiResponse (RecordingHistoryList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RecordingHistoryList>> GetMeetingRecordingsAsyncWithHttpInfo (int? userId, int? meetingId, string meetingGuid = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -592,7 +551,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (meetingId == null)
                 throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->GetMeetingRecordings");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -618,6 +577,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (meetingGuid != null) localVarQueryParams.Add("meetingGuid", Configuration.ApiClient.ParameterToString(meetingGuid)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -638,9 +598,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Meeting>(localVarStatusCode,
+            return new ApiResponse<RecordingHistoryList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
+                (RecordingHistoryList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RecordingHistoryList)));
             
         }
 
@@ -1169,182 +1129,6 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID This endpoint stops recording for a meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Meeting</returns>
-        public Meeting V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet (int? userId, int? meetingId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo(userId, meetingId, meetingGuid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID This endpoint stops recording for a meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo (int? userId, int? meetingId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID This endpoint stops recording for a meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsync (int? userId, int? meetingId, string meetingGuid)
-        {
-             ApiResponse<Meeting> localVarResponse = await V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsyncWithHttpInfo(userId, meetingId, meetingGuid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get All Recordings for a Specified Meeting GUID This endpoint stops recording for a meeting in progress.
-        /// </summary>
-        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
-        /// <param name="meetingGuid">The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.</param>
-        /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetAsyncWithHttpInfo (int? userId, int? meetingId, string meetingGuid)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new ApiException(400, "Missing required parameter 'userId' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-            // verify the required parameter 'meetingGuid' is set
-            if (meetingGuid == null)
-                throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling RecordingApi->V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet");
-
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
-            if (meetingGuid != null) localVarPathParams.Add("meeting_guid", Configuration.ApiClient.ParameterToString(meetingGuid)); // path parameter
-
-            // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
-            {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("V1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Meeting>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Meeting) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Meeting)));
-            
-        }
-
-        /// <summary>
         /// Delete All Recordings for a Specified Meeting GUID This endpoint stops recording for a meeting in progress. 
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1373,7 +1157,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (meetingGuid == null)
                 throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling RecordingApi->V1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete");
 
-            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings";
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1456,7 +1240,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (meetingGuid == null)
                 throw new ApiException(400, "Missing required parameter 'meetingGuid' when calling RecordingApi->V1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete");
 
-            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings";
+            var localVarPath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

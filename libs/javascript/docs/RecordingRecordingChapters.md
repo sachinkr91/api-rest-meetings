@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **compositeContentStatus** | **String** |  | [optional] 
 **parentRecordingId** | **Number** |  | [optional] 
 **viewCount** | **Number** |  | [optional] 
-**recordingSessions** | [**[RecordingRecordingSessions]**](RecordingRecordingSessions.md) |  | [optional] 
+**recordingSessions** | [**[RecordingSession]**](RecordingSession.md) |  | [optional] 
 
 

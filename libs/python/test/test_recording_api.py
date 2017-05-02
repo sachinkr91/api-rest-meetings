@@ -63,14 +63,6 @@ class TestRecordingApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get(self):
-        """
-        Test case for v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get
-
-        Get All Recordings for a Specified Meeting GUID
-        """
-        pass
-
     def test_v1_user_user_id_meeting_history_meeting_guid_recordings_delete(self):
         """
         Test case for v1_user_user_id_meeting_history_meeting_guid_recordings_delete

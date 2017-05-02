@@ -64,7 +64,7 @@ class RecordingRecordingChapters implements ArrayAccess
         'composite_content_status' => 'string',
         'parent_recording_id' => 'int',
         'view_count' => 'int',
-        'recording_sessions' => '\Swagger\Client\Model\RecordingRecordingSessions[]'
+        'recording_sessions' => '\Swagger\Client\Model\RecordingSession[]'
     ];
 
     public static function swaggerTypes()
@@ -409,7 +409,7 @@ class RecordingRecordingChapters implements ArrayAccess
 
     /**
      * Gets recording_sessions
-     * @return \Swagger\Client\Model\RecordingRecordingSessions[]
+     * @return \Swagger\Client\Model\RecordingSession[]
      */
     public function getRecordingSessions()
     {
@@ -418,7 +418,7 @@ class RecordingRecordingChapters implements ArrayAccess
 
     /**
      * Sets recording_sessions
-     * @param \Swagger\Client\Model\RecordingRecordingSessions[] $recording_sessions
+     * @param \Swagger\Client\Model\RecordingSession[] $recording_sessions
      * @return $this
      */
     public function setRecordingSessions($recording_sessions)

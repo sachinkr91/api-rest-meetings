@@ -1403,6 +1403,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/meeting_history/{meeting_id}/recordings:
     get:
       summary: Get All Recordings for a Specified Meeting ID
       description: This endpoint lists the recordings for a meeting.
@@ -1422,49 +1423,21 @@ paths:
           description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
           required: true
           type: integer
-      responses:
-        '200':
-          description: The results for this meeting.
-          schema:
-            $ref: '#/definitions/Meeting'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid={meeting_guid}:
-    get:
-      summary: Get All Recordings for a Specified Meeting GUID
-      description: This endpoint stops recording for a meeting in progress.
-      tags:
-        - Recording
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-        - name: meeting_id
-          in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
-          required: true
-          type: integer
-        - name: meeting_guid
-          in: path
+        - name: meetingGuid
+          in: query
           description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
-          required: true
+          required: false
           type: string
       responses:
         '200':
           description: The results for this meeting.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/RecordingHistoryList'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings:
+  /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/:
     delete:
       summary: Delete All Recordings for a Specified Meeting GUID
       description: >
@@ -2777,8 +2750,75 @@ definitions:
           - Video
       subLayoutMode:
         type: string
+        description: Misspelling in value.
         enum:
           - VideoContiniousPresence
+  RecordingHistoryList:
+    type: array
+    items:
+      $ref: '#/definitions/RecordingHistory'
+  RecordingHistory:
+    type: object
+    properties:
+      chapterId:
+        type: string
+      id:
+        type: integer
+      startTimeOffset:
+        type: integer
+      endTimeOffset:
+        type: integer
+      chapterName:
+        type: string
+      totalSize:
+        type: integer
+      compositeContentId:
+        type: integer
+      compositeContentStatus:
+        type: string
+        enum:
+        - PROCESSED
+      parentRecordingId:
+        type: integer
+      viewCount:
+        type: integer
+      recordingSessions:
+        type: array
+        items:
+          $ref: '#/definitions/RecordingSession'
+  RecordingSession:
+    type: object
+    properties:
+      id:
+        type: integer
+      contentStatus:
+        type: string
+      recordingType:
+        type: string
+      contentId:
+        type: integer
+      thumbnailUrl:
+        type: string
+      startTimeOffset:
+        type: integer
+      endTimeOffset:
+        type: integer
+      duration:
+        type: integer
+      startedBy:
+        type: object
+        properties:
+          endpointName:
+            type: string
+          endpointGuid:
+            type: string
+      stoppedBy:
+        type: object
+        properties:
+          endpointName:
+            type: string
+          endpointGuid:
+            type: string
   Recording:
     type: object
     properties:
@@ -2838,38 +2878,7 @@ definitions:
             recordingSessions:
               type: array
               items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  contentStatus:
-                    type: string
-                  recordingType:
-                    type: string
-                  contentId:
-                    type: integer
-                  thumbnailUrl:
-                    type: string
-                  startTimeOffset:
-                    type: integer
-                  endTimeOffset:
-                    type: integer
-                  duration:
-                    type: integer
-                  startedBy:
-                    type: object
-                    properties:
-                      endpointName:
-                        type: string
-                      endpointGuid:
-                        type: string
-                  stoppedBy:
-                    type: object
-                    properties:
-                      endpointName:
-                        type: string
-                      endpointGuid:
-                        type: string
+                $ref: '#/definitions/RecordingSession'
   MeetingHistory:
       type: object
       properties:

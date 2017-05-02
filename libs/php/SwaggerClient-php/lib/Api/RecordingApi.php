@@ -94,12 +94,13 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
+     * @return \Swagger\Client\Model\RecordingHistoryList
      */
-    public function getMeetingRecordings($user_id, $meeting_id)
+    public function getMeetingRecordings($user_id, $meeting_id, $meeting_guid = null)
     {
-        list($response) = $this->getMeetingRecordingsWithHttpInfo($user_id, $meeting_id);
+        list($response) = $this->getMeetingRecordingsWithHttpInfo($user_id, $meeting_id, $meeting_guid);
         return $response;
     }
 
@@ -110,10 +111,11 @@ class RecordingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\RecordingHistoryList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMeetingRecordingsWithHttpInfo($user_id, $meeting_id)
+    public function getMeetingRecordingsWithHttpInfo($user_id, $meeting_id, $meeting_guid = null)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null) {
@@ -124,7 +126,7 @@ class RecordingApi
             throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling getMeetingRecordings');
         }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings";
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -135,6 +137,10 @@ class RecordingApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($meeting_guid !== null) {
+            $queryParams['meetingGuid'] = $this->apiClient->getSerializer()->toQueryValue($meeting_guid);
+        }
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
@@ -174,15 +180,15 @@ class RecordingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'
+                '\Swagger\Client\Model\RecordingHistoryList',
+                '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\RecordingHistoryList', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\RecordingHistoryList', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:
@@ -542,128 +548,6 @@ class RecordingApi
     }
 
     /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet
-     *
-     * Get All Recordings for a Specified Meeting GUID
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Meeting
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet($user_id, $meeting_id, $meeting_guid)
-    {
-        list($response) = $this->v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo($user_id, $meeting_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo
-     *
-     * Get All Recordings for a Specified Meeting GUID
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGetWithHttpInfo($user_id, $meeting_id, $meeting_guid)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\Meeting',
-                '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 0:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
      * Operation v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete
      *
      * Delete All Recordings for a Specified Meeting GUID
@@ -700,7 +584,7 @@ class RecordingApi
             throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete');
         }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings";
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -751,7 +635,7 @@ class RecordingApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Meeting',
-                '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings'
+                '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Meeting', $httpHeader), $statusCode, $httpHeader];

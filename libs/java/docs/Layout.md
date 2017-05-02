@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **layoutMode** | [**LayoutModeEnum**](#LayoutModeEnum) |  |  [optional]
-**subLayoutMode** | [**SubLayoutModeEnum**](#SubLayoutModeEnum) |  |  [optional]
+**subLayoutMode** | [**SubLayoutModeEnum**](#SubLayoutModeEnum) | Misspelling in value. |  [optional]
 
 
 <a name="LayoutModeEnum"></a>

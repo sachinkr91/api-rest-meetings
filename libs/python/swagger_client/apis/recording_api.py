@@ -56,7 +56,8 @@ class RecordingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+        :return: RecordingHistoryList
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -83,12 +84,13 @@ class RecordingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :return: Meeting
+        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
+        :return: RecordingHistoryList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'meeting_id']
+        all_params = ['user_id', 'meeting_id', 'meeting_guid']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -113,7 +115,7 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'.replace('{format}', 'json')
+        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -121,6 +123,8 @@ class RecordingApi(object):
             path_params['meeting_id'] = params['meeting_id']
 
         query_params = {}
+        if 'meeting_guid' in params:
+            query_params['meetingGuid'] = params['meeting_guid']
 
         header_params = {}
 
@@ -142,7 +146,7 @@ class RecordingApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='Meeting',
+                                        response_type='RecordingHistoryList',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -501,123 +505,6 @@ class RecordingApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get(self, user_id, meeting_id, meeting_guid, **kwargs):
-        """
-        Get All Recordings for a Specified Meeting GUID
-        This endpoint stops recording for a meeting in progress.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get(user_id, meeting_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get_with_http_info(user_id, meeting_id, meeting_guid, **kwargs)
-        else:
-            (data) = self.v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get_with_http_info(user_id, meeting_id, meeting_guid, **kwargs)
-            return data
-
-    def v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get_with_http_info(self, user_id, meeting_id, meeting_guid, **kwargs):
-        """
-        Get All Recordings for a Specified Meeting GUID
-        This endpoint stops recording for a meeting in progress.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get_with_http_info(user_id, meeting_id, meeting_guid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int meeting_id: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. (required)
-        :param str meeting_guid: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-        :return: Meeting
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['user_id', 'meeting_id', 'meeting_guid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'user_id' is set
-        if ('user_id' not in params) or (params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get`")
-        # verify the required parameter 'meeting_id' is set
-        if ('meeting_id' not in params) or (params['meeting_id'] is None):
-            raise ValueError("Missing the required parameter `meeting_id` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get`")
-        # verify the required parameter 'meeting_guid' is set
-        if ('meeting_guid' not in params) or (params['meeting_guid'] is None):
-            raise ValueError("Missing the required parameter `meeting_guid` when calling `v1_user_user_id_live_meetings_meeting_id_recordingsmeeting_guidmeeting_guid_get`")
-
-
-        collection_formats = {}
-
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']
-        if 'meeting_id' in params:
-            path_params['meeting_id'] = params['meeting_id']
-        if 'meeting_guid' in params:
-            path_params['meeting_guid'] = params['meeting_guid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['access_token']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='Meeting',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
     def v1_user_user_id_meeting_history_meeting_guid_recordings_delete(self, user_id, meeting_guid, **kwargs):
         """
         Delete All Recordings for a Specified Meeting GUID
@@ -691,7 +578,7 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings'.replace('{format}', 'json')
+        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']

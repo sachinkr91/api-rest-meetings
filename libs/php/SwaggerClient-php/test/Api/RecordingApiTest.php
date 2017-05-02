@@ -121,17 +121,6 @@ class RecordingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet
-     *
-     * Get All Recordings for a Specified Meeting GUID.
-     *
-     */
-    public function testV1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet()
-    {
-
-    }
-
-    /**
      * Test case for v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete
      *
      * Delete All Recordings for a Specified Meeting GUID.

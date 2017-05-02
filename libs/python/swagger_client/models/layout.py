@@ -74,6 +74,7 @@ class Layout(object):
     def sub_layout_mode(self):
         """
         Gets the sub_layout_mode of this Layout.
+        Misspelling in value.
 
         :return: The sub_layout_mode of this Layout.
         :rtype: str
@@ -84,6 +85,7 @@ class Layout(object):
     def sub_layout_mode(self, sub_layout_mode):
         """
         Sets the sub_layout_mode of this Layout.
+        Misspelling in value.
 
         :param sub_layout_mode: The sub_layout_mode of this Layout.
         :type: str

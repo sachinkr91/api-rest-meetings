@@ -126,12 +126,11 @@ Class | Method | HTTP request | Description
 *MeetingApi* | [**updateMeetingEndpoint**](docs/Api/MeetingApi.md#updatemeetingendpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 *MeetingApi* | [**updateMeetingEndpoints**](docs/Api/MeetingApi.md#updatemeetingendpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 *MeetingApi* | [**updateMeetingState**](docs/Api/MeetingApi.md#updatemeetingstate) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-*RecordingApi* | [**getMeetingRecordings**](docs/Api/RecordingApi.md#getmeetingrecordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
+*RecordingApi* | [**getMeetingRecordings**](docs/Api/RecordingApi.md#getmeetingrecordings) | **GET** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
 *RecordingApi* | [**getRecordingContent**](docs/Api/RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
 *RecordingApi* | [**startRecording**](docs/Api/RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
 *RecordingApi* | [**stopRecording**](docs/Api/RecordingApi.md#stoprecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
-*RecordingApi* | [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](docs/Api/RecordingApi.md#v1useruseridlivemeetingsmeetingidrecordingsmeetingguidmeetingguidget) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
-*RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/Api/RecordingApi.md#v1useruseridmeetinghistorymeetingguidrecordingsdelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
+*RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/Api/RecordingApi.md#v1useruseridmeetinghistorymeetingguidrecordingsdelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](docs/Api/RecordingApi.md#v1useruseridmeetinghistorymeetingidrecordingsrecordingchapteriddelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 *UserApi* | [**getEnterpriseProfile**](docs/Api/UserApi.md#getenterpriseprofile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 *UserApi* | [**getRoom**](docs/Api/UserApi.md#getroom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
@@ -205,9 +204,11 @@ Class | Method | HTTP request | Description
  - [PayloadPairingCodeSIP](docs/Model/PayloadPairingCodeSIP.md)
  - [PayloadPairingCodeWebRTC](docs/Model/PayloadPairingCodeWebRTC.md)
  - [Recording](docs/Model/Recording.md)
+ - [RecordingHistory](docs/Model/RecordingHistory.md)
+ - [RecordingHistoryList](docs/Model/RecordingHistoryList.md)
  - [RecordingRecordingChapters](docs/Model/RecordingRecordingChapters.md)
- - [RecordingRecordingSessions](docs/Model/RecordingRecordingSessions.md)
- - [RecordingStartedBy](docs/Model/RecordingStartedBy.md)
+ - [RecordingSession](docs/Model/RecordingSession.md)
+ - [RecordingSessionStartedBy](docs/Model/RecordingSessionStartedBy.md)
  - [RecordingSummary](docs/Model/RecordingSummary.md)
  - [Room](docs/Model/Room.md)
  - [User](docs/Model/User.md)

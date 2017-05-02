@@ -130,12 +130,11 @@ Class | Method | HTTP request | Description
 *BlueJeansOnVideoRestApi.MeetingApi* | [**updateMeetingEndpoint**](docs/MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
 *BlueJeansOnVideoRestApi.MeetingApi* | [**updateMeetingEndpoints**](docs/MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
 *BlueJeansOnVideoRestApi.MeetingApi* | [**updateMeetingState**](docs/MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
-*BlueJeansOnVideoRestApi.RecordingApi* | [**getMeetingRecordings**](docs/RecordingApi.md#getMeetingRecordings) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
+*BlueJeansOnVideoRestApi.RecordingApi* | [**getMeetingRecordings**](docs/RecordingApi.md#getMeetingRecordings) | **GET** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
 *BlueJeansOnVideoRestApi.RecordingApi* | [**getRecordingContent**](docs/RecordingApi.md#getRecordingContent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
 *BlueJeansOnVideoRestApi.RecordingApi* | [**startRecording**](docs/RecordingApi.md#startRecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
 *BlueJeansOnVideoRestApi.RecordingApi* | [**stopRecording**](docs/RecordingApi.md#stopRecording) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Stop Recording
-*BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet**](docs/RecordingApi.md#v1UserUserIdLiveMeetingsMeetingIdRecordingsmeetingGuidmeetingGuidGet) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings?meetingGuid&#x3D;{meeting_guid} | Get All Recordings for a Specified Meeting GUID
-*BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings | Delete All Recordings for a Specified Meeting GUID
+*BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 *BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 *BlueJeansOnVideoRestApi.UserApi* | [**getEnterpriseProfile**](docs/UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 *BlueJeansOnVideoRestApi.UserApi* | [**getRoom**](docs/UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
@@ -209,9 +208,11 @@ Class | Method | HTTP request | Description
  - [BlueJeansOnVideoRestApi.PayloadPairingCodeSIP](docs/PayloadPairingCodeSIP.md)
  - [BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC](docs/PayloadPairingCodeWebRTC.md)
  - [BlueJeansOnVideoRestApi.Recording](docs/Recording.md)
+ - [BlueJeansOnVideoRestApi.RecordingHistory](docs/RecordingHistory.md)
+ - [BlueJeansOnVideoRestApi.RecordingHistoryList](docs/RecordingHistoryList.md)
  - [BlueJeansOnVideoRestApi.RecordingRecordingChapters](docs/RecordingRecordingChapters.md)
- - [BlueJeansOnVideoRestApi.RecordingRecordingSessions](docs/RecordingRecordingSessions.md)
- - [BlueJeansOnVideoRestApi.RecordingStartedBy](docs/RecordingStartedBy.md)
+ - [BlueJeansOnVideoRestApi.RecordingSession](docs/RecordingSession.md)
+ - [BlueJeansOnVideoRestApi.RecordingSessionStartedBy](docs/RecordingSessionStartedBy.md)
  - [BlueJeansOnVideoRestApi.RecordingSummary](docs/RecordingSummary.md)
  - [BlueJeansOnVideoRestApi.Room](docs/Room.md)
  - [BlueJeansOnVideoRestApi.User](docs/User.md)

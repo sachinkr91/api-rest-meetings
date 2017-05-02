@@ -41,7 +41,7 @@ class RecordingRecordingChapters(object):
             'composite_content_status': 'str',
             'parent_recording_id': 'int',
             'view_count': 'int',
-            'recording_sessions': 'list[RecordingRecordingSessions]'
+            'recording_sessions': 'list[RecordingSession]'
         }
 
         self.attribute_map = {
@@ -286,7 +286,7 @@ class RecordingRecordingChapters(object):
         Gets the recording_sessions of this RecordingRecordingChapters.
 
         :return: The recording_sessions of this RecordingRecordingChapters.
-        :rtype: list[RecordingRecordingSessions]
+        :rtype: list[RecordingSession]
         """
         return self._recording_sessions
 
@@ -296,7 +296,7 @@ class RecordingRecordingChapters(object):
         Sets the recording_sessions of this RecordingRecordingChapters.
 
         :param recording_sessions: The recording_sessions of this RecordingRecordingChapters.
-        :type: list[RecordingRecordingSessions]
+        :type: list[RecordingSession]
         """
 
         self._recording_sessions = recording_sessions

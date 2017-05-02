@@ -46,7 +46,7 @@ public class Layout {
   private LayoutModeEnum layoutMode = null;
 
   /**
-   * Gets or Sets subLayoutMode
+   * Misspelling in value.
    */
   public enum SubLayoutModeEnum {
     @SerializedName("VideoContiniousPresence")
@@ -91,10 +91,10 @@ public class Layout {
   }
 
    /**
-   * Get subLayoutMode
+   * Misspelling in value.
    * @return subLayoutMode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Misspelling in value.")
   public SubLayoutModeEnum getSubLayoutMode() {
     return subLayoutMode;
   }

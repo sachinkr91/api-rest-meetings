@@ -230,7 +230,7 @@ class Layout implements ArrayAccess
 
     /**
      * Sets sub_layout_mode
-     * @param string $sub_layout_mode
+     * @param string $sub_layout_mode Misspelling in value.
      * @return $this
      */
     public function setSubLayoutMode($sub_layout_mode)
