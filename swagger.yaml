@@ -723,7 +723,7 @@ paths:
                 description: Set to "terminated" to end the meeting.
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1424,7 +1424,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1457,7 +1457,7 @@ paths:
           type: string
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1486,7 +1486,7 @@ paths:
           type: string
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1519,7 +1519,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
         default:
@@ -1578,7 +1578,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: TBD
+          description: The results for this meeting.
           schema:
             $ref: '#/definitions/MeetingIndigoList'
         default:
