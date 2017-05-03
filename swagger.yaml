@@ -38,7 +38,7 @@ info:
 
     # Getting Started
 
-    Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use on of the Authentication methods to obtain an access token.
+    Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token.
     - Click on the Authorize button at the top of page
     - Enter your access token in the field marked "api_key"
     
