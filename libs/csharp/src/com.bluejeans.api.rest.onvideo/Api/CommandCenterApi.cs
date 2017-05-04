@@ -1,7 +1,7 @@
 /* 
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use on of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -24,6 +24,79 @@ namespace com.bluejeans.api.rest.onvideo.Api
     public interface ICommandCenterApi : IApiAccessor
     {
         #region Synchronous Operations
+        /// <summary>
+        /// Endpoint Distribution
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>AnalyticsEndpointDistribution</returns>
+        AnalyticsEndpointDistribution GetEndpointDistribution (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Endpoint Distribution
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsEndpointDistribution</returns>
+        ApiResponse<AnalyticsEndpointDistribution> GetEndpointDistributionWithHttpInfo (int? enterpriseId, string filter = null);
+        /// <summary>
+        /// Survey Feedback Comments
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>AnalyticsFeedbackComments</returns>
+        AnalyticsFeedbackComments GetFeedbackComments (int? enterpriseId, string start, string end);
+
+        /// <summary>
+        /// Survey Feedback Comments
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>ApiResponse of AnalyticsFeedbackComments</returns>
+        ApiResponse<AnalyticsFeedbackComments> GetFeedbackCommentsWithHttpInfo (int? enterpriseId, string start, string end);
+        /// <summary>
+        /// Survey Feedback Scores
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>AnalyticsFeedbackScores</returns>
+        AnalyticsFeedbackScores GetFeedbackCount (int? enterpriseId, string start, string end);
+
+        /// <summary>
+        /// Survey Feedback Scores
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>ApiResponse of AnalyticsFeedbackScores</returns>
+        ApiResponse<AnalyticsFeedbackScores> GetFeedbackCountWithHttpInfo (int? enterpriseId, string start, string end);
         /// <summary>
         /// List Live Meeting Endpoints by Enterprise
         /// </summary>
@@ -96,6 +169,31 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>ApiResponse of MeetingExtendedIndigo</returns>
         ApiResponse<MeetingExtendedIndigo> GetMeetingPastByUserWithHttpInfo (int? userId, string meetingUuid);
         /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>AnalyticsUsage</returns>
+        AnalyticsUsage GetMeetingUsage (int? enterpriseId, string clientTZ = null, string filter = null);
+
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsUsage</returns>
+        ApiResponse<AnalyticsUsage> GetMeetingUsageWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
+        /// <summary>
         /// Live Meetings Summary by Enterprise
         /// </summary>
         /// <remarks>
@@ -164,8 +262,127 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of MeetingIndigoList</returns>
         ApiResponse<MeetingIndigoList> GetMeetingsPastByUserWithHttpInfo (int? userId);
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>AnalyticsRoiData</returns>
+        AnalyticsRoiData GetRoiRanges (int? enterpriseId, string filter);
+
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>ApiResponse of AnalyticsRoiData</returns>
+        ApiResponse<AnalyticsRoiData> GetRoiRangesWithHttpInfo (int? enterpriseId, string filter);
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top users by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>AnalyticsTopUsers</returns>
+        AnalyticsTopUsers GetTopUsers (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top users by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
+        ApiResponse<AnalyticsTopUsers> GetTopUsersWithHttpInfo (int? enterpriseId, string filter = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Endpoint Distribution
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>Task of AnalyticsEndpointDistribution</returns>
+        System.Threading.Tasks.Task<AnalyticsEndpointDistribution> GetEndpointDistributionAsync (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Endpoint Distribution
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsEndpointDistribution)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> GetEndpointDistributionAsyncWithHttpInfo (int? enterpriseId, string filter = null);
+        /// <summary>
+        /// Survey Feedback Comments
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of AnalyticsFeedbackComments</returns>
+        System.Threading.Tasks.Task<AnalyticsFeedbackComments> GetFeedbackCommentsAsync (int? enterpriseId, string start, string end);
+
+        /// <summary>
+        /// Survey Feedback Comments
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of ApiResponse (AnalyticsFeedbackComments)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> GetFeedbackCommentsAsyncWithHttpInfo (int? enterpriseId, string start, string end);
+        /// <summary>
+        /// Survey Feedback Scores
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of AnalyticsFeedbackScores</returns>
+        System.Threading.Tasks.Task<AnalyticsFeedbackScores> GetFeedbackCountAsync (int? enterpriseId, string start, string end);
+
+        /// <summary>
+        /// Survey Feedback Scores
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of ApiResponse (AnalyticsFeedbackScores)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> GetFeedbackCountAsyncWithHttpInfo (int? enterpriseId, string start, string end);
         /// <summary>
         /// List Live Meeting Endpoints by Enterprise
         /// </summary>
@@ -238,6 +455,31 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>Task of ApiResponse (MeetingExtendedIndigo)</returns>
         System.Threading.Tasks.Task<ApiResponse<MeetingExtendedIndigo>> GetMeetingPastByUserAsyncWithHttpInfo (int? userId, string meetingUuid);
         /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of AnalyticsUsage</returns>
+        System.Threading.Tasks.Task<AnalyticsUsage> GetMeetingUsageAsync (int? enterpriseId, string clientTZ = null, string filter = null);
+
+        /// <summary>
+        /// Meeting Usage Over Time
+        /// </summary>
+        /// <remarks>
+        /// This endpoint reports on meeting usage.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> GetMeetingUsageAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null);
+        /// <summary>
         /// Live Meetings Summary by Enterprise
         /// </summary>
         /// <remarks>
@@ -306,6 +548,52 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
         System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of AnalyticsRoiData</returns>
+        System.Threading.Tasks.Task<AnalyticsRoiData> GetRoiRangesAsync (int? enterpriseId, string filter);
+
+        /// <summary>
+        /// ROI Data
+        /// </summary>
+        /// <remarks>
+        /// This endpoint lists return on investment (ROI) data for meetings.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> GetRoiRangesAsyncWithHttpInfo (int? enterpriseId, string filter);
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top users by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of AnalyticsTopUsers</returns>
+        System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersAsync (int? enterpriseId, string filter = null);
+
+        /// <summary>
+        /// Top Users
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the top users by usage for an enterprise.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersAsyncWithHttpInfo (int? enterpriseId, string filter = null);
         #endregion Asynchronous Operations
     }
 
@@ -416,6 +704,516 @@ namespace com.bluejeans.api.rest.onvideo.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Endpoint Distribution This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>AnalyticsEndpointDistribution</returns>
+        public AnalyticsEndpointDistribution GetEndpointDistribution (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = GetEndpointDistributionWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Endpoint Distribution This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsEndpointDistribution</returns>
+        public ApiResponse< AnalyticsEndpointDistribution > GetEndpointDistributionWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetEndpointDistribution");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEndpointDistribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsEndpointDistribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsEndpointDistribution) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
+            
+        }
+
+        /// <summary>
+        /// Endpoint Distribution This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>Task of AnalyticsEndpointDistribution</returns>
+        public async System.Threading.Tasks.Task<AnalyticsEndpointDistribution> GetEndpointDistributionAsync (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsEndpointDistribution> localVarResponse = await GetEndpointDistributionAsyncWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Endpoint Distribution This endpoint retrieves endpoint connection type distribution by enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsEndpointDistribution)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistribution>> GetEndpointDistributionAsyncWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetEndpointDistribution");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEndpointDistribution", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsEndpointDistribution>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsEndpointDistribution) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
+            
+        }
+
+        /// <summary>
+        /// Survey Feedback Comments This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>AnalyticsFeedbackComments</returns>
+        public AnalyticsFeedbackComments GetFeedbackComments (int? enterpriseId, string start, string end)
+        {
+             ApiResponse<AnalyticsFeedbackComments> localVarResponse = GetFeedbackCommentsWithHttpInfo(enterpriseId, start, end);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Survey Feedback Comments This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>ApiResponse of AnalyticsFeedbackComments</returns>
+        public ApiResponse< AnalyticsFeedbackComments > GetFeedbackCommentsWithHttpInfo (int? enterpriseId, string start, string end)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetFeedbackComments");
+            // verify the required parameter 'start' is set
+            if (start == null)
+                throw new ApiException(400, "Missing required parameter 'start' when calling CommandCenterApi->GetFeedbackComments");
+            // verify the required parameter 'end' is set
+            if (end == null)
+                throw new ApiException(400, "Missing required parameter 'end' when calling CommandCenterApi->GetFeedbackComments");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
+            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetFeedbackComments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+            
+        }
+
+        /// <summary>
+        /// Survey Feedback Comments This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of AnalyticsFeedbackComments</returns>
+        public async System.Threading.Tasks.Task<AnalyticsFeedbackComments> GetFeedbackCommentsAsync (int? enterpriseId, string start, string end)
+        {
+             ApiResponse<AnalyticsFeedbackComments> localVarResponse = await GetFeedbackCommentsAsyncWithHttpInfo(enterpriseId, start, end);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Survey Feedback Comments This endpoint lists end of meeting survey comments by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of ApiResponse (AnalyticsFeedbackComments)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackComments>> GetFeedbackCommentsAsyncWithHttpInfo (int? enterpriseId, string start, string end)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetFeedbackComments");
+            // verify the required parameter 'start' is set
+            if (start == null)
+                throw new ApiException(400, "Missing required parameter 'start' when calling CommandCenterApi->GetFeedbackComments");
+            // verify the required parameter 'end' is set
+            if (end == null)
+                throw new ApiException(400, "Missing required parameter 'end' when calling CommandCenterApi->GetFeedbackComments");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
+            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetFeedbackComments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+            
+        }
+
+        /// <summary>
+        /// Survey Feedback Scores This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>AnalyticsFeedbackScores</returns>
+        public AnalyticsFeedbackScores GetFeedbackCount (int? enterpriseId, string start, string end)
+        {
+             ApiResponse<AnalyticsFeedbackScores> localVarResponse = GetFeedbackCountWithHttpInfo(enterpriseId, start, end);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Survey Feedback Scores This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>ApiResponse of AnalyticsFeedbackScores</returns>
+        public ApiResponse< AnalyticsFeedbackScores > GetFeedbackCountWithHttpInfo (int? enterpriseId, string start, string end)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetFeedbackCount");
+            // verify the required parameter 'start' is set
+            if (start == null)
+                throw new ApiException(400, "Missing required parameter 'start' when calling CommandCenterApi->GetFeedbackCount");
+            // verify the required parameter 'end' is set
+            if (end == null)
+                throw new ApiException(400, "Missing required parameter 'end' when calling CommandCenterApi->GetFeedbackCount");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
+            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetFeedbackCount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+            
+        }
+
+        /// <summary>
+        /// Survey Feedback Scores This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of AnalyticsFeedbackScores</returns>
+        public async System.Threading.Tasks.Task<AnalyticsFeedbackScores> GetFeedbackCountAsync (int? enterpriseId, string start, string end)
+        {
+             ApiResponse<AnalyticsFeedbackScores> localVarResponse = await GetFeedbackCountAsyncWithHttpInfo(enterpriseId, start, end);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Survey Feedback Scores This endpoint lists end of meeting survey scores by enterprise by time period.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="start">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <param name="end">Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.</param>
+        /// <returns>Task of ApiResponse (AnalyticsFeedbackScores)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsFeedbackScores>> GetFeedbackCountAsyncWithHttpInfo (int? enterpriseId, string start, string end)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetFeedbackCount");
+            // verify the required parameter 'start' is set
+            if (start == null)
+                throw new ApiException(400, "Missing required parameter 'start' when calling CommandCenterApi->GetFeedbackCount");
+            // verify the required parameter 'end' is set
+            if (end == null)
+                throw new ApiException(400, "Missing required parameter 'end' when calling CommandCenterApi->GetFeedbackCount");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
+            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetFeedbackCount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+            
         }
 
         /// <summary>
@@ -917,6 +1715,170 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>AnalyticsUsage</returns>
+        public AnalyticsUsage GetMeetingUsage (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+             ApiResponse<AnalyticsUsage> localVarResponse = GetMeetingUsageWithHttpInfo(enterpriseId, clientTZ, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsUsage</returns>
+        public ApiResponse< AnalyticsUsage > GetMeetingUsageWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingUsage");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+            
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of AnalyticsUsage</returns>
+        public async System.Threading.Tasks.Task<AnalyticsUsage> GetMeetingUsageAsync (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+             ApiResponse<AnalyticsUsage> localVarResponse = await GetMeetingUsageAsyncWithHttpInfo(enterpriseId, clientTZ, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Meeting Usage Over Time This endpoint reports on meeting usage.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="clientTZ">Based on standard TZ code. (optional, default to America/Denver)</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsUsage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsUsage>> GetMeetingUsageAsyncWithHttpInfo (int? enterpriseId, string clientTZ = null, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetMeetingUsage");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMeetingUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+            
+        }
+
+        /// <summary>
         /// Live Meetings Summary by Enterprise This endpoint lists meetings in progress by enterprise.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1387,6 +2349,328 @@ namespace com.bluejeans.api.rest.onvideo.Api
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+            
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>AnalyticsRoiData</returns>
+        public AnalyticsRoiData GetRoiRanges (int? enterpriseId, string filter)
+        {
+             ApiResponse<AnalyticsRoiData> localVarResponse = GetRoiRangesWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>ApiResponse of AnalyticsRoiData</returns>
+        public ApiResponse< AnalyticsRoiData > GetRoiRangesWithHttpInfo (int? enterpriseId, string filter)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetRoiRanges");
+            // verify the required parameter 'filter' is set
+            if (filter == null)
+                throw new ApiException(400, "Missing required parameter 'filter' when calling CommandCenterApi->GetRoiRanges");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoiRanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+            
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of AnalyticsRoiData</returns>
+        public async System.Threading.Tasks.Task<AnalyticsRoiData> GetRoiRangesAsync (int? enterpriseId, string filter)
+        {
+             ApiResponse<AnalyticsRoiData> localVarResponse = await GetRoiRangesAsyncWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// ROI Data This endpoint lists return on investment (ROI) data for meetings.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string</param>
+        /// <returns>Task of ApiResponse (AnalyticsRoiData)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsRoiData>> GetRoiRangesAsyncWithHttpInfo (int? enterpriseId, string filter)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetRoiRanges");
+            // verify the required parameter 'filter' is set
+            if (filter == null)
+                throw new ApiException(400, "Missing required parameter 'filter' when calling CommandCenterApi->GetRoiRanges");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRoiRanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+            
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>AnalyticsTopUsers</returns>
+        public AnalyticsTopUsers GetTopUsers (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsTopUsers> localVarResponse = GetTopUsersWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>ApiResponse of AnalyticsTopUsers</returns>
+        public ApiResponse< AnalyticsTopUsers > GetTopUsersWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetTopUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTopUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+            
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of AnalyticsTopUsers</returns>
+        public async System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersAsync (int? enterpriseId, string filter = null)
+        {
+             ApiResponse<AnalyticsTopUsers> localVarResponse = await GetTopUsersAsyncWithHttpInfo(enterpriseId, filter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Top Users This endpoint retrieves the top users by usage for an enterprise.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
+        /// <param name="filter">URL-encoded JSON string (optional, default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])</param>
+        /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersAsyncWithHttpInfo (int? enterpriseId, string filter = null)
+        {
+            // verify the required parameter 'enterpriseId' is set
+            if (enterpriseId == null)
+                throw new ApiException(400, "Missing required parameter 'enterpriseId' when calling CommandCenterApi->GetTopUsers");
+
+            var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTopUsers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
             
         }
 

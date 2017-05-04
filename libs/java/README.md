@@ -61,12 +61,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.bluejeans.api.rest.onvideo.*;
 import com.bluejeans.api.rest.onvideo.auth.*;
 import com.bluejeans.api.rest.onvideo.model.*;
-import com.bluejeans.api.rest.onvideo.api.AnalyticsApi;
+import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
 
 import java.io.File;
 import java.util.*;
 
-public class AnalyticsApiExample {
+public class AuthenticationApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -77,14 +77,13 @@ public class AnalyticsApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //access_token.setApiKeyPrefix("Token");
 
-        AnalyticsApi apiInstance = new AnalyticsApi();
-        Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        String filter = "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"creation_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"creation_time\"}]"; // String | URL-encoded JSON string
+        AuthenticationApi apiInstance = new AuthenticationApi();
+        GrantRequestClient grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
         try {
-            AnalyticsEndpointDistribution result = apiInstance.getEndpointDistribution(enterpriseId, filter);
+            GrantClient result = apiInstance.getTokenByClient(grantRequestClient);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AnalyticsApi#getEndpointDistribution");
+            System.err.println("Exception when calling AuthenticationApi#getTokenByClient");
             e.printStackTrace();
         }
     }
@@ -98,22 +97,22 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AnalyticsApi* | [**getEndpointDistribution**](docs/AnalyticsApi.md#getEndpointDistribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
-*AnalyticsApi* | [**getFeedbackComments**](docs/AnalyticsApi.md#getFeedbackComments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
-*AnalyticsApi* | [**getFeedbackCount**](docs/AnalyticsApi.md#getFeedbackCount) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
-*AnalyticsApi* | [**getMeetingUsage**](docs/AnalyticsApi.md#getMeetingUsage) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage | Meeting Usage Over Time
-*AnalyticsApi* | [**getRoiRanges**](docs/AnalyticsApi.md#getRoiRanges) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges | ROI Data
-*AnalyticsApi* | [**getTopUsers**](docs/AnalyticsApi.md#getTopUsers) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage | Top Users
 *AuthenticationApi* | [**getTokenByClient**](docs/AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
 *AuthenticationApi* | [**getTokenByMeeting**](docs/AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 *AuthenticationApi* | [**getTokenByPassword**](docs/AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 *AuthenticationApi* | [**getTokenInfo**](docs/AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
+*CommandCenterApi* | [**getEndpointDistribution**](docs/CommandCenterApi.md#getEndpointDistribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
+*CommandCenterApi* | [**getFeedbackComments**](docs/CommandCenterApi.md#getFeedbackComments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
+*CommandCenterApi* | [**getFeedbackCount**](docs/CommandCenterApi.md#getFeedbackCount) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
 *CommandCenterApi* | [**getMeetingLiveByEnterprise**](docs/CommandCenterApi.md#getMeetingLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/ | List Live Meeting Endpoints by Enterprise
 *CommandCenterApi* | [**getMeetingPastByEnterprise**](docs/CommandCenterApi.md#getMeetingPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by Enterprise
 *CommandCenterApi* | [**getMeetingPastByUser**](docs/CommandCenterApi.md#getMeetingPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings/{meeting_uuid} | List Meeting Endpoints &amp; Stats by User
+*CommandCenterApi* | [**getMeetingUsage**](docs/CommandCenterApi.md#getMeetingUsage) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage | Meeting Usage Over Time
 *CommandCenterApi* | [**getMeetingsLiveByEnterprise**](docs/CommandCenterApi.md#getMeetingsLiveByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings/live | Live Meetings Summary by Enterprise
 *CommandCenterApi* | [**getMeetingsPastByEnterprise**](docs/CommandCenterApi.md#getMeetingsPastByEnterprise) | **GET** /v1/enterprise/{enterprise_id}/indigo/meetings | List Past Meetings by Enterprise
 *CommandCenterApi* | [**getMeetingsPastByUser**](docs/CommandCenterApi.md#getMeetingsPastByUser) | **GET** /v1/user/{user_id}/indigo/meetings | List Past Meetings by User
+*CommandCenterApi* | [**getRoiRanges**](docs/CommandCenterApi.md#getRoiRanges) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges | ROI Data
+*CommandCenterApi* | [**getTopUsers**](docs/CommandCenterApi.md#getTopUsers) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage | Top Users
 *EnterpriseApi* | [**createUser**](docs/EnterpriseApi.md#createUser) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
 *EnterpriseApi* | [**listUsers**](docs/EnterpriseApi.md#listUsers) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
 *EnterpriseApi* | [**removeUser**](docs/EnterpriseApi.md#removeUser) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User

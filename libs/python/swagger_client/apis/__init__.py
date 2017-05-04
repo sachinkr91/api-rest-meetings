@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 
 # import apis into api package
-from .analytics_api import AnalyticsApi
 from .authentication_api import AuthenticationApi
 from .command_center_api import CommandCenterApi
 from .enterprise_api import EnterpriseApi
