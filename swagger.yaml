@@ -70,7 +70,6 @@ schemes:
   - https
 produces:
   - application/json
-
 tags:
   -
     name: Authentication
@@ -92,11 +91,7 @@ tags:
     description:  Manage Meeting Recordings
   -
     name: Command Center
-    description:  Access Status of Current Meetings
-  -
-    name: Analytics
-    description:  Access Enterprise Usage Information
-
+    description:  Access Status of Current Meetings & Enterprise Usage Information
 paths:
   /oauth2/token?Password:
     post:
@@ -1715,7 +1710,7 @@ paths:
       description: This endpoint retrieves the top users by usage for an enterprise.
       operationId: getTopUsers
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
@@ -1744,7 +1739,7 @@ paths:
       description: This endpoint retrieves endpoint connection type distribution by enterprise.
       operationId: getEndpointDistribution
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
@@ -1773,7 +1768,7 @@ paths:
       description: This endpoint reports on meeting usage.
       operationId: getMeetingUsage
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
@@ -1807,7 +1802,7 @@ paths:
       description: This endpoint lists return on investment (ROI) data for meetings.
       operationId: getRoiRanges
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
@@ -1837,7 +1832,7 @@ paths:
       description: This endpoint lists end of meeting survey scores by enterprise by time period.
       operationId: getFeedbackCount
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
@@ -1873,7 +1868,7 @@ paths:
       description: This endpoint lists end of meeting survey comments by enterprise by time period.
       operationId: getFeedbackComments
       tags:
-        - Analytics
+        - Command Center
       security:
         - access_token: []
       parameters:
