@@ -61,12 +61,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.bluejeans.api.rest.onvideo.*;
 import com.bluejeans.api.rest.onvideo.auth.*;
 import com.bluejeans.api.rest.onvideo.model.*;
-import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+import com.bluejeans.api.rest.onvideo.api.ApplicationApi;
 
 import java.io.File;
 import java.util.*;
 
-public class AuthenticationApiExample {
+public class ApplicationApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -77,14 +77,14 @@ public class AuthenticationApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //access_token.setApiKeyPrefix("Token");
 
-        AuthenticationApi apiInstance = new AuthenticationApi();
+        ApplicationApi apiInstance = new ApplicationApi();
         Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         Application application = new Application(); // Application | The information about the new client application.
         try {
             Application result = apiInstance.createClientApplication(userId, application);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AuthenticationApi#createClientApplication");
+            System.err.println("Exception when calling ApplicationApi#createClientApplication");
             e.printStackTrace();
         }
     }
@@ -98,7 +98,9 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**createClientApplication**](docs/AuthenticationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+*ApplicationApi* | [**createClientApplication**](docs/ApplicationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+*ApplicationApi* | [**regenerateClientApplicationSecret**](docs/ApplicationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
+*ApplicationApi* | [**updateClientApplication**](docs/ApplicationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 *AuthenticationApi* | [**getAuthorizationCode**](docs/AuthenticationApi.md#getAuthorizationCode) | **GET** /oauth2/authorize | Get Authorization Code
 *AuthenticationApi* | [**getTokenByClient**](docs/AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
 *AuthenticationApi* | [**getTokenByCode**](docs/AuthenticationApi.md#getTokenByCode) | **POST** /oauth2/token?Code | Authentication via Code Grant Type
@@ -106,9 +108,7 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**getTokenByPassword**](docs/AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
 *AuthenticationApi* | [**getTokenByRefresh**](docs/AuthenticationApi.md#getTokenByRefresh) | **POST** /oauth2/token?Refresh | Authentication via Refresh Grant Type
 *AuthenticationApi* | [**getTokenInfo**](docs/AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
-*AuthenticationApi* | [**regenerateClientApplicationSecret**](docs/AuthenticationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
 *AuthenticationApi* | [**revokeAccessToken**](docs/AuthenticationApi.md#revokeAccessToken) | **DELETE** /oauth2/token?Revoke | Revoke Access Token
-*AuthenticationApi* | [**updateClientApplication**](docs/AuthenticationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 *CommandCenterApi* | [**getEndpointDistribution**](docs/CommandCenterApi.md#getEndpointDistribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
 *CommandCenterApi* | [**getFeedbackComments**](docs/CommandCenterApi.md#getFeedbackComments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
 *CommandCenterApi* | [**getFeedbackCount**](docs/CommandCenterApi.md#getFeedbackCount) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores

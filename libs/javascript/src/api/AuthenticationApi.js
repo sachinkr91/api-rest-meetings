@@ -1,6 +1,6 @@
 /**
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\").  ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 3 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to the user. * Authorization Code Grant – Authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access code. (\"three-legged OAuth\") * Password Credentials Grant – Authenticate with a Username and password and receives an access code. (\"two-legged OAuth\"); * Client Credentials Grant – Similar to Password Grant (\"two-legged OAuth\"). ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – scope of APIs is limited to individual meetings. * User-level – scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.  All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Application', 'model/ApplicationSecret', 'model/Error', 'model/GrantClient', 'model/GrantCode', 'model/GrantMeeting', 'model/GrantPassword', 'model/GrantRefresh', 'model/GrantRequestClient', 'model/GrantRequestCode', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/GrantRequestRefresh', 'model/GrantRequestRevoke', 'model/InlineResponse200'], factory);
+    define(['ApiClient', 'model/Error', 'model/GrantClient', 'model/GrantCode', 'model/GrantMeeting', 'model/GrantPassword', 'model/GrantRefresh', 'model/GrantRequestClient', 'model/GrantRequestCode', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/GrantRequestRefresh', 'model/GrantRequestRevoke', 'model/InlineResponse200'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Application'), require('../model/ApplicationSecret'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestClient'), require('../model/GrantRequestCode'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantRequestRefresh'), require('../model/GrantRequestRevoke'), require('../model/InlineResponse200'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestClient'), require('../model/GrantRequestCode'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantRequestRefresh'), require('../model/GrantRequestRevoke'), require('../model/InlineResponse200'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Application, root.BlueJeansOnVideoRestApi.ApplicationSecret, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRevoke, root.BlueJeansOnVideoRestApi.InlineResponse200);
+    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRevoke, root.BlueJeansOnVideoRestApi.InlineResponse200);
   }
-}(this, function(ApiClient, Application, ApplicationSecret, Error, GrantClient, GrantCode, GrantMeeting, GrantPassword, GrantRefresh, GrantRequestClient, GrantRequestCode, GrantRequestMeeting, GrantRequestPassword, GrantRequestRefresh, GrantRequestRevoke, InlineResponse200) {
+}(this, function(ApiClient, Error, GrantClient, GrantCode, GrantMeeting, GrantPassword, GrantRefresh, GrantRequestClient, GrantRequestCode, GrantRequestMeeting, GrantRequestPassword, GrantRequestRefresh, GrantRequestRevoke, InlineResponse200) {
   'use strict';
 
   /**
@@ -44,58 +44,6 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-
-    /**
-     * Callback function to receive the result of the createClientApplication operation.
-     * @callback module:api/AuthenticationApi~createClientApplicationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Application} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create Client Application
-     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {module:model/Application} application The information about the new client application.
-     * @param {module:api/AuthenticationApi~createClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Application}
-     */
-    this.createClientApplication = function(userId, application, callback) {
-      var postBody = application;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling createClientApplication");
-      }
-
-      // verify the required parameter 'application' is set
-      if (application == undefined || application == null) {
-        throw new Error("Missing the required parameter 'application' when calling createClientApplication");
-      }
-
-
-      var pathParams = {
-        'user_id': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Application;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/developer_applications', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the getAuthorizationCode operation.
@@ -412,59 +360,6 @@
     }
 
     /**
-     * Callback function to receive the result of the regenerateClientApplicationSecret operation.
-     * @callback module:api/AuthenticationApi~regenerateClientApplicationSecretCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ApplicationSecret} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Regenerate Client Application Secret
-     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
-     * @param {module:api/AuthenticationApi~regenerateClientApplicationSecretCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ApplicationSecret}
-     */
-    this.regenerateClientApplicationSecret = function(userId, clientId, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling regenerateClientApplicationSecret");
-      }
-
-      // verify the required parameter 'clientId' is set
-      if (clientId == undefined || clientId == null) {
-        throw new Error("Missing the required parameter 'clientId' when calling regenerateClientApplicationSecret");
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'client_id': clientId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = ApplicationSecret;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/developer_applications/{client_id}/secret', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the revokeAccessToken operation.
      * @callback module:api/AuthenticationApi~revokeAccessTokenCallback
      * @param {String} error Error message, if any.
@@ -507,65 +402,6 @@
 
       return this.apiClient.callApi(
         '/oauth2/token?Revoke', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the updateClientApplication operation.
-     * @callback module:api/AuthenticationApi~updateClientApplicationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Application} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Update Client Application
-     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
-     * @param {module:model/Application} application The information about the new client application.
-     * @param {module:api/AuthenticationApi~updateClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Application}
-     */
-    this.updateClientApplication = function(userId, clientId, application, callback) {
-      var postBody = application;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling updateClientApplication");
-      }
-
-      // verify the required parameter 'clientId' is set
-      if (clientId == undefined || clientId == null) {
-        throw new Error("Missing the required parameter 'clientId' when calling updateClientApplication");
-      }
-
-      // verify the required parameter 'application' is set
-      if (application == undefined || application == null) {
-        throw new Error("Missing the required parameter 'application' when calling updateClientApplication");
-      }
-
-
-      var pathParams = {
-        'user_id': userId,
-        'client_id': clientId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = Application;
-
-      return this.apiClient.callApi(
-        '/v1/user/{user_id}/developer_applications/{client_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

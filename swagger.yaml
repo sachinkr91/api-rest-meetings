@@ -2068,7 +2068,7 @@ paths:
       description: This endpoint creates a client application for use in 3-legged OAuth2 authorization.
       operationId: createClientApplication
       tags:
-        - Applications
+        - Application
       security:
         - access_token: []
       parameters:
@@ -2098,7 +2098,7 @@ paths:
       description: This endpoint updates a client application for use in 3-legged OAuth2 authorization.
       operationId: updateClientApplication
       tags:
-        - Applications
+        - Application
       security:
         - access_token: []
       parameters:
@@ -2133,7 +2133,7 @@ paths:
       description: This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
       operationId: regenerateClientApplicationSecret
       tags:
-        - Applications
+        - Application
       security:
         - access_token: []
       parameters:
