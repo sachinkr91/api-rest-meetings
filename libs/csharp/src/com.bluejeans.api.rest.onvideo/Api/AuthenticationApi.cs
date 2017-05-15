@@ -28,7 +28,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -36,14 +36,16 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns></returns>
-        void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+        void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null);
 
         /// <summary>
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -51,8 +53,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+        ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null);
         /// <summary>
         /// Authentication via Client Grant Type
         /// </summary>
@@ -165,8 +169,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// This endpoint will validate if a token is valid or not.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetTokenInfo ();
+        InlineResponse200 GetTokenInfo (string accessToken = null);
 
         /// <summary>
         /// Validate a Token
@@ -175,8 +180,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// This endpoint will validate if a token is valid or not.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetTokenInfoWithHttpInfo ();
+        ApiResponse<InlineResponse200> GetTokenInfoWithHttpInfo (string accessToken = null);
         /// <summary>
         /// Revoke Access Token
         /// </summary>
@@ -206,7 +212,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -214,14 +220,16 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+        System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null);
 
         /// <summary>
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -229,8 +237,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null);
         /// <summary>
         /// Authentication via Client Grant Type
         /// </summary>
@@ -343,8 +353,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// This endpoint will validate if a token is valid or not.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync ();
+        System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync (string accessToken = null);
 
         /// <summary>
         /// Validate a Token
@@ -353,8 +364,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// This endpoint will validate if a token is valid or not.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo (string accessToken = null);
         /// <summary>
         /// Revoke Access Token
         /// </summary>
@@ -491,7 +503,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -499,14 +511,16 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns></returns>
-        public void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        public void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null)
         {
-             GetAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+             GetAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -514,8 +528,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        public ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null)
         {
 
             var localVarPath = "/oauth2/authorize";
@@ -547,6 +563,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (state != null) localVarQueryParams.Add("state", Configuration.ApiClient.ParameterToString(state)); // query parameter
             if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
             if (responseType != null) localVarQueryParams.Add("responseType", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
+            if (appName != null) localVarQueryParams.Add("appName", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (appLogoUrl != null) localVarQueryParams.Add("appLogoUrl", Configuration.ApiClient.ParameterToString(appLogoUrl)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -575,7 +593,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -583,15 +601,17 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        public async System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null)
         {
-             await GetAuthorizationCodeAsyncWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+             await GetAuthorizationCodeAsyncWithHttpInfo(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
 
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
@@ -599,8 +619,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
         /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
+        /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null)
         {
 
             var localVarPath = "/oauth2/authorize";
@@ -632,6 +654,8 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (state != null) localVarQueryParams.Add("state", Configuration.ApiClient.ParameterToString(state)); // query parameter
             if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
             if (responseType != null) localVarQueryParams.Add("responseType", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
+            if (appName != null) localVarQueryParams.Add("appName", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (appLogoUrl != null) localVarQueryParams.Add("appLogoUrl", Configuration.ApiClient.ParameterToString(appLogoUrl)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -1502,10 +1526,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token This endpoint will validate if a token is valid or not.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetTokenInfo ()
+        public InlineResponse200 GetTokenInfo (string accessToken = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetTokenInfoWithHttpInfo();
+             ApiResponse<InlineResponse200> localVarResponse = GetTokenInfoWithHttpInfo(accessToken);
              return localVarResponse.Data;
         }
 
@@ -1513,8 +1538,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token This endpoint will validate if a token is valid or not.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetTokenInfoWithHttpInfo ()
+        public ApiResponse< InlineResponse200 > GetTokenInfoWithHttpInfo (string accessToken = null)
         {
 
             var localVarPath = "/oauth2/tokenInfo";
@@ -1527,6 +1553,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -1541,6 +1568,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (accessToken != null) localVarQueryParams.Add("access_token", Configuration.ApiClient.ParameterToString(accessToken)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -1572,10 +1600,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token This endpoint will validate if a token is valid or not.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync ()
+        public async System.Threading.Tasks.Task<InlineResponse200> GetTokenInfoAsync (string accessToken = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GetTokenInfoAsyncWithHttpInfo();
+             ApiResponse<InlineResponse200> localVarResponse = await GetTokenInfoAsyncWithHttpInfo(accessToken);
              return localVarResponse.Data;
 
         }
@@ -1584,8 +1613,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token This endpoint will validate if a token is valid or not.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accessToken"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo (string accessToken = null)
         {
 
             var localVarPath = "/oauth2/tokenInfo";
@@ -1598,6 +1628,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -1612,6 +1643,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (accessToken != null) localVarQueryParams.Add("access_token", Configuration.ApiClient.ParameterToString(accessToken)); // query parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))

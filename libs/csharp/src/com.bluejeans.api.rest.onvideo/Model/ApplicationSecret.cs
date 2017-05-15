@@ -47,7 +47,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
         /// </summary>
         /// <value>The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.</value>
-        [DataMember(Name="clientSecret", EmitDefaultValue=false)]
+        [DataMember(Name="client_secret", EmitDefaultValue=false)]
         public string ClientSecret { get; private set; }
         /// <summary>
         /// Returns the string presentation of the object

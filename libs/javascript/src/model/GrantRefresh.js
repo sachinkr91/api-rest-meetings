@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GrantCodeScope'], factory);
+    define(['ApiClient', 'model/GrantRefreshScope'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./GrantCodeScope'));
+    module.exports = factory(require('../ApiClient'), require('./GrantRefreshScope'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.GrantRefresh = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantCodeScope);
+    root.BlueJeansOnVideoRestApi.GrantRefresh = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantRefreshScope);
   }
-}(this, function(ApiClient, GrantCodeScope) {
+}(this, function(ApiClient, GrantRefreshScope) {
   'use strict';
 
 
@@ -72,7 +72,7 @@
         obj['expires_in'] = ApiClient.convertToType(data['expires_in'], 'Number');
       }
       if (data.hasOwnProperty('scope')) {
-        obj['scope'] = GrantCodeScope.constructFromObject(data['scope']);
+        obj['scope'] = GrantRefreshScope.constructFromObject(data['scope']);
       }
     }
     return obj;
@@ -94,7 +94,7 @@
    */
   exports.prototype['expires_in'] = undefined;
   /**
-   * @member {module:model/GrantCodeScope} scope
+   * @member {module:model/GrantRefreshScope} scope
    */
   exports.prototype['scope'] = undefined;
 

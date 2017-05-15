@@ -26,7 +26,7 @@ public class ApplicationSecret {
   @SerializedName("clientId")
   private String clientId = null;
 
-  @SerializedName("clientSecret")
+  @SerializedName("client_secret")
   private String clientSecret = null;
 
    /**

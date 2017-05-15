@@ -212,6 +212,7 @@ Class | Method | HTTP request | Description
  - [Model.GrantPassword](docs/GrantPassword.md)
  - [Model.GrantPasswordScope](docs/GrantPasswordScope.md)
  - [Model.GrantRefresh](docs/GrantRefresh.md)
+ - [Model.GrantRefreshScope](docs/GrantRefreshScope.md)
  - [Model.GrantRequestClient](docs/GrantRequestClient.md)
  - [Model.GrantRequestCode](docs/GrantRequestCode.md)
  - [Model.GrantRequestMeeting](docs/GrantRequestMeeting.md)

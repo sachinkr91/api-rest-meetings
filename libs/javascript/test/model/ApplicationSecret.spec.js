@@ -60,7 +60,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property clientSecret (base name: "clientSecret")', function() {
+    it('should have the property clientSecret (base name: "client_secret")', function() {
       // uncomment below and update the code to test the property clientSecret
       //var instane = new BlueJeansOnVideoRestApi.ApplicationSecret();
       //expect(instance).to.be();

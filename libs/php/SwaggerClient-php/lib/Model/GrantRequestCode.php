@@ -208,7 +208,7 @@ class GrantRequestCode implements ArrayAccess
 
     /**
      * Sets grant_type
-     * @param string $grant_type The type of access token you are requesting.
+     * @param string $grant_type The type of access token you are requesting. Use \"authorization_code\".
      * @return $this
      */
     public function setGrantType($grant_type)

@@ -50,6 +50,7 @@
 
 
 
+
   };
 
   /**
@@ -78,6 +79,9 @@
       if (data.hasOwnProperty('bearerPermissions')) {
         obj['bearerPermissions'] = ApiClient.convertToType(data['bearerPermissions'], 'String');
       }
+      if (data.hasOwnProperty('clientId')) {
+        obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
+      }
     }
     return obj;
   }
@@ -105,6 +109,11 @@
    * @member {String} bearerPermissions
    */
   exports.prototype['bearerPermissions'] = undefined;
+  /**
+   * The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
+   * @member {String} clientId
+   */
+  exports.prototype['clientId'] = undefined;
 
 
 

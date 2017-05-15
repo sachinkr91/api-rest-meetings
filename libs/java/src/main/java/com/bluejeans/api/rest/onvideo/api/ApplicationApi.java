@@ -184,7 +184,7 @@ public class ApplicationApi {
         return call;
     }
     /* Build call for regenerateClientApplicationSecret */
-    private com.squareup.okhttp.Call regenerateClientApplicationSecretCall(Integer userId, Integer clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call regenerateClientApplicationSecretCall(Integer userId, String clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -227,7 +227,7 @@ public class ApplicationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call regenerateClientApplicationSecretValidateBeforeCall(Integer userId, Integer clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call regenerateClientApplicationSecretValidateBeforeCall(Integer userId, String clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -257,7 +257,7 @@ public class ApplicationApi {
      * @return ApplicationSecret
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApplicationSecret regenerateClientApplicationSecret(Integer userId, Integer clientId) throws ApiException {
+    public ApplicationSecret regenerateClientApplicationSecret(Integer userId, String clientId) throws ApiException {
         ApiResponse<ApplicationSecret> resp = regenerateClientApplicationSecretWithHttpInfo(userId, clientId);
         return resp.getData();
     }
@@ -270,7 +270,7 @@ public class ApplicationApi {
      * @return ApiResponse&lt;ApplicationSecret&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ApplicationSecret> regenerateClientApplicationSecretWithHttpInfo(Integer userId, Integer clientId) throws ApiException {
+    public ApiResponse<ApplicationSecret> regenerateClientApplicationSecretWithHttpInfo(Integer userId, String clientId) throws ApiException {
         com.squareup.okhttp.Call call = regenerateClientApplicationSecretValidateBeforeCall(userId, clientId, null, null);
         Type localVarReturnType = new TypeToken<ApplicationSecret>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -285,7 +285,7 @@ public class ApplicationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call regenerateClientApplicationSecretAsync(Integer userId, Integer clientId, final ApiCallback<ApplicationSecret> callback) throws ApiException {
+    public com.squareup.okhttp.Call regenerateClientApplicationSecretAsync(Integer userId, String clientId, final ApiCallback<ApplicationSecret> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -312,7 +312,7 @@ public class ApplicationApi {
         return call;
     }
     /* Build call for updateClientApplication */
-    private com.squareup.okhttp.Call updateClientApplicationCall(Integer userId, Integer clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateClientApplicationCall(Integer userId, String clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = application;
         
         // create path and map variables
@@ -355,7 +355,7 @@ public class ApplicationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateClientApplicationValidateBeforeCall(Integer userId, Integer clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateClientApplicationValidateBeforeCall(Integer userId, String clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -391,7 +391,7 @@ public class ApplicationApi {
      * @return Application
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Application updateClientApplication(Integer userId, Integer clientId, Application application) throws ApiException {
+    public Application updateClientApplication(Integer userId, String clientId, Application application) throws ApiException {
         ApiResponse<Application> resp = updateClientApplicationWithHttpInfo(userId, clientId, application);
         return resp.getData();
     }
@@ -405,7 +405,7 @@ public class ApplicationApi {
      * @return ApiResponse&lt;Application&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Application> updateClientApplicationWithHttpInfo(Integer userId, Integer clientId, Application application) throws ApiException {
+    public ApiResponse<Application> updateClientApplicationWithHttpInfo(Integer userId, String clientId, Application application) throws ApiException {
         com.squareup.okhttp.Call call = updateClientApplicationValidateBeforeCall(userId, clientId, application, null, null);
         Type localVarReturnType = new TypeToken<Application>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -421,7 +421,7 @@ public class ApplicationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateClientApplicationAsync(Integer userId, Integer clientId, Application application, final ApiCallback<Application> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateClientApplicationAsync(Integer userId, String clientId, Application application, final ApiCallback<Application> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

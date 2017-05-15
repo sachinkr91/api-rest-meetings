@@ -165,7 +165,7 @@ class ApplicationApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param str client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
         :return: ApplicationSecret
                  If the method is called asynchronously,
                  returns the request thread.
@@ -192,7 +192,7 @@ class ApplicationApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param str client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
         :return: ApplicationSecret
                  If the method is called asynchronously,
                  returns the request thread.
@@ -275,7 +275,7 @@ class ApplicationApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param str client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
         :param Application application: The information about the new client application. (required)
         :return: Application
                  If the method is called asynchronously,
@@ -303,7 +303,7 @@ class ApplicationApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param str client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
         :param Application application: The information about the new client application. (required)
         :return: Application
                  If the method is called asynchronously,

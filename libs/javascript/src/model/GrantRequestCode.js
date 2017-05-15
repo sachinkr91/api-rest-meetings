@@ -41,7 +41,7 @@
    * Constructs a new <code>GrantRequestCode</code>.
    * @alias module:model/GrantRequestCode
    * @class
-   * @param grantType {String} The type of access token you are requesting.
+   * @param grantType {String} The type of access token you are requesting. Use \"authorization_code\".
    * @param clientId {String} The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
    * @param clientSecret {String} The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
    * @param redirectUri {String} One of the registered url or sub-url of registered urls.
@@ -88,7 +88,7 @@
   }
 
   /**
-   * The type of access token you are requesting.
+   * The type of access token you are requesting. Use \"authorization_code\".
    * @member {String} grant_type
    * @default 'authorization_code'
    */

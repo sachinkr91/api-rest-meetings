@@ -57,7 +57,7 @@ class GrantRefresh implements ArrayAccess
         'access_token' => 'string',
         'refresh_token' => 'string',
         'expires_in' => 'int',
-        'scope' => '\Swagger\Client\Model\GrantCodeScope'
+        'scope' => '\Swagger\Client\Model\GrantRefreshScope'
     ];
 
     public static function swaggerTypes()
@@ -227,7 +227,7 @@ class GrantRefresh implements ArrayAccess
 
     /**
      * Gets scope
-     * @return \Swagger\Client\Model\GrantCodeScope
+     * @return \Swagger\Client\Model\GrantRefreshScope
      */
     public function getScope()
     {
@@ -236,7 +236,7 @@ class GrantRefresh implements ArrayAccess
 
     /**
      * Sets scope
-     * @param \Swagger\Client\Model\GrantCodeScope $scope
+     * @param \Swagger\Client\Model\GrantRefreshScope $scope
      * @return $this
      */
     public function setScope($scope)

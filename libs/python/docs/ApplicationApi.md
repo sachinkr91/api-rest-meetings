@@ -87,7 +87,7 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.ApplicationApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-client_id = 56 # int | The ID of the client application of interest. This value was given as a response during client application creation.
+client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
 
 try: 
     # Regenerate Client Application Secret
@@ -102,7 +102,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **client_id** | **str**| The ID of the client application of interest. This value was given as a response during client application creation. | 
 
 ### Return type
 
@@ -142,7 +142,7 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = swagger_client.ApplicationApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-client_id = 56 # int | The ID of the client application of interest. This value was given as a response during client application creation.
+client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
 application = swagger_client.Application() # Application | The information about the new client application.
 
 try: 
@@ -158,7 +158,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **client_id** | **str**| The ID of the client application of interest. This value was given as a response during client application creation. | 
  **application** | [**Application**](Application.md)| The information about the new client application. | 
 
 ### Return type

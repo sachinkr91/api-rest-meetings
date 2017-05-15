@@ -43,7 +43,7 @@ class AuthenticationApi(object):
     def get_authorization_code(self, **kwargs):
         """
         Get Authorization Code
-        This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \"bluejeans.com\" as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -59,6 +59,8 @@ class AuthenticationApi(object):
         :param str state: Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
         :param str scope: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
         :param str response_type: The type of authorization you are peforrming.  Set to \"code\".
+        :param str app_name: The name of the client application shown to user during authorization.
+        :param str app_logo_url: URL to an 84x84 image shown to user during authorization.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -73,7 +75,7 @@ class AuthenticationApi(object):
     def get_authorization_code_with_http_info(self, **kwargs):
         """
         Get Authorization Code
-        This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \"bluejeans.com\" as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -89,12 +91,14 @@ class AuthenticationApi(object):
         :param str state: Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
         :param str scope: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
         :param str response_type: The type of authorization you are peforrming.  Set to \"code\".
+        :param str app_name: The name of the client application shown to user during authorization.
+        :param str app_logo_url: URL to an 84x84 image shown to user during authorization.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['client_id', 'redirect_uri', 'state', 'scope', 'response_type']
+        all_params = ['client_id', 'redirect_uri', 'state', 'scope', 'response_type', 'app_name', 'app_logo_url']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -127,6 +131,10 @@ class AuthenticationApi(object):
             query_params['scope'] = params['scope']
         if 'response_type' in params:
             query_params['responseType'] = params['response_type']
+        if 'app_name' in params:
+            query_params['appName'] = params['app_name']
+        if 'app_logo_url' in params:
+            query_params['appLogoUrl'] = params['app_logo_url']
 
         header_params = {}
 
@@ -705,6 +713,7 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
+        :param str access_token:
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
@@ -730,12 +739,13 @@ class AuthenticationApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
+        :param str access_token:
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['access_token']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -751,12 +761,15 @@ class AuthenticationApi(object):
             params[key] = val
         del params['kwargs']
 
+
         collection_formats = {}
 
         resource_path = '/oauth2/tokenInfo'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
 
         header_params = {}
 
@@ -767,6 +780,10 @@ class AuthenticationApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['access_token']

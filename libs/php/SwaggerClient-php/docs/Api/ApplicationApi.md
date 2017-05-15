@@ -80,7 +80,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\ApplicationApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$client_id = 56; // int | The ID of the client application of interest. This value was given as a response during client application creation.
+$client_id = "client_id_example"; // string | The ID of the client application of interest. This value was given as a response during client application creation.
 
 try {
     $result = $api_instance->regenerateClientApplicationSecret($user_id, $client_id);
@@ -96,7 +96,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. |
+ **client_id** | **string**| The ID of the client application of interest. This value was given as a response during client application creation. |
 
 ### Return type
 
@@ -132,7 +132,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token
 
 $api_instance = new Swagger\Client\Api\ApplicationApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$client_id = 56; // int | The ID of the client application of interest. This value was given as a response during client application creation.
+$client_id = "client_id_example"; // string | The ID of the client application of interest. This value was given as a response during client application creation.
 $application = new \Swagger\Client\Model\Application(); // \Swagger\Client\Model\Application | The information about the new client application.
 
 try {
@@ -149,7 +149,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. |
+ **client_id** | **string**| The ID of the client application of interest. This value was given as a response during client application creation. |
  **application** | [**\Swagger\Client\Model\Application**](../Model/\Swagger\Client\Model\Application.md)| The information about the new client application. |
 
 ### Return type

@@ -16,11 +16,11 @@ Method | HTTP request | Description
 
 <a name="getauthorizationcode"></a>
 # **GetAuthorizationCode**
-> void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+> void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null, string appName = null, string appLogoUrl = null)
 
 Get Authorization Code
 
-This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \"bluejeans.com\" as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
 
 ### Example
 ```csharp
@@ -48,11 +48,13 @@ namespace Example
             var state = state_example;  // string | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional) 
             var scope = scope_example;  // string | A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional) 
             var responseType = responseType_example;  // string | The type of authorization you are peforrming.  Set to \"code\". (optional)  (default to code)
+            var appName = appName_example;  // string | The name of the client application shown to user during authorization. (optional) 
+            var appLogoUrl = appLogoUrl_example;  // string | URL to an 84x84 image shown to user during authorization. (optional) 
 
             try
             {
                 // Get Authorization Code
-                apiInstance.GetAuthorizationCode(clientId, redirectUri, state, scope, responseType);
+                apiInstance.GetAuthorizationCode(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
             }
             catch (Exception e)
             {
@@ -72,6 +74,8 @@ Name | Type | Description  | Notes
  **state** | **string**| Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. | [optional] 
  **scope** | **string**| A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info | [optional] 
  **responseType** | **string**| The type of authorization you are peforrming.  Set to \&quot;code\&quot;. | [optional] [default to code]
+ **appName** | **string**| The name of the client application shown to user during authorization. | [optional] 
+ **appLogoUrl** | **string**| URL to an 84x84 image shown to user during authorization. | [optional] 
 
 ### Return type
 
@@ -425,7 +429,7 @@ Name | Type | Description  | Notes
 
 <a name="gettokeninfo"></a>
 # **GetTokenInfo**
-> InlineResponse200 GetTokenInfo ()
+> InlineResponse200 GetTokenInfo (string accessToken = null)
 
 Validate a Token
 
@@ -452,11 +456,12 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
+            var accessToken = accessToken_example;  // string |  (optional) 
 
             try
             {
                 // Validate a Token
-                InlineResponse200 result = apiInstance.GetTokenInfo();
+                InlineResponse200 result = apiInstance.GetTokenInfo(accessToken);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -469,7 +474,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accessToken** | **string**|  | [optional] 
 
 ### Return type
 
@@ -481,7 +489,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

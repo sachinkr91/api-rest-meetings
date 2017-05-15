@@ -47,7 +47,7 @@ public class AuthenticationApiTest {
     /**
      * Get Authorization Code
      *
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -59,7 +59,9 @@ public class AuthenticationApiTest {
         String state = null;
         String scope = null;
         String responseType = null;
-        api.getAuthorizationCode(clientId, redirectUri, state, scope, responseType);
+        String appName = null;
+        String appLogoUrl = null;
+        api.getAuthorizationCode(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
 
         // TODO: test validations
     }
@@ -154,7 +156,8 @@ public class AuthenticationApiTest {
      */
     @Test
     public void getTokenInfoTest() throws ApiException {
-        InlineResponse200 response = api.getTokenInfo();
+        String accessToken = null;
+        InlineResponse200 response = api.getTokenInfo(accessToken);
 
         // TODO: test validations
     }

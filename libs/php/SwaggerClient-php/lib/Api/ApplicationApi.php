@@ -198,7 +198,7 @@ class ApplicationApi
      * Regenerate Client Application Secret
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param string $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\ApplicationSecret
      */
@@ -214,7 +214,7 @@ class ApplicationApi
      * Regenerate Client Application Secret
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param string $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\ApplicationSecret, HTTP status code, HTTP response headers (array of strings)
      */
@@ -306,7 +306,7 @@ class ApplicationApi
      * Update Client Application
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param string $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
      * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\Application
@@ -323,7 +323,7 @@ class ApplicationApi
      * Update Client Application
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param string $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
      * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\Application, HTTP status code, HTTP response headers (array of strings)

@@ -115,14 +115,6 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user_id"
-     */
-    public function testPropertyUserId()
-    {
-
-    }
-
-    /**
      * Test attribute "client_id"
      */
     public function testPropertyClientId()

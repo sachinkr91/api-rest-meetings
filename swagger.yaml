@@ -188,6 +188,8 @@ paths:
           description: The information about the grant.
           schema:
             $ref: '#/definitions/GrantCode'
+        '401':
+          description: The code token is invalid or has expired.  The code is only good for 30 seconds!
         default:
           description: Unexpected error
           schema:
@@ -239,6 +241,8 @@ paths:
       responses:
         '204':
           description: The information about the grant.
+        '400':
+          description: Bad request. The access_token is probably already revoked and cannot be found. Use /oauth2/tokenInfo to query a token's validity if needed.
         default:
           description: Unexpected error
           schema:
@@ -250,8 +254,12 @@ paths:
       operationId: getTokenInfo
       tags:
         - Authentication
-      security:
-        - access_token: []
+      consumes:
+        - application/json
+      parameters:
+        - name: access_token
+          type: string
+          in: query
       responses:
         '200':
           description: Any information about the token.
@@ -268,12 +276,10 @@ paths:
   /oauth2/authorize:
     get:
       summary: Get Authorization Code
-      description: This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+      description: This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use "bluejeans.com" as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
       operationId: getAuthorizationCode
       tags:
         - Authentication
-      security:
-        - access_token: []
       parameters:
         - name: clientId
           in: query
@@ -296,6 +302,13 @@ paths:
           description: The type of authorization you are peforrming.  Set to "code".
           default: code
           type: string
+        - name: appName
+          in: query
+          description: The name of the client application shown to user during authorization.
+          type: string
+        - name: appLogoUrl
+          in: query
+          description: URL to an 84x84 image shown to user during authorization.
       responses:
         '200':
           description: This URL should be invoked by the user of the client application in a browser, not via API.
@@ -2153,7 +2166,7 @@ paths:
           type: string
       responses:
         '200':
-          description: The new applicatio secret.
+          description: The new application secret.
           schema:
             $ref: '#/definitions/ApplicationSecret'
         '401':
@@ -2299,7 +2312,7 @@ definitions:
       grant_type:
         type: string
         default: authorization_code
-        description: The type of access token you are requesting.
+        description: The type of access token you are requesting. Use "authorization_code".
       client_id:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
@@ -2353,6 +2366,9 @@ definitions:
           bearerPermissions:
             type: string
             description: Comma-delimited list of scopes authorized by this token.
+          clientId:
+            type: string
+            description: The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
   GrantRequestRefresh:
     type: object
     properties:
@@ -4096,7 +4112,7 @@ definitions:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
         readOnly: true
-      clientSecret:
+      client_secret:
         type: string
         description: The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
         readOnly: true

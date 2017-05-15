@@ -37,9 +37,6 @@ public class Application {
   @SerializedName("redirectUrls")
   private List<String> redirectUrls = new ArrayList<String>();
 
-  @SerializedName("userId")
-  private String userId = null;
-
   @SerializedName("clientId")
   private String clientId = null;
 
@@ -123,24 +120,6 @@ public class Application {
     this.redirectUrls = redirectUrls;
   }
 
-  public Application userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * The user ID of the owner of the client application.
-   * @return userId
-  **/
-  @ApiModelProperty(example = "null", value = "The user ID of the owner of the client application.")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
    /**
    * The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
    * @return clientId
@@ -173,14 +152,13 @@ public class Application {
         Objects.equals(this.appName, application.appName) &&
         Objects.equals(this.appLogoUrl, application.appLogoUrl) &&
         Objects.equals(this.redirectUrls, application.redirectUrls) &&
-        Objects.equals(this.userId, application.userId) &&
         Objects.equals(this.clientId, application.clientId) &&
         Objects.equals(this.clientSecret, application.clientSecret);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, appName, appLogoUrl, redirectUrls, userId, clientId, clientSecret);
+    return Objects.hash(description, appName, appLogoUrl, redirectUrls, clientId, clientSecret);
   }
 
 
@@ -193,7 +171,6 @@ public class Application {
     sb.append("    appName: ").append(toIndentedString(appName)).append("\n");
     sb.append("    appLogoUrl: ").append(toIndentedString(appLogoUrl)).append("\n");
     sb.append("    redirectUrls: ").append(toIndentedString(redirectUrls)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("}");

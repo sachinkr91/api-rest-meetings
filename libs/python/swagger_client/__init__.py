@@ -56,6 +56,7 @@ from .models.grant_meeting_scope_meeting import GrantMeetingScopeMeeting
 from .models.grant_password import GrantPassword
 from .models.grant_password_scope import GrantPasswordScope
 from .models.grant_refresh import GrantRefresh
+from .models.grant_refresh_scope import GrantRefreshScope
 from .models.grant_request_client import GrantRequestClient
 from .models.grant_request_code import GrantRequestCode
 from .models.grant_request_meeting import GrantRequestMeeting

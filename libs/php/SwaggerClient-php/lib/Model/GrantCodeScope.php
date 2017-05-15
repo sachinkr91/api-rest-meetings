@@ -58,7 +58,8 @@ class GrantCodeScope implements ArrayAccess
         'app_permissions' => '\Swagger\Client\Model\GrantCodeScopeAppPermissions[]',
         'partition_name' => 'string',
         'partition' => '\Swagger\Client\Model\Partition',
-        'bearer_permissions' => 'string'
+        'bearer_permissions' => 'string',
+        'client_id' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -75,7 +76,8 @@ class GrantCodeScope implements ArrayAccess
         'app_permissions' => 'appPermissions',
         'partition_name' => 'partitionName',
         'partition' => 'partition',
-        'bearer_permissions' => 'bearerPermissions'
+        'bearer_permissions' => 'bearerPermissions',
+        'client_id' => 'clientId'
     ];
 
 
@@ -88,7 +90,8 @@ class GrantCodeScope implements ArrayAccess
         'app_permissions' => 'setAppPermissions',
         'partition_name' => 'setPartitionName',
         'partition' => 'setPartition',
-        'bearer_permissions' => 'setBearerPermissions'
+        'bearer_permissions' => 'setBearerPermissions',
+        'client_id' => 'setClientId'
     ];
 
 
@@ -101,7 +104,8 @@ class GrantCodeScope implements ArrayAccess
         'app_permissions' => 'getAppPermissions',
         'partition_name' => 'getPartitionName',
         'partition' => 'getPartition',
-        'bearer_permissions' => 'getBearerPermissions'
+        'bearer_permissions' => 'getBearerPermissions',
+        'client_id' => 'getClientId'
     ];
 
     public static function attributeMap()
@@ -140,6 +144,7 @@ class GrantCodeScope implements ArrayAccess
         $this->container['partition_name'] = isset($data['partition_name']) ? $data['partition_name'] : null;
         $this->container['partition'] = isset($data['partition']) ? $data['partition'] : null;
         $this->container['bearer_permissions'] = isset($data['bearer_permissions']) ? $data['bearer_permissions'] : null;
+        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
     }
 
     /**
@@ -268,6 +273,27 @@ class GrantCodeScope implements ArrayAccess
     public function setBearerPermissions($bearer_permissions)
     {
         $this->container['bearer_permissions'] = $bearer_permissions;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_id
+     * @return string
+     */
+    public function getClientId()
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     * @param string $client_id The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
+     * @return $this
+     */
+    public function setClientId($client_id)
+    {
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }

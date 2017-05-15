@@ -51,7 +51,6 @@
 
 
 
-
   };
 
   /**
@@ -76,9 +75,6 @@
       }
       if (data.hasOwnProperty('redirectUrls')) {
         obj['redirectUrls'] = ApiClient.convertToType(data['redirectUrls'], ['String']);
-      }
-      if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -109,11 +105,6 @@
    * @member {Array.<String>} redirectUrls
    */
   exports.prototype['redirectUrls'] = undefined;
-  /**
-   * The user ID of the owner of the client application.
-   * @member {String} userId
-   */
-  exports.prototype['userId'] = undefined;
   /**
    * The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
    * @member {String} clientId

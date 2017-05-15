@@ -78,12 +78,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property userId (base name: "userId")', function() {
-      // uncomment below and update the code to test the property userId
-      //var instane = new BlueJeansOnVideoRestApi.Application();
-      //expect(instance).to.be();
-    });
-
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
       //var instane = new BlueJeansOnVideoRestApi.Application();

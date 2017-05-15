@@ -63,8 +63,8 @@
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
-      if (data.hasOwnProperty('clientSecret')) {
-        obj['clientSecret'] = ApiClient.convertToType(data['clientSecret'], 'String');
+      if (data.hasOwnProperty('client_secret')) {
+        obj['client_secret'] = ApiClient.convertToType(data['client_secret'], 'String');
       }
     }
     return obj;
@@ -77,9 +77,9 @@
   exports.prototype['clientId'] = undefined;
   /**
    * The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
-   * @member {String} clientSecret
+   * @member {String} client_secret
    */
-  exports.prototype['clientSecret'] = undefined;
+  exports.prototype['client_secret'] = undefined;
 
 
 

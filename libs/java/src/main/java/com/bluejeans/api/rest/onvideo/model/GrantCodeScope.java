@@ -42,6 +42,9 @@ public class GrantCodeScope {
   @SerializedName("bearerPermissions")
   private String bearerPermissions = null;
 
+  @SerializedName("clientId")
+  private String clientId = null;
+
   public GrantCodeScope user(Integer user) {
     this.user = user;
     return this;
@@ -137,6 +140,24 @@ public class GrantCodeScope {
     this.bearerPermissions = bearerPermissions;
   }
 
+  public GrantCodeScope clientId(String clientId) {
+    this.clientId = clientId;
+    return this;
+  }
+
+   /**
+   * The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
+   * @return clientId
+  **/
+  @ApiModelProperty(example = "null", value = "The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.")
+  public String getClientId() {
+    return clientId;
+  }
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +172,13 @@ public class GrantCodeScope {
         Objects.equals(this.appPermissions, grantCodeScope.appPermissions) &&
         Objects.equals(this.partitionName, grantCodeScope.partitionName) &&
         Objects.equals(this.partition, grantCodeScope.partition) &&
-        Objects.equals(this.bearerPermissions, grantCodeScope.bearerPermissions);
+        Objects.equals(this.bearerPermissions, grantCodeScope.bearerPermissions) &&
+        Objects.equals(this.clientId, grantCodeScope.clientId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, appPermissions, partitionName, partition, bearerPermissions);
+    return Objects.hash(user, appPermissions, partitionName, partition, bearerPermissions, clientId);
   }
 
 
@@ -170,6 +192,7 @@ public class GrantCodeScope {
     sb.append("    partitionName: ").append(toIndentedString(partitionName)).append("\n");
     sb.append("    partition: ").append(toIndentedString(partition)).append("\n");
     sb.append("    bearerPermissions: ").append(toIndentedString(bearerPermissions)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
  - [BlueJeansOnVideoRestApi.GrantPassword](docs/GrantPassword.md)
  - [BlueJeansOnVideoRestApi.GrantPasswordScope](docs/GrantPasswordScope.md)
  - [BlueJeansOnVideoRestApi.GrantRefresh](docs/GrantRefresh.md)
+ - [BlueJeansOnVideoRestApi.GrantRefreshScope](docs/GrantRefreshScope.md)
  - [BlueJeansOnVideoRestApi.GrantRequestClient](docs/GrantRequestClient.md)
  - [BlueJeansOnVideoRestApi.GrantRequestCode](docs/GrantRequestCode.md)
  - [BlueJeansOnVideoRestApi.GrantRequestMeeting](docs/GrantRequestMeeting.md)

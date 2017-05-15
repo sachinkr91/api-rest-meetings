@@ -55,13 +55,15 @@
 
     /**
      * Get Authorization Code
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId The 32 character client ID generated when you created the client application.
      * @param {String} opts.redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
      * @param {String} opts.state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
      * @param {String} opts.scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
      * @param {String} opts.responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (default to code)
+     * @param {String} opts.appName The name of the client application shown to user during authorization.
+     * @param {String} opts.appLogoUrl URL to an 84x84 image shown to user during authorization.
      * @param {module:api/AuthenticationApi~getAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getAuthorizationCode = function(opts, callback) {
@@ -76,7 +78,9 @@
         'redirectUri': opts['redirectUri'],
         'state': opts['state'],
         'scope': opts['scope'],
-        'responseType': opts['responseType']
+        'responseType': opts['responseType'],
+        'appName': opts['appName'],
+        'appLogoUrl': opts['appLogoUrl']
       };
       var headerParams = {
       };
@@ -331,16 +335,20 @@
     /**
      * Validate a Token
      * This endpoint will validate if a token is valid or not.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.accessToken 
      * @param {module:api/AuthenticationApi~getTokenInfoCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InlineResponse200}
      */
-    this.getTokenInfo = function(callback) {
+    this.getTokenInfo = function(opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
 
       var pathParams = {
       };
       var queryParams = {
+        'access_token': opts['accessToken']
       };
       var headerParams = {
       };
@@ -348,7 +356,7 @@
       };
 
       var authNames = ['access_token'];
-      var contentTypes = [];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = InlineResponse200;
 

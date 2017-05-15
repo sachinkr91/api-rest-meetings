@@ -57,7 +57,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>ApplicationSecret</returns>
-        ApplicationSecret RegenerateClientApplicationSecret (int? userId, int? clientId);
+        ApplicationSecret RegenerateClientApplicationSecret (int? userId, string clientId);
 
         /// <summary>
         /// Regenerate Client Application Secret
@@ -69,7 +69,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>ApiResponse of ApplicationSecret</returns>
-        ApiResponse<ApplicationSecret> RegenerateClientApplicationSecretWithHttpInfo (int? userId, int? clientId);
+        ApiResponse<ApplicationSecret> RegenerateClientApplicationSecretWithHttpInfo (int? userId, string clientId);
         /// <summary>
         /// Update Client Application
         /// </summary>
@@ -81,7 +81,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Application</returns>
-        Application UpdateClientApplication (int? userId, int? clientId, Application application);
+        Application UpdateClientApplication (int? userId, string clientId, Application application);
 
         /// <summary>
         /// Update Client Application
@@ -94,7 +94,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>ApiResponse of Application</returns>
-        ApiResponse<Application> UpdateClientApplicationWithHttpInfo (int? userId, int? clientId, Application application);
+        ApiResponse<Application> UpdateClientApplicationWithHttpInfo (int? userId, string clientId, Application application);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -130,7 +130,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>Task of ApplicationSecret</returns>
-        System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, int? clientId);
+        System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, string clientId);
 
         /// <summary>
         /// Regenerate Client Application Secret
@@ -142,7 +142,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>Task of ApiResponse (ApplicationSecret)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, int? clientId);
+        System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, string clientId);
         /// <summary>
         /// Update Client Application
         /// </summary>
@@ -154,7 +154,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Task of Application</returns>
-        System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, int? clientId, Application application);
+        System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, string clientId, Application application);
 
         /// <summary>
         /// Update Client Application
@@ -167,7 +167,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Task of ApiResponse (Application)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, int? clientId, Application application);
+        System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, string clientId, Application application);
         #endregion Asynchronous Operations
     }
 
@@ -465,7 +465,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>ApplicationSecret</returns>
-        public ApplicationSecret RegenerateClientApplicationSecret (int? userId, int? clientId)
+        public ApplicationSecret RegenerateClientApplicationSecret (int? userId, string clientId)
         {
              ApiResponse<ApplicationSecret> localVarResponse = RegenerateClientApplicationSecretWithHttpInfo(userId, clientId);
              return localVarResponse.Data;
@@ -478,7 +478,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>ApiResponse of ApplicationSecret</returns>
-        public ApiResponse< ApplicationSecret > RegenerateClientApplicationSecretWithHttpInfo (int? userId, int? clientId)
+        public ApiResponse< ApplicationSecret > RegenerateClientApplicationSecretWithHttpInfo (int? userId, string clientId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -547,7 +547,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>Task of ApplicationSecret</returns>
-        public async System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, int? clientId)
+        public async System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, string clientId)
         {
              ApiResponse<ApplicationSecret> localVarResponse = await RegenerateClientApplicationSecretAsyncWithHttpInfo(userId, clientId);
              return localVarResponse.Data;
@@ -561,7 +561,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <returns>Task of ApiResponse (ApplicationSecret)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, int? clientId)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, string clientId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -630,7 +630,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Application</returns>
-        public Application UpdateClientApplication (int? userId, int? clientId, Application application)
+        public Application UpdateClientApplication (int? userId, string clientId, Application application)
         {
              ApiResponse<Application> localVarResponse = UpdateClientApplicationWithHttpInfo(userId, clientId, application);
              return localVarResponse.Data;
@@ -644,7 +644,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>ApiResponse of Application</returns>
-        public ApiResponse< Application > UpdateClientApplicationWithHttpInfo (int? userId, int? clientId, Application application)
+        public ApiResponse< Application > UpdateClientApplicationWithHttpInfo (int? userId, string clientId, Application application)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -725,7 +725,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Task of Application</returns>
-        public async System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, int? clientId, Application application)
+        public async System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, string clientId, Application application)
         {
              ApiResponse<Application> localVarResponse = await UpdateClientApplicationAsyncWithHttpInfo(userId, clientId, application);
              return localVarResponse.Data;
@@ -740,7 +740,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
         /// <param name="application">The information about the new client application.</param>
         /// <returns>Task of ApiResponse (Application)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, int? clientId, Application application)
+        public async System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, string clientId, Application application)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)

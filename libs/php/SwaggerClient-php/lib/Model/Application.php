@@ -58,7 +58,6 @@ class Application implements ArrayAccess
         'app_name' => 'string',
         'app_logo_url' => 'string',
         'redirect_urls' => 'string[]',
-        'user_id' => 'string',
         'client_id' => 'string',
         'client_secret' => 'string'
     ];
@@ -77,7 +76,6 @@ class Application implements ArrayAccess
         'app_name' => 'appName',
         'app_logo_url' => 'appLogoUrl',
         'redirect_urls' => 'redirectUrls',
-        'user_id' => 'userId',
         'client_id' => 'clientId',
         'client_secret' => 'clientSecret'
     ];
@@ -92,7 +90,6 @@ class Application implements ArrayAccess
         'app_name' => 'setAppName',
         'app_logo_url' => 'setAppLogoUrl',
         'redirect_urls' => 'setRedirectUrls',
-        'user_id' => 'setUserId',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret'
     ];
@@ -107,7 +104,6 @@ class Application implements ArrayAccess
         'app_name' => 'getAppName',
         'app_logo_url' => 'getAppLogoUrl',
         'redirect_urls' => 'getRedirectUrls',
-        'user_id' => 'getUserId',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret'
     ];
@@ -147,7 +143,6 @@ class Application implements ArrayAccess
         $this->container['app_name'] = isset($data['app_name']) ? $data['app_name'] : null;
         $this->container['app_logo_url'] = isset($data['app_logo_url']) ? $data['app_logo_url'] : null;
         $this->container['redirect_urls'] = isset($data['redirect_urls']) ? $data['redirect_urls'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
     }
@@ -257,27 +252,6 @@ class Application implements ArrayAccess
     public function setRedirectUrls($redirect_urls)
     {
         $this->container['redirect_urls'] = $redirect_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     * @param string $user_id The user ID of the owner of the client application.
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
 
         return $this;
     }

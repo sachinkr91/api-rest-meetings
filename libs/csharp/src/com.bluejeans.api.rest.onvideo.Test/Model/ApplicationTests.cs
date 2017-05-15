@@ -97,14 +97,6 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO unit test for the property 'RedirectUrls'
         }
         /// <summary>
-        /// Test the property 'UserId'
-        /// </summary>
-        [Test]
-        public void UserIdTest()
-        {
-            // TODO unit test for the property 'UserId'
-        }
-        /// <summary>
         /// Test the property 'ClientId'
         /// </summary>
         [Test]

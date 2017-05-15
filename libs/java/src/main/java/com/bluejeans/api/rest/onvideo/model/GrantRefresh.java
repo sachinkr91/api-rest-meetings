@@ -14,7 +14,7 @@
 package com.bluejeans.api.rest.onvideo.model;
 
 import java.util.Objects;
-import com.bluejeans.api.rest.onvideo.model.GrantCodeScope;
+import com.bluejeans.api.rest.onvideo.model.GrantRefreshScope;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +34,7 @@ public class GrantRefresh {
   private Integer expiresIn = null;
 
   @SerializedName("scope")
-  private GrantCodeScope scope = null;
+  private GrantRefreshScope scope = null;
 
   public GrantRefresh accessToken(String accessToken) {
     this.accessToken = accessToken;
@@ -90,7 +90,7 @@ public class GrantRefresh {
     this.expiresIn = expiresIn;
   }
 
-  public GrantRefresh scope(GrantCodeScope scope) {
+  public GrantRefresh scope(GrantRefreshScope scope) {
     this.scope = scope;
     return this;
   }
@@ -100,11 +100,11 @@ public class GrantRefresh {
    * @return scope
   **/
   @ApiModelProperty(example = "null", value = "")
-  public GrantCodeScope getScope() {
+  public GrantRefreshScope getScope() {
     return scope;
   }
 
-  public void setScope(GrantCodeScope scope) {
+  public void setScope(GrantRefreshScope scope) {
     this.scope = scope;
   }
 

@@ -56,7 +56,7 @@ class GrantRequestCode(object):
     def grant_type(self):
         """
         Gets the grant_type of this GrantRequestCode.
-        The type of access token you are requesting.
+        The type of access token you are requesting. Use \"authorization_code\".
 
         :return: The grant_type of this GrantRequestCode.
         :rtype: str
@@ -67,7 +67,7 @@ class GrantRequestCode(object):
     def grant_type(self, grant_type):
         """
         Sets the grant_type of this GrantRequestCode.
-        The type of access token you are requesting.
+        The type of access token you are requesting. Use \"authorization_code\".
 
         :param grant_type: The grant_type of this GrantRequestCode.
         :type: str

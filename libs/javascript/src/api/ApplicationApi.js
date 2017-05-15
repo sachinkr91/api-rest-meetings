@@ -109,7 +109,7 @@
      * Regenerate Client Application Secret
      * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
+     * @param {String} clientId The ID of the client application of interest. This value was given as a response during client application creation.
      * @param {module:api/ApplicationApi~regenerateClientApplicationSecretCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationSecret}
      */
@@ -162,7 +162,7 @@
      * Update Client Application
      * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
+     * @param {String} clientId The ID of the client application of interest. This value was given as a response during client application creation.
      * @param {module:model/Application} application The information about the new client application.
      * @param {module:api/ApplicationApi~updateClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Application}

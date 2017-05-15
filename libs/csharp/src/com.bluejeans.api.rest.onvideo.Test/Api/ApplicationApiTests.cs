@@ -85,7 +85,7 @@ namespace com.bluejeans.api.rest.onvideo.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //int? clientId = null;
+            //string clientId = null;
             //var response = instance.RegenerateClientApplicationSecret(userId, clientId);
             //Assert.IsInstanceOf<ApplicationSecret> (response, "response is ApplicationSecret");
         }
@@ -98,7 +98,7 @@ namespace com.bluejeans.api.rest.onvideo.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? userId = null;
-            //int? clientId = null;
+            //string clientId = null;
             //Application application = null;
             //var response = instance.UpdateClientApplication(userId, clientId, application);
             //Assert.IsInstanceOf<Application> (response, "response is Application");

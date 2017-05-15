@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 <a name="regenerateclientapplicationsecret"></a>
 # **RegenerateClientApplicationSecret**
-> ApplicationSecret RegenerateClientApplicationSecret (int? userId, int? clientId)
+> ApplicationSecret RegenerateClientApplicationSecret (int? userId, string clientId)
 
 Regenerate Client Application Secret
 
@@ -108,7 +108,7 @@ namespace Example
 
             var apiInstance = new ApplicationApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var clientId = 56;  // int? | The ID of the client application of interest. This value was given as a response during client application creation.
+            var clientId = clientId_example;  // string | The ID of the client application of interest. This value was given as a response during client application creation.
 
             try
             {
@@ -130,7 +130,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **clientId** | **int?**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **clientId** | **string**| The ID of the client application of interest. This value was given as a response during client application creation. | 
 
 ### Return type
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 <a name="updateclientapplication"></a>
 # **UpdateClientApplication**
-> Application UpdateClientApplication (int? userId, int? clientId, Application application)
+> Application UpdateClientApplication (int? userId, string clientId, Application application)
 
 Update Client Application
 
@@ -177,7 +177,7 @@ namespace Example
 
             var apiInstance = new ApplicationApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var clientId = 56;  // int? | The ID of the client application of interest. This value was given as a response during client application creation.
+            var clientId = clientId_example;  // string | The ID of the client application of interest. This value was given as a response during client application creation.
             var application = new Application(); // Application | The information about the new client application.
 
             try
@@ -200,7 +200,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **clientId** | **int?**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **clientId** | **string**| The ID of the client application of interest. This value was given as a response during client application creation. | 
  **application** | [**Application**](Application.md)| The information about the new client application. | 
 
 ### Return type

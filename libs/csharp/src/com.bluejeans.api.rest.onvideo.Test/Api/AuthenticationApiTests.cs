@@ -76,7 +76,9 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //string state = null;
             //string scope = null;
             //string responseType = null;
-            //instance.GetAuthorizationCode(clientId, redirectUri, state, scope, responseType);
+            //string appName = null;
+            //string appLogoUrl = null;
+            //instance.GetAuthorizationCode(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
             
         }
         
@@ -147,7 +149,8 @@ namespace com.bluejeans.api.rest.onvideo.Test
         public void GetTokenInfoTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetTokenInfo();
+            //string accessToken = null;
+            //var response = instance.GetTokenInfo(accessToken);
             //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
         }
         

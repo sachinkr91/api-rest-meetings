@@ -67,7 +67,7 @@ public class AuthenticationApi {
     }
 
     /* Build call for getAuthorizationCode */
-    private com.squareup.okhttp.Call getAuthorizationCodeCall(String clientId, String redirectUri, String state, String scope, String responseType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAuthorizationCodeCall(String clientId, String redirectUri, String state, String scope, String responseType, String appName, String appLogoUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -84,6 +84,10 @@ public class AuthenticationApi {
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "scope", scope));
         if (responseType != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "responseType", responseType));
+        if (appName != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "appName", appName));
+        if (appLogoUrl != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "appLogoUrl", appLogoUrl));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -118,10 +122,10 @@ public class AuthenticationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAuthorizationCodeValidateBeforeCall(String clientId, String redirectUri, String state, String scope, String responseType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAuthorizationCodeValidateBeforeCall(String clientId, String redirectUri, String state, String scope, String responseType, String appName, String appLogoUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAuthorizationCodeCall(clientId, redirectUri, state, scope, responseType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAuthorizationCodeCall(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl, progressListener, progressRequestListener);
         return call;
 
         
@@ -132,47 +136,53 @@ public class AuthenticationApi {
 
     /**
      * Get Authorization Code
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
      * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param appName The name of the client application shown to user during authorization. (optional)
+     * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getAuthorizationCode(String clientId, String redirectUri, String state, String scope, String responseType) throws ApiException {
-        getAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+    public void getAuthorizationCode(String clientId, String redirectUri, String state, String scope, String responseType, String appName, String appLogoUrl) throws ApiException {
+        getAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl);
     }
 
     /**
      * Get Authorization Code
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
      * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param appName The name of the client application shown to user during authorization. (optional)
+     * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getAuthorizationCodeWithHttpInfo(String clientId, String redirectUri, String state, String scope, String responseType) throws ApiException {
-        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, null, null);
+    public ApiResponse<Void> getAuthorizationCodeWithHttpInfo(String clientId, String redirectUri, String state, String scope, String responseType, String appName, String appLogoUrl) throws ApiException {
+        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Get Authorization Code (asynchronously)
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
      * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param appName The name of the client application shown to user during authorization. (optional)
+     * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAuthorizationCodeAsync(String clientId, String redirectUri, String state, String scope, String responseType, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAuthorizationCodeAsync(String clientId, String redirectUri, String state, String scope, String responseType, String appName, String appLogoUrl, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -193,7 +203,7 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, appName, appLogoUrl, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -788,13 +798,15 @@ public class AuthenticationApi {
         return call;
     }
     /* Build call for getTokenInfo */
-    private com.squareup.okhttp.Call getTokenInfoCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTokenInfoCall(String accessToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/oauth2/tokenInfo".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (accessToken != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_token", accessToken));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -807,7 +819,7 @@ public class AuthenticationApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -829,10 +841,10 @@ public class AuthenticationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTokenInfoValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTokenInfoValidateBeforeCall(String accessToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getTokenInfoCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTokenInfoCall(accessToken, progressListener, progressRequestListener);
         return call;
 
         
@@ -844,22 +856,24 @@ public class AuthenticationApi {
     /**
      * Validate a Token
      * This endpoint will validate if a token is valid or not.
+     * @param accessToken  (optional)
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 getTokenInfo() throws ApiException {
-        ApiResponse<InlineResponse200> resp = getTokenInfoWithHttpInfo();
+    public InlineResponse200 getTokenInfo(String accessToken) throws ApiException {
+        ApiResponse<InlineResponse200> resp = getTokenInfoWithHttpInfo(accessToken);
         return resp.getData();
     }
 
     /**
      * Validate a Token
      * This endpoint will validate if a token is valid or not.
+     * @param accessToken  (optional)
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> getTokenInfoWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getTokenInfoValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse200> getTokenInfoWithHttpInfo(String accessToken) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenInfoValidateBeforeCall(accessToken, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -867,11 +881,12 @@ public class AuthenticationApi {
     /**
      * Validate a Token (asynchronously)
      * This endpoint will validate if a token is valid or not.
+     * @param accessToken  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenInfoAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenInfoAsync(String accessToken, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -892,7 +907,7 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTokenInfoValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTokenInfoValidateBeforeCall(accessToken, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

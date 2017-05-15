@@ -69,7 +69,7 @@ class ApplicationSecret implements ArrayAccess
      */
     protected static $attributeMap = [
         'client_id' => 'clientId',
-        'client_secret' => 'clientSecret'
+        'client_secret' => 'client_secret'
     ];
 
 

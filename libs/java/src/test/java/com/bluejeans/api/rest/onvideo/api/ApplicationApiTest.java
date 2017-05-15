@@ -62,7 +62,7 @@ public class ApplicationApiTest {
     @Test
     public void regenerateClientApplicationSecretTest() throws ApiException {
         Integer userId = null;
-        Integer clientId = null;
+        String clientId = null;
         ApplicationSecret response = api.regenerateClientApplicationSecret(userId, clientId);
 
         // TODO: test validations
@@ -79,7 +79,7 @@ public class ApplicationApiTest {
     @Test
     public void updateClientApplicationTest() throws ApiException {
         Integer userId = null;
-        Integer clientId = null;
+        String clientId = null;
         Application application = null;
         Application response = api.updateClientApplication(userId, clientId, application);
 

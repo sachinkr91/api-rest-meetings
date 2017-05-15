@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
 
 ### Example
 ```javascript
@@ -40,7 +40,9 @@ var opts = {
   'redirectUri': "redirectUri_example", // String | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
   'state': "state_example", // String | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
   'scope': "scope_example", // String | A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
-  'responseType': "code" // String | The type of authorization you are peforrming.  Set to \"code\".
+  'responseType': "code", // String | The type of authorization you are peforrming.  Set to \"code\".
+  'appName': "appName_example", // String | The name of the client application shown to user during authorization.
+  'appLogoUrl': "appLogoUrl_example" // String | URL to an 84x84 image shown to user during authorization.
 };
 
 var callback = function(error, data, response) {
@@ -62,6 +64,8 @@ Name | Type | Description  | Notes
  **state** | **String**| Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. | [optional] 
  **scope** | **String**| A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info | [optional] 
  **responseType** | **String**| The type of authorization you are peforrming.  Set to \&quot;code\&quot;. | [optional] [default to code]
+ **appName** | **String**| The name of the client application shown to user during authorization. | [optional] 
+ **appLogoUrl** | **String**| URL to an 84x84 image shown to user during authorization. | [optional] 
 
 ### Return type
 
@@ -343,7 +347,7 @@ Name | Type | Description  | Notes
 
 <a name="getTokenInfo"></a>
 # **getTokenInfo**
-> InlineResponse200 getTokenInfo()
+> InlineResponse200 getTokenInfo(opts)
 
 Validate a Token
 
@@ -362,6 +366,10 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
 
+var opts = { 
+  'accessToken': "accessToken_example" // String | 
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -369,11 +377,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getTokenInfo(callback);
+apiInstance.getTokenInfo(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accessToken** | **String**|  | [optional] 
 
 ### Return type
 
@@ -385,7 +396,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="revokeAccessToken"></a>

@@ -37,13 +37,15 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <param name="PartitionName">The name of the partition you are on..</param>
         /// <param name="Partition">Partition.</param>
         /// <param name="BearerPermissions">Comma-delimited list of scopes authorized by this token..</param>
-        public GrantCodeScope(int? User = default(int?), List<GrantCodeScopeAppPermissions> AppPermissions = default(List<GrantCodeScopeAppPermissions>), string PartitionName = default(string), Partition Partition = default(Partition), string BearerPermissions = default(string))
+        /// <param name="ClientId">The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string..</param>
+        public GrantCodeScope(int? User = default(int?), List<GrantCodeScopeAppPermissions> AppPermissions = default(List<GrantCodeScopeAppPermissions>), string PartitionName = default(string), Partition Partition = default(Partition), string BearerPermissions = default(string), string ClientId = default(string))
         {
             this.User = User;
             this.AppPermissions = AppPermissions;
             this.PartitionName = PartitionName;
             this.Partition = Partition;
             this.BearerPermissions = BearerPermissions;
+            this.ClientId = ClientId;
         }
         
         /// <summary>
@@ -75,6 +77,12 @@ namespace com.bluejeans.api.rest.onvideo.Model
         [DataMember(Name="bearerPermissions", EmitDefaultValue=false)]
         public string BearerPermissions { get; set; }
         /// <summary>
+        /// The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
+        /// </summary>
+        /// <value>The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.</value>
+        [DataMember(Name="clientId", EmitDefaultValue=false)]
+        public string ClientId { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +95,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
             sb.Append("  PartitionName: ").Append(PartitionName).Append("\n");
             sb.Append("  Partition: ").Append(Partition).Append("\n");
             sb.Append("  BearerPermissions: ").Append(BearerPermissions).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +156,11 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     this.BearerPermissions == other.BearerPermissions ||
                     this.BearerPermissions != null &&
                     this.BearerPermissions.Equals(other.BearerPermissions)
+                ) && 
+                (
+                    this.ClientId == other.ClientId ||
+                    this.ClientId != null &&
+                    this.ClientId.Equals(other.ClientId)
                 );
         }
 
@@ -171,6 +185,8 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     hash = hash * 59 + this.Partition.GetHashCode();
                 if (this.BearerPermissions != null)
                     hash = hash * 59 + this.BearerPermissions.GetHashCode();
+                if (this.ClientId != null)
+                    hash = hash * 59 + this.ClientId.GetHashCode();
                 return hash;
             }
         }

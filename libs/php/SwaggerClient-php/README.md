@@ -192,6 +192,7 @@ Class | Method | HTTP request | Description
  - [GrantPassword](docs/Model/GrantPassword.md)
  - [GrantPasswordScope](docs/Model/GrantPasswordScope.md)
  - [GrantRefresh](docs/Model/GrantRefresh.md)
+ - [GrantRefreshScope](docs/Model/GrantRefreshScope.md)
  - [GrantRequestClient](docs/Model/GrantRequestClient.md)
  - [GrantRequestCode](docs/Model/GrantRequestCode.md)
  - [GrantRequestMeeting](docs/Model/GrantRequestMeeting.md)

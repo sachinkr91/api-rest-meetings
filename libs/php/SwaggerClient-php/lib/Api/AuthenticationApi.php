@@ -97,12 +97,14 @@ class AuthenticationApi
      * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
      * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
      * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param string $app_name The name of the client application shown to user during authorization. (optional)
+     * @param string $app_logo_url URL to an 84x84 image shown to user during authorization. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return void
      */
-    public function getAuthorizationCode($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null)
+    public function getAuthorizationCode($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null, $app_name = null, $app_logo_url = null)
     {
-        list($response) = $this->getAuthorizationCodeWithHttpInfo($client_id, $redirect_uri, $state, $scope, $response_type);
+        list($response) = $this->getAuthorizationCodeWithHttpInfo($client_id, $redirect_uri, $state, $scope, $response_type, $app_name, $app_logo_url);
         return $response;
     }
 
@@ -116,10 +118,12 @@ class AuthenticationApi
      * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
      * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
      * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param string $app_name The name of the client application shown to user during authorization. (optional)
+     * @param string $app_logo_url URL to an 84x84 image shown to user during authorization. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAuthorizationCodeWithHttpInfo($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null)
+    public function getAuthorizationCodeWithHttpInfo($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null, $app_name = null, $app_logo_url = null)
     {
         // parse inputs
         $resourcePath = "/oauth2/authorize";
@@ -152,6 +156,14 @@ class AuthenticationApi
         // query params
         if ($response_type !== null) {
             $queryParams['responseType'] = $this->apiClient->getSerializer()->toQueryValue($response_type);
+        }
+        // query params
+        if ($app_name !== null) {
+            $queryParams['appName'] = $this->apiClient->getSerializer()->toQueryValue($app_name);
+        }
+        // query params
+        if ($app_logo_url !== null) {
+            $queryParams['appLogoUrl'] = $this->apiClient->getSerializer()->toQueryValue($app_logo_url);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -653,12 +665,13 @@ class AuthenticationApi
      *
      * Validate a Token
      *
+     * @param string $access_token  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse200
      */
-    public function getTokenInfo()
+    public function getTokenInfo($access_token = null)
     {
-        list($response) = $this->getTokenInfoWithHttpInfo();
+        list($response) = $this->getTokenInfoWithHttpInfo($access_token);
         return $response;
     }
 
@@ -667,10 +680,11 @@ class AuthenticationApi
      *
      * Validate a Token
      *
+     * @param string $access_token  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTokenInfoWithHttpInfo()
+    public function getTokenInfoWithHttpInfo($access_token = null)
     {
         // parse inputs
         $resourcePath = "/oauth2/tokenInfo";
@@ -682,8 +696,12 @@ class AuthenticationApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($access_token !== null) {
+            $queryParams['access_token'] = $this->apiClient->getSerializer()->toQueryValue($access_token);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 

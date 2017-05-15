@@ -44,10 +44,10 @@ public class GrantRequestCode {
   }
 
    /**
-   * The type of access token you are requesting.
+   * The type of access token you are requesting. Use \"authorization_code\".
    * @return grantType
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The type of access token you are requesting.")
+  @ApiModelProperty(example = "null", required = true, value = "The type of access token you are requesting. Use \"authorization_code\".")
   public String getGrantType() {
     return grantType;
   }

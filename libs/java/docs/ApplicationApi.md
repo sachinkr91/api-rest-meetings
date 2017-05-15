@@ -93,7 +93,7 @@ access_token.setApiKey("YOUR API KEY");
 
 ApplicationApi apiInstance = new ApplicationApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer clientId = 56; // Integer | The ID of the client application of interest. This value was given as a response during client application creation.
+String clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 try {
     ApplicationSecret result = apiInstance.regenerateClientApplicationSecret(userId, clientId);
     System.out.println(result);
@@ -108,7 +108,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **clientId** | **Integer**| The ID of the client application of interest. This value was given as a response during client application creation. |
+ **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. |
 
 ### Return type
 
@@ -150,7 +150,7 @@ access_token.setApiKey("YOUR API KEY");
 
 ApplicationApi apiInstance = new ApplicationApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer clientId = 56; // Integer | The ID of the client application of interest. This value was given as a response during client application creation.
+String clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 Application application = new Application(); // Application | The information about the new client application.
 try {
     Application result = apiInstance.updateClientApplication(userId, clientId, application);
@@ -166,7 +166,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **clientId** | **Integer**| The ID of the client application of interest. This value was given as a response during client application creation. |
+ **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. |
  **application** | [**Application**](Application.md)| The information about the new client application. |
 
 ### Return type

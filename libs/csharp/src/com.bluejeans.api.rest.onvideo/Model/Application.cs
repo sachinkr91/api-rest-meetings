@@ -36,14 +36,12 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <param name="AppName">The name of the client application..</param>
         /// <param name="AppLogoUrl">A URL of an image that will be displayed to users during authorization..</param>
         /// <param name="RedirectUrls">RedirectUrls.</param>
-        /// <param name="UserId">The user ID of the owner of the client application..</param>
-        public Application(string Description = default(string), string AppName = default(string), string AppLogoUrl = default(string), List<string> RedirectUrls = default(List<string>), string UserId = default(string))
+        public Application(string Description = default(string), string AppName = default(string), string AppLogoUrl = default(string), List<string> RedirectUrls = default(List<string>))
         {
             this.Description = Description;
             this.AppName = AppName;
             this.AppLogoUrl = AppLogoUrl;
             this.RedirectUrls = RedirectUrls;
-            this.UserId = UserId;
         }
         
         /// <summary>
@@ -70,12 +68,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
         [DataMember(Name="redirectUrls", EmitDefaultValue=false)]
         public List<string> RedirectUrls { get; set; }
         /// <summary>
-        /// The user ID of the owner of the client application.
-        /// </summary>
-        /// <value>The user ID of the owner of the client application.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
-        public string UserId { get; set; }
-        /// <summary>
         /// The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
         /// </summary>
         /// <value>The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.</value>
@@ -99,7 +91,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
             sb.Append("  AppName: ").Append(AppName).Append("\n");
             sb.Append("  AppLogoUrl: ").Append(AppLogoUrl).Append("\n");
             sb.Append("  RedirectUrls: ").Append(RedirectUrls).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("}\n");
@@ -159,11 +150,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     this.RedirectUrls.SequenceEqual(other.RedirectUrls)
                 ) && 
                 (
-                    this.UserId == other.UserId ||
-                    this.UserId != null &&
-                    this.UserId.Equals(other.UserId)
-                ) && 
-                (
                     this.ClientId == other.ClientId ||
                     this.ClientId != null &&
                     this.ClientId.Equals(other.ClientId)
@@ -194,8 +180,6 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     hash = hash * 59 + this.AppLogoUrl.GetHashCode();
                 if (this.RedirectUrls != null)
                     hash = hash * 59 + this.RedirectUrls.GetHashCode();
-                if (this.UserId != null)
-                    hash = hash * 59 + this.UserId.GetHashCode();
                 if (this.ClientId != null)
                     hash = hash * 59 + this.ClientId.GetHashCode();
                 if (this.ClientSecret != null)

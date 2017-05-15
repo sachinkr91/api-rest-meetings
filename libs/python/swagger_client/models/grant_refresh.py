@@ -34,7 +34,7 @@ class GrantRefresh(object):
             'access_token': 'str',
             'refresh_token': 'str',
             'expires_in': 'int',
-            'scope': 'GrantCodeScope'
+            'scope': 'GrantRefreshScope'
         }
 
         self.attribute_map = {
@@ -124,7 +124,7 @@ class GrantRefresh(object):
         Gets the scope of this GrantRefresh.
 
         :return: The scope of this GrantRefresh.
-        :rtype: GrantCodeScope
+        :rtype: GrantRefreshScope
         """
         return self._scope
 
@@ -134,7 +134,7 @@ class GrantRefresh(object):
         Sets the scope of this GrantRefresh.
 
         :param scope: The scope of this GrantRefresh.
-        :type: GrantCodeScope
+        :type: GrantRefreshScope
         """
 
         self._scope = scope

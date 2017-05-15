@@ -36,7 +36,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// <param name="RefreshToken">A longer lasting token that may be used to retrieve new access tokens upon access token expiration..</param>
         /// <param name="ExpiresIn">Seconds that access token is valid for from now..</param>
         /// <param name="Scope">Scope.</param>
-        public GrantRefresh(string AccessToken = default(string), string RefreshToken = default(string), int? ExpiresIn = default(int?), GrantCodeScope Scope = default(GrantCodeScope))
+        public GrantRefresh(string AccessToken = default(string), string RefreshToken = default(string), int? ExpiresIn = default(int?), GrantRefreshScope Scope = default(GrantRefreshScope))
         {
             this.AccessToken = AccessToken;
             this.RefreshToken = RefreshToken;
@@ -66,7 +66,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
         /// Gets or Sets Scope
         /// </summary>
         [DataMember(Name="scope", EmitDefaultValue=false)]
-        public GrantCodeScope Scope { get; set; }
+        public GrantRefreshScope Scope { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

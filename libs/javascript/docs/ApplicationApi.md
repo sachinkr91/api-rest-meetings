@@ -88,7 +88,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var clientId = 56; // Number | The ID of the client application of interest. This value was given as a response during client application creation.
+var clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 
 
 var callback = function(error, data, response) {
@@ -106,7 +106,7 @@ apiInstance.regenerateClientApplicationSecret(userId, clientId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **clientId** | **Number**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. | 
 
 ### Return type
 
@@ -144,7 +144,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var clientId = 56; // Number | The ID of the client application of interest. This value was given as a response during client application creation.
+var clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 
 var application = new BlueJeansOnVideoRestApi.Application(); // Application | The information about the new client application.
 
@@ -164,7 +164,7 @@ apiInstance.updateClientApplication(userId, clientId, application, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **clientId** | **Number**| The ID of the client application of interest. This value was given as a response during client application creation. | 
+ **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. | 
  **application** | [**Application**](Application.md)| The information about the new client application. | 
 
 ### Return type

@@ -104,6 +104,14 @@ namespace com.bluejeans.api.rest.onvideo.Test
         {
             // TODO unit test for the property 'BearerPermissions'
         }
+        /// <summary>
+        /// Test the property 'ClientId'
+        /// </summary>
+        [Test]
+        public void ClientIdTest()
+        {
+            // TODO unit test for the property 'ClientId'
+        }
 
     }
 

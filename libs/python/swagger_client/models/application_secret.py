@@ -37,7 +37,7 @@ class ApplicationSecret(object):
 
         self.attribute_map = {
             'client_id': 'clientId',
-            'client_secret': 'clientSecret'
+            'client_secret': 'client_secret'
         }
 
         self._client_id = client_id
