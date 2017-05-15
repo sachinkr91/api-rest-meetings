@@ -268,7 +268,7 @@ paths:
   /oauth2/authorize:
     get:
       summary: Get Authorization Code
-      description: This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+      description: This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
       operationId: getAuthorizationCode
       tags:
         - Authentication
