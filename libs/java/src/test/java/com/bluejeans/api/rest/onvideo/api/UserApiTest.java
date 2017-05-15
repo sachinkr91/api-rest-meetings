@@ -16,6 +16,7 @@ package com.bluejeans.api.rest.onvideo.api;
 import com.bluejeans.api.rest.onvideo.ApiException;
 import com.bluejeans.api.rest.onvideo.model.Enterprise;
 import com.bluejeans.api.rest.onvideo.model.Error;
+import com.bluejeans.api.rest.onvideo.model.GrantedApplications;
 import com.bluejeans.api.rest.onvideo.model.Room;
 import com.bluejeans.api.rest.onvideo.model.User;
 import org.junit.Test;
@@ -52,6 +53,22 @@ public class UserApiTest {
     }
     
     /**
+     * Get Granted Applications
+     *
+     * This endpoint retrieves the granted applications associated with the user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getGrantedApplicationsTest() throws ApiException {
+        Integer userId = null;
+        GrantedApplications response = api.getGrantedApplications(userId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get User’s Default Meeting Settings
      *
      * This endpoint gets a user’s default meeting settings.
@@ -79,6 +96,23 @@ public class UserApiTest {
     public void getUserTest() throws ApiException {
         Integer userId = null;
         User response = api.getUser(userId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remoke Granted Application
+     *
+     * This endpoint revokes the granted application associated with the user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revokeGrantedApplicationTest() throws ApiException {
+        Integer userId = null;
+        String clientId = null;
+        api.revokeGrantedApplication(userId, clientId);
 
         // TODO: test validations
     }

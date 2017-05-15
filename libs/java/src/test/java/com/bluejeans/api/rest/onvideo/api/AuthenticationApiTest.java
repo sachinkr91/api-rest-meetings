@@ -14,13 +14,20 @@
 package com.bluejeans.api.rest.onvideo.api;
 
 import com.bluejeans.api.rest.onvideo.ApiException;
+import com.bluejeans.api.rest.onvideo.model.Application;
+import com.bluejeans.api.rest.onvideo.model.ApplicationSecret;
 import com.bluejeans.api.rest.onvideo.model.Error;
 import com.bluejeans.api.rest.onvideo.model.GrantClient;
+import com.bluejeans.api.rest.onvideo.model.GrantCode;
 import com.bluejeans.api.rest.onvideo.model.GrantMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantPassword;
+import com.bluejeans.api.rest.onvideo.model.GrantRefresh;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestClient;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestCode;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestPassword;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestRefresh;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestRevoke;
 import com.bluejeans.api.rest.onvideo.model.InlineResponse200;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,6 +47,43 @@ public class AuthenticationApiTest {
 
     
     /**
+     * Create Client Application
+     *
+     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createClientApplicationTest() throws ApiException {
+        Integer userId = null;
+        Application application = null;
+        Application response = api.createClientApplication(userId, application);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Authorization Code
+     *
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAuthorizationCodeTest() throws ApiException {
+        String clientId = null;
+        String redirectUri = null;
+        String state = null;
+        String scope = null;
+        String responseType = null;
+        api.getAuthorizationCode(clientId, redirectUri, state, scope, responseType);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Authentication via Client Grant Type
      *
      * This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
@@ -51,6 +95,22 @@ public class AuthenticationApiTest {
     public void getTokenByClientTest() throws ApiException {
         GrantRequestClient grantRequestClient = null;
         GrantClient response = api.getTokenByClient(grantRequestClient);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Authentication via Code Grant Type
+     *
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTokenByCodeTest() throws ApiException {
+        GrantRequestCode grantRequestCode = null;
+        GrantCode response = api.getTokenByCode(grantRequestCode);
 
         // TODO: test validations
     }
@@ -88,6 +148,22 @@ public class AuthenticationApiTest {
     }
     
     /**
+     * Authentication via Refresh Grant Type
+     *
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTokenByRefreshTest() throws ApiException {
+        GrantRequestRefresh grantRequestRefresh = null;
+        GrantRefresh response = api.getTokenByRefresh(grantRequestRefresh);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Token
      *
      * This endpoint will validate if a token is valid or not.
@@ -98,6 +174,58 @@ public class AuthenticationApiTest {
     @Test
     public void getTokenInfoTest() throws ApiException {
         InlineResponse200 response = api.getTokenInfo();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Regenerate Client Application Secret
+     *
+     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void regenerateClientApplicationSecretTest() throws ApiException {
+        Integer userId = null;
+        Integer clientId = null;
+        ApplicationSecret response = api.regenerateClientApplicationSecret(userId, clientId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Revoke Access Token
+     *
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revokeAccessTokenTest() throws ApiException {
+        GrantRequestRevoke grantRequestRevoke = null;
+        String accessToken = null;
+        api.revokeAccessToken(grantRequestRevoke, accessToken);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update Client Application
+     *
+     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateClientApplicationTest() throws ApiException {
+        Integer userId = null;
+        Integer clientId = null;
+        Application application = null;
+        Application response = api.updateClientApplication(userId, clientId, application);
 
         // TODO: test validations
     }

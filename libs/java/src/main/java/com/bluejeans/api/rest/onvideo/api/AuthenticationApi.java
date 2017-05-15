@@ -27,13 +27,20 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.bluejeans.api.rest.onvideo.model.Application;
+import com.bluejeans.api.rest.onvideo.model.ApplicationSecret;
 import com.bluejeans.api.rest.onvideo.model.Error;
 import com.bluejeans.api.rest.onvideo.model.GrantClient;
+import com.bluejeans.api.rest.onvideo.model.GrantCode;
 import com.bluejeans.api.rest.onvideo.model.GrantMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantPassword;
+import com.bluejeans.api.rest.onvideo.model.GrantRefresh;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestClient;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestCode;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestMeeting;
 import com.bluejeans.api.rest.onvideo.model.GrantRequestPassword;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestRefresh;
+import com.bluejeans.api.rest.onvideo.model.GrantRequestRevoke;
 import com.bluejeans.api.rest.onvideo.model.InlineResponse200;
 
 import java.lang.reflect.Type;
@@ -61,6 +68,264 @@ public class AuthenticationApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for createClientApplication */
+    private com.squareup.okhttp.Call createClientApplicationCall(Integer userId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = application;
+        
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/developer_applications".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createClientApplicationValidateBeforeCall(Integer userId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling createClientApplication(Async)");
+        }
+        
+        // verify the required parameter 'application' is set
+        if (application == null) {
+            throw new ApiException("Missing the required parameter 'application' when calling createClientApplication(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createClientApplicationCall(userId, application, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create Client Application
+     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param application The information about the new client application. (required)
+     * @return Application
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Application createClientApplication(Integer userId, Application application) throws ApiException {
+        ApiResponse<Application> resp = createClientApplicationWithHttpInfo(userId, application);
+        return resp.getData();
+    }
+
+    /**
+     * Create Client Application
+     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param application The information about the new client application. (required)
+     * @return ApiResponse&lt;Application&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Application> createClientApplicationWithHttpInfo(Integer userId, Application application) throws ApiException {
+        com.squareup.okhttp.Call call = createClientApplicationValidateBeforeCall(userId, application, null, null);
+        Type localVarReturnType = new TypeToken<Application>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Client Application (asynchronously)
+     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param application The information about the new client application. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createClientApplicationAsync(Integer userId, Application application, final ApiCallback<Application> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createClientApplicationValidateBeforeCall(userId, application, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Application>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getAuthorizationCode */
+    private com.squareup.okhttp.Call getAuthorizationCodeCall(String clientId, String redirectUri, String state, String scope, String responseType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/oauth2/authorize".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (clientId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientId", clientId));
+        if (redirectUri != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "redirectUri", redirectUri));
+        if (state != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
+        if (scope != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "scope", scope));
+        if (responseType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "responseType", responseType));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAuthorizationCodeValidateBeforeCall(String clientId, String redirectUri, String state, String scope, String responseType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getAuthorizationCodeCall(clientId, redirectUri, state, scope, responseType, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get Authorization Code
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * @param clientId The 32 character client ID generated when you created the client application. (optional)
+     * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
+     * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void getAuthorizationCode(String clientId, String redirectUri, String state, String scope, String responseType) throws ApiException {
+        getAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+    }
+
+    /**
+     * Get Authorization Code
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * @param clientId The 32 character client ID generated when you created the client application. (optional)
+     * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
+     * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> getAuthorizationCodeWithHttpInfo(String clientId, String redirectUri, String state, String scope, String responseType) throws ApiException {
+        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Get Authorization Code (asynchronously)
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * @param clientId The 32 character client ID generated when you created the client application. (optional)
+     * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
+     * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAuthorizationCodeAsync(String clientId, String redirectUri, String state, String scope, String responseType, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAuthorizationCodeValidateBeforeCall(clientId, redirectUri, state, scope, responseType, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /* Build call for getTokenByClient */
     private com.squareup.okhttp.Call getTokenByClientCall(GrantRequestClient grantRequestClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = grantRequestClient;
@@ -176,6 +441,124 @@ public class AuthenticationApi {
 
         com.squareup.okhttp.Call call = getTokenByClientValidateBeforeCall(grantRequestClient, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GrantClient>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getTokenByCode */
+    private com.squareup.okhttp.Call getTokenByCodeCall(GrantRequestCode grantRequestCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantRequestCode;
+        
+        // create path and map variables
+        String localVarPath = "/oauth2/token?Code".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTokenByCodeValidateBeforeCall(GrantRequestCode grantRequestCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'grantRequestCode' is set
+        if (grantRequestCode == null) {
+            throw new ApiException("Missing the required parameter 'grantRequestCode' when calling getTokenByCode(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getTokenByCodeCall(grantRequestCode, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Authentication via Code Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * @return GrantCode
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GrantCode getTokenByCode(GrantRequestCode grantRequestCode) throws ApiException {
+        ApiResponse<GrantCode> resp = getTokenByCodeWithHttpInfo(grantRequestCode);
+        return resp.getData();
+    }
+
+    /**
+     * Authentication via Code Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * @return ApiResponse&lt;GrantCode&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GrantCode> getTokenByCodeWithHttpInfo(GrantRequestCode grantRequestCode) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByCodeValidateBeforeCall(grantRequestCode, null, null);
+        Type localVarReturnType = new TypeToken<GrantCode>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Authentication via Code Grant Type (asynchronously)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTokenByCodeAsync(GrantRequestCode grantRequestCode, final ApiCallback<GrantCode> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTokenByCodeValidateBeforeCall(grantRequestCode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantCode>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -415,6 +798,124 @@ public class AuthenticationApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /* Build call for getTokenByRefresh */
+    private com.squareup.okhttp.Call getTokenByRefreshCall(GrantRequestRefresh grantRequestRefresh, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantRequestRefresh;
+        
+        // create path and map variables
+        String localVarPath = "/oauth2/token?Refresh".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTokenByRefreshValidateBeforeCall(GrantRequestRefresh grantRequestRefresh, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'grantRequestRefresh' is set
+        if (grantRequestRefresh == null) {
+            throw new ApiException("Missing the required parameter 'grantRequestRefresh' when calling getTokenByRefresh(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getTokenByRefreshCall(grantRequestRefresh, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Authentication via Refresh Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * @return GrantRefresh
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GrantRefresh getTokenByRefresh(GrantRequestRefresh grantRequestRefresh) throws ApiException {
+        ApiResponse<GrantRefresh> resp = getTokenByRefreshWithHttpInfo(grantRequestRefresh);
+        return resp.getData();
+    }
+
+    /**
+     * Authentication via Refresh Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * @return ApiResponse&lt;GrantRefresh&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GrantRefresh> getTokenByRefreshWithHttpInfo(GrantRequestRefresh grantRequestRefresh) throws ApiException {
+        com.squareup.okhttp.Call call = getTokenByRefreshValidateBeforeCall(grantRequestRefresh, null, null);
+        Type localVarReturnType = new TypeToken<GrantRefresh>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Authentication via Refresh Grant Type (asynchronously)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTokenByRefreshAsync(GrantRequestRefresh grantRequestRefresh, final ApiCallback<GrantRefresh> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTokenByRefreshValidateBeforeCall(grantRequestRefresh, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantRefresh>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for getTokenInfo */
     private com.squareup.okhttp.Call getTokenInfoCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -522,6 +1023,389 @@ public class AuthenticationApi {
 
         com.squareup.okhttp.Call call = getTokenInfoValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for regenerateClientApplicationSecret */
+    private com.squareup.okhttp.Call regenerateClientApplicationSecretCall(Integer userId, Integer clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}/secret".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "client_id" + "\\}", apiClient.escapeString(clientId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call regenerateClientApplicationSecretValidateBeforeCall(Integer userId, Integer clientId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling regenerateClientApplicationSecret(Async)");
+        }
+        
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new ApiException("Missing the required parameter 'clientId' when calling regenerateClientApplicationSecret(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = regenerateClientApplicationSecretCall(userId, clientId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Regenerate Client Application Secret
+     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @return ApplicationSecret
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApplicationSecret regenerateClientApplicationSecret(Integer userId, Integer clientId) throws ApiException {
+        ApiResponse<ApplicationSecret> resp = regenerateClientApplicationSecretWithHttpInfo(userId, clientId);
+        return resp.getData();
+    }
+
+    /**
+     * Regenerate Client Application Secret
+     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @return ApiResponse&lt;ApplicationSecret&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApplicationSecret> regenerateClientApplicationSecretWithHttpInfo(Integer userId, Integer clientId) throws ApiException {
+        com.squareup.okhttp.Call call = regenerateClientApplicationSecretValidateBeforeCall(userId, clientId, null, null);
+        Type localVarReturnType = new TypeToken<ApplicationSecret>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Regenerate Client Application Secret (asynchronously)
+     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call regenerateClientApplicationSecretAsync(Integer userId, Integer clientId, final ApiCallback<ApplicationSecret> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = regenerateClientApplicationSecretValidateBeforeCall(userId, clientId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApplicationSecret>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for revokeAccessToken */
+    private com.squareup.okhttp.Call revokeAccessTokenCall(GrantRequestRevoke grantRequestRevoke, String accessToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = grantRequestRevoke;
+        
+        // create path and map variables
+        String localVarPath = "/oauth2/token?Revoke".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (accessToken != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_token", accessToken));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call revokeAccessTokenValidateBeforeCall(GrantRequestRevoke grantRequestRevoke, String accessToken, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'grantRequestRevoke' is set
+        if (grantRequestRevoke == null) {
+            throw new ApiException("Missing the required parameter 'grantRequestRevoke' when calling revokeAccessToken(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = revokeAccessTokenCall(grantRequestRevoke, accessToken, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Revoke Access Token
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRevoke Contains information about the type of grant you are revoking. (required)
+     * @param accessToken  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void revokeAccessToken(GrantRequestRevoke grantRequestRevoke, String accessToken) throws ApiException {
+        revokeAccessTokenWithHttpInfo(grantRequestRevoke, accessToken);
+    }
+
+    /**
+     * Revoke Access Token
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRevoke Contains information about the type of grant you are revoking. (required)
+     * @param accessToken  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> revokeAccessTokenWithHttpInfo(GrantRequestRevoke grantRequestRevoke, String accessToken) throws ApiException {
+        com.squareup.okhttp.Call call = revokeAccessTokenValidateBeforeCall(grantRequestRevoke, accessToken, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Revoke Access Token (asynchronously)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param grantRequestRevoke Contains information about the type of grant you are revoking. (required)
+     * @param accessToken  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call revokeAccessTokenAsync(GrantRequestRevoke grantRequestRevoke, String accessToken, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = revokeAccessTokenValidateBeforeCall(grantRequestRevoke, accessToken, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for updateClientApplication */
+    private com.squareup.okhttp.Call updateClientApplicationCall(Integer userId, Integer clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = application;
+        
+        // create path and map variables
+        String localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+        .replaceAll("\\{" + "client_id" + "\\}", apiClient.escapeString(clientId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "access_token" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateClientApplicationValidateBeforeCall(Integer userId, Integer clientId, Application application, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling updateClientApplication(Async)");
+        }
+        
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new ApiException("Missing the required parameter 'clientId' when calling updateClientApplication(Async)");
+        }
+        
+        // verify the required parameter 'application' is set
+        if (application == null) {
+            throw new ApiException("Missing the required parameter 'application' when calling updateClientApplication(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = updateClientApplicationCall(userId, clientId, application, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Update Client Application
+     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param application The information about the new client application. (required)
+     * @return Application
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Application updateClientApplication(Integer userId, Integer clientId, Application application) throws ApiException {
+        ApiResponse<Application> resp = updateClientApplicationWithHttpInfo(userId, clientId, application);
+        return resp.getData();
+    }
+
+    /**
+     * Update Client Application
+     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param application The information about the new client application. (required)
+     * @return ApiResponse&lt;Application&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Application> updateClientApplicationWithHttpInfo(Integer userId, Integer clientId, Application application) throws ApiException {
+        com.squareup.okhttp.Call call = updateClientApplicationValidateBeforeCall(userId, clientId, application, null, null);
+        Type localVarReturnType = new TypeToken<Application>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update Client Application (asynchronously)
+     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+     * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param clientId The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param application The information about the new client application. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateClientApplicationAsync(Integer userId, Integer clientId, Application application, final ApiCallback<Application> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateClientApplicationValidateBeforeCall(userId, clientId, application, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Application>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
