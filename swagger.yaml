@@ -2088,6 +2088,8 @@ paths:
           description: The new application.
           schema:
             $ref: '#/definitions/Application'
+        '401':
+          description: The access token is invalid or does not have permission.
         default:
           description: Unexpected error
           schema:
@@ -2111,7 +2113,7 @@ paths:
           in: path
           description: The ID of the client application of interest. This value was given as a response during client application creation.
           required: true
-          type: integer
+          type: string
         - name: application
           in: body
           description: The information about the new client application.
@@ -2123,6 +2125,8 @@ paths:
           description: The new application.
           schema:
             $ref: '#/definitions/Application'
+        '401':
+          description: The access token is invalid or does not have permission.
         default:
           description: Unexpected error
           schema:
@@ -2146,12 +2150,14 @@ paths:
           in: path
           description: The ID of the client application of interest. This value was given as a response during client application creation.
           required: true
-          type: integer
+          type: string
       responses:
         '200':
           description: The new applicatio secret.
           schema:
             $ref: '#/definitions/ApplicationSecret'
+        '401':
+          description: The access token is invalid or does not have permission.
         default:
           description: Unexpected error
           schema:
@@ -4075,9 +4081,6 @@ definitions:
         items:
           type: string
           description: A list of URLs that the actual redirect URL in the authorization process will contain.
-      userId:
-        type: string
-        description: The user ID of the owner of the client application.
       clientId:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string.
