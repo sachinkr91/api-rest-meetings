@@ -40,6 +40,232 @@ class AuthenticationApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def create_client_application(self, user_id, application, **kwargs):
+        """
+        Create Client Application
+        This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_client_application(user_id, application, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param Application application: The information about the new client application. (required)
+        :return: Application
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.create_client_application_with_http_info(user_id, application, **kwargs)
+        else:
+            (data) = self.create_client_application_with_http_info(user_id, application, **kwargs)
+            return data
+
+    def create_client_application_with_http_info(self, user_id, application, **kwargs):
+        """
+        Create Client Application
+        This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_client_application_with_http_info(user_id, application, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param Application application: The information about the new client application. (required)
+        :return: Application
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'application']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_client_application" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `create_client_application`")
+        # verify the required parameter 'application' is set
+        if ('application' not in params) or (params['application'] is None):
+            raise ValueError("Missing the required parameter `application` when calling `create_client_application`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/user/{user_id}/developer_applications'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'application' in params:
+            body_params = params['application']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='Application',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_authorization_code(self, **kwargs):
+        """
+        Get Authorization Code
+        This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_authorization_code(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str client_id: The 32 character client ID generated when you created the client application.
+        :param str redirect_uri: The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
+        :param str state: Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
+        :param str scope: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+        :param str response_type: The type of authorization you are peforrming.  Set to \"code\".
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_authorization_code_with_http_info(**kwargs)
+        else:
+            (data) = self.get_authorization_code_with_http_info(**kwargs)
+            return data
+
+    def get_authorization_code_with_http_info(self, **kwargs):
+        """
+        Get Authorization Code
+        This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_authorization_code_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str client_id: The 32 character client ID generated when you created the client application.
+        :param str redirect_uri: The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
+        :param str state: Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
+        :param str scope: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+        :param str response_type: The type of authorization you are peforrming.  Set to \"code\".
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['client_id', 'redirect_uri', 'state', 'scope', 'response_type']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_authorization_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        resource_path = '/oauth2/authorize'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'client_id' in params:
+            query_params['clientId'] = params['client_id']
+        if 'redirect_uri' in params:
+            query_params['redirectUri'] = params['redirect_uri']
+        if 'state' in params:
+            query_params['state'] = params['state']
+        if 'scope' in params:
+            query_params['scope'] = params['scope']
+        if 'response_type' in params:
+            query_params['responseType'] = params['response_type']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_token_by_client(self, grant_request_client, **kwargs):
         """
         Authentication via Client Grant Type
@@ -140,6 +366,113 @@ class AuthenticationApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='GrantClient',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_token_by_code(self, grant_request_code, **kwargs):
+        """
+        Authentication via Code Grant Type
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_token_by_code(grant_request_code, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestCode grant_request_code: Contains information about the type of grant you are requesting. (required)
+        :return: GrantCode
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_token_by_code_with_http_info(grant_request_code, **kwargs)
+        else:
+            (data) = self.get_token_by_code_with_http_info(grant_request_code, **kwargs)
+            return data
+
+    def get_token_by_code_with_http_info(self, grant_request_code, **kwargs):
+        """
+        Authentication via Code Grant Type
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_token_by_code_with_http_info(grant_request_code, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestCode grant_request_code: Contains information about the type of grant you are requesting. (required)
+        :return: GrantCode
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['grant_request_code']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_token_by_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'grant_request_code' is set
+        if ('grant_request_code' not in params) or (params['grant_request_code'] is None):
+            raise ValueError("Missing the required parameter `grant_request_code` when calling `get_token_by_code`")
+
+
+        collection_formats = {}
+
+        resource_path = '/oauth2/token?Code'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'grant_request_code' in params:
+            body_params = params['grant_request_code']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='GrantCode',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -361,6 +694,113 @@ class AuthenticationApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_token_by_refresh(self, grant_request_refresh, **kwargs):
+        """
+        Authentication via Refresh Grant Type
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_token_by_refresh(grant_request_refresh, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestRefresh grant_request_refresh: Contains information about the type of grant you are requesting. (required)
+        :return: GrantRefresh
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_token_by_refresh_with_http_info(grant_request_refresh, **kwargs)
+        else:
+            (data) = self.get_token_by_refresh_with_http_info(grant_request_refresh, **kwargs)
+            return data
+
+    def get_token_by_refresh_with_http_info(self, grant_request_refresh, **kwargs):
+        """
+        Authentication via Refresh Grant Type
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_token_by_refresh_with_http_info(grant_request_refresh, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestRefresh grant_request_refresh: Contains information about the type of grant you are requesting. (required)
+        :return: GrantRefresh
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['grant_request_refresh']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_token_by_refresh" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'grant_request_refresh' is set
+        if ('grant_request_refresh' not in params) or (params['grant_request_refresh'] is None):
+            raise ValueError("Missing the required parameter `grant_request_refresh` when calling `get_token_by_refresh`")
+
+
+        collection_formats = {}
+
+        resource_path = '/oauth2/token?Refresh'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'grant_request_refresh' in params:
+            body_params = params['grant_request_refresh']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='GrantRefresh',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_token_info(self, **kwargs):
         """
         Validate a Token
@@ -449,6 +889,344 @@ class AuthenticationApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='InlineResponse200',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def regenerate_client_application_secret(self, user_id, client_id, **kwargs):
+        """
+        Regenerate Client Application Secret
+        This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.regenerate_client_application_secret(user_id, client_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :return: ApplicationSecret
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.regenerate_client_application_secret_with_http_info(user_id, client_id, **kwargs)
+        else:
+            (data) = self.regenerate_client_application_secret_with_http_info(user_id, client_id, **kwargs)
+            return data
+
+    def regenerate_client_application_secret_with_http_info(self, user_id, client_id, **kwargs):
+        """
+        Regenerate Client Application Secret
+        This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.regenerate_client_application_secret_with_http_info(user_id, client_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :return: ApplicationSecret
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'client_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method regenerate_client_application_secret" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `regenerate_client_application_secret`")
+        # verify the required parameter 'client_id' is set
+        if ('client_id' not in params) or (params['client_id'] is None):
+            raise ValueError("Missing the required parameter `client_id` when calling `regenerate_client_application_secret`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/user/{user_id}/developer_applications/{client_id}/secret'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'client_id' in params:
+            path_params['client_id'] = params['client_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ApplicationSecret',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def revoke_access_token(self, grant_request_revoke, **kwargs):
+        """
+        Revoke Access Token
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.revoke_access_token(grant_request_revoke, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestRevoke grant_request_revoke: Contains information about the type of grant you are revoking. (required)
+        :param str access_token:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.revoke_access_token_with_http_info(grant_request_revoke, **kwargs)
+        else:
+            (data) = self.revoke_access_token_with_http_info(grant_request_revoke, **kwargs)
+            return data
+
+    def revoke_access_token_with_http_info(self, grant_request_revoke, **kwargs):
+        """
+        Revoke Access Token
+        This API is part of the 3-legged OAuth 2.0 authorization flow.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.revoke_access_token_with_http_info(grant_request_revoke, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param GrantRequestRevoke grant_request_revoke: Contains information about the type of grant you are revoking. (required)
+        :param str access_token:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['grant_request_revoke', 'access_token']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method revoke_access_token" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'grant_request_revoke' is set
+        if ('grant_request_revoke' not in params) or (params['grant_request_revoke'] is None):
+            raise ValueError("Missing the required parameter `grant_request_revoke` when calling `revoke_access_token`")
+
+
+        collection_formats = {}
+
+        resource_path = '/oauth2/token?Revoke'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'grant_request_revoke' in params:
+            body_params = params['grant_request_revoke']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_client_application(self, user_id, client_id, application, **kwargs):
+        """
+        Update Client Application
+        This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_client_application(user_id, client_id, application, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param Application application: The information about the new client application. (required)
+        :return: Application
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_client_application_with_http_info(user_id, client_id, application, **kwargs)
+        else:
+            (data) = self.update_client_application_with_http_info(user_id, client_id, application, **kwargs)
+            return data
+
+    def update_client_application_with_http_info(self, user_id, client_id, application, **kwargs):
+        """
+        Update Client Application
+        This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_client_application_with_http_info(user_id, client_id, application, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int client_id: The ID of the client application of interest. This value was given as a response during client application creation. (required)
+        :param Application application: The information about the new client application. (required)
+        :return: Application
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'client_id', 'application']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_client_application" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `update_client_application`")
+        # verify the required parameter 'client_id' is set
+        if ('client_id' not in params) or (params['client_id'] is None):
+            raise ValueError("Missing the required parameter `client_id` when calling `update_client_application`")
+        # verify the required parameter 'application' is set
+        if ('application' not in params) or (params['application'] is None):
+            raise ValueError("Missing the required parameter `application` when calling `update_client_application`")
+
+
+        collection_formats = {}
+
+        resource_path = '/v1/user/{user_id}/developer_applications/{client_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'client_id' in params:
+            path_params['client_id'] = params['client_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'application' in params:
+            body_params = params['application']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='Application',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

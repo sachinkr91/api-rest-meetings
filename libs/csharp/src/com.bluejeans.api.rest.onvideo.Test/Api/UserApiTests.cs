@@ -77,6 +77,18 @@ namespace com.bluejeans.api.rest.onvideo.Test
         }
         
         /// <summary>
+        /// Test GetGrantedApplications
+        /// </summary>
+        [Test]
+        public void GetGrantedApplicationsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //var response = instance.GetGrantedApplications(userId);
+            //Assert.IsInstanceOf<GrantedApplications> (response, "response is GrantedApplications");
+        }
+        
+        /// <summary>
         /// Test GetRoom
         /// </summary>
         [Test]
@@ -98,6 +110,19 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //int? userId = null;
             //var response = instance.GetUser(userId);
             //Assert.IsInstanceOf<User> (response, "response is User");
+        }
+        
+        /// <summary>
+        /// Test RevokeGrantedApplication
+        /// </summary>
+        [Test]
+        public void RevokeGrantedApplicationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //string clientId = null;
+            //instance.RevokeGrantedApplication(userId, clientId);
+            
         }
         
         /// <summary>

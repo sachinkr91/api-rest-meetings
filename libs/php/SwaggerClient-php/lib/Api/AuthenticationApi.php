@@ -88,6 +88,217 @@ class AuthenticationApi
     }
 
     /**
+     * Operation createClientApplication
+     *
+     * Create Client Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\Application
+     */
+    public function createClientApplication($user_id, $application)
+    {
+        list($response) = $this->createClientApplicationWithHttpInfo($user_id, $application);
+        return $response;
+    }
+
+    /**
+     * Operation createClientApplicationWithHttpInfo
+     *
+     * Create Client Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\Application, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createClientApplicationWithHttpInfo($user_id, $application)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling createClientApplication');
+        }
+        // verify the required parameter 'application' is set
+        if ($application === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $application when calling createClientApplication');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/developer_applications";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($application)) {
+            $_tempBody = $application;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Application',
+                '/v1/user/{user_id}/developer_applications'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Application', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Application', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAuthorizationCode
+     *
+     * Get Authorization Code
+     *
+     * @param string $client_id The 32 character client ID generated when you created the client application. (optional)
+     * @param string $redirect_uri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
+     * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
+     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function getAuthorizationCode($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null)
+    {
+        list($response) = $this->getAuthorizationCodeWithHttpInfo($client_id, $redirect_uri, $state, $scope, $response_type);
+        return $response;
+    }
+
+    /**
+     * Operation getAuthorizationCodeWithHttpInfo
+     *
+     * Get Authorization Code
+     *
+     * @param string $client_id The 32 character client ID generated when you created the client application. (optional)
+     * @param string $redirect_uri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
+     * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
+     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAuthorizationCodeWithHttpInfo($client_id = null, $redirect_uri = null, $state = null, $scope = null, $response_type = null)
+    {
+        // parse inputs
+        $resourcePath = "/oauth2/authorize";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // query params
+        if ($client_id !== null) {
+            $queryParams['clientId'] = $this->apiClient->getSerializer()->toQueryValue($client_id);
+        }
+        // query params
+        if ($redirect_uri !== null) {
+            $queryParams['redirectUri'] = $this->apiClient->getSerializer()->toQueryValue($redirect_uri);
+        }
+        // query params
+        if ($state !== null) {
+            $queryParams['state'] = $this->apiClient->getSerializer()->toQueryValue($state);
+        }
+        // query params
+        if ($scope !== null) {
+            $queryParams['scope'] = $this->apiClient->getSerializer()->toQueryValue($scope);
+        }
+        // query params
+        if ($response_type !== null) {
+            $queryParams['responseType'] = $this->apiClient->getSerializer()->toQueryValue($response_type);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/oauth2/authorize'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getTokenByClient
      *
      * Authentication via Client Grant Type
@@ -166,6 +377,97 @@ class AuthenticationApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantClient', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTokenByCode
+     *
+     * Authentication via Code Grant Type
+     *
+     * @param \Swagger\Client\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\GrantCode
+     */
+    public function getTokenByCode($grant_request_code)
+    {
+        list($response) = $this->getTokenByCodeWithHttpInfo($grant_request_code);
+        return $response;
+    }
+
+    /**
+     * Operation getTokenByCodeWithHttpInfo
+     *
+     * Authentication via Code Grant Type
+     *
+     * @param \Swagger\Client\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\GrantCode, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTokenByCodeWithHttpInfo($grant_request_code)
+    {
+        // verify the required parameter 'grant_request_code' is set
+        if ($grant_request_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_code when calling getTokenByCode');
+        }
+        // parse inputs
+        $resourcePath = "/oauth2/token?Code";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($grant_request_code)) {
+            $_tempBody = $grant_request_code;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\GrantCode',
+                '/oauth2/token?Code'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantCode', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantCode', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:
@@ -361,6 +663,97 @@ class AuthenticationApi
     }
 
     /**
+     * Operation getTokenByRefresh
+     *
+     * Authentication via Refresh Grant Type
+     *
+     * @param \Swagger\Client\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\GrantRefresh
+     */
+    public function getTokenByRefresh($grant_request_refresh)
+    {
+        list($response) = $this->getTokenByRefreshWithHttpInfo($grant_request_refresh);
+        return $response;
+    }
+
+    /**
+     * Operation getTokenByRefreshWithHttpInfo
+     *
+     * Authentication via Refresh Grant Type
+     *
+     * @param \Swagger\Client\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\GrantRefresh, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTokenByRefreshWithHttpInfo($grant_request_refresh)
+    {
+        // verify the required parameter 'grant_request_refresh' is set
+        if ($grant_request_refresh === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_refresh when calling getTokenByRefresh');
+        }
+        // parse inputs
+        $resourcePath = "/oauth2/token?Refresh";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($grant_request_refresh)) {
+            $_tempBody = $grant_request_refresh;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\GrantRefresh',
+                '/oauth2/token?Refresh'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantRefresh', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantRefresh', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getTokenInfo
      *
      * Validate a Token
@@ -428,6 +821,326 @@ class AuthenticationApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation regenerateClientApplicationSecret
+     *
+     * Regenerate Client Application Secret
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\ApplicationSecret
+     */
+    public function regenerateClientApplicationSecret($user_id, $client_id)
+    {
+        list($response) = $this->regenerateClientApplicationSecretWithHttpInfo($user_id, $client_id);
+        return $response;
+    }
+
+    /**
+     * Operation regenerateClientApplicationSecretWithHttpInfo
+     *
+     * Regenerate Client Application Secret
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\ApplicationSecret, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function regenerateClientApplicationSecretWithHttpInfo($user_id, $client_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling regenerateClientApplicationSecret');
+        }
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling regenerateClientApplicationSecret');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/developer_applications/{client_id}/secret";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($client_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "client_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($client_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\ApplicationSecret',
+                '/v1/user/{user_id}/developer_applications/{client_id}/secret'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ApplicationSecret', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ApplicationSecret', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation revokeAccessToken
+     *
+     * Revoke Access Token
+     *
+     * @param \Swagger\Client\Model\GrantRequestRevoke $grant_request_revoke Contains information about the type of grant you are revoking. (required)
+     * @param string $access_token  (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function revokeAccessToken($grant_request_revoke, $access_token = null)
+    {
+        list($response) = $this->revokeAccessTokenWithHttpInfo($grant_request_revoke, $access_token);
+        return $response;
+    }
+
+    /**
+     * Operation revokeAccessTokenWithHttpInfo
+     *
+     * Revoke Access Token
+     *
+     * @param \Swagger\Client\Model\GrantRequestRevoke $grant_request_revoke Contains information about the type of grant you are revoking. (required)
+     * @param string $access_token  (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function revokeAccessTokenWithHttpInfo($grant_request_revoke, $access_token = null)
+    {
+        // verify the required parameter 'grant_request_revoke' is set
+        if ($grant_request_revoke === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $grant_request_revoke when calling revokeAccessToken');
+        }
+        // parse inputs
+        $resourcePath = "/oauth2/token?Revoke";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($access_token !== null) {
+            $queryParams['access_token'] = $this->apiClient->getSerializer()->toQueryValue($access_token);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($grant_request_revoke)) {
+            $_tempBody = $grant_request_revoke;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/oauth2/token?Revoke'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateClientApplication
+     *
+     * Update Client Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\Application
+     */
+    public function updateClientApplication($user_id, $client_id, $application)
+    {
+        list($response) = $this->updateClientApplicationWithHttpInfo($user_id, $client_id, $application);
+        return $response;
+    }
+
+    /**
+     * Operation updateClientApplicationWithHttpInfo
+     *
+     * Update Client Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $client_id The ID of the client application of interest. This value was given as a response during client application creation. (required)
+     * @param \Swagger\Client\Model\Application $application The information about the new client application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\Application, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateClientApplicationWithHttpInfo($user_id, $client_id, $application)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling updateClientApplication');
+        }
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling updateClientApplication');
+        }
+        // verify the required parameter 'application' is set
+        if ($application === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $application when calling updateClientApplication');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/developer_applications/{client_id}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($client_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "client_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($client_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($application)) {
+            $_tempBody = $application;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Application',
+                '/v1/user/{user_id}/developer_applications/{client_id}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Application', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Application', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:

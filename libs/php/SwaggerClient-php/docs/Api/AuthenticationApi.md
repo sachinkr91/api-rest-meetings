@@ -4,11 +4,127 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createClientApplication**](AuthenticationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+[**getAuthorizationCode**](AuthenticationApi.md#getAuthorizationCode) | **GET** /oauth2/authorize | Get Authorization Code
 [**getTokenByClient**](AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+[**getTokenByCode**](AuthenticationApi.md#getTokenByCode) | **POST** /oauth2/token?Code | Authentication via Code Grant Type
 [**getTokenByMeeting**](AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 [**getTokenByPassword**](AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+[**getTokenByRefresh**](AuthenticationApi.md#getTokenByRefresh) | **POST** /oauth2/token?Refresh | Authentication via Refresh Grant Type
 [**getTokenInfo**](AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
+[**regenerateClientApplicationSecret**](AuthenticationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
+[**revokeAccessToken**](AuthenticationApi.md#revokeAccessToken) | **DELETE** /oauth2/token?Revoke | Revoke Access Token
+[**updateClientApplication**](AuthenticationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 
+
+# **createClientApplication**
+> \Swagger\Client\Model\Application createClientApplication($user_id, $application)
+
+Create Client Application
+
+This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$application = new \Swagger\Client\Model\Application(); // \Swagger\Client\Model\Application | The information about the new client application.
+
+try {
+    $result = $api_instance->createClientApplication($user_id, $application);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->createClientApplication: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **application** | [**\Swagger\Client\Model\Application**](../Model/\Swagger\Client\Model\Application.md)| The information about the new client application. |
+
+### Return type
+
+[**\Swagger\Client\Model\Application**](../Model/Application.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAuthorizationCode**
+> getAuthorizationCode($client_id, $redirect_uri, $state, $scope, $response_type)
+
+Get Authorization Code
+
+This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user's browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$client_id = "client_id_example"; // string | The 32 character client ID generated when you created the client application.
+$redirect_uri = "redirect_uri_example"; // string | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
+$state = "state_example"; // string | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
+$scope = "scope_example"; // string | A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+$response_type = "code"; // string | The type of authorization you are peforrming.  Set to \"code\".
+
+try {
+    $api_instance->getAuthorizationCode($client_id, $redirect_uri, $state, $scope, $response_type);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->getAuthorizationCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_id** | **string**| The 32 character client ID generated when you created the client application. | [optional]
+ **redirect_uri** | **string**| The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. | [optional]
+ **state** | **string**| Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. | [optional]
+ **scope** | **string**| A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info | [optional]
+ **response_type** | **string**| The type of authorization you are peforrming.  Set to \&quot;code\&quot;. | [optional] [default to code]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByClient**
 > \Swagger\Client\Model\GrantClient getTokenByClient($grant_request_client)
@@ -48,6 +164,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\GrantClient**](../Model/GrantClient.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getTokenByCode**
+> \Swagger\Client\Model\GrantCode getTokenByCode($grant_request_code)
+
+Authentication via Code Grant Type
+
+This API is part of the 3-legged OAuth 2.0 authorization flow.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$grant_request_code = new \Swagger\Client\Model\GrantRequestCode(); // \Swagger\Client\Model\GrantRequestCode | Contains information about the type of grant you are requesting.
+
+try {
+    $result = $api_instance->getTokenByCode($grant_request_code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->getTokenByCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **grant_request_code** | [**\Swagger\Client\Model\GrantRequestCode**](../Model/\Swagger\Client\Model\GrantRequestCode.md)| Contains information about the type of grant you are requesting. |
+
+### Return type
+
+[**\Swagger\Client\Model\GrantCode**](../Model/GrantCode.md)
 
 ### Authorization
 
@@ -160,6 +326,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getTokenByRefresh**
+> \Swagger\Client\Model\GrantRefresh getTokenByRefresh($grant_request_refresh)
+
+Authentication via Refresh Grant Type
+
+This API is part of the 3-legged OAuth 2.0 authorization flow.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$grant_request_refresh = new \Swagger\Client\Model\GrantRequestRefresh(); // \Swagger\Client\Model\GrantRequestRefresh | Contains information about the type of grant you are requesting.
+
+try {
+    $result = $api_instance->getTokenByRefresh($grant_request_refresh);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->getTokenByRefresh: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **grant_request_refresh** | [**\Swagger\Client\Model\GrantRequestRefresh**](../Model/\Swagger\Client\Model\GrantRequestRefresh.md)| Contains information about the type of grant you are requesting. |
+
+### Return type
+
+[**\Swagger\Client\Model\GrantRefresh**](../Model/GrantRefresh.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getTokenInfo**
 > \Swagger\Client\Model\InlineResponse200 getTokenInfo()
 
@@ -194,6 +410,163 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **regenerateClientApplicationSecret**
+> \Swagger\Client\Model\ApplicationSecret regenerateClientApplicationSecret($user_id, $client_id)
+
+Regenerate Client Application Secret
+
+This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$client_id = 56; // int | The ID of the client application of interest. This value was given as a response during client application creation.
+
+try {
+    $result = $api_instance->regenerateClientApplicationSecret($user_id, $client_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->regenerateClientApplicationSecret: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. |
+
+### Return type
+
+[**\Swagger\Client\Model\ApplicationSecret**](../Model/ApplicationSecret.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **revokeAccessToken**
+> revokeAccessToken($grant_request_revoke, $access_token)
+
+Revoke Access Token
+
+This API is part of the 3-legged OAuth 2.0 authorization flow.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$grant_request_revoke = new \Swagger\Client\Model\GrantRequestRevoke(); // \Swagger\Client\Model\GrantRequestRevoke | Contains information about the type of grant you are revoking.
+$access_token = "access_token_example"; // string | 
+
+try {
+    $api_instance->revokeAccessToken($grant_request_revoke, $access_token);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->revokeAccessToken: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **grant_request_revoke** | [**\Swagger\Client\Model\GrantRequestRevoke**](../Model/\Swagger\Client\Model\GrantRequestRevoke.md)| Contains information about the type of grant you are revoking. |
+ **access_token** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateClientApplication**
+> \Swagger\Client\Model\Application updateClientApplication($user_id, $client_id, $application)
+
+Update Client Application
+
+This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\AuthenticationApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$client_id = 56; // int | The ID of the client application of interest. This value was given as a response during client application creation.
+$application = new \Swagger\Client\Model\Application(); // \Swagger\Client\Model\Application | The information about the new client application.
+
+try {
+    $result = $api_instance->updateClientApplication($user_id, $client_id, $application);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthenticationApi->updateClientApplication: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **client_id** | **int**| The ID of the client application of interest. This value was given as a response during client application creation. |
+ **application** | [**\Swagger\Client\Model\Application**](../Model/\Swagger\Client\Model\Application.md)| The information about the new client application. |
+
+### Return type
+
+[**\Swagger\Client\Model\Application**](../Model/Application.md)
 
 ### Authorization
 

@@ -48,10 +48,40 @@
   }
 
   describe('AuthenticationApi', function() {
+    describe('createClientApplication', function() {
+      it('should call createClientApplication successfully', function(done) {
+        //uncomment below and update the code to test createClientApplication
+        //instance.createClientApplication(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getAuthorizationCode', function() {
+      it('should call getAuthorizationCode successfully', function(done) {
+        //uncomment below and update the code to test getAuthorizationCode
+        //instance.getAuthorizationCode(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTokenByClient', function() {
       it('should call getTokenByClient successfully', function(done) {
         //uncomment below and update the code to test getTokenByClient
         //instance.getTokenByClient(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTokenByCode', function() {
+      it('should call getTokenByCode successfully', function(done) {
+        //uncomment below and update the code to test getTokenByCode
+        //instance.getTokenByCode(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -78,10 +108,50 @@
         done();
       });
     });
+    describe('getTokenByRefresh', function() {
+      it('should call getTokenByRefresh successfully', function(done) {
+        //uncomment below and update the code to test getTokenByRefresh
+        //instance.getTokenByRefresh(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTokenInfo', function() {
       it('should call getTokenInfo successfully', function(done) {
         //uncomment below and update the code to test getTokenInfo
         //instance.getTokenInfo(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('regenerateClientApplicationSecret', function() {
+      it('should call regenerateClientApplicationSecret successfully', function(done) {
+        //uncomment below and update the code to test regenerateClientApplicationSecret
+        //instance.regenerateClientApplicationSecret(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('revokeAccessToken', function() {
+      it('should call revokeAccessToken successfully', function(done) {
+        //uncomment below and update the code to test revokeAccessToken
+        //instance.revokeAccessToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateClientApplication', function() {
+      it('should call updateClientApplication successfully', function(done) {
+        //uncomment below and update the code to test updateClientApplication
+        //instance.updateClientApplication(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

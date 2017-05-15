@@ -77,12 +77,45 @@ class AuthenticationApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for createClientApplication
+     *
+     * Create Client Application.
+     *
+     */
+    public function testCreateClientApplication()
+    {
+
+    }
+
+    /**
+     * Test case for getAuthorizationCode
+     *
+     * Get Authorization Code.
+     *
+     */
+    public function testGetAuthorizationCode()
+    {
+
+    }
+
+    /**
      * Test case for getTokenByClient
      *
      * Authentication via Client Grant Type.
      *
      */
     public function testGetTokenByClient()
+    {
+
+    }
+
+    /**
+     * Test case for getTokenByCode
+     *
+     * Authentication via Code Grant Type.
+     *
+     */
+    public function testGetTokenByCode()
     {
 
     }
@@ -110,12 +143,56 @@ class AuthenticationApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getTokenByRefresh
+     *
+     * Authentication via Refresh Grant Type.
+     *
+     */
+    public function testGetTokenByRefresh()
+    {
+
+    }
+
+    /**
      * Test case for getTokenInfo
      *
      * Validate a Token.
      *
      */
     public function testGetTokenInfo()
+    {
+
+    }
+
+    /**
+     * Test case for regenerateClientApplicationSecret
+     *
+     * Regenerate Client Application Secret.
+     *
+     */
+    public function testRegenerateClientApplicationSecret()
+    {
+
+    }
+
+    /**
+     * Test case for revokeAccessToken
+     *
+     * Revoke Access Token.
+     *
+     */
+    public function testRevokeAccessToken()
+    {
+
+    }
+
+    /**
+     * Test case for updateClientApplication
+     *
+     * Update Client Application.
+     *
+     */
+    public function testUpdateClientApplication()
     {
 
     }

@@ -25,6 +25,58 @@ namespace com.bluejeans.api.rest.onvideo.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Application</returns>
+        Application CreateClientApplication (int? userId, Application application);
+
+        /// <summary>
+        /// Create Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>ApiResponse of Application</returns>
+        ApiResponse<Application> CreateClientApplicationWithHttpInfo (int? userId, Application application);
+        /// <summary>
+        /// Get Authorization Code
+        /// </summary>
+        /// <remarks>
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns></returns>
+        void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+
+        /// <summary>
+        /// Get Authorization Code
+        /// </summary>
+        /// <remarks>
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+        /// <summary>
         /// Authentication via Client Grant Type
         /// </summary>
         /// <remarks>
@@ -45,6 +97,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>ApiResponse of GrantClient</returns>
         ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantRequestClient grantRequestClient);
+        /// <summary>
+        /// Authentication via Code Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantCode</returns>
+        GrantCode GetTokenByCode (GrantRequestCode grantRequestCode);
+
+        /// <summary>
+        /// Authentication via Code Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantCode</returns>
+        ApiResponse<GrantCode> GetTokenByCodeWithHttpInfo (GrantRequestCode grantRequestCode);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -88,6 +161,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>ApiResponse of GrantPassword</returns>
         ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword);
         /// <summary>
+        /// Authentication via Refresh Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantRefresh</returns>
+        GrantRefresh GetTokenByRefresh (GrantRequestRefresh grantRequestRefresh);
+
+        /// <summary>
+        /// Authentication via Refresh Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantRefresh</returns>
+        ApiResponse<GrantRefresh> GetTokenByRefreshWithHttpInfo (GrantRequestRefresh grantRequestRefresh);
+        /// <summary>
         /// Validate a Token
         /// </summary>
         /// <remarks>
@@ -106,8 +200,131 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse200</returns>
         ApiResponse<InlineResponse200> GetTokenInfoWithHttpInfo ();
+        /// <summary>
+        /// Regenerate Client Application Secret
+        /// </summary>
+        /// <remarks>
+        /// This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>ApplicationSecret</returns>
+        ApplicationSecret RegenerateClientApplicationSecret (int? userId, int? clientId);
+
+        /// <summary>
+        /// Regenerate Client Application Secret
+        /// </summary>
+        /// <remarks>
+        /// This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>ApiResponse of ApplicationSecret</returns>
+        ApiResponse<ApplicationSecret> RegenerateClientApplicationSecretWithHttpInfo (int? userId, int? clientId);
+        /// <summary>
+        /// Revoke Access Token
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns></returns>
+        void RevokeAccessToken (GrantRequestRevoke grantRequestRevoke, string accessToken = null);
+
+        /// <summary>
+        /// Revoke Access Token
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RevokeAccessTokenWithHttpInfo (GrantRequestRevoke grantRequestRevoke, string accessToken = null);
+        /// <summary>
+        /// Update Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Application</returns>
+        Application UpdateClientApplication (int? userId, int? clientId, Application application);
+
+        /// <summary>
+        /// Update Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>ApiResponse of Application</returns>
+        ApiResponse<Application> UpdateClientApplicationWithHttpInfo (int? userId, int? clientId, Application application);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Create Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of Application</returns>
+        System.Threading.Tasks.Task<Application> CreateClientApplicationAsync (int? userId, Application application);
+
+        /// <summary>
+        /// Create Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of ApiResponse (Application)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Application>> CreateClientApplicationAsyncWithHttpInfo (int? userId, Application application);
+        /// <summary>
+        /// Get Authorization Code
+        /// </summary>
+        /// <remarks>
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
+
+        /// <summary>
+        /// Get Authorization Code
+        /// </summary>
+        /// <remarks>
+        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null);
         /// <summary>
         /// Authentication via Client Grant Type
         /// </summary>
@@ -129,6 +346,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantRequestClient);
+        /// <summary>
+        /// Authentication via Code Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantCode</returns>
+        System.Threading.Tasks.Task<GrantCode> GetTokenByCodeAsync (GrantRequestCode grantRequestCode);
+
+        /// <summary>
+        /// Authentication via Code Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantCode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantCode>> GetTokenByCodeAsyncWithHttpInfo (GrantRequestCode grantRequestCode);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
@@ -172,6 +410,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword);
         /// <summary>
+        /// Authentication via Refresh Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantRefresh</returns>
+        System.Threading.Tasks.Task<GrantRefresh> GetTokenByRefreshAsync (GrantRequestRefresh grantRequestRefresh);
+
+        /// <summary>
+        /// Authentication via Refresh Grant Type
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantRefresh)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantRefresh>> GetTokenByRefreshAsyncWithHttpInfo (GrantRequestRefresh grantRequestRefresh);
+        /// <summary>
         /// Validate a Token
         /// </summary>
         /// <remarks>
@@ -190,6 +449,77 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTokenInfoAsyncWithHttpInfo ();
+        /// <summary>
+        /// Regenerate Client Application Secret
+        /// </summary>
+        /// <remarks>
+        /// This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>Task of ApplicationSecret</returns>
+        System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, int? clientId);
+
+        /// <summary>
+        /// Regenerate Client Application Secret
+        /// </summary>
+        /// <remarks>
+        /// This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>Task of ApiResponse (ApplicationSecret)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, int? clientId);
+        /// <summary>
+        /// Revoke Access Token
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RevokeAccessTokenAsync (GrantRequestRevoke grantRequestRevoke, string accessToken = null);
+
+        /// <summary>
+        /// Revoke Access Token
+        /// </summary>
+        /// <remarks>
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RevokeAccessTokenAsyncWithHttpInfo (GrantRequestRevoke grantRequestRevoke, string accessToken = null);
+        /// <summary>
+        /// Update Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of Application</returns>
+        System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, int? clientId, Application application);
+
+        /// <summary>
+        /// Update Client Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of ApiResponse (Application)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, int? clientId, Application application);
         #endregion Asynchronous Operations
     }
 
@@ -300,6 +630,352 @@ namespace com.bluejeans.api.rest.onvideo.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Create Client Application This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Application</returns>
+        public Application CreateClientApplication (int? userId, Application application)
+        {
+             ApiResponse<Application> localVarResponse = CreateClientApplicationWithHttpInfo(userId, application);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Client Application This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>ApiResponse of Application</returns>
+        public ApiResponse< Application > CreateClientApplicationWithHttpInfo (int? userId, Application application)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->CreateClientApplication");
+            // verify the required parameter 'application' is set
+            if (application == null)
+                throw new ApiException(400, "Missing required parameter 'application' when calling AuthenticationApi->CreateClientApplication");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (application != null && application.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(application); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = application; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateClientApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Application>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Application) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Application)));
+            
+        }
+
+        /// <summary>
+        /// Create Client Application This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of Application</returns>
+        public async System.Threading.Tasks.Task<Application> CreateClientApplicationAsync (int? userId, Application application)
+        {
+             ApiResponse<Application> localVarResponse = await CreateClientApplicationAsyncWithHttpInfo(userId, application);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Client Application This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of ApiResponse (Application)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Application>> CreateClientApplicationAsyncWithHttpInfo (int? userId, Application application)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->CreateClientApplication");
+            // verify the required parameter 'application' is set
+            if (application == null)
+                throw new ApiException(400, "Missing required parameter 'application' when calling AuthenticationApi->CreateClientApplication");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (application != null && application.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(application); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = application; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateClientApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Application>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Application) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Application)));
+            
+        }
+
+        /// <summary>
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns></returns>
+        public void GetAuthorizationCode (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        {
+             GetAuthorizationCodeWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+        }
+
+        /// <summary>
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetAuthorizationCodeWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        {
+
+            var localVarPath = "/oauth2/authorize";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (clientId != null) localVarQueryParams.Add("clientId", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
+            if (redirectUri != null) localVarQueryParams.Add("redirectUri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (state != null) localVarQueryParams.Add("state", Configuration.ApiClient.ParameterToString(state)); // query parameter
+            if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
+            if (responseType != null) localVarQueryParams.Add("responseType", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAuthorizationCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetAuthorizationCodeAsync (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        {
+             await GetAuthorizationCodeAsyncWithHttpInfo(clientId, redirectUri, state, scope, responseType);
+
+        }
+
+        /// <summary>
+        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
+        /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
+        /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAuthorizationCodeAsyncWithHttpInfo (string clientId = null, string redirectUri = null, string state = null, string scope = null, string responseType = null)
+        {
+
+            var localVarPath = "/oauth2/authorize";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (clientId != null) localVarQueryParams.Add("clientId", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
+            if (redirectUri != null) localVarQueryParams.Add("redirectUri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (state != null) localVarQueryParams.Add("state", Configuration.ApiClient.ParameterToString(state)); // query parameter
+            if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
+            if (responseType != null) localVarQueryParams.Add("responseType", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAuthorizationCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -467,6 +1143,174 @@ namespace com.bluejeans.api.rest.onvideo.Api
             return new ApiResponse<GrantClient>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (GrantClient) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantClient)));
+            
+        }
+
+        /// <summary>
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantCode</returns>
+        public GrantCode GetTokenByCode (GrantRequestCode grantRequestCode)
+        {
+             ApiResponse<GrantCode> localVarResponse = GetTokenByCodeWithHttpInfo(grantRequestCode);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantCode</returns>
+        public ApiResponse< GrantCode > GetTokenByCodeWithHttpInfo (GrantRequestCode grantRequestCode)
+        {
+            // verify the required parameter 'grantRequestCode' is set
+            if (grantRequestCode == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestCode' when calling AuthenticationApi->GetTokenByCode");
+
+            var localVarPath = "/oauth2/token?Code";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (grantRequestCode != null && grantRequestCode.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestCode); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestCode; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenByCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantCode)));
+            
+        }
+
+        /// <summary>
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantCode</returns>
+        public async System.Threading.Tasks.Task<GrantCode> GetTokenByCodeAsync (GrantRequestCode grantRequestCode)
+        {
+             ApiResponse<GrantCode> localVarResponse = await GetTokenByCodeAsyncWithHttpInfo(grantRequestCode);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantCode)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantCode>> GetTokenByCodeAsyncWithHttpInfo (GrantRequestCode grantRequestCode)
+        {
+            // verify the required parameter 'grantRequestCode' is set
+            if (grantRequestCode == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestCode' when calling AuthenticationApi->GetTokenByCode");
+
+            var localVarPath = "/oauth2/token?Code";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (grantRequestCode != null && grantRequestCode.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestCode); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestCode; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenByCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantCode>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantCode) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantCode)));
             
         }
 
@@ -807,6 +1651,174 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>GrantRefresh</returns>
+        public GrantRefresh GetTokenByRefresh (GrantRequestRefresh grantRequestRefresh)
+        {
+             ApiResponse<GrantRefresh> localVarResponse = GetTokenByRefreshWithHttpInfo(grantRequestRefresh);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>ApiResponse of GrantRefresh</returns>
+        public ApiResponse< GrantRefresh > GetTokenByRefreshWithHttpInfo (GrantRequestRefresh grantRequestRefresh)
+        {
+            // verify the required parameter 'grantRequestRefresh' is set
+            if (grantRequestRefresh == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestRefresh' when calling AuthenticationApi->GetTokenByRefresh");
+
+            var localVarPath = "/oauth2/token?Refresh";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (grantRequestRefresh != null && grantRequestRefresh.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestRefresh); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestRefresh; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenByRefresh", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantRefresh>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantRefresh) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantRefresh)));
+            
+        }
+
+        /// <summary>
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of GrantRefresh</returns>
+        public async System.Threading.Tasks.Task<GrantRefresh> GetTokenByRefreshAsync (GrantRequestRefresh grantRequestRefresh)
+        {
+             ApiResponse<GrantRefresh> localVarResponse = await GetTokenByRefreshAsyncWithHttpInfo(grantRequestRefresh);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <returns>Task of ApiResponse (GrantRefresh)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantRefresh>> GetTokenByRefreshAsyncWithHttpInfo (GrantRequestRefresh grantRequestRefresh)
+        {
+            // verify the required parameter 'grantRequestRefresh' is set
+            if (grantRequestRefresh == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestRefresh' when calling AuthenticationApi->GetTokenByRefresh");
+
+            var localVarPath = "/oauth2/token?Refresh";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (grantRequestRefresh != null && grantRequestRefresh.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestRefresh); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestRefresh; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTokenByRefresh", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantRefresh>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantRefresh) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantRefresh)));
+            
+        }
+
+        /// <summary>
         /// Validate a Token This endpoint will validate if a token is valid or not.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
@@ -943,6 +1955,532 @@ namespace com.bluejeans.api.rest.onvideo.Api
             return new ApiResponse<InlineResponse200>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+            
+        }
+
+        /// <summary>
+        /// Regenerate Client Application Secret This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>ApplicationSecret</returns>
+        public ApplicationSecret RegenerateClientApplicationSecret (int? userId, int? clientId)
+        {
+             ApiResponse<ApplicationSecret> localVarResponse = RegenerateClientApplicationSecretWithHttpInfo(userId, clientId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Regenerate Client Application Secret This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>ApiResponse of ApplicationSecret</returns>
+        public ApiResponse< ApplicationSecret > RegenerateClientApplicationSecretWithHttpInfo (int? userId, int? clientId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->RegenerateClientApplicationSecret");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->RegenerateClientApplicationSecret");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}/secret";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegenerateClientApplicationSecret", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationSecret>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationSecret) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSecret)));
+            
+        }
+
+        /// <summary>
+        /// Regenerate Client Application Secret This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>Task of ApplicationSecret</returns>
+        public async System.Threading.Tasks.Task<ApplicationSecret> RegenerateClientApplicationSecretAsync (int? userId, int? clientId)
+        {
+             ApiResponse<ApplicationSecret> localVarResponse = await RegenerateClientApplicationSecretAsyncWithHttpInfo(userId, clientId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Regenerate Client Application Secret This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <returns>Task of ApiResponse (ApplicationSecret)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSecret>> RegenerateClientApplicationSecretAsyncWithHttpInfo (int? userId, int? clientId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->RegenerateClientApplicationSecret");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->RegenerateClientApplicationSecret");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}/secret";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegenerateClientApplicationSecret", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationSecret>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationSecret) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSecret)));
+            
+        }
+
+        /// <summary>
+        /// Revoke Access Token This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns></returns>
+        public void RevokeAccessToken (GrantRequestRevoke grantRequestRevoke, string accessToken = null)
+        {
+             RevokeAccessTokenWithHttpInfo(grantRequestRevoke, accessToken);
+        }
+
+        /// <summary>
+        /// Revoke Access Token This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> RevokeAccessTokenWithHttpInfo (GrantRequestRevoke grantRequestRevoke, string accessToken = null)
+        {
+            // verify the required parameter 'grantRequestRevoke' is set
+            if (grantRequestRevoke == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestRevoke' when calling AuthenticationApi->RevokeAccessToken");
+
+            var localVarPath = "/oauth2/token?Revoke";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (accessToken != null) localVarQueryParams.Add("access_token", Configuration.ApiClient.ParameterToString(accessToken)); // query parameter
+            if (grantRequestRevoke != null && grantRequestRevoke.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestRevoke); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestRevoke; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RevokeAccessToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Revoke Access Token This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RevokeAccessTokenAsync (GrantRequestRevoke grantRequestRevoke, string accessToken = null)
+        {
+             await RevokeAccessTokenAsyncWithHttpInfo(grantRequestRevoke, accessToken);
+
+        }
+
+        /// <summary>
+        /// Revoke Access Token This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantRequestRevoke">Contains information about the type of grant you are revoking.</param>
+        /// <param name="accessToken"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RevokeAccessTokenAsyncWithHttpInfo (GrantRequestRevoke grantRequestRevoke, string accessToken = null)
+        {
+            // verify the required parameter 'grantRequestRevoke' is set
+            if (grantRequestRevoke == null)
+                throw new ApiException(400, "Missing required parameter 'grantRequestRevoke' when calling AuthenticationApi->RevokeAccessToken");
+
+            var localVarPath = "/oauth2/token?Revoke";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (accessToken != null) localVarQueryParams.Add("access_token", Configuration.ApiClient.ParameterToString(accessToken)); // query parameter
+            if (grantRequestRevoke != null && grantRequestRevoke.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(grantRequestRevoke); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = grantRequestRevoke; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RevokeAccessToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update Client Application This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Application</returns>
+        public Application UpdateClientApplication (int? userId, int? clientId, Application application)
+        {
+             ApiResponse<Application> localVarResponse = UpdateClientApplicationWithHttpInfo(userId, clientId, application);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Client Application This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>ApiResponse of Application</returns>
+        public ApiResponse< Application > UpdateClientApplicationWithHttpInfo (int? userId, int? clientId, Application application)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->UpdateClientApplication");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->UpdateClientApplication");
+            // verify the required parameter 'application' is set
+            if (application == null)
+                throw new ApiException(400, "Missing required parameter 'application' when calling AuthenticationApi->UpdateClientApplication");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+            if (application != null && application.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(application); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = application; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateClientApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Application>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Application) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Application)));
+            
+        }
+
+        /// <summary>
+        /// Update Client Application This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of Application</returns>
+        public async System.Threading.Tasks.Task<Application> UpdateClientApplicationAsync (int? userId, int? clientId, Application application)
+        {
+             ApiResponse<Application> localVarResponse = await UpdateClientApplicationAsyncWithHttpInfo(userId, clientId, application);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update Client Application This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the client application of interest. This value was given as a response during client application creation.</param>
+        /// <param name="application">The information about the new client application.</param>
+        /// <returns>Task of ApiResponse (Application)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Application>> UpdateClientApplicationAsyncWithHttpInfo (int? userId, int? clientId, Application application)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->UpdateClientApplication");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->UpdateClientApplication");
+            // verify the required parameter 'application' is set
+            if (application == null)
+                throw new ApiException(400, "Missing required parameter 'application' when calling AuthenticationApi->UpdateClientApplication");
+
+            var localVarPath = "/v1/user/{user_id}/developer_applications/{client_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+            if (application != null && application.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(application); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = application; // byte array
+            }
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateClientApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Application>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Application) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Application)));
             
         }
 

@@ -65,6 +65,35 @@ namespace com.bluejeans.api.rest.onvideo.Test
 
         
         /// <summary>
+        /// Test CreateClientApplication
+        /// </summary>
+        [Test]
+        public void CreateClientApplicationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //Application application = null;
+            //var response = instance.CreateClientApplication(userId, application);
+            //Assert.IsInstanceOf<Application> (response, "response is Application");
+        }
+        
+        /// <summary>
+        /// Test GetAuthorizationCode
+        /// </summary>
+        [Test]
+        public void GetAuthorizationCodeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string clientId = null;
+            //string redirectUri = null;
+            //string state = null;
+            //string scope = null;
+            //string responseType = null;
+            //instance.GetAuthorizationCode(clientId, redirectUri, state, scope, responseType);
+            
+        }
+        
+        /// <summary>
         /// Test GetTokenByClient
         /// </summary>
         [Test]
@@ -74,6 +103,18 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //GrantRequestClient grantRequestClient = null;
             //var response = instance.GetTokenByClient(grantRequestClient);
             //Assert.IsInstanceOf<GrantClient> (response, "response is GrantClient");
+        }
+        
+        /// <summary>
+        /// Test GetTokenByCode
+        /// </summary>
+        [Test]
+        public void GetTokenByCodeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //GrantRequestCode grantRequestCode = null;
+            //var response = instance.GetTokenByCode(grantRequestCode);
+            //Assert.IsInstanceOf<GrantCode> (response, "response is GrantCode");
         }
         
         /// <summary>
@@ -101,6 +142,18 @@ namespace com.bluejeans.api.rest.onvideo.Test
         }
         
         /// <summary>
+        /// Test GetTokenByRefresh
+        /// </summary>
+        [Test]
+        public void GetTokenByRefreshTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //GrantRequestRefresh grantRequestRefresh = null;
+            //var response = instance.GetTokenByRefresh(grantRequestRefresh);
+            //Assert.IsInstanceOf<GrantRefresh> (response, "response is GrantRefresh");
+        }
+        
+        /// <summary>
         /// Test GetTokenInfo
         /// </summary>
         [Test]
@@ -109,6 +162,46 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetTokenInfo();
             //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+        }
+        
+        /// <summary>
+        /// Test RegenerateClientApplicationSecret
+        /// </summary>
+        [Test]
+        public void RegenerateClientApplicationSecretTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? clientId = null;
+            //var response = instance.RegenerateClientApplicationSecret(userId, clientId);
+            //Assert.IsInstanceOf<ApplicationSecret> (response, "response is ApplicationSecret");
+        }
+        
+        /// <summary>
+        /// Test RevokeAccessToken
+        /// </summary>
+        [Test]
+        public void RevokeAccessTokenTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //GrantRequestRevoke grantRequestRevoke = null;
+            //string accessToken = null;
+            //instance.RevokeAccessToken(grantRequestRevoke, accessToken);
+            
+        }
+        
+        /// <summary>
+        /// Test UpdateClientApplication
+        /// </summary>
+        [Test]
+        public void UpdateClientApplicationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? userId = null;
+            //int? clientId = null;
+            //Application application = null;
+            //var response = instance.UpdateClientApplication(userId, clientId, application);
+            //Assert.IsInstanceOf<Application> (response, "response is Application");
         }
         
     }

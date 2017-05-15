@@ -31,11 +31,35 @@ class TestAuthenticationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_client_application(self):
+        """
+        Test case for create_client_application
+
+        Create Client Application
+        """
+        pass
+
+    def test_get_authorization_code(self):
+        """
+        Test case for get_authorization_code
+
+        Get Authorization Code
+        """
+        pass
+
     def test_get_token_by_client(self):
         """
         Test case for get_token_by_client
 
         Authentication via Client Grant Type
+        """
+        pass
+
+    def test_get_token_by_code(self):
+        """
+        Test case for get_token_by_code
+
+        Authentication via Code Grant Type
         """
         pass
 
@@ -55,11 +79,43 @@ class TestAuthenticationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_token_by_refresh(self):
+        """
+        Test case for get_token_by_refresh
+
+        Authentication via Refresh Grant Type
+        """
+        pass
+
     def test_get_token_info(self):
         """
         Test case for get_token_info
 
         Validate a Token
+        """
+        pass
+
+    def test_regenerate_client_application_secret(self):
+        """
+        Test case for regenerate_client_application_secret
+
+        Regenerate Client Application Secret
+        """
+        pass
+
+    def test_revoke_access_token(self):
+        """
+        Test case for revoke_access_token
+
+        Revoke Access Token
+        """
+        pass
+
+    def test_update_client_application(self):
+        """
+        Test case for update_client_application
+
+        Update Client Application
         """
         pass
 

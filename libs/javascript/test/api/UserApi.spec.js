@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getGrantedApplications', function() {
+      it('should call getGrantedApplications successfully', function(done) {
+        //uncomment below and update the code to test getGrantedApplications
+        //instance.getGrantedApplications(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getRoom', function() {
       it('should call getRoom successfully', function(done) {
         //uncomment below and update the code to test getRoom
@@ -72,6 +82,16 @@
       it('should call getUser successfully', function(done) {
         //uncomment below and update the code to test getUser
         //instance.getUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('revokeGrantedApplication', function() {
+      it('should call revokeGrantedApplication successfully', function(done) {
+        //uncomment below and update the code to test revokeGrantedApplication
+        //instance.revokeGrantedApplication(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

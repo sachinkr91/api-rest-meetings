@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Enterprise', 'model/Error', 'model/Room', 'model/User'], factory);
+    define(['ApiClient', 'model/Enterprise', 'model/Error', 'model/GrantedApplications', 'model/Room', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Enterprise'), require('../model/Error'), require('../model/Room'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/Enterprise'), require('../model/Error'), require('../model/GrantedApplications'), require('../model/Room'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.UserApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.User);
+    root.BlueJeansOnVideoRestApi.UserApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Enterprise, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantedApplications, root.BlueJeansOnVideoRestApi.Room, root.BlueJeansOnVideoRestApi.User);
   }
-}(this, function(ApiClient, Enterprise, Error, Room, User) {
+}(this, function(ApiClient, Enterprise, Error, GrantedApplications, Room, User) {
   'use strict';
 
   /**
@@ -86,6 +86,52 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/enterprise_profile', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getGrantedApplications operation.
+     * @callback module:api/UserApi~getGrantedApplicationsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GrantedApplications} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Granted Applications
+     * This endpoint retrieves the granted applications associated with the user.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:api/UserApi~getGrantedApplicationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantedApplications}
+     */
+    this.getGrantedApplications = function(userId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling getGrantedApplications");
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = GrantedApplications;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/granted_applications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -178,6 +224,58 @@
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the revokeGrantedApplication operation.
+     * @callback module:api/UserApi~revokeGrantedApplicationCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remoke Granted Application
+     * This endpoint revokes the granted application associated with the user.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {String} clientId The ID of the granted application.
+     * @param {module:api/UserApi~revokeGrantedApplicationCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.revokeGrantedApplication = function(userId, clientId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling revokeGrantedApplication");
+      }
+
+      // verify the required parameter 'clientId' is set
+      if (clientId == undefined || clientId == null) {
+        throw new Error("Missing the required parameter 'clientId' when calling revokeGrantedApplication");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'client_id': clientId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/granted_applications/{client_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -88,6 +88,17 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getGrantedApplications
+     *
+     * Get Granted Applications.
+     *
+     */
+    public function testGetGrantedApplications()
+    {
+
+    }
+
+    /**
      * Test case for getRoom
      *
      * Get User’s Default Meeting Settings.
@@ -105,6 +116,17 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetUser()
+    {
+
+    }
+
+    /**
+     * Test case for revokeGrantedApplication
+     *
+     * Remoke Granted Application.
+     *
+     */
+    public function testRevokeGrantedApplication()
     {
 
     }

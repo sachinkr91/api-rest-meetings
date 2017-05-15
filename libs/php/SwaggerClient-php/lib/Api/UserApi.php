@@ -182,6 +182,100 @@ class UserApi
     }
 
     /**
+     * Operation getGrantedApplications
+     *
+     * Get Granted Applications
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\GrantedApplications
+     */
+    public function getGrantedApplications($user_id)
+    {
+        list($response) = $this->getGrantedApplicationsWithHttpInfo($user_id);
+        return $response;
+    }
+
+    /**
+     * Operation getGrantedApplicationsWithHttpInfo
+     *
+     * Get Granted Applications
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\GrantedApplications, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGrantedApplicationsWithHttpInfo($user_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getGrantedApplications');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/granted_applications";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\GrantedApplications',
+                '/v1/user/{user_id}/granted_applications'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GrantedApplications', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\GrantedApplications', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getRoom
      *
      * Get User’s Default Meeting Settings
@@ -359,6 +453,110 @@ class UserApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\User', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
+                case 0:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation revokeGrantedApplication
+     *
+     * Remoke Granted Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $client_id The ID of the granted application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function revokeGrantedApplication($user_id, $client_id)
+    {
+        list($response) = $this->revokeGrantedApplicationWithHttpInfo($user_id, $client_id);
+        return $response;
+    }
+
+    /**
+     * Operation revokeGrantedApplicationWithHttpInfo
+     *
+     * Remoke Granted Application
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $client_id The ID of the granted application. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function revokeGrantedApplicationWithHttpInfo($user_id, $client_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling revokeGrantedApplication');
+        }
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling revokeGrantedApplication');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/granted_applications/{client_id}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($client_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "client_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($client_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v1/user/{user_id}/granted_applications/{client_id}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
                 case 0:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);

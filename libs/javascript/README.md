@@ -63,7 +63,9 @@ access_token.apiKey = "YOUR API KEY"
 
 var api = new BlueJeansOnVideoRestApi.AuthenticationApi()
 
-var grantRequestClient = new BlueJeansOnVideoRestApi.GrantRequestClient(); // {GrantRequestClient} Contains information about the type of grant you are requesting.
+var userId = 56; // {Number} The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+var application = new BlueJeansOnVideoRestApi.Application(); // {Application} The information about the new client application.
 
 
 var callback = function(error, data, response) {
@@ -73,7 +75,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getTokenByClient(grantRequestClient, callback);
+api.createClientApplication(userId, application, callback);
 
 ```
 
@@ -83,10 +85,17 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**createClientApplication**](docs/AuthenticationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**getAuthorizationCode**](docs/AuthenticationApi.md#getAuthorizationCode) | **GET** /oauth2/authorize | Get Authorization Code
 *BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenByClient**](docs/AuthenticationApi.md#getTokenByClient) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenByCode**](docs/AuthenticationApi.md#getTokenByCode) | **POST** /oauth2/token?Code | Authentication via Code Grant Type
 *BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenByMeeting**](docs/AuthenticationApi.md#getTokenByMeeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 *BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenByPassword**](docs/AuthenticationApi.md#getTokenByPassword) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenByRefresh**](docs/AuthenticationApi.md#getTokenByRefresh) | **POST** /oauth2/token?Refresh | Authentication via Refresh Grant Type
 *BlueJeansOnVideoRestApi.AuthenticationApi* | [**getTokenInfo**](docs/AuthenticationApi.md#getTokenInfo) | **GET** /oauth2/tokenInfo | Validate a Token
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**regenerateClientApplicationSecret**](docs/AuthenticationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**revokeAccessToken**](docs/AuthenticationApi.md#revokeAccessToken) | **DELETE** /oauth2/token?Revoke | Revoke Access Token
+*BlueJeansOnVideoRestApi.AuthenticationApi* | [**updateClientApplication**](docs/AuthenticationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 *BlueJeansOnVideoRestApi.CommandCenterApi* | [**getEndpointDistribution**](docs/CommandCenterApi.md#getEndpointDistribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
 *BlueJeansOnVideoRestApi.CommandCenterApi* | [**getFeedbackComments**](docs/CommandCenterApi.md#getFeedbackComments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
 *BlueJeansOnVideoRestApi.CommandCenterApi* | [**getFeedbackCount**](docs/CommandCenterApi.md#getFeedbackCount) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
@@ -134,8 +143,10 @@ Class | Method | HTTP request | Description
 *BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 *BlueJeansOnVideoRestApi.RecordingApi* | [**v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**](docs/RecordingApi.md#v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 *BlueJeansOnVideoRestApi.UserApi* | [**getEnterpriseProfile**](docs/UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+*BlueJeansOnVideoRestApi.UserApi* | [**getGrantedApplications**](docs/UserApi.md#getGrantedApplications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
 *BlueJeansOnVideoRestApi.UserApi* | [**getRoom**](docs/UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 *BlueJeansOnVideoRestApi.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
+*BlueJeansOnVideoRestApi.UserApi* | [**revokeGrantedApplication**](docs/UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
 *BlueJeansOnVideoRestApi.UserApi* | [**updateRoom**](docs/UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 *BlueJeansOnVideoRestApi.UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
@@ -153,6 +164,8 @@ Class | Method | HTTP request | Description
  - [BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage](docs/AnalyticsTopUsersUsage.md)
  - [BlueJeansOnVideoRestApi.AnalyticsUsage](docs/AnalyticsUsage.md)
  - [BlueJeansOnVideoRestApi.AnalyticsUsageUsage](docs/AnalyticsUsageUsage.md)
+ - [BlueJeansOnVideoRestApi.Application](docs/Application.md)
+ - [BlueJeansOnVideoRestApi.ApplicationSecret](docs/ApplicationSecret.md)
  - [BlueJeansOnVideoRestApi.Attendee](docs/Attendee.md)
  - [BlueJeansOnVideoRestApi.Content](docs/Content.md)
  - [BlueJeansOnVideoRestApi.ContentContentProperties](docs/ContentContentProperties.md)
@@ -173,14 +186,22 @@ Class | Method | HTTP request | Description
  - [BlueJeansOnVideoRestApi.Error](docs/Error.md)
  - [BlueJeansOnVideoRestApi.GrantClient](docs/GrantClient.md)
  - [BlueJeansOnVideoRestApi.GrantClientScope](docs/GrantClientScope.md)
+ - [BlueJeansOnVideoRestApi.GrantCode](docs/GrantCode.md)
+ - [BlueJeansOnVideoRestApi.GrantCodeScope](docs/GrantCodeScope.md)
+ - [BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions](docs/GrantCodeScopeAppPermissions.md)
  - [BlueJeansOnVideoRestApi.GrantMeeting](docs/GrantMeeting.md)
  - [BlueJeansOnVideoRestApi.GrantMeetingScope](docs/GrantMeetingScope.md)
  - [BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting](docs/GrantMeetingScopeMeeting.md)
  - [BlueJeansOnVideoRestApi.GrantPassword](docs/GrantPassword.md)
  - [BlueJeansOnVideoRestApi.GrantPasswordScope](docs/GrantPasswordScope.md)
+ - [BlueJeansOnVideoRestApi.GrantRefresh](docs/GrantRefresh.md)
  - [BlueJeansOnVideoRestApi.GrantRequestClient](docs/GrantRequestClient.md)
+ - [BlueJeansOnVideoRestApi.GrantRequestCode](docs/GrantRequestCode.md)
  - [BlueJeansOnVideoRestApi.GrantRequestMeeting](docs/GrantRequestMeeting.md)
  - [BlueJeansOnVideoRestApi.GrantRequestPassword](docs/GrantRequestPassword.md)
+ - [BlueJeansOnVideoRestApi.GrantRequestRefresh](docs/GrantRequestRefresh.md)
+ - [BlueJeansOnVideoRestApi.GrantRequestRevoke](docs/GrantRequestRevoke.md)
+ - [BlueJeansOnVideoRestApi.GrantedApplications](docs/GrantedApplications.md)
  - [BlueJeansOnVideoRestApi.InlineResponse200](docs/InlineResponse200.md)
  - [BlueJeansOnVideoRestApi.Layout](docs/Layout.md)
  - [BlueJeansOnVideoRestApi.Meeting](docs/Meeting.md)

@@ -39,6 +39,14 @@ class TestUserApi(unittest.TestCase):
         """
         pass
 
+    def test_get_granted_applications(self):
+        """
+        Test case for get_granted_applications
+
+        Get Granted Applications
+        """
+        pass
+
     def test_get_room(self):
         """
         Test case for get_room
@@ -52,6 +60,14 @@ class TestUserApi(unittest.TestCase):
         Test case for get_user
 
         Get User Account Details
+        """
+        pass
+
+    def test_revoke_granted_application(self):
+        """
+        Test case for revoke_granted_application
+
+        Remoke Granted Application
         """
         pass
 

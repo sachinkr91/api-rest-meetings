@@ -46,6 +46,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>ApiResponse of Enterprise</returns>
         ApiResponse<Enterprise> GetEnterpriseProfileWithHttpInfo (int? userId);
         /// <summary>
+        /// Get Granted Applications
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the granted applications associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>GrantedApplications</returns>
+        GrantedApplications GetGrantedApplications (int? userId);
+
+        /// <summary>
+        /// Get Granted Applications
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the granted applications associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of GrantedApplications</returns>
+        ApiResponse<GrantedApplications> GetGrantedApplicationsWithHttpInfo (int? userId);
+        /// <summary>
         /// Get User’s Default Meeting Settings
         /// </summary>
         /// <remarks>
@@ -87,6 +108,29 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>ApiResponse of User</returns>
         ApiResponse<User> GetUserWithHttpInfo (int? userId);
+        /// <summary>
+        /// Remoke Granted Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint revokes the granted application associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns></returns>
+        void RevokeGrantedApplication (int? userId, string clientId);
+
+        /// <summary>
+        /// Remoke Granted Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint revokes the granted application associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RevokeGrantedApplicationWithHttpInfo (int? userId, string clientId);
         /// <summary>
         /// Update User’s Default Meeting Settings
         /// </summary>
@@ -157,6 +201,27 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <returns>Task of ApiResponse (Enterprise)</returns>
         System.Threading.Tasks.Task<ApiResponse<Enterprise>> GetEnterpriseProfileAsyncWithHttpInfo (int? userId);
         /// <summary>
+        /// Get Granted Applications
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the granted applications associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of GrantedApplications</returns>
+        System.Threading.Tasks.Task<GrantedApplications> GetGrantedApplicationsAsync (int? userId);
+
+        /// <summary>
+        /// Get Granted Applications
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves the granted applications associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (GrantedApplications)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GrantedApplications>> GetGrantedApplicationsAsyncWithHttpInfo (int? userId);
+        /// <summary>
         /// Get User’s Default Meeting Settings
         /// </summary>
         /// <remarks>
@@ -198,6 +263,29 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <returns>Task of ApiResponse (User)</returns>
         System.Threading.Tasks.Task<ApiResponse<User>> GetUserAsyncWithHttpInfo (int? userId);
+        /// <summary>
+        /// Remoke Granted Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint revokes the granted application associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RevokeGrantedApplicationAsync (int? userId, string clientId);
+
+        /// <summary>
+        /// Remoke Granted Application
+        /// </summary>
+        /// <remarks>
+        /// This endpoint revokes the granted application associated with the user.
+        /// </remarks>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RevokeGrantedApplicationAsyncWithHttpInfo (int? userId, string clientId);
         /// <summary>
         /// Update User’s Default Meeting Settings
         /// </summary>
@@ -509,6 +597,158 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
+        /// Get Granted Applications This endpoint retrieves the granted applications associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>GrantedApplications</returns>
+        public GrantedApplications GetGrantedApplications (int? userId)
+        {
+             ApiResponse<GrantedApplications> localVarResponse = GetGrantedApplicationsWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Granted Applications This endpoint retrieves the granted applications associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>ApiResponse of GrantedApplications</returns>
+        public ApiResponse< GrantedApplications > GetGrantedApplicationsWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetGrantedApplications");
+
+            var localVarPath = "/v1/user/{user_id}/granted_applications";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetGrantedApplications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantedApplications>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantedApplications) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantedApplications)));
+            
+        }
+
+        /// <summary>
+        /// Get Granted Applications This endpoint retrieves the granted applications associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of GrantedApplications</returns>
+        public async System.Threading.Tasks.Task<GrantedApplications> GetGrantedApplicationsAsync (int? userId)
+        {
+             ApiResponse<GrantedApplications> localVarResponse = await GetGrantedApplicationsAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Granted Applications This endpoint retrieves the granted applications associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <returns>Task of ApiResponse (GrantedApplications)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GrantedApplications>> GetGrantedApplicationsAsyncWithHttpInfo (int? userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->GetGrantedApplications");
+
+            var localVarPath = "/v1/user/{user_id}/granted_applications";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetGrantedApplications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GrantedApplications>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GrantedApplications) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GrantedApplications)));
+            
+        }
+
+        /// <summary>
         /// Get User’s Default Meeting Settings This endpoint gets a user’s default meeting settings.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
@@ -810,6 +1050,168 @@ namespace com.bluejeans.api.rest.onvideo.Api
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (User) Configuration.ApiClient.Deserialize(localVarResponse, typeof(User)));
             
+        }
+
+        /// <summary>
+        /// Remoke Granted Application This endpoint revokes the granted application associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns></returns>
+        public void RevokeGrantedApplication (int? userId, string clientId)
+        {
+             RevokeGrantedApplicationWithHttpInfo(userId, clientId);
+        }
+
+        /// <summary>
+        /// Remoke Granted Application This endpoint revokes the granted application associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> RevokeGrantedApplicationWithHttpInfo (int? userId, string clientId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->RevokeGrantedApplication");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling UserApi->RevokeGrantedApplication");
+
+            var localVarPath = "/v1/user/{user_id}/granted_applications/{client_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RevokeGrantedApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Remoke Granted Application This endpoint revokes the granted application associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RevokeGrantedApplicationAsync (int? userId, string clientId)
+        {
+             await RevokeGrantedApplicationAsyncWithHttpInfo(userId, clientId);
+
+        }
+
+        /// <summary>
+        /// Remoke Granted Application This endpoint revokes the granted application associated with the user.
+        /// </summary>
+        /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
+        /// <param name="clientId">The ID of the granted application.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RevokeGrantedApplicationAsyncWithHttpInfo (int? userId, string clientId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling UserApi->RevokeGrantedApplication");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling UserApi->RevokeGrantedApplication");
+
+            var localVarPath = "/v1/user/{user_id}/granted_applications/{client_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (clientId != null) localVarPathParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // path parameter
+
+            // authentication (access_token) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            {
+                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RevokeGrantedApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

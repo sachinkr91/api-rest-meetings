@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/GrantClient', 'model/GrantMeeting', 'model/GrantPassword', 'model/GrantRequestClient', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/InlineResponse200'], factory);
+    define(['ApiClient', 'model/Application', 'model/ApplicationSecret', 'model/Error', 'model/GrantClient', 'model/GrantCode', 'model/GrantMeeting', 'model/GrantPassword', 'model/GrantRefresh', 'model/GrantRequestClient', 'model/GrantRequestCode', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/GrantRequestRefresh', 'model/GrantRequestRevoke', 'model/InlineResponse200'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRequestClient'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/InlineResponse200'));
+    module.exports = factory(require('../ApiClient'), require('../model/Application'), require('../model/ApplicationSecret'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestClient'), require('../model/GrantRequestCode'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantRequestRefresh'), require('../model/GrantRequestRevoke'), require('../model/InlineResponse200'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.InlineResponse200);
+    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Application, root.BlueJeansOnVideoRestApi.ApplicationSecret, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRevoke, root.BlueJeansOnVideoRestApi.InlineResponse200);
   }
-}(this, function(ApiClient, Error, GrantClient, GrantMeeting, GrantPassword, GrantRequestClient, GrantRequestMeeting, GrantRequestPassword, InlineResponse200) {
+}(this, function(ApiClient, Application, ApplicationSecret, Error, GrantClient, GrantCode, GrantMeeting, GrantPassword, GrantRefresh, GrantRequestClient, GrantRequestCode, GrantRequestMeeting, GrantRequestPassword, GrantRequestRefresh, GrantRequestRevoke, InlineResponse200) {
   'use strict';
 
   /**
@@ -44,6 +44,108 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+    /**
+     * Callback function to receive the result of the createClientApplication operation.
+     * @callback module:api/AuthenticationApi~createClientApplicationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Application} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create Client Application
+     * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {module:model/Application} application The information about the new client application.
+     * @param {module:api/AuthenticationApi~createClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Application}
+     */
+    this.createClientApplication = function(userId, application, callback) {
+      var postBody = application;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling createClientApplication");
+      }
+
+      // verify the required parameter 'application' is set
+      if (application == undefined || application == null) {
+        throw new Error("Missing the required parameter 'application' when calling createClientApplication");
+      }
+
+
+      var pathParams = {
+        'user_id': userId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Application;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/developer_applications', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAuthorizationCode operation.
+     * @callback module:api/AuthenticationApi~getAuthorizationCodeCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Authorization Code
+     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL shoujld be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.clientId The 32 character client ID generated when you created the client application.
+     * @param {String} opts.redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
+     * @param {String} opts.state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
+     * @param {String} opts.scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+     * @param {String} opts.responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (default to code)
+     * @param {module:api/AuthenticationApi~getAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.getAuthorizationCode = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'clientId': opts['clientId'],
+        'redirectUri': opts['redirectUri'],
+        'state': opts['state'],
+        'scope': opts['scope'],
+        'responseType': opts['responseType']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/oauth2/authorize', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getTokenByClient operation.
@@ -85,6 +187,51 @@
 
       return this.apiClient.callApi(
         '/oauth2/token?Client', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTokenByCode operation.
+     * @callback module:api/AuthenticationApi~getTokenByCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GrantCode} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Authentication via Code Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param {module:model/GrantRequestCode} grantRequestCode Contains information about the type of grant you are requesting.
+     * @param {module:api/AuthenticationApi~getTokenByCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantCode}
+     */
+    this.getTokenByCode = function(grantRequestCode, callback) {
+      var postBody = grantRequestCode;
+
+      // verify the required parameter 'grantRequestCode' is set
+      if (grantRequestCode == undefined || grantRequestCode == null) {
+        throw new Error("Missing the required parameter 'grantRequestCode' when calling getTokenByCode");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = GrantCode;
+
+      return this.apiClient.callApi(
+        '/oauth2/token?Code', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -181,6 +328,51 @@
     }
 
     /**
+     * Callback function to receive the result of the getTokenByRefresh operation.
+     * @callback module:api/AuthenticationApi~getTokenByRefreshCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GrantRefresh} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Authentication via Refresh Grant Type
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param {module:model/GrantRequestRefresh} grantRequestRefresh Contains information about the type of grant you are requesting.
+     * @param {module:api/AuthenticationApi~getTokenByRefreshCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GrantRefresh}
+     */
+    this.getTokenByRefresh = function(grantRequestRefresh, callback) {
+      var postBody = grantRequestRefresh;
+
+      // verify the required parameter 'grantRequestRefresh' is set
+      if (grantRequestRefresh == undefined || grantRequestRefresh == null) {
+        throw new Error("Missing the required parameter 'grantRequestRefresh' when calling getTokenByRefresh");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = GrantRefresh;
+
+      return this.apiClient.callApi(
+        '/oauth2/token?Refresh', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getTokenInfo operation.
      * @callback module:api/AuthenticationApi~getTokenInfoCallback
      * @param {String} error Error message, if any.
@@ -214,6 +406,166 @@
 
       return this.apiClient.callApi(
         '/oauth2/tokenInfo', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the regenerateClientApplicationSecret operation.
+     * @callback module:api/AuthenticationApi~regenerateClientApplicationSecretCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ApplicationSecret} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Regenerate Client Application Secret
+     * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
+     * @param {module:api/AuthenticationApi~regenerateClientApplicationSecretCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ApplicationSecret}
+     */
+    this.regenerateClientApplicationSecret = function(userId, clientId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling regenerateClientApplicationSecret");
+      }
+
+      // verify the required parameter 'clientId' is set
+      if (clientId == undefined || clientId == null) {
+        throw new Error("Missing the required parameter 'clientId' when calling regenerateClientApplicationSecret");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'client_id': clientId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = ApplicationSecret;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/developer_applications/{client_id}/secret', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the revokeAccessToken operation.
+     * @callback module:api/AuthenticationApi~revokeAccessTokenCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Revoke Access Token
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.
+     * @param {module:model/GrantRequestRevoke} grantRequestRevoke Contains information about the type of grant you are revoking.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.accessToken 
+     * @param {module:api/AuthenticationApi~revokeAccessTokenCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.revokeAccessToken = function(grantRequestRevoke, opts, callback) {
+      opts = opts || {};
+      var postBody = grantRequestRevoke;
+
+      // verify the required parameter 'grantRequestRevoke' is set
+      if (grantRequestRevoke == undefined || grantRequestRevoke == null) {
+        throw new Error("Missing the required parameter 'grantRequestRevoke' when calling revokeAccessToken");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'access_token': opts['accessToken']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/oauth2/token?Revoke', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateClientApplication operation.
+     * @callback module:api/AuthenticationApi~updateClientApplicationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Application} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update Client Application
+     * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} clientId The ID of the client application of interest. This value was given as a response during client application creation.
+     * @param {module:model/Application} application The information about the new client application.
+     * @param {module:api/AuthenticationApi~updateClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Application}
+     */
+    this.updateClientApplication = function(userId, clientId, application, callback) {
+      var postBody = application;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw new Error("Missing the required parameter 'userId' when calling updateClientApplication");
+      }
+
+      // verify the required parameter 'clientId' is set
+      if (clientId == undefined || clientId == null) {
+        throw new Error("Missing the required parameter 'clientId' when calling updateClientApplication");
+      }
+
+      // verify the required parameter 'application' is set
+      if (application == undefined || application == null) {
+        throw new Error("Missing the required parameter 'application' when calling updateClientApplication");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'client_id': clientId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Application;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/developer_applications/{client_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

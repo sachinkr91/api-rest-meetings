@@ -58,14 +58,15 @@ swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
 # create an instance of the API class
 api_instance = swagger_client.AuthenticationApi()
-grant_request_client = swagger_client.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+application = swagger_client.Application() # Application | The information about the new client application.
 
 try:
-    # Authentication via Client Grant Type
-    api_response = api_instance.get_token_by_client(grant_request_client)
+    # Create Client Application
+    api_response = api_instance.create_client_application(user_id, application)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e)
+    print("Exception when calling AuthenticationApi->create_client_application: %s\n" % e)
 
 ```
 
@@ -75,10 +76,17 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthenticationApi* | [**create_client_application**](docs/AuthenticationApi.md#create_client_application) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+*AuthenticationApi* | [**get_authorization_code**](docs/AuthenticationApi.md#get_authorization_code) | **GET** /oauth2/authorize | Get Authorization Code
 *AuthenticationApi* | [**get_token_by_client**](docs/AuthenticationApi.md#get_token_by_client) | **POST** /oauth2/token?Client | Authentication via Client Grant Type
+*AuthenticationApi* | [**get_token_by_code**](docs/AuthenticationApi.md#get_token_by_code) | **POST** /oauth2/token?Code | Authentication via Code Grant Type
 *AuthenticationApi* | [**get_token_by_meeting**](docs/AuthenticationApi.md#get_token_by_meeting) | **POST** /oauth2/token?Meeting | Authentication via Meeting Grant Type
 *AuthenticationApi* | [**get_token_by_password**](docs/AuthenticationApi.md#get_token_by_password) | **POST** /oauth2/token?Password | Authentication via Password Grant Type
+*AuthenticationApi* | [**get_token_by_refresh**](docs/AuthenticationApi.md#get_token_by_refresh) | **POST** /oauth2/token?Refresh | Authentication via Refresh Grant Type
 *AuthenticationApi* | [**get_token_info**](docs/AuthenticationApi.md#get_token_info) | **GET** /oauth2/tokenInfo | Validate a Token
+*AuthenticationApi* | [**regenerate_client_application_secret**](docs/AuthenticationApi.md#regenerate_client_application_secret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
+*AuthenticationApi* | [**revoke_access_token**](docs/AuthenticationApi.md#revoke_access_token) | **DELETE** /oauth2/token?Revoke | Revoke Access Token
+*AuthenticationApi* | [**update_client_application**](docs/AuthenticationApi.md#update_client_application) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 *CommandCenterApi* | [**get_endpoint_distribution**](docs/CommandCenterApi.md#get_endpoint_distribution) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution | Endpoint Distribution
 *CommandCenterApi* | [**get_feedback_comments**](docs/CommandCenterApi.md#get_feedback_comments) | **GET** /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments | Survey Feedback Comments
 *CommandCenterApi* | [**get_feedback_count**](docs/CommandCenterApi.md#get_feedback_count) | **GET** /v1/enterprise/{enterprise_id}/indigo/feedback/count | Survey Feedback Scores
@@ -126,8 +134,10 @@ Class | Method | HTTP request | Description
 *RecordingApi* | [**v1_user_user_id_meeting_history_meeting_guid_recordings_delete**](docs/RecordingApi.md#v1_user_user_id_meeting_history_meeting_guid_recordings_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 *RecordingApi* | [**v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete**](docs/RecordingApi.md#v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
 *UserApi* | [**get_enterprise_profile**](docs/UserApi.md#get_enterprise_profile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+*UserApi* | [**get_granted_applications**](docs/UserApi.md#get_granted_applications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
 *UserApi* | [**get_room**](docs/UserApi.md#get_room) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 *UserApi* | [**get_user**](docs/UserApi.md#get_user) | **GET** /v1/user/{user_id} | Get User Account Details
+*UserApi* | [**revoke_granted_application**](docs/UserApi.md#revoke_granted_application) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
 *UserApi* | [**update_room**](docs/UserApi.md#update_room) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 *UserApi* | [**update_user**](docs/UserApi.md#update_user) | **PUT** /v1/user/{user_id} | Update User Account Details
 
@@ -145,6 +155,8 @@ Class | Method | HTTP request | Description
  - [AnalyticsTopUsersUsage](docs/AnalyticsTopUsersUsage.md)
  - [AnalyticsUsage](docs/AnalyticsUsage.md)
  - [AnalyticsUsageUsage](docs/AnalyticsUsageUsage.md)
+ - [Application](docs/Application.md)
+ - [ApplicationSecret](docs/ApplicationSecret.md)
  - [Attendee](docs/Attendee.md)
  - [Content](docs/Content.md)
  - [ContentContentProperties](docs/ContentContentProperties.md)
@@ -165,14 +177,22 @@ Class | Method | HTTP request | Description
  - [Error](docs/Error.md)
  - [GrantClient](docs/GrantClient.md)
  - [GrantClientScope](docs/GrantClientScope.md)
+ - [GrantCode](docs/GrantCode.md)
+ - [GrantCodeScope](docs/GrantCodeScope.md)
+ - [GrantCodeScopeAppPermissions](docs/GrantCodeScopeAppPermissions.md)
  - [GrantMeeting](docs/GrantMeeting.md)
  - [GrantMeetingScope](docs/GrantMeetingScope.md)
  - [GrantMeetingScopeMeeting](docs/GrantMeetingScopeMeeting.md)
  - [GrantPassword](docs/GrantPassword.md)
  - [GrantPasswordScope](docs/GrantPasswordScope.md)
+ - [GrantRefresh](docs/GrantRefresh.md)
  - [GrantRequestClient](docs/GrantRequestClient.md)
+ - [GrantRequestCode](docs/GrantRequestCode.md)
  - [GrantRequestMeeting](docs/GrantRequestMeeting.md)
  - [GrantRequestPassword](docs/GrantRequestPassword.md)
+ - [GrantRequestRefresh](docs/GrantRequestRefresh.md)
+ - [GrantRequestRevoke](docs/GrantRequestRevoke.md)
+ - [GrantedApplications](docs/GrantedApplications.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [Layout](docs/Layout.md)
  - [Meeting](docs/Meeting.md)

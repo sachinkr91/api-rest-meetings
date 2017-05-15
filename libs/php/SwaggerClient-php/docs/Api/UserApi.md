@@ -5,8 +5,10 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getEnterpriseProfile**](UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
+[**getGrantedApplications**](UserApi.md#getGrantedApplications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
+[**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
@@ -49,6 +51,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\Enterprise**](../Model/Enterprise.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getGrantedApplications**
+> \Swagger\Client\Model\GrantedApplications getGrantedApplications($user_id)
+
+Get Granted Applications
+
+This endpoint retrieves the granted applications associated with the user.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\UserApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try {
+    $result = $api_instance->getGrantedApplications($user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->getGrantedApplications: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+
+### Return type
+
+[**\Swagger\Client\Model\GrantedApplications**](../Model/GrantedApplications.md)
 
 ### Authorization
 
@@ -149,6 +201,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\User**](../Model/User.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **revokeGrantedApplication**
+> revokeGrantedApplication($user_id, $client_id)
+
+Remoke Granted Application
+
+This endpoint revokes the granted application associated with the user.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\UserApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$client_id = "client_id_example"; // string | The ID of the granted application.
+
+try {
+    $api_instance->revokeGrantedApplication($user_id, $client_id);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->revokeGrantedApplication: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **client_id** | **string**| The ID of the granted application. |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

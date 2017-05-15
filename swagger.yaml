@@ -22,7 +22,6 @@ info:
     
     * Client Credentials Grant – Similar to Password Grant ("two-legged OAuth").
 
-
     ## Access & Permissions
 
     BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level.
@@ -300,100 +299,6 @@ paths:
       responses:
         '200':
           description: This URL should be invoked by the user of the client application in a browser, not via API.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/user/{user_id}/developer_applications:
-    post:
-      summary: Create Client Application
-      description: This endpoint creates a client application for use in 3-legged OAuth2 authorization.
-      operationId: createClientApplication
-      tags:
-        - Authentication
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-        - name: application
-          in: body
-          description: The information about the new client application.
-          required: true
-          schema:
-            $ref: '#/definitions/Application'
-      responses:
-        '201':
-          description: The new application.
-          schema:
-            $ref: '#/definitions/Application'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/user/{user_id}/developer_applications/{client_id}:
-    put:
-      summary: Update Client Application
-      description: This endpoint updates a client application for use in 3-legged OAuth2 authorization.
-      operationId: updateClientApplication
-      tags:
-        - Authentication
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-        - name: client_id
-          in: path
-          description: The ID of the client application of interest. This value was given as a response during client application creation.
-          required: true
-          type: integer
-        - name: application
-          in: body
-          description: The information about the new client application.
-          required: true
-          schema:
-            $ref: '#/definitions/Application'
-      responses:
-        '200':
-          description: The new application.
-          schema:
-            $ref: '#/definitions/Application'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/user/{user_id}/developer_applications/{client_id}/secret:
-    put:
-      summary: Regenerate Client Application Secret
-      description: This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
-      operationId: regenerateClientApplicationSecret
-      tags:
-        - Authentication
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-        - name: client_id
-          in: path
-          description: The ID of the client application of interest. This value was given as a response during client application creation.
-          required: true
-          type: integer
-      responses:
-        '200':
-          description: The new applicatio secret.
-          schema:
-            $ref: '#/definitions/ApplicationSecret'
         default:
           description: Unexpected error
           schema:
@@ -2153,6 +2058,100 @@ paths:
           description: The results for this enterprise.
           schema:
             $ref: '#/definitions/AnalyticsFeedbackComments'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/developer_applications:
+    post:
+      summary: Create Client Application
+      description: This endpoint creates a client application for use in 3-legged OAuth2 authorization.
+      operationId: createClientApplication
+      tags:
+        - Applications
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: application
+          in: body
+          description: The information about the new client application.
+          required: true
+          schema:
+            $ref: '#/definitions/Application'
+      responses:
+        '201':
+          description: The new application.
+          schema:
+            $ref: '#/definitions/Application'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/developer_applications/{client_id}:
+    put:
+      summary: Update Client Application
+      description: This endpoint updates a client application for use in 3-legged OAuth2 authorization.
+      operationId: updateClientApplication
+      tags:
+        - Applications
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: client_id
+          in: path
+          description: The ID of the client application of interest. This value was given as a response during client application creation.
+          required: true
+          type: integer
+        - name: application
+          in: body
+          description: The information about the new client application.
+          required: true
+          schema:
+            $ref: '#/definitions/Application'
+      responses:
+        '200':
+          description: The new application.
+          schema:
+            $ref: '#/definitions/Application'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/developer_applications/{client_id}/secret:
+    put:
+      summary: Regenerate Client Application Secret
+      description: This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
+      operationId: regenerateClientApplicationSecret
+      tags:
+        - Applications
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: client_id
+          in: path
+          description: The ID of the client application of interest. This value was given as a response during client application creation.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The new applicatio secret.
+          schema:
+            $ref: '#/definitions/ApplicationSecret'
         default:
           description: Unexpected error
           schema:
