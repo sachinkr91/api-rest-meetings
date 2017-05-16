@@ -61,11 +61,24 @@ java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/
 rm -rf ../libs/javascript/docs
 rm -rf ../libs/javascript/src
 rm -rf ../libs/javascript/test
+
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript --config config.javascript.json
+
 cd ../libs/javascript
+
+perl -p -i -e "s|Unlicense|MIT|" package.json
+perl -p -i -e "s|^  }$|  },|" package.json
+perl -p -i -e "s|^}|  \"repository\": {\n}|" package.json
+perl -p -i -e "s|^}|    \"type\": \"git\",\n}|" package.json
+perl -p -i -e "s|^}|    \"url\": \"https://github.com/bluejeans/api-rest-onvideo.git\"\n}|" package.json
+perl -p -i -e "s|^}|  }\n}|" package.json
+
 npm test
+
 cd ../../build
 
+#
+# CSHARP
 #
 # Install tools from http://www.mono-project.com/download/
 #
