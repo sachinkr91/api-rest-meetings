@@ -45,7 +45,7 @@ info:
     Now the web site will automatically include your access token on all API calls you make.
     
     
-  termsOfService: Terms here
+  termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions

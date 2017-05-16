@@ -20,7 +20,7 @@
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
         <description>A library generated from a Swagger doc</description>
-        <copyright>Terms here</copyright>
+        <copyright>https://www.bluejeans.com/terms-of-service</copyright>
         <licenseUrl>https://www.bluejeans.com/site/terms-and-conditions</licenseUrl>
 
         <!-- Dependencies are automatically installed when the package is installed -->

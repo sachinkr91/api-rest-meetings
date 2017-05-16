@@ -8,5 +8,7 @@
 	"developerOrganizationUrl":"http://bluejeans.com/",
 	"scmConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
     "scmDeveloperConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
-    "scmUrl":"https://github.com/bluejeans/api-rest-onvideo"
+    "scmUrl":"https://github.com/bluejeans/api-rest-onvideo",
+    "gitUserId":"bluejeans",
+    "gitRepoId":"api-rest-onvideo"
 }
