@@ -27,11 +27,11 @@ npm install bluejeans-api-rest-onvideo --save
 #### git
 #
 If the library is hosted at a git repository, e.g.
-https://github.com/GIT_USER_ID/GIT_REPO_ID
+https://github.com/bluejeans/api-rest-onvideo#npm-repo
 then install it via:
 
 ```shell
-    npm install GIT_USER_ID/GIT_REPO_ID --save
+    npm install bluejeans/api-rest-onvideo#npm-repo --save
 ```
 
 ### For browser
