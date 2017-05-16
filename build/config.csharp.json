@@ -1,4 +1,5 @@
 {
 	"hideGenerationTimestamp": true,
-	"packageName": "com.bluejeans.api.rest.onvideo"
+	"packageName": "com.bluejeans.api.rest.onvideo",
+	"packageGuid":"{ED895C45-4A59-49DA-8FC0-6C617116EBE1}"
 }
