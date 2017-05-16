@@ -1,7 +1,12 @@
 {
-	"hideGenerationTimestamp": true,
+	"artifactUrl":"https://github.com/bluejeans/api-rest-onvideo",
+	"artifactDescription":"BlueJeans onVideo REST API",
+	"hideGenerationTimestamp":true,
 	"developerEmail":"brandon@bluejeans.com",
 	"developerName":"Brandon Fuller",
 	"developerOrganization":"Blue Jeans Network",
-	"developerOrganizationUrl":"http://bluejeans.com/"
+	"developerOrganizationUrl":"http://bluejeans.com/",
+	"scmConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
+    "scmDeveloperConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
+    "scmUrl":"https://github.com/bluejeans/api-rest-onvideo"
 }
