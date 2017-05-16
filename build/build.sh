@@ -51,8 +51,12 @@ mkdir bin
 cp target/api-rest-onvideo-1.0.0.jar bin/bluejeans-api-rest-onvideo-1.0.0.jar
 cd ../../build
 
+#
+# PHP
+#
+
 rm -rf ../libs/php
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php --config config.php.json
 
 #
 # JAVASCRIPT
@@ -90,5 +94,9 @@ chmod 755 build.sh
 ./build.sh
 cd ../../build
 
+#
+# PYTHON
+#
+
 rm -rf ../libs/python
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python --config config.python.json
