@@ -157,8 +157,7 @@
           <noJekyll>true</noJekyll>
           <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
           <includes><include>**/*</include></includes>
-          <branch>refs/heads/mvn-repo</branch>
-          <server>github</server>
+          <branch>refs/heads/mvn-repo</branch>  
         </configuration>
         <executions>
           <execution>
