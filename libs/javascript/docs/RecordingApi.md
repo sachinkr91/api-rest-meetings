@@ -22,7 +22,7 @@ This endpoint lists the recordings for a meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -82,7 +82,7 @@ This endpoint retrieves properties about the recording chapter.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -141,7 +141,7 @@ This endpoint starts recording for a meeting in progress. Note that this is a PO
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -200,7 +200,7 @@ This endpoint stops recording for a meeting in progress. Note that this is a PUT
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -259,7 +259,7 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -315,7 +315,7 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token

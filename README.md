@@ -29,6 +29,14 @@ https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/java
 
 ## JavaScript
 
+1. To add our NPM repository to your project, add run this command:
+
+```
+npm install bluejeans/api-rest-onvideo#npm-repo --save
+```
+
+2. Further instructions can be found at:
+
 https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/javascript
 
 ## PHP

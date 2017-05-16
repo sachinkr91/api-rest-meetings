@@ -45,8 +45,6 @@ perl -p -i -e "s|^    </plugins>|          </execution>\n    </plugins>|"  pom.x
 perl -p -i -e "s|^    </plugins>|        </executions>\n    </plugins>|"  pom.xml
 perl -p -i -e "s|^    </plugins>|      </plugin>\n    </plugins>|"  pom.xml
 
-exit
-
 mvn package
 
 mkdir bin
@@ -56,10 +54,14 @@ cd ../../build
 rm -rf ../libs/php
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php
 
+#
+# JAVASCRIPT
+#
+
 rm -rf ../libs/javascript/docs
 rm -rf ../libs/javascript/src
 rm -rf ../libs/javascript/test
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript --config config.javascript.json
 cd ../libs/javascript
 npm test
 cd ../../build

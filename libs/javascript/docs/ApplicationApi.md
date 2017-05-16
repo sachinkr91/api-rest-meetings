@@ -19,7 +19,7 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -75,7 +75,7 @@ This endpoint forces the regeneration of a client application secret for use in 
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -131,7 +131,7 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token

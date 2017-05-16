@@ -23,7 +23,7 @@ This endpoint retrieves the enterprise profile associated with the user.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -76,7 +76,7 @@ This endpoint retrieves the granted applications associated with the user.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -129,7 +129,7 @@ This endpoint gets a user’s default meeting settings.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -182,7 +182,7 @@ This endpoint retrieves the basic account details for a given user.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -235,7 +235,7 @@ This endpoint revokes the granted application associated with the user.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -291,7 +291,7 @@ This endpoint allows updating a user’s default meeting settings.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -347,7 +347,7 @@ This endpoint allows updating a user’s basic account details.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token

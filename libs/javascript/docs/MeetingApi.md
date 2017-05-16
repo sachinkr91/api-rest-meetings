@@ -34,7 +34,7 @@ This endpoint deletes a scheuled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -90,7 +90,7 @@ This endpoint will create a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -150,7 +150,7 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -209,7 +209,7 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -272,7 +272,7 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -331,7 +331,7 @@ This endpoint gets the settings for a user&#39;s meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -387,7 +387,7 @@ This endpoint retrieves the email object for a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -451,7 +451,7 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -510,7 +510,7 @@ This endpoint returns an array of all endpoints in the current meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -566,7 +566,7 @@ This endpoint retrieves the join information for a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -622,7 +622,7 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -678,7 +678,7 @@ This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -735,7 +735,7 @@ This endpoint generates an email invite to the specified meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -794,7 +794,7 @@ This endpoint allows you to update an individual endpoint’s current layout set
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -859,7 +859,7 @@ This endpoint changes the settings for a user&#39;s meeting. For example, use fo
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -918,7 +918,7 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -985,7 +985,7 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
@@ -1047,7 +1047,7 @@ This endpoint’s purpose is to be able to modify a meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('blue_jeans_on_video_rest_api');
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
 var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
 
 // Configure API key authorization: access_token
