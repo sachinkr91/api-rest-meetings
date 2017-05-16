@@ -2,7 +2,7 @@
   "name": "bluejeans-api-rest-onvideo",
   "version": "1.0.0",
   "description": "JavaScript client for BlueJeans onVideo REST APIs",
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
@@ -15,5 +15,9 @@
     "gh-pages": "^1.0.0",
     "mocha": "~2.3.4",
     "sinon": "1.17.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluejeans/api-rest-onvideo.git"
   }
 }
