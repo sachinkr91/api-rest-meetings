@@ -45,7 +45,7 @@ https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/javascript/exampl
 
 ## PHP
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/php
+https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/php/BlueJeansOnVideoRestApi
 
 ## Python
 
