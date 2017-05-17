@@ -1,3 +1,5 @@
 libs/javascript/examples/config.json
 libs/javascript/node_modules
 libs/javascript/npm-debug.log
+
+libs/php/npm-debug.log

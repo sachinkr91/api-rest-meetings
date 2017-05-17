@@ -25,7 +25,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
     }
   ],
   "require": {
-    "bluejeans/api-rest-onvideo": "*@dev"
+    "bluejeans/api-rest-onvideo": "dev-php-repo"
   }
 }
 ```
