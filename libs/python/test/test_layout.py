@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.layout import Layout
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.layout import Layout
 
 
 class TestLayout(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestLayout(unittest.TestCase):
         """
         Test Layout
         """
-        model = swagger_client.models.layout.Layout()
+        model = BlueJeansOnVideoRestApi.models.layout.Layout()
 
 
 if __name__ == '__main__':

@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.recording_session_started_by import RecordingSessionStartedBy
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.recording_session_started_by import RecordingSessionStartedBy
 
 
 class TestRecordingSessionStartedBy(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestRecordingSessionStartedBy(unittest.TestCase):
         """
         Test RecordingSessionStartedBy
         """
-        model = swagger_client.models.recording_session_started_by.RecordingSessionStartedBy()
+        model = BlueJeansOnVideoRestApi.models.recording_session_started_by.RecordingSessionStartedBy()
 
 
 if __name__ == '__main__':

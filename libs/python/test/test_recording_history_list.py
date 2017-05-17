@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.recording_history_list import RecordingHistoryList
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.recording_history_list import RecordingHistoryList
 
 
 class TestRecordingHistoryList(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestRecordingHistoryList(unittest.TestCase):
         """
         Test RecordingHistoryList
         """
-        model = swagger_client.models.recording_history_list.RecordingHistoryList()
+        model = BlueJeansOnVideoRestApi.models.recording_history_list.RecordingHistoryList()
 
 
 if __name__ == '__main__':

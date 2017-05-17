@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.enterprise_user_list_users import EnterpriseUserListUsers
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.enterprise_user_list_users import EnterpriseUserListUsers
 
 
 class TestEnterpriseUserListUsers(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestEnterpriseUserListUsers(unittest.TestCase):
         """
         Test EnterpriseUserListUsers
         """
-        model = swagger_client.models.enterprise_user_list_users.EnterpriseUserListUsers()
+        model = BlueJeansOnVideoRestApi.models.enterprise_user_list_users.EnterpriseUserListUsers()
 
 
 if __name__ == '__main__':

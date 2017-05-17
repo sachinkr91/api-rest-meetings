@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.partition import Partition
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.partition import Partition
 
 
 class TestPartition(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPartition(unittest.TestCase):
         """
         Test Partition
         """
-        model = swagger_client.models.partition.Partition()
+        model = BlueJeansOnVideoRestApi.models.partition.Partition()
 
 
 if __name__ == '__main__':

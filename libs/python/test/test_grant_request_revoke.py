@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_request_revoke import GrantRequestRevoke
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_request_revoke import GrantRequestRevoke
 
 
 class TestGrantRequestRevoke(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantRequestRevoke(unittest.TestCase):
         """
         Test GrantRequestRevoke
         """
-        model = swagger_client.models.grant_request_revoke.GrantRequestRevoke()
+        model = BlueJeansOnVideoRestApi.models.grant_request_revoke.GrantRequestRevoke()
 
 
 if __name__ == '__main__':

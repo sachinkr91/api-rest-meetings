@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.pairing_code_turnservers import PairingCodeTurnservers
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.pairing_code_turnservers import PairingCodeTurnservers
 
 
 class TestPairingCodeTurnservers(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPairingCodeTurnservers(unittest.TestCase):
         """
         Test PairingCodeTurnservers
         """
-        model = swagger_client.models.pairing_code_turnservers.PairingCodeTurnservers()
+        model = BlueJeansOnVideoRestApi.models.pairing_code_turnservers.PairingCodeTurnservers()
 
 
 if __name__ == '__main__':

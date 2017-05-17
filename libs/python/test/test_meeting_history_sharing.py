@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.meeting_history_sharing import MeetingHistorySharing
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.meeting_history_sharing import MeetingHistorySharing
 
 
 class TestMeetingHistorySharing(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestMeetingHistorySharing(unittest.TestCase):
         """
         Test MeetingHistorySharing
         """
-        model = swagger_client.models.meeting_history_sharing.MeetingHistorySharing()
+        model = BlueJeansOnVideoRestApi.models.meeting_history_sharing.MeetingHistorySharing()
 
 
 if __name__ == '__main__':

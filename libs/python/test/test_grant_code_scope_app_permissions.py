@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_code_scope_app_permissions import GrantCodeScopeAppPermissions
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_code_scope_app_permissions import GrantCodeScopeAppPermissions
 
 
 class TestGrantCodeScopeAppPermissions(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantCodeScopeAppPermissions(unittest.TestCase):
         """
         Test GrantCodeScopeAppPermissions
         """
-        model = swagger_client.models.grant_code_scope_app_permissions.GrantCodeScopeAppPermissions()
+        model = BlueJeansOnVideoRestApi.models.grant_code_scope_app_permissions.GrantCodeScopeAppPermissions()
 
 
 if __name__ == '__main__':

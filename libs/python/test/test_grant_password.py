@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_password import GrantPassword
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_password import GrantPassword
 
 
 class TestGrantPassword(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantPassword(unittest.TestCase):
         """
         Test GrantPassword
         """
-        model = swagger_client.models.grant_password.GrantPassword()
+        model = BlueJeansOnVideoRestApi.models.grant_password.GrantPassword()
 
 
 if __name__ == '__main__':

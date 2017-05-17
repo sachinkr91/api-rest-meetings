@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_meeting_scope import GrantMeetingScope
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_meeting_scope import GrantMeetingScope
 
 
 class TestGrantMeetingScope(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantMeetingScope(unittest.TestCase):
         """
         Test GrantMeetingScope
         """
-        model = swagger_client.models.grant_meeting_scope.GrantMeetingScope()
+        model = BlueJeansOnVideoRestApi.models.grant_meeting_scope.GrantMeetingScope()
 
 
 if __name__ == '__main__':

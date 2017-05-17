@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.analytics_feedback_scores import AnalyticsFeedbackScores
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.analytics_feedback_scores import AnalyticsFeedbackScores
 
 
 class TestAnalyticsFeedbackScores(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAnalyticsFeedbackScores(unittest.TestCase):
         """
         Test AnalyticsFeedbackScores
         """
-        model = swagger_client.models.analytics_feedback_scores.AnalyticsFeedbackScores()
+        model = BlueJeansOnVideoRestApi.models.analytics_feedback_scores.AnalyticsFeedbackScores()
 
 
 if __name__ == '__main__':

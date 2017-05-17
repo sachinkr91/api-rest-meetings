@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.analytics_usage import AnalyticsUsage
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.analytics_usage import AnalyticsUsage
 
 
 class TestAnalyticsUsage(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAnalyticsUsage(unittest.TestCase):
         """
         Test AnalyticsUsage
         """
-        model = swagger_client.models.analytics_usage.AnalyticsUsage()
+        model = BlueJeansOnVideoRestApi.models.analytics_usage.AnalyticsUsage()
 
 
 if __name__ == '__main__':

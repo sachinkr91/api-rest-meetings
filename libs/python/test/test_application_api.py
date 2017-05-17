@@ -17,16 +17,16 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.apis.application_api import ApplicationApi
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.apis.application_api import ApplicationApi
 
 
 class TestApplicationApi(unittest.TestCase):
     """ ApplicationApi unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.application_api.ApplicationApi()
+        self.api = BlueJeansOnVideoRestApi.apis.application_api.ApplicationApi()
 
     def tearDown(self):
         pass

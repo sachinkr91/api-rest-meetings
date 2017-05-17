@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.pairing_code import PairingCode
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.pairing_code import PairingCode
 
 
 class TestPairingCode(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPairingCode(unittest.TestCase):
         """
         Test PairingCode
         """
-        model = swagger_client.models.pairing_code.PairingCode()
+        model = BlueJeansOnVideoRestApi.models.pairing_code.PairingCode()
 
 
 if __name__ == '__main__':

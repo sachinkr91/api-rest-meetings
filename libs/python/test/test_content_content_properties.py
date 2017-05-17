@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.content_content_properties import ContentContentProperties
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.content_content_properties import ContentContentProperties
 
 
 class TestContentContentProperties(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestContentContentProperties(unittest.TestCase):
         """
         Test ContentContentProperties
         """
-        model = swagger_client.models.content_content_properties.ContentContentProperties()
+        model = BlueJeansOnVideoRestApi.models.content_content_properties.ContentContentProperties()
 
 
 if __name__ == '__main__':

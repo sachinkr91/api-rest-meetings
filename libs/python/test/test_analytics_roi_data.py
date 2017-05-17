@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.analytics_roi_data import AnalyticsRoiData
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.analytics_roi_data import AnalyticsRoiData
 
 
 class TestAnalyticsRoiData(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAnalyticsRoiData(unittest.TestCase):
         """
         Test AnalyticsRoiData
         """
-        model = swagger_client.models.analytics_roi_data.AnalyticsRoiData()
+        model = BlueJeansOnVideoRestApi.models.analytics_roi_data.AnalyticsRoiData()
 
 
 if __name__ == '__main__':

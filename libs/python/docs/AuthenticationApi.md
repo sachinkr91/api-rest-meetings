@@ -1,4 +1,4 @@
-# swagger_client.AuthenticationApi
+# BlueJeansOnVideoRestApi.AuthenticationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -25,17 +25,17 @@ This is NOT a REST endpoint. Documenting here for consistentcy. This URL should 
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
 client_id = 'client_id_example' # str | The 32 character client ID generated when you created the client application. (optional)
 redirect_uri = 'redirect_uri_example' # str | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
 state = 'state_example' # str | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
@@ -89,18 +89,18 @@ This API is typically called from an application.  Client ID and Secret are prov
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_client = swagger_client.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_client = BlueJeansOnVideoRestApi.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Client Grant Type
@@ -142,18 +142,18 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_code = swagger_client.GrantRequestCode() # GrantRequestCode | Contains information about the type of grant you are requesting.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_code = BlueJeansOnVideoRestApi.GrantRequestCode() # GrantRequestCode | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Code Grant Type
@@ -195,18 +195,18 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_meeting = swagger_client.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_meeting = BlueJeansOnVideoRestApi.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Meeting Grant Type
@@ -248,18 +248,18 @@ This API performs an authentication based upon a username and password.   Call t
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_password = swagger_client.GrantRequestPassword() # GrantRequestPassword | Contains information about the type of grant you are requesting.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_password = BlueJeansOnVideoRestApi.GrantRequestPassword() # GrantRequestPassword | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Password Grant Type
@@ -301,18 +301,18 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_refresh = swagger_client.GrantRequestRefresh() # GrantRequestRefresh | Contains information about the type of grant you are requesting.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_refresh = BlueJeansOnVideoRestApi.GrantRequestRefresh() # GrantRequestRefresh | Contains information about the type of grant you are requesting.
 
 try: 
     # Authentication via Refresh Grant Type
@@ -354,17 +354,17 @@ This endpoint will validate if a token is valid or not.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
 access_token = 'access_token_example' # str |  (optional)
 
 try: 
@@ -407,18 +407,18 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.AuthenticationApi()
-grant_request_revoke = swagger_client.GrantRequestRevoke() # GrantRequestRevoke | Contains information about the type of grant you are revoking.
+api_instance = BlueJeansOnVideoRestApi.AuthenticationApi()
+grant_request_revoke = BlueJeansOnVideoRestApi.GrantRequestRevoke() # GrantRequestRevoke | Contains information about the type of grant you are revoking.
 access_token = 'access_token_example' # str |  (optional)
 
 try: 

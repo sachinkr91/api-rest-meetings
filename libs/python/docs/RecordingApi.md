@@ -1,4 +1,4 @@
-# swagger_client.RecordingApi
+# BlueJeansOnVideoRestApi.RecordingApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -23,17 +23,17 @@ This endpoint lists the recordings for a meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (optional)
@@ -80,17 +80,17 @@ This endpoint retrieves properties about the recording chapter.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 content_id = 56 # int | The recording properties fetched with other API endpoints will return a compositeContentId or a contentId. That value can be used for this argument.
 is_downloadable = true # bool | Set to true. (default to true)
@@ -137,17 +137,17 @@ This endpoint starts recording for a meeting in progress. Note that this is a PO
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 action = 'start' # str | Always set to \"start\" in order to start recording. (default to start)
@@ -193,17 +193,17 @@ This endpoint stops recording for a meeting in progress. Note that this is a PUT
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 action = 'stop' # str | Always set to \"stop\" in order to stop recording. (default to stop)
@@ -249,17 +249,17 @@ This endpoint stops recording for a meeting in progress.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
@@ -304,17 +304,17 @@ This endpoint stops recording for a meeting in progress.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.RecordingApi()
+api_instance = BlueJeansOnVideoRestApi.RecordingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 recording_chapter_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.

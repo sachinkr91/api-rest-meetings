@@ -1,4 +1,4 @@
-# swagger_client.MeetingApi
+# BlueJeansOnVideoRestApi.MeetingApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -35,17 +35,17 @@ This endpoint deletes a scheuled meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
@@ -89,19 +89,19 @@ This endpoint will create a scheduled meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting = swagger_client.Meeting() # Meeting | The details of the meeting.
+meeting = BlueJeansOnVideoRestApi.Meeting() # Meeting | The details of the meeting.
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
 try: 
@@ -146,20 +146,20 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-payload_pairing_code_sip = swagger_client.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | 
+payload_pairing_code_sip = BlueJeansOnVideoRestApi.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | 
 
 try: 
     # Generate Pairing Code (SIP)
@@ -203,20 +203,20 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-payload_pairing_code_web_rtc = swagger_client.PayloadPairingCodeWebRTC() # PayloadPairingCodeWebRTC | 
+payload_pairing_code_web_rtc = BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC() # PayloadPairingCodeWebRTC | 
 role = 'USER' # str |  (optional) (default to USER)
 
 try: 
@@ -262,17 +262,17 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -319,17 +319,17 @@ This endpoint gets the settings for a user's meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
@@ -374,17 +374,17 @@ This endpoint retrieves the email object for a scheduled meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 type = 'type_example' # str | TEXT, ICS, HTML (optional)
@@ -435,17 +435,17 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -492,17 +492,17 @@ This endpoint returns an array of all endpoints in the current meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
@@ -547,17 +547,17 @@ This endpoint retrieves the join information for a scheduled meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
@@ -602,17 +602,17 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
@@ -657,17 +657,17 @@ This endpoint gets a list of the user's scheduled upcoming meetings.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 'numeric_meeting_id_example' # str | Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
 
@@ -712,20 +712,20 @@ This endpoint generates an email invite to the specified meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-payload_invite = swagger_client.PayloadInvite() # PayloadInvite | 
+payload_invite = BlueJeansOnVideoRestApi.PayloadInvite() # PayloadInvite | 
 
 try: 
     # Send Email Invite
@@ -768,17 +768,17 @@ This endpoint allows you to update an individual endpoint’s current layout set
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -829,20 +829,20 @@ This endpoint changes the settings for a user's meeting. For example, use for re
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-meeting = swagger_client.Meeting() # Meeting | The user's room details that you wish to update.
+meeting = BlueJeansOnVideoRestApi.Meeting() # Meeting | The user's room details that you wish to update.
 
 try: 
     # Update Meeting
@@ -886,17 +886,17 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -949,17 +949,17 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 mute = true # bool | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
@@ -1007,20 +1007,20 @@ This endpoint’s purpose is to be able to modify a meeting.
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-swagger_client.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.MeetingApi()
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-payload_meeting_state = swagger_client.PayloadMeetingState() # PayloadMeetingState | The meeting properties that you wish to update.
+payload_meeting_state = BlueJeansOnVideoRestApi.PayloadMeetingState() # PayloadMeetingState | The meeting properties that you wish to update.
 delay = 56 # int | Number of seconds to delay the end meeting operation. (optional)
 
 try: 

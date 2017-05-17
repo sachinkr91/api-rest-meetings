@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 
 
 class TestPayloadPairingCodeWebRTC(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPayloadPairingCodeWebRTC(unittest.TestCase):
         """
         Test PayloadPairingCodeWebRTC
         """
-        model = swagger_client.models.payload_pairing_code_web_rtc.PayloadPairingCodeWebRTC()
+        model = BlueJeansOnVideoRestApi.models.payload_pairing_code_web_rtc.PayloadPairingCodeWebRTC()
 
 
 if __name__ == '__main__':

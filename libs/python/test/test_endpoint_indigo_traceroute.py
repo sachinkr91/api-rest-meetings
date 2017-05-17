@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.endpoint_indigo_traceroute import EndpointIndigoTraceroute
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute import EndpointIndigoTraceroute
 
 
 class TestEndpointIndigoTraceroute(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestEndpointIndigoTraceroute(unittest.TestCase):
         """
         Test EndpointIndigoTraceroute
         """
-        model = swagger_client.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
+        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
 
 
 if __name__ == '__main__':

@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.endpoint_indigo_location import EndpointIndigoLocation
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.endpoint_indigo_location import EndpointIndigoLocation
 
 
 class TestEndpointIndigoLocation(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestEndpointIndigoLocation(unittest.TestCase):
         """
         Test EndpointIndigoLocation
         """
-        model = swagger_client.models.endpoint_indigo_location.EndpointIndigoLocation()
+        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_location.EndpointIndigoLocation()
 
 
 if __name__ == '__main__':

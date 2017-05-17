@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.payload_pairing_code_sip import PayloadPairingCodeSIP
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.payload_pairing_code_sip import PayloadPairingCodeSIP
 
 
 class TestPayloadPairingCodeSIP(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPayloadPairingCodeSIP(unittest.TestCase):
         """
         Test PayloadPairingCodeSIP
         """
-        model = swagger_client.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
+        model = BlueJeansOnVideoRestApi.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
 
 
 if __name__ == '__main__':

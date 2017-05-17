@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.numbers_label import NumbersLabel
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.numbers_label import NumbersLabel
 
 
 class TestNumbersLabel(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestNumbersLabel(unittest.TestCase):
         """
         Test NumbersLabel
         """
-        model = swagger_client.models.numbers_label.NumbersLabel()
+        model = BlueJeansOnVideoRestApi.models.numbers_label.NumbersLabel()
 
 
 if __name__ == '__main__':

@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.user_id import UserId
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.user_id import UserId
 
 
 class TestUserId(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestUserId(unittest.TestCase):
         """
         Test UserId
         """
-        model = swagger_client.models.user_id.UserId()
+        model = BlueJeansOnVideoRestApi.models.user_id.UserId()
 
 
 if __name__ == '__main__':

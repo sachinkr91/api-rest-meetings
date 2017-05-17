@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_refresh_scope import GrantRefreshScope
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_refresh_scope import GrantRefreshScope
 
 
 class TestGrantRefreshScope(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantRefreshScope(unittest.TestCase):
         """
         Test GrantRefreshScope
         """
-        model = swagger_client.models.grant_refresh_scope.GrantRefreshScope()
+        model = BlueJeansOnVideoRestApi.models.grant_refresh_scope.GrantRefreshScope()
 
 
 if __name__ == '__main__':

@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.meeting_extended_indigo import MeetingExtendedIndigo
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.meeting_extended_indigo import MeetingExtendedIndigo
 
 
 class TestMeetingExtendedIndigo(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestMeetingExtendedIndigo(unittest.TestCase):
         """
         Test MeetingExtendedIndigo
         """
-        model = swagger_client.models.meeting_extended_indigo.MeetingExtendedIndigo()
+        model = BlueJeansOnVideoRestApi.models.meeting_extended_indigo.MeetingExtendedIndigo()
 
 
 if __name__ == '__main__':

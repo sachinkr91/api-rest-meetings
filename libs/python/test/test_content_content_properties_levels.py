@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.content_content_properties_levels import ContentContentPropertiesLevels
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.content_content_properties_levels import ContentContentPropertiesLevels
 
 
 class TestContentContentPropertiesLevels(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestContentContentPropertiesLevels(unittest.TestCase):
         """
         Test ContentContentPropertiesLevels
         """
-        model = swagger_client.models.content_content_properties_levels.ContentContentPropertiesLevels()
+        model = BlueJeansOnVideoRestApi.models.content_content_properties_levels.ContentContentPropertiesLevels()
 
 
 if __name__ == '__main__':

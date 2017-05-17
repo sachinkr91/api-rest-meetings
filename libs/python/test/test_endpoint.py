@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.endpoint import Endpoint
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.endpoint import Endpoint
 
 
 class TestEndpoint(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestEndpoint(unittest.TestCase):
         """
         Test Endpoint
         """
-        model = swagger_client.models.endpoint.Endpoint()
+        model = BlueJeansOnVideoRestApi.models.endpoint.Endpoint()
 
 
 if __name__ == '__main__':

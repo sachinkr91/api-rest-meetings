@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.endpoints_inner_connections import EndpointsInnerConnections
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.endpoints_inner_connections import EndpointsInnerConnections
 
 
 class TestEndpointsInnerConnections(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestEndpointsInnerConnections(unittest.TestCase):
         """
         Test EndpointsInnerConnections
         """
-        model = swagger_client.models.endpoints_inner_connections.EndpointsInnerConnections()
+        model = BlueJeansOnVideoRestApi.models.endpoints_inner_connections.EndpointsInnerConnections()
 
 
 if __name__ == '__main__':

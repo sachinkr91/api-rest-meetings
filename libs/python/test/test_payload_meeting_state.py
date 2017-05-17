@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.payload_meeting_state import PayloadMeetingState
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.payload_meeting_state import PayloadMeetingState
 
 
 class TestPayloadMeetingState(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestPayloadMeetingState(unittest.TestCase):
         """
         Test PayloadMeetingState
         """
-        model = swagger_client.models.payload_meeting_state.PayloadMeetingState()
+        model = BlueJeansOnVideoRestApi.models.payload_meeting_state.PayloadMeetingState()
 
 
 if __name__ == '__main__':

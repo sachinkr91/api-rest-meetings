@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions
 
 
 class TestMeetingAdvancedMeetingOptions(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestMeetingAdvancedMeetingOptions(unittest.TestCase):
         """
         Test MeetingAdvancedMeetingOptions
         """
-        model = swagger_client.models.meeting_advanced_meeting_options.MeetingAdvancedMeetingOptions()
+        model = BlueJeansOnVideoRestApi.models.meeting_advanced_meeting_options.MeetingAdvancedMeetingOptions()
 
 
 if __name__ == '__main__':

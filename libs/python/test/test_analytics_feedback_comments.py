@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.analytics_feedback_comments import AnalyticsFeedbackComments
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.analytics_feedback_comments import AnalyticsFeedbackComments
 
 
 class TestAnalyticsFeedbackComments(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAnalyticsFeedbackComments(unittest.TestCase):
         """
         Test AnalyticsFeedbackComments
         """
-        model = swagger_client.models.analytics_feedback_comments.AnalyticsFeedbackComments()
+        model = BlueJeansOnVideoRestApi.models.analytics_feedback_comments.AnalyticsFeedbackComments()
 
 
 if __name__ == '__main__':

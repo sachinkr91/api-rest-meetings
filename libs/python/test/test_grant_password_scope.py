@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.grant_password_scope import GrantPasswordScope
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.grant_password_scope import GrantPasswordScope
 
 
 class TestGrantPasswordScope(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantPasswordScope(unittest.TestCase):
         """
         Test GrantPasswordScope
         """
-        model = swagger_client.models.grant_password_scope.GrantPasswordScope()
+        model = BlueJeansOnVideoRestApi.models.grant_password_scope.GrantPasswordScope()
 
 
 if __name__ == '__main__':

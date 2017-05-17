@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.analytics_endpoint_distribution_distribution import AnalyticsEndpointDistributionDistribution
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution_distribution import AnalyticsEndpointDistributionDistribution
 
 
 class TestAnalyticsEndpointDistributionDistribution(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAnalyticsEndpointDistributionDistribution(unittest.TestCase):
         """
         Test AnalyticsEndpointDistributionDistribution
         """
-        model = swagger_client.models.analytics_endpoint_distribution_distribution.AnalyticsEndpointDistributionDistribution()
+        model = BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution_distribution.AnalyticsEndpointDistributionDistribution()
 
 
 if __name__ == '__main__':

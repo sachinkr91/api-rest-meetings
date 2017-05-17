@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.attendee import Attendee
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.attendee import Attendee
 
 
 class TestAttendee(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestAttendee(unittest.TestCase):
         """
         Test Attendee
         """
-        model = swagger_client.models.attendee.Attendee()
+        model = BlueJeansOnVideoRestApi.models.attendee.Attendee()
 
 
 if __name__ == '__main__':

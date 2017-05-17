@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.granted_applications import GrantedApplications
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.granted_applications import GrantedApplications
 
 
 class TestGrantedApplications(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestGrantedApplications(unittest.TestCase):
         """
         Test GrantedApplications
         """
-        model = swagger_client.models.granted_applications.GrantedApplications()
+        model = BlueJeansOnVideoRestApi.models.granted_applications.GrantedApplications()
 
 
 if __name__ == '__main__':

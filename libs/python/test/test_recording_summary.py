@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.recording_summary import RecordingSummary
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from BlueJeansOnVideoRestApi.models.recording_summary import RecordingSummary
 
 
 class TestRecordingSummary(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestRecordingSummary(unittest.TestCase):
         """
         Test RecordingSummary
         """
-        model = swagger_client.models.recording_summary.RecordingSummary()
+        model = BlueJeansOnVideoRestApi.models.recording_summary.RecordingSummary()
 
 
 if __name__ == '__main__':
