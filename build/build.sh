@@ -106,5 +106,8 @@ cd ../libs/python
 python -m unittest discover -s test
 
 perl -p -i -e "s|\.git|\.git\@pip-repo|" README.md
+perl -p -i -e "s|\*\@dev|dev-php-repo|" README.md
+
+
 
 cd ../../build
