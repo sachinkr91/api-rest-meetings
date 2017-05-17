@@ -100,3 +100,11 @@ cd ../../build
 
 rm -rf ../libs/python
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python --config config.python.json
+
+cd ../libs/python
+
+python -m unittest discover -s test
+
+perl -p -i -e "s|\.git|\.git\@pip-repo|" README.md
+
+cd ../../build
