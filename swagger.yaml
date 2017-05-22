@@ -296,7 +296,7 @@ paths:
           type: string
         - name: scope
           in: query
-          description: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+          description: A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time.
           type: string
         - name: responseType
           in: query
