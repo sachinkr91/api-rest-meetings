@@ -1,7 +1,7 @@
 /* 
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ *  # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -28,13 +28,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -45,13 +45,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -61,10 +61,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Client Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>GrantClient</returns>
         GrantClient GetTokenByClient (GrantRequestClient grantRequestClient);
 
@@ -72,20 +72,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Client Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>ApiResponse of GrantClient</returns>
         ApiResponse<GrantClient> GetTokenByClientWithHttpInfo (GrantRequestClient grantRequestClient);
         /// <summary>
         /// Authentication via Code Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>GrantCode</returns>
         GrantCode GetTokenByCode (GrantRequestCode grantRequestCode);
 
@@ -93,20 +93,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Code Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>ApiResponse of GrantCode</returns>
         ApiResponse<GrantCode> GetTokenByCodeWithHttpInfo (GrantRequestCode grantRequestCode);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
         /// <remarks>
-        /// This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>GrantMeeting</returns>
         GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantRequestMeeting);
 
@@ -114,20 +114,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Meeting Grant Type
         /// </summary>
         /// <remarks>
-        /// This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
         ApiResponse<GrantMeeting> GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantRequestMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
         /// <remarks>
-        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>GrantPassword</returns>
         GrantPassword GetTokenByPassword (GrantRequestPassword grantRequestPassword);
 
@@ -135,20 +135,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Password Grant Type
         /// </summary>
         /// <remarks>
-        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>ApiResponse of GrantPassword</returns>
         ApiResponse<GrantPassword> GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword);
         /// <summary>
         /// Authentication via Refresh Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>GrantRefresh</returns>
         GrantRefresh GetTokenByRefresh (GrantRequestRefresh grantRequestRefresh);
 
@@ -156,17 +156,17 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Refresh Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>ApiResponse of GrantRefresh</returns>
         ApiResponse<GrantRefresh> GetTokenByRefreshWithHttpInfo (GrantRequestRefresh grantRequestRefresh);
         /// <summary>
         /// Validate a Token
         /// </summary>
         /// <remarks>
-        /// This endpoint will validate if a token is valid or not.
+        /// This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -177,7 +177,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token
         /// </summary>
         /// <remarks>
-        /// This endpoint will validate if a token is valid or not.
+        /// This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -212,13 +212,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -229,13 +229,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Get Authorization Code
         /// </summary>
         /// <remarks>
-        /// This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -245,10 +245,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Client Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>Task of GrantClient</returns>
         System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantRequestClient);
 
@@ -256,20 +256,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Client Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantRequestClient);
         /// <summary>
         /// Authentication via Code Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>Task of GrantCode</returns>
         System.Threading.Tasks.Task<GrantCode> GetTokenByCodeAsync (GrantRequestCode grantRequestCode);
 
@@ -277,20 +277,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Code Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>Task of ApiResponse (GrantCode)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantCode>> GetTokenByCodeAsyncWithHttpInfo (GrantRequestCode grantRequestCode);
         /// <summary>
         /// Authentication via Meeting Grant Type
         /// </summary>
         /// <remarks>
-        /// This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>Task of GrantMeeting</returns>
         System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantRequestMeeting);
 
@@ -298,20 +298,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Meeting Grant Type
         /// </summary>
         /// <remarks>
-        /// This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantRequestMeeting);
         /// <summary>
         /// Authentication via Password Grant Type
         /// </summary>
         /// <remarks>
-        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>Task of GrantPassword</returns>
         System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantRequestPassword grantRequestPassword);
 
@@ -319,20 +319,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Password Grant Type
         /// </summary>
         /// <remarks>
-        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword);
         /// <summary>
         /// Authentication via Refresh Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>Task of GrantRefresh</returns>
         System.Threading.Tasks.Task<GrantRefresh> GetTokenByRefreshAsync (GrantRequestRefresh grantRequestRefresh);
 
@@ -340,17 +340,17 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Authentication via Refresh Grant Type
         /// </summary>
         /// <remarks>
-        /// This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>Task of ApiResponse (GrantRefresh)</returns>
         System.Threading.Tasks.Task<ApiResponse<GrantRefresh>> GetTokenByRefreshAsyncWithHttpInfo (GrantRequestRefresh grantRequestRefresh);
         /// <summary>
         /// Validate a Token
         /// </summary>
         /// <remarks>
-        /// This endpoint will validate if a token is valid or not.
+        /// This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -361,7 +361,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// Validate a Token
         /// </summary>
         /// <remarks>
-        /// This endpoint will validate if a token is valid or not.
+        /// This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -503,13 +503,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// Get Authorization Code This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -520,13 +520,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// Get Authorization Code This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -593,13 +593,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// Get Authorization Code This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -611,13 +611,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Get Authorization Code This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+        /// Get Authorization Code This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The 32 character client ID generated when you created the client application. (optional)</param>
         /// <param name="redirectUri">The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)</param>
         /// <param name="state">Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)</param>
-        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)</param>
+        /// <param name="scope">A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)</param>
         /// <param name="responseType">The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)</param>
         /// <param name="appName">The name of the client application shown to user during authorization. (optional)</param>
         /// <param name="appLogoUrl">URL to an 84x84 image shown to user during authorization. (optional)</param>
@@ -683,10 +683,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Client Grant Type This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// Authentication via Client Grant Type This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>GrantClient</returns>
         public GrantClient GetTokenByClient (GrantRequestClient grantRequestClient)
         {
@@ -695,10 +695,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Client Grant Type This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// Authentication via Client Grant Type This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>ApiResponse of GrantClient</returns>
         public ApiResponse< GrantClient > GetTokenByClientWithHttpInfo (GrantRequestClient grantRequestClient)
         {
@@ -767,10 +767,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Client Grant Type This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// Authentication via Client Grant Type This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>Task of GrantClient</returns>
         public async System.Threading.Tasks.Task<GrantClient> GetTokenByClientAsync (GrantRequestClient grantRequestClient)
         {
@@ -780,10 +780,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Client Grant Type This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+        /// Authentication via Client Grant Type This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestClient">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.</param>
         /// <returns>Task of ApiResponse (GrantClient)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<GrantClient>> GetTokenByClientAsyncWithHttpInfo (GrantRequestClient grantRequestClient)
         {
@@ -851,10 +851,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>GrantCode</returns>
         public GrantCode GetTokenByCode (GrantRequestCode grantRequestCode)
         {
@@ -863,10 +863,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>ApiResponse of GrantCode</returns>
         public ApiResponse< GrantCode > GetTokenByCodeWithHttpInfo (GrantRequestCode grantRequestCode)
         {
@@ -935,10 +935,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>Task of GrantCode</returns>
         public async System.Threading.Tasks.Task<GrantCode> GetTokenByCodeAsync (GrantRequestCode grantRequestCode)
         {
@@ -948,10 +948,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Code Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestCode">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.</param>
         /// <returns>Task of ApiResponse (GrantCode)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<GrantCode>> GetTokenByCodeAsyncWithHttpInfo (GrantRequestCode grantRequestCode)
         {
@@ -1019,10 +1019,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>GrantMeeting</returns>
         public GrantMeeting GetTokenByMeeting (GrantRequestMeeting grantRequestMeeting)
         {
@@ -1031,10 +1031,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>ApiResponse of GrantMeeting</returns>
         public ApiResponse< GrantMeeting > GetTokenByMeetingWithHttpInfo (GrantRequestMeeting grantRequestMeeting)
         {
@@ -1103,10 +1103,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>Task of GrantMeeting</returns>
         public async System.Threading.Tasks.Task<GrantMeeting> GetTokenByMeetingAsync (GrantRequestMeeting grantRequestMeeting)
         {
@@ -1116,10 +1116,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+        /// Authentication via Meeting Grant Type This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestMeeting">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.</param>
         /// <returns>Task of ApiResponse (GrantMeeting)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<GrantMeeting>> GetTokenByMeetingAsyncWithHttpInfo (GrantRequestMeeting grantRequestMeeting)
         {
@@ -1187,10 +1187,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>GrantPassword</returns>
         public GrantPassword GetTokenByPassword (GrantRequestPassword grantRequestPassword)
         {
@@ -1199,10 +1199,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>ApiResponse of GrantPassword</returns>
         public ApiResponse< GrantPassword > GetTokenByPasswordWithHttpInfo (GrantRequestPassword grantRequestPassword)
         {
@@ -1271,10 +1271,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>Task of GrantPassword</returns>
         public async System.Threading.Tasks.Task<GrantPassword> GetTokenByPasswordAsync (GrantRequestPassword grantRequestPassword)
         {
@@ -1284,10 +1284,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+        /// Authentication via Password Grant Type This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestPassword">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.</param>
         /// <returns>Task of ApiResponse (GrantPassword)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<GrantPassword>> GetTokenByPasswordAsyncWithHttpInfo (GrantRequestPassword grantRequestPassword)
         {
@@ -1355,10 +1355,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>GrantRefresh</returns>
         public GrantRefresh GetTokenByRefresh (GrantRequestRefresh grantRequestRefresh)
         {
@@ -1367,10 +1367,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>ApiResponse of GrantRefresh</returns>
         public ApiResponse< GrantRefresh > GetTokenByRefreshWithHttpInfo (GrantRequestRefresh grantRequestRefresh)
         {
@@ -1439,10 +1439,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>Task of GrantRefresh</returns>
         public async System.Threading.Tasks.Task<GrantRefresh> GetTokenByRefreshAsync (GrantRequestRefresh grantRequestRefresh)
         {
@@ -1452,10 +1452,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.
+        /// Authentication via Refresh Grant Type This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.</param>
+        /// <param name="grantRequestRefresh">Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.</param>
         /// <returns>Task of ApiResponse (GrantRefresh)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<GrantRefresh>> GetTokenByRefreshAsyncWithHttpInfo (GrantRequestRefresh grantRequestRefresh)
         {
@@ -1523,7 +1523,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// Validate a Token This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -1535,7 +1535,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// Validate a Token This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -1597,7 +1597,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// Validate a Token This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>
@@ -1610,7 +1610,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         }
 
         /// <summary>
-        /// Validate a Token This endpoint will validate if a token is valid or not.
+        /// Validate a Token This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accessToken"> (optional)</param>

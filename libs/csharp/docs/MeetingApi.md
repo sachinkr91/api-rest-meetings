@@ -6,22 +6,22 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CancelMeeting**](MeetingApi.md#cancelmeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**CreateMeeting**](MeetingApi.md#createmeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**GeneratePairingCodeSip**](MeetingApi.md#generatepairingcodesip) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
-[**GeneratePairingCodeWebRtc**](MeetingApi.md#generatepairingcodewebrtc) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
-[**GetEndpointLayout**](MeetingApi.md#getendpointlayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
+[**GeneratePairingCodeSip**](MeetingApi.md#generatepairingcodesip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**GeneratePairingCodeWebRtc**](MeetingApi.md#generatepairingcodewebrtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
+[**GetEndpointLayout**](MeetingApi.md#getendpointlayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**GetMeeting**](MeetingApi.md#getmeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
 [**GetMeetingEmails**](MeetingApi.md#getmeetingemails) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
-[**GetMeetingEndpoint**](MeetingApi.md#getmeetingendpoint) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**GetMeetingEndpoints**](MeetingApi.md#getmeetingendpoints) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**GetMeetingEndpoint**](MeetingApi.md#getmeetingendpoint) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
+[**GetMeetingEndpoints**](MeetingApi.md#getmeetingendpoints) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | List Meeting Endpoints
 [**GetMeetingNumbers**](MeetingApi.md#getmeetingnumbers) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**GetMeetingState**](MeetingApi.md#getmeetingstate) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
+[**GetMeetingState**](MeetingApi.md#getmeetingstate) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Get Meeting State
 [**ListMeetings**](MeetingApi.md#listmeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
-[**SendMeetingInvite**](MeetingApi.md#sendmeetinginvite) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**UpdateEndpointLayout**](MeetingApi.md#updateendpointlayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
+[**SendMeetingInvite**](MeetingApi.md#sendmeetinginvite) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite | Send Email Invite
+[**UpdateEndpointLayout**](MeetingApi.md#updateendpointlayout) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**UpdateMeeting**](MeetingApi.md#updatemeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**UpdateMeetingEndpoint**](MeetingApi.md#updatemeetingendpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
-[**UpdateMeetingEndpoints**](MeetingApi.md#updatemeetingendpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
-[**UpdateMeetingState**](MeetingApi.md#updatemeetingstate) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
+[**UpdateMeetingEndpoint**](MeetingApi.md#updatemeetingendpoint) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
+[**UpdateMeetingEndpoints**](MeetingApi.md#updatemeetingendpoints) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | Update Meeting Endpoints State
+[**UpdateMeetingState**](MeetingApi.md#updatemeetingstate) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Update Meeting State
 
 
 <a name="cancelmeeting"></a>
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepairingcodesip"></a>
 # **GeneratePairingCodeSip**
-> PairingCode GeneratePairingCodeSip (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+> PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -193,13 +193,13 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
 
             try
             {
                 // Generate Pairing Code (SIP)
-                PairingCode result = apiInstance.GeneratePairingCodeSip(userId, meetingId, payloadPairingCodeSIP);
+                PairingCode result = apiInstance.GeneratePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -216,7 +216,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
 
 ### Return type
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepairingcodewebrtc"></a>
 # **GeneratePairingCodeWebRtc**
-> PairingCode GeneratePairingCodeWebRtc (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+> PairingCode GeneratePairingCodeWebRtc (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
 
 Generate Pairing Code (WebRTC)
 
@@ -264,14 +264,14 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var payloadPairingCodeWebRTC = new PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
             var role = role_example;  // string |  (optional)  (default to USER)
 
             try
             {
                 // Generate Pairing Code (WebRTC)
-                PairingCode result = apiInstance.GeneratePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role);
+                PairingCode result = apiInstance.GeneratePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -288,7 +288,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadPairingCodeWebRTC** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  | 
  **role** | **string**|  | [optional] [default to USER]
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 <a name="getendpointlayout"></a>
 # **GetEndpointLayout**
-> Layout GetEndpointLayout (int? userId, int? meetingId, string endpointGuid)
+> Layout GetEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid)
 
 Get Endpoint Layout
 
@@ -337,13 +337,13 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
             try
             {
                 // Get Endpoint Layout
-                Layout result = apiInstance.GetEndpointLayout(userId, meetingId, endpointGuid);
+                Layout result = apiInstance.GetEndpointLayout(userId, numericMeetingId, endpointGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -360,7 +360,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
 
 ### Return type
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingendpoint"></a>
 # **GetMeetingEndpoint**
-> Endpoint GetMeetingEndpoint (int? userId, int? meetingId, string endpointGuid)
+> Endpoint GetMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid)
 
 Get Endpoint Information
 
@@ -552,13 +552,13 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
             try
             {
                 // Get Endpoint Information
-                Endpoint result = apiInstance.GetMeetingEndpoint(userId, meetingId, endpointGuid);
+                Endpoint result = apiInstance.GetMeetingEndpoint(userId, numericMeetingId, endpointGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -575,7 +575,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
 
 ### Return type
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingendpoints"></a>
 # **GetMeetingEndpoints**
-> Endpoints GetMeetingEndpoints (int? userId, int? meetingId)
+> Endpoints GetMeetingEndpoints (int? userId, int? numericMeetingId)
 
 List Meeting Endpoints
 
@@ -623,12 +623,12 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
             try
             {
                 // List Meeting Endpoints
-                Endpoints result = apiInstance.GetMeetingEndpoints(userId, meetingId);
+                Endpoints result = apiInstance.GetMeetingEndpoints(userId, numericMeetingId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -645,7 +645,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
 
 ### Return type
 
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingstate"></a>
 # **GetMeetingState**
-> MeetingState GetMeetingState (int? userId, int? meetingId)
+> MeetingState GetMeetingState (int? userId, int? numericMeetingId)
 
 Get Meeting State
 
@@ -761,12 +761,12 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
             try
             {
                 // Get Meeting State
-                MeetingState result = apiInstance.GetMeetingState(userId, meetingId);
+                MeetingState result = apiInstance.GetMeetingState(userId, numericMeetingId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -783,7 +783,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
 
 ### Return type
 
@@ -871,7 +871,7 @@ Name | Type | Description  | Notes
 
 <a name="sendmeetinginvite"></a>
 # **SendMeetingInvite**
-> void SendMeetingInvite (int? userId, int? meetingId, PayloadInvite payloadInvite)
+> void SendMeetingInvite (int? userId, int? numericMeetingId, PayloadInvite payloadInvite)
 
 Send Email Invite
 
@@ -899,13 +899,13 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var payloadInvite = new PayloadInvite(); // PayloadInvite | 
 
             try
             {
                 // Send Email Invite
-                apiInstance.SendMeetingInvite(userId, meetingId, payloadInvite);
+                apiInstance.SendMeetingInvite(userId, numericMeetingId, payloadInvite);
             }
             catch (Exception e)
             {
@@ -921,7 +921,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  | 
 
 ### Return type
@@ -941,7 +941,7 @@ void (empty response body)
 
 <a name="updateendpointlayout"></a>
 # **UpdateEndpointLayout**
-> Layout UpdateEndpointLayout (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+> Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
 
 Update Endpoint Layout
 
@@ -969,7 +969,7 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
             var isLeader = true;  // bool? |  (optional) 
             var push = true;  // bool? |  (optional) 
@@ -977,7 +977,7 @@ namespace Example
             try
             {
                 // Update Endpoint Layout
-                Layout result = apiInstance.UpdateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push);
+                Layout result = apiInstance.UpdateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -994,7 +994,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
  **isLeader** | **bool?**|  | [optional] 
  **push** | **bool?**|  | [optional] 
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
 
 <a name="updatemeetingendpoint"></a>
 # **UpdateMeetingEndpoint**
-> Endpoint UpdateMeetingEndpoint (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+> Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
 
 Update Endpoint Video/Audio State
 
@@ -1115,7 +1115,7 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
             var muteAudio = true;  // bool? | Toggle the audio source mute. (optional) 
             var muteVideo = true;  // bool? | Toggle the video source mute. (optional) 
@@ -1124,7 +1124,7 @@ namespace Example
             try
             {
                 // Update Endpoint Video/Audio State
-                Endpoint result = apiInstance.UpdateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+                Endpoint result = apiInstance.UpdateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1141,7 +1141,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
  **muteAudio** | **bool?**| Toggle the audio source mute. | [optional] 
  **muteVideo** | **bool?**| Toggle the video source mute. | [optional] 
@@ -1164,7 +1164,7 @@ Name | Type | Description  | Notes
 
 <a name="updatemeetingendpoints"></a>
 # **UpdateMeetingEndpoints**
-> void UpdateMeetingEndpoints (int? userId, int? meetingId, bool? mute = null, string media = null)
+> void UpdateMeetingEndpoints (int? userId, int? numericMeetingId, bool? mute = null, string media = null)
 
 Update Meeting Endpoints State
 
@@ -1192,14 +1192,14 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var mute = true;  // bool? | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional) 
             var media = media_example;  // string | Specify the type of media you which to mute/unmute. (optional) 
 
             try
             {
                 // Update Meeting Endpoints State
-                apiInstance.UpdateMeetingEndpoints(userId, meetingId, mute, media);
+                apiInstance.UpdateMeetingEndpoints(userId, numericMeetingId, mute, media);
             }
             catch (Exception e)
             {
@@ -1215,7 +1215,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **mute** | **bool?**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional] 
  **media** | **string**| Specify the type of media you which to mute/unmute. | [optional] 
 
@@ -1236,7 +1236,7 @@ void (empty response body)
 
 <a name="updatemeetingstate"></a>
 # **UpdateMeetingState**
-> Meeting UpdateMeetingState (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+> Meeting UpdateMeetingState (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
 
 Update Meeting State
 
@@ -1264,14 +1264,14 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var payloadMeetingState = new PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
             var delay = 56;  // int? | Number of seconds to delay the end meeting operation. (optional) 
 
             try
             {
                 // Update Meeting State
-                Meeting result = apiInstance.UpdateMeetingState(userId, meetingId, payloadMeetingState, delay);
+                Meeting result = apiInstance.UpdateMeetingState(userId, numericMeetingId, payloadMeetingState, delay);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1288,7 +1288,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. | 
  **delay** | **int?**| Number of seconds to delay the end meeting operation. | [optional] 
 

@@ -1,6 +1,6 @@
 /*
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ *  # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -136,11 +136,11 @@ public class AuthenticationApi {
 
     /**
      * Get Authorization Code
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+     * This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
-     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
      * @param appName The name of the client application shown to user during authorization. (optional)
      * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
@@ -152,11 +152,11 @@ public class AuthenticationApi {
 
     /**
      * Get Authorization Code
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+     * This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
-     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
      * @param appName The name of the client application shown to user during authorization. (optional)
      * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
@@ -170,11 +170,11 @@ public class AuthenticationApi {
 
     /**
      * Get Authorization Code (asynchronously)
-     * This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+     * This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
      * @param clientId The 32 character client ID generated when you created the client application. (optional)
      * @param redirectUri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
-     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)
      * @param responseType The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
      * @param appName The name of the client application shown to user during authorization. (optional)
      * @param appLogoUrl URL to an 84x84 image shown to user during authorization. (optional)
@@ -268,8 +268,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Client Grant Type
-     * This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
-     * @param grantRequestClient Contains information about the type of grant you are requesting. (required)
+     * This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
+     * @param grantRequestClient Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. (required)
      * @return GrantClient
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -280,8 +280,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Client Grant Type
-     * This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
-     * @param grantRequestClient Contains information about the type of grant you are requesting. (required)
+     * This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
+     * @param grantRequestClient Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. (required)
      * @return ApiResponse&lt;GrantClient&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -293,8 +293,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Client Grant Type (asynchronously)
-     * This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
-     * @param grantRequestClient Contains information about the type of grant you are requesting. (required)
+     * This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
+     * @param grantRequestClient Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -386,8 +386,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Code Grant Type
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
+     * @param grantRequestCode Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. (required)
      * @return GrantCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -398,8 +398,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Code Grant Type
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
+     * @param grantRequestCode Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. (required)
      * @return ApiResponse&lt;GrantCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -411,8 +411,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Code Grant Type (asynchronously)
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestCode Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
+     * @param grantRequestCode Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -504,8 +504,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Meeting Grant Type
-     * This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
-     * @param grantRequestMeeting Contains information about the type of grant you are requesting. (required)
+     * This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
+     * @param grantRequestMeeting Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. (required)
      * @return GrantMeeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -516,8 +516,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Meeting Grant Type
-     * This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
-     * @param grantRequestMeeting Contains information about the type of grant you are requesting. (required)
+     * This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
+     * @param grantRequestMeeting Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. (required)
      * @return ApiResponse&lt;GrantMeeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -529,8 +529,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Meeting Grant Type (asynchronously)
-     * This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
-     * @param grantRequestMeeting Contains information about the type of grant you are requesting. (required)
+     * This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
+     * @param grantRequestMeeting Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -622,8 +622,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Password Grant Type
-     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
-     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
+     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
+     * @param grantRequestPassword Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. (required)
      * @return GrantPassword
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -634,8 +634,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Password Grant Type
-     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
-     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
+     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
+     * @param grantRequestPassword Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. (required)
      * @return ApiResponse&lt;GrantPassword&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -647,8 +647,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Password Grant Type (asynchronously)
-     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
-     * @param grantRequestPassword Contains information about the type of grant you are requesting. (required)
+     * This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
+     * @param grantRequestPassword Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -740,8 +740,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Refresh Grant Type
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. (required)
      * @return GrantRefresh
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -752,8 +752,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Refresh Grant Type
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. (required)
      * @return ApiResponse&lt;GrantRefresh&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -765,8 +765,8 @@ public class AuthenticationApi {
 
     /**
      * Authentication via Refresh Grant Type (asynchronously)
-     * This API is part of the 3-legged OAuth 2.0 authorization flow.
-     * @param grantRequestRefresh Contains information about the type of grant you are requesting. (required)
+     * This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
+     * @param grantRequestRefresh Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -855,7 +855,7 @@ public class AuthenticationApi {
 
     /**
      * Validate a Token
-     * This endpoint will validate if a token is valid or not.
+     * This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
      * @param accessToken  (optional)
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -867,7 +867,7 @@ public class AuthenticationApi {
 
     /**
      * Validate a Token
-     * This endpoint will validate if a token is valid or not.
+     * This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
      * @param accessToken  (optional)
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -880,7 +880,7 @@ public class AuthenticationApi {
 
     /**
      * Validate a Token (asynchronously)
-     * This endpoint will validate if a token is valid or not.
+     * This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
      * @param accessToken  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is NOT a REST endpoint. Documenting here for consistentcy. This URL should be used by a client application user&#39;s browser to perform authorization.  User will be redirected back to client application upon completion with state and code parameters. Use \&quot;bluejeans.com\&quot; as hostname. The code returned is only good for 30 seconds. You will want to call /oauth2/token with it as soon as possible.
+This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
 
 ### Example
 ```java
@@ -43,7 +43,7 @@ AuthenticationApi apiInstance = new AuthenticationApi();
 String clientId = "clientId_example"; // String | The 32 character client ID generated when you created the client application.
 String redirectUri = "redirectUri_example"; // String | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
 String state = "state_example"; // String | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
-String scope = "scope_example"; // String | A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info
+String scope = "scope_example"; // String | A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time.
 String responseType = "code"; // String | The type of authorization you are peforrming.  Set to \"code\".
 String appName = "appName_example"; // String | The name of the client application shown to user during authorization.
 String appLogoUrl = "appLogoUrl_example"; // String | URL to an 84x84 image shown to user during authorization.
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| The 32 character client ID generated when you created the client application. | [optional]
  **redirectUri** | **String**| The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. | [optional]
  **state** | **String**| Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. | [optional]
- **scope** | **String**| A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info | [optional]
+ **scope** | **String**| A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. | [optional]
  **responseType** | **String**| The type of authorization you are peforrming.  Set to \&quot;code\&quot;. | [optional] [default to code]
  **appName** | **String**| The name of the client application shown to user during authorization. | [optional]
  **appLogoUrl** | **String**| URL to an 84x84 image shown to user during authorization. | [optional]
@@ -86,7 +86,7 @@ null (empty response body)
 
 Authentication via Client Grant Type
 
-This API is typically called from an application.  Client ID and Secret are provisioned within the BlueJeans Enterprise Administration console and given to the customer.
+This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**client_credentials**\&quot; (string).
 
 ### Example
 ```java
@@ -106,7 +106,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestClient grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.
+GrantRequestClient grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 try {
     GrantClient result = apiInstance.getTokenByClient(grantRequestClient);
     System.out.println(result);
@@ -120,7 +120,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantRequestClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestClient** | [**GrantRequestClient**](GrantRequestClient.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. |
 
 ### Return type
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 Authentication via Code Grant Type
 
-This API is part of the 3-legged OAuth 2.0 authorization flow.
+This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
 
 ### Example
 ```java
@@ -161,7 +161,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestCode grantRequestCode = new GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.
+GrantRequestCode grantRequestCode = new GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 try {
     GrantCode result = apiInstance.getTokenByCode(grantRequestCode);
     System.out.println(result);
@@ -175,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantRequestCode** | [**GrantRequestCode**](GrantRequestCode.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestCode** | [**GrantRequestCode**](GrantRequestCode.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. |
 
 ### Return type
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 Authentication via Meeting Grant Type
 
-This API uses an OAuth-like grant/request method similar to the Password grant type. The scope of access covers the meeting only. Call this API with the meetings&#39; numerid ID, and the meeting passcode (it one exists).  If a Moderator passcode is sent, moderator privileges are granted. If an Attendee access code is passed, the access token will grant attendee abilities.
+This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. &lt;br /&gt;Call this API with the meeting&#39;s numeric ID, and the meeting passcode (if one exists). &lt;br /&gt;&amp;nbsp;&amp;nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. &lt;br /&gt;&amp;nbsp;&amp;nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.&lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**meeting_passcode**\&quot; (string).
 
 ### Example
 ```java
@@ -216,7 +216,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestMeeting grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.
+GrantRequestMeeting grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 try {
     GrantMeeting result = apiInstance.getTokenByMeeting(grantRequestMeeting);
     System.out.println(result);
@@ -230,7 +230,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantRequestMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestMeeting** | [**GrantRequestMeeting**](GrantRequestMeeting.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. |
 
 ### Return type
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 Authentication via Password Grant Type
 
-This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password.  Set the grant_type to \&quot;password\&quot;.
+This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**password**\&quot; (string).
 
 ### Example
 ```java
@@ -271,7 +271,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestPassword grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.
+GrantRequestPassword grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 try {
     GrantPassword result = apiInstance.getTokenByPassword(grantRequestPassword);
     System.out.println(result);
@@ -285,7 +285,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantRequestPassword** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestPassword** | [**GrantRequestPassword**](GrantRequestPassword.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. |
 
 ### Return type
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 Authentication via Refresh Grant Type
 
-This API is part of the 3-legged OAuth 2.0 authorization flow.
+This API is part of the 3-legged OAuth 2.0 authorization flow.  It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**refresh_token**\&quot; (string).
 
 ### Example
 ```java
@@ -326,7 +326,7 @@ access_token.setApiKey("YOUR API KEY");
 //access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
-GrantRequestRefresh grantRequestRefresh = new GrantRequestRefresh(); // GrantRequestRefresh | Contains information about the type of grant you are requesting.
+GrantRequestRefresh grantRequestRefresh = new GrantRequestRefresh(); // GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
 try {
     GrantRefresh result = apiInstance.getTokenByRefresh(grantRequestRefresh);
     System.out.println(result);
@@ -340,7 +340,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantRequestRefresh** | [**GrantRequestRefresh**](GrantRequestRefresh.md)| Contains information about the type of grant you are requesting. |
+ **grantRequestRefresh** | [**GrantRequestRefresh**](GrantRequestRefresh.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. |
 
 ### Return type
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 Validate a Token
 
-This endpoint will validate if a token is valid or not.
+This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
 
 ### Example
 ```java

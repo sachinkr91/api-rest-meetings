@@ -1,6 +1,6 @@
 /*
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ *  # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -89,9 +89,9 @@ public class MeetingApiTest {
     @Test
     public void generatePairingCodeSipTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         PayloadPairingCodeSIP payloadPairingCodeSIP = null;
-        PairingCode response = api.generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP);
+        PairingCode response = api.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
 
         // TODO: test validations
     }
@@ -107,10 +107,10 @@ public class MeetingApiTest {
     @Test
     public void generatePairingCodeWebRtcTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = null;
         String role = null;
-        PairingCode response = api.generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role);
+        PairingCode response = api.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
 
         // TODO: test validations
     }
@@ -126,9 +126,9 @@ public class MeetingApiTest {
     @Test
     public void getEndpointLayoutTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         String endpointGuid = null;
-        Layout response = api.getEndpointLayout(userId, meetingId, endpointGuid);
+        Layout response = api.getEndpointLayout(userId, numericMeetingId, endpointGuid);
 
         // TODO: test validations
     }
@@ -181,9 +181,9 @@ public class MeetingApiTest {
     @Test
     public void getMeetingEndpointTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         String endpointGuid = null;
-        Endpoint response = api.getMeetingEndpoint(userId, meetingId, endpointGuid);
+        Endpoint response = api.getMeetingEndpoint(userId, numericMeetingId, endpointGuid);
 
         // TODO: test validations
     }
@@ -199,8 +199,8 @@ public class MeetingApiTest {
     @Test
     public void getMeetingEndpointsTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
-        Endpoints response = api.getMeetingEndpoints(userId, meetingId);
+        Integer numericMeetingId = null;
+        Endpoints response = api.getMeetingEndpoints(userId, numericMeetingId);
 
         // TODO: test validations
     }
@@ -233,8 +233,8 @@ public class MeetingApiTest {
     @Test
     public void getMeetingStateTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
-        MeetingState response = api.getMeetingState(userId, meetingId);
+        Integer numericMeetingId = null;
+        MeetingState response = api.getMeetingState(userId, numericMeetingId);
 
         // TODO: test validations
     }
@@ -267,9 +267,9 @@ public class MeetingApiTest {
     @Test
     public void sendMeetingInviteTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         PayloadInvite payloadInvite = null;
-        api.sendMeetingInvite(userId, meetingId, payloadInvite);
+        api.sendMeetingInvite(userId, numericMeetingId, payloadInvite);
 
         // TODO: test validations
     }
@@ -285,11 +285,11 @@ public class MeetingApiTest {
     @Test
     public void updateEndpointLayoutTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         String endpointGuid = null;
         Boolean isLeader = null;
         Boolean push = null;
-        Layout response = api.updateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push);
+        Layout response = api.updateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push);
 
         // TODO: test validations
     }
@@ -323,12 +323,12 @@ public class MeetingApiTest {
     @Test
     public void updateMeetingEndpointTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         String endpointGuid = null;
         Boolean muteAudio = null;
         Boolean muteVideo = null;
         Boolean leaveMeeting = null;
-        Endpoint response = api.updateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+        Endpoint response = api.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
 
         // TODO: test validations
     }
@@ -344,10 +344,10 @@ public class MeetingApiTest {
     @Test
     public void updateMeetingEndpointsTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         Boolean mute = null;
         String media = null;
-        api.updateMeetingEndpoints(userId, meetingId, mute, media);
+        api.updateMeetingEndpoints(userId, numericMeetingId, mute, media);
 
         // TODO: test validations
     }
@@ -363,10 +363,10 @@ public class MeetingApiTest {
     @Test
     public void updateMeetingStateTest() throws ApiException {
         Integer userId = null;
-        Integer meetingId = null;
+        Integer numericMeetingId = null;
         PayloadMeetingState payloadMeetingState = null;
         Integer delay = null;
-        Meeting response = api.updateMeetingState(userId, meetingId, payloadMeetingState, delay);
+        Meeting response = api.updateMeetingState(userId, numericMeetingId, payloadMeetingState, delay);
 
         // TODO: test validations
     }

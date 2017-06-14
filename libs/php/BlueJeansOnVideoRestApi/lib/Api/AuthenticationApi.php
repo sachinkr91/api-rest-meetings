@@ -12,7 +12,7 @@
 /**
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make.
+ * # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such.
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -95,7 +95,7 @@ class AuthenticationApi
      * @param string $client_id The 32 character client ID generated when you created the client application. (optional)
      * @param string $redirect_uri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
-     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)
      * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
      * @param string $app_name The name of the client application shown to user during authorization. (optional)
      * @param string $app_logo_url URL to an 84x84 image shown to user during authorization. (optional)
@@ -116,7 +116,7 @@ class AuthenticationApi
      * @param string $client_id The 32 character client ID generated when you created the client application. (optional)
      * @param string $redirect_uri The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional)
      * @param string $state Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users. (optional)
-     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info (optional)
+     * @param string $scope A comma delimited list of scopes requested. Scopes may be list_meetings, modify_meetings, user_info. Unfortunately, not all operations in the API are available via this authentication method at the current time. (optional)
      * @param string $response_type The type of authorization you are peforrming.  Set to \&quot;code\&quot;. (optional, default to code)
      * @param string $app_name The name of the client application shown to user during authorization. (optional)
      * @param string $app_logo_url URL to an 84x84 image shown to user during authorization. (optional)
@@ -210,7 +210,7 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\GrantClient
      */
@@ -225,7 +225,7 @@ class AuthenticationApi
      *
      * Authentication via Client Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestClient $grant_request_client Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\GrantClient, HTTP status code, HTTP response headers (array of strings)
      */
@@ -301,7 +301,7 @@ class AuthenticationApi
      *
      * Authentication via Code Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\GrantCode
      */
@@ -316,7 +316,7 @@ class AuthenticationApi
      *
      * Authentication via Code Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestCode $grant_request_code Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\GrantCode, HTTP status code, HTTP response headers (array of strings)
      */
@@ -392,7 +392,7 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\GrantMeeting
      */
@@ -407,7 +407,7 @@ class AuthenticationApi
      *
      * Authentication via Meeting Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting $grant_request_meeting Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\GrantMeeting, HTTP status code, HTTP response headers (array of strings)
      */
@@ -483,7 +483,7 @@ class AuthenticationApi
      *
      * Authentication via Password Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\GrantPassword
      */
@@ -498,7 +498,7 @@ class AuthenticationApi
      *
      * Authentication via Password Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestPassword $grant_request_password Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\GrantPassword, HTTP status code, HTTP response headers (array of strings)
      */
@@ -574,7 +574,7 @@ class AuthenticationApi
      *
      * Authentication via Refresh Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\GrantRefresh
      */
@@ -589,7 +589,7 @@ class AuthenticationApi
      *
      * Authentication via Refresh Grant Type
      *
-     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting. (required)
+     * @param \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh $grant_request_refresh Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\GrantRefresh, HTTP status code, HTTP response headers (array of strings)
      */

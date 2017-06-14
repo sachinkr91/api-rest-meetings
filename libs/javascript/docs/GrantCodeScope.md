@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **partitionName** | **String** | The name of the partition you are on. | [optional] 
 **partition** | [**Partition**](Partition.md) |  | [optional] 
 **bearerPermissions** | **String** | Comma-delimited list of scopes authorized by this token. | [optional] 
-**clientId** | **String** | The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string. | [optional] 
+**clientId** | **String** | The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string. | [optional] 
 
 

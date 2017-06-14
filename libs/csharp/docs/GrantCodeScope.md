@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PartitionName** | **string** | The name of the partition you are on. | [optional] 
 **Partition** | [**Partition**](Partition.md) |  | [optional] 
 **BearerPermissions** | **string** | Comma-delimited list of scopes authorized by this token. | [optional] 
-**ClientId** | **string** | The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string. | [optional] 
+**ClientId** | **string** | The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

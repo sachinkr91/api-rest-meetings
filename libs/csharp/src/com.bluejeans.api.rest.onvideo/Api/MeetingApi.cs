@@ -1,7 +1,7 @@
 /* 
  * BlueJeans onVideo REST API
  *
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ *  # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -80,10 +80,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>PairingCode</returns>
-        PairingCode GeneratePairingCodeSip (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
         /// <summary>
         /// Generate Pairing Code (SIP)
@@ -93,10 +93,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>ApiResponse of PairingCode</returns>
-        ApiResponse<PairingCode> GeneratePairingCodeSipWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        ApiResponse<PairingCode> GeneratePairingCodeSipWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
         /// Generate Pairing Code (WebRTC)
         /// </summary>
@@ -105,11 +105,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>PairingCode</returns>
-        PairingCode GeneratePairingCodeWebRtc (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        PairingCode GeneratePairingCodeWebRtc (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
 
         /// <summary>
         /// Generate Pairing Code (WebRTC)
@@ -119,11 +119,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>ApiResponse of PairingCode</returns>
-        ApiResponse<PairingCode> GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        ApiResponse<PairingCode> GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
         /// <summary>
         /// Get Endpoint Layout
         /// </summary>
@@ -132,10 +132,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Layout</returns>
-        Layout GetEndpointLayout (int? userId, int? meetingId, string endpointGuid);
+        Layout GetEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Layout
@@ -145,10 +145,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>ApiResponse of Layout</returns>
-        ApiResponse<Layout> GetEndpointLayoutWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        ApiResponse<Layout> GetEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid);
         /// <summary>
         /// Get Meeting
         /// </summary>
@@ -209,10 +209,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Endpoint</returns>
-        Endpoint GetMeetingEndpoint (int? userId, int? meetingId, string endpointGuid);
+        Endpoint GetMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Information
@@ -222,10 +222,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        ApiResponse<Endpoint> GetMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        ApiResponse<Endpoint> GetMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid);
         /// <summary>
         /// List Meeting Endpoints
         /// </summary>
@@ -234,9 +234,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Endpoints</returns>
-        Endpoints GetMeetingEndpoints (int? userId, int? meetingId);
+        Endpoints GetMeetingEndpoints (int? userId, int? numericMeetingId);
 
         /// <summary>
         /// List Meeting Endpoints
@@ -246,9 +246,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>ApiResponse of Endpoints</returns>
-        ApiResponse<Endpoints> GetMeetingEndpointsWithHttpInfo (int? userId, int? meetingId);
+        ApiResponse<Endpoints> GetMeetingEndpointsWithHttpInfo (int? userId, int? numericMeetingId);
         /// <summary>
         /// Get Meeting Join Info
         /// </summary>
@@ -280,9 +280,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>MeetingState</returns>
-        MeetingState GetMeetingState (int? userId, int? meetingId);
+        MeetingState GetMeetingState (int? userId, int? numericMeetingId);
 
         /// <summary>
         /// Get Meeting State
@@ -292,9 +292,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>ApiResponse of MeetingState</returns>
-        ApiResponse<MeetingState> GetMeetingStateWithHttpInfo (int? userId, int? meetingId);
+        ApiResponse<MeetingState> GetMeetingStateWithHttpInfo (int? userId, int? numericMeetingId);
         /// <summary>
         /// List Meetings
         /// </summary>
@@ -326,10 +326,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns></returns>
-        void SendMeetingInvite (int? userId, int? meetingId, PayloadInvite payloadInvite);
+        void SendMeetingInvite (int? userId, int? numericMeetingId, PayloadInvite payloadInvite);
 
         /// <summary>
         /// Send Email Invite
@@ -339,10 +339,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
+        ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? numericMeetingId, PayloadInvite payloadInvite);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -351,12 +351,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Layout</returns>
-        Layout UpdateEndpointLayout (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -366,12 +366,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>ApiResponse of Layout</returns>
-        ApiResponse<Layout> UpdateEndpointLayoutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        ApiResponse<Layout> UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Meeting
         /// </summary>
@@ -405,13 +405,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Endpoint</returns>
-        Endpoint UpdateMeetingEndpoint (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -421,13 +421,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        ApiResponse<Endpoint> UpdateMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        ApiResponse<Endpoint> UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -436,11 +436,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns></returns>
-        void UpdateMeetingEndpoints (int? userId, int? meetingId, bool? mute = null, string media = null);
+        void UpdateMeetingEndpoints (int? userId, int? numericMeetingId, bool? mute = null, string media = null);
 
         /// <summary>
         /// Update Meeting Endpoints State
@@ -450,11 +450,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
+        ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? numericMeetingId, bool? mute = null, string media = null);
         /// <summary>
         /// Update Meeting State
         /// </summary>
@@ -463,11 +463,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        Meeting UpdateMeetingState (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        Meeting UpdateMeetingState (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -477,11 +477,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        ApiResponse<Meeting> UpdateMeetingStateWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        ApiResponse<Meeting> UpdateMeetingStateWithHttpInfo (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -540,10 +540,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>Task of PairingCode</returns>
-        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
         /// <summary>
         /// Generate Pairing Code (SIP)
@@ -553,10 +553,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
+        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
         /// Generate Pairing Code (WebRTC)
         /// </summary>
@@ -565,11 +565,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>Task of PairingCode</returns>
-        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
 
         /// <summary>
         /// Generate Pairing Code (WebRTC)
@@ -579,11 +579,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
+        System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null);
         /// <summary>
         /// Get Endpoint Layout
         /// </summary>
@@ -592,10 +592,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of Layout</returns>
-        System.Threading.Tasks.Task<Layout> GetEndpointLayoutAsync (int? userId, int? meetingId, string endpointGuid);
+        System.Threading.Tasks.Task<Layout> GetEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Layout
@@ -605,10 +605,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of ApiResponse (Layout)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Layout>> GetEndpointLayoutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        System.Threading.Tasks.Task<ApiResponse<Layout>> GetEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid);
         /// <summary>
         /// Get Meeting
         /// </summary>
@@ -669,10 +669,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of Endpoint</returns>
-        System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid);
+        System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid);
 
         /// <summary>
         /// Get Endpoint Information
@@ -682,10 +682,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid);
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid);
         /// <summary>
         /// List Meeting Endpoints
         /// </summary>
@@ -694,9 +694,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of Endpoints</returns>
-        System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? numericMeetingId);
 
         /// <summary>
         /// List Meeting Endpoints
@@ -706,9 +706,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of ApiResponse (Endpoints)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? numericMeetingId);
         /// <summary>
         /// Get Meeting Join Info
         /// </summary>
@@ -740,9 +740,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of MeetingState</returns>
-        System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? numericMeetingId);
 
         /// <summary>
         /// Get Meeting State
@@ -752,9 +752,9 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of ApiResponse (MeetingState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId);
+        System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? numericMeetingId);
         /// <summary>
         /// List Meetings
         /// </summary>
@@ -786,10 +786,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? meetingId, PayloadInvite payloadInvite);
+        System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? numericMeetingId, PayloadInvite payloadInvite);
 
         /// <summary>
         /// Send Email Invite
@@ -799,10 +799,10 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite);
+        System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadInvite payloadInvite);
         /// <summary>
         /// Update Endpoint Layout
         /// </summary>
@@ -811,12 +811,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Task of Layout</returns>
-        System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -826,12 +826,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Task of ApiResponse (Layout)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Meeting
         /// </summary>
@@ -865,13 +865,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of Endpoint</returns>
-        System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -881,13 +881,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -896,11 +896,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? meetingId, bool? mute = null, string media = null);
+        System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? numericMeetingId, bool? mute = null, string media = null);
 
         /// <summary>
         /// Update Meeting Endpoints State
@@ -910,11 +910,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? numericMeetingId, bool? mute = null, string media = null);
         /// <summary>
         /// Update Meeting State
         /// </summary>
@@ -923,11 +923,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
 
         /// <summary>
         /// Update Meeting State
@@ -937,11 +937,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
+        System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null);
         #endregion Asynchronous Operations
     }
 
@@ -1405,12 +1405,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>PairingCode</returns>
-        public PairingCode GeneratePairingCodeSip (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        public PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
-             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeSipWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
+             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeSipWithHttpInfo(userId, numericMeetingId, payloadPairingCodeSIP);
              return localVarResponse.Data;
         }
 
@@ -1419,22 +1419,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>ApiResponse of PairingCode</returns>
-        public ApiResponse< PairingCode > GeneratePairingCodeSipWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        public ApiResponse< PairingCode > GeneratePairingCodeSipWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeSip");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GeneratePairingCodeSip");
             // verify the required parameter 'payloadPairingCodeSIP' is set
             if (payloadPairingCodeSIP == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1459,7 +1459,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
@@ -1500,12 +1500,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>Task of PairingCode</returns>
-        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
-             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeSipAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeSIP);
+             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeSipAsyncWithHttpInfo(userId, numericMeetingId, payloadPairingCodeSIP);
              return localVarResponse.Data;
 
         }
@@ -1515,22 +1515,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeSIP"></param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeSip");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeSip");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GeneratePairingCodeSip");
             // verify the required parameter 'payloadPairingCodeSIP' is set
             if (payloadPairingCodeSIP == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1555,7 +1555,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (payloadPairingCodeSIP != null && payloadPairingCodeSIP.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(payloadPairingCodeSIP); // http body (model) parameter
@@ -1595,13 +1595,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>PairingCode</returns>
-        public PairingCode GeneratePairingCodeWebRtc (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        public PairingCode GeneratePairingCodeWebRtc (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
         {
-             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeWebRtcWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
+             ApiResponse<PairingCode> localVarResponse = GeneratePairingCodeWebRtcWithHttpInfo(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
              return localVarResponse.Data;
         }
 
@@ -1610,23 +1610,23 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>ApiResponse of PairingCode</returns>
-        public ApiResponse< PairingCode > GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        public ApiResponse< PairingCode > GeneratePairingCodeWebRtcWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeWebRtc");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
             // verify the required parameter 'payloadPairingCodeWebRTC' is set
             if (payloadPairingCodeWebRTC == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->GeneratePairingCodeWebRtc");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1651,7 +1651,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
             if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
             {
@@ -1693,13 +1693,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>Task of PairingCode</returns>
-        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeWebRtcAsync (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
         {
-             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeWebRtcAsyncWithHttpInfo(userId, meetingId, payloadPairingCodeWebRTC, role);
+             ApiResponse<PairingCode> localVarResponse = await GeneratePairingCodeWebRtcAsyncWithHttpInfo(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
              return localVarResponse.Data;
 
         }
@@ -1709,23 +1709,23 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadPairingCodeWebRTC"></param>
         /// <param name="role"> (optional, default to USER)</param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? meetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeWebRtcAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GeneratePairingCodeWebRtc");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GeneratePairingCodeWebRtc");
             // verify the required parameter 'payloadPairingCodeWebRTC' is set
             if (payloadPairingCodeWebRTC == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeWebRTC' when calling MeetingApi->GeneratePairingCodeWebRtc");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1750,7 +1750,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (role != null) localVarQueryParams.Add("role", Configuration.ApiClient.ParameterToString(role)); // query parameter
             if (payloadPairingCodeWebRTC != null && payloadPairingCodeWebRTC.GetType() != typeof(byte[]))
             {
@@ -1791,12 +1791,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Layout</returns>
-        public Layout GetEndpointLayout (int? userId, int? meetingId, string endpointGuid)
+        public Layout GetEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid)
         {
-             ApiResponse<Layout> localVarResponse = GetEndpointLayoutWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Layout> localVarResponse = GetEndpointLayoutWithHttpInfo(userId, numericMeetingId, endpointGuid);
              return localVarResponse.Data;
         }
 
@@ -1805,22 +1805,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>ApiResponse of Layout</returns>
-        public ApiResponse< Layout > GetEndpointLayoutWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        public ApiResponse< Layout > GetEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetEndpointLayout");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetEndpointLayout");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetEndpointLayout");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetEndpointLayout");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1845,7 +1845,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
 
             // authentication (access_token) required
@@ -1879,12 +1879,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of Layout</returns>
-        public async System.Threading.Tasks.Task<Layout> GetEndpointLayoutAsync (int? userId, int? meetingId, string endpointGuid)
+        public async System.Threading.Tasks.Task<Layout> GetEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid)
         {
-             ApiResponse<Layout> localVarResponse = await GetEndpointLayoutAsyncWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Layout> localVarResponse = await GetEndpointLayoutAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid);
              return localVarResponse.Data;
 
         }
@@ -1894,22 +1894,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of ApiResponse (Layout)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Layout>> GetEndpointLayoutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        public async System.Threading.Tasks.Task<ApiResponse<Layout>> GetEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetEndpointLayout");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetEndpointLayout");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetEndpointLayout");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetEndpointLayout");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1934,7 +1934,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
 
             // authentication (access_token) required
@@ -2313,12 +2313,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Endpoint</returns>
-        public Endpoint GetMeetingEndpoint (int? userId, int? meetingId, string endpointGuid)
+        public Endpoint GetMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid)
         {
-             ApiResponse<Endpoint> localVarResponse = GetMeetingEndpointWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Endpoint> localVarResponse = GetMeetingEndpointWithHttpInfo(userId, numericMeetingId, endpointGuid);
              return localVarResponse.Data;
         }
 
@@ -2327,22 +2327,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        public ApiResponse< Endpoint > GetMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        public ApiResponse< Endpoint > GetMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoint");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetMeetingEndpoint");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2367,7 +2367,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
 
             // authentication (access_token) required
@@ -2401,12 +2401,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of Endpoint</returns>
-        public async System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid)
+        public async System.Threading.Tasks.Task<Endpoint> GetMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid)
         {
-             ApiResponse<Endpoint> localVarResponse = await GetMeetingEndpointAsyncWithHttpInfo(userId, meetingId, endpointGuid);
+             ApiResponse<Endpoint> localVarResponse = await GetMeetingEndpointAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid);
              return localVarResponse.Data;
 
         }
@@ -2416,22 +2416,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid)
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> GetMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoint");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoint");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->GetMeetingEndpoint");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2456,7 +2456,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
 
             // authentication (access_token) required
@@ -2489,11 +2489,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Endpoints</returns>
-        public Endpoints GetMeetingEndpoints (int? userId, int? meetingId)
+        public Endpoints GetMeetingEndpoints (int? userId, int? numericMeetingId)
         {
-             ApiResponse<Endpoints> localVarResponse = GetMeetingEndpointsWithHttpInfo(userId, meetingId);
+             ApiResponse<Endpoints> localVarResponse = GetMeetingEndpointsWithHttpInfo(userId, numericMeetingId);
              return localVarResponse.Data;
         }
 
@@ -2502,18 +2502,18 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>ApiResponse of Endpoints</returns>
-        public ApiResponse< Endpoints > GetMeetingEndpointsWithHttpInfo (int? userId, int? meetingId)
+        public ApiResponse< Endpoints > GetMeetingEndpointsWithHttpInfo (int? userId, int? numericMeetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoints");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoints");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingEndpoints");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2538,7 +2538,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -2571,11 +2571,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of Endpoints</returns>
-        public async System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<Endpoints> GetMeetingEndpointsAsync (int? userId, int? numericMeetingId)
         {
-             ApiResponse<Endpoints> localVarResponse = await GetMeetingEndpointsAsyncWithHttpInfo(userId, meetingId);
+             ApiResponse<Endpoints> localVarResponse = await GetMeetingEndpointsAsyncWithHttpInfo(userId, numericMeetingId);
              return localVarResponse.Data;
 
         }
@@ -2585,18 +2585,18 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of ApiResponse (Endpoints)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoints>> GetMeetingEndpointsAsyncWithHttpInfo (int? userId, int? numericMeetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingEndpoints");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingEndpoints");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingEndpoints");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2621,7 +2621,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -2817,11 +2817,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>MeetingState</returns>
-        public MeetingState GetMeetingState (int? userId, int? meetingId)
+        public MeetingState GetMeetingState (int? userId, int? numericMeetingId)
         {
-             ApiResponse<MeetingState> localVarResponse = GetMeetingStateWithHttpInfo(userId, meetingId);
+             ApiResponse<MeetingState> localVarResponse = GetMeetingStateWithHttpInfo(userId, numericMeetingId);
              return localVarResponse.Data;
         }
 
@@ -2830,18 +2830,18 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>ApiResponse of MeetingState</returns>
-        public ApiResponse< MeetingState > GetMeetingStateWithHttpInfo (int? userId, int? meetingId)
+        public ApiResponse< MeetingState > GetMeetingStateWithHttpInfo (int? userId, int? numericMeetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingState");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingState");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingState");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2866,7 +2866,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -2899,11 +2899,11 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of MeetingState</returns>
-        public async System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<MeetingState> GetMeetingStateAsync (int? userId, int? numericMeetingId)
         {
-             ApiResponse<MeetingState> localVarResponse = await GetMeetingStateAsyncWithHttpInfo(userId, meetingId);
+             ApiResponse<MeetingState> localVarResponse = await GetMeetingStateAsyncWithHttpInfo(userId, numericMeetingId);
              return localVarResponse.Data;
 
         }
@@ -2913,18 +2913,18 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <returns>Task of ApiResponse (MeetingState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId)
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingState>> GetMeetingStateAsyncWithHttpInfo (int? userId, int? numericMeetingId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->GetMeetingState");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->GetMeetingState");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->GetMeetingState");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2949,7 +2949,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
@@ -3139,12 +3139,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns></returns>
-        public void SendMeetingInvite (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        public void SendMeetingInvite (int? userId, int? numericMeetingId, PayloadInvite payloadInvite)
         {
-             SendMeetingInviteWithHttpInfo(userId, meetingId, payloadInvite);
+             SendMeetingInviteWithHttpInfo(userId, numericMeetingId, payloadInvite);
         }
 
         /// <summary>
@@ -3152,22 +3152,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        public ApiResponse<Object> SendMeetingInviteWithHttpInfo (int? userId, int? numericMeetingId, PayloadInvite payloadInvite)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->SendMeetingInvite");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->SendMeetingInvite");
             // verify the required parameter 'payloadInvite' is set
             if (payloadInvite == null)
                 throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->SendMeetingInvite");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3192,7 +3192,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
@@ -3233,12 +3233,12 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        public async System.Threading.Tasks.Task SendMeetingInviteAsync (int? userId, int? numericMeetingId, PayloadInvite payloadInvite)
         {
-             await SendMeetingInviteAsyncWithHttpInfo(userId, meetingId, payloadInvite);
+             await SendMeetingInviteAsyncWithHttpInfo(userId, numericMeetingId, payloadInvite);
 
         }
 
@@ -3247,22 +3247,22 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadInvite"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? meetingId, PayloadInvite payloadInvite)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendMeetingInviteAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadInvite payloadInvite)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->SendMeetingInvite");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->SendMeetingInvite");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->SendMeetingInvite");
             // verify the required parameter 'payloadInvite' is set
             if (payloadInvite == null)
                 throw new ApiException(400, "Missing required parameter 'payloadInvite' when calling MeetingApi->SendMeetingInvite");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/invite";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3287,7 +3287,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (payloadInvite != null && payloadInvite.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(payloadInvite); // http body (model) parameter
@@ -3327,14 +3327,14 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Layout</returns>
-        public Layout UpdateEndpointLayout (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        public Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Layout> localVarResponse = UpdateEndpointLayoutWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
+             ApiResponse<Layout> localVarResponse = UpdateEndpointLayoutWithHttpInfo(userId, numericMeetingId, endpointGuid, isLeader, push);
              return localVarResponse.Data;
         }
 
@@ -3343,24 +3343,24 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>ApiResponse of Layout</returns>
-        public ApiResponse< Layout > UpdateEndpointLayoutWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        public ApiResponse< Layout > UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateEndpointLayout");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateEndpointLayout");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateEndpointLayout");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateEndpointLayout");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3385,7 +3385,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (isLeader != null) localVarQueryParams.Add("isLeader", Configuration.ApiClient.ParameterToString(isLeader)); // query parameter
             if (push != null) localVarQueryParams.Add("push", Configuration.ApiClient.ParameterToString(push)); // query parameter
@@ -3421,14 +3421,14 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Task of Layout</returns>
-        public async System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        public async System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Layout> localVarResponse = await UpdateEndpointLayoutAsyncWithHttpInfo(userId, meetingId, endpointGuid, isLeader, push);
+             ApiResponse<Layout> localVarResponse = await UpdateEndpointLayoutAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, isLeader, push);
              return localVarResponse.Data;
 
         }
@@ -3438,24 +3438,24 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="isLeader"> (optional)</param>
         /// <param name="push"> (optional)</param>
         /// <returns>Task of ApiResponse (Layout)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateEndpointLayout");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateEndpointLayout");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateEndpointLayout");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateEndpointLayout");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3480,7 +3480,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (isLeader != null) localVarQueryParams.Add("isLeader", Configuration.ApiClient.ParameterToString(isLeader)); // query parameter
             if (push != null) localVarQueryParams.Add("push", Configuration.ApiClient.ParameterToString(push)); // query parameter
@@ -3705,15 +3705,15 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Endpoint</returns>
-        public Endpoint UpdateMeetingEndpoint (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = UpdateMeetingEndpointWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = UpdateMeetingEndpointWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
         }
 
@@ -3722,25 +3722,25 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>ApiResponse of Endpoint</returns>
-        public ApiResponse< Endpoint > UpdateMeetingEndpointWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public ApiResponse< Endpoint > UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoint");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoint");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateMeetingEndpoint");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3765,7 +3765,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (muteAudio != null) localVarQueryParams.Add("muteAudio", Configuration.ApiClient.ParameterToString(muteAudio)); // query parameter
             if (muteVideo != null) localVarQueryParams.Add("muteVideo", Configuration.ApiClient.ParameterToString(muteVideo)); // query parameter
@@ -3802,15 +3802,15 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of Endpoint</returns>
-        public async System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public async System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = await UpdateMeetingEndpointAsyncWithHttpInfo(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+             ApiResponse<Endpoint> localVarResponse = await UpdateMeetingEndpointAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
              return localVarResponse.Data;
 
         }
@@ -3820,25 +3820,25 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
         /// <returns>Task of ApiResponse (Endpoint)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? meetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoint");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoint");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingEndpoint");
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateMeetingEndpoint");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3863,7 +3863,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (muteAudio != null) localVarQueryParams.Add("muteAudio", Configuration.ApiClient.ParameterToString(muteAudio)); // query parameter
             if (muteVideo != null) localVarQueryParams.Add("muteVideo", Configuration.ApiClient.ParameterToString(muteVideo)); // query parameter
@@ -3899,13 +3899,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns></returns>
-        public void UpdateMeetingEndpoints (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public void UpdateMeetingEndpoints (int? userId, int? numericMeetingId, bool? mute = null, string media = null)
         {
-             UpdateMeetingEndpointsWithHttpInfo(userId, meetingId, mute, media);
+             UpdateMeetingEndpointsWithHttpInfo(userId, numericMeetingId, mute, media);
         }
 
         /// <summary>
@@ -3913,20 +3913,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public ApiResponse<Object> UpdateMeetingEndpointsWithHttpInfo (int? userId, int? numericMeetingId, bool? mute = null, string media = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoints");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoints");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingEndpoints");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3951,7 +3951,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (mute != null) localVarQueryParams.Add("mute", Configuration.ApiClient.ParameterToString(mute)); // query parameter
             if (media != null) localVarQueryParams.Add("media", Configuration.ApiClient.ParameterToString(media)); // query parameter
 
@@ -3986,13 +3986,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public async System.Threading.Tasks.Task UpdateMeetingEndpointsAsync (int? userId, int? numericMeetingId, bool? mute = null, string media = null)
         {
-             await UpdateMeetingEndpointsAsyncWithHttpInfo(userId, meetingId, mute, media);
+             await UpdateMeetingEndpointsAsyncWithHttpInfo(userId, numericMeetingId, mute, media);
 
         }
 
@@ -4001,20 +4001,20 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="mute">Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)</param>
         /// <param name="media">Specify the type of media you which to mute/unmute. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? meetingId, bool? mute = null, string media = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointsAsyncWithHttpInfo (int? userId, int? numericMeetingId, bool? mute = null, string media = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingEndpoints");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingEndpoints");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingEndpoints");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -4039,7 +4039,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (mute != null) localVarQueryParams.Add("mute", Configuration.ApiClient.ParameterToString(mute)); // query parameter
             if (media != null) localVarQueryParams.Add("media", Configuration.ApiClient.ParameterToString(media)); // query parameter
 
@@ -4073,13 +4073,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Meeting</returns>
-        public Meeting UpdateMeetingState (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public Meeting UpdateMeetingState (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = UpdateMeetingStateWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
+             ApiResponse<Meeting> localVarResponse = UpdateMeetingStateWithHttpInfo(userId, numericMeetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
         }
 
@@ -4088,23 +4088,23 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>ApiResponse of Meeting</returns>
-        public ApiResponse< Meeting > UpdateMeetingStateWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public ApiResponse< Meeting > UpdateMeetingStateWithHttpInfo (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingState");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingState");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'payloadMeetingState' is set
             if (payloadMeetingState == null)
                 throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->UpdateMeetingState");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -4129,7 +4129,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (delay != null) localVarQueryParams.Add("delay", Configuration.ApiClient.ParameterToString(delay)); // query parameter
             if (payloadMeetingState != null && payloadMeetingState.GetType() != typeof(byte[]))
             {
@@ -4171,13 +4171,13 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of Meeting</returns>
-        public async System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public async System.Threading.Tasks.Task<Meeting> UpdateMeetingStateAsync (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
-             ApiResponse<Meeting> localVarResponse = await UpdateMeetingStateAsyncWithHttpInfo(userId, meetingId, payloadMeetingState, delay);
+             ApiResponse<Meeting> localVarResponse = await UpdateMeetingStateAsyncWithHttpInfo(userId, numericMeetingId, payloadMeetingState, delay);
              return localVarResponse.Data;
 
         }
@@ -4187,23 +4187,23 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
-        /// <param name="meetingId">The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.</param>
+        /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="payloadMeetingState">The meeting properties that you wish to update.</param>
         /// <param name="delay">Number of seconds to delay the end meeting operation. (optional)</param>
         /// <returns>Task of ApiResponse (Meeting)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? meetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Meeting>> UpdateMeetingStateAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadMeetingState payloadMeetingState, int? delay = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling MeetingApi->UpdateMeetingState");
-            // verify the required parameter 'meetingId' is set
-            if (meetingId == null)
-                throw new ApiException(400, "Missing required parameter 'meetingId' when calling MeetingApi->UpdateMeetingState");
+            // verify the required parameter 'numericMeetingId' is set
+            if (numericMeetingId == null)
+                throw new ApiException(400, "Missing required parameter 'numericMeetingId' when calling MeetingApi->UpdateMeetingState");
             // verify the required parameter 'payloadMeetingState' is set
             if (payloadMeetingState == null)
                 throw new ApiException(400, "Missing required parameter 'payloadMeetingState' when calling MeetingApi->UpdateMeetingState");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{meeting_id}";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -4228,7 +4228,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingId != null) localVarPathParams.Add("meeting_id", Configuration.ApiClient.ParameterToString(meetingId)); // path parameter
+            if (numericMeetingId != null) localVarPathParams.Add("numeric_meeting_id", Configuration.ApiClient.ParameterToString(numericMeetingId)); // path parameter
             if (delay != null) localVarQueryParams.Add("delay", Configuration.ApiClient.ParameterToString(delay)); // query parameter
             if (payloadMeetingState != null && payloadMeetingState.GetType() != typeof(byte[]))
             {

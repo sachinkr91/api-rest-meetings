@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app_name** | **string** | Name of the Application | [optional] 
 **app_description** | **string** | A summary of the client application. | [optional] 
-**client_id** | **string** | The client ID will be generated on creation of the application. Normally, a 32 character hexidecimal numeric string. | [optional] 
+**client_id** | **string** | The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string. | [optional] 
 **user_id** | **int** | Same user ID as passed in path parameter. | [optional] 
 **scope** | **string** | Comma-delimited list of granted permissions to the application. | [optional] 
 

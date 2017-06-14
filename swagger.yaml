@@ -847,7 +847,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}:
     get:
       summary: Get Meeting State
       description: This endpoint’s purpose is to return whether the meeting is in progress or not.
@@ -862,9 +862,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
       responses:
@@ -872,6 +872,10 @@ paths:
           description: The settings for the meeting state.
           schema:
             $ref: '#/definitions/MeetingState'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
@@ -890,9 +894,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: delay
@@ -917,11 +921,15 @@ paths:
           description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints:
     get:
       summary: List Meeting Endpoints
       description: This endpoint returns an array of all endpoints in the current meeting.
@@ -936,9 +944,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
       responses:
@@ -946,6 +954,10 @@ paths:
           description: The list of endpoints.
           schema:
             $ref: '#/definitions/Endpoints'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
@@ -964,9 +976,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: mute
@@ -986,14 +998,12 @@ paths:
         '401':
           description: The access token is invalid or does not have permission.
         '404':
-          description: No active meeting found for this meeting ID.
-          schema:
-            $ref: '#/definitions/Error'
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}:
     get:
       summary: Get Endpoint Information
       description: This endpoint allows you to retrieve information about an endpoint in the meeting.
@@ -1008,9 +1018,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: endpoint_guid
@@ -1023,6 +1033,10 @@ paths:
           description: The settings for the endpoint.
           schema:
             $ref: '#/definitions/Endpoint'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
@@ -1041,9 +1055,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: endpoint_guid
@@ -1068,11 +1082,15 @@ paths:
           description: The settings for the enpoint.
           schema:
             $ref: '#/definitions/Endpoint'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout:
     get:
       summary: Get Endpoint Layout
       description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.
@@ -1087,9 +1105,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: endpoint_guid
@@ -1102,6 +1120,10 @@ paths:
           description: The settings for the endpoint's layout.
           schema:
             $ref: '#/definitions/Layout'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
@@ -1120,9 +1142,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: endpoint_guid
@@ -1141,11 +1163,15 @@ paths:
           description: The settings for the endpoint's layout.
           schema:
             $ref: '#/definitions/Layout'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip:
     post:
       summary: Generate Pairing Code (SIP)
       description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
@@ -1160,9 +1186,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: PayloadPairingCodeSIP
@@ -1188,11 +1214,15 @@ paths:
           description: The pairing code information.
           schema:
             $ref: '#/definitions/PairingCode'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc:
     post:
       summary: Generate Pairing Code (WebRTC)
       description: This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
@@ -1207,9 +1237,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: role
@@ -1239,11 +1269,15 @@ paths:
           description: The pairing code information.
           schema:
             $ref: '#/definitions/PairingCode'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{meeting_id}/invite:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite:
     post:
       summary: Send Email Invite
       description: This endpoint generates an email invite to the specified meeting.
@@ -1258,9 +1292,9 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
-        - name: meeting_id
+        - name: numeric_meeting_id
           in: path
-          description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
           required: true
           type: integer
         - name: PayloadInvite
@@ -1276,6 +1310,10 @@ paths:
       responses:
         '202':
           description: Empty response on success.
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
         default:
           description: Unexpected error
           schema:

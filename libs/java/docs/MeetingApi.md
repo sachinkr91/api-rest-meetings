@@ -6,22 +6,22 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
-[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
-[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
+[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
+[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**getMeeting**](MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
 [**getMeetingEmails**](MeetingApi.md#getMeetingEmails) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
-[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
+[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | List Meeting Endpoints
 [**getMeetingNumbers**](MeetingApi.md#getMeetingNumbers) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
+[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Get Meeting State
 [**listMeetings**](MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
-[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
+[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite | Send Email Invite
+[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**updateMeeting**](MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
-[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
-[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
+[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
+[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | Update Meeting Endpoints State
+[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Update Meeting State
 
 
 <a name="cancelMeeting"></a>
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeSip"></a>
 # **generatePairingCodeSip**
-> PairingCode generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP)
+> PairingCode generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -166,10 +166,10 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
 try {
-    PairingCode result = apiInstance.generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP);
+    PairingCode result = apiInstance.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#generatePairingCodeSip");
@@ -182,7 +182,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  |
 
 ### Return type
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeWebRtc"></a>
 # **generatePairingCodeWebRtc**
-> PairingCode generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role)
+> PairingCode generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role)
 
 Generate Pairing Code (WebRTC)
 
@@ -225,11 +225,11 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = new PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
 String role = "USER"; // String | 
 try {
-    PairingCode result = apiInstance.generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, role);
+    PairingCode result = apiInstance.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#generatePairingCodeWebRtc");
@@ -242,7 +242,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payloadPairingCodeWebRTC** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  |
  **role** | **String**|  | [optional] [default to USER]
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 <a name="getEndpointLayout"></a>
 # **getEndpointLayout**
-> Layout getEndpointLayout(userId, meetingId, endpointGuid)
+> Layout getEndpointLayout(userId, numericMeetingId, endpointGuid)
 
 Get Endpoint Layout
 
@@ -286,10 +286,10 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 try {
-    Layout result = apiInstance.getEndpointLayout(userId, meetingId, endpointGuid);
+    Layout result = apiInstance.getEndpointLayout(userId, numericMeetingId, endpointGuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#getEndpointLayout");
@@ -302,7 +302,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
 
 ### Return type
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingEndpoint"></a>
 # **getMeetingEndpoint**
-> Endpoint getMeetingEndpoint(userId, meetingId, endpointGuid)
+> Endpoint getMeetingEndpoint(userId, numericMeetingId, endpointGuid)
 
 Get Endpoint Information
 
@@ -465,10 +465,10 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 try {
-    Endpoint result = apiInstance.getMeetingEndpoint(userId, meetingId, endpointGuid);
+    Endpoint result = apiInstance.getMeetingEndpoint(userId, numericMeetingId, endpointGuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#getMeetingEndpoint");
@@ -481,7 +481,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
 
 ### Return type
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingEndpoints"></a>
 # **getMeetingEndpoints**
-> Endpoints getMeetingEndpoints(userId, meetingId)
+> Endpoints getMeetingEndpoints(userId, numericMeetingId)
 
 List Meeting Endpoints
 
@@ -524,9 +524,9 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 try {
-    Endpoints result = apiInstance.getMeetingEndpoints(userId, meetingId);
+    Endpoints result = apiInstance.getMeetingEndpoints(userId, numericMeetingId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#getMeetingEndpoints");
@@ -539,7 +539,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
 
 ### Return type
 
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingState"></a>
 # **getMeetingState**
-> MeetingState getMeetingState(userId, meetingId)
+> MeetingState getMeetingState(userId, numericMeetingId)
 
 Get Meeting State
 
@@ -638,9 +638,9 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 try {
-    MeetingState result = apiInstance.getMeetingState(userId, meetingId);
+    MeetingState result = apiInstance.getMeetingState(userId, numericMeetingId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#getMeetingState");
@@ -653,7 +653,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
 
 ### Return type
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 <a name="sendMeetingInvite"></a>
 # **sendMeetingInvite**
-> sendMeetingInvite(userId, meetingId, payloadInvite)
+> sendMeetingInvite(userId, numericMeetingId, payloadInvite)
 
 Send Email Invite
 
@@ -752,10 +752,10 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadInvite payloadInvite = new PayloadInvite(); // PayloadInvite | 
 try {
-    apiInstance.sendMeetingInvite(userId, meetingId, payloadInvite);
+    apiInstance.sendMeetingInvite(userId, numericMeetingId, payloadInvite);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#sendMeetingInvite");
     e.printStackTrace();
@@ -767,7 +767,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  |
 
 ### Return type
@@ -785,7 +785,7 @@ null (empty response body)
 
 <a name="updateEndpointLayout"></a>
 # **updateEndpointLayout**
-> Layout updateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push)
+> Layout updateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push)
 
 Update Endpoint Layout
 
@@ -810,12 +810,12 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 Boolean isLeader = true; // Boolean | 
 Boolean push = true; // Boolean | 
 try {
-    Layout result = apiInstance.updateEndpointLayout(userId, meetingId, endpointGuid, isLeader, push);
+    Layout result = apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateEndpointLayout");
@@ -828,7 +828,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
  **isLeader** | **Boolean**|  | [optional]
  **push** | **Boolean**|  | [optional]
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoint"></a>
 # **updateMeetingEndpoint**
-> Endpoint updateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
+> Endpoint updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
 
 Update Endpoint Video/Audio State
 
@@ -932,13 +932,13 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 Boolean muteAudio = true; // Boolean | Toggle the audio source mute.
 Boolean muteVideo = true; // Boolean | Toggle the video source mute.
 Boolean leaveMeeting = true; // Boolean | Remove the user from the meeting.
 try {
-    Endpoint result = apiInstance.updateMeetingEndpoint(userId, meetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
+    Endpoint result = apiInstance.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateMeetingEndpoint");
@@ -951,7 +951,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
  **muteAudio** | **Boolean**| Toggle the audio source mute. | [optional]
  **muteVideo** | **Boolean**| Toggle the video source mute. | [optional]
@@ -972,7 +972,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoints"></a>
 # **updateMeetingEndpoints**
-> updateMeetingEndpoints(userId, meetingId, mute, media)
+> updateMeetingEndpoints(userId, numericMeetingId, mute, media)
 
 Update Meeting Endpoints State
 
@@ -997,11 +997,11 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 Boolean mute = true; // Boolean | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
 String media = "media_example"; // String | Specify the type of media you which to mute/unmute.
 try {
-    apiInstance.updateMeetingEndpoints(userId, meetingId, mute, media);
+    apiInstance.updateMeetingEndpoints(userId, numericMeetingId, mute, media);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateMeetingEndpoints");
     e.printStackTrace();
@@ -1013,7 +1013,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **mute** | **Boolean**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional]
  **media** | **String**| Specify the type of media you which to mute/unmute. | [optional] [enum: audio, video]
 
@@ -1032,7 +1032,7 @@ null (empty response body)
 
 <a name="updateMeetingState"></a>
 # **updateMeetingState**
-> Meeting updateMeetingState(userId, meetingId, payloadMeetingState, delay)
+> Meeting updateMeetingState(userId, numericMeetingId, payloadMeetingState, delay)
 
 Update Meeting State
 
@@ -1057,11 +1057,11 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadMeetingState payloadMeetingState = new PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 Integer delay = 56; // Integer | Number of seconds to delay the end meeting operation.
 try {
-    Meeting result = apiInstance.updateMeetingState(userId, meetingId, payloadMeetingState, delay);
+    Meeting result = apiInstance.updateMeetingState(userId, numericMeetingId, payloadMeetingState, delay);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateMeetingState");
@@ -1074,7 +1074,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **Integer**| Number of seconds to delay the end meeting operation. | [optional]
 
