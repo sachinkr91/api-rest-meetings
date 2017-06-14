@@ -6,22 +6,22 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
-[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
-[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
+[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
+[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**getMeeting**](MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
 [**getMeetingEmails**](MeetingApi.md#getMeetingEmails) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
-[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
+[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | List Meeting Endpoints
 [**getMeetingNumbers**](MeetingApi.md#getMeetingNumbers) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
+[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Get Meeting State
 [**listMeetings**](MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
-[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
+[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite | Send Email Invite
+[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**updateMeeting**](MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
-[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
-[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
+[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
+[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | Update Meeting Endpoints State
+[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Update Meeting State
 
 
 <a name="cancelMeeting"></a>
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeSip"></a>
 # **generatePairingCodeSip**
-> PairingCode generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP)
+> PairingCode generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -163,7 +163,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var payloadPairingCodeSIP = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
 
@@ -175,7 +175,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP, callback);
+apiInstance.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP, callback);
 ```
 
 ### Parameters
@@ -183,7 +183,7 @@ apiInstance.generatePairingCodeSip(userId, meetingId, payloadPairingCodeSIP, cal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
 
 ### Return type
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeWebRtc"></a>
 # **generatePairingCodeWebRtc**
-> PairingCode generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, opts)
+> PairingCode generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, opts)
 
 Generate Pairing Code (WebRTC)
 
@@ -222,7 +222,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var payloadPairingCodeWebRTC = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
 
@@ -237,7 +237,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRTC, opts, callback);
+apiInstance.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, opts, callback);
 ```
 
 ### Parameters
@@ -245,7 +245,7 @@ apiInstance.generatePairingCodeWebRtc(userId, meetingId, payloadPairingCodeWebRT
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadPairingCodeWebRTC** | [**PayloadPairingCodeWebRTC**](PayloadPairingCodeWebRTC.md)|  | 
  **role** | **String**|  | [optional] [default to USER]
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 <a name="getEndpointLayout"></a>
 # **getEndpointLayout**
-> Layout getEndpointLayout(userId, meetingId, endpointGuid)
+> Layout getEndpointLayout(userId, numericMeetingId, endpointGuid)
 
 Get Endpoint Layout
 
@@ -285,7 +285,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
@@ -297,7 +297,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getEndpointLayout(userId, meetingId, endpointGuid, callback);
+apiInstance.getEndpointLayout(userId, numericMeetingId, endpointGuid, callback);
 ```
 
 ### Parameters
@@ -305,7 +305,7 @@ apiInstance.getEndpointLayout(userId, meetingId, endpointGuid, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
 
 ### Return type
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingEndpoint"></a>
 # **getMeetingEndpoint**
-> Endpoint getMeetingEndpoint(userId, meetingId, endpointGuid)
+> Endpoint getMeetingEndpoint(userId, numericMeetingId, endpointGuid)
 
 Get Endpoint Information
 
@@ -464,7 +464,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
@@ -476,7 +476,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMeetingEndpoint(userId, meetingId, endpointGuid, callback);
+apiInstance.getMeetingEndpoint(userId, numericMeetingId, endpointGuid, callback);
 ```
 
 ### Parameters
@@ -484,7 +484,7 @@ apiInstance.getMeetingEndpoint(userId, meetingId, endpointGuid, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
 
 ### Return type
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingEndpoints"></a>
 # **getMeetingEndpoints**
-> Endpoints getMeetingEndpoints(userId, meetingId)
+> Endpoints getMeetingEndpoints(userId, numericMeetingId)
 
 List Meeting Endpoints
 
@@ -523,7 +523,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 
 var callback = function(error, data, response) {
@@ -533,7 +533,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMeetingEndpoints(userId, meetingId, callback);
+apiInstance.getMeetingEndpoints(userId, numericMeetingId, callback);
 ```
 
 ### Parameters
@@ -541,7 +541,7 @@ apiInstance.getMeetingEndpoints(userId, meetingId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
 
 ### Return type
 
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingState"></a>
 # **getMeetingState**
-> MeetingState getMeetingState(userId, meetingId)
+> MeetingState getMeetingState(userId, numericMeetingId)
 
 Get Meeting State
 
@@ -635,7 +635,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 
 var callback = function(error, data, response) {
@@ -645,7 +645,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMeetingState(userId, meetingId, callback);
+apiInstance.getMeetingState(userId, numericMeetingId, callback);
 ```
 
 ### Parameters
@@ -653,7 +653,7 @@ apiInstance.getMeetingState(userId, meetingId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
 
 ### Return type
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 <a name="sendMeetingInvite"></a>
 # **sendMeetingInvite**
-> sendMeetingInvite(userId, meetingId, payloadInvite)
+> sendMeetingInvite(userId, numericMeetingId, payloadInvite)
 
 Send Email Invite
 
@@ -748,7 +748,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var payloadInvite = new BlueJeansOnVideoRestApi.PayloadInvite(); // PayloadInvite | 
 
@@ -760,7 +760,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.sendMeetingInvite(userId, meetingId, payloadInvite, callback);
+apiInstance.sendMeetingInvite(userId, numericMeetingId, payloadInvite, callback);
 ```
 
 ### Parameters
@@ -768,7 +768,7 @@ apiInstance.sendMeetingInvite(userId, meetingId, payloadInvite, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadInvite** | [**PayloadInvite**](PayloadInvite.md)|  | 
 
 ### Return type
@@ -786,7 +786,7 @@ null (empty response body)
 
 <a name="updateEndpointLayout"></a>
 # **updateEndpointLayout**
-> Layout updateEndpointLayout(userId, meetingId, endpointGuid, opts)
+> Layout updateEndpointLayout(userId, numericMeetingId, endpointGuid, opts)
 
 Update Endpoint Layout
 
@@ -807,7 +807,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
@@ -823,7 +823,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.updateEndpointLayout(userId, meetingId, endpointGuid, opts, callback);
+apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, opts, callback);
 ```
 
 ### Parameters
@@ -831,7 +831,7 @@ apiInstance.updateEndpointLayout(userId, meetingId, endpointGuid, opts, callback
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
  **isLeader** | **Boolean**|  | [optional] 
  **push** | **Boolean**|  | [optional] 
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoint"></a>
 # **updateMeetingEndpoint**
-> Endpoint updateMeetingEndpoint(userId, meetingId, endpointGuid, opts)
+> Endpoint updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, opts)
 
 Update Endpoint Video/Audio State
 
@@ -931,7 +931,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
@@ -948,7 +948,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.updateMeetingEndpoint(userId, meetingId, endpointGuid, opts, callback);
+apiInstance.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, opts, callback);
 ```
 
 ### Parameters
@@ -956,7 +956,7 @@ apiInstance.updateMeetingEndpoint(userId, meetingId, endpointGuid, opts, callbac
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
  **muteAudio** | **Boolean**| Toggle the audio source mute. | [optional] 
  **muteVideo** | **Boolean**| Toggle the video source mute. | [optional] 
@@ -977,7 +977,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoints"></a>
 # **updateMeetingEndpoints**
-> updateMeetingEndpoints(userId, meetingId, opts)
+> updateMeetingEndpoints(userId, numericMeetingId, opts)
 
 Update Meeting Endpoints State
 
@@ -998,7 +998,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var opts = { 
   'mute': true, // Boolean | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
@@ -1012,7 +1012,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.updateMeetingEndpoints(userId, meetingId, opts, callback);
+apiInstance.updateMeetingEndpoints(userId, numericMeetingId, opts, callback);
 ```
 
 ### Parameters
@@ -1020,7 +1020,7 @@ apiInstance.updateMeetingEndpoints(userId, meetingId, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **mute** | **Boolean**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional] 
  **media** | **String**| Specify the type of media you which to mute/unmute. | [optional] 
 
@@ -1039,7 +1039,7 @@ null (empty response body)
 
 <a name="updateMeetingState"></a>
 # **updateMeetingState**
-> Meeting updateMeetingState(userId, meetingId, payloadMeetingState, opts)
+> Meeting updateMeetingState(userId, numericMeetingId, payloadMeetingState, opts)
 
 Update Meeting State
 
@@ -1060,7 +1060,7 @@ var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 var payloadMeetingState = new BlueJeansOnVideoRestApi.PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 
@@ -1075,7 +1075,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.updateMeetingState(userId, meetingId, payloadMeetingState, opts, callback);
+apiInstance.updateMeetingState(userId, numericMeetingId, payloadMeetingState, opts, callback);
 ```
 
 ### Parameters
@@ -1083,7 +1083,7 @@ apiInstance.updateMeetingState(userId, meetingId, payloadMeetingState, opts, cal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meetingId** | **Number**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **payloadMeetingState** | [**PayloadMeetingState**](PayloadMeetingState.md)| The meeting properties that you wish to update. | 
  **delay** | **Number**| Number of seconds to delay the end meeting operation. | [optional] 
 

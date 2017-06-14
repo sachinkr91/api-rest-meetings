@@ -1,6 +1,6 @@
 /**
  * BlueJeans onVideo REST API
- * _Video That Works Where You Do._  This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data as well retrieve current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video into your applications.     # Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ## Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – After creating a developer application, users witll authenticate via a BlueJeans page, and receive an authorization code. Submit authorization with other tokens and receive an access token. Known as three-legged OAuth. ## Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. # Getting Started Before you start using the API's on this site, you must first have a BlueJeans account.  With your BlueJean credentials, use one of the Authentication methods to obtain an access token. - Click on the Authorize button at the top of page - Enter your access token in the field marked \"api_key\" Now the web site will automatically include your access token on all API calls you make. 
+ *  # Video That Works Where You Do. This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.  With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.     ## Getting Started Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating       * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow API's instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.  ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
@@ -165,12 +165,12 @@
      * Generate Pairing Code (SIP)
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
      * @param {module:api/MeetingApi~generatePairingCodeSipCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PairingCode}
      */
-    this.generatePairingCodeSip = function(userId, meetingId, payloadPairingCodeSIP, callback) {
+    this.generatePairingCodeSip = function(userId, numericMeetingId, payloadPairingCodeSIP, callback) {
       var postBody = payloadPairingCodeSIP;
 
       // verify the required parameter 'userId' is set
@@ -178,9 +178,9 @@
         throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeSip");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling generatePairingCodeSip");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling generatePairingCodeSip");
       }
 
       // verify the required parameter 'payloadPairingCodeSIP' is set
@@ -191,7 +191,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
       };
@@ -206,7 +206,7 @@
       var returnType = PairingCode;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip', 'POST',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -224,14 +224,14 @@
      * Generate Pairing Code (WebRTC)
      * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadPairingCodeWebRTC} payloadPairingCodeWebRTC 
      * @param {Object} opts Optional parameters
      * @param {String} opts.role  (default to USER)
      * @param {module:api/MeetingApi~generatePairingCodeWebRtcCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PairingCode}
      */
-    this.generatePairingCodeWebRtc = function(userId, meetingId, payloadPairingCodeWebRTC, opts, callback) {
+    this.generatePairingCodeWebRtc = function(userId, numericMeetingId, payloadPairingCodeWebRTC, opts, callback) {
       opts = opts || {};
       var postBody = payloadPairingCodeWebRTC;
 
@@ -240,9 +240,9 @@
         throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeWebRtc");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling generatePairingCodeWebRtc");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling generatePairingCodeWebRtc");
       }
 
       // verify the required parameter 'payloadPairingCodeWebRTC' is set
@@ -253,7 +253,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
         'role': opts['role']
@@ -269,7 +269,7 @@
       var returnType = PairingCode;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc', 'POST',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -287,12 +287,12 @@
      * Get Endpoint Layout
      * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~getEndpointLayoutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Layout}
      */
-    this.getEndpointLayout = function(userId, meetingId, endpointGuid, callback) {
+    this.getEndpointLayout = function(userId, numericMeetingId, endpointGuid, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
@@ -300,9 +300,9 @@
         throw new Error("Missing the required parameter 'userId' when calling getEndpointLayout");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling getEndpointLayout");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling getEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
@@ -313,7 +313,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId,
+        'numeric_meeting_id': numericMeetingId,
         'endpoint_guid': endpointGuid
       };
       var queryParams = {
@@ -329,7 +329,7 @@
       var returnType = Layout;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout', 'GET',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -461,12 +461,12 @@
      * Get Endpoint Information
      * This endpoint allows you to retrieve information about an endpoint in the meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {module:api/MeetingApi~getMeetingEndpointCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoint}
      */
-    this.getMeetingEndpoint = function(userId, meetingId, endpointGuid, callback) {
+    this.getMeetingEndpoint = function(userId, numericMeetingId, endpointGuid, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
@@ -474,9 +474,9 @@
         throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoint");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEndpoint");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
@@ -487,7 +487,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId,
+        'numeric_meeting_id': numericMeetingId,
         'endpoint_guid': endpointGuid
       };
       var queryParams = {
@@ -503,7 +503,7 @@
       var returnType = Endpoint;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}', 'GET',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -521,11 +521,11 @@
      * List Meeting Endpoints
      * This endpoint returns an array of all endpoints in the current meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:api/MeetingApi~getMeetingEndpointsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoints}
      */
-    this.getMeetingEndpoints = function(userId, meetingId, callback) {
+    this.getMeetingEndpoints = function(userId, numericMeetingId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
@@ -533,15 +533,15 @@
         throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoints");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEndpoints");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingEndpoints");
       }
 
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
       };
@@ -556,7 +556,7 @@
       var returnType = Endpoints;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints', 'GET',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -627,11 +627,11 @@
      * Get Meeting State
      * This endpoint’s purpose is to return whether the meeting is in progress or not.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:api/MeetingApi~getMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingState}
      */
-    this.getMeetingState = function(userId, meetingId, callback) {
+    this.getMeetingState = function(userId, numericMeetingId, callback) {
       var postBody = null;
 
       // verify the required parameter 'userId' is set
@@ -639,15 +639,15 @@
         throw new Error("Missing the required parameter 'userId' when calling getMeetingState");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling getMeetingState");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingState");
       }
 
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
       };
@@ -662,7 +662,7 @@
       var returnType = MeetingState;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}', 'GET',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -730,11 +730,11 @@
      * Send Email Invite
      * This endpoint generates an email invite to the specified meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadInvite} payloadInvite 
      * @param {module:api/MeetingApi~sendMeetingInviteCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.sendMeetingInvite = function(userId, meetingId, payloadInvite, callback) {
+    this.sendMeetingInvite = function(userId, numericMeetingId, payloadInvite, callback) {
       var postBody = payloadInvite;
 
       // verify the required parameter 'userId' is set
@@ -742,9 +742,9 @@
         throw new Error("Missing the required parameter 'userId' when calling sendMeetingInvite");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling sendMeetingInvite");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling sendMeetingInvite");
       }
 
       // verify the required parameter 'payloadInvite' is set
@@ -755,7 +755,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
       };
@@ -770,7 +770,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/invite', 'POST',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -788,7 +788,7 @@
      * Update Endpoint Layout
      * This endpoint allows you to update an individual endpoint’s current layout setting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.isLeader 
@@ -796,7 +796,7 @@
      * @param {module:api/MeetingApi~updateEndpointLayoutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Layout}
      */
-    this.updateEndpointLayout = function(userId, meetingId, endpointGuid, opts, callback) {
+    this.updateEndpointLayout = function(userId, numericMeetingId, endpointGuid, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -805,9 +805,9 @@
         throw new Error("Missing the required parameter 'userId' when calling updateEndpointLayout");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling updateEndpointLayout");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling updateEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
@@ -818,7 +818,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId,
+        'numeric_meeting_id': numericMeetingId,
         'endpoint_guid': endpointGuid
       };
       var queryParams = {
@@ -836,7 +836,7 @@
       var returnType = Layout;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout', 'PUT',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -913,7 +913,7 @@
      * Update Endpoint Video/Audio State
      * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {String} endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.muteAudio Toggle the audio source mute.
@@ -922,7 +922,7 @@
      * @param {module:api/MeetingApi~updateMeetingEndpointCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Endpoint}
      */
-    this.updateMeetingEndpoint = function(userId, meetingId, endpointGuid, opts, callback) {
+    this.updateMeetingEndpoint = function(userId, numericMeetingId, endpointGuid, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -931,9 +931,9 @@
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoint");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingEndpoint");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
@@ -944,7 +944,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId,
+        'numeric_meeting_id': numericMeetingId,
         'endpoint_guid': endpointGuid
       };
       var queryParams = {
@@ -963,7 +963,7 @@
       var returnType = Endpoint;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}', 'PUT',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -981,13 +981,13 @@
      * Update Meeting Endpoints State
      * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
      * @param {module:model/String} opts.media Specify the type of media you which to mute/unmute.
      * @param {module:api/MeetingApi~updateMeetingEndpointsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.updateMeetingEndpoints = function(userId, meetingId, opts, callback) {
+    this.updateMeetingEndpoints = function(userId, numericMeetingId, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -996,15 +996,15 @@
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoints");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingEndpoints");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingEndpoints");
       }
 
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
         'mute': opts['mute'],
@@ -1021,7 +1021,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}/endpoints', 'PUT',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1039,14 +1039,14 @@
      * Update Meeting State
      * This endpoint’s purpose is to be able to modify a meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-     * @param {Number} meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadMeetingState} payloadMeetingState The meeting properties that you wish to update.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.delay Number of seconds to delay the end meeting operation.
      * @param {module:api/MeetingApi~updateMeetingStateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Meeting}
      */
-    this.updateMeetingState = function(userId, meetingId, payloadMeetingState, opts, callback) {
+    this.updateMeetingState = function(userId, numericMeetingId, payloadMeetingState, opts, callback) {
       opts = opts || {};
       var postBody = payloadMeetingState;
 
@@ -1055,9 +1055,9 @@
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingState");
       }
 
-      // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
-        throw new Error("Missing the required parameter 'meetingId' when calling updateMeetingState");
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId == undefined || numericMeetingId == null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingState");
       }
 
       // verify the required parameter 'payloadMeetingState' is set
@@ -1068,7 +1068,7 @@
 
       var pathParams = {
         'user_id': userId,
-        'meeting_id': meetingId
+        'numeric_meeting_id': numericMeetingId
       };
       var queryParams = {
         'delay': opts['delay']
@@ -1084,7 +1084,7 @@
       var returnType = Meeting;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{meeting_id}', 'PUT',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
