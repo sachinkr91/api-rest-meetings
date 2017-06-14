@@ -6,22 +6,22 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
-[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
-[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
+[**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
+[**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**getMeeting**](MeetingApi.md#getMeeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
 [**getMeetingEmails**](MeetingApi.md#getMeetingEmails) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails | Get Meeting Email
-[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
-[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | List Meeting Endpoints
+[**getMeetingEndpoint**](MeetingApi.md#getMeetingEndpoint) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Get Endpoint Information
+[**getMeetingEndpoints**](MeetingApi.md#getMeetingEndpoints) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | List Meeting Endpoints
 [**getMeetingNumbers**](MeetingApi.md#getMeetingNumbers) | **GET** /v1/user/{user_id}/meetings/{meeting_id}/numbers | Get Meeting Join Info
-[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{meeting_id} | Get Meeting State
+[**getMeetingState**](MeetingApi.md#getMeetingState) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Get Meeting State
 [**listMeetings**](MeetingApi.md#listMeetings) | **GET** /v1/user/{user_id}/scheduled_meeting | List Meetings
-[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/invite | Send Email Invite
-[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
+[**sendMeetingInvite**](MeetingApi.md#sendMeetingInvite) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite | Send Email Invite
+[**updateEndpointLayout**](MeetingApi.md#updateEndpointLayout) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Update Endpoint Layout
 [**updateMeeting**](MeetingApi.md#updateMeeting) | **PUT** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Update Meeting
-[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
-[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id}/endpoints | Update Meeting Endpoints State
-[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{meeting_id} | Update Meeting State
+[**updateMeetingEndpoint**](MeetingApi.md#updateMeetingEndpoint) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid} | Update Endpoint Video/Audio State
+[**updateMeetingEndpoints**](MeetingApi.md#updateMeetingEndpoints) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints | Update Meeting Endpoints State
+[**updateMeetingState**](MeetingApi.md#updateMeetingState) | **PUT** /v1/user/{user_id}/live_meetings/{numeric_meeting_id} | Update Meeting State
 
 
 # **cancelMeeting**
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeSip**
-> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeSip($user_id, $meeting_id, $payload_pairing_code_sip)
+> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
 
 Generate Pairing Code (SIP)
 
@@ -148,11 +148,11 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_pairing_code_sip = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP | 
 
 try {
-    $result = $api_instance->generatePairingCodeSip($user_id, $meeting_id, $payload_pairing_code_sip);
+    $result = $api_instance->generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->generatePairingCodeSip: ', $e->getMessage(), PHP_EOL;
@@ -165,7 +165,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payload_pairing_code_sip** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP.md)|  |
 
 ### Return type
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeWebRtc**
-> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeWebRtc($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role)
+> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role)
 
 Generate Pairing Code (WebRTC)
 
@@ -202,12 +202,12 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_pairing_code_web_rtc = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC | 
 $role = "USER"; // string | 
 
 try {
-    $result = $api_instance->generatePairingCodeWebRtc($user_id, $meeting_id, $payload_pairing_code_web_rtc, $role);
+    $result = $api_instance->generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->generatePairingCodeWebRtc: ', $e->getMessage(), PHP_EOL;
@@ -220,7 +220,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payload_pairing_code_web_rtc** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC.md)|  |
  **role** | **string**|  | [optional] [default to USER]
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEndpointLayout**
-> \BlueJeansOnVideoRestApi\Model\Layout getEndpointLayout($user_id, $meeting_id, $endpoint_guid)
+> \BlueJeansOnVideoRestApi\Model\Layout getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid)
 
 Get Endpoint Layout
 
@@ -258,11 +258,11 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
 try {
-    $result = $api_instance->getEndpointLayout($user_id, $meeting_id, $endpoint_guid);
+    $result = $api_instance->getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getEndpointLayout: ', $e->getMessage(), PHP_EOL;
@@ -275,7 +275,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpoint_guid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
 
 ### Return type
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEndpoint**
-> \BlueJeansOnVideoRestApi\Model\Endpoint getMeetingEndpoint($user_id, $meeting_id, $endpoint_guid)
+> \BlueJeansOnVideoRestApi\Model\Endpoint getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid)
 
 Get Endpoint Information
 
@@ -422,11 +422,11 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
 try {
-    $result = $api_instance->getMeetingEndpoint($user_id, $meeting_id, $endpoint_guid);
+    $result = $api_instance->getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingEndpoint: ', $e->getMessage(), PHP_EOL;
@@ -439,7 +439,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpoint_guid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
 
 ### Return type
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEndpoints**
-> \BlueJeansOnVideoRestApi\Model\Endpoints getMeetingEndpoints($user_id, $meeting_id)
+> \BlueJeansOnVideoRestApi\Model\Endpoints getMeetingEndpoints($user_id, $numeric_meeting_id)
 
 List Meeting Endpoints
 
@@ -476,10 +476,10 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 try {
-    $result = $api_instance->getMeetingEndpoints($user_id, $meeting_id);
+    $result = $api_instance->getMeetingEndpoints($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingEndpoints: ', $e->getMessage(), PHP_EOL;
@@ -492,7 +492,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
 
 ### Return type
 
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingState**
-> \BlueJeansOnVideoRestApi\Model\MeetingState getMeetingState($user_id, $meeting_id)
+> \BlueJeansOnVideoRestApi\Model\MeetingState getMeetingState($user_id, $numeric_meeting_id)
 
 Get Meeting State
 
@@ -580,10 +580,10 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 try {
-    $result = $api_instance->getMeetingState($user_id, $meeting_id);
+    $result = $api_instance->getMeetingState($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingState: ', $e->getMessage(), PHP_EOL;
@@ -596,7 +596,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
 
 ### Return type
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendMeetingInvite**
-> sendMeetingInvite($user_id, $meeting_id, $payload_invite)
+> sendMeetingInvite($user_id, $numeric_meeting_id, $payload_invite)
 
 Send Email Invite
 
@@ -684,11 +684,11 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_invite = new \BlueJeansOnVideoRestApi\Model\PayloadInvite(); // \BlueJeansOnVideoRestApi\Model\PayloadInvite | 
 
 try {
-    $api_instance->sendMeetingInvite($user_id, $meeting_id, $payload_invite);
+    $api_instance->sendMeetingInvite($user_id, $numeric_meeting_id, $payload_invite);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->sendMeetingInvite: ', $e->getMessage(), PHP_EOL;
 }
@@ -700,7 +700,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payload_invite** | [**\BlueJeansOnVideoRestApi\Model\PayloadInvite**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadInvite.md)|  |
 
 ### Return type
@@ -719,7 +719,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEndpointLayout**
-> \BlueJeansOnVideoRestApi\Model\Layout updateEndpointLayout($user_id, $meeting_id, $endpoint_guid, $is_leader, $push)
+> \BlueJeansOnVideoRestApi\Model\Layout updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push)
 
 Update Endpoint Layout
 
@@ -737,13 +737,13 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 $is_leader = true; // bool | 
 $push = true; // bool | 
 
 try {
-    $result = $api_instance->updateEndpointLayout($user_id, $meeting_id, $endpoint_guid, $is_leader, $push);
+    $result = $api_instance->updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateEndpointLayout: ', $e->getMessage(), PHP_EOL;
@@ -756,7 +756,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpoint_guid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
  **is_leader** | **bool**|  | [optional]
  **push** | **bool**|  | [optional]
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingEndpoint**
-> \BlueJeansOnVideoRestApi\Model\Endpoint updateMeetingEndpoint($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
+> \BlueJeansOnVideoRestApi\Model\Endpoint updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -849,14 +849,14 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 $mute_audio = true; // bool | Toggle the audio source mute.
 $mute_video = true; // bool | Toggle the video source mute.
 $leave_meeting = true; // bool | Remove the user from the meeting.
 
 try {
-    $result = $api_instance->updateMeetingEndpoint($user_id, $meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
+    $result = $api_instance->updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingEndpoint: ', $e->getMessage(), PHP_EOL;
@@ -869,7 +869,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpoint_guid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
  **mute_audio** | **bool**| Toggle the audio source mute. | [optional]
  **mute_video** | **bool**| Toggle the video source mute. | [optional]
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingEndpoints**
-> updateMeetingEndpoints($user_id, $meeting_id, $mute, $media)
+> updateMeetingEndpoints($user_id, $numeric_meeting_id, $mute, $media)
 
 Update Meeting Endpoints State
 
@@ -909,12 +909,12 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $mute = true; // bool | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
 $media = "media_example"; // string | Specify the type of media you which to mute/unmute.
 
 try {
-    $api_instance->updateMeetingEndpoints($user_id, $meeting_id, $mute, $media);
+    $api_instance->updateMeetingEndpoints($user_id, $numeric_meeting_id, $mute, $media);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingEndpoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -926,7 +926,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **mute** | **bool**| Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. | [optional]
  **media** | **string**| Specify the type of media you which to mute/unmute. | [optional]
 
@@ -946,7 +946,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingState**
-> \BlueJeansOnVideoRestApi\Model\Meeting updateMeetingState($user_id, $meeting_id, $payload_meeting_state, $delay)
+> \BlueJeansOnVideoRestApi\Model\Meeting updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay)
 
 Update Meeting State
 
@@ -964,12 +964,12 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_meeting_state = new \BlueJeansOnVideoRestApi\Model\PayloadMeetingState(); // \BlueJeansOnVideoRestApi\Model\PayloadMeetingState | The meeting properties that you wish to update.
 $delay = 56; // int | Number of seconds to delay the end meeting operation.
 
 try {
-    $result = $api_instance->updateMeetingState($user_id, $meeting_id, $payload_meeting_state, $delay);
+    $result = $api_instance->updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingState: ', $e->getMessage(), PHP_EOL;
@@ -982,7 +982,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **payload_meeting_state** | [**\BlueJeansOnVideoRestApi\Model\PayloadMeetingState**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **int**| Number of seconds to delay the end meeting operation. | [optional]
 
