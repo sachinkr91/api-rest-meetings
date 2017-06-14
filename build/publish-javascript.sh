@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf /usr/local/lib/node_modules/gh-pages/.cache
+
 cd ../libs/javascript
 
 rm -rf node_modules
