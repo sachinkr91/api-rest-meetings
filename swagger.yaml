@@ -319,8 +319,8 @@ paths:
         - name: responseType
           in: query
           description: The type of authorization you are peforrming.  Set to "code".
-          default: code
           type: string
+          default: code
         - name: appName
           in: query
           description: The name of the client application shown to user during authorization.
@@ -328,6 +328,7 @@ paths:
         - name: appLogoUrl
           in: query
           description: URL to an 84x84 image shown to user during authorization.
+          type: string
       responses:
         '200':
           description: This URL should be invoked by the user of the client application in a browser, not via API.
@@ -1194,19 +1195,22 @@ paths:
         - name: PayloadPairingCodeSIP
           in: body
           required: true
+          description: Information about the device that will be joining via SIP.
           schema:
             type: object
             properties:
               endpointType:
                 type: integer
                 description: 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
-                required: true
+                default: 1
               userId:
                 type: integer
                 description: Optional database id of user associated with endpoint
+                default:
               languageCode:
                 type: string
-                description: Optional lanaguage code
+                description: Optional language code
+                default: en
                 enum:
                   - en
                   - en-us
@@ -1215,6 +1219,9 @@ paths:
               endpointName:
                 type: string
                 description: Optional name of endpoint
+                default: My Test Endpoint
+            required:
+              - endpointType
       responses:
         '200':
           description: The pairing code information.
