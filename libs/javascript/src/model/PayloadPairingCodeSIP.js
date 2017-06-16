@@ -41,11 +41,12 @@
    * Constructs a new <code>PayloadPairingCodeSIP</code>.
    * @alias module:model/PayloadPairingCodeSIP
    * @class
+   * @param endpointType {Number} 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    */
-  var exports = function() {
+  var exports = function(endpointType) {
     var _this = this;
 
-
+    _this['endpointType'] = endpointType;
 
 
 
@@ -89,15 +90,17 @@
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Optional lanaguage code
+   * Optional language code
    * @member {module:model/PayloadPairingCodeSIP.LanguageCodeEnum} languageCode
+   * @default 'en'
    */
-  exports.prototype['languageCode'] = undefined;
+  exports.prototype['languageCode'] = 'en';
   /**
    * Optional name of endpoint
    * @member {String} endpointName
+   * @default 'My Test Endpoint'
    */
-  exports.prototype['endpointName'] = undefined;
+  exports.prototype['endpointName'] = 'My Test Endpoint';
 
 
   /**

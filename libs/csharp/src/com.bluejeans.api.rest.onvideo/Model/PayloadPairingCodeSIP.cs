@@ -30,9 +30,9 @@ namespace com.bluejeans.api.rest.onvideo.Model
     public partial class PayloadPairingCodeSIP :  IEquatable<PayloadPairingCodeSIP>, IValidatableObject
     {
         /// <summary>
-        /// Optional lanaguage code
+        /// Optional language code
         /// </summary>
-        /// <value>Optional lanaguage code</value>
+        /// <value>Optional language code</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LanguageCodeEnum
         {
@@ -63,24 +63,53 @@ namespace com.bluejeans.api.rest.onvideo.Model
         }
 
         /// <summary>
-        /// Optional lanaguage code
+        /// Optional language code
         /// </summary>
-        /// <value>Optional lanaguage code</value>
+        /// <value>Optional language code</value>
         [DataMember(Name="languageCode", EmitDefaultValue=false)]
         public LanguageCodeEnum? LanguageCode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PayloadPairingCodeSIP" /> class.
         /// </summary>
-        /// <param name="EndpointType">1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile.</param>
+        [JsonConstructorAttribute]
+        protected PayloadPairingCodeSIP() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PayloadPairingCodeSIP" /> class.
+        /// </summary>
+        /// <param name="EndpointType">1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile (required).</param>
         /// <param name="UserId">Optional database id of user associated with endpoint.</param>
-        /// <param name="LanguageCode">Optional lanaguage code.</param>
-        /// <param name="EndpointName">Optional name of endpoint.</param>
-        public PayloadPairingCodeSIP(int? EndpointType = default(int?), int? UserId = default(int?), LanguageCodeEnum? LanguageCode = default(LanguageCodeEnum?), string EndpointName = default(string))
+        /// <param name="LanguageCode">Optional language code (default to LanguageCodeEnum.En).</param>
+        /// <param name="EndpointName">Optional name of endpoint (default to &quot;My Test Endpoint&quot;).</param>
+        public PayloadPairingCodeSIP(int? EndpointType = default(int?), int? UserId = default(int?), LanguageCodeEnum? LanguageCode = LanguageCodeEnum.En, string EndpointName = "My Test Endpoint")
         {
-            this.EndpointType = EndpointType;
+            // to ensure "EndpointType" is required (not null)
+            if (EndpointType == null)
+            {
+                throw new InvalidDataException("EndpointType is a required property for PayloadPairingCodeSIP and cannot be null");
+            }
+            else
+            {
+                this.EndpointType = EndpointType;
+            }
             this.UserId = UserId;
-            this.LanguageCode = LanguageCode;
-            this.EndpointName = EndpointName;
+            // use default value if no "LanguageCode" provided
+            if (LanguageCode == null)
+            {
+                this.LanguageCode = LanguageCodeEnum.En;
+            }
+            else
+            {
+                this.LanguageCode = LanguageCode;
+            }
+            // use default value if no "EndpointName" provided
+            if (EndpointName == null)
+            {
+                this.EndpointName = "My Test Endpoint";
+            }
+            else
+            {
+                this.EndpointName = EndpointName;
+            }
         }
         
         /// <summary>

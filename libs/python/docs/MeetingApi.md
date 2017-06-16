@@ -159,7 +159,7 @@ BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = BlueJeansOnVideoRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-payload_pairing_code_sip = BlueJeansOnVideoRestApi.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | 
+payload_pairing_code_sip = BlueJeansOnVideoRestApi.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 try: 
     # Generate Pairing Code (SIP)
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
- **payload_pairing_code_sip** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
+ **payload_pairing_code_sip** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. | 
 
 ### Return type
 

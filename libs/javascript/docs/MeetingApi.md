@@ -165,7 +165,7 @@ var userId = 56; // Number | The ID of the user of interest. This value is an in
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadPairingCodeSIP = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
+var payloadPairingCodeSIP = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 
 var callback = function(error, data, response) {
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
- **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
+ **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. | 
 
 ### Return type
 

@@ -397,7 +397,7 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-     * @param payloadPairingCodeSIP  (required)
+     * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
      * @return PairingCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -411,7 +411,7 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-     * @param payloadPairingCodeSIP  (required)
+     * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
      * @return ApiResponse&lt;PairingCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -426,7 +426,7 @@ public class MeetingApi {
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-     * @param payloadPairingCodeSIP  (required)
+     * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

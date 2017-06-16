@@ -167,7 +167,7 @@ access_token.setApiKey("YOUR API KEY");
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
+PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 try {
     PairingCode result = apiInstance.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
     System.out.println(result);
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  |
+ **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. |
 
 ### Return type
 

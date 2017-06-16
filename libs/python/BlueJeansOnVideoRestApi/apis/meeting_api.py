@@ -280,7 +280,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-        :param PayloadPairingCodeSIP payload_pairing_code_sip: (required)
+        :param PayloadPairingCodeSIP payload_pairing_code_sip: Information about the device that will be joining via SIP. (required)
         :return: PairingCode
                  If the method is called asynchronously,
                  returns the request thread.
@@ -308,7 +308,7 @@ class MeetingApi(object):
             for asynchronous request. (optional)
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-        :param PayloadPairingCodeSIP payload_pairing_code_sip: (required)
+        :param PayloadPairingCodeSIP payload_pairing_code_sip: Information about the device that will be joining via SIP. (required)
         :return: PairingCode
                  If the method is called asynchronously,
                  returns the request thread.

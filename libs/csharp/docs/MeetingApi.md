@@ -194,7 +194,7 @@ namespace Example
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-            var payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | 
+            var payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
             try
             {
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
- **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)|  | 
+ **payloadPairingCodeSIP** | [**PayloadPairingCodeSIP**](PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. | 
 
 ### Return type
 

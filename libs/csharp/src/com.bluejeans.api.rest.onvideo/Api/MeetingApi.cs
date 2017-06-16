@@ -81,7 +81,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>PairingCode</returns>
         PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
@@ -94,7 +94,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>ApiResponse of PairingCode</returns>
         ApiResponse<PairingCode> GeneratePairingCodeSipWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
@@ -541,7 +541,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>Task of PairingCode</returns>
         System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
 
@@ -554,7 +554,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
         System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP);
         /// <summary>
@@ -1406,7 +1406,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>PairingCode</returns>
         public PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
@@ -1420,7 +1420,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>ApiResponse of PairingCode</returns>
         public ApiResponse< PairingCode > GeneratePairingCodeSipWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
@@ -1501,7 +1501,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>Task of PairingCode</returns>
         public async System.Threading.Tasks.Task<PairingCode> GeneratePairingCodeSipAsync (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {
@@ -1516,7 +1516,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
         /// <exception cref="com.bluejeans.api.rest.onvideo.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
-        /// <param name="payloadPairingCodeSIP"></param>
+        /// <param name="payloadPairingCodeSIP">Information about the device that will be joining via SIP.</param>
         /// <returns>Task of ApiResponse (PairingCode)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PairingCode>> GeneratePairingCodeSipAsyncWithHttpInfo (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
         {

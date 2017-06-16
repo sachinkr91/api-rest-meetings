@@ -149,7 +149,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_pairing_code_sip = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP | 
+$payload_pairing_code_sip = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 try {
     $result = $api_instance->generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip);
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_pairing_code_sip** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP.md)|  |
+ **payload_pairing_code_sip** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP**](../Model/\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. |
 
 ### Return type
 

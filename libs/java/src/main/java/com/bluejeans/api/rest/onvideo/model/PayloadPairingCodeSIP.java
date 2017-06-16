@@ -30,7 +30,7 @@ public class PayloadPairingCodeSIP {
   private Integer userId = null;
 
   /**
-   * Optional lanaguage code
+   * Optional language code
    */
   public enum LanguageCodeEnum {
     @SerializedName("en")
@@ -58,10 +58,10 @@ public class PayloadPairingCodeSIP {
   }
 
   @SerializedName("languageCode")
-  private LanguageCodeEnum languageCode = null;
+  private LanguageCodeEnum languageCode = LanguageCodeEnum.EN;
 
   @SerializedName("endpointName")
-  private String endpointName = null;
+  private String endpointName = "My Test Endpoint";
 
   public PayloadPairingCodeSIP endpointType(Integer endpointType) {
     this.endpointType = endpointType;
@@ -72,7 +72,7 @@ public class PayloadPairingCodeSIP {
    * 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    * @return endpointType
   **/
-  @ApiModelProperty(example = "null", value = "1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile")
+  @ApiModelProperty(example = "null", required = true, value = "1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile")
   public Integer getEndpointType() {
     return endpointType;
   }
@@ -105,10 +105,10 @@ public class PayloadPairingCodeSIP {
   }
 
    /**
-   * Optional lanaguage code
+   * Optional language code
    * @return languageCode
   **/
-  @ApiModelProperty(example = "null", value = "Optional lanaguage code")
+  @ApiModelProperty(example = "null", value = "Optional language code")
   public LanguageCodeEnum getLanguageCode() {
     return languageCode;
   }

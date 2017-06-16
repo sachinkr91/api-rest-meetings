@@ -151,8 +151,8 @@ class PayloadPairingCodeSIP implements ArrayAccess
     {
         $this->container['endpoint_type'] = isset($data['endpoint_type']) ? $data['endpoint_type'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['language_code'] = isset($data['language_code']) ? $data['language_code'] : null;
-        $this->container['endpoint_name'] = isset($data['endpoint_name']) ? $data['endpoint_name'] : null;
+        $this->container['language_code'] = isset($data['language_code']) ? $data['language_code'] : 'en';
+        $this->container['endpoint_name'] = isset($data['endpoint_name']) ? $data['endpoint_name'] : 'My Test Endpoint';
     }
 
     /**
@@ -164,6 +164,9 @@ class PayloadPairingCodeSIP implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['endpoint_type'] === null) {
+            $invalid_properties[] = "'endpoint_type' can't be null";
+        }
         $allowed_values = ["en", "en-us", "en-gb", "de"];
         if (!in_array($this->container['language_code'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'language_code', must be one of 'en', 'en-us', 'en-gb', 'de'.";
@@ -181,6 +184,9 @@ class PayloadPairingCodeSIP implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['endpoint_type'] === null) {
+            return false;
+        }
         $allowed_values = ["en", "en-us", "en-gb", "de"];
         if (!in_array($this->container['language_code'], $allowed_values)) {
             return false;
@@ -242,7 +248,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
 
     /**
      * Sets language_code
-     * @param string $language_code Optional lanaguage code
+     * @param string $language_code Optional language code
      * @return $this
      */
     public function setLanguageCode($language_code)
