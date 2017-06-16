@@ -1,4 +1,4 @@
-# PairingCodeTurnservers
+# PairingCodeSIPTurnservers
 
 ## Properties
 Name | Type | Description | Notes

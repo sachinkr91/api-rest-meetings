@@ -80,8 +80,9 @@ from .models.meeting_state_recordinginfo import MeetingStateRecordinginfo
 from .models.numbers import Numbers
 from .models.numbers_label import NumbersLabel
 from .models.numbers_numbers import NumbersNumbers
-from .models.pairing_code import PairingCode
-from .models.pairing_code_turnservers import PairingCodeTurnservers
+from .models.pairing_code_sip import PairingCodeSIP
+from .models.pairing_code_sip_turnservers import PairingCodeSIPTurnservers
+from .models.pairing_code_web_rtc import PairingCodeWebRTC
 from .models.partition import Partition
 from .models.payload_invite import PayloadInvite
 from .models.payload_meeting_state import PayloadMeetingState

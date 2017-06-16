@@ -1,4 +1,4 @@
-# PairingCode
+# PairingCodeWebRTC
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **pairing_code** | **str** |  | [optional] 
 **status** | **int** |  | [optional] 
 **status_text** | **str** |  | [optional] 
-**turnservers** | [**list[PairingCodeTurnservers]**](PairingCodeTurnservers.md) |  | [optional] 
+**turnservers** | [**list[PairingCodeSIPTurnservers]**](PairingCodeSIPTurnservers.md) |  | [optional] 
 **uri** | **str** |  | [optional] 
 **seam_endpoint_guid** | **str** |  | [optional] 
 **connection_guid** | **str** |  | [optional] 

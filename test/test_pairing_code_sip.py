@@ -19,11 +19,11 @@ import unittest
 
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.pairing_code import PairingCode
+from BlueJeansOnVideoRestApi.models.pairing_code_sip import PairingCodeSIP
 
 
-class TestPairingCode(unittest.TestCase):
-    """ PairingCode unit test stubs """
+class TestPairingCodeSIP(unittest.TestCase):
+    """ PairingCodeSIP unit test stubs """
 
     def setUp(self):
         pass
@@ -31,11 +31,11 @@ class TestPairingCode(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPairingCode(self):
+    def testPairingCodeSIP(self):
         """
-        Test PairingCode
+        Test PairingCodeSIP
         """
-        model = BlueJeansOnVideoRestApi.models.pairing_code.PairingCode()
+        model = BlueJeansOnVideoRestApi.models.pairing_code_sip.PairingCodeSIP()
 
 
 if __name__ == '__main__':
