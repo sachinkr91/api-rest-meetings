@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepairingcodesip"></a>
 # **GeneratePairingCodeSip**
-> PairingCode GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
+> PairingCodeSIP GeneratePairingCodeSip (int? userId, int? numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -199,7 +199,7 @@ namespace Example
             try
             {
                 // Generate Pairing Code (SIP)
-                PairingCode result = apiInstance.GeneratePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
+                PairingCodeSIP result = apiInstance.GeneratePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeSIP**](PairingCodeSIP.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepairingcodewebrtc"></a>
 # **GeneratePairingCodeWebRtc**
-> PairingCode GeneratePairingCodeWebRtc (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
+> PairingCodeWebRTC GeneratePairingCodeWebRtc (int? userId, int? numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, string role = null)
 
 Generate Pairing Code (WebRTC)
 
@@ -271,7 +271,7 @@ namespace Example
             try
             {
                 // Generate Pairing Code (WebRTC)
-                PairingCode result = apiInstance.GeneratePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
+                PairingCodeWebRTC result = apiInstance.GeneratePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
 
 ### Authorization
 

@@ -34,7 +34,8 @@ import com.bluejeans.api.rest.onvideo.model.Layout;
 import com.bluejeans.api.rest.onvideo.model.Meeting;
 import com.bluejeans.api.rest.onvideo.model.MeetingState;
 import com.bluejeans.api.rest.onvideo.model.Numbers;
-import com.bluejeans.api.rest.onvideo.model.PairingCode;
+import com.bluejeans.api.rest.onvideo.model.PairingCodeSIP;
+import com.bluejeans.api.rest.onvideo.model.PairingCodeWebRTC;
 import com.bluejeans.api.rest.onvideo.model.PayloadInvite;
 import com.bluejeans.api.rest.onvideo.model.PayloadMeetingState;
 import com.bluejeans.api.rest.onvideo.model.PayloadPairingCodeSIP;
@@ -398,11 +399,11 @@ public class MeetingApi {
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
-     * @return PairingCode
+     * @return PairingCodeSIP
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PairingCode generatePairingCodeSip(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
-        ApiResponse<PairingCode> resp = generatePairingCodeSipWithHttpInfo(userId, numericMeetingId, payloadPairingCodeSIP);
+    public PairingCodeSIP generatePairingCodeSip(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
+        ApiResponse<PairingCodeSIP> resp = generatePairingCodeSipWithHttpInfo(userId, numericMeetingId, payloadPairingCodeSIP);
         return resp.getData();
     }
 
@@ -412,12 +413,12 @@ public class MeetingApi {
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
-     * @return ApiResponse&lt;PairingCode&gt;
+     * @return ApiResponse&lt;PairingCodeSIP&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PairingCode> generatePairingCodeSipWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
+    public ApiResponse<PairingCodeSIP> generatePairingCodeSipWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP) throws ApiException {
         com.squareup.okhttp.Call call = generatePairingCodeSipValidateBeforeCall(userId, numericMeetingId, payloadPairingCodeSIP, null, null);
-        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodeSIP>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -431,7 +432,7 @@ public class MeetingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generatePairingCodeSipAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ApiCallback<PairingCode> callback) throws ApiException {
+    public com.squareup.okhttp.Call generatePairingCodeSipAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ApiCallback<PairingCodeSIP> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -453,7 +454,7 @@ public class MeetingApi {
         }
 
         com.squareup.okhttp.Call call = generatePairingCodeSipValidateBeforeCall(userId, numericMeetingId, payloadPairingCodeSIP, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodeSIP>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -537,11 +538,11 @@ public class MeetingApi {
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeWebRTC  (required)
      * @param role  (optional, default to USER)
-     * @return PairingCode
+     * @return PairingCodeWebRTC
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PairingCode generatePairingCodeWebRtc(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
-        ApiResponse<PairingCode> resp = generatePairingCodeWebRtcWithHttpInfo(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
+    public PairingCodeWebRTC generatePairingCodeWebRtc(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
+        ApiResponse<PairingCodeWebRTC> resp = generatePairingCodeWebRtcWithHttpInfo(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
         return resp.getData();
     }
 
@@ -552,12 +553,12 @@ public class MeetingApi {
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeWebRTC  (required)
      * @param role  (optional, default to USER)
-     * @return ApiResponse&lt;PairingCode&gt;
+     * @return ApiResponse&lt;PairingCodeWebRTC&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PairingCode> generatePairingCodeWebRtcWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
+    public ApiResponse<PairingCodeWebRTC> generatePairingCodeWebRtcWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role) throws ApiException {
         com.squareup.okhttp.Call call = generatePairingCodeWebRtcValidateBeforeCall(userId, numericMeetingId, payloadPairingCodeWebRTC, role, null, null);
-        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodeWebRTC>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -572,7 +573,7 @@ public class MeetingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generatePairingCodeWebRtcAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ApiCallback<PairingCode> callback) throws ApiException {
+    public com.squareup.okhttp.Call generatePairingCodeWebRtcAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ApiCallback<PairingCodeWebRTC> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -594,7 +595,7 @@ public class MeetingApi {
         }
 
         com.squareup.okhttp.Call call = generatePairingCodeWebRtcValidateBeforeCall(userId, numericMeetingId, payloadPairingCodeWebRTC, role, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PairingCode>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodeWebRTC>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_pairing_code_sip**
-> PairingCode generate_pairing_code_sip(user_id, numeric_meeting_id, payload_pairing_code_sip)
+> PairingCodeSIP generate_pairing_code_sip(user_id, numeric_meeting_id, payload_pairing_code_sip)
 
 Generate Pairing Code (SIP)
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeSIP**](PairingCodeSIP.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_pairing_code_web_rtc**
-> PairingCode generate_pairing_code_web_rtc(user_id, numeric_meeting_id, payload_pairing_code_web_rtc, role=role)
+> PairingCodeWebRTC generate_pairing_code_web_rtc(user_id, numeric_meeting_id, payload_pairing_code_web_rtc, role=role)
 
 Generate Pairing Code (WebRTC)
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
 
 ### Authorization
 

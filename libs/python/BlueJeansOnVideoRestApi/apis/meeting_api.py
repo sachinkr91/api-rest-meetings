@@ -281,7 +281,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
         :param PayloadPairingCodeSIP payload_pairing_code_sip: Information about the device that will be joining via SIP. (required)
-        :return: PairingCode
+        :return: PairingCodeSIP
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -309,7 +309,7 @@ class MeetingApi(object):
         :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
         :param PayloadPairingCodeSIP payload_pairing_code_sip: Information about the device that will be joining via SIP. (required)
-        :return: PairingCode
+        :return: PairingCodeSIP
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -373,7 +373,7 @@ class MeetingApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='PairingCode',
+                                        response_type='PairingCodeSIP',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -399,7 +399,7 @@ class MeetingApi(object):
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
         :param PayloadPairingCodeWebRTC payload_pairing_code_web_rtc: (required)
         :param str role:
-        :return: PairingCode
+        :return: PairingCodeWebRTC
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -428,7 +428,7 @@ class MeetingApi(object):
         :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
         :param PayloadPairingCodeWebRTC payload_pairing_code_web_rtc: (required)
         :param str role:
-        :return: PairingCode
+        :return: PairingCodeWebRTC
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -494,7 +494,7 @@ class MeetingApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='PairingCode',
+                                        response_type='PairingCodeWebRTC',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

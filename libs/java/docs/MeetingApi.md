@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeSip"></a>
 # **generatePairingCodeSip**
-> PairingCode generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
+> PairingCodeSIP generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -169,7 +169,7 @@ Integer userId = 56; // Integer | The ID of the user of interest. This value is 
 Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadPairingCodeSIP payloadPairingCodeSIP = new PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 try {
-    PairingCode result = apiInstance.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
+    PairingCodeSIP result = apiInstance.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#generatePairingCodeSip");
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeSIP**](PairingCodeSIP.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeWebRtc"></a>
 # **generatePairingCodeWebRtc**
-> PairingCode generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role)
+> PairingCodeWebRTC generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role)
 
 Generate Pairing Code (WebRTC)
 
@@ -229,7 +229,7 @@ Integer numericMeetingId = 56; // Integer | The meeting ID that participants wil
 PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = new PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
 String role = "USER"; // String | 
 try {
-    PairingCode result = apiInstance.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
+    PairingCodeWebRTC result = apiInstance.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#generatePairingCodeWebRtc");
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
 
 ### Authorization
 

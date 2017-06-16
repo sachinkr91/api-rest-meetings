@@ -102,7 +102,7 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //int? numericMeetingId = null;
             //PayloadPairingCodeSIP payloadPairingCodeSIP = null;
             //var response = instance.GeneratePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
-            //Assert.IsInstanceOf<PairingCode> (response, "response is PairingCode");
+            //Assert.IsInstanceOf<PairingCodeSIP> (response, "response is PairingCodeSIP");
         }
         
         /// <summary>
@@ -117,7 +117,7 @@ namespace com.bluejeans.api.rest.onvideo.Test
             //PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = null;
             //string role = null;
             //var response = instance.GeneratePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
-            //Assert.IsInstanceOf<PairingCode> (response, "response is PairingCode");
+            //Assert.IsInstanceOf<PairingCodeWebRTC> (response, "response is PairingCodeWebRTC");
         }
         
         /// <summary>

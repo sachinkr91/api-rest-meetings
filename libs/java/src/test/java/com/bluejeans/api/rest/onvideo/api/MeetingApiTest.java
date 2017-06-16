@@ -21,7 +21,8 @@ import com.bluejeans.api.rest.onvideo.model.Layout;
 import com.bluejeans.api.rest.onvideo.model.Meeting;
 import com.bluejeans.api.rest.onvideo.model.MeetingState;
 import com.bluejeans.api.rest.onvideo.model.Numbers;
-import com.bluejeans.api.rest.onvideo.model.PairingCode;
+import com.bluejeans.api.rest.onvideo.model.PairingCodeSIP;
+import com.bluejeans.api.rest.onvideo.model.PairingCodeWebRTC;
 import com.bluejeans.api.rest.onvideo.model.PayloadInvite;
 import com.bluejeans.api.rest.onvideo.model.PayloadMeetingState;
 import com.bluejeans.api.rest.onvideo.model.PayloadPairingCodeSIP;
@@ -91,7 +92,7 @@ public class MeetingApiTest {
         Integer userId = null;
         Integer numericMeetingId = null;
         PayloadPairingCodeSIP payloadPairingCodeSIP = null;
-        PairingCode response = api.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
+        PairingCodeSIP response = api.generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP);
 
         // TODO: test validations
     }
@@ -110,7 +111,7 @@ public class MeetingApiTest {
         Integer numericMeetingId = null;
         PayloadPairingCodeWebRTC payloadPairingCodeWebRTC = null;
         String role = null;
-        PairingCode response = api.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
+        PairingCodeWebRTC response = api.generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, role);
 
         // TODO: test validations
     }

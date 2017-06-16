@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeSip"></a>
 # **generatePairingCodeSip**
-> PairingCode generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
+> PairingCodeSIP generatePairingCodeSip(userId, numericMeetingId, payloadPairingCodeSIP)
 
 Generate Pairing Code (SIP)
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeSIP**](PairingCodeSIP.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodeWebRtc"></a>
 # **generatePairingCodeWebRtc**
-> PairingCode generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, opts)
+> PairingCodeWebRTC generatePairingCodeWebRtc(userId, numericMeetingId, payloadPairingCodeWebRTC, opts)
 
 Generate Pairing Code (WebRTC)
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCode**](PairingCode.md)
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
 
 ### Authorization
 

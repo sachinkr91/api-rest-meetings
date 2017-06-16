@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Endpoint', 'model/Endpoints', 'model/Error', 'model/Layout', 'model/Meeting', 'model/MeetingState', 'model/Numbers', 'model/PairingCode', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC'], factory);
+    define(['ApiClient', 'model/Endpoint', 'model/Endpoints', 'model/Error', 'model/Layout', 'model/Meeting', 'model/MeetingState', 'model/Numbers', 'model/PairingCodeSIP', 'model/PairingCodeWebRTC', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCode'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
+    module.exports = factory(require('../ApiClient'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCodeSIP'), require('../model/PairingCodeWebRTC'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.PairingCode, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
+    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.PairingCodeSIP, root.BlueJeansOnVideoRestApi.PairingCodeWebRTC, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
   }
-}(this, function(ApiClient, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCode, PayloadInvite, PayloadMeetingState, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
+}(this, function(ApiClient, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCodeSIP, PairingCodeWebRTC, PayloadInvite, PayloadMeetingState, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
   'use strict';
 
   /**
@@ -157,7 +157,7 @@
      * Callback function to receive the result of the generatePairingCodeSip operation.
      * @callback module:api/MeetingApi~generatePairingCodeSipCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/PairingCode} data The data returned by the service call.
+     * @param {module:model/PairingCodeSIP} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -168,7 +168,7 @@
      * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP Information about the device that will be joining via SIP.
      * @param {module:api/MeetingApi~generatePairingCodeSipCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PairingCode}
+     * data is of type: {@link module:model/PairingCodeSIP}
      */
     this.generatePairingCodeSip = function(userId, numericMeetingId, payloadPairingCodeSIP, callback) {
       var postBody = payloadPairingCodeSIP;
@@ -203,7 +203,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = PairingCode;
+      var returnType = PairingCodeSIP;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP', 'POST',
@@ -216,7 +216,7 @@
      * Callback function to receive the result of the generatePairingCodeWebRtc operation.
      * @callback module:api/MeetingApi~generatePairingCodeWebRtcCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/PairingCode} data The data returned by the service call.
+     * @param {module:model/PairingCodeWebRTC} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -229,7 +229,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.role  (default to USER)
      * @param {module:api/MeetingApi~generatePairingCodeWebRtcCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PairingCode}
+     * data is of type: {@link module:model/PairingCodeWebRTC}
      */
     this.generatePairingCodeWebRtc = function(userId, numericMeetingId, payloadPairingCodeWebRTC, opts, callback) {
       opts = opts || {};
@@ -266,7 +266,7 @@
       var authNames = ['access_token'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = PairingCode;
+      var returnType = PairingCodeWebRTC;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc', 'POST',

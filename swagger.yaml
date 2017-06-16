@@ -1206,7 +1206,6 @@ paths:
               userId:
                 type: integer
                 description: Optional database id of user associated with endpoint
-                default:
               languageCode:
                 type: string
                 description: Optional language code
@@ -1226,7 +1225,7 @@ paths:
         '200':
           description: The pairing code information.
           schema:
-            $ref: '#/definitions/PairingCode'
+            $ref: '#/definitions/PairingCodeSIP'
         '401':
           description: The access token is invalid or does not have permission.
         '404':
@@ -1281,7 +1280,7 @@ paths:
         '200':
           description: The pairing code information.
           schema:
-            $ref: '#/definitions/PairingCode'
+            $ref: '#/definitions/PairingCodeWebRTC'
         '401':
           description: The access token is invalid or does not have permission.
         '404':
@@ -2780,7 +2779,33 @@ definitions:
               type: boolean
             default:
               type: boolean
-  PairingCode:
+  PairingCodeSIP:
+    type: object
+    properties:
+      endpointGuid:
+        type: string
+      forceTURN:
+        type: boolean
+      pairingCode:
+        type: string
+      turnservers:
+        type: array
+        items:
+          type: object
+          properties:
+            credential:
+              type: string
+            urls:
+              type: string
+            username:
+              type: string
+      uri:
+        type: string
+      seamEndpointGuid:
+        type: string
+      connectionGuid:
+        type: string
+  PairingCodeWebRTC:
     type: object
     properties:
       callguid:
