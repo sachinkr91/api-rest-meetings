@@ -57,7 +57,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
         'endpoint_type' => 'int',
         'user_id' => 'int',
         'language_code' => 'string',
-        'capabilities' => 'string[]'
+        'endpoint_name' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -73,7 +73,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
         'endpoint_type' => 'endpointType',
         'user_id' => 'userId',
         'language_code' => 'languageCode',
-        'capabilities' => 'capabilities'
+        'endpoint_name' => 'endpointName'
     ];
 
 
@@ -85,7 +85,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
         'endpoint_type' => 'setEndpointType',
         'user_id' => 'setUserId',
         'language_code' => 'setLanguageCode',
-        'capabilities' => 'setCapabilities'
+        'endpoint_name' => 'setEndpointName'
     ];
 
 
@@ -97,7 +97,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
         'endpoint_type' => 'getEndpointType',
         'user_id' => 'getUserId',
         'language_code' => 'getLanguageCode',
-        'capabilities' => 'getCapabilities'
+        'endpoint_name' => 'getEndpointName'
     ];
 
     public static function attributeMap()
@@ -116,6 +116,9 @@ class PayloadPairingCodeSIP implements ArrayAccess
     }
 
     const LANGUAGE_CODE_EN = 'en';
+    const LANGUAGE_CODE_EN_US = 'en-us';
+    const LANGUAGE_CODE_EN_GB = 'en-gb';
+    const LANGUAGE_CODE_DE = 'de';
     
 
     
@@ -127,6 +130,9 @@ class PayloadPairingCodeSIP implements ArrayAccess
     {
         return [
             self::LANGUAGE_CODE_EN,
+            self::LANGUAGE_CODE_EN_US,
+            self::LANGUAGE_CODE_EN_GB,
+            self::LANGUAGE_CODE_DE,
         ];
     }
     
@@ -145,8 +151,8 @@ class PayloadPairingCodeSIP implements ArrayAccess
     {
         $this->container['endpoint_type'] = isset($data['endpoint_type']) ? $data['endpoint_type'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['language_code'] = isset($data['language_code']) ? $data['language_code'] : null;
-        $this->container['capabilities'] = isset($data['capabilities']) ? $data['capabilities'] : null;
+        $this->container['language_code'] = isset($data['language_code']) ? $data['language_code'] : 'en';
+        $this->container['endpoint_name'] = isset($data['endpoint_name']) ? $data['endpoint_name'] : 'My Test Endpoint';
     }
 
     /**
@@ -158,9 +164,12 @@ class PayloadPairingCodeSIP implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = ["en"];
+        if ($this->container['endpoint_type'] === null) {
+            $invalid_properties[] = "'endpoint_type' can't be null";
+        }
+        $allowed_values = ["en", "en-us", "en-gb", "de"];
         if (!in_array($this->container['language_code'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'language_code', must be one of 'en'.";
+            $invalid_properties[] = "invalid value for 'language_code', must be one of 'en', 'en-us', 'en-gb', 'de'.";
         }
 
         return $invalid_properties;
@@ -175,7 +184,10 @@ class PayloadPairingCodeSIP implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = ["en"];
+        if ($this->container['endpoint_type'] === null) {
+            return false;
+        }
+        $allowed_values = ["en", "en-us", "en-gb", "de"];
         if (!in_array($this->container['language_code'], $allowed_values)) {
             return false;
         }
@@ -194,7 +206,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
 
     /**
      * Sets endpoint_type
-     * @param int $endpoint_type
+     * @param int $endpoint_type 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
      * @return $this
      */
     public function setEndpointType($endpoint_type)
@@ -215,7 +227,7 @@ class PayloadPairingCodeSIP implements ArrayAccess
 
     /**
      * Sets user_id
-     * @param int $user_id
+     * @param int $user_id Optional database id of user associated with endpoint
      * @return $this
      */
     public function setUserId($user_id)
@@ -236,14 +248,14 @@ class PayloadPairingCodeSIP implements ArrayAccess
 
     /**
      * Sets language_code
-     * @param string $language_code
+     * @param string $language_code Optional language code
      * @return $this
      */
     public function setLanguageCode($language_code)
     {
-        $allowed_values = array('en');
+        $allowed_values = array('en', 'en-us', 'en-gb', 'de');
         if (!is_null($language_code) && (!in_array($language_code, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'language_code', must be one of 'en'");
+            throw new \InvalidArgumentException("Invalid value for 'language_code', must be one of 'en', 'en-us', 'en-gb', 'de'");
         }
         $this->container['language_code'] = $language_code;
 
@@ -251,22 +263,22 @@ class PayloadPairingCodeSIP implements ArrayAccess
     }
 
     /**
-     * Gets capabilities
-     * @return string[]
+     * Gets endpoint_name
+     * @return string
      */
-    public function getCapabilities()
+    public function getEndpointName()
     {
-        return $this->container['capabilities'];
+        return $this->container['endpoint_name'];
     }
 
     /**
-     * Sets capabilities
-     * @param string[] $capabilities
+     * Sets endpoint_name
+     * @param string $endpoint_name Optional name of endpoint
      * @return $this
      */
-    public function setCapabilities($capabilities)
+    public function setEndpointName($endpoint_name)
     {
-        $this->container['capabilities'] = $capabilities;
+        $this->container['endpoint_name'] = $endpoint_name;
 
         return $this;
     }

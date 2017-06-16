@@ -309,7 +309,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $numeric_meeting_id The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-     * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
+     * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip Information about the device that will be joining via SIP. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return \BlueJeansOnVideoRestApi\Model\PairingCode
      */
@@ -326,7 +326,7 @@ class MeetingApi
      *
      * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param int $numeric_meeting_id The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
-     * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip  (required)
+     * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip Information about the device that will be joining via SIP. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
      * @return array of \BlueJeansOnVideoRestApi\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
      */
@@ -345,7 +345,7 @@ class MeetingApi
             throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_sip when calling generatePairingCodeSip');
         }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -401,7 +401,7 @@ class MeetingApi
                 $httpBody,
                 $headerParams,
                 '\BlueJeansOnVideoRestApi\Model\PairingCode',
-                '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip'
+                '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCode', $httpHeader), $statusCode, $httpHeader];

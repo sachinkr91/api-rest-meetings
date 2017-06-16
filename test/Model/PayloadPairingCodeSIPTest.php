@@ -107,9 +107,9 @@ class PayloadPairingCodeSIPTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "capabilities"
+     * Test attribute "endpoint_name"
      */
-    public function testPropertyCapabilities()
+    public function testPropertyEndpointName()
     {
 
     }
