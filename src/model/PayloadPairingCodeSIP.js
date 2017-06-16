@@ -41,11 +41,12 @@
    * Constructs a new <code>PayloadPairingCodeSIP</code>.
    * @alias module:model/PayloadPairingCodeSIP
    * @class
+   * @param endpointType {Number} 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    */
-  var exports = function() {
+  var exports = function(endpointType) {
     var _this = this;
 
-
+    _this['endpointType'] = endpointType;
 
 
 
@@ -71,29 +72,35 @@
       if (data.hasOwnProperty('languageCode')) {
         obj['languageCode'] = ApiClient.convertToType(data['languageCode'], 'String');
       }
-      if (data.hasOwnProperty('capabilities')) {
-        obj['capabilities'] = ApiClient.convertToType(data['capabilities'], ['String']);
+      if (data.hasOwnProperty('endpointName')) {
+        obj['endpointName'] = ApiClient.convertToType(data['endpointName'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    * @member {Number} endpointType
    */
   exports.prototype['endpointType'] = undefined;
   /**
+   * Optional database id of user associated with endpoint
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
+   * Optional language code
    * @member {module:model/PayloadPairingCodeSIP.LanguageCodeEnum} languageCode
+   * @default 'en'
    */
-  exports.prototype['languageCode'] = undefined;
+  exports.prototype['languageCode'] = 'en';
   /**
-   * @member {Array.<String>} capabilities
+   * Optional name of endpoint
+   * @member {String} endpointName
+   * @default 'My Test Endpoint'
    */
-  exports.prototype['capabilities'] = undefined;
+  exports.prototype['endpointName'] = 'My Test Endpoint';
 
 
   /**
@@ -106,7 +113,22 @@
      * value: "en"
      * @const
      */
-    "en": "en"  };
+    "en": "en",
+    /**
+     * value: "en-us"
+     * @const
+     */
+    "en-us": "en-us",
+    /**
+     * value: "en-gb"
+     * @const
+     */
+    "en-gb": "en-gb",
+    /**
+     * value: "de"
+     * @const
+     */
+    "de": "de"  };
 
 
   return exports;

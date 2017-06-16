@@ -166,7 +166,7 @@
      * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-     * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP 
+     * @param {module:model/PayloadPairingCodeSIP} payloadPairingCodeSIP Information about the device that will be joining via SIP.
      * @param {module:api/MeetingApi~generatePairingCodeSipCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PairingCode}
      */
@@ -206,7 +206,7 @@
       var returnType = PairingCode;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip', 'POST',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
