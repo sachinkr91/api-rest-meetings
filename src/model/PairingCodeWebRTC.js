@@ -13,65 +13,159 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/PairingCodeSIPTurnservers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'), require('./PairingCodeSIPTurnservers'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    if (!root.BlueJeansOnVideoRestApi) {
+      root.BlueJeansOnVideoRestApi = {};
+    }
+    root.BlueJeansOnVideoRestApi.PairingCodeWebRTC = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(ApiClient, PairingCodeSIPTurnservers) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PairingCodeTurnservers();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The PairingCodeWebRTC model module.
+   * @module model/PairingCodeWebRTC
+   * @version 1.0.0
+   */
+
+  /**
+   * Constructs a new <code>PairingCodeWebRTC</code>.
+   * @alias module:model/PairingCodeWebRTC
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+
+
+
+
+
+
+
+
+
+
+  };
+
+  /**
+   * Constructs a <code>PairingCodeWebRTC</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/PairingCodeWebRTC} obj Optional instance to populate.
+   * @return {module:model/PairingCodeWebRTC} The populated <code>PairingCodeWebRTC</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('callguid')) {
+        obj['callguid'] = ApiClient.convertToType(data['callguid'], 'String');
+      }
+      if (data.hasOwnProperty('endpointGuid')) {
+        obj['endpointGuid'] = ApiClient.convertToType(data['endpointGuid'], 'String');
+      }
+      if (data.hasOwnProperty('forceTURN')) {
+        obj['forceTURN'] = ApiClient.convertToType(data['forceTURN'], 'Boolean');
+      }
+      if (data.hasOwnProperty('pairingCode')) {
+        obj['pairingCode'] = ApiClient.convertToType(data['pairingCode'], 'String');
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'Number');
+      }
+      if (data.hasOwnProperty('statusText')) {
+        obj['statusText'] = ApiClient.convertToType(data['statusText'], 'String');
+      }
+      if (data.hasOwnProperty('turnservers')) {
+        obj['turnservers'] = ApiClient.convertToType(data['turnservers'], [PairingCodeSIPTurnservers]);
+      }
+      if (data.hasOwnProperty('uri')) {
+        obj['uri'] = ApiClient.convertToType(data['uri'], 'String');
+      }
+      if (data.hasOwnProperty('seamEndpointGuid')) {
+        obj['seamEndpointGuid'] = ApiClient.convertToType(data['seamEndpointGuid'], 'String');
+      }
+      if (data.hasOwnProperty('connectionGuid')) {
+        obj['connectionGuid'] = ApiClient.convertToType(data['connectionGuid'], 'String');
+      }
+      if (data.hasOwnProperty('endpointName')) {
+        obj['endpointName'] = ApiClient.convertToType(data['endpointName'], 'String');
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * @member {String} callguid
+   */
+  exports.prototype['callguid'] = undefined;
+  /**
+   * @member {String} endpointGuid
+   */
+  exports.prototype['endpointGuid'] = undefined;
+  /**
+   * @member {Boolean} forceTURN
+   */
+  exports.prototype['forceTURN'] = undefined;
+  /**
+   * @member {String} pairingCode
+   */
+  exports.prototype['pairingCode'] = undefined;
+  /**
+   * @member {Number} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
+   * @member {module:model/PairingCodeWebRTC.StatusTextEnum} statusText
+   */
+  exports.prototype['statusText'] = undefined;
+  /**
+   * @member {Array.<module:model/PairingCodeSIPTurnservers>} turnservers
+   */
+  exports.prototype['turnservers'] = undefined;
+  /**
+   * @member {String} uri
+   */
+  exports.prototype['uri'] = undefined;
+  /**
+   * @member {String} seamEndpointGuid
+   */
+  exports.prototype['seamEndpointGuid'] = undefined;
+  /**
+   * @member {String} connectionGuid
+   */
+  exports.prototype['connectionGuid'] = undefined;
+  /**
+   * @member {String} endpointName
+   */
+  exports.prototype['endpointName'] = undefined;
 
-  describe('PairingCodeTurnservers', function() {
-    it('should create an instance of PairingCodeTurnservers', function() {
-      // uncomment below and update the code to test PairingCodeTurnservers
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeTurnservers();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCodeTurnservers);
-    });
 
-    it('should have the property credential (base name: "credential")', function() {
-      // uncomment below and update the code to test the property credential
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeTurnservers();
-      //expect(instance).to.be();
-    });
+  /**
+   * Allowed values for the <code>statusText</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.StatusTextEnum = {
+    /**
+     * value: "OK"
+     * @const
+     */
+    "OK": "OK"  };
 
-    it('should have the property urls (base name: "urls")', function() {
-      // uncomment below and update the code to test the property urls
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeTurnservers();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property username (base name: "username")', function() {
-      // uncomment below and update the code to test the property username
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeTurnservers();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

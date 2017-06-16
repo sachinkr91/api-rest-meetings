@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PairingCode
+# BlueJeansOnVideoRestApi.PairingCodeWebRTC
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **pairingCode** | **String** |  | [optional] 
 **status** | **Number** |  | [optional] 
 **statusText** | **String** |  | [optional] 
-**turnservers** | [**[PairingCodeTurnservers]**](PairingCodeTurnservers.md) |  | [optional] 
+**turnservers** | [**[PairingCodeSIPTurnservers]**](PairingCodeSIPTurnservers.md) |  | [optional] 
 **uri** | **String** |  | [optional] 
 **seamEndpointGuid** | **String** |  | [optional] 
 **connectionGuid** | **String** |  | [optional] 

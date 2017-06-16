@@ -13,113 +13,83 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    if (!root.BlueJeansOnVideoRestApi) {
+      root.BlueJeansOnVideoRestApi = {};
+    }
+    root.BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers = factory(root.BlueJeansOnVideoRestApi.ApiClient);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(ApiClient) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PairingCode();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The PairingCodeSIPTurnservers model module.
+   * @module model/PairingCodeSIPTurnservers
+   * @version 1.0.0
+   */
+
+  /**
+   * Constructs a new <code>PairingCodeSIPTurnservers</code>.
+   * @alias module:model/PairingCodeSIPTurnservers
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+
+
+  };
+
+  /**
+   * Constructs a <code>PairingCodeSIPTurnservers</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/PairingCodeSIPTurnservers} obj Optional instance to populate.
+   * @return {module:model/PairingCodeSIPTurnservers} The populated <code>PairingCodeSIPTurnservers</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('credential')) {
+        obj['credential'] = ApiClient.convertToType(data['credential'], 'String');
+      }
+      if (data.hasOwnProperty('urls')) {
+        obj['urls'] = ApiClient.convertToType(data['urls'], 'String');
+      }
+      if (data.hasOwnProperty('username')) {
+        obj['username'] = ApiClient.convertToType(data['username'], 'String');
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * @member {String} credential
+   */
+  exports.prototype['credential'] = undefined;
+  /**
+   * @member {String} urls
+   */
+  exports.prototype['urls'] = undefined;
+  /**
+   * @member {String} username
+   */
+  exports.prototype['username'] = undefined;
 
-  describe('PairingCode', function() {
-    it('should create an instance of PairingCode', function() {
-      // uncomment below and update the code to test PairingCode
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCode);
-    });
 
-    it('should have the property callguid (base name: "callguid")', function() {
-      // uncomment below and update the code to test the property callguid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property endpointGuid (base name: "endpointGuid")', function() {
-      // uncomment below and update the code to test the property endpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property forceTURN (base name: "forceTURN")', function() {
-      // uncomment below and update the code to test the property forceTURN
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property pairingCode (base name: "pairingCode")', function() {
-      // uncomment below and update the code to test the property pairingCode
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property statusText (base name: "statusText")', function() {
-      // uncomment below and update the code to test the property statusText
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property turnservers (base name: "turnservers")', function() {
-      // uncomment below and update the code to test the property turnservers
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property uri (base name: "uri")', function() {
-      // uncomment below and update the code to test the property uri
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property seamEndpointGuid (base name: "seamEndpointGuid")', function() {
-      // uncomment below and update the code to test the property seamEndpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property connectionGuid (base name: "connectionGuid")', function() {
-      // uncomment below and update the code to test the property connectionGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property endpointName (base name: "endpointName")', function() {
-      // uncomment below and update the code to test the property endpointName
-      //var instane = new BlueJeansOnVideoRestApi.PairingCode();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

@@ -13,159 +13,113 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/PairingCodeTurnservers'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./PairingCodeTurnservers'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
-    }
-    root.BlueJeansOnVideoRestApi.PairingCode = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.PairingCodeTurnservers);
+    factory(root.expect, root.BlueJeansOnVideoRestApi);
   }
-}(this, function(ApiClient, PairingCodeTurnservers) {
+}(this, function(expect, BlueJeansOnVideoRestApi) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+  });
 
-
-  /**
-   * The PairingCode model module.
-   * @module model/PairingCode
-   * @version 1.0.0
-   */
-
-  /**
-   * Constructs a new <code>PairingCode</code>.
-   * @alias module:model/PairingCode
-   * @class
-   */
-  var exports = function() {
-    var _this = this;
-
-
-
-
-
-
-
-
-
-
-
-
-  };
-
-  /**
-   * Constructs a <code>PairingCode</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PairingCode} obj Optional instance to populate.
-   * @return {module:model/PairingCode} The populated <code>PairingCode</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('callguid')) {
-        obj['callguid'] = ApiClient.convertToType(data['callguid'], 'String');
-      }
-      if (data.hasOwnProperty('endpointGuid')) {
-        obj['endpointGuid'] = ApiClient.convertToType(data['endpointGuid'], 'String');
-      }
-      if (data.hasOwnProperty('forceTURN')) {
-        obj['forceTURN'] = ApiClient.convertToType(data['forceTURN'], 'Boolean');
-      }
-      if (data.hasOwnProperty('pairingCode')) {
-        obj['pairingCode'] = ApiClient.convertToType(data['pairingCode'], 'String');
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'Number');
-      }
-      if (data.hasOwnProperty('statusText')) {
-        obj['statusText'] = ApiClient.convertToType(data['statusText'], 'String');
-      }
-      if (data.hasOwnProperty('turnservers')) {
-        obj['turnservers'] = ApiClient.convertToType(data['turnservers'], [PairingCodeTurnservers]);
-      }
-      if (data.hasOwnProperty('uri')) {
-        obj['uri'] = ApiClient.convertToType(data['uri'], 'String');
-      }
-      if (data.hasOwnProperty('seamEndpointGuid')) {
-        obj['seamEndpointGuid'] = ApiClient.convertToType(data['seamEndpointGuid'], 'String');
-      }
-      if (data.hasOwnProperty('connectionGuid')) {
-        obj['connectionGuid'] = ApiClient.convertToType(data['connectionGuid'], 'String');
-      }
-      if (data.hasOwnProperty('endpointName')) {
-        obj['endpointName'] = ApiClient.convertToType(data['endpointName'], 'String');
-      }
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-  /**
-   * @member {String} callguid
-   */
-  exports.prototype['callguid'] = undefined;
-  /**
-   * @member {String} endpointGuid
-   */
-  exports.prototype['endpointGuid'] = undefined;
-  /**
-   * @member {Boolean} forceTURN
-   */
-  exports.prototype['forceTURN'] = undefined;
-  /**
-   * @member {String} pairingCode
-   */
-  exports.prototype['pairingCode'] = undefined;
-  /**
-   * @member {Number} status
-   */
-  exports.prototype['status'] = undefined;
-  /**
-   * @member {module:model/PairingCode.StatusTextEnum} statusText
-   */
-  exports.prototype['statusText'] = undefined;
-  /**
-   * @member {Array.<module:model/PairingCodeTurnservers>} turnservers
-   */
-  exports.prototype['turnservers'] = undefined;
-  /**
-   * @member {String} uri
-   */
-  exports.prototype['uri'] = undefined;
-  /**
-   * @member {String} seamEndpointGuid
-   */
-  exports.prototype['seamEndpointGuid'] = undefined;
-  /**
-   * @member {String} connectionGuid
-   */
-  exports.prototype['connectionGuid'] = undefined;
-  /**
-   * @member {String} endpointName
-   */
-  exports.prototype['endpointName'] = undefined;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('PairingCodeWebRTC', function() {
+    it('should create an instance of PairingCodeWebRTC', function() {
+      // uncomment below and update the code to test PairingCodeWebRTC
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCodeWebRTC);
+    });
 
-  /**
-   * Allowed values for the <code>statusText</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.StatusTextEnum = {
-    /**
-     * value: "OK"
-     * @const
-     */
-    "OK": "OK"  };
+    it('should have the property callguid (base name: "callguid")', function() {
+      // uncomment below and update the code to test the property callguid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property endpointGuid (base name: "endpointGuid")', function() {
+      // uncomment below and update the code to test the property endpointGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+    it('should have the property forceTURN (base name: "forceTURN")', function() {
+      // uncomment below and update the code to test the property forceTURN
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pairingCode (base name: "pairingCode")', function() {
+      // uncomment below and update the code to test the property pairingCode
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property statusText (base name: "statusText")', function() {
+      // uncomment below and update the code to test the property statusText
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property turnservers (base name: "turnservers")', function() {
+      // uncomment below and update the code to test the property turnservers
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property uri (base name: "uri")', function() {
+      // uncomment below and update the code to test the property uri
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property seamEndpointGuid (base name: "seamEndpointGuid")', function() {
+      // uncomment below and update the code to test the property seamEndpointGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectionGuid (base name: "connectionGuid")', function() {
+      // uncomment below and update the code to test the property connectionGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property endpointName (base name: "endpointName")', function() {
+      // uncomment below and update the code to test the property endpointName
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeWebRTC();
+      //expect(instance).to.be();
+    });
+
+  });
+
 }));
-
-

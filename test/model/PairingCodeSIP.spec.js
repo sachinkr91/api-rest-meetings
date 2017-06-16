@@ -13,83 +13,89 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
-    }
-    root.BlueJeansOnVideoRestApi.PairingCodeTurnservers = factory(root.BlueJeansOnVideoRestApi.ApiClient);
+    factory(root.expect, root.BlueJeansOnVideoRestApi);
   }
-}(this, function(ApiClient) {
+}(this, function(expect, BlueJeansOnVideoRestApi) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+  });
 
-
-  /**
-   * The PairingCodeTurnservers model module.
-   * @module model/PairingCodeTurnservers
-   * @version 1.0.0
-   */
-
-  /**
-   * Constructs a new <code>PairingCodeTurnservers</code>.
-   * @alias module:model/PairingCodeTurnservers
-   * @class
-   */
-  var exports = function() {
-    var _this = this;
-
-
-
-
-  };
-
-  /**
-   * Constructs a <code>PairingCodeTurnservers</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PairingCodeTurnservers} obj Optional instance to populate.
-   * @return {module:model/PairingCodeTurnservers} The populated <code>PairingCodeTurnservers</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('credential')) {
-        obj['credential'] = ApiClient.convertToType(data['credential'], 'String');
-      }
-      if (data.hasOwnProperty('urls')) {
-        obj['urls'] = ApiClient.convertToType(data['urls'], 'String');
-      }
-      if (data.hasOwnProperty('username')) {
-        obj['username'] = ApiClient.convertToType(data['username'], 'String');
-      }
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-  /**
-   * @member {String} credential
-   */
-  exports.prototype['credential'] = undefined;
-  /**
-   * @member {String} urls
-   */
-  exports.prototype['urls'] = undefined;
-  /**
-   * @member {String} username
-   */
-  exports.prototype['username'] = undefined;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('PairingCodeSIP', function() {
+    it('should create an instance of PairingCodeSIP', function() {
+      // uncomment below and update the code to test PairingCodeSIP
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCodeSIP);
+    });
 
+    it('should have the property endpointGuid (base name: "endpointGuid")', function() {
+      // uncomment below and update the code to test the property endpointGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+    it('should have the property forceTURN (base name: "forceTURN")', function() {
+      // uncomment below and update the code to test the property forceTURN
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pairingCode (base name: "pairingCode")', function() {
+      // uncomment below and update the code to test the property pairingCode
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property turnservers (base name: "turnservers")', function() {
+      // uncomment below and update the code to test the property turnservers
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property uri (base name: "uri")', function() {
+      // uncomment below and update the code to test the property uri
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property seamEndpointGuid (base name: "seamEndpointGuid")', function() {
+      // uncomment below and update the code to test the property seamEndpointGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectionGuid (base name: "connectionGuid")', function() {
+      // uncomment below and update the code to test the property connectionGuid
+      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //expect(instance).to.be();
+    });
+
+  });
+
 }));
-
-
