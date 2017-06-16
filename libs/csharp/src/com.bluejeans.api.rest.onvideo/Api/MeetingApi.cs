@@ -1434,7 +1434,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (payloadPairingCodeSIP == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1530,7 +1530,7 @@ namespace com.bluejeans.api.rest.onvideo.Api
             if (payloadPairingCodeSIP == null)
                 throw new ApiException(400, "Missing required parameter 'payloadPairingCodeSIP' when calling MeetingApi->GeneratePairingCodeSip");
 
-            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
+            var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);

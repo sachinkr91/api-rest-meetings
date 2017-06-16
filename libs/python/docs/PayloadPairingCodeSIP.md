@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoint_type** | **int** |  | [optional] 
-**user_id** | **int** |  | [optional] 
-**language_code** | **str** |  | [optional] 
-**capabilities** | **list[str]** |  | [optional] 
+**endpoint_type** | **int** | 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile | [optional] 
+**user_id** | **int** | Optional database id of user associated with endpoint | [optional] 
+**language_code** | **str** | Optional lanaguage code | [optional] 
+**endpoint_name** | **str** | Optional name of endpoint | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

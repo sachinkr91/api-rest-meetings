@@ -72,8 +72,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property capabilities (base name: "capabilities")', function() {
-      // uncomment below and update the code to test the property capabilities
+    it('should have the property endpointName (base name: "endpointName")', function() {
+      // uncomment below and update the code to test the property endpointName
       //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
       //expect(instance).to.be();
     });

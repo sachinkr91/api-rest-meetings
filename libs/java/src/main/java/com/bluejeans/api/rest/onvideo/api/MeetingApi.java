@@ -326,7 +326,7 @@ public class MeetingApi {
         Object localVarPostBody = payloadPairingCodeSIP;
         
         // create path and map variables
-        String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip".replaceAll("\\{format\\}","json")
+        String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
         .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 

@@ -342,7 +342,7 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip'.replace('{format}', 'json')
+        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']

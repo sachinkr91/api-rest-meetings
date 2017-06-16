@@ -206,7 +206,7 @@
       var returnType = PairingCode;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip', 'POST',
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

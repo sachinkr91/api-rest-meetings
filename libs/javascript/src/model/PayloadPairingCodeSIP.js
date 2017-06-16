@@ -71,29 +71,33 @@
       if (data.hasOwnProperty('languageCode')) {
         obj['languageCode'] = ApiClient.convertToType(data['languageCode'], 'String');
       }
-      if (data.hasOwnProperty('capabilities')) {
-        obj['capabilities'] = ApiClient.convertToType(data['capabilities'], ['String']);
+      if (data.hasOwnProperty('endpointName')) {
+        obj['endpointName'] = ApiClient.convertToType(data['endpointName'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    * @member {Number} endpointType
    */
   exports.prototype['endpointType'] = undefined;
   /**
+   * Optional database id of user associated with endpoint
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
+   * Optional lanaguage code
    * @member {module:model/PayloadPairingCodeSIP.LanguageCodeEnum} languageCode
    */
   exports.prototype['languageCode'] = undefined;
   /**
-   * @member {Array.<String>} capabilities
+   * Optional name of endpoint
+   * @member {String} endpointName
    */
-  exports.prototype['capabilities'] = undefined;
+  exports.prototype['endpointName'] = undefined;
 
 
   /**
@@ -106,7 +110,22 @@
      * value: "en"
      * @const
      */
-    "en": "en"  };
+    "en": "en",
+    /**
+     * value: "en-us"
+     * @const
+     */
+    "en-us": "en-us",
+    /**
+     * value: "en-gb"
+     * @const
+     */
+    "en-gb": "en-gb",
+    /**
+     * value: "de"
+     * @const
+     */
+    "de": "de"  };
 
 
   return exports;

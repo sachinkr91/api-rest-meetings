@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_meeting**](MeetingApi.md#cancel_meeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**create_meeting**](MeetingApi.md#create_meeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-[**generate_pairing_code_sip**](MeetingApi.md#generate_pairing_code_sip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+[**generate_pairing_code_sip**](MeetingApi.md#generate_pairing_code_sip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP | Generate Pairing Code (SIP)
 [**generate_pairing_code_web_rtc**](MeetingApi.md#generate_pairing_code_web_rtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**get_endpoint_layout**](MeetingApi.md#get_endpoint_layout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 [**get_meeting**](MeetingApi.md#get_meeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting

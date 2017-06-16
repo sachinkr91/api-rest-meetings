@@ -17,8 +17,6 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * PayloadPairingCodeSIP
@@ -32,11 +30,20 @@ public class PayloadPairingCodeSIP {
   private Integer userId = null;
 
   /**
-   * Gets or Sets languageCode
+   * Optional lanaguage code
    */
   public enum LanguageCodeEnum {
     @SerializedName("en")
-    EN("en");
+    EN("en"),
+    
+    @SerializedName("en-us")
+    EN_US("en-us"),
+    
+    @SerializedName("en-gb")
+    EN_GB("en-gb"),
+    
+    @SerializedName("de")
+    DE("de");
 
     private String value;
 
@@ -53,8 +60,8 @@ public class PayloadPairingCodeSIP {
   @SerializedName("languageCode")
   private LanguageCodeEnum languageCode = null;
 
-  @SerializedName("capabilities")
-  private List<String> capabilities = new ArrayList<String>();
+  @SerializedName("endpointName")
+  private String endpointName = null;
 
   public PayloadPairingCodeSIP endpointType(Integer endpointType) {
     this.endpointType = endpointType;
@@ -62,10 +69,10 @@ public class PayloadPairingCodeSIP {
   }
 
    /**
-   * Get endpointType
+   * 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
    * @return endpointType
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile")
   public Integer getEndpointType() {
     return endpointType;
   }
@@ -80,10 +87,10 @@ public class PayloadPairingCodeSIP {
   }
 
    /**
-   * Get userId
+   * Optional database id of user associated with endpoint
    * @return userId
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Optional database id of user associated with endpoint")
   public Integer getUserId() {
     return userId;
   }
@@ -98,10 +105,10 @@ public class PayloadPairingCodeSIP {
   }
 
    /**
-   * Get languageCode
+   * Optional lanaguage code
    * @return languageCode
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Optional lanaguage code")
   public LanguageCodeEnum getLanguageCode() {
     return languageCode;
   }
@@ -110,27 +117,22 @@ public class PayloadPairingCodeSIP {
     this.languageCode = languageCode;
   }
 
-  public PayloadPairingCodeSIP capabilities(List<String> capabilities) {
-    this.capabilities = capabilities;
-    return this;
-  }
-
-  public PayloadPairingCodeSIP addCapabilitiesItem(String capabilitiesItem) {
-    this.capabilities.add(capabilitiesItem);
+  public PayloadPairingCodeSIP endpointName(String endpointName) {
+    this.endpointName = endpointName;
     return this;
   }
 
    /**
-   * Get capabilities
-   * @return capabilities
+   * Optional name of endpoint
+   * @return endpointName
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<String> getCapabilities() {
-    return capabilities;
+  @ApiModelProperty(example = "null", value = "Optional name of endpoint")
+  public String getEndpointName() {
+    return endpointName;
   }
 
-  public void setCapabilities(List<String> capabilities) {
-    this.capabilities = capabilities;
+  public void setEndpointName(String endpointName) {
+    this.endpointName = endpointName;
   }
 
 
@@ -146,12 +148,12 @@ public class PayloadPairingCodeSIP {
     return Objects.equals(this.endpointType, payloadPairingCodeSIP.endpointType) &&
         Objects.equals(this.userId, payloadPairingCodeSIP.userId) &&
         Objects.equals(this.languageCode, payloadPairingCodeSIP.languageCode) &&
-        Objects.equals(this.capabilities, payloadPairingCodeSIP.capabilities);
+        Objects.equals(this.endpointName, payloadPairingCodeSIP.endpointName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointType, userId, languageCode, capabilities);
+    return Objects.hash(endpointType, userId, languageCode, endpointName);
   }
 
 
@@ -163,7 +165,7 @@ public class PayloadPairingCodeSIP {
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

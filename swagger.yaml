@@ -1199,16 +1199,22 @@ paths:
             properties:
               endpointType:
                 type: integer
+                description: 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
+                required: true
               userId:
                 type: integer
+                description: Optional database id of user associated with endpoint
               languageCode:
                 type: string
+                description: Optional lanaguage code
                 enum:
                   - en
-              capabilities:
-                type: array
-                items:
-                  type: string
+                  - en-us
+                  - en-gb
+                  - de
+              endpointName:
+                type: string
+                description: Optional name of endpoint
       responses:
         '200':
           description: The pairing code information.

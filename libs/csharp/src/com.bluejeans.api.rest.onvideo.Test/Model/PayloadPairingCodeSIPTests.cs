@@ -89,12 +89,12 @@ namespace com.bluejeans.api.rest.onvideo.Test
             // TODO unit test for the property 'LanguageCode'
         }
         /// <summary>
-        /// Test the property 'Capabilities'
+        /// Test the property 'EndpointName'
         /// </summary>
         [Test]
-        public void CapabilitiesTest()
+        public void EndpointNameTest()
         {
-            // TODO unit test for the property 'Capabilities'
+            // TODO unit test for the property 'EndpointName'
         }
 
     }

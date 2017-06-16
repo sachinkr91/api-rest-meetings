@@ -30,8 +30,9 @@ namespace com.bluejeans.api.rest.onvideo.Model
     public partial class PayloadPairingCodeSIP :  IEquatable<PayloadPairingCodeSIP>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets LanguageCode
+        /// Optional lanaguage code
         /// </summary>
+        /// <value>Optional lanaguage code</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LanguageCodeEnum
         {
@@ -40,44 +41,66 @@ namespace com.bluejeans.api.rest.onvideo.Model
             /// Enum En for "en"
             /// </summary>
             [EnumMember(Value = "en")]
-            En
+            En,
+            
+            /// <summary>
+            /// Enum Enus for "en-us"
+            /// </summary>
+            [EnumMember(Value = "en-us")]
+            Enus,
+            
+            /// <summary>
+            /// Enum Engb for "en-gb"
+            /// </summary>
+            [EnumMember(Value = "en-gb")]
+            Engb,
+            
+            /// <summary>
+            /// Enum De for "de"
+            /// </summary>
+            [EnumMember(Value = "de")]
+            De
         }
 
         /// <summary>
-        /// Gets or Sets LanguageCode
+        /// Optional lanaguage code
         /// </summary>
+        /// <value>Optional lanaguage code</value>
         [DataMember(Name="languageCode", EmitDefaultValue=false)]
         public LanguageCodeEnum? LanguageCode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PayloadPairingCodeSIP" /> class.
         /// </summary>
-        /// <param name="EndpointType">EndpointType.</param>
-        /// <param name="UserId">UserId.</param>
-        /// <param name="LanguageCode">LanguageCode.</param>
-        /// <param name="Capabilities">Capabilities.</param>
-        public PayloadPairingCodeSIP(int? EndpointType = default(int?), int? UserId = default(int?), LanguageCodeEnum? LanguageCode = default(LanguageCodeEnum?), List<string> Capabilities = default(List<string>))
+        /// <param name="EndpointType">1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile.</param>
+        /// <param name="UserId">Optional database id of user associated with endpoint.</param>
+        /// <param name="LanguageCode">Optional lanaguage code.</param>
+        /// <param name="EndpointName">Optional name of endpoint.</param>
+        public PayloadPairingCodeSIP(int? EndpointType = default(int?), int? UserId = default(int?), LanguageCodeEnum? LanguageCode = default(LanguageCodeEnum?), string EndpointName = default(string))
         {
             this.EndpointType = EndpointType;
             this.UserId = UserId;
             this.LanguageCode = LanguageCode;
-            this.Capabilities = Capabilities;
+            this.EndpointName = EndpointName;
         }
         
         /// <summary>
-        /// Gets or Sets EndpointType
+        /// 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
         /// </summary>
+        /// <value>1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile</value>
         [DataMember(Name="endpointType", EmitDefaultValue=false)]
         public int? EndpointType { get; set; }
         /// <summary>
-        /// Gets or Sets UserId
+        /// Optional database id of user associated with endpoint
         /// </summary>
+        /// <value>Optional database id of user associated with endpoint</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
         public int? UserId { get; set; }
         /// <summary>
-        /// Gets or Sets Capabilities
+        /// Optional name of endpoint
         /// </summary>
-        [DataMember(Name="capabilities", EmitDefaultValue=false)]
-        public List<string> Capabilities { get; set; }
+        /// <value>Optional name of endpoint</value>
+        [DataMember(Name="endpointName", EmitDefaultValue=false)]
+        public string EndpointName { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -89,7 +112,7 @@ namespace com.bluejeans.api.rest.onvideo.Model
             sb.Append("  EndpointType: ").Append(EndpointType).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
-            sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
+            sb.Append("  EndpointName: ").Append(EndpointName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,9 +165,9 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     this.LanguageCode.Equals(other.LanguageCode)
                 ) && 
                 (
-                    this.Capabilities == other.Capabilities ||
-                    this.Capabilities != null &&
-                    this.Capabilities.SequenceEqual(other.Capabilities)
+                    this.EndpointName == other.EndpointName ||
+                    this.EndpointName != null &&
+                    this.EndpointName.Equals(other.EndpointName)
                 );
         }
 
@@ -165,8 +188,8 @@ namespace com.bluejeans.api.rest.onvideo.Model
                     hash = hash * 59 + this.UserId.GetHashCode();
                 if (this.LanguageCode != null)
                     hash = hash * 59 + this.LanguageCode.GetHashCode();
-                if (this.Capabilities != null)
-                    hash = hash * 59 + this.Capabilities.GetHashCode();
+                if (this.EndpointName != null)
+                    hash = hash * 59 + this.EndpointName.GetHashCode();
                 return hash;
             }
         }

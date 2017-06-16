@@ -345,7 +345,7 @@ class MeetingApi
             throw new \InvalidArgumentException('Missing the required parameter $payload_pairing_code_sip when calling generatePairingCodeSip');
         }
         // parse inputs
-        $resourcePath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip";
+        $resourcePath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -401,7 +401,7 @@ class MeetingApi
                 $httpBody,
                 $headerParams,
                 '\BlueJeansOnVideoRestApi\Model\PairingCode',
-                '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip'
+                '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCode', $httpHeader), $statusCode, $httpHeader];

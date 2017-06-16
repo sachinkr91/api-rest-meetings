@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpointType** | **Number** |  | [optional] 
-**userId** | **Number** |  | [optional] 
-**languageCode** | **String** |  | [optional] 
-**capabilities** | **[String]** |  | [optional] 
+**endpointType** | **Number** | 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile | [optional] 
+**userId** | **Number** | Optional database id of user associated with endpoint | [optional] 
+**languageCode** | **String** | Optional lanaguage code | [optional] 
+**endpointName** | **String** | Optional name of endpoint | [optional] 
 
 
 <a name="LanguageCodeEnum"></a>
@@ -14,6 +14,12 @@ Name | Type | Description | Notes
 
 
 * `en` (value: `"en"`)
+
+* `en-us` (value: `"en-us"`)
+
+* `en-gb` (value: `"en-gb"`)
+
+* `de` (value: `"de"`)
 
 
 
