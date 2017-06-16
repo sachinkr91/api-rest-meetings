@@ -111,7 +111,7 @@ Class | Method | HTTP request | Description
 *HistoryApi* | [**list_recordings**](docs/HistoryApi.md#list_recordings) | **GET** /v1/user/{user_id}/meeting_history/recordings | List Meeting Recordings
 *MeetingApi* | [**cancel_meeting**](docs/MeetingApi.md#cancel_meeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 *MeetingApi* | [**create_meeting**](docs/MeetingApi.md#create_meeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
-*MeetingApi* | [**generate_pairing_code_sip**](docs/MeetingApi.md#generate_pairing_code_sip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip | Generate Pairing Code (SIP)
+*MeetingApi* | [**generate_pairing_code_sip**](docs/MeetingApi.md#generate_pairing_code_sip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP | Generate Pairing Code (SIP)
 *MeetingApi* | [**generate_pairing_code_web_rtc**](docs/MeetingApi.md#generate_pairing_code_web_rtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 *MeetingApi* | [**get_endpoint_layout**](docs/MeetingApi.md#get_endpoint_layout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
 *MeetingApi* | [**get_meeting**](docs/MeetingApi.md#get_meeting) | **GET** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Get Meeting
