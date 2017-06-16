@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeSip**
-> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
+> \BlueJeansOnVideoRestApi\Model\PairingCodeSIP generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
 
 Generate Pairing Code (SIP)
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\PairingCode**](../Model/PairingCode.md)
+[**\BlueJeansOnVideoRestApi\Model\PairingCodeSIP**](../Model/PairingCodeSIP.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeWebRtc**
-> \BlueJeansOnVideoRestApi\Model\PairingCode generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role)
+> \BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role)
 
 Generate Pairing Code (WebRTC)
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\PairingCode**](../Model/PairingCode.md)
+[**\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * PairingCodeTurnserversTest
+ * PairingCodeWebRTCTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BlueJeansOnVideoRestApi;
 
 /**
- * PairingCodeTurnserversTest Class Doc Comment
+ * PairingCodeWebRTCTest Class Doc Comment
  *
  * @category    Class */
-// * @description PairingCodeTurnservers
+// * @description PairingCodeWebRTC
 /**
  * @package     BlueJeansOnVideoRestApi
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PairingCodeTurnserversTest extends \PHPUnit_Framework_TestCase
+class PairingCodeWebRTCTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -75,33 +75,97 @@ class PairingCodeTurnserversTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PairingCodeTurnservers"
+     * Test "PairingCodeWebRTC"
      */
-    public function testPairingCodeTurnservers()
+    public function testPairingCodeWebRTC()
     {
 
     }
 
     /**
-     * Test attribute "credential"
+     * Test attribute "callguid"
      */
-    public function testPropertyCredential()
+    public function testPropertyCallguid()
     {
 
     }
 
     /**
-     * Test attribute "urls"
+     * Test attribute "endpoint_guid"
      */
-    public function testPropertyUrls()
+    public function testPropertyEndpointGuid()
     {
 
     }
 
     /**
-     * Test attribute "username"
+     * Test attribute "force_turn"
      */
-    public function testPropertyUsername()
+    public function testPropertyForceTurn()
+    {
+
+    }
+
+    /**
+     * Test attribute "pairing_code"
+     */
+    public function testPropertyPairingCode()
+    {
+
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+
+    }
+
+    /**
+     * Test attribute "status_text"
+     */
+    public function testPropertyStatusText()
+    {
+
+    }
+
+    /**
+     * Test attribute "turnservers"
+     */
+    public function testPropertyTurnservers()
+    {
+
+    }
+
+    /**
+     * Test attribute "uri"
+     */
+    public function testPropertyUri()
+    {
+
+    }
+
+    /**
+     * Test attribute "seam_endpoint_guid"
+     */
+    public function testPropertySeamEndpointGuid()
+    {
+
+    }
+
+    /**
+     * Test attribute "connection_guid"
+     */
+    public function testPropertyConnectionGuid()
+    {
+
+    }
+
+    /**
+     * Test attribute "endpoint_name"
+     */
+    public function testPropertyEndpointName()
     {
 
     }

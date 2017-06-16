@@ -1,6 +1,6 @@
 <?php
 /**
- * PairingCodeTurnservers
+ * PairingCodeWebRTC
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BlueJeansOnVideoRestApi\Model;
 use \ArrayAccess;
 
 /**
- * PairingCodeTurnservers Class Doc Comment
+ * PairingCodeWebRTC Class Doc Comment
  *
  * @category    Class
  * @package     BlueJeansOnVideoRestApi
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PairingCodeTurnservers implements ArrayAccess
+class PairingCodeWebRTC implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,16 +47,24 @@ class PairingCodeTurnservers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PairingCode_turnservers';
+    protected static $swaggerModelName = 'PairingCodeWebRTC';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'credential' => 'string',
-        'urls' => 'string',
-        'username' => 'string'
+        'callguid' => 'string',
+        'endpoint_guid' => 'string',
+        'force_turn' => 'bool',
+        'pairing_code' => 'string',
+        'status' => 'int',
+        'status_text' => 'string',
+        'turnservers' => '\BlueJeansOnVideoRestApi\Model\PairingCodeSIPTurnservers[]',
+        'uri' => 'string',
+        'seam_endpoint_guid' => 'string',
+        'connection_guid' => 'string',
+        'endpoint_name' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -69,9 +77,17 @@ class PairingCodeTurnservers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'credential' => 'credential',
-        'urls' => 'urls',
-        'username' => 'username'
+        'callguid' => 'callguid',
+        'endpoint_guid' => 'endpointGuid',
+        'force_turn' => 'forceTURN',
+        'pairing_code' => 'pairingCode',
+        'status' => 'status',
+        'status_text' => 'statusText',
+        'turnservers' => 'turnservers',
+        'uri' => 'uri',
+        'seam_endpoint_guid' => 'seamEndpointGuid',
+        'connection_guid' => 'connectionGuid',
+        'endpoint_name' => 'endpointName'
     ];
 
 
@@ -80,9 +96,17 @@ class PairingCodeTurnservers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'credential' => 'setCredential',
-        'urls' => 'setUrls',
-        'username' => 'setUsername'
+        'callguid' => 'setCallguid',
+        'endpoint_guid' => 'setEndpointGuid',
+        'force_turn' => 'setForceTurn',
+        'pairing_code' => 'setPairingCode',
+        'status' => 'setStatus',
+        'status_text' => 'setStatusText',
+        'turnservers' => 'setTurnservers',
+        'uri' => 'setUri',
+        'seam_endpoint_guid' => 'setSeamEndpointGuid',
+        'connection_guid' => 'setConnectionGuid',
+        'endpoint_name' => 'setEndpointName'
     ];
 
 
@@ -91,9 +115,17 @@ class PairingCodeTurnservers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'credential' => 'getCredential',
-        'urls' => 'getUrls',
-        'username' => 'getUsername'
+        'callguid' => 'getCallguid',
+        'endpoint_guid' => 'getEndpointGuid',
+        'force_turn' => 'getForceTurn',
+        'pairing_code' => 'getPairingCode',
+        'status' => 'getStatus',
+        'status_text' => 'getStatusText',
+        'turnservers' => 'getTurnservers',
+        'uri' => 'getUri',
+        'seam_endpoint_guid' => 'getSeamEndpointGuid',
+        'connection_guid' => 'getConnectionGuid',
+        'endpoint_name' => 'getEndpointName'
     ];
 
     public static function attributeMap()
@@ -111,8 +143,20 @@ class PairingCodeTurnservers implements ArrayAccess
         return self::$getters;
     }
 
+    const STATUS_TEXT_OK = 'OK';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getStatusTextAllowableValues()
+    {
+        return [
+            self::STATUS_TEXT_OK,
+        ];
+    }
     
 
     /**
@@ -127,9 +171,17 @@ class PairingCodeTurnservers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['credential'] = isset($data['credential']) ? $data['credential'] : null;
-        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['callguid'] = isset($data['callguid']) ? $data['callguid'] : null;
+        $this->container['endpoint_guid'] = isset($data['endpoint_guid']) ? $data['endpoint_guid'] : null;
+        $this->container['force_turn'] = isset($data['force_turn']) ? $data['force_turn'] : null;
+        $this->container['pairing_code'] = isset($data['pairing_code']) ? $data['pairing_code'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
+        $this->container['turnservers'] = isset($data['turnservers']) ? $data['turnservers'] : null;
+        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['seam_endpoint_guid'] = isset($data['seam_endpoint_guid']) ? $data['seam_endpoint_guid'] : null;
+        $this->container['connection_guid'] = isset($data['connection_guid']) ? $data['connection_guid'] : null;
+        $this->container['endpoint_name'] = isset($data['endpoint_name']) ? $data['endpoint_name'] : null;
     }
 
     /**
@@ -140,6 +192,11 @@ class PairingCodeTurnservers implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+
+        $allowed_values = ["OK"];
+        if (!in_array($this->container['status_text'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status_text', must be one of 'OK'.";
+        }
 
         return $invalid_properties;
     }
@@ -153,69 +210,245 @@ class PairingCodeTurnservers implements ArrayAccess
     public function valid()
     {
 
+        $allowed_values = ["OK"];
+        if (!in_array($this->container['status_text'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets credential
+     * Gets callguid
      * @return string
      */
-    public function getCredential()
+    public function getCallguid()
     {
-        return $this->container['credential'];
+        return $this->container['callguid'];
     }
 
     /**
-     * Sets credential
-     * @param string $credential
+     * Sets callguid
+     * @param string $callguid
      * @return $this
      */
-    public function setCredential($credential)
+    public function setCallguid($callguid)
     {
-        $this->container['credential'] = $credential;
+        $this->container['callguid'] = $callguid;
 
         return $this;
     }
 
     /**
-     * Gets urls
+     * Gets endpoint_guid
      * @return string
      */
-    public function getUrls()
+    public function getEndpointGuid()
     {
-        return $this->container['urls'];
+        return $this->container['endpoint_guid'];
     }
 
     /**
-     * Sets urls
-     * @param string $urls
+     * Sets endpoint_guid
+     * @param string $endpoint_guid
      * @return $this
      */
-    public function setUrls($urls)
+    public function setEndpointGuid($endpoint_guid)
     {
-        $this->container['urls'] = $urls;
+        $this->container['endpoint_guid'] = $endpoint_guid;
 
         return $this;
     }
 
     /**
-     * Gets username
-     * @return string
+     * Gets force_turn
+     * @return bool
      */
-    public function getUsername()
+    public function getForceTurn()
     {
-        return $this->container['username'];
+        return $this->container['force_turn'];
     }
 
     /**
-     * Sets username
-     * @param string $username
+     * Sets force_turn
+     * @param bool $force_turn
      * @return $this
      */
-    public function setUsername($username)
+    public function setForceTurn($force_turn)
     {
-        $this->container['username'] = $username;
+        $this->container['force_turn'] = $force_turn;
+
+        return $this;
+    }
+
+    /**
+     * Gets pairing_code
+     * @return string
+     */
+    public function getPairingCode()
+    {
+        return $this->container['pairing_code'];
+    }
+
+    /**
+     * Sets pairing_code
+     * @param string $pairing_code
+     * @return $this
+     */
+    public function setPairingCode($pairing_code)
+    {
+        $this->container['pairing_code'] = $pairing_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param int $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_text
+     * @return string
+     */
+    public function getStatusText()
+    {
+        return $this->container['status_text'];
+    }
+
+    /**
+     * Sets status_text
+     * @param string $status_text
+     * @return $this
+     */
+    public function setStatusText($status_text)
+    {
+        $allowed_values = array('OK');
+        if (!is_null($status_text) && (!in_array($status_text, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status_text', must be one of 'OK'");
+        }
+        $this->container['status_text'] = $status_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets turnservers
+     * @return \BlueJeansOnVideoRestApi\Model\PairingCodeSIPTurnservers[]
+     */
+    public function getTurnservers()
+    {
+        return $this->container['turnservers'];
+    }
+
+    /**
+     * Sets turnservers
+     * @param \BlueJeansOnVideoRestApi\Model\PairingCodeSIPTurnservers[] $turnservers
+     * @return $this
+     */
+    public function setTurnservers($turnservers)
+    {
+        $this->container['turnservers'] = $turnservers;
+
+        return $this;
+    }
+
+    /**
+     * Gets uri
+     * @return string
+     */
+    public function getUri()
+    {
+        return $this->container['uri'];
+    }
+
+    /**
+     * Sets uri
+     * @param string $uri
+     * @return $this
+     */
+    public function setUri($uri)
+    {
+        $this->container['uri'] = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets seam_endpoint_guid
+     * @return string
+     */
+    public function getSeamEndpointGuid()
+    {
+        return $this->container['seam_endpoint_guid'];
+    }
+
+    /**
+     * Sets seam_endpoint_guid
+     * @param string $seam_endpoint_guid
+     * @return $this
+     */
+    public function setSeamEndpointGuid($seam_endpoint_guid)
+    {
+        $this->container['seam_endpoint_guid'] = $seam_endpoint_guid;
+
+        return $this;
+    }
+
+    /**
+     * Gets connection_guid
+     * @return string
+     */
+    public function getConnectionGuid()
+    {
+        return $this->container['connection_guid'];
+    }
+
+    /**
+     * Sets connection_guid
+     * @param string $connection_guid
+     * @return $this
+     */
+    public function setConnectionGuid($connection_guid)
+    {
+        $this->container['connection_guid'] = $connection_guid;
+
+        return $this;
+    }
+
+    /**
+     * Gets endpoint_name
+     * @return string
+     */
+    public function getEndpointName()
+    {
+        return $this->container['endpoint_name'];
+    }
+
+    /**
+     * Sets endpoint_name
+     * @param string $endpoint_name
+     * @return $this
+     */
+    public function setEndpointName($endpoint_name)
+    {
+        $this->container['endpoint_name'] = $endpoint_name;
 
         return $this;
     }

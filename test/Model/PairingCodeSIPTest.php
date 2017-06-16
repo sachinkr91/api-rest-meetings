@@ -1,6 +1,6 @@
 <?php
 /**
- * PairingCodeTest
+ * PairingCodeSIPTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BlueJeansOnVideoRestApi;
 
 /**
- * PairingCodeTest Class Doc Comment
+ * PairingCodeSIPTest Class Doc Comment
  *
  * @category    Class */
-// * @description PairingCode
+// * @description PairingCodeSIP
 /**
  * @package     BlueJeansOnVideoRestApi
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PairingCodeTest extends \PHPUnit_Framework_TestCase
+class PairingCodeSIPTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -75,17 +75,9 @@ class PairingCodeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PairingCode"
+     * Test "PairingCodeSIP"
      */
-    public function testPairingCode()
-    {
-
-    }
-
-    /**
-     * Test attribute "callguid"
-     */
-    public function testPropertyCallguid()
+    public function testPairingCodeSIP()
     {
 
     }
@@ -110,22 +102,6 @@ class PairingCodeTest extends \PHPUnit_Framework_TestCase
      * Test attribute "pairing_code"
      */
     public function testPropertyPairingCode()
-    {
-
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-
-    }
-
-    /**
-     * Test attribute "status_text"
-     */
-    public function testPropertyStatusText()
     {
 
     }
@@ -158,14 +134,6 @@ class PairingCodeTest extends \PHPUnit_Framework_TestCase
      * Test attribute "connection_guid"
      */
     public function testPropertyConnectionGuid()
-    {
-
-    }
-
-    /**
-     * Test attribute "endpoint_name"
-     */
-    public function testPropertyEndpointName()
     {
 
     }

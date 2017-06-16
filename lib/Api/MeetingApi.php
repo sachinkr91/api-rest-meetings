@@ -311,7 +311,7 @@ class MeetingApi
      * @param int $numeric_meeting_id The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip Information about the device that will be joining via SIP. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
-     * @return \BlueJeansOnVideoRestApi\Model\PairingCode
+     * @return \BlueJeansOnVideoRestApi\Model\PairingCodeSIP
      */
     public function generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
     {
@@ -328,7 +328,7 @@ class MeetingApi
      * @param int $numeric_meeting_id The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP $payload_pairing_code_sip Information about the device that will be joining via SIP. (required)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
-     * @return array of \BlueJeansOnVideoRestApi\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BlueJeansOnVideoRestApi\Model\PairingCodeSIP, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePairingCodeSipWithHttpInfo($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
     {
@@ -400,15 +400,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\BlueJeansOnVideoRestApi\Model\PairingCode',
+                '\BlueJeansOnVideoRestApi\Model\PairingCodeSIP',
                 '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCode', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCodeSIP', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansOnVideoRestApi\Model\PairingCode', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansOnVideoRestApi\Model\PairingCodeSIP', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:
@@ -431,7 +431,7 @@ class MeetingApi
      * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
      * @param string $role  (optional, default to USER)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
-     * @return \BlueJeansOnVideoRestApi\Model\PairingCode
+     * @return \BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC
      */
     public function generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role = null)
     {
@@ -449,7 +449,7 @@ class MeetingApi
      * @param \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC $payload_pairing_code_web_rtc  (required)
      * @param string $role  (optional, default to USER)
      * @throws \BlueJeansOnVideoRestApi\ApiException on non-2xx response
-     * @return array of \BlueJeansOnVideoRestApi\Model\PairingCode, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePairingCodeWebRtcWithHttpInfo($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role = null)
     {
@@ -525,15 +525,15 @@ class MeetingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\BlueJeansOnVideoRestApi\Model\PairingCode',
+                '\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC',
                 '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCode', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansOnVideoRestApi\Model\PairingCode', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 0:
