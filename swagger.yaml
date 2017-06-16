@@ -1171,7 +1171,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/sip:
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP:
     post:
       summary: Generate Pairing Code (SIP)
       description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
