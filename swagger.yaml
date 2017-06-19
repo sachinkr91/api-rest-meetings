@@ -1778,7 +1778,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       summary: Live Meetings Summary by Enterprise
-      description: This endpoint lists meetings in progress by enterprise.
+      description: This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?Password authentication.
       operationId: getMeetingsLiveByEnterprise
       tags:
         - Command Center
@@ -1802,7 +1802,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/:
     get:
       summary: List Live Meeting Endpoints by Enterprise
-      description: This endpoint lists endpoints for a given meeting in progress.
+      description: This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/token?Password authentication.
       operationId: getMeetingLiveByEnterprise
       tags:
         - Command Center
@@ -1831,7 +1831,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
       summary: List Past Meetings by Enterprise
-      description: This endpoint lists completed meetings by enterprise.
+      description: This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Password authentication.
       operationId: getMeetingsPastByEnterprise
       tags:
         - Command Center
@@ -1867,7 +1867,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings:
     get:
       summary: List Past Meetings by User
-      description: This endpoint lists completed meetings by user.
+      description: This endpoint lists completed meetings by user. Requires /oauth2/token?Password authentication.
       operationId: getMeetingsPastByUser
       tags:
         - Command Center
@@ -1891,7 +1891,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by Enterprise
-      description: This endpoint lists meeting endpoints for completed meetings by enterprise.
+      description: This endpoint lists meeting endpoints for completed meetings by enterprise. Requires /oauth2/token?Password authentication.
       operationId: getMeetingPastByEnterprise
       tags:
         - Command Center
@@ -1924,7 +1924,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by User
-      description: This endpoint lists meeting endpoints for completed meetings by user.
+      description: This endpoint lists meeting endpoints for completed meetings by user. Requires /oauth2/token?Password authentication.
       operationId: getMeetingPastByUser
       tags:
         - Command Center
@@ -1953,7 +1953,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
      get:
       summary: Top Users
-      description: This endpoint retrieves the top users by usage for an enterprise.
+      description: This endpoint retrieves the top users by usage for an enterprise. Requires /oauth2/token?Password authentication.
       operationId: getTopUsers
       tags:
         - Command Center
@@ -1982,7 +1982,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
      get:
       summary: Endpoint Distribution
-      description: This endpoint retrieves endpoint connection type distribution by enterprise.
+      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires /oauth2/token?Password authentication.
       operationId: getEndpointDistribution
       tags:
         - Command Center
@@ -2011,7 +2011,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
      get:
       summary: Meeting Usage Over Time
-      description: This endpoint reports on meeting usage.
+      description: This endpoint reports on meeting usage. Requires /oauth2/token?Password authentication.
       operationId: getMeetingUsage
       tags:
         - Command Center
@@ -2045,7 +2045,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
      get:
       summary: ROI Data
-      description: This endpoint lists return on investment (ROI) data for meetings.
+      description: This endpoint lists return on investment (ROI) data for meetings. Requires /oauth2/token?Password authentication.
       operationId: getRoiRanges
       tags:
         - Command Center
@@ -2075,7 +2075,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/feedback/count:
      get:
       summary: Survey Feedback Scores
-      description: This endpoint lists end of meeting survey scores by enterprise by time period.
+      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires /oauth2/token?Password authentication.
       operationId: getFeedbackCount
       tags:
         - Command Center
@@ -2111,7 +2111,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
      get:
       summary: Survey Feedback Comments
-      description: This endpoint lists end of meeting survey comments by enterprise by time period.
+      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires /oauth2/token?Password authentication.
       operationId: getFeedbackComments
       tags:
         - Command Center
