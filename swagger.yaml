@@ -535,6 +535,34 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/users/export:
+    get:
+      summary: Export Enterprise Users
+      description: This endpoint exports existing users into a CSV file.
+      operationId: exportUsers
+      produces:
+        - text/csv
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+      responses:
+        '404':
+          description: Enterprise not found
+        '406':
+          description: Not acceptable. Usually, this is because you hava an accept header set to application/json and the server is trying to return you text/csv. So it is saying it cannot do what you want.
+        '200':
+          description: Returns a text/csv file. Not a JSON response.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/users/{user_id}:
     delete:
       summary: Remove Enterprise User
