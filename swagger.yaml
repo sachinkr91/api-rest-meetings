@@ -462,6 +462,77 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/groups:
+    get:
+      summary: Get User Feature Groups
+      description: This endpoint retrieves the feature groups associated with the user.
+      operationId: getGroups
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The feature groups the user belongs to.
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Set User Feature Groups
+      description: This endpoint sets the feature groups associated with the user.
+      operationId: setGroups
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: enable
+          in: query
+          description: The feature group you want to enable.
+          type: string
+          enum:
+            - record
+            - extended_capacity
+            - lync
+            - jabber
+            - telepresence
+            - isdn
+            - facetime
+        - name: disable
+          in: query
+          description: The feature group you want to disable.
+          type: string
+          enum:
+            - record
+            - extended_capacity
+            - lync
+            - jabber
+            - telepresence
+            - isdn
+            - facetime
+      responses:
+        '200':
+          description: Empty response on success.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/users:
     get:
       summary: List Enterprise Users
