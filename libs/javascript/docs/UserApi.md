@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getEnterpriseProfile**](UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**getGrantedApplications**](UserApi.md#getGrantedApplications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
+[**getGroups**](UserApi.md#getGroups) | **GET** /v1/user/{user_id}/groups | Get User Feature Groups
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**setGroups**](UserApi.md#setGroups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
@@ -109,6 +111,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GrantedApplications**](GrantedApplications.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getGroups"></a>
+# **getGroups**
+> [&#39;String&#39;] getGroups(userId)
+
+Get User Feature Groups
+
+This endpoint retrieves the feature groups associated with the user.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
+
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getGroups(userId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+**[&#39;String&#39;]**
 
 ### Authorization
 
@@ -267,6 +322,65 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **clientId** | **String**| The ID of the granted application. | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="setGroups"></a>
+# **setGroups**
+> setGroups(userId, opts)
+
+Set User Feature Groups
+
+This endpoint sets the feature groups associated with the user.
+
+### Example
+```javascript
+var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
+
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+var opts = { 
+  'enable': "enable_example", // String | The feature group you want to enable.
+  'disable': "disable_example" // String | The feature group you want to disable.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.setGroups(userId, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **enable** | **String**| The feature group you want to enable. | [optional] 
+ **disable** | **String**| The feature group you want to disable. | [optional] 
 
 ### Return type
 

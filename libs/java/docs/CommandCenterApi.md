@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 Endpoint Distribution
 
-This endpoint retrieves endpoint connection type distribution by enterprise.
+This endpoint retrieves endpoint connection type distribution by enterprise. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 Survey Feedback Comments
 
-This endpoint lists end of meeting survey comments by enterprise by time period.
+This endpoint lists end of meeting survey comments by enterprise by time period. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 Survey Feedback Scores
 
-This endpoint lists end of meeting survey scores by enterprise by time period.
+This endpoint lists end of meeting survey scores by enterprise by time period. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 List Live Meeting Endpoints by Enterprise
 
-This endpoint lists endpoints for a given meeting in progress.
+This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints &amp; Stats by Enterprise
 
-This endpoint lists meeting endpoints for completed meetings by enterprise.
+This endpoint lists meeting endpoints for completed meetings by enterprise. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints &amp; Stats by User
 
-This endpoint lists meeting endpoints for completed meetings by user.
+This endpoint lists meeting endpoints for completed meetings by user. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 Meeting Usage Over Time
 
-This endpoint reports on meeting usage.
+This endpoint reports on meeting usage. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 Live Meetings Summary by Enterprise
 
-This endpoint lists meetings in progress by enterprise.
+This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 List Past Meetings by Enterprise
 
-This endpoint lists completed meetings by enterprise.
+This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 List Past Meetings by User
 
-This endpoint lists completed meetings by user.
+This endpoint lists completed meetings by user. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ROI Data
 
-This endpoint lists return on investment (ROI) data for meetings.
+This endpoint lists return on investment (ROI) data for meetings. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 Top Users
 
-This endpoint retrieves the top users by usage for an enterprise.
+This endpoint retrieves the top users by usage for an enterprise. Requires /oauth2/token?Password authentication.
 
 ### Example
 ```java
