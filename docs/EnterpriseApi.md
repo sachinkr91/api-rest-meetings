@@ -5,6 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_user**](EnterpriseApi.md#create_user) | **POST** /v1/enterprise/{enterprise_id}/users | Create Enterprise User
+[**export_users**](EnterpriseApi.md#export_users) | **GET** /v1/enterprise/{enterprise_id}/users/export | Export Enterprise Users
 [**list_users**](EnterpriseApi.md#list_users) | **GET** /v1/enterprise/{enterprise_id}/users | List Enterprise Users
 [**remove_user**](EnterpriseApi.md#remove_user) | **DELETE** /v1/enterprise/{enterprise_id}/users/{user_id} | Remove Enterprise User
 
@@ -65,6 +66,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_users**
+> export_users(enterprise_id)
+
+Export Enterprise Users
+
+This endpoint exports existing users into a CSV file.
+
+### Example 
+```python
+from __future__ import print_statement
+import time
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansOnVideoRestApi.EnterpriseApi()
+enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+
+try: 
+    # Export Enterprise Users
+    api_instance.export_users(enterprise_id)
+except ApiException as e:
+    print("Exception when calling EnterpriseApi->export_users: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

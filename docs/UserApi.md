@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_enterprise_profile**](UserApi.md#get_enterprise_profile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**get_granted_applications**](UserApi.md#get_granted_applications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
+[**get_groups**](UserApi.md#get_groups) | **GET** /v1/user/{user_id}/groups | Get User Feature Groups
 [**get_room**](UserApi.md#get_room) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**get_user**](UserApi.md#get_user) | **GET** /v1/user/{user_id} | Get User Account Details
 [**revoke_granted_application**](UserApi.md#revoke_granted_application) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**set_groups**](UserApi.md#set_groups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**update_room**](UserApi.md#update_room) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**update_user**](UserApi.md#update_user) | **PUT** /v1/user/{user_id} | Update User Account Details
 
@@ -107,6 +109,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GrantedApplications**](GrantedApplications.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_groups**
+> list[str] get_groups(user_id)
+
+Get User Feature Groups
+
+This endpoint retrieves the feature groups associated with the user.
+
+### Example 
+```python
+from __future__ import print_statement
+import time
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansOnVideoRestApi.UserApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try: 
+    # Get User Feature Groups
+    api_response = api_instance.get_groups(user_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->get_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+**list[str]**
 
 ### Authorization
 
@@ -263,6 +318,62 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **client_id** | **str**| The ID of the granted application. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_groups**
+> set_groups(user_id, enable=enable, disable=disable)
+
+Set User Feature Groups
+
+This endpoint sets the feature groups associated with the user.
+
+### Example 
+```python
+from __future__ import print_statement
+import time
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansOnVideoRestApi.UserApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+enable = 'enable_example' # str | The feature group you want to enable. (optional)
+disable = 'disable_example' # str | The feature group you want to disable. (optional)
+
+try: 
+    # Set User Feature Groups
+    api_instance.set_groups(user_id, enable=enable, disable=disable)
+except ApiException as e:
+    print("Exception when calling UserApi->set_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **enable** | **str**| The feature group you want to enable. | [optional] 
+ **disable** | **str**| The feature group you want to disable. | [optional] 
 
 ### Return type
 
