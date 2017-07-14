@@ -3,26 +3,25 @@ info:
   title: BlueJeans onVideo REST API
   description: >
   
-    # Video That Works Where You Do.
-    
-    This site provides developers access to API's from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
+    Video That Works Where You Do.
+  
+    This site provides developers access to APIs from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
 
-    
-    With these API's  you should be able to quickly integrate **BlueJeans** video administration into your applications.  
-     
+    With these APIs you should be able to quickly integrate **BlueJeans** video administration into your applications.  
+
     ## Getting Started
 
-    Before you start using BlueJeans' API's, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' API's and develop a level of familiarity before you write production code.  <br />
-    
+    Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />
+
     ### To Make API Calls from This Site
-    
-    If you want to use this developer site to try various BlueJeans' API's, here are the steps required to authenticate and enable your Developer Session to place API calls.
-    
-    1. Choose Method for Authenticating 
+
+    If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls.
+
+    1. Choose Method for Authenticating
          * Click on the desired Authentication method from below.
          * Click on the **Try It Out** button.
     1. Make Authentication request
-         * Follow API's instructions and input the API parameters.
+         * Follow APIs instructions and input the API parameters.
          * Click on the blue **Execute** button.
          * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value.
     1. Authorize BlueJeans Developer Session.
@@ -32,7 +31,6 @@ info:
          * Click on the **Authorize** button
     
     Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.
-
 
     ## About onVideo Authentication
 
@@ -59,10 +57,9 @@ info:
     * User-level – Scope depends on the requested permissions.
 
     * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.
-    
+
     All endpoints in this document that require **Enterprise Admin** access will be marked as such.
-   
-    
+
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
