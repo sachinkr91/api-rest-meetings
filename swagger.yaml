@@ -1370,6 +1370,7 @@ paths:
                   - en
               capabilities:
                 type: array
+                description: Reserved for future use. Pass just an empty array for now. No parameters are currently accepted.
                 items:
                   type: string
       responses:
