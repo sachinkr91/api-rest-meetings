@@ -1386,6 +1386,116 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN:
+    post:
+      summary: Generate Pairing Code (PSTN)
+      description: This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+      operationId: generatePairingCodePstn
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: numeric_meeting_id
+          in: path
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+          required: true
+          type: integer
+        - name: role
+          in: query
+          type: string
+          default: USER
+        - name: PayloadPairingCodePstn
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              endpointName:
+                type: string
+                description: Typically, the first and last name of the user.
+              endpointType:
+                type: string
+                enum:
+                  - PSTN
+              userId:
+                type: integer
+              languageCode:
+                type: string
+                enum:
+                  - en
+              capabilities:
+                type: array
+                description: Send a single element set to AUDIO at this time.
+                items:
+                  type: string
+      responses:
+        '200':
+          description: The pairing code information.
+          schema:
+            $ref: '#/definitions/PairingCodeWebRTC'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn:
+    post:
+      summary: Dialout via PSTN
+      description: Places a PSTN call to a user to join meeting.
+      operationId: dialoutPstn
+      tags:
+        - Meeting
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: numeric_meeting_id
+          in: path
+          description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+          required: true
+          type: integer
+        - name: PayloadDialout
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              connectionGuid:
+                type: string
+              countryCode:
+                type: integer
+              pairedParticipantGuid:
+                type: string
+              phoneNumber:
+                type: string
+      responses:
+        '200':
+          description: Response with connection information.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DialoutPstn'
+        '401':
+          description: The access token is invalid or does not have permission.
+        '404':
+          description: THe meeting was not found.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite:
     post:
       summary: Send Email Invite
@@ -2937,6 +3047,13 @@ definitions:
       connectionGuid:
         type: string
       endpointName:
+        type: string
+  DialoutPstn:
+    type: object
+    properties:
+      connectionGuid:
+        type: string
+      endpointGuid:
         type: string
   MeetingState:
     type: object
