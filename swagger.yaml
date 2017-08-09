@@ -979,7 +979,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Meeting State
-      description: This endpoint’s purpose is to be able to modify a meeting.
+      description: This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
       operationId: updateMeetingState
       tags:
         - Meeting
@@ -1013,6 +1013,8 @@ paths:
               status:
                 type: string
                 description: Set to "terminated" to end the meeting.
+                enum:
+                  - terminated
       responses:
         '200':
           description: The results for this meeting.
