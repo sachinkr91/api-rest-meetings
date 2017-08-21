@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique identifier for room. | [optional] 
+**id** | **Integer** | Unique identifier for room. | [optional] 
 **numericId** | **String** | Unique identifier for room. | [optional] 
 **name** | **String** | Name of the room. | [optional] 
-**originPopId** | **Number** |  | [optional] 
+**originPopId** | **Integer** |  | [optional] 
 **isLargeMeeting** | **Boolean** |  | [optional] 
 **showVideoAnimations** | **Boolean** |  | [optional] 
 **backgroundImage** | **String** |  | [optional] 
@@ -22,10 +22,10 @@ Name | Type | Description | Notes
 **muteParticipantsOnEntry** | **Boolean** |  | [optional] 
 **enforceMeetingEncryption** | **Boolean** |  | [optional] 
 **enforceMeetingEncryptionAllowPSTN** | **Boolean** |  | [optional] 
-**idleTimeout** | **Number** |  | [optional] 
+**idleTimeout** | **Integer** |  | [optional] 
 **defaultLayout** | **String** |  | [optional] 
 **playAudioAlerts** | **Boolean** |  | [optional] 
-**personalMeetingId** | **Number** |  | [optional] 
+**personalMeetingId** | **Integer** |  | [optional] 
 **moderatorPasscode** | **String** |  | [optional] 
 
 

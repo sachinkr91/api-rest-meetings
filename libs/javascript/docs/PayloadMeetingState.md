@@ -7,3 +7,12 @@ Name | Type | Description | Notes
 **status** | **String** | Set to \&quot;terminated\&quot; to end the meeting. | [optional] 
 
 
+<a name="StatusEnum"></a>
+## Enum: StatusEnum
+
+
+* `terminated` (value: `"terminated"`)
+
+
+
+

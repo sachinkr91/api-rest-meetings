@@ -4,15 +4,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpointName** | **String** |  | [optional] 
-**joinTime** | **Number** |  | [optional] 
-**minutes** | **Number** |  | [optional] 
+**joinTime** | **Integer** |  | [optional] 
+**minutes** | **Integer** |  | [optional] 
 **deviceType** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
 **remoteAddress** | **String** |  | [optional] 
 **isEncrypted** | **Boolean** |  | [optional] 
-**disconnectTime** | **Number** |  | [optional] 
+**disconnectTime** | **Integer** |  | [optional] 
 **isModerator** | **Boolean** |  | [optional] 
-**userId** | **Number** |  | [optional] 
+**userId** | **Integer** |  | [optional] 
 **tags** | **String** |  | [optional] 
 **participantGuid** | **String** |  | [optional] 
 

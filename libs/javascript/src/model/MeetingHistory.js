@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -99,40 +110,40 @@
         obj['leaderInfo'] = MeetingHistoryLeaderInfo.constructFromObject(data['leaderInfo']);
       }
       if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Integer');
       }
       if (data.hasOwnProperty('meetingDuration')) {
-        obj['meetingDuration'] = ApiClient.convertToType(data['meetingDuration'], 'Number');
+        obj['meetingDuration'] = ApiClient.convertToType(data['meetingDuration'], 'Integer');
       }
       if (data.hasOwnProperty('maxParticipantCount')) {
-        obj['maxParticipantCount'] = ApiClient.convertToType(data['maxParticipantCount'], 'Number');
+        obj['maxParticipantCount'] = ApiClient.convertToType(data['maxParticipantCount'], 'Integer');
       }
       if (data.hasOwnProperty('totalParticipantMinutes')) {
-        obj['totalParticipantMinutes'] = ApiClient.convertToType(data['totalParticipantMinutes'], 'Number');
+        obj['totalParticipantMinutes'] = ApiClient.convertToType(data['totalParticipantMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('maxParticipantMinutes')) {
-        obj['maxParticipantMinutes'] = ApiClient.convertToType(data['maxParticipantMinutes'], 'Number');
+        obj['maxParticipantMinutes'] = ApiClient.convertToType(data['maxParticipantMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('extraParticipantMinutes')) {
-        obj['extraParticipantMinutes'] = ApiClient.convertToType(data['extraParticipantMinutes'], 'Number');
+        obj['extraParticipantMinutes'] = ApiClient.convertToType(data['extraParticipantMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('isdnEndpoints')) {
-        obj['isdnEndpoints'] = ApiClient.convertToType(data['isdnEndpoints'], 'Number');
+        obj['isdnEndpoints'] = ApiClient.convertToType(data['isdnEndpoints'], 'Integer');
       }
       if (data.hasOwnProperty('totalDialoutMinutes')) {
-        obj['totalDialoutMinutes'] = ApiClient.convertToType(data['totalDialoutMinutes'], 'Number');
+        obj['totalDialoutMinutes'] = ApiClient.convertToType(data['totalDialoutMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('totalTollFreeMinutes')) {
-        obj['totalTollFreeMinutes'] = ApiClient.convertToType(data['totalTollFreeMinutes'], 'Number');
+        obj['totalTollFreeMinutes'] = ApiClient.convertToType(data['totalTollFreeMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('callDIDMinutes')) {
-        obj['callDIDMinutes'] = ApiClient.convertToType(data['callDIDMinutes'], 'Number');
+        obj['callDIDMinutes'] = ApiClient.convertToType(data['callDIDMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('startTime')) {
-        obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Number');
+        obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Integer');
       }
       if (data.hasOwnProperty('endTime')) {
-        obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Number');
+        obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Integer');
       }
       if (data.hasOwnProperty('meetingStatus')) {
         obj['meetingStatus'] = ApiClient.convertToType(data['meetingStatus'], 'String');
@@ -183,51 +194,51 @@
    */
   exports.prototype['leaderInfo'] = undefined;
   /**
-   * @member {Number} userId
+   * @member {Integer} userId
    */
   exports.prototype['userId'] = undefined;
   /**
-   * @member {Number} meetingDuration
+   * @member {Integer} meetingDuration
    */
   exports.prototype['meetingDuration'] = undefined;
   /**
-   * @member {Number} maxParticipantCount
+   * @member {Integer} maxParticipantCount
    */
   exports.prototype['maxParticipantCount'] = undefined;
   /**
-   * @member {Number} totalParticipantMinutes
+   * @member {Integer} totalParticipantMinutes
    */
   exports.prototype['totalParticipantMinutes'] = undefined;
   /**
-   * @member {Number} maxParticipantMinutes
+   * @member {Integer} maxParticipantMinutes
    */
   exports.prototype['maxParticipantMinutes'] = undefined;
   /**
-   * @member {Number} extraParticipantMinutes
+   * @member {Integer} extraParticipantMinutes
    */
   exports.prototype['extraParticipantMinutes'] = undefined;
   /**
-   * @member {Number} isdnEndpoints
+   * @member {Integer} isdnEndpoints
    */
   exports.prototype['isdnEndpoints'] = undefined;
   /**
-   * @member {Number} totalDialoutMinutes
+   * @member {Integer} totalDialoutMinutes
    */
   exports.prototype['totalDialoutMinutes'] = undefined;
   /**
-   * @member {Number} totalTollFreeMinutes
+   * @member {Integer} totalTollFreeMinutes
    */
   exports.prototype['totalTollFreeMinutes'] = undefined;
   /**
-   * @member {Number} callDIDMinutes
+   * @member {Integer} callDIDMinutes
    */
   exports.prototype['callDIDMinutes'] = undefined;
   /**
-   * @member {Number} startTime
+   * @member {Integer} startTime
    */
   exports.prototype['startTime'] = undefined;
   /**
-   * @member {Number} endTime
+   * @member {Integer} endTime
    */
   exports.prototype['endTime'] = undefined;
   /**

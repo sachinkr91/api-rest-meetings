@@ -134,6 +134,8 @@ Class | Method | HTTP request | Description
 *HistoryApi* | [**listRecordings**](docs/HistoryApi.md#listRecordings) | **GET** /v1/user/{user_id}/meeting_history/recordings | List Meeting Recordings
 *MeetingApi* | [**cancelMeeting**](docs/MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 *MeetingApi* | [**createMeeting**](docs/MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
+*MeetingApi* | [**dialoutPstn**](docs/MeetingApi.md#dialoutPstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn | Dialout via PSTN
+*MeetingApi* | [**generatePairingCodePstn**](docs/MeetingApi.md#generatePairingCodePstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN | Generate Pairing Code (PSTN)
 *MeetingApi* | [**generatePairingCodeSip**](docs/MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP | Generate Pairing Code (SIP)
 *MeetingApi* | [**generatePairingCodeWebRtc**](docs/MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 *MeetingApi* | [**getEndpointLayout**](docs/MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
@@ -186,6 +188,7 @@ Class | Method | HTTP request | Description
  - [Content](docs/Content.md)
  - [ContentContentProperties](docs/ContentContentProperties.md)
  - [ContentContentPropertiesLevels](docs/ContentContentPropertiesLevels.md)
+ - [DialoutPstn](docs/DialoutPstn.md)
  - [Endpoint](docs/Endpoint.md)
  - [EndpointIndigo](docs/EndpointIndigo.md)
  - [EndpointIndigoEndpointAttributes1](docs/EndpointIndigoEndpointAttributes1.md)
@@ -239,8 +242,10 @@ Class | Method | HTTP request | Description
  - [PairingCodeSIPTurnservers](docs/PairingCodeSIPTurnservers.md)
  - [PairingCodeWebRTC](docs/PairingCodeWebRTC.md)
  - [Partition](docs/Partition.md)
+ - [PayloadDialout](docs/PayloadDialout.md)
  - [PayloadInvite](docs/PayloadInvite.md)
  - [PayloadMeetingState](docs/PayloadMeetingState.md)
+ - [PayloadPairingCodePstn](docs/PayloadPairingCodePstn.md)
  - [PayloadPairingCodeSIP](docs/PayloadPairingCodeSIP.md)
  - [PayloadPairingCodeWebRTC](docs/PayloadPairingCodeWebRTC.md)
  - [Recording](docs/Recording.md)
@@ -267,7 +272,7 @@ Authentication schemes defined for the API:
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
+It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
 
 ## Author
 

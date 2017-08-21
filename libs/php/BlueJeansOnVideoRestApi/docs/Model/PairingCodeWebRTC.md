@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **pairing_code** | **string** |  | [optional] 
 **status** | **int** |  | [optional] 
 **status_text** | **string** |  | [optional] 
-**turnservers** | [**\BlueJeansOnVideoRestApi\Model\PairingCodeSIPTurnservers[]**](PairingCodeSIPTurnservers.md) |  | [optional] 
+**turnservers** | [**\Swagger\Client\Model\PairingCodeSIPTurnservers[]**](PairingCodeSIPTurnservers.md) |  | [optional] 
 **uri** | **string** |  | [optional] 
 **seam_endpoint_guid** | **string** |  | [optional] 
 **connection_guid** | **string** |  | [optional] 

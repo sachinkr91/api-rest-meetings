@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**great** | **Number** |  | [optional] 
-**okay** | **Number** |  | [optional] 
-**bad** | **Number** |  | [optional] 
-**poor** | **Number** |  | [optional] 
-**good** | **Number** |  | [optional] 
+**great** | **Integer** |  | [optional] 
+**okay** | **Integer** |  | [optional] 
+**bad** | **Integer** |  | [optional] 
+**poor** | **Integer** |  | [optional] 
+**good** | **Integer** |  | [optional] 
 
 

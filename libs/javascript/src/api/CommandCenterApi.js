@@ -9,23 +9,34 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackScores', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers', 'model/AnalyticsUsage', 'model/Error', 'model/MeetingExtendedIndigo', 'model/MeetingIndigoList'], factory);
+    define(['ApiClient', 'model/AnalyticsEndpointDistribution', 'model/Error', 'model/AnalyticsFeedbackComments', 'model/AnalyticsFeedbackScores', 'model/MeetingExtendedIndigo', 'model/AnalyticsUsage', 'model/MeetingIndigoList', 'model/AnalyticsRoiData', 'model/AnalyticsTopUsers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'), require('../model/AnalyticsUsage'), require('../model/Error'), require('../model/MeetingExtendedIndigo'), require('../model/MeetingIndigoList'));
+    module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/Error'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/MeetingExtendedIndigo'), require('../model/AnalyticsUsage'), require('../model/MeetingIndigoList'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingExtendedIndigo, root.BlueJeansOnVideoRestApi.MeetingIndigoList);
+    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.MeetingExtendedIndigo, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.MeetingIndigoList, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers);
   }
-}(this, function(ApiClient, AnalyticsEndpointDistribution, AnalyticsFeedbackComments, AnalyticsFeedbackScores, AnalyticsRoiData, AnalyticsTopUsers, AnalyticsUsage, Error, MeetingExtendedIndigo, MeetingIndigoList) {
+}(this, function(ApiClient, AnalyticsEndpointDistribution, Error, AnalyticsFeedbackComments, AnalyticsFeedbackScores, MeetingExtendedIndigo, AnalyticsUsage, MeetingIndigoList, AnalyticsRoiData, AnalyticsTopUsers) {
   'use strict';
 
   /**
@@ -56,7 +67,7 @@
     /**
      * Endpoint Distribution
      * This endpoint retrieves endpoint connection type distribution by enterprise. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;creation_time&quot;}])
      * @param {module:api/CommandCenterApi~getEndpointDistributionCallback} callback The callback function, accepting three arguments: error, data, response
@@ -68,7 +79,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getEndpointDistribution");
+        throw "Missing the required parameter 'enterpriseId' when calling getEndpointDistribution";
       }
 
 
@@ -106,7 +117,7 @@
     /**
      * Survey Feedback Comments
      * This endpoint lists end of meeting survey comments by enterprise by time period. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {module:api/CommandCenterApi~getFeedbackCommentsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -117,17 +128,17 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getFeedbackComments");
+        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackComments";
       }
 
       // verify the required parameter 'start' is set
       if (start == undefined || start == null) {
-        throw new Error("Missing the required parameter 'start' when calling getFeedbackComments");
+        throw "Missing the required parameter 'start' when calling getFeedbackComments";
       }
 
       // verify the required parameter 'end' is set
       if (end == undefined || end == null) {
-        throw new Error("Missing the required parameter 'end' when calling getFeedbackComments");
+        throw "Missing the required parameter 'end' when calling getFeedbackComments";
       }
 
 
@@ -166,7 +177,7 @@
     /**
      * Survey Feedback Scores
      * This endpoint lists end of meeting survey scores by enterprise by time period. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} start Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {String} end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
      * @param {module:api/CommandCenterApi~getFeedbackCountCallback} callback The callback function, accepting three arguments: error, data, response
@@ -177,17 +188,17 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getFeedbackCount");
+        throw "Missing the required parameter 'enterpriseId' when calling getFeedbackCount";
       }
 
       // verify the required parameter 'start' is set
       if (start == undefined || start == null) {
-        throw new Error("Missing the required parameter 'start' when calling getFeedbackCount");
+        throw "Missing the required parameter 'start' when calling getFeedbackCount";
       }
 
       // verify the required parameter 'end' is set
       if (end == undefined || end == null) {
-        throw new Error("Missing the required parameter 'end' when calling getFeedbackCount");
+        throw "Missing the required parameter 'end' when calling getFeedbackCount";
       }
 
 
@@ -226,7 +237,7 @@
     /**
      * List Live Meeting Endpoints by Enterprise
      * This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
      * @param {module:api/CommandCenterApi~getMeetingLiveByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingExtendedIndigo}
@@ -236,12 +247,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingLiveByEnterprise");
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingLiveByEnterprise";
       }
 
       // verify the required parameter 'meetingUuid' is set
       if (meetingUuid == undefined || meetingUuid == null) {
-        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingLiveByEnterprise");
+        throw "Missing the required parameter 'meetingUuid' when calling getMeetingLiveByEnterprise";
       }
 
 
@@ -279,7 +290,7 @@
     /**
      * List Meeting Endpoints &amp; Stats by Enterprise
      * This endpoint lists meeting endpoints for completed meetings by enterprise. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeEndpoints Option to include detailed data on endpoints
@@ -292,12 +303,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingPastByEnterprise");
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingPastByEnterprise";
       }
 
       // verify the required parameter 'meetingUuid' is set
       if (meetingUuid == undefined || meetingUuid == null) {
-        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingPastByEnterprise");
+        throw "Missing the required parameter 'meetingUuid' when calling getMeetingPastByEnterprise";
       }
 
 
@@ -336,7 +347,7 @@
     /**
      * List Meeting Endpoints &amp; Stats by User
      * This endpoint lists meeting endpoints for completed meetings by user. Requires /oauth2/token?Password authentication.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} meetingUuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
      * @param {module:api/CommandCenterApi~getMeetingPastByUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingExtendedIndigo}
@@ -346,12 +357,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling getMeetingPastByUser");
+        throw "Missing the required parameter 'userId' when calling getMeetingPastByUser";
       }
 
       // verify the required parameter 'meetingUuid' is set
       if (meetingUuid == undefined || meetingUuid == null) {
-        throw new Error("Missing the required parameter 'meetingUuid' when calling getMeetingPastByUser");
+        throw "Missing the required parameter 'meetingUuid' when calling getMeetingPastByUser";
       }
 
 
@@ -389,7 +400,7 @@
     /**
      * Meeting Usage Over Time
      * This endpoint reports on meeting usage. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientTZ Based on standard TZ code. (default to America/Denver)
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;string&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;DAY&quot;,&quot;field&quot;:&quot;groupInterval&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;lowts&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;eq&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;hights&quot;}])
@@ -402,7 +413,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingUsage");
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingUsage";
       }
 
 
@@ -441,7 +452,7 @@
     /**
      * Live Meetings Summary by Enterprise
      * This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {module:api/CommandCenterApi~getMeetingsLiveByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingIndigoList}
      */
@@ -450,7 +461,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingsLiveByEnterprise");
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingsLiveByEnterprise";
       }
 
 
@@ -487,10 +498,10 @@
     /**
      * List Past Meetings by Enterprise
      * This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.offset Page Number
-     * @param {Number} opts.limit Per page
+     * @param {Integer} opts.offset Page Number
+     * @param {Integer} opts.limit Per page
      * @param {String} opts.filter URL-encoded JSON string
      * @param {module:api/CommandCenterApi~getMeetingsPastByEnterpriseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingIndigoList}
@@ -501,7 +512,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getMeetingsPastByEnterprise");
+        throw "Missing the required parameter 'enterpriseId' when calling getMeetingsPastByEnterprise";
       }
 
 
@@ -541,7 +552,7 @@
     /**
      * List Past Meetings by User
      * This endpoint lists completed meetings by user. Requires /oauth2/token?Password authentication.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/CommandCenterApi~getMeetingsPastByUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MeetingIndigoList}
      */
@@ -550,7 +561,7 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling getMeetingsPastByUser");
+        throw "Missing the required parameter 'userId' when calling getMeetingsPastByUser";
       }
 
 
@@ -587,7 +598,7 @@
     /**
      * ROI Data
      * This endpoint lists return on investment (ROI) data for meetings. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {String} filter URL-encoded JSON string
      * @param {module:api/CommandCenterApi~getRoiRangesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyticsRoiData}
@@ -597,12 +608,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getRoiRanges");
+        throw "Missing the required parameter 'enterpriseId' when calling getRoiRanges";
       }
 
       // verify the required parameter 'filter' is set
       if (filter == undefined || filter == null) {
-        throw new Error("Missing the required parameter 'filter' when calling getRoiRanges");
+        throw "Missing the required parameter 'filter' when calling getRoiRanges";
       }
 
 
@@ -640,7 +651,7 @@
     /**
      * Top Users
      * This endpoint retrieves the top users by usage for an enterprise. Requires /oauth2/token?Password authentication.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
      * @param {String} opts.filter URL-encoded JSON string (default to [{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;gt&quot;,&quot;value&quot;:&quot;2017-01-16T00:00:00-07:00&quot;,&quot;field&quot;:&quot;start_time&quot;},{&quot;type&quot;:&quot;date&quot;,&quot;comparison&quot;:&quot;lt&quot;,&quot;value&quot;:&quot;2017-01-23T23:59:59-07:00&quot;,&quot;field&quot;:&quot;end_time&quot;}])
      * @param {module:api/CommandCenterApi~getTopUsersCallback} callback The callback function, accepting three arguments: error, data, response
@@ -652,7 +663,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling getTopUsers");
+        throw "Missing the required parameter 'enterpriseId' when calling getTopUsers";
       }
 
 

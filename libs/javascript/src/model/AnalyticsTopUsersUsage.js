@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -65,7 +76,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('lastMeetingTime')) {
-        obj['lastMeetingTime'] = ApiClient.convertToType(data['lastMeetingTime'], 'Number');
+        obj['lastMeetingTime'] = ApiClient.convertToType(data['lastMeetingTime'], 'Integer');
       }
       if (data.hasOwnProperty('participantMinutes')) {
         obj['participantMinutes'] = ApiClient.convertToType(data['participantMinutes'], 'Number');
@@ -77,7 +88,7 @@
         obj['userName'] = ApiClient.convertToType(data['userName'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Integer');
       }
       if (data.hasOwnProperty('first_name')) {
         obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
@@ -87,7 +98,7 @@
   }
 
   /**
-   * @member {Number} lastMeetingTime
+   * @member {Integer} lastMeetingTime
    */
   exports.prototype['lastMeetingTime'] = undefined;
   /**
@@ -103,7 +114,7 @@
    */
   exports.prototype['userName'] = undefined;
   /**
-   * @member {Number} userId
+   * @member {Integer} userId
    */
   exports.prototype['userId'] = undefined;
   /**

@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -75,119 +86,119 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('Google')) {
-        obj['Google'] = ApiClient.convertToType(data['Google'], 'Number');
+        obj['Google'] = ApiClient.convertToType(data['Google'], 'Integer');
       }
       if (data.hasOwnProperty('Telepresence')) {
-        obj['Telepresence'] = ApiClient.convertToType(data['Telepresence'], 'Number');
+        obj['Telepresence'] = ApiClient.convertToType(data['Telepresence'], 'Integer');
       }
       if (data.hasOwnProperty('Lync')) {
-        obj['Lync'] = ApiClient.convertToType(data['Lync'], 'Number');
+        obj['Lync'] = ApiClient.convertToType(data['Lync'], 'Integer');
       }
       if (data.hasOwnProperty('iOS')) {
-        obj['iOS'] = ApiClient.convertToType(data['iOS'], 'Number');
+        obj['iOS'] = ApiClient.convertToType(data['iOS'], 'Integer');
       }
       if (data.hasOwnProperty('H323')) {
-        obj['H323'] = ApiClient.convertToType(data['H323'], 'Number');
+        obj['H323'] = ApiClient.convertToType(data['H323'], 'Integer');
       }
       if (data.hasOwnProperty('InterCall')) {
-        obj['InterCall'] = ApiClient.convertToType(data['InterCall'], 'Number');
+        obj['InterCall'] = ApiClient.convertToType(data['InterCall'], 'Integer');
       }
       if (data.hasOwnProperty('Jabber')) {
-        obj['Jabber'] = ApiClient.convertToType(data['Jabber'], 'Number');
+        obj['Jabber'] = ApiClient.convertToType(data['Jabber'], 'Integer');
       }
       if (data.hasOwnProperty('Android')) {
-        obj['Android'] = ApiClient.convertToType(data['Android'], 'Number');
+        obj['Android'] = ApiClient.convertToType(data['Android'], 'Integer');
       }
       if (data.hasOwnProperty('Skype')) {
-        obj['Skype'] = ApiClient.convertToType(data['Skype'], 'Number');
+        obj['Skype'] = ApiClient.convertToType(data['Skype'], 'Integer');
       }
       if (data.hasOwnProperty('ISDN')) {
-        obj['ISDN'] = ApiClient.convertToType(data['ISDN'], 'Number');
+        obj['ISDN'] = ApiClient.convertToType(data['ISDN'], 'Integer');
       }
       if (data.hasOwnProperty('PSTN')) {
-        obj['PSTN'] = ApiClient.convertToType(data['PSTN'], 'Number');
+        obj['PSTN'] = ApiClient.convertToType(data['PSTN'], 'Integer');
       }
       if (data.hasOwnProperty('Level3')) {
-        obj['Level3'] = ApiClient.convertToType(data['Level3'], 'Number');
+        obj['Level3'] = ApiClient.convertToType(data['Level3'], 'Integer');
       }
       if (data.hasOwnProperty('SIP')) {
-        obj['SIP'] = ApiClient.convertToType(data['SIP'], 'Number');
+        obj['SIP'] = ApiClient.convertToType(data['SIP'], 'Integer');
       }
       if (data.hasOwnProperty('BlueJeansApp')) {
-        obj['BlueJeansApp'] = ApiClient.convertToType(data['BlueJeansApp'], 'Number');
+        obj['BlueJeansApp'] = ApiClient.convertToType(data['BlueJeansApp'], 'Integer');
       }
       if (data.hasOwnProperty('Browser')) {
-        obj['Browser'] = ApiClient.convertToType(data['Browser'], 'Number');
+        obj['Browser'] = ApiClient.convertToType(data['Browser'], 'Integer');
       }
       if (data.hasOwnProperty('WebRTC')) {
-        obj['WebRTC'] = ApiClient.convertToType(data['WebRTC'], 'Number');
+        obj['WebRTC'] = ApiClient.convertToType(data['WebRTC'], 'Integer');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} Google
+   * @member {Integer} Google
    */
   exports.prototype['Google'] = undefined;
   /**
-   * @member {Number} Telepresence
+   * @member {Integer} Telepresence
    */
   exports.prototype['Telepresence'] = undefined;
   /**
-   * @member {Number} Lync
+   * @member {Integer} Lync
    */
   exports.prototype['Lync'] = undefined;
   /**
-   * @member {Number} iOS
+   * @member {Integer} iOS
    */
   exports.prototype['iOS'] = undefined;
   /**
-   * @member {Number} H323
+   * @member {Integer} H323
    */
   exports.prototype['H323'] = undefined;
   /**
-   * @member {Number} InterCall
+   * @member {Integer} InterCall
    */
   exports.prototype['InterCall'] = undefined;
   /**
-   * @member {Number} Jabber
+   * @member {Integer} Jabber
    */
   exports.prototype['Jabber'] = undefined;
   /**
-   * @member {Number} Android
+   * @member {Integer} Android
    */
   exports.prototype['Android'] = undefined;
   /**
-   * @member {Number} Skype
+   * @member {Integer} Skype
    */
   exports.prototype['Skype'] = undefined;
   /**
-   * @member {Number} ISDN
+   * @member {Integer} ISDN
    */
   exports.prototype['ISDN'] = undefined;
   /**
-   * @member {Number} PSTN
+   * @member {Integer} PSTN
    */
   exports.prototype['PSTN'] = undefined;
   /**
-   * @member {Number} Level3
+   * @member {Integer} Level3
    */
   exports.prototype['Level3'] = undefined;
   /**
-   * @member {Number} SIP
+   * @member {Integer} SIP
    */
   exports.prototype['SIP'] = undefined;
   /**
-   * @member {Number} BlueJeansApp
+   * @member {Integer} BlueJeansApp
    */
   exports.prototype['BlueJeansApp'] = undefined;
   /**
-   * @member {Number} Browser
+   * @member {Integer} Browser
    */
   exports.prototype['Browser'] = undefined;
   /**
-   * @member {Number} WebRTC
+   * @member {Integer} WebRTC
    */
   exports.prototype['WebRTC'] = undefined;
 

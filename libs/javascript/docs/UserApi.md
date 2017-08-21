@@ -36,7 +36,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -53,7 +53,7 @@ apiInstance.getEnterpriseProfile(userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 
@@ -89,7 +89,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -106,7 +106,7 @@ apiInstance.getGrantedApplications(userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 
@@ -142,7 +142,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -159,7 +159,7 @@ apiInstance.getGroups(userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -212,7 +212,7 @@ apiInstance.getRoom(userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 
@@ -248,7 +248,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -265,7 +265,7 @@ apiInstance.getUser(userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 
@@ -301,7 +301,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var clientId = "clientId_example"; // String | The ID of the granted application.
 
@@ -320,7 +320,7 @@ apiInstance.revokeGrantedApplication(userId, clientId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **clientId** | **String**| The ID of the granted application. | 
 
 ### Return type
@@ -357,7 +357,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var opts = { 
   'enable': "enable_example", // String | The feature group you want to enable.
@@ -378,7 +378,7 @@ apiInstance.setGroups(userId, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **enable** | **String**| The feature group you want to enable. | [optional] 
  **disable** | **String**| The feature group you want to disable. | [optional] 
 
@@ -416,7 +416,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var room = new BlueJeansOnVideoRestApi.Room(); // Room | The user's room details that you wish to update.
 
@@ -435,7 +435,7 @@ apiInstance.updateRoom(userId, room, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **room** | [**Room**](Room.md)| The user&#39;s room details that you wish to update. | 
 
 ### Return type
@@ -472,7 +472,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.UserApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var user = new BlueJeansOnVideoRestApi.User(); // User | The user details that you wish to update.
 
@@ -491,7 +491,7 @@ apiInstance.updateUser(userId, user, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **user** | [**User**](User.md)| The user details that you wish to update. | 
 
 ### Return type

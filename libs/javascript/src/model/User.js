@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -72,7 +83,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
       if (data.hasOwnProperty('username')) {
         obj['username'] = ApiClient.convertToType(data['username'], 'String');
@@ -105,7 +116,7 @@
         obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
       }
       if (data.hasOwnProperty('timeFormat')) {
-        obj['timeFormat'] = ApiClient.convertToType(data['timeFormat'], 'Number');
+        obj['timeFormat'] = ApiClient.convertToType(data['timeFormat'], 'Integer');
       }
       if (data.hasOwnProperty('language')) {
         obj['language'] = ApiClient.convertToType(data['language'], 'String');
@@ -116,7 +127,7 @@
 
   /**
    * Unique identifier for the user.
-   * @member {Number} id
+   * @member {Integer} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -171,7 +182,7 @@
   exports.prototype['timezone'] = undefined;
   /**
    * User's preference of 12 or 24 hour time display
-   * @member {Number} timeFormat
+   * @member {Integer} timeFormat
    */
   exports.prototype['timeFormat'] = undefined;
   /**

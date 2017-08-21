@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -74,7 +85,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('recordingEntityId')) {
-        obj['recordingEntityId'] = ApiClient.convertToType(data['recordingEntityId'], 'Number');
+        obj['recordingEntityId'] = ApiClient.convertToType(data['recordingEntityId'], 'Integer');
       }
       if (data.hasOwnProperty('recordingEntityGuid')) {
         obj['recordingEntityGuid'] = ApiClient.convertToType(data['recordingEntityGuid'], 'String');
@@ -86,16 +97,16 @@
         obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
       }
       if (data.hasOwnProperty('chapterCount')) {
-        obj['chapterCount'] = ApiClient.convertToType(data['chapterCount'], 'Number');
+        obj['chapterCount'] = ApiClient.convertToType(data['chapterCount'], 'Integer');
       }
       if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Integer');
       }
       if (data.hasOwnProperty('totalDuration')) {
-        obj['totalDuration'] = ApiClient.convertToType(data['totalDuration'], 'Number');
+        obj['totalDuration'] = ApiClient.convertToType(data['totalDuration'], 'Integer');
       }
       if (data.hasOwnProperty('lastRecordingDate')) {
-        obj['lastRecordingDate'] = ApiClient.convertToType(data['lastRecordingDate'], 'Number');
+        obj['lastRecordingDate'] = ApiClient.convertToType(data['lastRecordingDate'], 'Integer');
       }
       if (data.hasOwnProperty('aggregatedStatus')) {
         obj['aggregatedStatus'] = ApiClient.convertToType(data['aggregatedStatus'], 'String');
@@ -104,10 +115,10 @@
         obj['recordingThumbnail'] = ApiClient.convertToType(data['recordingThumbnail'], 'String');
       }
       if (data.hasOwnProperty('created')) {
-        obj['created'] = ApiClient.convertToType(data['created'], 'Number');
+        obj['created'] = ApiClient.convertToType(data['created'], 'Integer');
       }
       if (data.hasOwnProperty('aggregatedViewCount')) {
-        obj['aggregatedViewCount'] = ApiClient.convertToType(data['aggregatedViewCount'], 'Number');
+        obj['aggregatedViewCount'] = ApiClient.convertToType(data['aggregatedViewCount'], 'Integer');
       }
       if (data.hasOwnProperty('isPremiumRecording')) {
         obj['isPremiumRecording'] = ApiClient.convertToType(data['isPremiumRecording'], 'Boolean');
@@ -123,7 +134,7 @@
   }
 
   /**
-   * @member {Number} recordingEntityId
+   * @member {Integer} recordingEntityId
    */
   exports.prototype['recordingEntityId'] = undefined;
   /**
@@ -139,19 +150,19 @@
    */
   exports.prototype['meetingGuid'] = undefined;
   /**
-   * @member {Number} chapterCount
+   * @member {Integer} chapterCount
    */
   exports.prototype['chapterCount'] = undefined;
   /**
-   * @member {Number} totalSize
+   * @member {Integer} totalSize
    */
   exports.prototype['totalSize'] = undefined;
   /**
-   * @member {Number} totalDuration
+   * @member {Integer} totalDuration
    */
   exports.prototype['totalDuration'] = undefined;
   /**
-   * @member {Number} lastRecordingDate
+   * @member {Integer} lastRecordingDate
    */
   exports.prototype['lastRecordingDate'] = undefined;
   /**
@@ -163,11 +174,11 @@
    */
   exports.prototype['recordingThumbnail'] = undefined;
   /**
-   * @member {Number} created
+   * @member {Integer} created
    */
   exports.prototype['created'] = undefined;
   /**
-   * @member {Number} aggregatedViewCount
+   * @member {Integer} aggregatedViewCount
    */
   exports.prototype['aggregatedViewCount'] = undefined;
   /**

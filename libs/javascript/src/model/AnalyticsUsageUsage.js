@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -63,35 +74,35 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('endpointMinutes')) {
-        obj['endpointMinutes'] = ApiClient.convertToType(data['endpointMinutes'], 'Number');
+        obj['endpointMinutes'] = ApiClient.convertToType(data['endpointMinutes'], 'Integer');
       }
       if (data.hasOwnProperty('numEndpoints')) {
-        obj['numEndpoints'] = ApiClient.convertToType(data['numEndpoints'], 'Number');
+        obj['numEndpoints'] = ApiClient.convertToType(data['numEndpoints'], 'Integer');
       }
       if (data.hasOwnProperty('numMeetings')) {
-        obj['numMeetings'] = ApiClient.convertToType(data['numMeetings'], 'Number');
+        obj['numMeetings'] = ApiClient.convertToType(data['numMeetings'], 'Integer');
       }
       if (data.hasOwnProperty('Date')) {
-        obj['Date'] = ApiClient.convertToType(data['Date'], 'Number');
+        obj['Date'] = ApiClient.convertToType(data['Date'], 'Integer');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} endpointMinutes
+   * @member {Integer} endpointMinutes
    */
   exports.prototype['endpointMinutes'] = undefined;
   /**
-   * @member {Number} numEndpoints
+   * @member {Integer} numEndpoints
    */
   exports.prototype['numEndpoints'] = undefined;
   /**
-   * @member {Number} numMeetings
+   * @member {Integer} numMeetings
    */
   exports.prototype['numMeetings'] = undefined;
   /**
-   * @member {Number} Date
+   * @member {Integer} Date
    */
   exports.prototype['Date'] = undefined;
 

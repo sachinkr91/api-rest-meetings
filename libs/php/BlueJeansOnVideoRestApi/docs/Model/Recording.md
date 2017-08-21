@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **aggregated_view_count** | **int** |  | [optional] 
 **is_premium_recording** | **bool** |  | [optional] 
 **show_premium_recording_tag** | **bool** |  | [optional] 
-**recording_chapters** | [**\BlueJeansOnVideoRestApi\Model\RecordingRecordingChapters[]**](RecordingRecordingChapters.md) |  | [optional] 
+**recording_chapters** | [**\Swagger\Client\Model\RecordingRecordingChapters[]**](RecordingRecordingChapters.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

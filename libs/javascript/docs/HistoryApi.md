@@ -34,7 +34,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 var meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
@@ -53,7 +53,7 @@ apiInstance.getHistoryByEnterprise(enterpriseId, meetingGuid, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
 
 ### Return type
@@ -90,7 +90,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
@@ -109,7 +109,7 @@ apiInstance.getHistoryByUser(userId, meetingGuid, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
 
 ### Return type
@@ -146,7 +146,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
@@ -165,7 +165,7 @@ apiInstance.getHistorySharingByUser(userId, meetingGuid, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingGuid** | **String**| The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. | 
 
 ### Return type
@@ -202,9 +202,9 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var recordingEntityId = 56; // Number | The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
+var recordingEntityId = 56; // Integer | The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
 
 
 var callback = function(error, data, response) {
@@ -221,8 +221,8 @@ apiInstance.getRecording(userId, recordingEntityId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **recordingEntityId** | **Number**| The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **recordingEntityId** | **Integer**| The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId. | 
 
 ### Return type
 
@@ -258,7 +258,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 
 var callback = function(error, data, response) {
@@ -275,7 +275,7 @@ apiInstance.listHistoryByEnterprise(enterpriseId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
 
 ### Return type
 
@@ -311,14 +311,14 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var opts = { 
   'meetingId': "meetingId_example", // String | Return only meetings with the specified meeting numeric ID.
   'startDate': "startDate_example", // String | Return meetings starting from the specified date. MM/DD/YYYY
   'endDate': "endDate_example", // String | Return meetings up until the specified date. MM/DD/YYYY
-  'pageSize': 56, // Number | Sets number of items returned per page.
-  'pageNumber': 56, // Number | Selects which page of results to return.
+  'pageSize': 56, // Integer | Sets number of items returned per page.
+  'pageNumber': 56, // Integer | Selects which page of results to return.
   'order': "order_example" // String | Puts results in ascending or descending order. asc/desc
 };
 
@@ -336,12 +336,12 @@ apiInstance.listHistoryByUser(userId, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **String**| Return only meetings with the specified meeting numeric ID. | [optional] 
  **startDate** | **String**| Return meetings starting from the specified date. MM/DD/YYYY | [optional] 
  **endDate** | **String**| Return meetings up until the specified date. MM/DD/YYYY | [optional] 
- **pageSize** | **Number**| Sets number of items returned per page. | [optional] 
- **pageNumber** | **Number**| Selects which page of results to return. | [optional] 
+ **pageSize** | **Integer**| Sets number of items returned per page. | [optional] 
+ **pageNumber** | **Integer**| Selects which page of results to return. | [optional] 
  **order** | **String**| Puts results in ascending or descending order. asc/desc | [optional] 
 
 ### Return type
@@ -378,11 +378,11 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.HistoryApi();
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var opts = { 
-  'pageSize': 10, // Number | Sets number of items returned per page.
-  'pageNumber': 1, // Number | Selects which page of results to return.
+  'pageSize': 10, // Integer | Sets number of items returned per page.
+  'pageNumber': 1, // Integer | Selects which page of results to return.
   'sortBy': "start_time", // String | Selects which page of results to return.
   'order': "desc" // String | Puts results in ascending or descending order.
 };
@@ -401,9 +401,9 @@ apiInstance.listRecordings(userId, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **pageSize** | **Number**| Sets number of items returned per page. | [optional] [default to 10]
- **pageNumber** | **Number**| Selects which page of results to return. | [optional] [default to 1]
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **pageSize** | **Integer**| Sets number of items returned per page. | [optional] [default to 10]
+ **pageNumber** | **Integer**| Selects which page of results to return. | [optional] [default to 1]
  **sortBy** | **String**| Selects which page of results to return. | [optional] [default to start_time]
  **order** | **String**| Puts results in ascending or descending order. | [optional] [default to desc]
 

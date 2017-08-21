@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -69,7 +80,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('duration')) {
-        obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
+        obj['duration'] = ApiClient.convertToType(data['duration'], 'Integer');
       }
       if (data.hasOwnProperty('thumbnail')) {
         obj['thumbnail'] = ApiClient.convertToType(data['thumbnail'], 'String');
@@ -81,16 +92,16 @@
         obj['hdsUrl'] = ApiClient.convertToType(data['hdsUrl'], 'String');
       }
       if (data.hasOwnProperty('thumbnailCount')) {
-        obj['thumbnailCount'] = ApiClient.convertToType(data['thumbnailCount'], 'Number');
+        obj['thumbnailCount'] = ApiClient.convertToType(data['thumbnailCount'], 'Integer');
       }
       if (data.hasOwnProperty('thumbnailWidth')) {
-        obj['thumbnailWidth'] = ApiClient.convertToType(data['thumbnailWidth'], 'Number');
+        obj['thumbnailWidth'] = ApiClient.convertToType(data['thumbnailWidth'], 'Integer');
       }
       if (data.hasOwnProperty('thumbnailHeight')) {
-        obj['thumbnailHeight'] = ApiClient.convertToType(data['thumbnailHeight'], 'Number');
+        obj['thumbnailHeight'] = ApiClient.convertToType(data['thumbnailHeight'], 'Integer');
       }
       if (data.hasOwnProperty('thumbnailInterval')) {
-        obj['thumbnailInterval'] = ApiClient.convertToType(data['thumbnailInterval'], 'Number');
+        obj['thumbnailInterval'] = ApiClient.convertToType(data['thumbnailInterval'], 'Integer');
       }
       if (data.hasOwnProperty('hlsUrl')) {
         obj['hlsUrl'] = ApiClient.convertToType(data['hlsUrl'], 'String');
@@ -103,7 +114,7 @@
   }
 
   /**
-   * @member {Number} duration
+   * @member {Integer} duration
    */
   exports.prototype['duration'] = undefined;
   /**
@@ -119,19 +130,19 @@
    */
   exports.prototype['hdsUrl'] = undefined;
   /**
-   * @member {Number} thumbnailCount
+   * @member {Integer} thumbnailCount
    */
   exports.prototype['thumbnailCount'] = undefined;
   /**
-   * @member {Number} thumbnailWidth
+   * @member {Integer} thumbnailWidth
    */
   exports.prototype['thumbnailWidth'] = undefined;
   /**
-   * @member {Number} thumbnailHeight
+   * @member {Integer} thumbnailHeight
    */
   exports.prototype['thumbnailHeight'] = undefined;
   /**
-   * @member {Number} thumbnailInterval
+   * @member {Integer} thumbnailInterval
    */
   exports.prototype['thumbnailInterval'] = undefined;
   /**

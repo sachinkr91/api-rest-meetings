@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getEnterpriseProfile**
-> \BlueJeansOnVideoRestApi\Model\Enterprise getEnterpriseProfile($user_id)
+> \Swagger\Client\Model\Enterprise getEnterpriseProfile($user_id)
 
 Get Enterprise Profile
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Enterprise**](../Model/Enterprise.md)
+[**\Swagger\Client\Model\Enterprise**](../Model/Enterprise.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGrantedApplications**
-> \BlueJeansOnVideoRestApi\Model\GrantedApplications getGrantedApplications($user_id)
+> \Swagger\Client\Model\GrantedApplications getGrantedApplications($user_id)
 
 Get Granted Applications
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\GrantedApplications**](../Model/GrantedApplications.md)
+[**\Swagger\Client\Model\GrantedApplications**](../Model/GrantedApplications.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRoom**
-> \BlueJeansOnVideoRestApi\Model\Room getRoom($user_id)
+> \Swagger\Client\Model\Room getRoom($user_id)
 
 Get User’s Default Meeting Settings
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Room**](../Model/Room.md)
+[**\Swagger\Client\Model\Room**](../Model/Room.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \BlueJeansOnVideoRestApi\Model\User getUser($user_id)
+> \Swagger\Client\Model\User getUser($user_id)
 
 Get User Account Details
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\User**](../Model/User.md)
+[**\Swagger\Client\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -370,7 +370,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateRoom**
-> \BlueJeansOnVideoRestApi\Model\Room updateRoom($user_id, $room)
+> \Swagger\Client\Model\Room updateRoom($user_id, $room)
 
 Update User’s Default Meeting Settings
 
@@ -388,7 +388,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\UserApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$room = new \BlueJeansOnVideoRestApi\Model\Room(); // \BlueJeansOnVideoRestApi\Model\Room | The user's room details that you wish to update.
+$room = new \Swagger\Client\Model\Room(); // \Swagger\Client\Model\Room | The user's room details that you wish to update.
 
 try {
     $result = $api_instance->updateRoom($user_id, $room);
@@ -404,11 +404,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **room** | [**\BlueJeansOnVideoRestApi\Model\Room**](../Model/\BlueJeansOnVideoRestApi\Model\Room.md)| The user&#39;s room details that you wish to update. |
+ **room** | [**\Swagger\Client\Model\Room**](../Model/\Swagger\Client\Model\Room.md)| The user&#39;s room details that you wish to update. |
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Room**](../Model/Room.md)
+[**\Swagger\Client\Model\Room**](../Model/Room.md)
 
 ### Authorization
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateUser**
-> \BlueJeansOnVideoRestApi\Model\User updateUser($user_id, $user)
+> \Swagger\Client\Model\User updateUser($user_id, $user)
 
 Update User Account Details
 
@@ -440,7 +440,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\UserApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$user = new \BlueJeansOnVideoRestApi\Model\User(); // \BlueJeansOnVideoRestApi\Model\User | The user details that you wish to update.
+$user = new \Swagger\Client\Model\User(); // \Swagger\Client\Model\User | The user details that you wish to update.
 
 try {
     $result = $api_instance->updateUser($user_id, $user);
@@ -456,11 +456,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **user** | [**\BlueJeansOnVideoRestApi\Model\User**](../Model/\BlueJeansOnVideoRestApi\Model\User.md)| The user details that you wish to update. |
+ **user** | [**\Swagger\Client\Model\User**](../Model/\Swagger\Client\Model\User.md)| The user details that you wish to update. |
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\User**](../Model/User.md)
+[**\Swagger\Client\Model\User**](../Model/User.md)
 
 ### Authorization
 

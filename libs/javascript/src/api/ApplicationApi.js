@@ -9,23 +9,34 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Application', 'model/ApplicationSecret', 'model/Error'], factory);
+    define(['ApiClient', 'model/Error', 'model/Application', 'model/ApplicationSecret'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Application'), require('../model/ApplicationSecret'), require('../model/Error'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/Application'), require('../model/ApplicationSecret'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.ApplicationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Application, root.BlueJeansOnVideoRestApi.ApplicationSecret, root.BlueJeansOnVideoRestApi.Error);
+    root.BlueJeansOnVideoRestApi.ApplicationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Application, root.BlueJeansOnVideoRestApi.ApplicationSecret);
   }
-}(this, function(ApiClient, Application, ApplicationSecret, Error) {
+}(this, function(ApiClient, Error, Application, ApplicationSecret) {
   'use strict';
 
   /**
@@ -56,7 +67,7 @@
     /**
      * Create Client Application
      * This endpoint creates a client application for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:model/Application} application The information about the new client application.
      * @param {module:api/ApplicationApi~createClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Application}
@@ -66,12 +77,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling createClientApplication");
+        throw "Missing the required parameter 'userId' when calling createClientApplication";
       }
 
       // verify the required parameter 'application' is set
       if (application == undefined || application == null) {
-        throw new Error("Missing the required parameter 'application' when calling createClientApplication");
+        throw "Missing the required parameter 'application' when calling createClientApplication";
       }
 
 
@@ -108,7 +119,7 @@
     /**
      * Regenerate Client Application Secret
      * This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} clientId The ID of the client application of interest. This value was given as a response during client application creation.
      * @param {module:api/ApplicationApi~regenerateClientApplicationSecretCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationSecret}
@@ -118,12 +129,12 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling regenerateClientApplicationSecret");
+        throw "Missing the required parameter 'userId' when calling regenerateClientApplicationSecret";
       }
 
       // verify the required parameter 'clientId' is set
       if (clientId == undefined || clientId == null) {
-        throw new Error("Missing the required parameter 'clientId' when calling regenerateClientApplicationSecret");
+        throw "Missing the required parameter 'clientId' when calling regenerateClientApplicationSecret";
       }
 
 
@@ -161,7 +172,7 @@
     /**
      * Update Client Application
      * This endpoint updates a client application for use in 3-legged OAuth2 authorization.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {String} clientId The ID of the client application of interest. This value was given as a response during client application creation.
      * @param {module:model/Application} application The information about the new client application.
      * @param {module:api/ApplicationApi~updateClientApplicationCallback} callback The callback function, accepting three arguments: error, data, response
@@ -172,17 +183,17 @@
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling updateClientApplication");
+        throw "Missing the required parameter 'userId' when calling updateClientApplication";
       }
 
       // verify the required parameter 'clientId' is set
       if (clientId == undefined || clientId == null) {
-        throw new Error("Missing the required parameter 'clientId' when calling updateClientApplication");
+        throw "Missing the required parameter 'clientId' when calling updateClientApplication";
       }
 
       // verify the required parameter 'application' is set
       if (application == undefined || application == null) {
-        throw new Error("Missing the required parameter 'application' when calling updateClientApplication");
+        throw "Missing the required parameter 'application' when calling updateClientApplication";
       }
 
 

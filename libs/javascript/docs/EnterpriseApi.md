@@ -31,7 +31,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 var user = new BlueJeansOnVideoRestApi.User(); // User | The information about the new user.
 
@@ -54,7 +54,7 @@ apiInstance.createUser(enterpriseId, user, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **user** | [**User**](User.md)| The information about the new user. | 
  **forcePasswordChange** | **Boolean**| Forces the user to change his or her password on first log in. | [optional] 
  **sendVerificationMail** | **Boolean**| Prevents welcome emails from being sent to the newly created user. | [optional] 
@@ -93,7 +93,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 
 var callback = function(error, data, response) {
@@ -110,7 +110,7 @@ apiInstance.exportUsers(enterpriseId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
 
 ### Return type
 
@@ -146,11 +146,11 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 var opts = { 
-  'pageSize': 56, // Number | Sets number of items returned per page.
-  'pageNumber': 56, // Number | Selects which page of results to return.
+  'pageSize': 56, // Integer | Sets number of items returned per page.
+  'pageNumber': 56, // Integer | Selects which page of results to return.
   'emailId': "emailId_example" // String | Allows filtering the response by a user’s email address.
 };
 
@@ -168,9 +168,9 @@ apiInstance.listUsers(enterpriseId, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **pageSize** | **Number**| Sets number of items returned per page. | [optional] 
- **pageNumber** | **Number**| Selects which page of results to return. | [optional] 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **pageSize** | **Integer**| Sets number of items returned per page. | [optional] 
+ **pageNumber** | **Integer**| Selects which page of results to return. | [optional] 
  **emailId** | **String**| Allows filtering the response by a user’s email address. | [optional] 
 
 ### Return type
@@ -207,9 +207,9 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.EnterpriseApi();
 
-var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+var enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 
 var callback = function(error, data, response) {
@@ -226,8 +226,8 @@ apiInstance.removeUser(enterpriseId, userId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
 
 ### Return type
 

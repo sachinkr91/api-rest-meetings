@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **country_name** | **string** |  | [optional] 
 **state** | **string** |  | [optional] 
 **city** | **string** |  | [optional] 
-**label** | [**\BlueJeansOnVideoRestApi\Model\NumbersLabel**](NumbersLabel.md) |  | [optional] 
+**label** | [**\Swagger\Client\Model\NumbersLabel**](NumbersLabel.md) |  | [optional] 
 **default_settings_inherited** | **bool** |  | [optional] 
 **default** | **bool** |  | [optional] 
 

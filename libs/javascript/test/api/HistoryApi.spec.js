@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('getHistoryByEnterprise', function() {
       it('should call getHistoryByEnterprise successfully', function(done) {
         //uncomment below and update the code to test getHistoryByEnterprise
-        //instance.getHistoryByEnterprise(function(error) {
+        //instance.getHistoryByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,7 @@
     describe('getHistoryByUser', function() {
       it('should call getHistoryByUser successfully', function(done) {
         //uncomment below and update the code to test getHistoryByUser
-        //instance.getHistoryByUser(function(error) {
+        //instance.getHistoryByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +82,7 @@
     describe('getHistorySharingByUser', function() {
       it('should call getHistorySharingByUser successfully', function(done) {
         //uncomment below and update the code to test getHistorySharingByUser
-        //instance.getHistorySharingByUser(function(error) {
+        //instance.getHistorySharingByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +92,7 @@
     describe('getRecording', function() {
       it('should call getRecording successfully', function(done) {
         //uncomment below and update the code to test getRecording
-        //instance.getRecording(function(error) {
+        //instance.getRecording(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +102,7 @@
     describe('listHistoryByEnterprise', function() {
       it('should call listHistoryByEnterprise successfully', function(done) {
         //uncomment below and update the code to test listHistoryByEnterprise
-        //instance.listHistoryByEnterprise(function(error) {
+        //instance.listHistoryByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +112,7 @@
     describe('listHistoryByUser', function() {
       it('should call listHistoryByUser successfully', function(done) {
         //uncomment below and update the code to test listHistoryByUser
-        //instance.listHistoryByUser(function(error) {
+        //instance.listHistoryByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -111,7 +122,7 @@
     describe('listRecordings', function() {
       it('should call listRecordings successfully', function(done) {
         //uncomment below and update the code to test listRecordings
-        //instance.listRecordings(function(error) {
+        //instance.listRecordings(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
+**id** | **Integer** |  | [optional] 
 **contentStatus** | **String** |  | [optional] 
 **recordingType** | **String** |  | [optional] 
-**contentId** | **Number** |  | [optional] 
+**contentId** | **Integer** |  | [optional] 
 **thumbnailUrl** | **String** |  | [optional] 
-**startTimeOffset** | **Number** |  | [optional] 
-**endTimeOffset** | **Number** |  | [optional] 
-**duration** | **Number** |  | [optional] 
+**startTimeOffset** | **Integer** |  | [optional] 
+**endTimeOffset** | **Integer** |  | [optional] 
+**duration** | **Integer** |  | [optional] 
 **startedBy** | [**RecordingSessionStartedBy**](RecordingSessionStartedBy.md) |  | [optional] 
 **stoppedBy** | [**RecordingSessionStartedBy**](RecordingSessionStartedBy.md) |  | [optional] 
 

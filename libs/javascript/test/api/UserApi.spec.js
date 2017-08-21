@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('getEnterpriseProfile', function() {
       it('should call getEnterpriseProfile successfully', function(done) {
         //uncomment below and update the code to test getEnterpriseProfile
-        //instance.getEnterpriseProfile(function(error) {
+        //instance.getEnterpriseProfile(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,7 @@
     describe('getGrantedApplications', function() {
       it('should call getGrantedApplications successfully', function(done) {
         //uncomment below and update the code to test getGrantedApplications
-        //instance.getGrantedApplications(function(error) {
+        //instance.getGrantedApplications(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +82,7 @@
     describe('getGroups', function() {
       it('should call getGroups successfully', function(done) {
         //uncomment below and update the code to test getGroups
-        //instance.getGroups(function(error) {
+        //instance.getGroups(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +92,7 @@
     describe('getRoom', function() {
       it('should call getRoom successfully', function(done) {
         //uncomment below and update the code to test getRoom
-        //instance.getRoom(function(error) {
+        //instance.getRoom(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +102,7 @@
     describe('getUser', function() {
       it('should call getUser successfully', function(done) {
         //uncomment below and update the code to test getUser
-        //instance.getUser(function(error) {
+        //instance.getUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +112,7 @@
     describe('revokeGrantedApplication', function() {
       it('should call revokeGrantedApplication successfully', function(done) {
         //uncomment below and update the code to test revokeGrantedApplication
-        //instance.revokeGrantedApplication(function(error) {
+        //instance.revokeGrantedApplication(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -111,7 +122,7 @@
     describe('setGroups', function() {
       it('should call setGroups successfully', function(done) {
         //uncomment below and update the code to test setGroups
-        //instance.setGroups(function(error) {
+        //instance.setGroups(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -121,7 +132,7 @@
     describe('updateRoom', function() {
       it('should call updateRoom successfully', function(done) {
         //uncomment below and update the code to test updateRoom
-        //instance.updateRoom(function(error) {
+        //instance.updateRoom(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -131,7 +142,7 @@
     describe('updateUser', function() {
       it('should call updateUser successfully', function(done) {
         //uncomment below and update the code to test updateUser
-        //instance.updateUser(function(error) {
+        //instance.updateUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

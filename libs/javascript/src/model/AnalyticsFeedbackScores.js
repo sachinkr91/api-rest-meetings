@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -64,42 +75,42 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('Great')) {
-        obj['Great'] = ApiClient.convertToType(data['Great'], 'Number');
+        obj['Great'] = ApiClient.convertToType(data['Great'], 'Integer');
       }
       if (data.hasOwnProperty('Okay')) {
-        obj['Okay'] = ApiClient.convertToType(data['Okay'], 'Number');
+        obj['Okay'] = ApiClient.convertToType(data['Okay'], 'Integer');
       }
       if (data.hasOwnProperty('Bad')) {
-        obj['Bad'] = ApiClient.convertToType(data['Bad'], 'Number');
+        obj['Bad'] = ApiClient.convertToType(data['Bad'], 'Integer');
       }
       if (data.hasOwnProperty('Poor')) {
-        obj['Poor'] = ApiClient.convertToType(data['Poor'], 'Number');
+        obj['Poor'] = ApiClient.convertToType(data['Poor'], 'Integer');
       }
       if (data.hasOwnProperty('Good')) {
-        obj['Good'] = ApiClient.convertToType(data['Good'], 'Number');
+        obj['Good'] = ApiClient.convertToType(data['Good'], 'Integer');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} Great
+   * @member {Integer} Great
    */
   exports.prototype['Great'] = undefined;
   /**
-   * @member {Number} Okay
+   * @member {Integer} Okay
    */
   exports.prototype['Okay'] = undefined;
   /**
-   * @member {Number} Bad
+   * @member {Integer} Bad
    */
   exports.prototype['Bad'] = undefined;
   /**
-   * @member {Number} Poor
+   * @member {Integer} Poor
    */
   exports.prototype['Poor'] = undefined;
   /**
-   * @member {Number} Good
+   * @member {Integer} Good
    */
   exports.prototype['Good'] = undefined;
 

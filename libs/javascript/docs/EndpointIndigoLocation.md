@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
+**id** | **Integer** |  | [optional] 
 **countryCode** | **String** |  | [optional] 
 **countryName** | **String** |  | [optional] 
 **latitude** | **Number** |  | [optional] 

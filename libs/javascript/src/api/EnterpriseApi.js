@@ -9,23 +9,34 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/EnterpriseUserList', 'model/Error', 'model/User', 'model/UserId'], factory);
+    define(['ApiClient', 'model/User', 'model/UserId', 'model/Error', 'model/EnterpriseUserList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/EnterpriseUserList'), require('../model/Error'), require('../model/User'), require('../model/UserId'));
+    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/UserId'), require('../model/Error'), require('../model/EnterpriseUserList'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.EnterpriseUserList, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.UserId);
+    root.BlueJeansOnVideoRestApi.EnterpriseApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.User, root.BlueJeansOnVideoRestApi.UserId, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.EnterpriseUserList);
   }
-}(this, function(ApiClient, EnterpriseUserList, Error, User, UserId) {
+}(this, function(ApiClient, User, UserId, Error, EnterpriseUserList) {
   'use strict';
 
   /**
@@ -56,7 +67,7 @@
     /**
      * Create Enterprise User
      * This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {module:model/User} user The information about the new user.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.forcePasswordChange Forces the user to change his or her password on first log in.
@@ -70,12 +81,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling createUser");
+        throw "Missing the required parameter 'enterpriseId' when calling createUser";
       }
 
       // verify the required parameter 'user' is set
       if (user == undefined || user == null) {
-        throw new Error("Missing the required parameter 'user' when calling createUser");
+        throw "Missing the required parameter 'user' when calling createUser";
       }
 
 
@@ -114,7 +125,7 @@
     /**
      * Export Enterprise Users
      * This endpoint exports existing users into a CSV file.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {module:api/EnterpriseApi~exportUsersCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.exportUsers = function(enterpriseId, callback) {
@@ -122,7 +133,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling exportUsers");
+        throw "Missing the required parameter 'enterpriseId' when calling exportUsers";
       }
 
 
@@ -159,10 +170,10 @@
     /**
      * List Enterprise Users
      * This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.pageSize Sets number of items returned per page.
-     * @param {Number} opts.pageNumber Selects which page of results to return.
+     * @param {Integer} opts.pageSize Sets number of items returned per page.
+     * @param {Integer} opts.pageNumber Selects which page of results to return.
      * @param {String} opts.emailId Allows filtering the response by a user’s email address.
      * @param {module:api/EnterpriseApi~listUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EnterpriseUserList}
@@ -173,7 +184,7 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling listUsers");
+        throw "Missing the required parameter 'enterpriseId' when calling listUsers";
       }
 
 
@@ -213,8 +224,8 @@
     /**
      * Remove Enterprise User
      * This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-     * @param {Number} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Integer} enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+     * @param {Integer} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {module:api/EnterpriseApi~removeUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.removeUser = function(enterpriseId, userId, callback) {
@@ -222,12 +233,12 @@
 
       // verify the required parameter 'enterpriseId' is set
       if (enterpriseId == undefined || enterpriseId == null) {
-        throw new Error("Missing the required parameter 'enterpriseId' when calling removeUser");
+        throw "Missing the required parameter 'enterpriseId' when calling removeUser";
       }
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw new Error("Missing the required parameter 'userId' when calling removeUser");
+        throw "Missing the required parameter 'userId' when calling removeUser";
       }
 
 

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**leaderId** | **Number** |  | [optional] 
+**leaderId** | **Integer** |  | [optional] 
 **firstName** | **String** |  | [optional] 
 **lastName** | **String** |  | [optional] 
 **userName** | **String** |  | [optional] 

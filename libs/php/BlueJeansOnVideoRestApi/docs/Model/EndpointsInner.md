@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **rdc_version** | **string** |  | [optional] 
 **rdc_controller_capable** | **string** |  | [optional] 
 **rdc_controllee_capable** | **string** |  | [optional] 
-**connections** | [**\BlueJeansOnVideoRestApi\Model\EndpointsInnerConnections[]**](EndpointsInnerConnections.md) |  | [optional] 
+**connections** | [**\Swagger\Client\Model\EndpointsInnerConnections[]**](EndpointsInnerConnections.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

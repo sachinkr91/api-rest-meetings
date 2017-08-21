@@ -4,15 +4,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chapterId** | **String** |  | [optional] 
-**id** | **Number** |  | [optional] 
-**startTimeOffset** | **Number** |  | [optional] 
-**endTimeOffset** | **Number** |  | [optional] 
+**id** | **Integer** |  | [optional] 
+**startTimeOffset** | **Integer** |  | [optional] 
+**endTimeOffset** | **Integer** |  | [optional] 
 **chapterName** | **String** |  | [optional] 
-**totalSize** | **Number** |  | [optional] 
-**compositeContentId** | **Number** |  | [optional] 
+**totalSize** | **Integer** |  | [optional] 
+**compositeContentId** | **Integer** |  | [optional] 
 **compositeContentStatus** | **String** |  | [optional] 
-**parentRecordingId** | **Number** |  | [optional] 
-**viewCount** | **Number** |  | [optional] 
+**parentRecordingId** | **Integer** |  | [optional] 
+**viewCount** | **Integer** |  | [optional] 
 **recordingSessions** | [**[RecordingSession]**](RecordingSession.md) |  | [optional] 
 
 

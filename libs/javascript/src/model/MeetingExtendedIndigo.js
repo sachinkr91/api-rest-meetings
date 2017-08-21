@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -98,7 +109,7 @@ exports.prototype['userName'] = undefined;
 exports.prototype['email'] = undefined;
 
   /**
-   * @member {Number} encryptionType
+   * @member {Integer} encryptionType
    */
 exports.prototype['encryptionType'] = undefined;
 
@@ -128,7 +139,7 @@ exports.prototype['userFeatures'] = undefined;
 exports.prototype['scheduledFrom'] = undefined;
 
   /**
-   * @member {Number} inviteeCount
+   * @member {Integer} inviteeCount
    */
 exports.prototype['inviteeCount'] = undefined;
 
@@ -158,47 +169,47 @@ exports.prototype['enterpriseName'] = undefined;
 exports.prototype['moderatorLess'] = undefined;
 
   /**
-   * @member {Number} startTime
+   * @member {Integer} startTime
    */
 exports.prototype['startTime'] = undefined;
 
   /**
-   * @member {Number} endTime
+   * @member {Integer} endTime
    */
 exports.prototype['endTime'] = undefined;
 
   /**
-   * @member {Number} totalCallSeconds
+   * @member {Integer} totalCallSeconds
    */
 exports.prototype['totalCallSeconds'] = undefined;
 
   /**
-   * @member {Number} createTime
+   * @member {Integer} createTime
    */
 exports.prototype['createTime'] = undefined;
 
   /**
-   * @member {Number} endpointsCount
+   * @member {Integer} endpointsCount
    */
 exports.prototype['endpointsCount'] = undefined;
 
   /**
-   * @member {Number} concurrentEndpoints
+   * @member {Integer} concurrentEndpoints
    */
 exports.prototype['concurrentEndpoints'] = undefined;
 
   /**
-   * @member {Number} liveVisibleEndpointsCount
+   * @member {Integer} liveVisibleEndpointsCount
    */
 exports.prototype['liveVisibleEndpointsCount'] = undefined;
 
   /**
-   * @member {Number} qualarooRating
+   * @member {Integer} qualarooRating
    */
 exports.prototype['qualarooRating'] = undefined;
 
   /**
-   * @member {Number} qualarooCount
+   * @member {Integer} qualarooCount
    */
 exports.prototype['qualarooCount'] = undefined;
 

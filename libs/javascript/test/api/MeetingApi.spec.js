@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('cancelMeeting', function() {
       it('should call cancelMeeting successfully', function(done) {
         //uncomment below and update the code to test cancelMeeting
-        //instance.cancelMeeting(function(error) {
+        //instance.cancelMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,27 @@
     describe('createMeeting', function() {
       it('should call createMeeting successfully', function(done) {
         //uncomment below and update the code to test createMeeting
-        //instance.createMeeting(function(error) {
+        //instance.createMeeting(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('dialoutPstn', function() {
+      it('should call dialoutPstn successfully', function(done) {
+        //uncomment below and update the code to test dialoutPstn
+        //instance.dialoutPstn(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('generatePairingCodePstn', function() {
+      it('should call generatePairingCodePstn successfully', function(done) {
+        //uncomment below and update the code to test generatePairingCodePstn
+        //instance.generatePairingCodePstn(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +102,7 @@
     describe('generatePairingCodeSip', function() {
       it('should call generatePairingCodeSip successfully', function(done) {
         //uncomment below and update the code to test generatePairingCodeSip
-        //instance.generatePairingCodeSip(function(error) {
+        //instance.generatePairingCodeSip(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +112,7 @@
     describe('generatePairingCodeWebRtc', function() {
       it('should call generatePairingCodeWebRtc successfully', function(done) {
         //uncomment below and update the code to test generatePairingCodeWebRtc
-        //instance.generatePairingCodeWebRtc(function(error) {
+        //instance.generatePairingCodeWebRtc(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +122,7 @@
     describe('getEndpointLayout', function() {
       it('should call getEndpointLayout successfully', function(done) {
         //uncomment below and update the code to test getEndpointLayout
-        //instance.getEndpointLayout(function(error) {
+        //instance.getEndpointLayout(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +132,7 @@
     describe('getMeeting', function() {
       it('should call getMeeting successfully', function(done) {
         //uncomment below and update the code to test getMeeting
-        //instance.getMeeting(function(error) {
+        //instance.getMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -111,7 +142,7 @@
     describe('getMeetingEmails', function() {
       it('should call getMeetingEmails successfully', function(done) {
         //uncomment below and update the code to test getMeetingEmails
-        //instance.getMeetingEmails(function(error) {
+        //instance.getMeetingEmails(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -121,7 +152,7 @@
     describe('getMeetingEndpoint', function() {
       it('should call getMeetingEndpoint successfully', function(done) {
         //uncomment below and update the code to test getMeetingEndpoint
-        //instance.getMeetingEndpoint(function(error) {
+        //instance.getMeetingEndpoint(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -131,7 +162,7 @@
     describe('getMeetingEndpoints', function() {
       it('should call getMeetingEndpoints successfully', function(done) {
         //uncomment below and update the code to test getMeetingEndpoints
-        //instance.getMeetingEndpoints(function(error) {
+        //instance.getMeetingEndpoints(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -141,7 +172,7 @@
     describe('getMeetingNumbers', function() {
       it('should call getMeetingNumbers successfully', function(done) {
         //uncomment below and update the code to test getMeetingNumbers
-        //instance.getMeetingNumbers(function(error) {
+        //instance.getMeetingNumbers(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -151,7 +182,7 @@
     describe('getMeetingState', function() {
       it('should call getMeetingState successfully', function(done) {
         //uncomment below and update the code to test getMeetingState
-        //instance.getMeetingState(function(error) {
+        //instance.getMeetingState(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -161,7 +192,7 @@
     describe('listMeetings', function() {
       it('should call listMeetings successfully', function(done) {
         //uncomment below and update the code to test listMeetings
-        //instance.listMeetings(function(error) {
+        //instance.listMeetings(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -171,7 +202,7 @@
     describe('sendMeetingInvite', function() {
       it('should call sendMeetingInvite successfully', function(done) {
         //uncomment below and update the code to test sendMeetingInvite
-        //instance.sendMeetingInvite(function(error) {
+        //instance.sendMeetingInvite(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -181,7 +212,7 @@
     describe('updateEndpointLayout', function() {
       it('should call updateEndpointLayout successfully', function(done) {
         //uncomment below and update the code to test updateEndpointLayout
-        //instance.updateEndpointLayout(function(error) {
+        //instance.updateEndpointLayout(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -191,7 +222,7 @@
     describe('updateMeeting', function() {
       it('should call updateMeeting successfully', function(done) {
         //uncomment below and update the code to test updateMeeting
-        //instance.updateMeeting(function(error) {
+        //instance.updateMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -201,7 +232,7 @@
     describe('updateMeetingEndpoint', function() {
       it('should call updateMeetingEndpoint successfully', function(done) {
         //uncomment below and update the code to test updateMeetingEndpoint
-        //instance.updateMeetingEndpoint(function(error) {
+        //instance.updateMeetingEndpoint(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -211,7 +242,7 @@
     describe('updateMeetingEndpoints', function() {
       it('should call updateMeetingEndpoints successfully', function(done) {
         //uncomment below and update the code to test updateMeetingEndpoints
-        //instance.updateMeetingEndpoints(function(error) {
+        //instance.updateMeetingEndpoints(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -221,7 +252,7 @@
     describe('updateMeetingState', function() {
       it('should call updateMeetingState successfully', function(done) {
         //uncomment below and update the code to test updateMeetingState
-        //instance.updateMeetingState(function(error) {
+        //instance.updateMeetingState(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

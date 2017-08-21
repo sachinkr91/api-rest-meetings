@@ -19,7 +19,6 @@ This endpoint allows adding a user to an existing enterprise. Requires enterpris
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -42,7 +41,7 @@ try:
     api_response = api_instance.create_user(enterprise_id, user, force_password_change=force_password_change, send_verification_mail=send_verification_mail)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EnterpriseApi->create_user: %s\n" % e)
+    print "Exception when calling EnterpriseApi->create_user: %s\n" % e
 ```
 
 ### Parameters
@@ -78,7 +77,6 @@ This endpoint exports existing users into a CSV file.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -97,7 +95,7 @@ try:
     # Export Enterprise Users
     api_instance.export_users(enterprise_id)
 except ApiException as e:
-    print("Exception when calling EnterpriseApi->export_users: %s\n" % e)
+    print "Exception when calling EnterpriseApi->export_users: %s\n" % e
 ```
 
 ### Parameters
@@ -130,7 +128,6 @@ This endpoint allows listing the users that are associated with an enterprise ac
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -153,7 +150,7 @@ try:
     api_response = api_instance.list_users(enterprise_id, page_size=page_size, page_number=page_number, email_id=email_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EnterpriseApi->list_users: %s\n" % e)
+    print "Exception when calling EnterpriseApi->list_users: %s\n" % e
 ```
 
 ### Parameters
@@ -189,7 +186,6 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -209,7 +205,7 @@ try:
     # Remove Enterprise User
     api_instance.remove_user(enterprise_id, user_id)
 except ApiException as e:
-    print("Exception when calling EnterpriseApi->remove_user: %s\n" % e)
+    print "Exception when calling EnterpriseApi->remove_user: %s\n" % e
 ```
 
 ### Parameters

@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -84,7 +95,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
       if (data.hasOwnProperty('callguid')) {
         obj['callguid'] = ApiClient.convertToType(data['callguid'], 'String');
@@ -132,13 +143,13 @@
         obj['recording'] = ApiClient.convertToType(data['recording'], 'Boolean');
       }
       if (data.hasOwnProperty('creationTime')) {
-        obj['creationTime'] = ApiClient.convertToType(data['creationTime'], 'Number');
+        obj['creationTime'] = ApiClient.convertToType(data['creationTime'], 'Integer');
       }
       if (data.hasOwnProperty('meetingJoinTime')) {
-        obj['meetingJoinTime'] = ApiClient.convertToType(data['meetingJoinTime'], 'Number');
+        obj['meetingJoinTime'] = ApiClient.convertToType(data['meetingJoinTime'], 'Integer');
       }
       if (data.hasOwnProperty('meetingLeaveTime')) {
-        obj['meetingLeaveTime'] = ApiClient.convertToType(data['meetingLeaveTime'], 'Number');
+        obj['meetingLeaveTime'] = ApiClient.convertToType(data['meetingLeaveTime'], 'Integer');
       }
       if (data.hasOwnProperty('didNumber')) {
         obj['didNumber'] = ApiClient.convertToType(data['didNumber'], 'String');
@@ -163,7 +174,7 @@
   }
 
   /**
-   * @member {Number} id
+   * @member {Integer} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -227,15 +238,15 @@
    */
   exports.prototype['recording'] = undefined;
   /**
-   * @member {Number} creationTime
+   * @member {Integer} creationTime
    */
   exports.prototype['creationTime'] = undefined;
   /**
-   * @member {Number} meetingJoinTime
+   * @member {Integer} meetingJoinTime
    */
   exports.prototype['meetingJoinTime'] = undefined;
   /**
-   * @member {Number} meetingLeaveTime
+   * @member {Integer} meetingLeaveTime
    */
   exports.prototype['meetingLeaveTime'] = undefined;
   /**

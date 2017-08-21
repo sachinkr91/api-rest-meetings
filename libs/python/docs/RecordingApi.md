@@ -21,7 +21,6 @@ This endpoint lists the recordings for a meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -43,7 +42,7 @@ try:
     api_response = api_instance.get_meeting_recordings(user_id, meeting_id, meeting_guid=meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecordingApi->get_meeting_recordings: %s\n" % e)
+    print "Exception when calling RecordingApi->get_meeting_recordings: %s\n" % e
 ```
 
 ### Parameters
@@ -78,7 +77,6 @@ This endpoint retrieves properties about the recording chapter.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -100,7 +98,7 @@ try:
     api_response = api_instance.get_recording_content(user_id, content_id, is_downloadable)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecordingApi->get_recording_content: %s\n" % e)
+    print "Exception when calling RecordingApi->get_recording_content: %s\n" % e
 ```
 
 ### Parameters
@@ -135,7 +133,6 @@ This endpoint starts recording for a meeting in progress. Note that this is a PO
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -156,7 +153,7 @@ try:
     # Start Recording
     api_instance.start_recording(user_id, meeting_id, action)
 except ApiException as e:
-    print("Exception when calling RecordingApi->start_recording: %s\n" % e)
+    print "Exception when calling RecordingApi->start_recording: %s\n" % e
 ```
 
 ### Parameters
@@ -191,7 +188,6 @@ This endpoint stops recording for a meeting in progress. Note that this is a PUT
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -212,7 +208,7 @@ try:
     # Stop Recording
     api_instance.stop_recording(user_id, meeting_id, action)
 except ApiException as e:
-    print("Exception when calling RecordingApi->stop_recording: %s\n" % e)
+    print "Exception when calling RecordingApi->stop_recording: %s\n" % e
 ```
 
 ### Parameters
@@ -247,7 +243,6 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -268,7 +263,7 @@ try:
     api_response = api_instance.v1_user_user_id_meeting_history_meeting_guid_recordings_delete(user_id, meeting_guid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecordingApi->v1_user_user_id_meeting_history_meeting_guid_recordings_delete: %s\n" % e)
+    print "Exception when calling RecordingApi->v1_user_user_id_meeting_history_meeting_guid_recordings_delete: %s\n" % e
 ```
 
 ### Parameters
@@ -302,7 +297,6 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -324,7 +318,7 @@ try:
     api_response = api_instance.v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete(user_id, meeting_id, recording_chapter_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecordingApi->v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete: %s\n" % e)
+    print "Exception when calling RecordingApi->v1_user_user_id_meeting_history_meeting_id_recordings_recording_chapter_id_delete: %s\n" % e
 ```
 
 ### Parameters

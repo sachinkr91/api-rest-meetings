@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getHistoryByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\Meeting getHistoryByEnterprise($enterprise_id, $meeting_guid)
+> \Swagger\Client\Model\Meeting getHistoryByEnterprise($enterprise_id, $meeting_guid)
 
 Get Meeting History by Enterprise
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getHistoryByUser**
-> \BlueJeansOnVideoRestApi\Model\Meeting getHistoryByUser($user_id, $meeting_guid)
+> \Swagger\Client\Model\Meeting getHistoryByUser($user_id, $meeting_guid)
 
 Get Meeting History by User
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getHistorySharingByUser**
-> \BlueJeansOnVideoRestApi\Model\MeetingHistorySharing getHistorySharingByUser($user_id, $meeting_guid)
+> \Swagger\Client\Model\MeetingHistorySharing getHistorySharingByUser($user_id, $meeting_guid)
 
 Get Meeting History Sharing by User
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingHistorySharing**](../Model/MeetingHistorySharing.md)
+[**\Swagger\Client\Model\MeetingHistorySharing**](../Model/MeetingHistorySharing.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRecording**
-> \BlueJeansOnVideoRestApi\Model\Recording getRecording($user_id, $recording_entity_id)
+> \Swagger\Client\Model\Recording getRecording($user_id, $recording_entity_id)
 
 Get Recording
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\Recording**](../Model/Recording.md)
+[**\Swagger\Client\Model\Recording**](../Model/Recording.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listHistoryByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\MeetingHistory[] listHistoryByEnterprise($enterprise_id)
+> \Swagger\Client\Model\MeetingHistory[] listHistoryByEnterprise($enterprise_id)
 
 List History by Enterprise
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingHistory[]**](../Model/MeetingHistory.md)
+[**\Swagger\Client\Model\MeetingHistory[]**](../Model/MeetingHistory.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listHistoryByUser**
-> \BlueJeansOnVideoRestApi\Model\MeetingHistory[] listHistoryByUser($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order)
+> \Swagger\Client\Model\MeetingHistory[] listHistoryByUser($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order)
 
 List History by User
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingHistory[]**](../Model/MeetingHistory.md)
+[**\Swagger\Client\Model\MeetingHistory[]**](../Model/MeetingHistory.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listRecordings**
-> \BlueJeansOnVideoRestApi\Model\RecordingSummary[] listRecordings($user_id, $page_size, $page_number, $sort_by, $order)
+> \Swagger\Client\Model\RecordingSummary[] listRecordings($user_id, $page_size, $page_number, $sort_by, $order)
 
 List Meeting Recordings
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\RecordingSummary[]**](../Model/RecordingSummary.md)
+[**\Swagger\Client\Model\RecordingSummary[]**](../Model/RecordingSummary.md)
 
 ### Authorization
 

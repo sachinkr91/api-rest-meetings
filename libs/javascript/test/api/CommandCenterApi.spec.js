@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('getEndpointDistribution', function() {
       it('should call getEndpointDistribution successfully', function(done) {
         //uncomment below and update the code to test getEndpointDistribution
-        //instance.getEndpointDistribution(function(error) {
+        //instance.getEndpointDistribution(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,7 @@
     describe('getFeedbackComments', function() {
       it('should call getFeedbackComments successfully', function(done) {
         //uncomment below and update the code to test getFeedbackComments
-        //instance.getFeedbackComments(function(error) {
+        //instance.getFeedbackComments(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +82,7 @@
     describe('getFeedbackCount', function() {
       it('should call getFeedbackCount successfully', function(done) {
         //uncomment below and update the code to test getFeedbackCount
-        //instance.getFeedbackCount(function(error) {
+        //instance.getFeedbackCount(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +92,7 @@
     describe('getMeetingLiveByEnterprise', function() {
       it('should call getMeetingLiveByEnterprise successfully', function(done) {
         //uncomment below and update the code to test getMeetingLiveByEnterprise
-        //instance.getMeetingLiveByEnterprise(function(error) {
+        //instance.getMeetingLiveByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +102,7 @@
     describe('getMeetingPastByEnterprise', function() {
       it('should call getMeetingPastByEnterprise successfully', function(done) {
         //uncomment below and update the code to test getMeetingPastByEnterprise
-        //instance.getMeetingPastByEnterprise(function(error) {
+        //instance.getMeetingPastByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +112,7 @@
     describe('getMeetingPastByUser', function() {
       it('should call getMeetingPastByUser successfully', function(done) {
         //uncomment below and update the code to test getMeetingPastByUser
-        //instance.getMeetingPastByUser(function(error) {
+        //instance.getMeetingPastByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -111,7 +122,7 @@
     describe('getMeetingUsage', function() {
       it('should call getMeetingUsage successfully', function(done) {
         //uncomment below and update the code to test getMeetingUsage
-        //instance.getMeetingUsage(function(error) {
+        //instance.getMeetingUsage(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -121,7 +132,7 @@
     describe('getMeetingsLiveByEnterprise', function() {
       it('should call getMeetingsLiveByEnterprise successfully', function(done) {
         //uncomment below and update the code to test getMeetingsLiveByEnterprise
-        //instance.getMeetingsLiveByEnterprise(function(error) {
+        //instance.getMeetingsLiveByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -131,7 +142,7 @@
     describe('getMeetingsPastByEnterprise', function() {
       it('should call getMeetingsPastByEnterprise successfully', function(done) {
         //uncomment below and update the code to test getMeetingsPastByEnterprise
-        //instance.getMeetingsPastByEnterprise(function(error) {
+        //instance.getMeetingsPastByEnterprise(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -141,7 +152,7 @@
     describe('getMeetingsPastByUser', function() {
       it('should call getMeetingsPastByUser successfully', function(done) {
         //uncomment below and update the code to test getMeetingsPastByUser
-        //instance.getMeetingsPastByUser(function(error) {
+        //instance.getMeetingsPastByUser(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -151,7 +162,7 @@
     describe('getRoiRanges', function() {
       it('should call getRoiRanges successfully', function(done) {
         //uncomment below and update the code to test getRoiRanges
-        //instance.getRoiRanges(function(error) {
+        //instance.getRoiRanges(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -161,7 +172,7 @@
     describe('getTopUsers', function() {
       it('should call getTopUsers successfully', function(done) {
         //uncomment below and update the code to test getTopUsers
-        //instance.getTopUsers(function(error) {
+        //instance.getTopUsers(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

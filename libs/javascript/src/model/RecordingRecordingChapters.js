@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -73,31 +84,31 @@
         obj['chapterId'] = ApiClient.convertToType(data['chapterId'], 'String');
       }
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
       if (data.hasOwnProperty('startTimeOffset')) {
-        obj['startTimeOffset'] = ApiClient.convertToType(data['startTimeOffset'], 'Number');
+        obj['startTimeOffset'] = ApiClient.convertToType(data['startTimeOffset'], 'Integer');
       }
       if (data.hasOwnProperty('endTimeOffset')) {
-        obj['endTimeOffset'] = ApiClient.convertToType(data['endTimeOffset'], 'Number');
+        obj['endTimeOffset'] = ApiClient.convertToType(data['endTimeOffset'], 'Integer');
       }
       if (data.hasOwnProperty('chapterName')) {
         obj['chapterName'] = ApiClient.convertToType(data['chapterName'], 'String');
       }
       if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Integer');
       }
       if (data.hasOwnProperty('compositeContentId')) {
-        obj['compositeContentId'] = ApiClient.convertToType(data['compositeContentId'], 'Number');
+        obj['compositeContentId'] = ApiClient.convertToType(data['compositeContentId'], 'Integer');
       }
       if (data.hasOwnProperty('compositeContentStatus')) {
         obj['compositeContentStatus'] = ApiClient.convertToType(data['compositeContentStatus'], 'String');
       }
       if (data.hasOwnProperty('parentRecordingId')) {
-        obj['parentRecordingId'] = ApiClient.convertToType(data['parentRecordingId'], 'Number');
+        obj['parentRecordingId'] = ApiClient.convertToType(data['parentRecordingId'], 'Integer');
       }
       if (data.hasOwnProperty('viewCount')) {
-        obj['viewCount'] = ApiClient.convertToType(data['viewCount'], 'Number');
+        obj['viewCount'] = ApiClient.convertToType(data['viewCount'], 'Integer');
       }
       if (data.hasOwnProperty('recordingSessions')) {
         obj['recordingSessions'] = ApiClient.convertToType(data['recordingSessions'], [RecordingSession]);
@@ -111,15 +122,15 @@
    */
   exports.prototype['chapterId'] = undefined;
   /**
-   * @member {Number} id
+   * @member {Integer} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {Number} startTimeOffset
+   * @member {Integer} startTimeOffset
    */
   exports.prototype['startTimeOffset'] = undefined;
   /**
-   * @member {Number} endTimeOffset
+   * @member {Integer} endTimeOffset
    */
   exports.prototype['endTimeOffset'] = undefined;
   /**
@@ -127,11 +138,11 @@
    */
   exports.prototype['chapterName'] = undefined;
   /**
-   * @member {Number} totalSize
+   * @member {Integer} totalSize
    */
   exports.prototype['totalSize'] = undefined;
   /**
-   * @member {Number} compositeContentId
+   * @member {Integer} compositeContentId
    */
   exports.prototype['compositeContentId'] = undefined;
   /**
@@ -139,11 +150,11 @@
    */
   exports.prototype['compositeContentStatus'] = undefined;
   /**
-   * @member {Number} parentRecordingId
+   * @member {Integer} parentRecordingId
    */
   exports.prototype['parentRecordingId'] = undefined;
   /**
-   * @member {Number} viewCount
+   * @member {Integer} viewCount
    */
   exports.prototype['viewCount'] = undefined;
   /**

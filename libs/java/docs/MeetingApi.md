@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelMeeting**](MeetingApi.md#cancelMeeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**createMeeting**](MeetingApi.md#createMeeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
+[**dialoutPstn**](MeetingApi.md#dialoutPstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn | Dialout via PSTN
+[**generatePairingCodePstn**](MeetingApi.md#generatePairingCodePstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN | Generate Pairing Code (PSTN)
 [**generatePairingCodeSip**](MeetingApi.md#generatePairingCodeSip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP | Generate Pairing Code (SIP)
 [**generatePairingCodeWebRtc**](MeetingApi.md#generatePairingCodeWebRtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**getEndpointLayout**](MeetingApi.md#getEndpointLayout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
@@ -129,6 +131,126 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Meeting**](Meeting.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="dialoutPstn"></a>
+# **dialoutPstn**
+> List&lt;DialoutPstn&gt; dialoutPstn(userId, numericMeetingId, payloadDialout)
+
+Dialout via PSTN
+
+Places a PSTN call to a user to join meeting.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+PayloadDialout payloadDialout = new PayloadDialout(); // PayloadDialout | 
+try {
+    List<DialoutPstn> result = apiInstance.dialoutPstn(userId, numericMeetingId, payloadDialout);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#dialoutPstn");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
+ **payloadDialout** | [**PayloadDialout**](PayloadDialout.md)|  |
+
+### Return type
+
+[**List&lt;DialoutPstn&gt;**](DialoutPstn.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="generatePairingCodePstn"></a>
+# **generatePairingCodePstn**
+> PairingCodeWebRTC generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role)
+
+Generate Pairing Code (PSTN)
+
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.onvideo.ApiClient;
+//import com.bluejeans.api.rest.onvideo.ApiException;
+//import com.bluejeans.api.rest.onvideo.Configuration;
+//import com.bluejeans.api.rest.onvideo.auth.*;
+//import com.bluejeans.api.rest.onvideo.api.MeetingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+MeetingApi apiInstance = new MeetingApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+PayloadPairingCodePstn payloadPairingCodePstn = new PayloadPairingCodePstn(); // PayloadPairingCodePstn | 
+String role = "USER"; // String | 
+try {
+    PairingCodeWebRTC result = apiInstance.generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MeetingApi#generatePairingCodePstn");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
+ **payloadPairingCodePstn** | [**PayloadPairingCodePstn**](PayloadPairingCodePstn.md)|  |
+ **role** | **String**|  | [optional] [default to USER]
+
+### Return type
+
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
 
 ### Authorization
 
@@ -1036,7 +1158,7 @@ null (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
 
 ### Example
 ```java

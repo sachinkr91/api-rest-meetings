@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -83,7 +94,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
       if (data.hasOwnProperty('numericId')) {
         obj['numericId'] = ApiClient.convertToType(data['numericId'], 'String');
@@ -92,7 +103,7 @@
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('originPopId')) {
-        obj['originPopId'] = ApiClient.convertToType(data['originPopId'], 'Number');
+        obj['originPopId'] = ApiClient.convertToType(data['originPopId'], 'Integer');
       }
       if (data.hasOwnProperty('isLargeMeeting')) {
         obj['isLargeMeeting'] = ApiClient.convertToType(data['isLargeMeeting'], 'Boolean');
@@ -140,7 +151,7 @@
         obj['enforceMeetingEncryptionAllowPSTN'] = ApiClient.convertToType(data['enforceMeetingEncryptionAllowPSTN'], 'Boolean');
       }
       if (data.hasOwnProperty('idleTimeout')) {
-        obj['idleTimeout'] = ApiClient.convertToType(data['idleTimeout'], 'Number');
+        obj['idleTimeout'] = ApiClient.convertToType(data['idleTimeout'], 'Integer');
       }
       if (data.hasOwnProperty('defaultLayout')) {
         obj['defaultLayout'] = ApiClient.convertToType(data['defaultLayout'], 'String');
@@ -149,7 +160,7 @@
         obj['playAudioAlerts'] = ApiClient.convertToType(data['playAudioAlerts'], 'Boolean');
       }
       if (data.hasOwnProperty('personalMeetingId')) {
-        obj['personalMeetingId'] = ApiClient.convertToType(data['personalMeetingId'], 'Number');
+        obj['personalMeetingId'] = ApiClient.convertToType(data['personalMeetingId'], 'Integer');
       }
       if (data.hasOwnProperty('moderatorPasscode')) {
         obj['moderatorPasscode'] = ApiClient.convertToType(data['moderatorPasscode'], 'String');
@@ -160,7 +171,7 @@
 
   /**
    * Unique identifier for room.
-   * @member {Number} id
+   * @member {Integer} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -174,7 +185,7 @@
    */
   exports.prototype['name'] = undefined;
   /**
-   * @member {Number} originPopId
+   * @member {Integer} originPopId
    */
   exports.prototype['originPopId'] = undefined;
   /**
@@ -238,7 +249,7 @@
    */
   exports.prototype['enforceMeetingEncryptionAllowPSTN'] = undefined;
   /**
-   * @member {Number} idleTimeout
+   * @member {Integer} idleTimeout
    */
   exports.prototype['idleTimeout'] = undefined;
   /**
@@ -250,7 +261,7 @@
    */
   exports.prototype['playAudioAlerts'] = undefined;
   /**
-   * @member {Number} personalMeetingId
+   * @member {Integer} personalMeetingId
    */
   exports.prototype['personalMeetingId'] = undefined;
   /**

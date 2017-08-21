@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -106,7 +117,7 @@
         obj['email'] = ApiClient.convertToType(data['email'], 'String');
       }
       if (data.hasOwnProperty('encryptionType')) {
-        obj['encryptionType'] = ApiClient.convertToType(data['encryptionType'], 'Number');
+        obj['encryptionType'] = ApiClient.convertToType(data['encryptionType'], 'Integer');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -124,7 +135,7 @@
         obj['scheduledFrom'] = ApiClient.convertToType(data['scheduledFrom'], 'String');
       }
       if (data.hasOwnProperty('inviteeCount')) {
-        obj['inviteeCount'] = ApiClient.convertToType(data['inviteeCount'], 'Number');
+        obj['inviteeCount'] = ApiClient.convertToType(data['inviteeCount'], 'Integer');
       }
       if (data.hasOwnProperty('personal')) {
         obj['personal'] = ApiClient.convertToType(data['personal'], 'Boolean');
@@ -142,31 +153,31 @@
         obj['moderatorLess'] = ApiClient.convertToType(data['moderatorLess'], 'Boolean');
       }
       if (data.hasOwnProperty('startTime')) {
-        obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Number');
+        obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Integer');
       }
       if (data.hasOwnProperty('endTime')) {
-        obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Number');
+        obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Integer');
       }
       if (data.hasOwnProperty('totalCallSeconds')) {
-        obj['totalCallSeconds'] = ApiClient.convertToType(data['totalCallSeconds'], 'Number');
+        obj['totalCallSeconds'] = ApiClient.convertToType(data['totalCallSeconds'], 'Integer');
       }
       if (data.hasOwnProperty('createTime')) {
-        obj['createTime'] = ApiClient.convertToType(data['createTime'], 'Number');
+        obj['createTime'] = ApiClient.convertToType(data['createTime'], 'Integer');
       }
       if (data.hasOwnProperty('endpointsCount')) {
-        obj['endpointsCount'] = ApiClient.convertToType(data['endpointsCount'], 'Number');
+        obj['endpointsCount'] = ApiClient.convertToType(data['endpointsCount'], 'Integer');
       }
       if (data.hasOwnProperty('concurrentEndpoints')) {
-        obj['concurrentEndpoints'] = ApiClient.convertToType(data['concurrentEndpoints'], 'Number');
+        obj['concurrentEndpoints'] = ApiClient.convertToType(data['concurrentEndpoints'], 'Integer');
       }
       if (data.hasOwnProperty('liveVisibleEndpointsCount')) {
-        obj['liveVisibleEndpointsCount'] = ApiClient.convertToType(data['liveVisibleEndpointsCount'], 'Number');
+        obj['liveVisibleEndpointsCount'] = ApiClient.convertToType(data['liveVisibleEndpointsCount'], 'Integer');
       }
       if (data.hasOwnProperty('qualarooRating')) {
-        obj['qualarooRating'] = ApiClient.convertToType(data['qualarooRating'], 'Number');
+        obj['qualarooRating'] = ApiClient.convertToType(data['qualarooRating'], 'Integer');
       }
       if (data.hasOwnProperty('qualarooCount')) {
-        obj['qualarooCount'] = ApiClient.convertToType(data['qualarooCount'], 'Number');
+        obj['qualarooCount'] = ApiClient.convertToType(data['qualarooCount'], 'Integer');
       }
       if (data.hasOwnProperty('meetingRecording')) {
         obj['meetingRecording'] = ApiClient.convertToType(data['meetingRecording'], 'Boolean');
@@ -221,7 +232,7 @@
    */
   exports.prototype['email'] = undefined;
   /**
-   * @member {Number} encryptionType
+   * @member {Integer} encryptionType
    */
   exports.prototype['encryptionType'] = undefined;
   /**
@@ -245,7 +256,7 @@
    */
   exports.prototype['scheduledFrom'] = undefined;
   /**
-   * @member {Number} inviteeCount
+   * @member {Integer} inviteeCount
    */
   exports.prototype['inviteeCount'] = undefined;
   /**
@@ -269,39 +280,39 @@
    */
   exports.prototype['moderatorLess'] = undefined;
   /**
-   * @member {Number} startTime
+   * @member {Integer} startTime
    */
   exports.prototype['startTime'] = undefined;
   /**
-   * @member {Number} endTime
+   * @member {Integer} endTime
    */
   exports.prototype['endTime'] = undefined;
   /**
-   * @member {Number} totalCallSeconds
+   * @member {Integer} totalCallSeconds
    */
   exports.prototype['totalCallSeconds'] = undefined;
   /**
-   * @member {Number} createTime
+   * @member {Integer} createTime
    */
   exports.prototype['createTime'] = undefined;
   /**
-   * @member {Number} endpointsCount
+   * @member {Integer} endpointsCount
    */
   exports.prototype['endpointsCount'] = undefined;
   /**
-   * @member {Number} concurrentEndpoints
+   * @member {Integer} concurrentEndpoints
    */
   exports.prototype['concurrentEndpoints'] = undefined;
   /**
-   * @member {Number} liveVisibleEndpointsCount
+   * @member {Integer} liveVisibleEndpointsCount
    */
   exports.prototype['liveVisibleEndpointsCount'] = undefined;
   /**
-   * @member {Number} qualarooRating
+   * @member {Integer} qualarooRating
    */
   exports.prototype['qualarooRating'] = undefined;
   /**
-   * @member {Number} qualarooCount
+   * @member {Integer} qualarooCount
    */
   exports.prototype['qualarooCount'] = undefined;
   /**

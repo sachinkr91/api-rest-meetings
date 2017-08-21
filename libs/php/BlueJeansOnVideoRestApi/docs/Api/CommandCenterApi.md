@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **getEndpointDistribution**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsEndpointDistribution getEndpointDistribution($enterprise_id, $filter)
+> \Swagger\Client\Model\AnalyticsEndpointDistribution getEndpointDistribution($enterprise_id, $filter)
 
 Endpoint Distribution
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsEndpointDistribution**](../Model/AnalyticsEndpointDistribution.md)
+[**\Swagger\Client\Model\AnalyticsEndpointDistribution**](../Model/AnalyticsEndpointDistribution.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeedbackComments**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsFeedbackComments getFeedbackComments($enterprise_id, $start, $end)
+> \Swagger\Client\Model\AnalyticsFeedbackComments getFeedbackComments($enterprise_id, $start, $end)
 
 Survey Feedback Comments
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsFeedbackComments**](../Model/AnalyticsFeedbackComments.md)
+[**\Swagger\Client\Model\AnalyticsFeedbackComments**](../Model/AnalyticsFeedbackComments.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeedbackCount**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsFeedbackScores getFeedbackCount($enterprise_id, $start, $end)
+> \Swagger\Client\Model\AnalyticsFeedbackScores getFeedbackCount($enterprise_id, $start, $end)
 
 Survey Feedback Scores
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsFeedbackScores**](../Model/AnalyticsFeedbackScores.md)
+[**\Swagger\Client\Model\AnalyticsFeedbackScores**](../Model/AnalyticsFeedbackScores.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingLiveByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo getMeetingLiveByEnterprise($enterprise_id, $meeting_uuid)
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingLiveByEnterprise($enterprise_id, $meeting_uuid)
 
 List Live Meeting Endpoints by Enterprise
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingPastByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints)
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingPastByUser**
-> \BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo getMeetingPastByUser($user_id, $meeting_uuid)
+> \Swagger\Client\Model\MeetingExtendedIndigo getMeetingPastByUser($user_id, $meeting_uuid)
 
 List Meeting Endpoints & Stats by User
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
+[**\Swagger\Client\Model\MeetingExtendedIndigo**](../Model/MeetingExtendedIndigo.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingUsage**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsUsage getMeetingUsage($enterprise_id, $client_tz, $filter)
+> \Swagger\Client\Model\AnalyticsUsage getMeetingUsage($enterprise_id, $client_tz, $filter)
 
 Meeting Usage Over Time
 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsUsage**](../Model/AnalyticsUsage.md)
+[**\Swagger\Client\Model\AnalyticsUsage**](../Model/AnalyticsUsage.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingsLiveByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\MeetingIndigoList getMeetingsLiveByEnterprise($enterprise_id)
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsLiveByEnterprise($enterprise_id)
 
 Live Meetings Summary by Enterprise
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingsPastByEnterprise**
-> \BlueJeansOnVideoRestApi\Model\MeetingIndigoList getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter)
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter)
 
 List Past Meetings by Enterprise
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingsPastByUser**
-> \BlueJeansOnVideoRestApi\Model\MeetingIndigoList getMeetingsPastByUser($user_id)
+> \Swagger\Client\Model\MeetingIndigoList getMeetingsPastByUser($user_id)
 
 List Past Meetings by User
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
+[**\Swagger\Client\Model\MeetingIndigoList**](../Model/MeetingIndigoList.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRoiRanges**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsRoiData getRoiRanges($enterprise_id, $filter)
+> \Swagger\Client\Model\AnalyticsRoiData getRoiRanges($enterprise_id, $filter)
 
 ROI Data
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsRoiData**](../Model/AnalyticsRoiData.md)
+[**\Swagger\Client\Model\AnalyticsRoiData**](../Model/AnalyticsRoiData.md)
 
 ### Authorization
 
@@ -599,7 +599,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTopUsers**
-> \BlueJeansOnVideoRestApi\Model\AnalyticsTopUsers getTopUsers($enterprise_id, $filter)
+> \Swagger\Client\Model\AnalyticsTopUsers getTopUsers($enterprise_id, $filter)
 
 Top Users
 
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansOnVideoRestApi\Model\AnalyticsTopUsers**](../Model/AnalyticsTopUsers.md)
+[**\Swagger\Client\Model\AnalyticsTopUsers**](../Model/AnalyticsTopUsers.md)
 
 ### Authorization
 

@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -68,14 +79,6 @@
      * @default 60000
      */
     this.timeout = 60000;
-
-    /**
-     * If set to false an additional timestamp parameter is added to all API GET calls to
-     * prevent browser caching
-     * @type {Boolean}
-     * @default true
-     */
-    this.cache = true;
   };
 
   /**
@@ -312,13 +315,13 @@
    * @returns A value of the specified type.
    */
   exports.prototype.deserialize = function deserialize(response, returnType) {
-    if (response == null || returnType == null || response.status == 204) {
+    if (response == null || returnType == null) {
       return null;
     }
     // Rely on SuperAgent for parsing response body.
     // See http://visionmedia.github.io/superagent/#parsing-response-bodies
     var data = response.body;
-    if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
+    if (data == null) {
       // SuperAgent does not always produce a body; use the unparsed response as a fallback
       data = response.text;
     }
@@ -362,9 +365,6 @@
     this.applyAuthToRequest(request, authNames);
 
     // set query parameters
-    if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
-        queryParams['_'] = new Date().getTime();
-    }
     request.query(this.normalizeParams(queryParams));
 
     // set header parameters
@@ -375,10 +375,7 @@
 
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
-      // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
-      if(contentType != 'multipart/form-data') {
-        request.type(contentType);
-      }
+      request.type(contentType);
     } else if (!request.header['Content-Type']) {
       request.type('application/json');
     }
@@ -411,11 +408,7 @@
       if (callback) {
         var data = null;
         if (!error) {
-          try {
-            data = _this.deserialize(response, returnType);
-          } catch (err) {
-            error = err;
-          }
+          data = _this.deserialize(response, returnType);
         }
         callback(error, data, response);
       }

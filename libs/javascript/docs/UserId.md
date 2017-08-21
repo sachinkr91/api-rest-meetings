@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the user. | [optional] 
+**id** | **Integer** | The ID of the user. | [optional] 
 
 

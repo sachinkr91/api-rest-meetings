@@ -31,9 +31,9 @@ Name | Type | Description | Notes
 **visibility** | **String** |  |  [optional]
 **chatEndpointGuid** | **String** |  |  [optional]
 **endpointGuid** | **String** |  |  [optional]
-**rdCVersion** | **String** |  |  [optional]
-**rdCControllerCapable** | **String** |  |  [optional]
-**rdCControlleeCapable** | **String** |  |  [optional]
+**rDCVersion** | **String** |  |  [optional]
+**rDCControllerCapable** | **String** |  |  [optional]
+**rDCControlleeCapable** | **String** |  |  [optional]
 **connections** | [**List&lt;EndpointsInnerConnections&gt;**](EndpointsInnerConnections.md) |  |  [optional]
 
 

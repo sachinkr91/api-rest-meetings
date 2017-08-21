@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastMeetingTime** | **Number** |  | [optional] 
+**lastMeetingTime** | **Integer** |  | [optional] 
 **participantMinutes** | **Number** |  | [optional] 
 **lastName** | **String** |  | [optional] 
 **userName** | **String** |  | [optional] 
-**userId** | **Number** |  | [optional] 
+**userId** | **Integer** |  | [optional] 
 **firstName** | **String** |  | [optional] 
 
 

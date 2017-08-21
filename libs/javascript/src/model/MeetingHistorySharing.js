@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -71,13 +82,13 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Integer');
       }
       if (data.hasOwnProperty('meetingGuid')) {
         obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
       }
       if (data.hasOwnProperty('ownerId')) {
-        obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'Number');
+        obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'Integer');
       }
       if (data.hasOwnProperty('sharingUrl')) {
         obj['sharingUrl'] = ApiClient.convertToType(data['sharingUrl'], 'String');
@@ -101,17 +112,17 @@
         obj['validity'] = ApiClient.convertToType(data['validity'], 'String');
       }
       if (data.hasOwnProperty('created')) {
-        obj['created'] = ApiClient.convertToType(data['created'], 'Number');
+        obj['created'] = ApiClient.convertToType(data['created'], 'Integer');
       }
       if (data.hasOwnProperty('lastmodified')) {
-        obj['lastmodified'] = ApiClient.convertToType(data['lastmodified'], 'Number');
+        obj['lastmodified'] = ApiClient.convertToType(data['lastmodified'], 'Integer');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} id
+   * @member {Integer} id
    */
   exports.prototype['id'] = undefined;
   /**
@@ -120,7 +131,7 @@
   exports.prototype['meetingGuid'] = undefined;
   /**
    * Numeric user ID for the meeting owner.
-   * @member {Number} ownerId
+   * @member {Integer} ownerId
    */
   exports.prototype['ownerId'] = undefined;
   /**
@@ -153,12 +164,12 @@
   exports.prototype['validity'] = undefined;
   /**
    * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
-   * @member {Number} created
+   * @member {Integer} created
    */
   exports.prototype['created'] = undefined;
   /**
    * A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
-   * @member {Number} lastmodified
+   * @member {Integer} lastmodified
    */
   exports.prototype['lastmodified'] = undefined;
 

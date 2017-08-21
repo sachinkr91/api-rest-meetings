@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
+**id** | **Integer** |  | [optional] 
 **meetingGuid** | **String** |  | [optional] 
-**ownerId** | **Number** | Numeric user ID for the meeting owner. | [optional] 
+**ownerId** | **Integer** | Numeric user ID for the meeting owner. | [optional] 
 **sharingUrl** | **String** |  | [optional] 
 **recepientType** | **String** |  | [optional] 
 **properties** | **String** |  | [optional] 
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **downloadable** | **Boolean** |  | [optional] 
 **passcode** | **String** |  | [optional] 
 **validity** | **String** |  | [optional] 
-**created** | **Number** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | [optional] 
-**lastmodified** | **Number** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | [optional] 
+**created** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | [optional] 
+**lastmodified** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | [optional] 
 
 
 <a name="RecepientTypeEnum"></a>

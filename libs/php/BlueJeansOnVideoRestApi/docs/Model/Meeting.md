@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **attendee_passcode** | **string** |  | [optional] 
 **end_point_version** | **string** |  | [default to '2.10']
 **end_point_type** | **string** |  | [default to 'WEB_APP']
-**attendees** | [**\BlueJeansOnVideoRestApi\Model\Attendee[]**](Attendee.md) |  | [optional] 
-**advanced_meeting_options** | [**\BlueJeansOnVideoRestApi\Model\MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
+**attendees** | [**\Swagger\Client\Model\Attendee[]**](Attendee.md) |  | [optional] 
+**advanced_meeting_options** | [**\Swagger\Client\Model\MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

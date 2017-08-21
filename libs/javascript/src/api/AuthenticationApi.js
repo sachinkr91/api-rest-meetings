@@ -9,23 +9,34 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/GrantClient', 'model/GrantCode', 'model/GrantMeeting', 'model/GrantPassword', 'model/GrantRefresh', 'model/GrantRequestClient', 'model/GrantRequestCode', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/GrantRequestRefresh', 'model/GrantRequestRevoke', 'model/InlineResponse200'], factory);
+    define(['ApiClient', 'model/Error', 'model/GrantRequestClient', 'model/GrantClient', 'model/GrantCode', 'model/GrantRequestCode', 'model/GrantMeeting', 'model/GrantRequestMeeting', 'model/GrantRequestPassword', 'model/GrantPassword', 'model/GrantRefresh', 'model/GrantRequestRefresh', 'model/InlineResponse200', 'model/GrantRequestRevoke'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestClient'), require('../model/GrantRequestCode'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantRequestRefresh'), require('../model/GrantRequestRevoke'), require('../model/InlineResponse200'));
+    module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/GrantRequestClient'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantRequestCode'), require('../model/GrantMeeting'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestRefresh'), require('../model/InlineResponse200'), require('../model/GrantRequestRevoke'));
   } else {
     // Browser globals (root is window)
     if (!root.BlueJeansOnVideoRestApi) {
       root.BlueJeansOnVideoRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRevoke, root.BlueJeansOnVideoRestApi.InlineResponse200);
+    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.InlineResponse200, root.BlueJeansOnVideoRestApi.GrantRequestRevoke);
   }
-}(this, function(ApiClient, Error, GrantClient, GrantCode, GrantMeeting, GrantPassword, GrantRefresh, GrantRequestClient, GrantRequestCode, GrantRequestMeeting, GrantRequestPassword, GrantRequestRefresh, GrantRequestRevoke, InlineResponse200) {
+}(this, function(ApiClient, Error, GrantRequestClient, GrantClient, GrantCode, GrantRequestCode, GrantMeeting, GrantRequestMeeting, GrantRequestPassword, GrantPassword, GrantRefresh, GrantRequestRefresh, InlineResponse200, GrantRequestRevoke) {
   'use strict';
 
   /**
@@ -119,7 +130,7 @@
 
       // verify the required parameter 'grantRequestClient' is set
       if (grantRequestClient == undefined || grantRequestClient == null) {
-        throw new Error("Missing the required parameter 'grantRequestClient' when calling getTokenByClient");
+        throw "Missing the required parameter 'grantRequestClient' when calling getTokenByClient";
       }
 
 
@@ -164,7 +175,7 @@
 
       // verify the required parameter 'grantRequestCode' is set
       if (grantRequestCode == undefined || grantRequestCode == null) {
-        throw new Error("Missing the required parameter 'grantRequestCode' when calling getTokenByCode");
+        throw "Missing the required parameter 'grantRequestCode' when calling getTokenByCode";
       }
 
 
@@ -209,7 +220,7 @@
 
       // verify the required parameter 'grantRequestMeeting' is set
       if (grantRequestMeeting == undefined || grantRequestMeeting == null) {
-        throw new Error("Missing the required parameter 'grantRequestMeeting' when calling getTokenByMeeting");
+        throw "Missing the required parameter 'grantRequestMeeting' when calling getTokenByMeeting";
       }
 
 
@@ -254,7 +265,7 @@
 
       // verify the required parameter 'grantRequestPassword' is set
       if (grantRequestPassword == undefined || grantRequestPassword == null) {
-        throw new Error("Missing the required parameter 'grantRequestPassword' when calling getTokenByPassword");
+        throw "Missing the required parameter 'grantRequestPassword' when calling getTokenByPassword";
       }
 
 
@@ -299,7 +310,7 @@
 
       // verify the required parameter 'grantRequestRefresh' is set
       if (grantRequestRefresh == undefined || grantRequestRefresh == null) {
-        throw new Error("Missing the required parameter 'grantRequestRefresh' when calling getTokenByRefresh");
+        throw "Missing the required parameter 'grantRequestRefresh' when calling getTokenByRefresh";
       }
 
 
@@ -389,7 +400,7 @@
 
       // verify the required parameter 'grantRequestRevoke' is set
       if (grantRequestRevoke == undefined || grantRequestRevoke == null) {
-        throw new Error("Missing the required parameter 'grantRequestRevoke' when calling revokeAccessToken");
+        throw "Missing the required parameter 'grantRequestRevoke' when calling revokeAccessToken";
       }
 
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **meeting_numeric_id** | **string** |  | [optional] 
 **title** | **string** |  | [optional] 
 **description** | **string** |  | [optional] 
-**leader_info** | [**\BlueJeansOnVideoRestApi\Model\MeetingHistoryLeaderInfo**](MeetingHistoryLeaderInfo.md) |  | [optional] 
+**leader_info** | [**\Swagger\Client\Model\MeetingHistoryLeaderInfo**](MeetingHistoryLeaderInfo.md) |  | [optional] 
 **user_id** | **int** |  | [optional] 
 **meeting_duration** | **int** |  | [optional] 
 **max_participant_count** | **int** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **concurrent_calls** | **string** |  | [optional] 
 **upload_status** | **string** |  | [optional] 
 **pstnonly** | **bool** |  | [optional] 
-**participant_list** | [**\BlueJeansOnVideoRestApi\Model\MeetingHistoryParticipantList[]**](MeetingHistoryParticipantList.md) |  | [optional] 
+**participant_list** | [**\Swagger\Client\Model\MeetingHistoryParticipantList[]**](MeetingHistoryParticipantList.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -27,7 +27,6 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -48,7 +47,7 @@ try:
     api_response = api_instance.get_endpoint_distribution(enterprise_id, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_endpoint_distribution: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_endpoint_distribution: %s\n" % e
 ```
 
 ### Parameters
@@ -82,7 +81,6 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -104,7 +102,7 @@ try:
     api_response = api_instance.get_feedback_comments(enterprise_id, start, end)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_feedback_comments: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_feedback_comments: %s\n" % e
 ```
 
 ### Parameters
@@ -139,7 +137,6 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -161,7 +158,7 @@ try:
     api_response = api_instance.get_feedback_count(enterprise_id, start, end)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_feedback_count: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_feedback_count: %s\n" % e
 ```
 
 ### Parameters
@@ -196,7 +193,6 @@ This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -217,7 +213,7 @@ try:
     api_response = api_instance.get_meeting_live_by_enterprise(enterprise_id, meeting_uuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meeting_live_by_enterprise: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meeting_live_by_enterprise: %s\n" % e
 ```
 
 ### Parameters
@@ -251,7 +247,6 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -273,7 +268,7 @@ try:
     api_response = api_instance.get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meeting_past_by_enterprise: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meeting_past_by_enterprise: %s\n" % e
 ```
 
 ### Parameters
@@ -308,7 +303,6 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires /
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -329,7 +323,7 @@ try:
     api_response = api_instance.get_meeting_past_by_user(user_id, meeting_uuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meeting_past_by_user: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meeting_past_by_user: %s\n" % e
 ```
 
 ### Parameters
@@ -363,7 +357,6 @@ This endpoint reports on meeting usage. Requires /oauth2/token?Password authenti
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -385,7 +378,7 @@ try:
     api_response = api_instance.get_meeting_usage(enterprise_id, client_tz=client_tz, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meeting_usage: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meeting_usage: %s\n" % e
 ```
 
 ### Parameters
@@ -420,7 +413,6 @@ This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?P
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -440,7 +432,7 @@ try:
     api_response = api_instance.get_meetings_live_by_enterprise(enterprise_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meetings_live_by_enterprise: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meetings_live_by_enterprise: %s\n" % e
 ```
 
 ### Parameters
@@ -473,7 +465,6 @@ This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Pas
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -496,7 +487,7 @@ try:
     api_response = api_instance.get_meetings_past_by_enterprise(enterprise_id, offset=offset, limit=limit, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meetings_past_by_enterprise: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meetings_past_by_enterprise: %s\n" % e
 ```
 
 ### Parameters
@@ -532,7 +523,6 @@ This endpoint lists completed meetings by user. Requires /oauth2/token?Password 
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -552,7 +542,7 @@ try:
     api_response = api_instance.get_meetings_past_by_user(user_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_meetings_past_by_user: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_meetings_past_by_user: %s\n" % e
 ```
 
 ### Parameters
@@ -585,7 +575,6 @@ This endpoint lists return on investment (ROI) data for meetings. Requires /oaut
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -606,7 +595,7 @@ try:
     api_response = api_instance.get_roi_ranges(enterprise_id, filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_roi_ranges: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_roi_ranges: %s\n" % e
 ```
 
 ### Parameters
@@ -640,7 +629,6 @@ This endpoint retrieves the top users by usage for an enterprise. Requires /oaut
 
 ### Example 
 ```python
-from __future__ import print_statement
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -661,7 +649,7 @@ try:
     api_response = api_instance.get_top_users(enterprise_id, filter=filter)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CommandCenterApi->get_top_users: %s\n" % e)
+    print "Exception when calling CommandCenterApi->get_top_users: %s\n" % e
 ```
 
 ### Parameters

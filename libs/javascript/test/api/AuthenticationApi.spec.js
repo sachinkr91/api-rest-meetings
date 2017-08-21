@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('getAuthorizationCode', function() {
       it('should call getAuthorizationCode successfully', function(done) {
         //uncomment below and update the code to test getAuthorizationCode
-        //instance.getAuthorizationCode(function(error) {
+        //instance.getAuthorizationCode(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,7 @@
     describe('getTokenByClient', function() {
       it('should call getTokenByClient successfully', function(done) {
         //uncomment below and update the code to test getTokenByClient
-        //instance.getTokenByClient(function(error) {
+        //instance.getTokenByClient(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +82,7 @@
     describe('getTokenByCode', function() {
       it('should call getTokenByCode successfully', function(done) {
         //uncomment below and update the code to test getTokenByCode
-        //instance.getTokenByCode(function(error) {
+        //instance.getTokenByCode(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +92,7 @@
     describe('getTokenByMeeting', function() {
       it('should call getTokenByMeeting successfully', function(done) {
         //uncomment below and update the code to test getTokenByMeeting
-        //instance.getTokenByMeeting(function(error) {
+        //instance.getTokenByMeeting(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +102,7 @@
     describe('getTokenByPassword', function() {
       it('should call getTokenByPassword successfully', function(done) {
         //uncomment below and update the code to test getTokenByPassword
-        //instance.getTokenByPassword(function(error) {
+        //instance.getTokenByPassword(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +112,7 @@
     describe('getTokenByRefresh', function() {
       it('should call getTokenByRefresh successfully', function(done) {
         //uncomment below and update the code to test getTokenByRefresh
-        //instance.getTokenByRefresh(function(error) {
+        //instance.getTokenByRefresh(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -111,7 +122,7 @@
     describe('getTokenInfo', function() {
       it('should call getTokenInfo successfully', function(done) {
         //uncomment below and update the code to test getTokenInfo
-        //instance.getTokenInfo(function(error) {
+        //instance.getTokenInfo(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -121,7 +132,7 @@
     describe('revokeAccessToken', function() {
       it('should call revokeAccessToken successfully', function(done) {
         //uncomment below and update the code to test revokeAccessToken
-        //instance.revokeAccessToken(function(error) {
+        //instance.revokeAccessToken(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

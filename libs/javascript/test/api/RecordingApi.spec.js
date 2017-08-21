@@ -9,6 +9,17 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 (function(root, factory) {
@@ -51,7 +62,7 @@
     describe('getMeetingRecordings', function() {
       it('should call getMeetingRecordings successfully', function(done) {
         //uncomment below and update the code to test getMeetingRecordings
-        //instance.getMeetingRecordings(function(error) {
+        //instance.getMeetingRecordings(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -61,7 +72,7 @@
     describe('getRecordingContent', function() {
       it('should call getRecordingContent successfully', function(done) {
         //uncomment below and update the code to test getRecordingContent
-        //instance.getRecordingContent(function(error) {
+        //instance.getRecordingContent(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -71,7 +82,7 @@
     describe('startRecording', function() {
       it('should call startRecording successfully', function(done) {
         //uncomment below and update the code to test startRecording
-        //instance.startRecording(function(error) {
+        //instance.startRecording(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -81,7 +92,7 @@
     describe('stopRecording', function() {
       it('should call stopRecording successfully', function(done) {
         //uncomment below and update the code to test stopRecording
-        //instance.stopRecording(function(error) {
+        //instance.stopRecording(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -91,7 +102,7 @@
     describe('v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete', function() {
       it('should call v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete
-        //instance.v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete(function(error) {
+        //instance.v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -101,7 +112,7 @@
     describe('v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete', function() {
       it('should call v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete successfully', function(done) {
         //uncomment below and update the code to test v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete
-        //instance.v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete(function(error) {
+        //instance.v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
