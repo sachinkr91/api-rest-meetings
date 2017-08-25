@@ -62,6 +62,7 @@ java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/
 cd ../libs/php/BlueJeansOnVideoRestApi
 
 perl -p -i -e "s|\*\@dev|dev-php-repo|" README.md
+perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
 
 cd ../../../build
 
@@ -86,6 +87,8 @@ perl -p -i -e "s|^}|  }\n}|" package.json
 
 npm test
 
+perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
+
 cd ../../build
 
 #
@@ -99,6 +102,9 @@ java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l csharp -o ../li
 cd ../libs/csharp
 chmod 755 build.sh
 ./build.sh
+
+perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
+
 cd ../../build
 
 #
@@ -113,5 +119,6 @@ cd ../libs/python
 python -m unittest discover -s test
 
 perl -p -i -e "s|\.git|\.git\@pip-repo|" README.md
+perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
 
 cd ../../build
