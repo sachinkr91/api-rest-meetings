@@ -87,7 +87,7 @@ perl -p -i -e "s|^}|  }\n}|" package.json
 
 npm test
 
-perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
+perl -p -i -e "s|Video That Works Where You Do.*|\nVideo That Works Where You Do.\n|" README.md
 
 cd ../../build
 
