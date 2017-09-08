@@ -35,6 +35,7 @@ This endpoint deletes a scheuled meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -54,7 +55,7 @@ try:
     # Cancel Meeting
     api_instance.cancel_meeting(user_id, meeting_id)
 except ApiException as e:
-    print "Exception when calling MeetingApi->cancel_meeting: %s\n" % e
+    print("Exception when calling MeetingApi->cancel_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -88,6 +89,7 @@ This endpoint will create a scheduled meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -109,7 +111,7 @@ try:
     api_response = api_instance.create_meeting(user_id, meeting, email=email)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->create_meeting: %s\n" % e
+    print("Exception when calling MeetingApi->create_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -144,6 +146,7 @@ Places a PSTN call to a user to join meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -165,7 +168,7 @@ try:
     api_response = api_instance.dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->dialout_pstn: %s\n" % e
+    print("Exception when calling MeetingApi->dialout_pstn: %s\n" % e)
 ```
 
 ### Parameters
@@ -200,6 +203,7 @@ This endpoint generates a PSTN pairing code that can be used to connect to a mee
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -222,7 +226,7 @@ try:
     api_response = api_instance.generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->generate_pairing_code_pstn: %s\n" % e
+    print("Exception when calling MeetingApi->generate_pairing_code_pstn: %s\n" % e)
 ```
 
 ### Parameters
@@ -258,6 +262,7 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -279,7 +284,7 @@ try:
     api_response = api_instance.generate_pairing_code_sip(user_id, numeric_meeting_id, payload_pairing_code_sip)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->generate_pairing_code_sip: %s\n" % e
+    print("Exception when calling MeetingApi->generate_pairing_code_sip: %s\n" % e)
 ```
 
 ### Parameters
@@ -314,6 +319,7 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -336,7 +342,7 @@ try:
     api_response = api_instance.generate_pairing_code_web_rtc(user_id, numeric_meeting_id, payload_pairing_code_web_rtc, role=role)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->generate_pairing_code_web_rtc: %s\n" % e
+    print("Exception when calling MeetingApi->generate_pairing_code_web_rtc: %s\n" % e)
 ```
 
 ### Parameters
@@ -372,6 +378,7 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -393,7 +400,7 @@ try:
     api_response = api_instance.get_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_endpoint_layout: %s\n" % e
+    print("Exception when calling MeetingApi->get_endpoint_layout: %s\n" % e)
 ```
 
 ### Parameters
@@ -428,6 +435,7 @@ This endpoint gets the settings for a user's meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -448,7 +456,7 @@ try:
     api_response = api_instance.get_meeting(user_id, meeting_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -482,6 +490,7 @@ This endpoint retrieves the email object for a scheduled meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -505,7 +514,7 @@ try:
     api_response = api_instance.get_meeting_emails(user_id, meeting_id, type=type, role=role, action=action)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting_emails: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting_emails: %s\n" % e)
 ```
 
 ### Parameters
@@ -542,6 +551,7 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -563,7 +573,7 @@ try:
     api_response = api_instance.get_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting_endpoint: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -598,6 +608,7 @@ This endpoint returns an array of all endpoints in the current meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -618,7 +629,7 @@ try:
     api_response = api_instance.get_meeting_endpoints(user_id, numeric_meeting_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting_endpoints: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting_endpoints: %s\n" % e)
 ```
 
 ### Parameters
@@ -652,6 +663,7 @@ This endpoint retrieves the join information for a scheduled meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -672,7 +684,7 @@ try:
     api_response = api_instance.get_meeting_numbers(user_id, meeting_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting_numbers: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting_numbers: %s\n" % e)
 ```
 
 ### Parameters
@@ -706,6 +718,7 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -726,7 +739,7 @@ try:
     api_response = api_instance.get_meeting_state(user_id, numeric_meeting_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->get_meeting_state: %s\n" % e
+    print("Exception when calling MeetingApi->get_meeting_state: %s\n" % e)
 ```
 
 ### Parameters
@@ -760,6 +773,7 @@ This endpoint gets a list of the user's scheduled upcoming meetings.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -780,7 +794,7 @@ try:
     api_response = api_instance.list_meetings(user_id, numeric_meeting_id=numeric_meeting_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->list_meetings: %s\n" % e
+    print("Exception when calling MeetingApi->list_meetings: %s\n" % e)
 ```
 
 ### Parameters
@@ -814,6 +828,7 @@ This endpoint generates an email invite to the specified meeting.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -834,7 +849,7 @@ try:
     # Send Email Invite
     api_instance.send_meeting_invite(user_id, numeric_meeting_id, payload_invite)
 except ApiException as e:
-    print "Exception when calling MeetingApi->send_meeting_invite: %s\n" % e
+    print("Exception when calling MeetingApi->send_meeting_invite: %s\n" % e)
 ```
 
 ### Parameters
@@ -869,6 +884,7 @@ This endpoint allows you to update an individual endpoint’s current layout set
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -892,7 +908,7 @@ try:
     api_response = api_instance.update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, is_leader=is_leader, push=push)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->update_endpoint_layout: %s\n" % e
+    print("Exception when calling MeetingApi->update_endpoint_layout: %s\n" % e)
 ```
 
 ### Parameters
@@ -929,6 +945,7 @@ This endpoint changes the settings for a user's meeting. For example, use for re
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -950,7 +967,7 @@ try:
     api_response = api_instance.update_meeting(user_id, meeting_id, meeting)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->update_meeting: %s\n" % e
+    print("Exception when calling MeetingApi->update_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -985,6 +1002,7 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -1009,7 +1027,7 @@ try:
     api_response = api_instance.update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->update_meeting_endpoint: %s\n" % e
+    print("Exception when calling MeetingApi->update_meeting_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -1047,6 +1065,7 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -1068,7 +1087,7 @@ try:
     # Update Meeting Endpoints State
     api_instance.update_meeting_endpoints(user_id, numeric_meeting_id, mute=mute, media=media)
 except ApiException as e:
-    print "Exception when calling MeetingApi->update_meeting_endpoints: %s\n" % e
+    print("Exception when calling MeetingApi->update_meeting_endpoints: %s\n" % e)
 ```
 
 ### Parameters
@@ -1104,6 +1123,7 @@ This endpoint’s purpose is to be able to modify a meeting. Actions include loc
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -1126,7 +1146,7 @@ try:
     api_response = api_instance.update_meeting_state(user_id, numeric_meeting_id, payload_meeting_state, delay=delay)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MeetingApi->update_meeting_state: %s\n" % e
+    print("Exception when calling MeetingApi->update_meeting_state: %s\n" % e)
 ```
 
 ### Parameters

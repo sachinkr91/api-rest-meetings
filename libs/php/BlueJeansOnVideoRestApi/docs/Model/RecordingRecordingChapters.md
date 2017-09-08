@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **composite_content_status** | **string** |  | [optional] 
 **parent_recording_id** | **int** |  | [optional] 
 **view_count** | **int** |  | [optional] 
-**recording_sessions** | [**\Swagger\Client\Model\RecordingSession[]**](RecordingSession.md) |  | [optional] 
+**recording_sessions** | [**\BlueJeansOnVideoRestApi\Model\RecordingSession[]**](RecordingSession.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -78,7 +78,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createMeeting**
-> \Swagger\Client\Model\Meeting createMeeting($user_id, $meeting, $email)
+> \BlueJeansOnVideoRestApi\Model\Meeting createMeeting($user_id, $meeting, $email)
 
 Create Meeting
 
@@ -96,7 +96,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The details of the meeting.
+$meeting = new \BlueJeansOnVideoRestApi\Model\Meeting(); // \BlueJeansOnVideoRestApi\Model\Meeting | The details of the meeting.
 $email = true; // bool | If set to true, sends invitation emails to all listed participants.
 
 try {
@@ -113,12 +113,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The details of the meeting. |
+ **meeting** | [**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)| The details of the meeting. |
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **dialoutPstn**
-> \Swagger\Client\Model\DialoutPstn[] dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout)
+> \BlueJeansOnVideoRestApi\Model\DialoutPstn[] dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout)
 
 Dialout via PSTN
 
@@ -151,7 +151,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_dialout = new \Swagger\Client\Model\PayloadDialout(); // \Swagger\Client\Model\PayloadDialout | 
+$payload_dialout = new \BlueJeansOnVideoRestApi\Model\PayloadDialout(); // \BlueJeansOnVideoRestApi\Model\PayloadDialout | 
 
 try {
     $result = $api_instance->dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout);
@@ -168,11 +168,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_dialout** | [**\Swagger\Client\Model\PayloadDialout**](../Model/\Swagger\Client\Model\PayloadDialout.md)|  |
+ **payload_dialout** | [**\BlueJeansOnVideoRestApi\Model\PayloadDialout**](../Model/PayloadDialout.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\DialoutPstn[]**](../Model/DialoutPstn.md)
+[**\BlueJeansOnVideoRestApi\Model\DialoutPstn[]**](../Model/DialoutPstn.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodePstn**
-> \Swagger\Client\Model\PairingCodeWebRTC generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role)
+> \BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role)
 
 Generate Pairing Code (PSTN)
 
@@ -205,7 +205,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_pairing_code_pstn = new \Swagger\Client\Model\PayloadPairingCodePstn(); // \Swagger\Client\Model\PayloadPairingCodePstn | 
+$payload_pairing_code_pstn = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodePstn(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodePstn | 
 $role = "USER"; // string | 
 
 try {
@@ -223,12 +223,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_pairing_code_pstn** | [**\Swagger\Client\Model\PayloadPairingCodePstn**](../Model/\Swagger\Client\Model\PayloadPairingCodePstn.md)|  |
+ **payload_pairing_code_pstn** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodePstn**](../Model/PayloadPairingCodePstn.md)|  |
  **role** | **string**|  | [optional] [default to USER]
 
 ### Return type
 
-[**\Swagger\Client\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
+[**\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeSip**
-> \Swagger\Client\Model\PairingCodeSIP generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
+> \BlueJeansOnVideoRestApi\Model\PairingCodeSIP generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip)
 
 Generate Pairing Code (SIP)
 
@@ -261,7 +261,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_pairing_code_sip = new \Swagger\Client\Model\PayloadPairingCodeSIP(); // \Swagger\Client\Model\PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
+$payload_pairing_code_sip = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 try {
     $result = $api_instance->generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip);
@@ -278,11 +278,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_pairing_code_sip** | [**\Swagger\Client\Model\PayloadPairingCodeSIP**](../Model/\Swagger\Client\Model\PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. |
+ **payload_pairing_code_sip** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeSIP**](../Model/PayloadPairingCodeSIP.md)| Information about the device that will be joining via SIP. |
 
 ### Return type
 
-[**\Swagger\Client\Model\PairingCodeSIP**](../Model/PairingCodeSIP.md)
+[**\BlueJeansOnVideoRestApi\Model\PairingCodeSIP**](../Model/PairingCodeSIP.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodeWebRtc**
-> \Swagger\Client\Model\PairingCodeWebRTC generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role)
+> \BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role)
 
 Generate Pairing Code (WebRTC)
 
@@ -315,7 +315,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_pairing_code_web_rtc = new \Swagger\Client\Model\PayloadPairingCodeWebRTC(); // \Swagger\Client\Model\PayloadPairingCodeWebRTC | 
+$payload_pairing_code_web_rtc = new \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC(); // \BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC | 
 $role = "USER"; // string | 
 
 try {
@@ -333,12 +333,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_pairing_code_web_rtc** | [**\Swagger\Client\Model\PayloadPairingCodeWebRTC**](../Model/\Swagger\Client\Model\PayloadPairingCodeWebRTC.md)|  |
+ **payload_pairing_code_web_rtc** | [**\BlueJeansOnVideoRestApi\Model\PayloadPairingCodeWebRTC**](../Model/PayloadPairingCodeWebRTC.md)|  |
  **role** | **string**|  | [optional] [default to USER]
 
 ### Return type
 
-[**\Swagger\Client\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
+[**\BlueJeansOnVideoRestApi\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEndpointLayout**
-> \Swagger\Client\Model\Layout getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid)
+> \BlueJeansOnVideoRestApi\Model\Layout getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid)
 
 Get Endpoint Layout
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Layout**](../Model/Layout.md)
+[**\BlueJeansOnVideoRestApi\Model\Layout**](../Model/Layout.md)
 
 ### Authorization
 
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeeting**
-> \Swagger\Client\Model\Meeting getMeeting($user_id, $meeting_id)
+> \BlueJeansOnVideoRestApi\Model\Meeting getMeeting($user_id, $meeting_id)
 
 Get Meeting
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEmails**
-> \Swagger\Client\Model\Meeting getMeetingEmails($user_id, $meeting_id, $type, $role, $action)
+> \BlueJeansOnVideoRestApi\Model\Meeting getMeetingEmails($user_id, $meeting_id, $type, $role, $action)
 
 Get Meeting Email
 
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEndpoint**
-> \Swagger\Client\Model\Endpoint getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid)
+> \BlueJeansOnVideoRestApi\Model\Endpoint getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid)
 
 Get Endpoint Information
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Endpoint**](../Model/Endpoint.md)
+[**\BlueJeansOnVideoRestApi\Model\Endpoint**](../Model/Endpoint.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEndpoints**
-> \Swagger\Client\Model\Endpoints getMeetingEndpoints($user_id, $numeric_meeting_id)
+> \BlueJeansOnVideoRestApi\Model\Endpoints getMeetingEndpoints($user_id, $numeric_meeting_id)
 
 List Meeting Endpoints
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Endpoints**](../Model/Endpoints.md)
+[**\BlueJeansOnVideoRestApi\Model\Endpoints**](../Model/Endpoints.md)
 
 ### Authorization
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingNumbers**
-> \Swagger\Client\Model\Numbers getMeetingNumbers($user_id, $meeting_id)
+> \BlueJeansOnVideoRestApi\Model\Numbers getMeetingNumbers($user_id, $meeting_id)
 
 Get Meeting Join Info
 
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Numbers**](../Model/Numbers.md)
+[**\BlueJeansOnVideoRestApi\Model\Numbers**](../Model/Numbers.md)
 
 ### Authorization
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingState**
-> \Swagger\Client\Model\MeetingState getMeetingState($user_id, $numeric_meeting_id)
+> \BlueJeansOnVideoRestApi\Model\MeetingState getMeetingState($user_id, $numeric_meeting_id)
 
 Get Meeting State
 
@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\MeetingState**](../Model/MeetingState.md)
+[**\BlueJeansOnVideoRestApi\Model\MeetingState**](../Model/MeetingState.md)
 
 ### Authorization
 
@@ -726,7 +726,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listMeetings**
-> \Swagger\Client\Model\Meeting[] listMeetings($user_id, $numeric_meeting_id)
+> \BlueJeansOnVideoRestApi\Model\Meeting[] listMeetings($user_id, $numeric_meeting_id)
 
 List Meetings
 
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting[]**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting[]**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -797,7 +797,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_invite = new \Swagger\Client\Model\PayloadInvite(); // \Swagger\Client\Model\PayloadInvite | 
+$payload_invite = new \BlueJeansOnVideoRestApi\Model\PayloadInvite(); // \BlueJeansOnVideoRestApi\Model\PayloadInvite | 
 
 try {
     $api_instance->sendMeetingInvite($user_id, $numeric_meeting_id, $payload_invite);
@@ -813,7 +813,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_invite** | [**\Swagger\Client\Model\PayloadInvite**](../Model/\Swagger\Client\Model\PayloadInvite.md)|  |
+ **payload_invite** | [**\BlueJeansOnVideoRestApi\Model\PayloadInvite**](../Model/PayloadInvite.md)|  |
 
 ### Return type
 
@@ -831,7 +831,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEndpointLayout**
-> \Swagger\Client\Model\Layout updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push)
+> \BlueJeansOnVideoRestApi\Model\Layout updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push)
 
 Update Endpoint Layout
 
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Layout**](../Model/Layout.md)
+[**\BlueJeansOnVideoRestApi\Model\Layout**](../Model/Layout.md)
 
 ### Authorization
 
@@ -889,7 +889,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeeting**
-> \Swagger\Client\Model\Meeting updateMeeting($user_id, $meeting_id, $meeting)
+> \BlueJeansOnVideoRestApi\Model\Meeting updateMeeting($user_id, $meeting_id, $meeting)
 
 Update Meeting
 
@@ -908,7 +908,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-$meeting = new \Swagger\Client\Model\Meeting(); // \Swagger\Client\Model\Meeting | The user's room details that you wish to update.
+$meeting = new \BlueJeansOnVideoRestApi\Model\Meeting(); // \BlueJeansOnVideoRestApi\Model\Meeting | The user's room details that you wish to update.
 
 try {
     $result = $api_instance->updateMeeting($user_id, $meeting_id, $meeting);
@@ -925,11 +925,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **meeting** | [**\Swagger\Client\Model\Meeting**](../Model/\Swagger\Client\Model\Meeting.md)| The user&#39;s room details that you wish to update. |
+ **meeting** | [**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)| The user&#39;s room details that you wish to update. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingEndpoint**
-> \Swagger\Client\Model\Endpoint updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
+> \BlueJeansOnVideoRestApi\Model\Endpoint updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -989,7 +989,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Endpoint**](../Model/Endpoint.md)
+[**\BlueJeansOnVideoRestApi\Model\Endpoint**](../Model/Endpoint.md)
 
 ### Authorization
 
@@ -1058,7 +1058,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingState**
-> \Swagger\Client\Model\Meeting updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay)
+> \BlueJeansOnVideoRestApi\Model\Meeting updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay)
 
 Update Meeting State
 
@@ -1077,7 +1077,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-$payload_meeting_state = new \Swagger\Client\Model\PayloadMeetingState(); // \Swagger\Client\Model\PayloadMeetingState | The meeting properties that you wish to update.
+$payload_meeting_state = new \BlueJeansOnVideoRestApi\Model\PayloadMeetingState(); // \BlueJeansOnVideoRestApi\Model\PayloadMeetingState | The meeting properties that you wish to update.
 $delay = 56; // int | Number of seconds to delay the end meeting operation.
 
 try {
@@ -1095,12 +1095,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
- **payload_meeting_state** | [**\Swagger\Client\Model\PayloadMeetingState**](../Model/\Swagger\Client\Model\PayloadMeetingState.md)| The meeting properties that you wish to update. |
+ **payload_meeting_state** | [**\BlueJeansOnVideoRestApi\Model\PayloadMeetingState**](../Model/PayloadMeetingState.md)| The meeting properties that you wish to update. |
  **delay** | **int**| Number of seconds to delay the end meeting operation. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **content_category** | **string** |  | [optional] 
 **content_size** | **int** |  | [optional] 
 **content_duration** | **int** |  | [optional] 
-**content_properties** | [**\Swagger\Client\Model\ContentContentProperties**](ContentContentProperties.md) |  | [optional] 
+**content_properties** | [**\BlueJeansOnVideoRestApi\Model\ContentContentProperties**](ContentContentProperties.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -37,7 +37,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -104,7 +103,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -171,7 +169,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -238,7 +235,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -305,7 +301,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -372,7 +367,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -440,7 +434,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -510,7 +503,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -579,7 +571,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: access_token
             Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

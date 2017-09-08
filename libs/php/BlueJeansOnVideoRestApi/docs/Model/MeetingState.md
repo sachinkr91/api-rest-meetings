@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **sm_streams** | **string** |  | [optional] 
 **inactive_meeting_status** | **string** |  | [optional] 
 **meeting_marked_for_delayed_termination** | **bool** |  | [optional] 
-**recordinginfo** | [**\Swagger\Client\Model\MeetingStateRecordinginfo**](MeetingStateRecordinginfo.md) |  | [optional] 
+**recordinginfo** | [**\BlueJeansOnVideoRestApi\Model\MeetingStateRecordinginfo**](MeetingStateRecordinginfo.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

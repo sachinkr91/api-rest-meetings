@@ -20,7 +20,7 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -30,7 +30,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
 
-var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var application = new BlueJeansOnVideoRestApi.Application(); // Application | The information about the new client application.
 
@@ -49,7 +49,7 @@ apiInstance.createClientApplication(userId, application, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **application** | [**Application**](Application.md)| The information about the new client application. | 
 
 ### Return type
@@ -76,7 +76,7 @@ This endpoint forces the regeneration of a client application secret for use in 
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -86,7 +86,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
 
-var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 
@@ -105,7 +105,7 @@ apiInstance.regenerateClientApplicationSecret(userId, clientId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. | 
 
 ### Return type
@@ -132,7 +132,7 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -142,7 +142,7 @@ access_token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
 
-var userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 
@@ -163,7 +163,7 @@ apiInstance.updateClientApplication(userId, clientId, application, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **clientId** | **String**| The ID of the client application of interest. This value was given as a response during client application creation. | 
  **application** | [**Application**](Application.md)| The information about the new client application. | 
 

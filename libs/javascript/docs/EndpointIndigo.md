@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
+**id** | **Number** |  | [optional] 
 **callguid** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **endpoint** | **String** |  | [optional] 
@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **mpls** | **Boolean** |  | [optional] 
 **videoShare** | **Boolean** |  | [optional] 
 **recording** | **Boolean** |  | [optional] 
-**creationTime** | **Integer** |  | [optional] 
-**meetingJoinTime** | **Integer** |  | [optional] 
-**meetingLeaveTime** | **Integer** |  | [optional] 
+**creationTime** | **Number** |  | [optional] 
+**meetingJoinTime** | **Number** |  | [optional] 
+**meetingLeaveTime** | **Number** |  | [optional] 
 **didNumber** | **String** |  | [optional] 
 **location** | [**EndpointIndigoLocation**](EndpointIndigoLocation.md) |  | [optional] 
 **summaryStats** | [**EndpointIndigoSummaryStats**](EndpointIndigoSummaryStats.md) |  | [optional] 

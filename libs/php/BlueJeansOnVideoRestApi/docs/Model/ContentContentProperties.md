@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **thumbnail_height** | **int** |  | [optional] 
 **thumbnail_interval** | **int** |  | [optional] 
 **hls_url** | **string** |  | [optional] 
-**levels** | [**\Swagger\Client\Model\ContentContentPropertiesLevels[]**](ContentContentPropertiesLevels.md) |  | [optional] 
+**levels** | [**\BlueJeansOnVideoRestApi\Model\ContentContentPropertiesLevels[]**](ContentContentPropertiesLevels.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

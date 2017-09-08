@@ -25,7 +25,7 @@ This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a 
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -91,7 +91,7 @@ This API is typically called from an application that needs to make API requests
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -144,7 +144,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -197,7 +197,7 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -250,7 +250,7 @@ This API performs an authentication based upon a username and password.   Call t
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -303,7 +303,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -356,7 +356,7 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -410,7 +410,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ### Example
 ```javascript
 var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];

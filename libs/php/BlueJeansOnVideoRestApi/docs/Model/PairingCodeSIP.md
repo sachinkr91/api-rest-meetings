@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **endpoint_guid** | **string** |  | [optional] 
 **force_turn** | **bool** |  | [optional] 
 **pairing_code** | **string** |  | [optional] 
-**turnservers** | [**\Swagger\Client\Model\PairingCodeSIPTurnservers[]**](PairingCodeSIPTurnservers.md) |  | [optional] 
+**turnservers** | [**\BlueJeansOnVideoRestApi\Model\PairingCodeSIPTurnservers[]**](PairingCodeSIPTurnservers.md) |  | [optional] 
 **uri** | **string** |  | [optional] 
 **seam_endpoint_guid** | **string** |  | [optional] 
 **connection_guid** | **string** |  | [optional] 

@@ -2,13 +2,16 @@
   "name": "bluejeans-api-rest-onvideo",
   "version": "1.0.0",
   "description": "JavaScript client for BlueJeans onVideo REST APIs",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
+  "browser": {
+    "fs": false
+  },
   "dependencies": {
-    "superagent": "1.7.1"
+    "superagent": "3.5.2"
   },
   "devDependencies": {
     "mocha": "~2.3.4",

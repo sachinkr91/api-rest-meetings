@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpointName** | **String** | Typically, the first and last name of the user. | [optional] 
 **endpointType** | **String** |  | [optional] 
-**userId** | **Integer** |  | [optional] 
+**userId** | **Number** |  | [optional] 
 **languageCode** | **String** |  | [optional] 
 **capabilities** | **[String]** | Send a single element set to AUDIO at this time. | [optional] 
 

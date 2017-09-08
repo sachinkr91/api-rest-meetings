@@ -23,10 +23,10 @@ Name | Type | Description | Notes
 **meeting_join_time** | **int** |  | [optional] 
 **meeting_leave_time** | **int** |  | [optional] 
 **did_number** | **string** |  | [optional] 
-**location** | [**\Swagger\Client\Model\EndpointIndigoLocation**](EndpointIndigoLocation.md) |  | [optional] 
-**summary_stats** | [**\Swagger\Client\Model\EndpointIndigoSummaryStats**](EndpointIndigoSummaryStats.md) |  | [optional] 
-**endpoint_attributes1** | [**\Swagger\Client\Model\EndpointIndigoEndpointAttributes1**](EndpointIndigoEndpointAttributes1.md) |  | [optional] 
-**traceroute** | [**\Swagger\Client\Model\EndpointIndigoTraceroute**](EndpointIndigoTraceroute.md) |  | [optional] 
+**location** | [**\BlueJeansOnVideoRestApi\Model\EndpointIndigoLocation**](EndpointIndigoLocation.md) |  | [optional] 
+**summary_stats** | [**\BlueJeansOnVideoRestApi\Model\EndpointIndigoSummaryStats**](EndpointIndigoSummaryStats.md) |  | [optional] 
+**endpoint_attributes1** | [**\BlueJeansOnVideoRestApi\Model\EndpointIndigoEndpointAttributes1**](EndpointIndigoEndpointAttributes1.md) |  | [optional] 
+**traceroute** | [**\BlueJeansOnVideoRestApi\Model\EndpointIndigoTraceroute**](EndpointIndigoTraceroute.md) |  | [optional] 
 **mhtask_stopped** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

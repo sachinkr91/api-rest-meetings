@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpointType** | **Integer** |  | [optional] 
-**userId** | **Integer** |  | [optional] 
+**endpointType** | **Number** |  | [optional] 
+**userId** | **Number** |  | [optional] 
 **languageCode** | **String** |  | [optional] 
 **capabilities** | **[String]** | Reserved for future use. Pass just an empty array for now. No parameters are currently accepted. | [optional] 
 

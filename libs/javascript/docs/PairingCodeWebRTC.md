@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **endpointGuid** | **String** |  | [optional] 
 **forceTURN** | **Boolean** |  | [optional] 
 **pairingCode** | **String** |  | [optional] 
-**status** | **Integer** |  | [optional] 
+**status** | **Number** |  | [optional] 
 **statusText** | **String** |  | [optional] 
 **turnservers** | [**[PairingCodeSIPTurnservers]**](PairingCodeSIPTurnservers.md) |  | [optional] 
 **uri** | **String** |  | [optional] 

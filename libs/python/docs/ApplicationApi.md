@@ -18,6 +18,7 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -38,7 +39,7 @@ try:
     api_response = api_instance.create_client_application(user_id, application)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ApplicationApi->create_client_application: %s\n" % e
+    print("Exception when calling ApplicationApi->create_client_application: %s\n" % e)
 ```
 
 ### Parameters
@@ -72,6 +73,7 @@ This endpoint forces the regeneration of a client application secret for use in 
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -92,7 +94,7 @@ try:
     api_response = api_instance.regenerate_client_application_secret(user_id, client_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ApplicationApi->regenerate_client_application_secret: %s\n" % e
+    print("Exception when calling ApplicationApi->regenerate_client_application_secret: %s\n" % e)
 ```
 
 ### Parameters
@@ -126,6 +128,7 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -147,7 +150,7 @@ try:
     api_response = api_instance.update_client_application(user_id, client_id, application)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ApplicationApi->update_client_application: %s\n" % e
+    print("Exception when calling ApplicationApi->update_client_application: %s\n" % e)
 ```
 
 ### Parameters

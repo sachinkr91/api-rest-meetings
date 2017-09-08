@@ -76,7 +76,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByClient**
-> \Swagger\Client\Model\GrantClient getTokenByClient($grant_request_client)
+> \BlueJeansOnVideoRestApi\Model\GrantClient getTokenByClient($grant_request_client)
 
 Authentication via Client Grant Type
 
@@ -93,7 +93,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_client = new \Swagger\Client\Model\GrantRequestClient(); // \Swagger\Client\Model\GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
+$grant_request_client = new \BlueJeansOnVideoRestApi\Model\GrantRequestClient(); // \BlueJeansOnVideoRestApi\Model\GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 
 try {
     $result = $api_instance->getTokenByClient($grant_request_client);
@@ -108,11 +108,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_client** | [**\Swagger\Client\Model\GrantRequestClient**](../Model/\Swagger\Client\Model\GrantRequestClient.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. |
+ **grant_request_client** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestClient**](../Model/GrantRequestClient.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*. |
 
 ### Return type
 
-[**\Swagger\Client\Model\GrantClient**](../Model/GrantClient.md)
+[**\BlueJeansOnVideoRestApi\Model\GrantClient**](../Model/GrantClient.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByCode**
-> \Swagger\Client\Model\GrantCode getTokenByCode($grant_request_code)
+> \BlueJeansOnVideoRestApi\Model\GrantCode getTokenByCode($grant_request_code)
 
 Authentication via Code Grant Type
 
@@ -143,7 +143,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_code = new \Swagger\Client\Model\GrantRequestCode(); // \Swagger\Client\Model\GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
+$grant_request_code = new \BlueJeansOnVideoRestApi\Model\GrantRequestCode(); // \BlueJeansOnVideoRestApi\Model\GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 
 try {
     $result = $api_instance->getTokenByCode($grant_request_code);
@@ -158,11 +158,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_code** | [**\Swagger\Client\Model\GrantRequestCode**](../Model/\Swagger\Client\Model\GrantRequestCode.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. |
+ **grant_request_code** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestCode**](../Model/GrantRequestCode.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*. |
 
 ### Return type
 
-[**\Swagger\Client\Model\GrantCode**](../Model/GrantCode.md)
+[**\BlueJeansOnVideoRestApi\Model\GrantCode**](../Model/GrantCode.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByMeeting**
-> \Swagger\Client\Model\GrantMeeting getTokenByMeeting($grant_request_meeting)
+> \BlueJeansOnVideoRestApi\Model\GrantMeeting getTokenByMeeting($grant_request_meeting)
 
 Authentication via Meeting Grant Type
 
@@ -193,7 +193,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_meeting = new \Swagger\Client\Model\GrantRequestMeeting(); // \Swagger\Client\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
+$grant_request_meeting = new \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting(); // \BlueJeansOnVideoRestApi\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 
 try {
     $result = $api_instance->getTokenByMeeting($grant_request_meeting);
@@ -208,11 +208,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_meeting** | [**\Swagger\Client\Model\GrantRequestMeeting**](../Model/\Swagger\Client\Model\GrantRequestMeeting.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. |
+ **grant_request_meeting** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestMeeting**](../Model/GrantRequestMeeting.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*. |
 
 ### Return type
 
-[**\Swagger\Client\Model\GrantMeeting**](../Model/GrantMeeting.md)
+[**\BlueJeansOnVideoRestApi\Model\GrantMeeting**](../Model/GrantMeeting.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByPassword**
-> \Swagger\Client\Model\GrantPassword getTokenByPassword($grant_request_password)
+> \BlueJeansOnVideoRestApi\Model\GrantPassword getTokenByPassword($grant_request_password)
 
 Authentication via Password Grant Type
 
@@ -243,7 +243,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_password = new \Swagger\Client\Model\GrantRequestPassword(); // \Swagger\Client\Model\GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
+$grant_request_password = new \BlueJeansOnVideoRestApi\Model\GrantRequestPassword(); // \BlueJeansOnVideoRestApi\Model\GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 
 try {
     $result = $api_instance->getTokenByPassword($grant_request_password);
@@ -258,11 +258,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_password** | [**\Swagger\Client\Model\GrantRequestPassword**](../Model/\Swagger\Client\Model\GrantRequestPassword.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. |
+ **grant_request_password** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestPassword**](../Model/GrantRequestPassword.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*. |
 
 ### Return type
 
-[**\Swagger\Client\Model\GrantPassword**](../Model/GrantPassword.md)
+[**\BlueJeansOnVideoRestApi\Model\GrantPassword**](../Model/GrantPassword.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenByRefresh**
-> \Swagger\Client\Model\GrantRefresh getTokenByRefresh($grant_request_refresh)
+> \BlueJeansOnVideoRestApi\Model\GrantRefresh getTokenByRefresh($grant_request_refresh)
 
 Authentication via Refresh Grant Type
 
@@ -293,7 +293,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_refresh = new \Swagger\Client\Model\GrantRequestRefresh(); // \Swagger\Client\Model\GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
+$grant_request_refresh = new \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh(); // \BlueJeansOnVideoRestApi\Model\GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
 
 try {
     $result = $api_instance->getTokenByRefresh($grant_request_refresh);
@@ -308,11 +308,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_refresh** | [**\Swagger\Client\Model\GrantRequestRefresh**](../Model/\Swagger\Client\Model\GrantRequestRefresh.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. |
+ **grant_request_refresh** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestRefresh**](../Model/GrantRequestRefresh.md)| Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*. |
 
 ### Return type
 
-[**\Swagger\Client\Model\GrantRefresh**](../Model/GrantRefresh.md)
+[**\BlueJeansOnVideoRestApi\Model\GrantRefresh**](../Model/GrantRefresh.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTokenInfo**
-> \Swagger\Client\Model\InlineResponse200 getTokenInfo($access_token)
+> \BlueJeansOnVideoRestApi\Model\InlineResponse200 getTokenInfo($access_token)
 
 Validate a Token
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\BlueJeansOnVideoRestApi\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -393,7 +393,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 // BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\AuthenticationApi();
-$grant_request_revoke = new \Swagger\Client\Model\GrantRequestRevoke(); // \Swagger\Client\Model\GrantRequestRevoke | Contains information about the type of grant you are revoking.
+$grant_request_revoke = new \BlueJeansOnVideoRestApi\Model\GrantRequestRevoke(); // \BlueJeansOnVideoRestApi\Model\GrantRequestRevoke | Contains information about the type of grant you are revoking.
 $access_token = "access_token_example"; // string | 
 
 try {
@@ -408,7 +408,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_request_revoke** | [**\Swagger\Client\Model\GrantRequestRevoke**](../Model/\Swagger\Client\Model\GrantRequestRevoke.md)| Contains information about the type of grant you are revoking. |
+ **grant_request_revoke** | [**\BlueJeansOnVideoRestApi\Model\GrantRequestRevoke**](../Model/GrantRequestRevoke.md)| Contains information about the type of grant you are revoking. |
  **access_token** | **string**|  | [optional]
 
 ### Return type

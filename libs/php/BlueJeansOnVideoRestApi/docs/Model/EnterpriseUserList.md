@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **int** | The number of users in the result. | [optional] 
-**users** | [**\Swagger\Client\Model\EnterpriseUserListUsers[]**](EnterpriseUserListUsers.md) |  | [optional] 
+**users** | [**\BlueJeansOnVideoRestApi\Model\EnterpriseUserListUsers[]**](EnterpriseUserListUsers.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **createClientApplication**
-> \Swagger\Client\Model\Application createClientApplication($user_id, $application)
+> \BlueJeansOnVideoRestApi\Model\Application createClientApplication($user_id, $application)
 
 Create Client Application
 
@@ -28,7 +28,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\ApplicationApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$application = new \Swagger\Client\Model\Application(); // \Swagger\Client\Model\Application | The information about the new client application.
+$application = new \BlueJeansOnVideoRestApi\Model\Application(); // \BlueJeansOnVideoRestApi\Model\Application | The information about the new client application.
 
 try {
     $result = $api_instance->createClientApplication($user_id, $application);
@@ -44,11 +44,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **application** | [**\Swagger\Client\Model\Application**](../Model/\Swagger\Client\Model\Application.md)| The information about the new client application. |
+ **application** | [**\BlueJeansOnVideoRestApi\Model\Application**](../Model/Application.md)| The information about the new client application. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Application**](../Model/Application.md)
+[**\BlueJeansOnVideoRestApi\Model\Application**](../Model/Application.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **regenerateClientApplicationSecret**
-> \Swagger\Client\Model\ApplicationSecret regenerateClientApplicationSecret($user_id, $client_id)
+> \BlueJeansOnVideoRestApi\Model\ApplicationSecret regenerateClientApplicationSecret($user_id, $client_id)
 
 Regenerate Client Application Secret
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ApplicationSecret**](../Model/ApplicationSecret.md)
+[**\BlueJeansOnVideoRestApi\Model\ApplicationSecret**](../Model/ApplicationSecret.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateClientApplication**
-> \Swagger\Client\Model\Application updateClientApplication($user_id, $client_id, $application)
+> \BlueJeansOnVideoRestApi\Model\Application updateClientApplication($user_id, $client_id, $application)
 
 Update Client Application
 
@@ -133,7 +133,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 $api_instance = new BlueJeansOnVideoRestApi\Api\ApplicationApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $client_id = "client_id_example"; // string | The ID of the client application of interest. This value was given as a response during client application creation.
-$application = new \Swagger\Client\Model\Application(); // \Swagger\Client\Model\Application | The information about the new client application.
+$application = new \BlueJeansOnVideoRestApi\Model\Application(); // \BlueJeansOnVideoRestApi\Model\Application | The information about the new client application.
 
 try {
     $result = $api_instance->updateClientApplication($user_id, $client_id, $application);
@@ -150,11 +150,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **client_id** | **string**| The ID of the client application of interest. This value was given as a response during client application creation. |
- **application** | [**\Swagger\Client\Model\Application**](../Model/\Swagger\Client\Model\Application.md)| The information about the new client application. |
+ **application** | [**\BlueJeansOnVideoRestApi\Model\Application**](../Model/Application.md)| The information about the new client application. |
 
 ### Return type
 
-[**\Swagger\Client\Model\Application**](../Model/Application.md)
+[**\BlueJeansOnVideoRestApi\Model\Application**](../Model/Application.md)
 
 ### Authorization
 

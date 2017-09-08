@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
-**leaderId** | **Integer** |  | [optional] 
+**id** | **Number** |  | [optional] 
+**leaderId** | **Number** |  | [optional] 
 **meetingNumericId** | **String** |  | [optional] 
 **meetingUri** | **String** |  | [optional] 
 **isModerator** | **Boolean** |  | [optional] 

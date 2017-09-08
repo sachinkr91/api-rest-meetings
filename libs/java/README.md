@@ -226,7 +226,6 @@ Class | Method | HTTP request | Description
  - [Layout](docs/Layout.md)
  - [Meeting](docs/Meeting.md)
  - [MeetingAdvancedMeetingOptions](docs/MeetingAdvancedMeetingOptions.md)
- - [MeetingExtendedIndigo](docs/MeetingExtendedIndigo.md)
  - [MeetingHistory](docs/MeetingHistory.md)
  - [MeetingHistoryLeaderInfo](docs/MeetingHistoryLeaderInfo.md)
  - [MeetingHistoryParticipantList](docs/MeetingHistoryParticipantList.md)
@@ -258,6 +257,7 @@ Class | Method | HTTP request | Description
  - [Room](docs/Room.md)
  - [User](docs/User.md)
  - [UserId](docs/UserId.md)
+ - [MeetingExtendedIndigo](docs/MeetingExtendedIndigo.md)
 
 
 ## Documentation for Authorization
@@ -272,7 +272,7 @@ Authentication schemes defined for the API:
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
+It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 

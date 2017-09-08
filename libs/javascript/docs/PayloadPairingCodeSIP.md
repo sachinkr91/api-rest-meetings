@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpointType** | **Integer** | 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile | 
-**userId** | **Integer** | Optional database id of user associated with endpoint | [optional] 
+**endpointType** | **Number** | 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile | 
+**userId** | **Number** | Optional database id of user associated with endpoint | [optional] 
 **languageCode** | **String** | Optional language code | [optional] [default to &#39;en&#39;]
 **endpointName** | **String** | Optional name of endpoint | [optional] [default to &#39;My Test Endpoint&#39;]
 

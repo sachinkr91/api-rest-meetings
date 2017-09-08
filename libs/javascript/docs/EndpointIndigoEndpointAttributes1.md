@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reIceCount** | **Integer** |  | [optional] 
-**remoteConnectionCount** | **Integer** |  | [optional] 
+**reIceCount** | **Number** |  | [optional] 
+**remoteConnectionCount** | **Number** |  | [optional] 
 
 

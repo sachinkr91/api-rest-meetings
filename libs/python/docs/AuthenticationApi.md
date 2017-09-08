@@ -23,6 +23,7 @@ This is **not a true REST endpoint**. <br /> This URL should be used by a user's
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -47,7 +48,7 @@ try:
     # Get Authorization Code
     api_instance.get_authorization_code(client_id=client_id, redirect_uri=redirect_uri, state=state, scope=scope, response_type=response_type, app_name=app_name, app_logo_url=app_logo_url)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_authorization_code: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_authorization_code: %s\n" % e)
 ```
 
 ### Parameters
@@ -86,6 +87,7 @@ This API is typically called from an application that needs to make API requests
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -105,7 +107,7 @@ try:
     api_response = api_instance.get_token_by_client(grant_request_client)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_client: %s\n" % e)
 ```
 
 ### Parameters
@@ -138,6 +140,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -157,7 +160,7 @@ try:
     api_response = api_instance.get_token_by_code(grant_request_code)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_code: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_code: %s\n" % e)
 ```
 
 ### Parameters
@@ -190,6 +193,7 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -209,7 +213,7 @@ try:
     api_response = api_instance.get_token_by_meeting(grant_request_meeting)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_meeting: %s\n" % e)
 ```
 
 ### Parameters
@@ -242,6 +246,7 @@ This API performs an authentication based upon a username and password.   Call t
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -261,7 +266,7 @@ try:
     api_response = api_instance.get_token_by_password(grant_request_password)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_password: %s\n" % e)
 ```
 
 ### Parameters
@@ -294,6 +299,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -313,7 +319,7 @@ try:
     api_response = api_instance.get_token_by_refresh(grant_request_refresh)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_by_refresh: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_by_refresh: %s\n" % e)
 ```
 
 ### Parameters
@@ -346,6 +352,7 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -365,7 +372,7 @@ try:
     api_response = api_instance.get_token_info(access_token=access_token)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->get_token_info: %s\n" % e
+    print("Exception when calling AuthenticationApi->get_token_info: %s\n" % e)
 ```
 
 ### Parameters
@@ -398,6 +405,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -417,7 +425,7 @@ try:
     # Revoke Access Token
     api_instance.revoke_access_token(grant_request_revoke, access_token=access_token)
 except ApiException as e:
-    print "Exception when calling AuthenticationApi->revoke_access_token: %s\n" % e
+    print("Exception when calling AuthenticationApi->revoke_access_token: %s\n" % e)
 ```
 
 ### Parameters

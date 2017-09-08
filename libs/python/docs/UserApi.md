@@ -24,6 +24,7 @@ This endpoint retrieves the enterprise profile associated with the user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -43,7 +44,7 @@ try:
     api_response = api_instance.get_enterprise_profile(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->get_enterprise_profile: %s\n" % e
+    print("Exception when calling UserApi->get_enterprise_profile: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,6 +77,7 @@ This endpoint retrieves the granted applications associated with the user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -95,7 +97,7 @@ try:
     api_response = api_instance.get_granted_applications(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->get_granted_applications: %s\n" % e
+    print("Exception when calling UserApi->get_granted_applications: %s\n" % e)
 ```
 
 ### Parameters
@@ -128,6 +130,7 @@ This endpoint retrieves the feature groups associated with the user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -147,7 +150,7 @@ try:
     api_response = api_instance.get_groups(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->get_groups: %s\n" % e
+    print("Exception when calling UserApi->get_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -180,6 +183,7 @@ This endpoint gets a user’s default meeting settings.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -199,7 +203,7 @@ try:
     api_response = api_instance.get_room(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->get_room: %s\n" % e
+    print("Exception when calling UserApi->get_room: %s\n" % e)
 ```
 
 ### Parameters
@@ -232,6 +236,7 @@ This endpoint retrieves the basic account details for a given user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -251,7 +256,7 @@ try:
     api_response = api_instance.get_user(user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->get_user: %s\n" % e
+    print("Exception when calling UserApi->get_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -284,6 +289,7 @@ This endpoint revokes the granted application associated with the user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -303,7 +309,7 @@ try:
     # Remoke Granted Application
     api_instance.revoke_granted_application(user_id, client_id)
 except ApiException as e:
-    print "Exception when calling UserApi->revoke_granted_application: %s\n" % e
+    print("Exception when calling UserApi->revoke_granted_application: %s\n" % e)
 ```
 
 ### Parameters
@@ -337,6 +343,7 @@ This endpoint sets the feature groups associated with the user.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -357,7 +364,7 @@ try:
     # Set User Feature Groups
     api_instance.set_groups(user_id, enable=enable, disable=disable)
 except ApiException as e:
-    print "Exception when calling UserApi->set_groups: %s\n" % e
+    print("Exception when calling UserApi->set_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -392,6 +399,7 @@ This endpoint allows updating a user’s default meeting settings.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -412,7 +420,7 @@ try:
     api_response = api_instance.update_room(user_id, room)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->update_room: %s\n" % e
+    print("Exception when calling UserApi->update_room: %s\n" % e)
 ```
 
 ### Parameters
@@ -446,6 +454,7 @@ This endpoint allows updating a user’s basic account details.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -466,7 +475,7 @@ try:
     api_response = api_instance.update_user(user_id, user)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling UserApi->update_user: %s\n" % e
+    print("Exception when calling UserApi->update_user: %s\n" % e)
 ```
 
 ### Parameters

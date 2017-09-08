@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **createUser**
-> \Swagger\Client\Model\UserId createUser($enterprise_id, $user, $force_password_change, $send_verification_mail)
+> \BlueJeansOnVideoRestApi\Model\UserId createUser($enterprise_id, $user, $force_password_change, $send_verification_mail)
 
 Create Enterprise User
 
@@ -29,7 +29,7 @@ BlueJeansOnVideoRestApi\Configuration::getDefaultConfiguration()->setApiKey('acc
 
 $api_instance = new BlueJeansOnVideoRestApi\Api\EnterpriseApi();
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$user = new \Swagger\Client\Model\User(); // \Swagger\Client\Model\User | The information about the new user.
+$user = new \BlueJeansOnVideoRestApi\Model\User(); // \BlueJeansOnVideoRestApi\Model\User | The information about the new user.
 $force_password_change = true; // bool | Forces the user to change his or her password on first log in.
 $send_verification_mail = true; // bool | Prevents welcome emails from being sent to the newly created user.
 
@@ -47,13 +47,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **user** | [**\Swagger\Client\Model\User**](../Model/\Swagger\Client\Model\User.md)| The information about the new user. |
+ **user** | [**\BlueJeansOnVideoRestApi\Model\User**](../Model/User.md)| The information about the new user. |
  **force_password_change** | **bool**| Forces the user to change his or her password on first log in. | [optional]
  **send_verification_mail** | **bool**| Prevents welcome emails from being sent to the newly created user. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\UserId**](../Model/UserId.md)
+[**\BlueJeansOnVideoRestApi\Model\UserId**](../Model/UserId.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listUsers**
-> \Swagger\Client\Model\EnterpriseUserList listUsers($enterprise_id, $page_size, $page_number, $email_id)
+> \BlueJeansOnVideoRestApi\Model\EnterpriseUserList listUsers($enterprise_id, $page_size, $page_number, $email_id)
 
 List Enterprise Users
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\EnterpriseUserList**](../Model/EnterpriseUserList.md)
+[**\BlueJeansOnVideoRestApi\Model\EnterpriseUserList**](../Model/EnterpriseUserList.md)
 
 ### Authorization
 

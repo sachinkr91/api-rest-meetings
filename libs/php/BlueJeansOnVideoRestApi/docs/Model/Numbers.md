@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **precision** | **string** |  | [optional] 
 **pstn_localization_supported** | **bool** |  | [optional] 
 **partner_integrated_meeting** | **bool** |  | [optional] 
-**numbers** | [**\Swagger\Client\Model\NumbersNumbers[]**](NumbersNumbers.md) |  | [optional] 
+**numbers** | [**\BlueJeansOnVideoRestApi\Model\NumbersNumbers[]**](NumbersNumbers.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

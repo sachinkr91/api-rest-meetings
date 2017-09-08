@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contentStatus** | **String** |  | [optional] 
-**recordingStartTime** | **Integer** |  | [optional] 
+**recordingStartTime** | **Number** |  | [optional] 
 **active** | **Boolean** |  | [optional] 
 **recorded** | **Boolean** |  | [optional] 
 

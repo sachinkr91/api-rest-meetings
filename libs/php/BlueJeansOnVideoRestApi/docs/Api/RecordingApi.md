@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getMeetingRecordings**
-> \Swagger\Client\Model\RecordingHistoryList getMeetingRecordings($user_id, $meeting_id, $meeting_guid)
+> \BlueJeansOnVideoRestApi\Model\RecordingHistoryList getMeetingRecordings($user_id, $meeting_id, $meeting_guid)
 
 Get All Recordings for a Specified Meeting ID
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\RecordingHistoryList**](../Model/RecordingHistoryList.md)
+[**\BlueJeansOnVideoRestApi\Model\RecordingHistoryList**](../Model/RecordingHistoryList.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRecordingContent**
-> \Swagger\Client\Model\Content getRecordingContent($user_id, $content_id, $is_downloadable)
+> \BlueJeansOnVideoRestApi\Model\Content getRecordingContent($user_id, $content_id, $is_downloadable)
 
 Get Recording Download Link
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Content**](../Model/Content.md)
+[**\BlueJeansOnVideoRestApi\Model\Content**](../Model/Content.md)
 
 ### Authorization
 
@@ -227,7 +227,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete**
-> \Swagger\Client\Model\Meeting v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete($user_id, $meeting_guid)
+> \BlueJeansOnVideoRestApi\Model\Meeting v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete($user_id, $meeting_guid)
 
 Delete All Recordings for a Specified Meeting GUID
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete**
-> \Swagger\Client\Model\Meeting v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete($user_id, $meeting_id, $recording_chapter_id)
+> \BlueJeansOnVideoRestApi\Model\Meeting v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete($user_id, $meeting_id, $recording_chapter_id)
 
 Delete a Specified Recording Chapter
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansOnVideoRestApi\Model\Meeting**](../Model/Meeting.md)
 
 ### Authorization
 
