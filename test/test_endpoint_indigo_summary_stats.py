@@ -35,7 +35,9 @@ class TestEndpointIndigoSummaryStats(unittest.TestCase):
         """
         Test EndpointIndigoSummaryStats
         """
-        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_summary_stats.EndpointIndigoSummaryStats()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_summary_stats.EndpointIndigoSummaryStats()
+        pass
 
 
 if __name__ == '__main__':

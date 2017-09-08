@@ -35,7 +35,9 @@ class TestMeetingHistorySharing(unittest.TestCase):
         """
         Test MeetingHistorySharing
         """
-        model = BlueJeansOnVideoRestApi.models.meeting_history_sharing.MeetingHistorySharing()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.meeting_history_sharing.MeetingHistorySharing()
+        pass
 
 
 if __name__ == '__main__':

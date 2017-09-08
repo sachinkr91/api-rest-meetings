@@ -35,7 +35,9 @@ class TestInlineResponse200(unittest.TestCase):
         """
         Test InlineResponse200
         """
-        model = BlueJeansOnVideoRestApi.models.inline_response_200.InlineResponse200()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.inline_response_200.InlineResponse200()
+        pass
 
 
 if __name__ == '__main__':

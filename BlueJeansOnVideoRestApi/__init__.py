@@ -31,6 +31,7 @@ from .models.attendee import Attendee
 from .models.content import Content
 from .models.content_content_properties import ContentContentProperties
 from .models.content_content_properties_levels import ContentContentPropertiesLevels
+from .models.dialout_pstn import DialoutPstn
 from .models.endpoint import Endpoint
 from .models.endpoint_indigo import EndpointIndigo
 from .models.endpoint_indigo_endpoint_attributes1 import EndpointIndigoEndpointAttributes1
@@ -68,7 +69,6 @@ from .models.inline_response_200 import InlineResponse200
 from .models.layout import Layout
 from .models.meeting import Meeting
 from .models.meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions
-from .models.meeting_extended_indigo import MeetingExtendedIndigo
 from .models.meeting_history import MeetingHistory
 from .models.meeting_history_leader_info import MeetingHistoryLeaderInfo
 from .models.meeting_history_participant_list import MeetingHistoryParticipantList
@@ -84,8 +84,10 @@ from .models.pairing_code_sip import PairingCodeSIP
 from .models.pairing_code_sip_turnservers import PairingCodeSIPTurnservers
 from .models.pairing_code_web_rtc import PairingCodeWebRTC
 from .models.partition import Partition
+from .models.payload_dialout import PayloadDialout
 from .models.payload_invite import PayloadInvite
 from .models.payload_meeting_state import PayloadMeetingState
+from .models.payload_pairing_code_pstn import PayloadPairingCodePstn
 from .models.payload_pairing_code_sip import PayloadPairingCodeSIP
 from .models.payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 from .models.recording import Recording
@@ -98,6 +100,7 @@ from .models.recording_summary import RecordingSummary
 from .models.room import Room
 from .models.user import User
 from .models.user_id import UserId
+from .models.meeting_extended_indigo import MeetingExtendedIndigo
 
 # import apis into sdk package
 from .apis.application_api import ApplicationApi

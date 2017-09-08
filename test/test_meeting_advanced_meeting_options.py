@@ -35,7 +35,9 @@ class TestMeetingAdvancedMeetingOptions(unittest.TestCase):
         """
         Test MeetingAdvancedMeetingOptions
         """
-        model = BlueJeansOnVideoRestApi.models.meeting_advanced_meeting_options.MeetingAdvancedMeetingOptions()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.meeting_advanced_meeting_options.MeetingAdvancedMeetingOptions()
+        pass
 
 
 if __name__ == '__main__':

@@ -35,7 +35,9 @@ class TestAnalyticsFeedbackScores(unittest.TestCase):
         """
         Test AnalyticsFeedbackScores
         """
-        model = BlueJeansOnVideoRestApi.models.analytics_feedback_scores.AnalyticsFeedbackScores()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.analytics_feedback_scores.AnalyticsFeedbackScores()
+        pass
 
 
 if __name__ == '__main__':

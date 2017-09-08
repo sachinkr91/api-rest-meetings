@@ -35,7 +35,9 @@ class TestGrantRefreshScope(unittest.TestCase):
         """
         Test GrantRefreshScope
         """
-        model = BlueJeansOnVideoRestApi.models.grant_refresh_scope.GrantRefreshScope()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_refresh_scope.GrantRefreshScope()
+        pass
 
 
 if __name__ == '__main__':

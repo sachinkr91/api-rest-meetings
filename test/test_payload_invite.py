@@ -35,7 +35,9 @@ class TestPayloadInvite(unittest.TestCase):
         """
         Test PayloadInvite
         """
-        model = BlueJeansOnVideoRestApi.models.payload_invite.PayloadInvite()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.payload_invite.PayloadInvite()
+        pass
 
 
 if __name__ == '__main__':

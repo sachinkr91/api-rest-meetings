@@ -35,7 +35,9 @@ class TestPayloadPairingCodeSIP(unittest.TestCase):
         """
         Test PayloadPairingCodeSIP
         """
-        model = BlueJeansOnVideoRestApi.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
+        pass
 
 
 if __name__ == '__main__':

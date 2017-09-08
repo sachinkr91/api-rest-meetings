@@ -35,7 +35,9 @@ class TestGrantCode(unittest.TestCase):
         """
         Test GrantCode
         """
-        model = BlueJeansOnVideoRestApi.models.grant_code.GrantCode()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_code.GrantCode()
+        pass
 
 
 if __name__ == '__main__':

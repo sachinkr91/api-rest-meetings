@@ -35,7 +35,9 @@ class TestError(unittest.TestCase):
         """
         Test Error
         """
-        model = BlueJeansOnVideoRestApi.models.error.Error()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.error.Error()
+        pass
 
 
 if __name__ == '__main__':

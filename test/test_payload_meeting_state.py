@@ -35,7 +35,9 @@ class TestPayloadMeetingState(unittest.TestCase):
         """
         Test PayloadMeetingState
         """
-        model = BlueJeansOnVideoRestApi.models.payload_meeting_state.PayloadMeetingState()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.payload_meeting_state.PayloadMeetingState()
+        pass
 
 
 if __name__ == '__main__':

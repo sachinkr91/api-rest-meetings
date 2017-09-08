@@ -35,7 +35,9 @@ class TestAnalyticsRoiDataRoiRanges(unittest.TestCase):
         """
         Test AnalyticsRoiDataRoiRanges
         """
-        model = BlueJeansOnVideoRestApi.models.analytics_roi_data_roi_ranges.AnalyticsRoiDataRoiRanges()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.analytics_roi_data_roi_ranges.AnalyticsRoiDataRoiRanges()
+        pass
 
 
 if __name__ == '__main__':

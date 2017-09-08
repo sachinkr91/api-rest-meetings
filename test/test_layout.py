@@ -35,7 +35,9 @@ class TestLayout(unittest.TestCase):
         """
         Test Layout
         """
-        model = BlueJeansOnVideoRestApi.models.layout.Layout()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.layout.Layout()
+        pass
 
 
 if __name__ == '__main__':

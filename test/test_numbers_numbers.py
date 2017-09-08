@@ -35,7 +35,9 @@ class TestNumbersNumbers(unittest.TestCase):
         """
         Test NumbersNumbers
         """
-        model = BlueJeansOnVideoRestApi.models.numbers_numbers.NumbersNumbers()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.numbers_numbers.NumbersNumbers()
+        pass
 
 
 if __name__ == '__main__':

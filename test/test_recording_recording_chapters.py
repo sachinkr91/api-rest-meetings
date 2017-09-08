@@ -35,7 +35,9 @@ class TestRecordingRecordingChapters(unittest.TestCase):
         """
         Test RecordingRecordingChapters
         """
-        model = BlueJeansOnVideoRestApi.models.recording_recording_chapters.RecordingRecordingChapters()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.recording_recording_chapters.RecordingRecordingChapters()
+        pass
 
 
 if __name__ == '__main__':

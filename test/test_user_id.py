@@ -35,7 +35,9 @@ class TestUserId(unittest.TestCase):
         """
         Test UserId
         """
-        model = BlueJeansOnVideoRestApi.models.user_id.UserId()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.user_id.UserId()
+        pass
 
 
 if __name__ == '__main__':

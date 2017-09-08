@@ -35,7 +35,9 @@ class TestEndpoints(unittest.TestCase):
         """
         Test Endpoints
         """
-        model = BlueJeansOnVideoRestApi.models.endpoints.Endpoints()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.endpoints.Endpoints()
+        pass
 
 
 if __name__ == '__main__':

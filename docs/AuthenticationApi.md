@@ -23,7 +23,7 @@ This is **not a true REST endpoint**. <br /> This URL should be used by a user's
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -87,7 +87,7 @@ This API is typically called from an application that needs to make API requests
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -140,7 +140,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -193,7 +193,7 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -246,7 +246,7 @@ This API performs an authentication based upon a username and password.   Call t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -299,7 +299,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -352,7 +352,7 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -405,7 +405,7 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

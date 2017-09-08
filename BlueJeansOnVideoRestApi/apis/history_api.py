@@ -113,14 +113,13 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
         if 'meeting_guid' in params:
             path_params['meeting_guid'] = params['meeting_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -135,7 +134,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/meeting_history/{meeting_guid}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -223,14 +222,13 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_guid}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_guid' in params:
             path_params['meeting_guid'] = params['meeting_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -245,7 +243,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/{meeting_guid}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -333,14 +331,13 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_guid}/sharing'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_guid' in params:
             path_params['meeting_guid'] = params['meeting_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -355,7 +352,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/{meeting_guid}/sharing', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -443,14 +440,13 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'recording_entity_id' in params:
             path_params['recording_entity_id'] = params['recording_entity_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -465,7 +461,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -548,12 +544,11 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/meeting_history'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -568,7 +563,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/meeting_history', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -663,24 +658,23 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'meeting_id' in params:
-            query_params['meetingId'] = params['meeting_id']
+            query_params.append(('meetingId', params['meeting_id']))
         if 'start_date' in params:
-            query_params['startDate'] = params['start_date']
+            query_params.append(('startDate', params['start_date']))
         if 'end_date' in params:
-            query_params['endDate'] = params['end_date']
+            query_params.append(('endDate', params['end_date']))
         if 'page_size' in params:
-            query_params['pageSize'] = params['page_size']
+            query_params.append(('pageSize', params['page_size']))
         if 'page_number' in params:
-            query_params['pageNumber'] = params['page_number']
+            query_params.append(('pageNumber', params['page_number']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -695,7 +689,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -786,20 +780,19 @@ class HistoryApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/recordings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'page_size' in params:
-            query_params['pageSize'] = params['page_size']
+            query_params.append(('pageSize', params['page_size']))
         if 'page_number' in params:
-            query_params['pageNumber'] = params['page_number']
+            query_params.append(('pageNumber', params['page_number']))
         if 'sort_by' in params:
-            query_params['sortBy'] = params['sort_by']
+            query_params.append(('sortBy', params['sort_by']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -814,7 +807,7 @@ class HistoryApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/recordings', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

@@ -22,7 +22,7 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -77,7 +77,7 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -132,7 +132,7 @@ This endpoint retrieves the meeting history sharing for a specific instance of a
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -187,7 +187,7 @@ This endpoint retrieves the details about a meeting recording.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -242,7 +242,7 @@ This endpoint retrieves a list of meeting histories by the given enterprise.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -295,7 +295,7 @@ This endpoint retrieves a list of meeting histories by the given user.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -360,7 +360,7 @@ This endpoint retrieves a list of meeting recordings.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

@@ -113,14 +113,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -135,7 +134,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting/{meeting_id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -225,14 +224,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'email' in params:
-            query_params['email'] = params['email']
+            query_params.append(('email', params['email']))
 
         header_params = {}
 
@@ -249,7 +247,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -257,6 +255,242 @@ class MeetingApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='Meeting',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def dialout_pstn(self, user_id, numeric_meeting_id, payload_dialout, **kwargs):
+        """
+        Dialout via PSTN
+        Places a PSTN call to a user to join meeting.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.dialout_pstn(user_id, numeric_meeting_id, payload_dialout, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
+        :param PayloadDialout payload_dialout: (required)
+        :return: list[DialoutPstn]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.dialout_pstn_with_http_info(user_id, numeric_meeting_id, payload_dialout, **kwargs)
+        else:
+            (data) = self.dialout_pstn_with_http_info(user_id, numeric_meeting_id, payload_dialout, **kwargs)
+            return data
+
+    def dialout_pstn_with_http_info(self, user_id, numeric_meeting_id, payload_dialout, **kwargs):
+        """
+        Dialout via PSTN
+        Places a PSTN call to a user to join meeting.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.dialout_pstn_with_http_info(user_id, numeric_meeting_id, payload_dialout, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
+        :param PayloadDialout payload_dialout: (required)
+        :return: list[DialoutPstn]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'numeric_meeting_id', 'payload_dialout']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method dialout_pstn" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `dialout_pstn`")
+        # verify the required parameter 'numeric_meeting_id' is set
+        if ('numeric_meeting_id' not in params) or (params['numeric_meeting_id'] is None):
+            raise ValueError("Missing the required parameter `numeric_meeting_id` when calling `dialout_pstn`")
+        # verify the required parameter 'payload_dialout' is set
+        if ('payload_dialout' not in params) or (params['payload_dialout'] is None):
+            raise ValueError("Missing the required parameter `payload_dialout` when calling `dialout_pstn`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'numeric_meeting_id' in params:
+            path_params['numeric_meeting_id'] = params['numeric_meeting_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'payload_dialout' in params:
+            body_params = params['payload_dialout']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[DialoutPstn]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def generate_pairing_code_pstn(self, user_id, numeric_meeting_id, payload_pairing_code_pstn, **kwargs):
+        """
+        Generate Pairing Code (PSTN)
+        This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
+        :param PayloadPairingCodePstn payload_pairing_code_pstn: (required)
+        :param str role:
+        :return: PairingCodeWebRTC
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.generate_pairing_code_pstn_with_http_info(user_id, numeric_meeting_id, payload_pairing_code_pstn, **kwargs)
+        else:
+            (data) = self.generate_pairing_code_pstn_with_http_info(user_id, numeric_meeting_id, payload_pairing_code_pstn, **kwargs)
+            return data
+
+    def generate_pairing_code_pstn_with_http_info(self, user_id, numeric_meeting_id, payload_pairing_code_pstn, **kwargs):
+        """
+        Generate Pairing Code (PSTN)
+        This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.generate_pairing_code_pstn_with_http_info(user_id, numeric_meeting_id, payload_pairing_code_pstn, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+        :param int numeric_meeting_id: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
+        :param PayloadPairingCodePstn payload_pairing_code_pstn: (required)
+        :param str role:
+        :return: PairingCodeWebRTC
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'numeric_meeting_id', 'payload_pairing_code_pstn', 'role']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method generate_pairing_code_pstn" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `generate_pairing_code_pstn`")
+        # verify the required parameter 'numeric_meeting_id' is set
+        if ('numeric_meeting_id' not in params) or (params['numeric_meeting_id'] is None):
+            raise ValueError("Missing the required parameter `numeric_meeting_id` when calling `generate_pairing_code_pstn`")
+        # verify the required parameter 'payload_pairing_code_pstn' is set
+        if ('payload_pairing_code_pstn' not in params) or (params['payload_pairing_code_pstn'] is None):
+            raise ValueError("Missing the required parameter `payload_pairing_code_pstn` when calling `generate_pairing_code_pstn`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'numeric_meeting_id' in params:
+            path_params['numeric_meeting_id'] = params['numeric_meeting_id']
+
+        query_params = []
+        if 'role' in params:
+            query_params.append(('role', params['role']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'payload_pairing_code_pstn' in params:
+            body_params = params['payload_pairing_code_pstn']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['access_token']
+
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PairingCodeWebRTC',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -342,14 +576,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -366,7 +599,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -461,16 +694,15 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'role' in params:
-            query_params['role'] = params['role']
+            query_params.append(('role', params['role']))
 
         header_params = {}
 
@@ -487,7 +719,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -580,7 +812,6 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -589,7 +820,7 @@ class MeetingApi(object):
         if 'endpoint_guid' in params:
             path_params['endpoint_guid'] = params['endpoint_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -604,7 +835,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -692,14 +923,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -714,7 +944,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting/{meeting_id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -808,20 +1038,19 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'type' in params:
-            query_params['type'] = params['type']
+            query_params.append(('type', params['type']))
         if 'role' in params:
-            query_params['role'] = params['role']
+            query_params.append(('role', params['role']))
         if 'action' in params:
-            query_params['action'] = params['action']
+            query_params.append(('action', params['action']))
 
         header_params = {}
 
@@ -836,7 +1065,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -929,7 +1158,6 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -938,7 +1166,7 @@ class MeetingApi(object):
         if 'endpoint_guid' in params:
             path_params['endpoint_guid'] = params['endpoint_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -953,7 +1181,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1041,14 +1269,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1063,7 +1290,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1151,14 +1378,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meetings/{meeting_id}/numbers'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1173,7 +1399,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meetings/{meeting_id}/numbers', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1261,14 +1487,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1283,7 +1508,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1368,14 +1593,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'numeric_meeting_id' in params:
-            query_params['numericMeetingId'] = params['numeric_meeting_id']
+            query_params.append(('numericMeetingId', params['numeric_meeting_id']))
 
         header_params = {}
 
@@ -1390,7 +1614,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1483,14 +1707,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1507,7 +1730,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1604,7 +1827,6 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -1613,11 +1835,11 @@ class MeetingApi(object):
         if 'endpoint_guid' in params:
             path_params['endpoint_guid'] = params['endpoint_guid']
 
-        query_params = {}
+        query_params = []
         if 'is_leader' in params:
-            query_params['isLeader'] = params['is_leader']
+            query_params.append(('isLeader', params['is_leader']))
         if 'push' in params:
-            query_params['push'] = params['push']
+            query_params.append(('push', params['push']))
 
         header_params = {}
 
@@ -1632,7 +1854,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1725,14 +1947,13 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/scheduled_meeting/{meeting_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1749,7 +1970,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/scheduled_meeting/{meeting_id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1848,7 +2069,6 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -1857,13 +2077,13 @@ class MeetingApi(object):
         if 'endpoint_guid' in params:
             path_params['endpoint_guid'] = params['endpoint_guid']
 
-        query_params = {}
+        query_params = []
         if 'mute_audio' in params:
-            query_params['muteAudio'] = params['mute_audio']
+            query_params.append(('muteAudio', params['mute_audio']))
         if 'mute_video' in params:
-            query_params['muteVideo'] = params['mute_video']
+            query_params.append(('muteVideo', params['mute_video']))
         if 'leave_meeting' in params:
-            query_params['leaveMeeting'] = params['leave_meeting']
+            query_params.append(('leaveMeeting', params['leave_meeting']))
 
         header_params = {}
 
@@ -1878,7 +2098,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1970,18 +2190,17 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'mute' in params:
-            query_params['mute'] = params['mute']
+            query_params.append(('mute', params['mute']))
         if 'media' in params:
-            query_params['media'] = params['media']
+            query_params.append(('media', params['media']))
 
         header_params = {}
 
@@ -1996,7 +2215,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2014,7 +2233,7 @@ class MeetingApi(object):
     def update_meeting_state(self, user_id, numeric_meeting_id, payload_meeting_state, **kwargs):
         """
         Update Meeting State
-        This endpoint’s purpose is to be able to modify a meeting.
+        This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -2043,7 +2262,7 @@ class MeetingApi(object):
     def update_meeting_state_with_http_info(self, user_id, numeric_meeting_id, payload_meeting_state, **kwargs):
         """
         Update Meeting State
-        This endpoint’s purpose is to be able to modify a meeting.
+        This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -2091,16 +2310,15 @@ class MeetingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'numeric_meeting_id' in params:
             path_params['numeric_meeting_id'] = params['numeric_meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'delay' in params:
-            query_params['delay'] = params['delay']
+            query_params.append(('delay', params['delay']))
 
         header_params = {}
 
@@ -2117,7 +2335,7 @@ class MeetingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{numeric_meeting_id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,

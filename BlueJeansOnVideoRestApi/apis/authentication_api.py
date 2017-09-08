@@ -117,24 +117,23 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/authorize'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'client_id' in params:
-            query_params['clientId'] = params['client_id']
+            query_params.append(('clientId', params['client_id']))
         if 'redirect_uri' in params:
-            query_params['redirectUri'] = params['redirect_uri']
+            query_params.append(('redirectUri', params['redirect_uri']))
         if 'state' in params:
-            query_params['state'] = params['state']
+            query_params.append(('state', params['state']))
         if 'scope' in params:
-            query_params['scope'] = params['scope']
+            query_params.append(('scope', params['scope']))
         if 'response_type' in params:
-            query_params['responseType'] = params['response_type']
+            query_params.append(('responseType', params['response_type']))
         if 'app_name' in params:
-            query_params['appName'] = params['app_name']
+            query_params.append(('appName', params['app_name']))
         if 'app_logo_url' in params:
-            query_params['appLogoUrl'] = params['app_logo_url']
+            query_params.append(('appLogoUrl', params['app_logo_url']))
 
         header_params = {}
 
@@ -149,7 +148,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/oauth2/authorize', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -232,10 +231,9 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Client'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -256,7 +254,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/oauth2/token?Client', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -339,10 +337,9 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Code'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -363,7 +360,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/oauth2/token?Code', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -446,10 +443,9 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Meeting'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -470,7 +466,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/oauth2/token?Meeting', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -553,10 +549,9 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Password'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -577,7 +572,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/oauth2/token?Password', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -660,10 +655,9 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Refresh'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -684,7 +678,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/oauth2/token?Refresh', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -764,12 +758,11 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/tokenInfo'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'access_token' in params:
-            query_params['access_token'] = params['access_token']
+            query_params.append(('access_token', params['access_token']))
 
         header_params = {}
 
@@ -788,7 +781,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/oauth2/tokenInfo', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -873,12 +866,11 @@ class AuthenticationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/oauth2/token?Revoke'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'access_token' in params:
-            query_params['access_token'] = params['access_token']
+            query_params.append(('access_token', params['access_token']))
 
         header_params = {}
 
@@ -899,7 +891,7 @@ class AuthenticationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/oauth2/token?Revoke', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,

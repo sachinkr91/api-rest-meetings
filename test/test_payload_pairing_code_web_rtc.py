@@ -35,7 +35,9 @@ class TestPayloadPairingCodeWebRTC(unittest.TestCase):
         """
         Test PayloadPairingCodeWebRTC
         """
-        model = BlueJeansOnVideoRestApi.models.payload_pairing_code_web_rtc.PayloadPairingCodeWebRTC()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.payload_pairing_code_web_rtc.PayloadPairingCodeWebRTC()
+        pass
 
 
 if __name__ == '__main__':

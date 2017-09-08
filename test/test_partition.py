@@ -35,7 +35,9 @@ class TestPartition(unittest.TestCase):
         """
         Test Partition
         """
-        model = BlueJeansOnVideoRestApi.models.partition.Partition()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.partition.Partition()
+        pass
 
 
 if __name__ == '__main__':

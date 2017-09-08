@@ -35,7 +35,9 @@ class TestRecordingHistoryList(unittest.TestCase):
         """
         Test RecordingHistoryList
         """
-        model = BlueJeansOnVideoRestApi.models.recording_history_list.RecordingHistoryList()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.recording_history_list.RecordingHistoryList()
+        pass
 
 
 if __name__ == '__main__':

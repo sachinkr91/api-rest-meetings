@@ -35,7 +35,9 @@ class TestMeetingHistoryLeaderInfo(unittest.TestCase):
         """
         Test MeetingHistoryLeaderInfo
         """
-        model = BlueJeansOnVideoRestApi.models.meeting_history_leader_info.MeetingHistoryLeaderInfo()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.meeting_history_leader_info.MeetingHistoryLeaderInfo()
+        pass
 
 
 if __name__ == '__main__':

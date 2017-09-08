@@ -35,7 +35,9 @@ class TestEndpointIndigoTraceroute(unittest.TestCase):
         """
         Test EndpointIndigoTraceroute
         """
-        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
+        pass
 
 
 if __name__ == '__main__':

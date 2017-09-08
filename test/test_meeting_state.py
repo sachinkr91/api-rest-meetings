@@ -35,7 +35,9 @@ class TestMeetingState(unittest.TestCase):
         """
         Test MeetingState
         """
-        model = BlueJeansOnVideoRestApi.models.meeting_state.MeetingState()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.meeting_state.MeetingState()
+        pass
 
 
 if __name__ == '__main__':

@@ -35,7 +35,9 @@ class TestGrantRequestRevoke(unittest.TestCase):
         """
         Test GrantRequestRevoke
         """
-        model = BlueJeansOnVideoRestApi.models.grant_request_revoke.GrantRequestRevoke()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_request_revoke.GrantRequestRevoke()
+        pass
 
 
 if __name__ == '__main__':

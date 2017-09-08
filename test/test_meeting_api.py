@@ -47,6 +47,22 @@ class TestMeetingApi(unittest.TestCase):
         """
         pass
 
+    def test_dialout_pstn(self):
+        """
+        Test case for dialout_pstn
+
+        Dialout via PSTN
+        """
+        pass
+
+    def test_generate_pairing_code_pstn(self):
+        """
+        Test case for generate_pairing_code_pstn
+
+        Generate Pairing Code (PSTN)
+        """
+        pass
+
     def test_generate_pairing_code_sip(self):
         """
         Test case for generate_pairing_code_sip

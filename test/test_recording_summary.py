@@ -35,7 +35,9 @@ class TestRecordingSummary(unittest.TestCase):
         """
         Test RecordingSummary
         """
-        model = BlueJeansOnVideoRestApi.models.recording_summary.RecordingSummary()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.recording_summary.RecordingSummary()
+        pass
 
 
 if __name__ == '__main__':

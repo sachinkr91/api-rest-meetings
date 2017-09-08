@@ -27,7 +27,7 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -82,7 +82,7 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -139,7 +139,7 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -196,7 +196,7 @@ This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -251,7 +251,7 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -308,7 +308,7 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires /
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -363,7 +363,7 @@ This endpoint reports on meeting usage. Requires /oauth2/token?Password authenti
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -420,7 +420,7 @@ This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?P
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -473,7 +473,7 @@ This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Pas
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -532,7 +532,7 @@ This endpoint lists completed meetings by user. Requires /oauth2/token?Password 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -585,7 +585,7 @@ This endpoint lists return on investment (ROI) data for meetings. Requires /oaut
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -640,7 +640,7 @@ This endpoint retrieves the top users by usage for an enterprise. Requires /oaut
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

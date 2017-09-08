@@ -35,7 +35,9 @@ class TestRoom(unittest.TestCase):
         """
         Test Room
         """
-        model = BlueJeansOnVideoRestApi.models.room.Room()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.room.Room()
+        pass
 
 
 if __name__ == '__main__':

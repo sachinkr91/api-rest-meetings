@@ -35,7 +35,9 @@ class TestApplicationSecret(unittest.TestCase):
         """
         Test ApplicationSecret
         """
-        model = BlueJeansOnVideoRestApi.models.application_secret.ApplicationSecret()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.application_secret.ApplicationSecret()
+        pass
 
 
 if __name__ == '__main__':

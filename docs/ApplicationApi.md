@@ -18,7 +18,7 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -73,7 +73,7 @@ This endpoint forces the regeneration of a client application secret for use in 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -128,7 +128,7 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

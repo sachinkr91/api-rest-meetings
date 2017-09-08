@@ -108,12 +108,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/enterprise_profile'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -128,7 +127,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/enterprise_profile', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -211,12 +210,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/granted_applications'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -231,7 +229,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/granted_applications', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -314,12 +312,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/groups'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -334,7 +331,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/groups', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -417,12 +414,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/room'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -437,7 +433,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/room', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -520,12 +516,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -540,7 +535,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -628,14 +623,13 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/granted_applications/{client_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'client_id' in params:
             path_params['client_id'] = params['client_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -650,7 +644,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/v1/user/{user_id}/granted_applications/{client_id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -737,16 +731,15 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/groups'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'enable' in params:
-            query_params['enable'] = params['enable']
+            query_params.append(('enable', params['enable']))
         if 'disable' in params:
-            query_params['disable'] = params['disable']
+            query_params.append(('disable', params['disable']))
 
         header_params = {}
 
@@ -761,7 +754,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/groups', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -849,12 +842,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/room'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -871,7 +863,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/room', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -959,12 +951,11 @@ class UserApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -981,7 +972,7 @@ class UserApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,

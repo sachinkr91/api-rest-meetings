@@ -35,7 +35,9 @@ class TestAnalyticsEndpointDistribution(unittest.TestCase):
         """
         Test AnalyticsEndpointDistribution
         """
-        model = BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution.AnalyticsEndpointDistribution()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution.AnalyticsEndpointDistribution()
+        pass
 
 
 if __name__ == '__main__':

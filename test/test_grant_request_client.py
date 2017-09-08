@@ -35,7 +35,9 @@ class TestGrantRequestClient(unittest.TestCase):
         """
         Test GrantRequestClient
         """
-        model = BlueJeansOnVideoRestApi.models.grant_request_client.GrantRequestClient()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_request_client.GrantRequestClient()
+        pass
 
 
 if __name__ == '__main__':

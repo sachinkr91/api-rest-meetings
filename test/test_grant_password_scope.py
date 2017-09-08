@@ -35,7 +35,9 @@ class TestGrantPasswordScope(unittest.TestCase):
         """
         Test GrantPasswordScope
         """
-        model = BlueJeansOnVideoRestApi.models.grant_password_scope.GrantPasswordScope()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_password_scope.GrantPasswordScope()
+        pass
 
 
 if __name__ == '__main__':

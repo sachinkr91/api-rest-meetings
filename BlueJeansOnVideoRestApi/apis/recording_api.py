@@ -115,16 +115,15 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'meeting_guid' in params:
-            query_params['meetingGuid'] = params['meeting_guid']
+            query_params.append(('meetingGuid', params['meeting_guid']))
 
         header_params = {}
 
@@ -139,7 +138,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/{meeting_id}/recordings', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -232,16 +231,15 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/cms/{content_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'content_id' in params:
             path_params['content_id'] = params['content_id']
 
-        query_params = {}
+        query_params = []
         if 'is_downloadable' in params:
-            query_params['isDownloadable'] = params['is_downloadable']
+            query_params.append(('isDownloadable', params['is_downloadable']))
 
         header_params = {}
 
@@ -256,7 +254,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/cms/{content_id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -349,16 +347,15 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'action' in params:
-            query_params['action'] = params['action']
+            query_params.append(('action', params['action']))
 
         header_params = {}
 
@@ -373,7 +370,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{meeting_id}/recordings', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -466,16 +463,15 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/live_meetings/{meeting_id}/recordings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_id' in params:
             path_params['meeting_id'] = params['meeting_id']
 
-        query_params = {}
+        query_params = []
         if 'action' in params:
-            query_params['action'] = params['action']
+            query_params.append(('action', params['action']))
 
         header_params = {}
 
@@ -490,7 +486,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/live_meetings/{meeting_id}/recordings', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -578,14 +574,13 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_guid' in params:
             path_params['meeting_guid'] = params['meeting_guid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -600,7 +595,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -693,7 +688,6 @@ class RecordingApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
@@ -702,7 +696,7 @@ class RecordingApi(object):
         if 'recording_chapter_id' in params:
             path_params['recording_chapter_id'] = params['recording_chapter_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -717,7 +711,7 @@ class RecordingApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,

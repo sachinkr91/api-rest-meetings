@@ -35,7 +35,9 @@ class TestAnalyticsTopUsersUsage(unittest.TestCase):
         """
         Test AnalyticsTopUsersUsage
         """
-        model = BlueJeansOnVideoRestApi.models.analytics_top_users_usage.AnalyticsTopUsersUsage()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.analytics_top_users_usage.AnalyticsTopUsersUsage()
+        pass
 
 
 if __name__ == '__main__':

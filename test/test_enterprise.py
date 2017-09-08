@@ -35,7 +35,9 @@ class TestEnterprise(unittest.TestCase):
         """
         Test Enterprise
         """
-        model = BlueJeansOnVideoRestApi.models.enterprise.Enterprise()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.enterprise.Enterprise()
+        pass
 
 
 if __name__ == '__main__':

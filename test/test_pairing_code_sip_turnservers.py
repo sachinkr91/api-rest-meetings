@@ -35,7 +35,9 @@ class TestPairingCodeSIPTurnservers(unittest.TestCase):
         """
         Test PairingCodeSIPTurnservers
         """
-        model = BlueJeansOnVideoRestApi.models.pairing_code_sip_turnservers.PairingCodeSIPTurnservers()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.pairing_code_sip_turnservers.PairingCodeSIPTurnservers()
+        pass
 
 
 if __name__ == '__main__':

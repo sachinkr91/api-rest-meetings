@@ -35,7 +35,9 @@ class TestEndpointIndigoEndpointAttributes1(unittest.TestCase):
         """
         Test EndpointIndigoEndpointAttributes1
         """
-        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_endpoint_attributes1.EndpointIndigoEndpointAttributes1()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_endpoint_attributes1.EndpointIndigoEndpointAttributes1()
+        pass
 
 
 if __name__ == '__main__':

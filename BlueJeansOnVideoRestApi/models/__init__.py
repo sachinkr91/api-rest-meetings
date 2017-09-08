@@ -31,6 +31,7 @@ from .attendee import Attendee
 from .content import Content
 from .content_content_properties import ContentContentProperties
 from .content_content_properties_levels import ContentContentPropertiesLevels
+from .dialout_pstn import DialoutPstn
 from .endpoint import Endpoint
 from .endpoint_indigo import EndpointIndigo
 from .endpoint_indigo_endpoint_attributes1 import EndpointIndigoEndpointAttributes1
@@ -68,7 +69,6 @@ from .inline_response_200 import InlineResponse200
 from .layout import Layout
 from .meeting import Meeting
 from .meeting_advanced_meeting_options import MeetingAdvancedMeetingOptions
-from .meeting_extended_indigo import MeetingExtendedIndigo
 from .meeting_history import MeetingHistory
 from .meeting_history_leader_info import MeetingHistoryLeaderInfo
 from .meeting_history_participant_list import MeetingHistoryParticipantList
@@ -84,8 +84,10 @@ from .pairing_code_sip import PairingCodeSIP
 from .pairing_code_sip_turnservers import PairingCodeSIPTurnservers
 from .pairing_code_web_rtc import PairingCodeWebRTC
 from .partition import Partition
+from .payload_dialout import PayloadDialout
 from .payload_invite import PayloadInvite
 from .payload_meeting_state import PayloadMeetingState
+from .payload_pairing_code_pstn import PayloadPairingCodePstn
 from .payload_pairing_code_sip import PayloadPairingCodeSIP
 from .payload_pairing_code_web_rtc import PayloadPairingCodeWebRTC
 from .recording import Recording
@@ -98,3 +100,4 @@ from .recording_summary import RecordingSummary
 from .room import Room
 from .user import User
 from .user_id import UserId
+from .meeting_extended_indigo import MeetingExtendedIndigo

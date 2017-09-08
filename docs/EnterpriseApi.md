@@ -19,7 +19,7 @@ This endpoint allows adding a user to an existing enterprise. Requires enterpris
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -78,7 +78,7 @@ This endpoint exports existing users into a CSV file.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -130,7 +130,7 @@ This endpoint allows listing the users that are associated with an enterprise ac
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -189,7 +189,7 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

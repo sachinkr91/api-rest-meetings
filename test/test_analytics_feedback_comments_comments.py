@@ -35,7 +35,9 @@ class TestAnalyticsFeedbackCommentsComments(unittest.TestCase):
         """
         Test AnalyticsFeedbackCommentsComments
         """
-        model = BlueJeansOnVideoRestApi.models.analytics_feedback_comments_comments.AnalyticsFeedbackCommentsComments()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.analytics_feedback_comments_comments.AnalyticsFeedbackCommentsComments()
+        pass
 
 
 if __name__ == '__main__':

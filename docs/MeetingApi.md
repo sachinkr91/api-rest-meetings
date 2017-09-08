@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_meeting**](MeetingApi.md#cancel_meeting) | **DELETE** /v1/user/{user_id}/scheduled_meeting/{meeting_id} | Cancel Meeting
 [**create_meeting**](MeetingApi.md#create_meeting) | **POST** /v1/user/{user_id}/scheduled_meeting | Create Meeting
+[**dialout_pstn**](MeetingApi.md#dialout_pstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn | Dialout via PSTN
+[**generate_pairing_code_pstn**](MeetingApi.md#generate_pairing_code_pstn) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN | Generate Pairing Code (PSTN)
 [**generate_pairing_code_sip**](MeetingApi.md#generate_pairing_code_sip) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP | Generate Pairing Code (SIP)
 [**generate_pairing_code_web_rtc**](MeetingApi.md#generate_pairing_code_web_rtc) | **POST** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc | Generate Pairing Code (WebRTC)
 [**get_endpoint_layout**](MeetingApi.md#get_endpoint_layout) | **GET** /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout | Get Endpoint Layout
@@ -33,7 +35,7 @@ This endpoint deletes a scheuled meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -87,7 +89,7 @@ This endpoint will create a scheduled meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -135,6 +137,122 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **dialout_pstn**
+> list[DialoutPstn] dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
+
+Dialout via PSTN
+
+Places a PSTN call to a user to join meeting.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+payload_dialout = BlueJeansOnVideoRestApi.PayloadDialout() # PayloadDialout | 
+
+try: 
+    # Dialout via PSTN
+    api_response = api_instance.dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MeetingApi->dialout_pstn: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
+ **payload_dialout** | [**PayloadDialout**](PayloadDialout.md)|  | 
+
+### Return type
+
+[**list[DialoutPstn]**](DialoutPstn.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_pairing_code_pstn**
+> PairingCodeWebRTC generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
+
+Generate Pairing Code (PSTN)
+
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import BlueJeansOnVideoRestApi
+from BlueJeansOnVideoRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansOnVideoRestApi.MeetingApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+payload_pairing_code_pstn = BlueJeansOnVideoRestApi.PayloadPairingCodePstn() # PayloadPairingCodePstn | 
+role = 'USER' # str |  (optional) (default to USER)
+
+try: 
+    # Generate Pairing Code (PSTN)
+    api_response = api_instance.generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MeetingApi->generate_pairing_code_pstn: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
+ **payload_pairing_code_pstn** | [**PayloadPairingCodePstn**](PayloadPairingCodePstn.md)|  | 
+ **role** | **str**|  | [optional] [default to USER]
+
+### Return type
+
+[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **generate_pairing_code_sip**
 > PairingCodeSIP generate_pairing_code_sip(user_id, numeric_meeting_id, payload_pairing_code_sip)
 
@@ -144,7 +262,7 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -201,7 +319,7 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -260,7 +378,7 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -317,7 +435,7 @@ This endpoint gets the settings for a user's meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -372,7 +490,7 @@ This endpoint retrieves the email object for a scheduled meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -433,7 +551,7 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -490,7 +608,7 @@ This endpoint returns an array of all endpoints in the current meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -545,7 +663,7 @@ This endpoint retrieves the join information for a scheduled meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -600,7 +718,7 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -655,7 +773,7 @@ This endpoint gets a list of the user's scheduled upcoming meetings.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -710,7 +828,7 @@ This endpoint generates an email invite to the specified meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -766,7 +884,7 @@ This endpoint allows you to update an individual endpoint’s current layout set
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -827,7 +945,7 @@ This endpoint changes the settings for a user's meeting. For example, use for re
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -884,7 +1002,7 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -947,7 +1065,7 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException
@@ -1001,11 +1119,11 @@ void (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import BlueJeansOnVideoRestApi
 from BlueJeansOnVideoRestApi.rest import ApiException

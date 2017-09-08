@@ -35,7 +35,9 @@ class TestEndpointIndigoLocation(unittest.TestCase):
         """
         Test EndpointIndigoLocation
         """
-        model = BlueJeansOnVideoRestApi.models.endpoint_indigo_location.EndpointIndigoLocation()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_location.EndpointIndigoLocation()
+        pass
 
 
 if __name__ == '__main__':

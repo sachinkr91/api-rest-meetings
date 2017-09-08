@@ -113,12 +113,11 @@ class ApplicationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/developer_applications'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -135,7 +134,7 @@ class ApplicationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/user/{user_id}/developer_applications', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -223,14 +222,13 @@ class ApplicationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/developer_applications/{client_id}/secret'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'client_id' in params:
             path_params['client_id'] = params['client_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -245,7 +243,7 @@ class ApplicationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/developer_applications/{client_id}/secret', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -338,14 +336,13 @@ class ApplicationApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/developer_applications/{client_id}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'client_id' in params:
             path_params['client_id'] = params['client_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -362,7 +359,7 @@ class ApplicationApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api('/v1/user/{user_id}/developer_applications/{client_id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,

@@ -35,7 +35,9 @@ class TestGrantClientScope(unittest.TestCase):
         """
         Test GrantClientScope
         """
-        model = BlueJeansOnVideoRestApi.models.grant_client_scope.GrantClientScope()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_client_scope.GrantClientScope()
+        pass
 
 
 if __name__ == '__main__':

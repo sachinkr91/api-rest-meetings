@@ -35,7 +35,9 @@ class TestRecordingSessionStartedBy(unittest.TestCase):
         """
         Test RecordingSessionStartedBy
         """
-        model = BlueJeansOnVideoRestApi.models.recording_session_started_by.RecordingSessionStartedBy()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.recording_session_started_by.RecordingSessionStartedBy()
+        pass
 
 
 if __name__ == '__main__':

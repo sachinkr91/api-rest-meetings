@@ -110,14 +110,13 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'filter' in params:
-            query_params['filter'] = params['filter']
+            query_params.append(('filter', params['filter']))
 
         header_params = {}
 
@@ -132,7 +131,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -225,16 +224,15 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'start' in params:
-            query_params['start'] = params['start']
+            query_params.append(('start', params['start']))
         if 'end' in params:
-            query_params['end'] = params['end']
+            query_params.append(('end', params['end']))
 
         header_params = {}
 
@@ -249,7 +247,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -342,16 +340,15 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/feedback/count'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'start' in params:
-            query_params['start'] = params['start']
+            query_params.append(('start', params['start']))
         if 'end' in params:
-            query_params['end'] = params['end']
+            query_params.append(('end', params['end']))
 
         header_params = {}
 
@@ -366,7 +363,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/feedback/count', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -454,14 +451,13 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
         if 'meeting_uuid' in params:
             path_params['meeting_uuid'] = params['meeting_uuid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -476,7 +472,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -566,16 +562,15 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
         if 'meeting_uuid' in params:
             path_params['meeting_uuid'] = params['meeting_uuid']
 
-        query_params = {}
+        query_params = []
         if 'include_endpoints' in params:
-            query_params['includeEndpoints'] = params['include_endpoints']
+            query_params.append(('includeEndpoints', params['include_endpoints']))
 
         header_params = {}
 
@@ -590,7 +585,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -678,14 +673,13 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/indigo/meetings/{meeting_uuid}'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
         if 'meeting_uuid' in params:
             path_params['meeting_uuid'] = params['meeting_uuid']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -700,7 +694,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/indigo/meetings/{meeting_uuid}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -787,16 +781,15 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'client_tz' in params:
-            query_params['clientTZ'] = params['client_tz']
+            query_params.append(('clientTZ', params['client_tz']))
         if 'filter' in params:
-            query_params['filter'] = params['filter']
+            query_params.append(('filter', params['filter']))
 
         header_params = {}
 
@@ -811,7 +804,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -894,12 +887,11 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings/live'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -914,7 +906,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/meetings/live', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1003,18 +995,17 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/meetings'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'offset' in params:
-            query_params['offset'] = params['offset']
+            query_params.append(('offset', params['offset']))
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
         if 'filter' in params:
-            query_params['filter'] = params['filter']
+            query_params.append(('filter', params['filter']))
 
         header_params = {}
 
@@ -1029,7 +1020,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/meetings', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1112,12 +1103,11 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/user/{user_id}/indigo/meetings'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1132,7 +1122,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/user/{user_id}/indigo/meetings', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1220,14 +1210,13 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'filter' in params:
-            query_params['filter'] = params['filter']
+            query_params.append(('filter', params['filter']))
 
         header_params = {}
 
@@ -1242,7 +1231,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1327,14 +1316,13 @@ class CommandCenterApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'filter' in params:
-            query_params['filter'] = params['filter']
+            query_params.append(('filter', params['filter']))
 
         header_params = {}
 
@@ -1349,7 +1337,7 @@ class CommandCenterApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

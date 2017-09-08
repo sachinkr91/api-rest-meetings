@@ -117,16 +117,15 @@ class EnterpriseApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'force_password_change' in params:
-            query_params['forcePasswordChange'] = params['force_password_change']
+            query_params.append(('forcePasswordChange', params['force_password_change']))
         if 'send_verification_mail' in params:
-            query_params['sendVerificationMail'] = params['send_verification_mail']
+            query_params.append(('sendVerificationMail', params['send_verification_mail']))
 
         header_params = {}
 
@@ -143,7 +142,7 @@ class EnterpriseApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/users', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -226,12 +225,11 @@ class EnterpriseApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/users/export'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -246,7 +244,7 @@ class EnterpriseApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/users/export', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -335,18 +333,17 @@ class EnterpriseApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/users'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
 
-        query_params = {}
+        query_params = []
         if 'page_size' in params:
-            query_params['pageSize'] = params['page_size']
+            query_params.append(('pageSize', params['page_size']))
         if 'page_number' in params:
-            query_params['pageNumber'] = params['page_number']
+            query_params.append(('pageNumber', params['page_number']))
         if 'email_id' in params:
-            query_params['emailId'] = params['email_id']
+            query_params.append(('emailId', params['email_id']))
 
         header_params = {}
 
@@ -361,7 +358,7 @@ class EnterpriseApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/users', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -449,14 +446,13 @@ class EnterpriseApi(object):
 
         collection_formats = {}
 
-        resource_path = '/v1/enterprise/{enterprise_id}/users/{user_id}'.replace('{format}', 'json')
         path_params = {}
         if 'enterprise_id' in params:
             path_params['enterprise_id'] = params['enterprise_id']
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -471,7 +467,7 @@ class EnterpriseApi(object):
         # Authentication setting
         auth_settings = ['access_token']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api('/v1/enterprise/{enterprise_id}/users/{user_id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,

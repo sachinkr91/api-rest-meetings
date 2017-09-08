@@ -35,7 +35,9 @@ class TestMeetingIndigo(unittest.TestCase):
         """
         Test MeetingIndigo
         """
-        model = BlueJeansOnVideoRestApi.models.meeting_indigo.MeetingIndigo()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.meeting_indigo.MeetingIndigo()
+        pass
 
 
 if __name__ == '__main__':

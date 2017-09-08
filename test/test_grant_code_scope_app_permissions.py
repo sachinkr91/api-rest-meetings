@@ -35,7 +35,9 @@ class TestGrantCodeScopeAppPermissions(unittest.TestCase):
         """
         Test GrantCodeScopeAppPermissions
         """
-        model = BlueJeansOnVideoRestApi.models.grant_code_scope_app_permissions.GrantCodeScopeAppPermissions()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = BlueJeansOnVideoRestApi.models.grant_code_scope_app_permissions.GrantCodeScopeAppPermissions()
+        pass
 
 
 if __name__ == '__main__':
