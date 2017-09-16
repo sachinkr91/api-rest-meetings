@@ -3,16 +3,42 @@ info:
   title: BlueJeans onVideo REST API
   description: >
   
-    Video That Works Where You Do.
+    ## Video That Works Where You Do.
   
     This site provides developers access to APIs from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
 
     With these APIs you should be able to quickly integrate **BlueJeans** video administration into your applications.  
 
-    ## Getting Started
+    <hr>
+    
 
-    Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />
+    <h2 class="info"> What is a BlueJeans Meeting?</h2>
+    
+    <img src="/img/bjnmeeting.png" style="padding-left:20px; width:50%">
+    
+    
+    A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.  
+    The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.
 
+    
+    There are two types of Meeting Rooms
+    
+    * Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.
+    
+    * Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.
+
+    
+    The room may be protected by an access code, and may assigned a moderator passcode allowing designated user(s) greater privileges to help organize meetings.
+    
+    <hr>
+    
+
+    <h2 id='gs' class="info" onclick="hideit('gs')"><span id="gsicon" class="glyphicon glyphicon-chevron-right"></span> Getting Started</h2>
+
+    <div id="gsbody" style="display:none">
+    Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href="mailto:Support@BlueJeans.com)">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />
+    
+    
     ### To Make API Calls from This Site
 
     If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls.
@@ -32,8 +58,17 @@ info:
     
     Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make.
 
-    ## About onVideo Authentication
+    </div>
 
+    <hr>
+
+    
+    <h2 id='oauth' class="info" onclick="hideit('oauth')"><span id="oauthicon" class="glyphicon glyphicon-chevron-right"></span> About onVideo Authentication</h2>
+
+
+    <div id="oauthbody" style="display:none">
+
+    
     All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access.
 
     ### Grant Types
@@ -59,6 +94,11 @@ info:
     * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users.
 
     All endpoints in this document that require **Enterprise Admin** access will be marked as such.
+    
+    </div>
+
+    <hr>
+
 
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
