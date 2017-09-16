@@ -14,7 +14,7 @@ info:
 
     <h2 class="info"> What is a BlueJeans Meeting?</h2>
     
-    <img src="/img/bjnmeeting.png" style="padding-left:20px; width:50%">
+    <img src="./img/bjnmeeting.png" style="padding-left:20px; width:50%">
     
     
     A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.  
