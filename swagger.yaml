@@ -7,7 +7,7 @@ info:
   
     This site provides developers access to APIs from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
 
-    With these APIs you should be able to quickly integrate **BlueJeans** video administration into your applications.  
+    With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
 
     <hr>
     
@@ -21,14 +21,19 @@ info:
     The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.
 
     
-    There are two types of Meeting Rooms
-    
-    * Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.
-    
-    * Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.
+    <u>Types of Meeting Rooms</u>
+    There are two types of Meeting Rooms available to a registered user.  They are described as:
+    <ul>
+    <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li>
+    <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li>
+    </ul>
 
-    
-    The room may be protected by an access code, and may assigned a moderator passcode allowing designated user(s) greater privileges to help organize meetings.
+    <u>Meeting Room Security</u>
+    A meeting room can <i>optionally</i> be protected by an access code.  THe access code can ensure security of participants who can join, and also designate user(s) who need an ability to moderate a meeting.
+    <ul>
+    <li>When set, participants would be required to enter the access code in order to join.</li>
+    <li>, and may be assigned a moderator passcode allowing designated user(s) greater privileges to help organize meetings.</li>
+    </ul>
     
     <hr>
     
