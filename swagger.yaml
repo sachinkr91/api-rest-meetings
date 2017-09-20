@@ -2944,6 +2944,9 @@ definitions:
       attendeePasscode:
         type: string
         readOnly: true
+      addAttendeePasscode:
+        type: boolean
+        description: Indicate if you want the attendees to be forced to enter a passcode on entry for extra security. The passcode will be randomly generated at schedule and will be returned in attendeePasscode property of the meeting.
       endPointVersion:
         type: string
         default: "2.10"
