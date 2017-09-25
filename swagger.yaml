@@ -29,10 +29,10 @@ info:
     </ul>
 
     <u>Meeting Room Security</u>
-    A meeting room can <i>optionally</i> be protected by an access code.  THe access code ensures security of participants who can join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting.
+    A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting.
     <ul>
     <li>When set, participants would be required to enter the access code in order to join.</li>
-    <li> a moderator passcode allowing designated user(s) greater privileges to help organize meetings.</li>
+    <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li>
     </ul>
     
     <hr>
