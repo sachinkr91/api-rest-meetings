@@ -1,11 +1,11 @@
 swagger: '2.0'
 info:
-  title: BlueJeans onVideo REST API
+  title: BlueJeans Meetings REST API
   description: >
   
     ## Video That Works Where You Do.
   
-    This site provides developers access to APIs from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
+    This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
 
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
 
@@ -68,7 +68,7 @@ info:
     <hr>
 
     
-    <h2 id='oauth' class="info" onclick="hideit('oauth')"><span id="oauthicon" class="glyphicon glyphicon-chevron-right"></span> About onVideo Authentication</h2>
+    <h2 id='oauth' class="info" onclick="hideit('oauth')"><span id="oauthicon" class="glyphicon glyphicon-chevron-right"></span> About Meetings Authentication</h2>
 
 
     <div id="oauthbody" style="display:none">
