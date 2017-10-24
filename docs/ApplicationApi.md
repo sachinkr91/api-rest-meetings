@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.ApplicationApi
+# BlueJeansMeetingsRestApi.ApplicationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -19,8 +19,8 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -28,11 +28,11 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.ApplicationApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var application = new BlueJeansOnVideoRestApi.Application(); // Application | The information about the new client application.
+var application = new BlueJeansMeetingsRestApi.Application(); // Application | The information about the new client application.
 
 
 var callback = function(error, data, response) {
@@ -75,8 +75,8 @@ This endpoint forces the regeneration of a client application secret for use in 
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -84,7 +84,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.ApplicationApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -131,8 +131,8 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -140,13 +140,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.ApplicationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.ApplicationApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var clientId = "clientId_example"; // String | The ID of the client application of interest. This value was given as a response during client application creation.
 
-var application = new BlueJeansOnVideoRestApi.Application(); // Application | The information about the new client application.
+var application = new BlueJeansMeetingsRestApi.Application(); // Application | The information about the new client application.
 
 
 var callback = function(error, data, response) {

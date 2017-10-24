@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.ApplicationSecret
+# BlueJeansMeetingsRestApi.ApplicationSecret
 
 ## Properties
 Name | Type | Description | Notes

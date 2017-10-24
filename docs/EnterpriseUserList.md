@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.EnterpriseUserList
+# BlueJeansMeetingsRestApi.EnterpriseUserList
 
 ## Properties
 Name | Type | Description | Notes

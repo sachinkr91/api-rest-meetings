@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PayloadPairingCodeSIP
+# BlueJeansMeetingsRestApi.PayloadPairingCodeSIP
 
 ## Properties
 Name | Type | Description | Notes

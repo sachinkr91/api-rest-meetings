@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.MeetingHistoryLeaderInfo
+# BlueJeansMeetingsRestApi.MeetingHistoryLeaderInfo
 
 ## Properties
 Name | Type | Description | Notes

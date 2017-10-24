@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PayloadInvite
+# BlueJeansMeetingsRestApi.PayloadInvite
 
 ## Properties
 Name | Type | Description | Notes

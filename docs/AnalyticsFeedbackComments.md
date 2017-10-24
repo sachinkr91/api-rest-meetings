@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AnalyticsFeedbackComments
+# BlueJeansMeetingsRestApi.AnalyticsFeedbackComments
 
 ## Properties
 Name | Type | Description | Notes

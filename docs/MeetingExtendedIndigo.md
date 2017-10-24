@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.MeetingExtendedIndigo
+# BlueJeansMeetingsRestApi.MeetingExtendedIndigo
 
 ## Properties
 Name | Type | Description | Notes

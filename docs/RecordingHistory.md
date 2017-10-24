@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.RecordingHistory
+# BlueJeansMeetingsRestApi.RecordingHistory
 
 ## Properties
 Name | Type | Description | Notes

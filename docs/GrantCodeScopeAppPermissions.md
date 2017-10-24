@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions
+# BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions
 
 ## Properties
 Name | Type | Description | Notes

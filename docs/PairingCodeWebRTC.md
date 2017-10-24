@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PairingCodeWebRTC
+# BlueJeansMeetingsRestApi.PairingCodeWebRTC
 
 ## Properties
 Name | Type | Description | Notes

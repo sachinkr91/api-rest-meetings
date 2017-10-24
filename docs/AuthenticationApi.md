@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AuthenticationApi
+# BlueJeansMeetingsRestApi.AuthenticationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -24,8 +24,8 @@ This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a 
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -33,7 +33,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
 var opts = { 
   'clientId': "clientId_example", // String | The 32 character client ID generated when you created the client application.
@@ -90,8 +90,8 @@ This API is typically called from an application that needs to make API requests
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -99,9 +99,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestClient = new BlueJeansOnVideoRestApi.GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
+var grantRequestClient = new BlueJeansMeetingsRestApi.GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 
 
 var callback = function(error, data, response) {
@@ -143,8 +143,8 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -152,9 +152,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestCode = new BlueJeansOnVideoRestApi.GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
+var grantRequestCode = new BlueJeansMeetingsRestApi.GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 
 
 var callback = function(error, data, response) {
@@ -196,8 +196,8 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -205,9 +205,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestMeeting = new BlueJeansOnVideoRestApi.GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
+var grantRequestMeeting = new BlueJeansMeetingsRestApi.GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 
 
 var callback = function(error, data, response) {
@@ -249,8 +249,8 @@ This API performs an authentication based upon a username and password.   Call t
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -258,9 +258,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestPassword = new BlueJeansOnVideoRestApi.GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
+var grantRequestPassword = new BlueJeansMeetingsRestApi.GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 
 
 var callback = function(error, data, response) {
@@ -302,8 +302,8 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -311,9 +311,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestRefresh = new BlueJeansOnVideoRestApi.GrantRequestRefresh(); // GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
+var grantRequestRefresh = new BlueJeansMeetingsRestApi.GrantRequestRefresh(); // GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
 
 
 var callback = function(error, data, response) {
@@ -355,8 +355,8 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -364,7 +364,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
 var opts = { 
   'accessToken': "accessToken_example" // String | 
@@ -409,8 +409,8 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.default;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -418,9 +418,9 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.AuthenticationApi();
+var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
-var grantRequestRevoke = new BlueJeansOnVideoRestApi.GrantRequestRevoke(); // GrantRequestRevoke | Contains information about the type of grant you are revoking.
+var grantRequestRevoke = new BlueJeansMeetingsRestApi.GrantRequestRevoke(); // GrantRequestRevoke | Contains information about the type of grant you are revoking.
 
 var opts = { 
   'accessToken': "accessToken_example" // String | 

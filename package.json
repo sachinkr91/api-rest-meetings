@@ -1,14 +1,17 @@
 {
-  "name": "bluejeans-api-rest-onvideo",
+  "name": "bluejeans-api-rest-meetings",
   "version": "1.0.0",
-  "description": "JavaScript client for BlueJeans onVideo REST APIs",
+  "description": "JavaScript client for BlueJeans Meetings REST APIs",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
+  "browser": {
+    "fs": false
+  },
   "dependencies": {
-    "superagent": "1.7.1"
+    "superagent": "3.5.2"
   },
   "devDependencies": {
     "mocha": "~2.3.4",
@@ -17,6 +20,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bluejeans/api-rest-onvideo.git"
+    "url": "https://github.com/bluejeans/api-rest-meetings.git"
   }
 }

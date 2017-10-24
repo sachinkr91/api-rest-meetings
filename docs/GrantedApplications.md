@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantedApplications
+# BlueJeansMeetingsRestApi.GrantedApplications
 
 ## Properties
 Name | Type | Description | Notes

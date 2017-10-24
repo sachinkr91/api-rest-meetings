@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.EndpointsInnerConnections
+# BlueJeansMeetingsRestApi.EndpointsInnerConnections
 
 ## Properties
 Name | Type | Description | Notes

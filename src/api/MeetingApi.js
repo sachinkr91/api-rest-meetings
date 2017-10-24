@@ -1,12 +1,15 @@
 /**
- * BlueJeans onVideo REST API
- *  Video That Works Where You Do. This site provides developers access to APIs from BlueJean's onVideo meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you should be able to quickly integrate **BlueJeans** video administration into your applications.   ## Getting Started Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact [BlueJeans Support](mailto:Support@BlueJeans.com) for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br /> ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. ## About onVideo Authentication All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. 
+ * BlueJeans Meetings REST API
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
  * OpenAPI spec version: 1.0.0
  * Contact: brandon@bluejeans.com
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.2.3
+ *
  * Do not edit the class manually.
  *
  */
@@ -14,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Endpoint', 'model/Endpoints', 'model/Error', 'model/Layout', 'model/Meeting', 'model/MeetingState', 'model/Numbers', 'model/PairingCodeSIP', 'model/PairingCodeWebRTC', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC'], factory);
+    define(['ApiClient', 'model/DialoutPstn', 'model/Endpoint', 'model/Endpoints', 'model/Error', 'model/Layout', 'model/Meeting', 'model/MeetingState', 'model/Numbers', 'model/PairingCodeSIP', 'model/PairingCodeWebRTC', 'model/PayloadDialout', 'model/PayloadInvite', 'model/PayloadMeetingState', 'model/PayloadPairingCodePstn', 'model/PayloadPairingCodeSIP', 'model/PayloadPairingCodeWebRTC'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCodeSIP'), require('../model/PairingCodeWebRTC'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
+    module.exports = factory(require('../ApiClient'), require('../model/DialoutPstn'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCodeSIP'), require('../model/PairingCodeWebRTC'), require('../model/PayloadDialout'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodePstn'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.PairingCodeSIP, root.BlueJeansOnVideoRestApi.PairingCodeWebRTC, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
+    root.BlueJeansMeetingsRestApi.MeetingApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.DialoutPstn, root.BlueJeansMeetingsRestApi.Endpoint, root.BlueJeansMeetingsRestApi.Endpoints, root.BlueJeansMeetingsRestApi.Error, root.BlueJeansMeetingsRestApi.Layout, root.BlueJeansMeetingsRestApi.Meeting, root.BlueJeansMeetingsRestApi.MeetingState, root.BlueJeansMeetingsRestApi.Numbers, root.BlueJeansMeetingsRestApi.PairingCodeSIP, root.BlueJeansMeetingsRestApi.PairingCodeWebRTC, root.BlueJeansMeetingsRestApi.PayloadDialout, root.BlueJeansMeetingsRestApi.PayloadInvite, root.BlueJeansMeetingsRestApi.PayloadMeetingState, root.BlueJeansMeetingsRestApi.PayloadPairingCodePstn, root.BlueJeansMeetingsRestApi.PayloadPairingCodeSIP, root.BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC);
   }
-}(this, function(ApiClient, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCodeSIP, PairingCodeWebRTC, PayloadInvite, PayloadMeetingState, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
+}(this, function(ApiClient, DialoutPstn, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCodeSIP, PairingCodeWebRTC, PayloadDialout, PayloadInvite, PayloadMeetingState, PayloadPairingCodePstn, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
   'use strict';
 
   /**
@@ -64,12 +67,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling cancelMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
+      if (meetingId === undefined || meetingId === null) {
         throw new Error("Missing the required parameter 'meetingId' when calling cancelMeeting");
       }
 
@@ -120,12 +123,12 @@
       var postBody = meeting;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling createMeeting");
       }
 
       // verify the required parameter 'meeting' is set
-      if (meeting == undefined || meeting == null) {
+      if (meeting === undefined || meeting === null) {
         throw new Error("Missing the required parameter 'meeting' when calling createMeeting");
       }
 
@@ -154,6 +157,128 @@
     }
 
     /**
+     * Callback function to receive the result of the dialoutPstn operation.
+     * @callback module:api/MeetingApi~dialoutPstnCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DialoutPstn>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Dialout via PSTN
+     * Places a PSTN call to a user to join meeting.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+     * @param {module:model/PayloadDialout} payloadDialout 
+     * @param {module:api/MeetingApi~dialoutPstnCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DialoutPstn>}
+     */
+    this.dialoutPstn = function(userId, numericMeetingId, payloadDialout, callback) {
+      var postBody = payloadDialout;
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling dialoutPstn");
+      }
+
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId === undefined || numericMeetingId === null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling dialoutPstn");
+      }
+
+      // verify the required parameter 'payloadDialout' is set
+      if (payloadDialout === undefined || payloadDialout === null) {
+        throw new Error("Missing the required parameter 'payloadDialout' when calling dialoutPstn");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'numeric_meeting_id': numericMeetingId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [DialoutPstn];
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the generatePairingCodePstn operation.
+     * @callback module:api/MeetingApi~generatePairingCodePstnCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PairingCodeWebRTC} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate Pairing Code (PSTN)
+     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+     * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+     * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+     * @param {module:model/PayloadPairingCodePstn} payloadPairingCodePstn 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.role  (default to USER)
+     * @param {module:api/MeetingApi~generatePairingCodePstnCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PairingCodeWebRTC}
+     */
+    this.generatePairingCodePstn = function(userId, numericMeetingId, payloadPairingCodePstn, opts, callback) {
+      opts = opts || {};
+      var postBody = payloadPairingCodePstn;
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling generatePairingCodePstn");
+      }
+
+      // verify the required parameter 'numericMeetingId' is set
+      if (numericMeetingId === undefined || numericMeetingId === null) {
+        throw new Error("Missing the required parameter 'numericMeetingId' when calling generatePairingCodePstn");
+      }
+
+      // verify the required parameter 'payloadPairingCodePstn' is set
+      if (payloadPairingCodePstn === undefined || payloadPairingCodePstn === null) {
+        throw new Error("Missing the required parameter 'payloadPairingCodePstn' when calling generatePairingCodePstn");
+      }
+
+
+      var pathParams = {
+        'user_id': userId,
+        'numeric_meeting_id': numericMeetingId
+      };
+      var queryParams = {
+        'role': opts['role']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = PairingCodeWebRTC;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the generatePairingCodeSip operation.
      * @callback module:api/MeetingApi~generatePairingCodeSipCallback
      * @param {String} error Error message, if any.
@@ -174,17 +299,17 @@
       var postBody = payloadPairingCodeSIP;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeSip");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling generatePairingCodeSip");
       }
 
       // verify the required parameter 'payloadPairingCodeSIP' is set
-      if (payloadPairingCodeSIP == undefined || payloadPairingCodeSIP == null) {
+      if (payloadPairingCodeSIP === undefined || payloadPairingCodeSIP === null) {
         throw new Error("Missing the required parameter 'payloadPairingCodeSIP' when calling generatePairingCodeSip");
       }
 
@@ -236,17 +361,17 @@
       var postBody = payloadPairingCodeWebRTC;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling generatePairingCodeWebRtc");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling generatePairingCodeWebRtc");
       }
 
       // verify the required parameter 'payloadPairingCodeWebRTC' is set
-      if (payloadPairingCodeWebRTC == undefined || payloadPairingCodeWebRTC == null) {
+      if (payloadPairingCodeWebRTC === undefined || payloadPairingCodeWebRTC === null) {
         throw new Error("Missing the required parameter 'payloadPairingCodeWebRTC' when calling generatePairingCodeWebRtc");
       }
 
@@ -296,17 +421,17 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getEndpointLayout");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling getEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
-      if (endpointGuid == undefined || endpointGuid == null) {
+      if (endpointGuid === undefined || endpointGuid === null) {
         throw new Error("Missing the required parameter 'endpointGuid' when calling getEndpointLayout");
       }
 
@@ -355,12 +480,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
+      if (meetingId === undefined || meetingId === null) {
         throw new Error("Missing the required parameter 'meetingId' when calling getMeeting");
       }
 
@@ -413,12 +538,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeetingEmails");
       }
 
       // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
+      if (meetingId === undefined || meetingId === null) {
         throw new Error("Missing the required parameter 'meetingId' when calling getMeetingEmails");
       }
 
@@ -470,17 +595,17 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoint");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
-      if (endpointGuid == undefined || endpointGuid == null) {
+      if (endpointGuid === undefined || endpointGuid === null) {
         throw new Error("Missing the required parameter 'endpointGuid' when calling getMeetingEndpoint");
       }
 
@@ -529,12 +654,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeetingEndpoints");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingEndpoints");
       }
 
@@ -582,12 +707,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeetingNumbers");
       }
 
       // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
+      if (meetingId === undefined || meetingId === null) {
         throw new Error("Missing the required parameter 'meetingId' when calling getMeetingNumbers");
       }
 
@@ -635,12 +760,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getMeetingState");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling getMeetingState");
       }
 
@@ -690,7 +815,7 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling listMeetings");
       }
 
@@ -738,17 +863,17 @@
       var postBody = payloadInvite;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling sendMeetingInvite");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling sendMeetingInvite");
       }
 
       // verify the required parameter 'payloadInvite' is set
-      if (payloadInvite == undefined || payloadInvite == null) {
+      if (payloadInvite === undefined || payloadInvite === null) {
         throw new Error("Missing the required parameter 'payloadInvite' when calling sendMeetingInvite");
       }
 
@@ -801,17 +926,17 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling updateEndpointLayout");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling updateEndpointLayout");
       }
 
       // verify the required parameter 'endpointGuid' is set
-      if (endpointGuid == undefined || endpointGuid == null) {
+      if (endpointGuid === undefined || endpointGuid === null) {
         throw new Error("Missing the required parameter 'endpointGuid' when calling updateEndpointLayout");
       }
 
@@ -863,17 +988,17 @@
       var postBody = meeting;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling updateMeeting");
       }
 
       // verify the required parameter 'meetingId' is set
-      if (meetingId == undefined || meetingId == null) {
+      if (meetingId === undefined || meetingId === null) {
         throw new Error("Missing the required parameter 'meetingId' when calling updateMeeting");
       }
 
       // verify the required parameter 'meeting' is set
-      if (meeting == undefined || meeting == null) {
+      if (meeting === undefined || meeting === null) {
         throw new Error("Missing the required parameter 'meeting' when calling updateMeeting");
       }
 
@@ -927,17 +1052,17 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoint");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingEndpoint");
       }
 
       // verify the required parameter 'endpointGuid' is set
-      if (endpointGuid == undefined || endpointGuid == null) {
+      if (endpointGuid === undefined || endpointGuid === null) {
         throw new Error("Missing the required parameter 'endpointGuid' when calling updateMeetingEndpoint");
       }
 
@@ -992,12 +1117,12 @@
       var postBody = null;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingEndpoints");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingEndpoints");
       }
 
@@ -1037,7 +1162,7 @@
 
     /**
      * Update Meeting State
-     * This endpoint’s purpose is to be able to modify a meeting.
+     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
      * @param {Number} userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
      * @param {Number} numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
      * @param {module:model/PayloadMeetingState} payloadMeetingState The meeting properties that you wish to update.
@@ -1051,17 +1176,17 @@
       var postBody = payloadMeetingState;
 
       // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
+      if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling updateMeetingState");
       }
 
       // verify the required parameter 'numericMeetingId' is set
-      if (numericMeetingId == undefined || numericMeetingId == null) {
+      if (numericMeetingId === undefined || numericMeetingId === null) {
         throw new Error("Missing the required parameter 'numericMeetingId' when calling updateMeetingState");
       }
 
       // verify the required parameter 'payloadMeetingState' is set
-      if (payloadMeetingState == undefined || payloadMeetingState == null) {
+      if (payloadMeetingState === undefined || payloadMeetingState === null) {
         throw new Error("Missing the required parameter 'payloadMeetingState' when calling updateMeetingState");
       }
 

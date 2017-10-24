@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.Partition
+# BlueJeansMeetingsRestApi.Partition
 
 ## Properties
 Name | Type | Description | Notes

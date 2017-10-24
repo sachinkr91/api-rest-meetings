@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution
+# BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution
 
 ## Properties
 Name | Type | Description | Notes
