@@ -1,0 +1,8 @@
+{
+	"moduleName":"BlueJeansMeetingsRestApi",
+	"projectName":"bluejeans-api-rest-meetings",
+	"projectDescription":"JavaScript client for BlueJeans Meetings REST APIs",
+	"projectLicenseName":"MIT",
+	"gitUserId":"bluejeans",
+	"gitRepoId":"api-rest-meetings#npm-repo"
+}
