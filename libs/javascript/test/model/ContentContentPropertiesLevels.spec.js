@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+    instance = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('ContentContentPropertiesLevels', function() {
     it('should create an instance of ContentContentPropertiesLevels', function() {
       // uncomment below and update the code to test ContentContentPropertiesLevels
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.ContentContentPropertiesLevels);
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.ContentContentPropertiesLevels);
     });
 
     it('should have the property file (base name: "file")', function() {
       // uncomment below and update the code to test the property file
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
       //expect(instance).to.be();
     });
 
     it('should have the property width (base name: "width")', function() {
       // uncomment below and update the code to test the property width
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
       //expect(instance).to.be();
     });
 
     it('should have the property bitrate (base name: "bitrate")', function() {
       // uncomment below and update the code to test the property bitrate
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
       //expect(instance).to.be();
     });
 
     it('should have the property height (base name: "height")', function() {
       // uncomment below and update the code to test the property height
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentPropertiesLevels();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentPropertiesLevels();
       //expect(instance).to.be();
     });
 

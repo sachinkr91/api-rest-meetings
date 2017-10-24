@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.grant_password_scope import GrantPasswordScope
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.grant_password_scope import GrantPasswordScope
 
 
 class TestGrantPasswordScope(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestGrantPasswordScope(unittest.TestCase):
         Test GrantPasswordScope
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.grant_password_scope.GrantPasswordScope()
+        #model = BlueJeansMeetingsRestApi.models.grant_password_scope.GrantPasswordScope()
         pass
 
 

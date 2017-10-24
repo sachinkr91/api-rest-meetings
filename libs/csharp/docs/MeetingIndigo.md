@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.MeetingIndigo
+# com.bluejeans.api.rest.meetings.Model.MeetingIndigo
 ## Properties
 
 Name | Type | Description | Notes

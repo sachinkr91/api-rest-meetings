@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./GrantClientScope'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.GrantClient = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantClientScope);
+    root.BlueJeansMeetingsRestApi.GrantClient = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.GrantClientScope);
   }
 }(this, function(ApiClient, GrantClientScope) {
   'use strict';

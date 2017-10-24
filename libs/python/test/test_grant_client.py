@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.grant_client import GrantClient
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.grant_client import GrantClient
 
 
 class TestGrantClient(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestGrantClient(unittest.TestCase):
         Test GrantClient
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.grant_client.GrantClient()
+        #model = BlueJeansMeetingsRestApi.models.grant_client.GrantClient()
         pass
 
 

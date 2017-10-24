@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./MeetingIndigo'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingIndigoList = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.MeetingIndigo);
+    root.BlueJeansMeetingsRestApi.MeetingIndigoList = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.MeetingIndigo);
   }
 }(this, function(ApiClient, MeetingIndigo) {
   'use strict';

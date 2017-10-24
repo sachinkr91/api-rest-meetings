@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsFeedbackComments();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsFeedbackComments();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('AnalyticsFeedbackComments', function() {
     it('should create an instance of AnalyticsFeedbackComments', function() {
       // uncomment below and update the code to test AnalyticsFeedbackComments
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackComments();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsFeedbackComments);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackComments();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsFeedbackComments);
     });
 
     it('should have the property comments (base name: "comments")', function() {
       // uncomment below and update the code to test the property comments
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackComments();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackComments();
       //expect(instance).to.be();
     });
 

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.MeetingIndigoList();
+    instance = new BlueJeansMeetingsRestApi.MeetingIndigoList();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('MeetingIndigoList', function() {
     it('should create an instance of MeetingIndigoList', function() {
       // uncomment below and update the code to test MeetingIndigoList
-      //var instane = new BlueJeansOnVideoRestApi.MeetingIndigoList();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.MeetingIndigoList);
+      //var instane = new BlueJeansMeetingsRestApi.MeetingIndigoList();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.MeetingIndigoList);
     });
 
     it('should have the property meetings (base name: "meetings")', function() {
       // uncomment below and update the code to test the property meetings
-      //var instane = new BlueJeansOnVideoRestApi.MeetingIndigoList();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingIndigoList();
       //expect(instance).to.be();
     });
 

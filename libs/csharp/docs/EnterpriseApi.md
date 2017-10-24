@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Api.EnterpriseApi
+# com.bluejeans.api.rest.meetings.Api.EnterpriseApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -22,9 +22,9 @@ This endpoint allows adding a user to an existing enterprise. Requires enterpris
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -94,9 +94,9 @@ This endpoint exports existing users into a CSV file.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -159,9 +159,9 @@ This endpoint allows listing the users that are associated with an enterprise ac
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -231,9 +231,9 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {

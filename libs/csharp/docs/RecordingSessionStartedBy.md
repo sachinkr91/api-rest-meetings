@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.RecordingSessionStartedBy
+# com.bluejeans.api.rest.meetings.Model.RecordingSessionStartedBy
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PairingCodeWebRTC
+# com.bluejeans.api.rest.meetings.Model.PairingCodeWebRTC
 ## Properties
 
 Name | Type | Description | Notes

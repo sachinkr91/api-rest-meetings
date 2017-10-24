@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.MeetingAdvancedMeetingOptions
+# com.bluejeans.api.rest.meetings.Model.MeetingAdvancedMeetingOptions
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Api.AuthenticationApi
+# com.bluejeans.api.rest.meetings.Api.AuthenticationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -26,9 +26,9 @@ This is **not a true REST endpoint**. <br /> This URL should be used by a user's
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -103,9 +103,9 @@ This API is typically called from an application that needs to make API requests
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -169,9 +169,9 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -235,9 +235,9 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -301,9 +301,9 @@ This API performs an authentication based upon a username and password.   Call t
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -367,9 +367,9 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -433,9 +433,9 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -499,9 +499,9 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Application();
+    instance = new BlueJeansMeetingsRestApi.Application();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('Application', function() {
     it('should create an instance of Application', function() {
       // uncomment below and update the code to test Application
-      //var instane = new BlueJeansOnVideoRestApi.Application();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Application);
+      //var instane = new BlueJeansMeetingsRestApi.Application();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Application);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 
     it('should have the property appName (base name: "appName")', function() {
       // uncomment below and update the code to test the property appName
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 
     it('should have the property appLogoUrl (base name: "appLogoUrl")', function() {
       // uncomment below and update the code to test the property appLogoUrl
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 
     it('should have the property redirectUrls (base name: "redirectUrls")', function() {
       // uncomment below and update the code to test the property redirectUrls
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 
     it('should have the property clientSecret (base name: "clientSecret")', function() {
       // uncomment below and update the code to test the property clientSecret
-      //var instane = new BlueJeansOnVideoRestApi.Application();
+      //var instane = new BlueJeansMeetingsRestApi.Application();
       //expect(instance).to.be();
     });
 

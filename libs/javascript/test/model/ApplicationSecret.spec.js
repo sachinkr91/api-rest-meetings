@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.ApplicationSecret();
+    instance = new BlueJeansMeetingsRestApi.ApplicationSecret();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('ApplicationSecret', function() {
     it('should create an instance of ApplicationSecret', function() {
       // uncomment below and update the code to test ApplicationSecret
-      //var instane = new BlueJeansOnVideoRestApi.ApplicationSecret();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.ApplicationSecret);
+      //var instane = new BlueJeansMeetingsRestApi.ApplicationSecret();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.ApplicationSecret);
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.ApplicationSecret();
+      //var instane = new BlueJeansMeetingsRestApi.ApplicationSecret();
       //expect(instance).to.be();
     });
 
     it('should have the property clientSecret (base name: "client_secret")', function() {
       // uncomment below and update the code to test the property clientSecret
-      //var instane = new BlueJeansOnVideoRestApi.ApplicationSecret();
+      //var instane = new BlueJeansMeetingsRestApi.ApplicationSecret();
       //expect(instance).to.be();
     });
 

@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/DialoutPstn'), require('../model/Endpoint'), require('../model/Endpoints'), require('../model/Error'), require('../model/Layout'), require('../model/Meeting'), require('../model/MeetingState'), require('../model/Numbers'), require('../model/PairingCodeSIP'), require('../model/PairingCodeWebRTC'), require('../model/PayloadDialout'), require('../model/PayloadInvite'), require('../model/PayloadMeetingState'), require('../model/PayloadPairingCodePstn'), require('../model/PayloadPairingCodeSIP'), require('../model/PayloadPairingCodeWebRTC'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.DialoutPstn, root.BlueJeansOnVideoRestApi.Endpoint, root.BlueJeansOnVideoRestApi.Endpoints, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Layout, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.MeetingState, root.BlueJeansOnVideoRestApi.Numbers, root.BlueJeansOnVideoRestApi.PairingCodeSIP, root.BlueJeansOnVideoRestApi.PairingCodeWebRTC, root.BlueJeansOnVideoRestApi.PayloadDialout, root.BlueJeansOnVideoRestApi.PayloadInvite, root.BlueJeansOnVideoRestApi.PayloadMeetingState, root.BlueJeansOnVideoRestApi.PayloadPairingCodePstn, root.BlueJeansOnVideoRestApi.PayloadPairingCodeSIP, root.BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
+    root.BlueJeansMeetingsRestApi.MeetingApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.DialoutPstn, root.BlueJeansMeetingsRestApi.Endpoint, root.BlueJeansMeetingsRestApi.Endpoints, root.BlueJeansMeetingsRestApi.Error, root.BlueJeansMeetingsRestApi.Layout, root.BlueJeansMeetingsRestApi.Meeting, root.BlueJeansMeetingsRestApi.MeetingState, root.BlueJeansMeetingsRestApi.Numbers, root.BlueJeansMeetingsRestApi.PairingCodeSIP, root.BlueJeansMeetingsRestApi.PairingCodeWebRTC, root.BlueJeansMeetingsRestApi.PayloadDialout, root.BlueJeansMeetingsRestApi.PayloadInvite, root.BlueJeansMeetingsRestApi.PayloadMeetingState, root.BlueJeansMeetingsRestApi.PayloadPairingCodePstn, root.BlueJeansMeetingsRestApi.PayloadPairingCodeSIP, root.BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC);
   }
 }(this, function(ApiClient, DialoutPstn, Endpoint, Endpoints, Error, Layout, Meeting, MeetingState, Numbers, PairingCodeSIP, PairingCodeWebRTC, PayloadDialout, PayloadInvite, PayloadMeetingState, PayloadPairingCodePstn, PayloadPairingCodeSIP, PayloadPairingCodeWebRTC) {
   'use strict';

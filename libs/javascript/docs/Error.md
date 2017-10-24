@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.Error
+# BlueJeansMeetingsRestApi.Error
 
 ## Properties
 Name | Type | Description | Notes

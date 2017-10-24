@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('AnalyticsTopUsersUsage', function() {
     it('should create an instance of AnalyticsTopUsersUsage', function() {
       // uncomment below and update the code to test AnalyticsTopUsersUsage
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage);
     });
 
     it('should have the property lastMeetingTime (base name: "lastMeetingTime")', function() {
       // uncomment below and update the code to test the property lastMeetingTime
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property participantMinutes (base name: "participantMinutes")', function() {
       // uncomment below and update the code to test the property participantMinutes
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property lastName (base name: "last_name")', function() {
       // uncomment below and update the code to test the property lastName
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property userName (base name: "userName")', function() {
       // uncomment below and update the code to test the property userName
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property firstName (base name: "first_name")', function() {
       // uncomment below and update the code to test the property firstName
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsTopUsersUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsTopUsersUsage();
       //expect(instance).to.be();
     });
 

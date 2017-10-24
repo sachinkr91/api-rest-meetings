@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.NumbersNumbers();
+    instance = new BlueJeansMeetingsRestApi.NumbersNumbers();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,79 +53,79 @@
   describe('NumbersNumbers', function() {
     it('should create an instance of NumbersNumbers', function() {
       // uncomment below and update the code to test NumbersNumbers
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.NumbersNumbers);
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.NumbersNumbers);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property _number (base name: "number")', function() {
       // uncomment below and update the code to test the property _number
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property tollfree (base name: "tollfree")', function() {
       // uncomment below and update the code to test the property tollfree
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property premium (base name: "premium")', function() {
       // uncomment below and update the code to test the property premium
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property custom (base name: "custom")', function() {
       // uncomment below and update the code to test the property custom
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property country (base name: "country")', function() {
       // uncomment below and update the code to test the property country
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property countryName (base name: "countryName")', function() {
       // uncomment below and update the code to test the property countryName
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property state (base name: "state")', function() {
       // uncomment below and update the code to test the property state
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property city (base name: "city")', function() {
       // uncomment below and update the code to test the property city
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property label (base name: "label")', function() {
       // uncomment below and update the code to test the property label
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultSettingsInherited (base name: "defaultSettingsInherited")', function() {
       // uncomment below and update the code to test the property defaultSettingsInherited
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new BlueJeansOnVideoRestApi.NumbersNumbers();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersNumbers();
       //expect(instance).to.be();
     });
 

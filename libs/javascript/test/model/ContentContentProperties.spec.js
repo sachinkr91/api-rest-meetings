@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.ContentContentProperties();
+    instance = new BlueJeansMeetingsRestApi.ContentContentProperties();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,67 +53,67 @@
   describe('ContentContentProperties', function() {
     it('should create an instance of ContentContentProperties', function() {
       // uncomment below and update the code to test ContentContentProperties
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.ContentContentProperties);
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.ContentContentProperties);
     });
 
     it('should have the property duration (base name: "duration")', function() {
       // uncomment below and update the code to test the property duration
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnail (base name: "thumbnail")', function() {
       // uncomment below and update the code to test the property thumbnail
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailSprite (base name: "thumbnailSprite")', function() {
       // uncomment below and update the code to test the property thumbnailSprite
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property hdsUrl (base name: "hdsUrl")', function() {
       // uncomment below and update the code to test the property hdsUrl
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailCount (base name: "thumbnailCount")', function() {
       // uncomment below and update the code to test the property thumbnailCount
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailWidth (base name: "thumbnailWidth")', function() {
       // uncomment below and update the code to test the property thumbnailWidth
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailHeight (base name: "thumbnailHeight")', function() {
       // uncomment below and update the code to test the property thumbnailHeight
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailInterval (base name: "thumbnailInterval")', function() {
       // uncomment below and update the code to test the property thumbnailInterval
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property hlsUrl (base name: "hlsUrl")', function() {
       // uncomment below and update the code to test the property hlsUrl
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 
     it('should have the property levels (base name: "levels")', function() {
       // uncomment below and update the code to test the property levels
-      //var instane = new BlueJeansOnVideoRestApi.ContentContentProperties();
+      //var instane = new BlueJeansMeetingsRestApi.ContentContentProperties();
       //expect(instance).to.be();
     });
 

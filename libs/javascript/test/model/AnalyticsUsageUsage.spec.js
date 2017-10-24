@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('AnalyticsUsageUsage', function() {
     it('should create an instance of AnalyticsUsageUsage', function() {
       // uncomment below and update the code to test AnalyticsUsageUsage
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsUsageUsage);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsUsageUsage);
     });
 
     it('should have the property endpointMinutes (base name: "endpointMinutes")', function() {
       // uncomment below and update the code to test the property endpointMinutes
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property numEndpoints (base name: "numEndpoints")', function() {
       // uncomment below and update the code to test the property numEndpoints
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property numMeetings (base name: "numMeetings")', function() {
       // uncomment below and update the code to test the property numMeetings
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
       //expect(instance).to.be();
     });
 
     it('should have the property _date (base name: "Date")', function() {
       // uncomment below and update the code to test the property _date
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsUsageUsage();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsUsageUsage();
       //expect(instance).to.be();
     });
 

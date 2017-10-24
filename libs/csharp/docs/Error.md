@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.Error
+# com.bluejeans.api.rest.meetings.Model.Error
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.DialoutPstn
+# BlueJeansMeetingsRestApi.DialoutPstn
 
 ## Properties
 Name | Type | Description | Notes

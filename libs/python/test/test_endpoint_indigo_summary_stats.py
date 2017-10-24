@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.endpoint_indigo_summary_stats import EndpointIndigoSummaryStats
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.endpoint_indigo_summary_stats import EndpointIndigoSummaryStats
 
 
 class TestEndpointIndigoSummaryStats(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestEndpointIndigoSummaryStats(unittest.TestCase):
         Test EndpointIndigoSummaryStats
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_summary_stats.EndpointIndigoSummaryStats()
+        #model = BlueJeansMeetingsRestApi.models.endpoint_indigo_summary_stats.EndpointIndigoSummaryStats()
         pass
 
 

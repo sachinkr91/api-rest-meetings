@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.RecordingSessionStartedBy();
+    instance = new BlueJeansMeetingsRestApi.RecordingSessionStartedBy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('RecordingSessionStartedBy', function() {
     it('should create an instance of RecordingSessionStartedBy', function() {
       // uncomment below and update the code to test RecordingSessionStartedBy
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSessionStartedBy();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.RecordingSessionStartedBy);
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSessionStartedBy();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.RecordingSessionStartedBy);
     });
 
     it('should have the property endpointName (base name: "endpointName")', function() {
       // uncomment below and update the code to test the property endpointName
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSessionStartedBy();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSessionStartedBy();
       //expect(instance).to.be();
     });
 
     it('should have the property endpointGuid (base name: "endpointGuid")', function() {
       // uncomment below and update the code to test the property endpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSessionStartedBy();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSessionStartedBy();
       //expect(instance).to.be();
     });
 

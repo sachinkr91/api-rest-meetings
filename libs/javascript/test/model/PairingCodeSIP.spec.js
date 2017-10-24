@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+    instance = new BlueJeansMeetingsRestApi.PairingCodeSIP();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,49 +53,49 @@
   describe('PairingCodeSIP', function() {
     it('should create an instance of PairingCodeSIP', function() {
       // uncomment below and update the code to test PairingCodeSIP
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCodeSIP);
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PairingCodeSIP);
     });
 
     it('should have the property endpointGuid (base name: "endpointGuid")', function() {
       // uncomment below and update the code to test the property endpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property forceTURN (base name: "forceTURN")', function() {
       // uncomment below and update the code to test the property forceTURN
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property pairingCode (base name: "pairingCode")', function() {
       // uncomment below and update the code to test the property pairingCode
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property turnservers (base name: "turnservers")', function() {
       // uncomment below and update the code to test the property turnservers
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property uri (base name: "uri")', function() {
       // uncomment below and update the code to test the property uri
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property seamEndpointGuid (base name: "seamEndpointGuid")', function() {
       // uncomment below and update the code to test the property seamEndpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property connectionGuid (base name: "connectionGuid")', function() {
       // uncomment below and update the code to test the property connectionGuid
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIP();
       //expect(instance).to.be();
     });
 

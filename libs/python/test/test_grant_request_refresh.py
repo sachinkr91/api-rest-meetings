@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.grant_request_refresh import GrantRequestRefresh
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.grant_request_refresh import GrantRequestRefresh
 
 
 class TestGrantRequestRefresh(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestGrantRequestRefresh(unittest.TestCase):
         Test GrantRequestRefresh
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.grant_request_refresh.GrantRequestRefresh()
+        #model = BlueJeansMeetingsRestApi.models.grant_request_refresh.GrantRequestRefresh()
         pass
 
 

@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.EndpointIndigoSummaryStats
+# BlueJeansMeetingsRestApi.EndpointIndigoSummaryStats
 
 ## Properties
 Name | Type | Description | Notes

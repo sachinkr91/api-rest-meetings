@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantMeetingScope
+# com.bluejeans.api.rest.meetings.Model.GrantMeetingScope
 ## Properties
 
 Name | Type | Description | Notes

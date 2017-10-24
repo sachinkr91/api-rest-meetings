@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.InlineResponse200
+# com.bluejeans.api.rest.meetings.Model.InlineResponse200
 ## Properties
 
 Name | Type | Description | Notes

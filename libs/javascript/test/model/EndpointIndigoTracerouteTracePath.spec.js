@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+    instance = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('EndpointIndigoTracerouteTracePath', function() {
     it('should create an instance of EndpointIndigoTracerouteTracePath', function() {
       // uncomment below and update the code to test EndpointIndigoTracerouteTracePath
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath);
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 
     it('should have the property ip (base name: "ip")', function() {
       // uncomment below and update the code to test the property ip
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 
     it('should have the property delay1 (base name: "delay1")', function() {
       // uncomment below and update the code to test the property delay1
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 
     it('should have the property delay2 (base name: "delay2")', function() {
       // uncomment below and update the code to test the property delay2
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 
     it('should have the property delay3 (base name: "delay3")', function() {
       // uncomment below and update the code to test the property delay3
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 
     it('should have the property asapath (base name: "asapath")', function() {
       // uncomment below and update the code to test the property asapath
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath();
       //expect(instance).to.be();
     });
 

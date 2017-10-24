@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges
+# BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges
 
 ## Properties
 Name | Type | Description | Notes

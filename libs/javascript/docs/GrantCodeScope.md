@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantCodeScope
+# BlueJeansMeetingsRestApi.GrantCodeScope
 
 ## Properties
 Name | Type | Description | Notes

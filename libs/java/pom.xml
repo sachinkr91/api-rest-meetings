@@ -6,12 +6,12 @@
   <packaging>jar</packaging>
   <name>api-rest-meetings</name>
   <version>1.0.0</version>
-  <url>https://github.com/bluejeans/api-rest-onvideo</url>
-  <description>BlueJeans onVideo REST API</description>
+  <url>https://github.com/bluejeans/api-rest-meetings</url>
+  <description>BlueJeans Meetings REST API</description>
   <scm>
-    <connection>scm:git:git@github.com:bluejeans/api-rest-onvideo.git</connection>
-    <developerConnection>scm:git:git@github.com:bluejeans/api-rest-onvideo.git</developerConnection>
-    <url>https://github.com/bluejeans/api-rest-onvideo</url>
+    <connection>scm:git:git@github.com:bluejeans/api-rest-meetings.git</connection>
+    <developerConnection>scm:git:git@github.com:bluejeans/api-rest-meetings.git</developerConnection>
+    <url>https://github.com/bluejeans/api-rest-meetings</url>
   </scm>
   <prerequisites>
     <maven>2.2.0</maven>
@@ -27,8 +27,8 @@
 
   <developers>
     <developer>
-      <name>Brandon Fuller</name>
-      <email>brandon@bluejeans.com</email>
+      <name>Blue Jeans</name>
+      <email>api@bluejeans.com</email>
       <organization>Blue Jeans Network</organization>
       <organizationUrl>http://bluejeans.com/</organizationUrl>
     </developer>

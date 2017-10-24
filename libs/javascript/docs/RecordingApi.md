@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.RecordingApi
+# BlueJeansMeetingsRestApi.RecordingApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -22,8 +22,8 @@ This endpoint lists the recordings for a meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -31,7 +31,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -82,8 +82,8 @@ This endpoint retrieves properties about the recording chapter.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -91,7 +91,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -141,8 +141,8 @@ This endpoint starts recording for a meeting in progress. Note that this is a PO
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -150,7 +150,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -200,8 +200,8 @@ This endpoint stops recording for a meeting in progress. Note that this is a PUT
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -209,7 +209,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -259,8 +259,8 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -268,7 +268,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -315,8 +315,8 @@ This endpoint stops recording for a meeting in progress.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -324,7 +324,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.RecordingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.RecordingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 

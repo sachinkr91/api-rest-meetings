@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Api.CommandCenterApi
+# com.bluejeans.api.rest.meetings.Api.CommandCenterApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -30,9 +30,9 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -98,9 +98,9 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -168,9 +168,9 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -238,9 +238,9 @@ This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -306,9 +306,9 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -376,9 +376,9 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires /
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -444,9 +444,9 @@ This endpoint reports on meeting usage. Requires /oauth2/token?Password authenti
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -514,9 +514,9 @@ This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?P
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -580,9 +580,9 @@ This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Pas
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -652,9 +652,9 @@ This endpoint lists completed meetings by user. Requires /oauth2/token?Password 
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -718,9 +718,9 @@ This endpoint lists return on investment (ROI) data for meetings. Requires /oaut
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -786,9 +786,9 @@ This endpoint retrieves the top users by usage for an enterprise. Requires /oaut
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {

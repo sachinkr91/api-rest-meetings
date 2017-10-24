@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+    instance = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,73 +53,73 @@
   describe('RecordingRecordingChapters', function() {
     it('should create an instance of RecordingRecordingChapters', function() {
       // uncomment below and update the code to test RecordingRecordingChapters
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.RecordingRecordingChapters);
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.RecordingRecordingChapters);
     });
 
     it('should have the property chapterId (base name: "chapterId")', function() {
       // uncomment below and update the code to test the property chapterId
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property startTimeOffset (base name: "startTimeOffset")', function() {
       // uncomment below and update the code to test the property startTimeOffset
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property endTimeOffset (base name: "endTimeOffset")', function() {
       // uncomment below and update the code to test the property endTimeOffset
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property chapterName (base name: "chapterName")', function() {
       // uncomment below and update the code to test the property chapterName
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property totalSize (base name: "totalSize")', function() {
       // uncomment below and update the code to test the property totalSize
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property compositeContentId (base name: "compositeContentId")', function() {
       // uncomment below and update the code to test the property compositeContentId
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property compositeContentStatus (base name: "compositeContentStatus")', function() {
       // uncomment below and update the code to test the property compositeContentStatus
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property parentRecordingId (base name: "parentRecordingId")', function() {
       // uncomment below and update the code to test the property parentRecordingId
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property viewCount (base name: "viewCount")', function() {
       // uncomment below and update the code to test the property viewCount
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 
     it('should have the property recordingSessions (base name: "recordingSessions")', function() {
       // uncomment below and update the code to test the property recordingSessions
-      //var instane = new BlueJeansOnVideoRestApi.RecordingRecordingChapters();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingRecordingChapters();
       //expect(instance).to.be();
     });
 

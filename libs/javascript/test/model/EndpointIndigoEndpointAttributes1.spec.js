@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1();
+    instance = new BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('EndpointIndigoEndpointAttributes1', function() {
     it('should create an instance of EndpointIndigoEndpointAttributes1', function() {
       // uncomment below and update the code to test EndpointIndigoEndpointAttributes1
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1);
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1);
     });
 
     it('should have the property reIceCount (base name: "reIceCount")', function() {
       // uncomment below and update the code to test the property reIceCount
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1();
       //expect(instance).to.be();
     });
 
     it('should have the property remoteConnectionCount (base name: "remoteConnectionCount")', function() {
       // uncomment below and update the code to test the property remoteConnectionCount
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1();
       //expect(instance).to.be();
     });
 

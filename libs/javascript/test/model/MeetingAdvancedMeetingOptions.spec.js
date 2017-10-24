@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+    instance = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,55 +53,55 @@
   describe('MeetingAdvancedMeetingOptions', function() {
     it('should create an instance of MeetingAdvancedMeetingOptions', function() {
       // uncomment below and update the code to test MeetingAdvancedMeetingOptions
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions);
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions);
     });
 
     it('should have the property autoRecord (base name: "autoRecord")', function() {
       // uncomment below and update the code to test the property autoRecord
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property muteParticipantsOnEntry (base name: "muteParticipantsOnEntry")', function() {
       // uncomment below and update the code to test the property muteParticipantsOnEntry
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property encryptionType (base name: "encryptionType")', function() {
       // uncomment below and update the code to test the property encryptionType
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property moderatorLess (base name: "moderatorLess")', function() {
       // uncomment below and update the code to test the property moderatorLess
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property videoBestFit (base name: "videoBestFit")', function() {
       // uncomment below and update the code to test the property videoBestFit
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property disallowChat (base name: "disallowChat")', function() {
       // uncomment below and update the code to test the property disallowChat
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property publishMeeting (base name: "publishMeeting")', function() {
       // uncomment below and update the code to test the property publishMeeting
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property showAllAttendeesInMeetingInvite (base name: "showAllAttendeesInMeetingInvite")', function() {
       // uncomment below and update the code to test the property showAllAttendeesInMeetingInvite
-      //var instane = new BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions();
       //expect(instance).to.be();
     });
 

@@ -1,7 +1,7 @@
 {
-  "name": "bluejeans-api-rest-onvideo",
+  "name": "bluejeans-api-rest-meetings",
   "version": "1.0.0",
-  "description": "JavaScript client for BlueJeans onVideo REST APIs",
+  "description": "JavaScript client for BlueJeans Meetings REST APIs",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {

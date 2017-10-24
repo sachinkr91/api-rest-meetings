@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.RecordingSession();
+    instance = new BlueJeansMeetingsRestApi.RecordingSession();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,67 +53,67 @@
   describe('RecordingSession', function() {
     it('should create an instance of RecordingSession', function() {
       // uncomment below and update the code to test RecordingSession
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.RecordingSession);
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.RecordingSession);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property contentStatus (base name: "contentStatus")', function() {
       // uncomment below and update the code to test the property contentStatus
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property recordingType (base name: "recordingType")', function() {
       // uncomment below and update the code to test the property recordingType
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property contentId (base name: "contentId")', function() {
       // uncomment below and update the code to test the property contentId
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnailUrl (base name: "thumbnailUrl")', function() {
       // uncomment below and update the code to test the property thumbnailUrl
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property startTimeOffset (base name: "startTimeOffset")', function() {
       // uncomment below and update the code to test the property startTimeOffset
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property endTimeOffset (base name: "endTimeOffset")', function() {
       // uncomment below and update the code to test the property endTimeOffset
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property duration (base name: "duration")', function() {
       // uncomment below and update the code to test the property duration
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property startedBy (base name: "startedBy")', function() {
       // uncomment below and update the code to test the property startedBy
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 
     it('should have the property stoppedBy (base name: "stoppedBy")', function() {
       // uncomment below and update the code to test the property stoppedBy
-      //var instane = new BlueJeansOnVideoRestApi.RecordingSession();
+      //var instane = new BlueJeansMeetingsRestApi.RecordingSession();
       //expect(instance).to.be();
     });
 

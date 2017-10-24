@@ -26,14 +26,14 @@
   'use strict';
 
   /**
-   * JavaScript client for BlueJeans onVideo REST APIs.<br>
+   * JavaScript client for BlueJeans Meetings REST APIs.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var BlueJeansOnVideoRestApi = require('index'); // See note below*.
-   * var xxxSvc = new BlueJeansOnVideoRestApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new BlueJeansOnVideoRestApi.Yyy(); // Construct a model instance.
+   * var BlueJeansMeetingsRestApi = require('index'); // See note below*.
+   * var xxxSvc = new BlueJeansMeetingsRestApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new BlueJeansMeetingsRestApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -45,8 +45,8 @@
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new BlueJeansOnVideoRestApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new BlueJeansOnVideoRestApi.Yyy(); // Construct a model instance.
+   * var xxxSvc = new BlueJeansMeetingsRestApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new BlueJeansMeetingsRestApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

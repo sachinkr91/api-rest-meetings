@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.InlineResponse200
+# BlueJeansMeetingsRestApi.InlineResponse200
 
 ## Properties
 Name | Type | Description | Notes

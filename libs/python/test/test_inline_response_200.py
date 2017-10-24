@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.inline_response_200 import InlineResponse200
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.inline_response_200 import InlineResponse200
 
 
 class TestInlineResponse200(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestInlineResponse200(unittest.TestCase):
         Test InlineResponse200
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.inline_response_200.InlineResponse200()
+        #model = BlueJeansMeetingsRestApi.models.inline_response_200.InlineResponse200()
         pass
 
 

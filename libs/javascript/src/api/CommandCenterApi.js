@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/AnalyticsEndpointDistribution'), require('../model/AnalyticsFeedbackComments'), require('../model/AnalyticsFeedbackScores'), require('../model/AnalyticsRoiData'), require('../model/AnalyticsTopUsers'), require('../model/AnalyticsUsage'), require('../model/Error'), require('../model/MeetingExtendedIndigo'), require('../model/MeetingIndigoList'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.CommandCenterApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackScores, root.BlueJeansOnVideoRestApi.AnalyticsRoiData, root.BlueJeansOnVideoRestApi.AnalyticsTopUsers, root.BlueJeansOnVideoRestApi.AnalyticsUsage, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.MeetingExtendedIndigo, root.BlueJeansOnVideoRestApi.MeetingIndigoList);
+    root.BlueJeansMeetingsRestApi.CommandCenterApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution, root.BlueJeansMeetingsRestApi.AnalyticsFeedbackComments, root.BlueJeansMeetingsRestApi.AnalyticsFeedbackScores, root.BlueJeansMeetingsRestApi.AnalyticsRoiData, root.BlueJeansMeetingsRestApi.AnalyticsTopUsers, root.BlueJeansMeetingsRestApi.AnalyticsUsage, root.BlueJeansMeetingsRestApi.Error, root.BlueJeansMeetingsRestApi.MeetingExtendedIndigo, root.BlueJeansMeetingsRestApi.MeetingIndigoList);
   }
 }(this, function(ApiClient, AnalyticsEndpointDistribution, AnalyticsFeedbackComments, AnalyticsFeedbackScores, AnalyticsRoiData, AnalyticsTopUsers, AnalyticsUsage, Error, MeetingExtendedIndigo, MeetingIndigoList) {
   'use strict';

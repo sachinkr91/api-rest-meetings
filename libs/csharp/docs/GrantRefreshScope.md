@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantRefreshScope
+# com.bluejeans.api.rest.meetings.Model.GrantRefreshScope
 ## Properties
 
 Name | Type | Description | Notes

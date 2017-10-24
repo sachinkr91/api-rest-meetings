@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.EndpointsInnerConnections
+# com.bluejeans.api.rest.meetings.Model.EndpointsInnerConnections
 ## Properties
 
 Name | Type | Description | Notes

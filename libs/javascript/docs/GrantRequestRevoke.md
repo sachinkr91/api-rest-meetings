@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantRequestRevoke
+# BlueJeansMeetingsRestApi.GrantRequestRevoke
 
 ## Properties
 Name | Type | Description | Notes

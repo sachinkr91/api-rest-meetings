@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.DialoutPstn();
+    instance = new BlueJeansMeetingsRestApi.DialoutPstn();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('DialoutPstn', function() {
     it('should create an instance of DialoutPstn', function() {
       // uncomment below and update the code to test DialoutPstn
-      //var instane = new BlueJeansOnVideoRestApi.DialoutPstn();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.DialoutPstn);
+      //var instane = new BlueJeansMeetingsRestApi.DialoutPstn();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.DialoutPstn);
     });
 
     it('should have the property connectionGuid (base name: "connectionGuid")', function() {
       // uncomment below and update the code to test the property connectionGuid
-      //var instane = new BlueJeansOnVideoRestApi.DialoutPstn();
+      //var instane = new BlueJeansMeetingsRestApi.DialoutPstn();
       //expect(instance).to.be();
     });
 
     it('should have the property endpointGuid (base name: "endpointGuid")', function() {
       // uncomment below and update the code to test the property endpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.DialoutPstn();
+      //var instane = new BlueJeansMeetingsRestApi.DialoutPstn();
       //expect(instance).to.be();
     });
 

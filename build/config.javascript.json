@@ -1,8 +1,8 @@
 {
-	"moduleName":"BlueJeansOnVideoRestApi",
-	"projectName":"bluejeans-api-rest-onvideo",
-	"projectDescription":"JavaScript client for BlueJeans onVideo REST APIs",
+	"moduleName":"BlueJeansMeetingsRestApi",
+	"projectName":"bluejeans-api-rest-meetings",
+	"projectDescription":"JavaScript client for BlueJeans Meetings REST APIs",
 	"projectLicenseName":"MIT",
 	"gitUserId":"bluejeans",
-	"gitRepoId":"api-rest-onvideo#npm-repo"
+	"gitRepoId":"api-rest-meetings#npm-repo"
 }

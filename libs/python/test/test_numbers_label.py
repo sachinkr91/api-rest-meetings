@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.numbers_label import NumbersLabel
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.numbers_label import NumbersLabel
 
 
 class TestNumbersLabel(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestNumbersLabel(unittest.TestCase):
         Test NumbersLabel
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.numbers_label.NumbersLabel()
+        #model = BlueJeansMeetingsRestApi.models.numbers_label.NumbersLabel()
         pass
 
 

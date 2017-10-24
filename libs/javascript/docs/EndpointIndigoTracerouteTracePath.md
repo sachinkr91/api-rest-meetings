@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath
+# BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath
 
 ## Properties
 Name | Type | Description | Notes

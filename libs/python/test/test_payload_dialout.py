@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.payload_dialout import PayloadDialout
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.payload_dialout import PayloadDialout
 
 
 class TestPayloadDialout(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestPayloadDialout(unittest.TestCase):
         Test PayloadDialout
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.payload_dialout.PayloadDialout()
+        #model = BlueJeansMeetingsRestApi.models.payload_dialout.PayloadDialout()
         pass
 
 

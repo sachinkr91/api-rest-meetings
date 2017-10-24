@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.CommandCenterApi
+# BlueJeansMeetingsRestApi.CommandCenterApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -28,8 +28,8 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -37,7 +37,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -85,8 +85,8 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -94,7 +94,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -144,8 +144,8 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -153,7 +153,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -203,8 +203,8 @@ This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -212,7 +212,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -259,8 +259,8 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -268,7 +268,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -319,8 +319,8 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires /
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -328,7 +328,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -375,8 +375,8 @@ This endpoint reports on meeting usage. Requires /oauth2/token?Password authenti
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -384,7 +384,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -434,8 +434,8 @@ This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?P
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -443,7 +443,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -487,8 +487,8 @@ This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Pas
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -496,7 +496,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -548,8 +548,8 @@ This endpoint lists completed meetings by user. Requires /oauth2/token?Password 
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -557,7 +557,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -601,8 +601,8 @@ This endpoint lists return on investment (ROI) data for meetings. Requires /oaut
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -610,7 +610,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
@@ -657,8 +657,8 @@ This endpoint retrieves the top users by usage for an enterprise. Requires /oaut
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -666,7 +666,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.CommandCenterApi();
+var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 

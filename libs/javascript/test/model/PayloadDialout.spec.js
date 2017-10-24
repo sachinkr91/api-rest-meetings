@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PayloadDialout();
+    instance = new BlueJeansMeetingsRestApi.PayloadDialout();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('PayloadDialout', function() {
     it('should create an instance of PayloadDialout', function() {
       // uncomment below and update the code to test PayloadDialout
-      //var instane = new BlueJeansOnVideoRestApi.PayloadDialout();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PayloadDialout);
+      //var instane = new BlueJeansMeetingsRestApi.PayloadDialout();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PayloadDialout);
     });
 
     it('should have the property connectionGuid (base name: "connectionGuid")', function() {
       // uncomment below and update the code to test the property connectionGuid
-      //var instane = new BlueJeansOnVideoRestApi.PayloadDialout();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadDialout();
       //expect(instance).to.be();
     });
 
     it('should have the property countryCode (base name: "countryCode")', function() {
       // uncomment below and update the code to test the property countryCode
-      //var instane = new BlueJeansOnVideoRestApi.PayloadDialout();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadDialout();
       //expect(instance).to.be();
     });
 
     it('should have the property pairedParticipantGuid (base name: "pairedParticipantGuid")', function() {
       // uncomment below and update the code to test the property pairedParticipantGuid
-      //var instane = new BlueJeansOnVideoRestApi.PayloadDialout();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadDialout();
       //expect(instance).to.be();
     });
 
     it('should have the property phoneNumber (base name: "phoneNumber")', function() {
       // uncomment below and update the code to test the property phoneNumber
-      //var instane = new BlueJeansOnVideoRestApi.PayloadDialout();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadDialout();
       //expect(instance).to.be();
     });
 

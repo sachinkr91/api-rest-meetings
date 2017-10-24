@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantPassword();
+    instance = new BlueJeansMeetingsRestApi.GrantPassword();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('GrantPassword', function() {
     it('should create an instance of GrantPassword', function() {
       // uncomment below and update the code to test GrantPassword
-      //var instane = new BlueJeansOnVideoRestApi.GrantPassword();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantPassword);
+      //var instane = new BlueJeansMeetingsRestApi.GrantPassword();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantPassword);
     });
 
     it('should have the property accessToken (base name: "access_token")', function() {
       // uncomment below and update the code to test the property accessToken
-      //var instane = new BlueJeansOnVideoRestApi.GrantPassword();
+      //var instane = new BlueJeansMeetingsRestApi.GrantPassword();
       //expect(instance).to.be();
     });
 
     it('should have the property expiresIn (base name: "expires_in")', function() {
       // uncomment below and update the code to test the property expiresIn
-      //var instane = new BlueJeansOnVideoRestApi.GrantPassword();
+      //var instane = new BlueJeansMeetingsRestApi.GrantPassword();
       //expect(instance).to.be();
     });
 
     it('should have the property refreshToken (base name: "refresh_token")', function() {
       // uncomment below and update the code to test the property refreshToken
-      //var instane = new BlueJeansOnVideoRestApi.GrantPassword();
+      //var instane = new BlueJeansMeetingsRestApi.GrantPassword();
       //expect(instance).to.be();
     });
 
     it('should have the property scope (base name: "scope")', function() {
       // uncomment below and update the code to test the property scope
-      //var instane = new BlueJeansOnVideoRestApi.GrantPassword();
+      //var instane = new BlueJeansMeetingsRestApi.GrantPassword();
       //expect(instance).to.be();
     });
 

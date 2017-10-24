@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.EndpointIndigoTracerouteTracePath
+# com.bluejeans.api.rest.meetings.Model.EndpointIndigoTracerouteTracePath
 ## Properties
 
 Name | Type | Description | Notes

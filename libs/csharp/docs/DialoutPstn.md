@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.DialoutPstn
+# com.bluejeans.api.rest.meetings.Model.DialoutPstn
 ## Properties
 
 Name | Type | Description | Notes

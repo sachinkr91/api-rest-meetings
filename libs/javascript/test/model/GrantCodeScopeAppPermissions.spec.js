@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions();
+    instance = new BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('GrantCodeScopeAppPermissions', function() {
     it('should create an instance of GrantCodeScopeAppPermissions', function() {
       // uncomment below and update the code to test GrantCodeScopeAppPermissions
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions);
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions);
     });
 
     it('should have the property method (base name: "method")', function() {
       // uncomment below and update the code to test the property method
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions();
       //expect(instance).to.be();
     });
 
     it('should have the property allowedRegex (base name: "allowedRegex")', function() {
       // uncomment below and update the code to test the property allowedRegex
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScopeAppPermissions();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScopeAppPermissions();
       //expect(instance).to.be();
     });
 

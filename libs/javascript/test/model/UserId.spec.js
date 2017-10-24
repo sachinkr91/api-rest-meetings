@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.UserId();
+    instance = new BlueJeansMeetingsRestApi.UserId();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('UserId', function() {
     it('should create an instance of UserId', function() {
       // uncomment below and update the code to test UserId
-      //var instane = new BlueJeansOnVideoRestApi.UserId();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.UserId);
+      //var instane = new BlueJeansMeetingsRestApi.UserId();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.UserId);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.UserId();
+      //var instane = new BlueJeansMeetingsRestApi.UserId();
       //expect(instance).to.be();
     });
 

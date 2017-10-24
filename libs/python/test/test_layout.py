@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.layout import Layout
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.layout import Layout
 
 
 class TestLayout(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestLayout(unittest.TestCase):
         Test Layout
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.layout.Layout()
+        #model = BlueJeansMeetingsRestApi.models.layout.Layout()
         pass
 
 

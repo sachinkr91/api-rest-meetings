@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./GrantPasswordScope'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.GrantPassword = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.GrantPasswordScope);
+    root.BlueJeansMeetingsRestApi.GrantPassword = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.GrantPasswordScope);
   }
 }(this, function(ApiClient, GrantPasswordScope) {
   'use strict';

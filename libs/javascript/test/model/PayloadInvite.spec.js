@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PayloadInvite();
+    instance = new BlueJeansMeetingsRestApi.PayloadInvite();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('PayloadInvite', function() {
     it('should create an instance of PayloadInvite', function() {
       // uncomment below and update the code to test PayloadInvite
-      //var instane = new BlueJeansOnVideoRestApi.PayloadInvite();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PayloadInvite);
+      //var instane = new BlueJeansMeetingsRestApi.PayloadInvite();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PayloadInvite);
     });
 
     it('should have the property invitees (base name: "invitees")', function() {
       // uncomment below and update the code to test the property invitees
-      //var instane = new BlueJeansOnVideoRestApi.PayloadInvite();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadInvite();
       //expect(instance).to.be();
     });
 

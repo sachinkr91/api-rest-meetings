@@ -1,5 +1,5 @@
 {
 	"gitUserId":"bluejeans",
-	"gitRepoId":"api-rest-onvideo",
-	"packageName":"BlueJeansOnVideoRestApi"
+	"gitRepoId":"api-rest-meetings",
+	"packageName":"BlueJeansMeetingsRestApi"
 }

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.RecordingHistoryList();
+    instance = new BlueJeansMeetingsRestApi.RecordingHistoryList();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('RecordingHistoryList', function() {
     it('should create an instance of RecordingHistoryList', function() {
       // uncomment below and update the code to test RecordingHistoryList
-      //var instane = new BlueJeansOnVideoRestApi.RecordingHistoryList();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.RecordingHistoryList);
+      //var instane = new BlueJeansMeetingsRestApi.RecordingHistoryList();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.RecordingHistoryList);
     });
 
   });

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.ApplicationSecret
+# com.bluejeans.api.rest.meetings.Model.ApplicationSecret
 ## Properties
 
 Name | Type | Description | Notes

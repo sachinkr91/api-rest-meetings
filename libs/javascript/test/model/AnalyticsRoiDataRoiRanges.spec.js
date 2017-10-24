@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('AnalyticsRoiDataRoiRanges', function() {
     it('should create an instance of AnalyticsRoiDataRoiRanges', function() {
       // uncomment below and update the code to test AnalyticsRoiDataRoiRanges
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges);
     });
 
     it('should have the property distance (base name: "distance")', function() {
       // uncomment below and update the code to test the property distance
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges();
       //expect(instance).to.be();
     });
 
     it('should have the property distanceRange (base name: "distance_range")', function() {
       // uncomment below and update the code to test the property distanceRange
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsRoiDataRoiRanges();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsRoiDataRoiRanges();
       //expect(instance).to.be();
     });
 

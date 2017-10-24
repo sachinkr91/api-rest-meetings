@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.grant_request_revoke import GrantRequestRevoke
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.grant_request_revoke import GrantRequestRevoke
 
 
 class TestGrantRequestRevoke(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestGrantRequestRevoke(unittest.TestCase):
         Test GrantRequestRevoke
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.grant_request_revoke.GrantRequestRevoke()
+        #model = BlueJeansMeetingsRestApi.models.grant_request_revoke.GrantRequestRevoke()
         pass
 
 

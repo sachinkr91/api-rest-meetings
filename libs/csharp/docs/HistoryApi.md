@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Api.HistoryApi
+# com.bluejeans.api.rest.meetings.Api.HistoryApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -25,9 +25,9 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -93,9 +93,9 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -161,9 +161,9 @@ This endpoint retrieves the meeting history sharing for a specific instance of a
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -229,9 +229,9 @@ This endpoint retrieves the details about a meeting recording.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -297,9 +297,9 @@ This endpoint retrieves a list of meeting histories by the given enterprise.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -363,9 +363,9 @@ This endpoint retrieves a list of meeting histories by the given user.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -441,9 +441,9 @@ This endpoint retrieves a list of meeting recordings.
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {

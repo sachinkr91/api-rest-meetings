@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./MeetingHistoryLeaderInfo'), require('./MeetingHistoryParticipantList'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingHistory = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.MeetingHistoryLeaderInfo, root.BlueJeansOnVideoRestApi.MeetingHistoryParticipantList);
+    root.BlueJeansMeetingsRestApi.MeetingHistory = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.MeetingHistoryLeaderInfo, root.BlueJeansMeetingsRestApi.MeetingHistoryParticipantList);
   }
 }(this, function(ApiClient, MeetingHistoryLeaderInfo, MeetingHistoryParticipantList) {
   'use strict';

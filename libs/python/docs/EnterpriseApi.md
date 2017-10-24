@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.EnterpriseApi
+# BlueJeansMeetingsRestApi.EnterpriseApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -21,19 +21,19 @@ This endpoint allows adding a user to an existing enterprise. Requires enterpris
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.EnterpriseApi()
+api_instance = BlueJeansMeetingsRestApi.EnterpriseApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-user = BlueJeansOnVideoRestApi.User() # User | The information about the new user.
+user = BlueJeansMeetingsRestApi.User() # User | The information about the new user.
 force_password_change = true # bool | Forces the user to change his or her password on first log in. (optional)
 send_verification_mail = true # bool | Prevents welcome emails from being sent to the newly created user. (optional)
 
@@ -80,17 +80,17 @@ This endpoint exports existing users into a CSV file.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.EnterpriseApi()
+api_instance = BlueJeansMeetingsRestApi.EnterpriseApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 try: 
@@ -132,17 +132,17 @@ This endpoint allows listing the users that are associated with an enterprise ac
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.EnterpriseApi()
+api_instance = BlueJeansMeetingsRestApi.EnterpriseApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 page_size = 56 # int | Sets number of items returned per page. (optional)
 page_number = 56 # int | Selects which page of results to return. (optional)
@@ -191,17 +191,17 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.EnterpriseApi()
+api_instance = BlueJeansMeetingsRestApi.EnterpriseApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 

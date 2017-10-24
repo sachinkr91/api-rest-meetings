@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Error();
+    instance = new BlueJeansMeetingsRestApi.Error();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('Error', function() {
     it('should create an instance of Error', function() {
       // uncomment below and update the code to test Error
-      //var instane = new BlueJeansOnVideoRestApi.Error();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Error);
+      //var instane = new BlueJeansMeetingsRestApi.Error();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Error);
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new BlueJeansOnVideoRestApi.Error();
+      //var instane = new BlueJeansMeetingsRestApi.Error();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PairingCodeSIPTurnservers
+# com.bluejeans.api.rest.meetings.Model.PairingCodeSIPTurnservers
 ## Properties
 
 Name | Type | Description | Notes

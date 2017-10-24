@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PayloadPairingCodeSIP
+# com.bluejeans.api.rest.meetings.Model.PayloadPairingCodeSIP
 ## Properties
 
 Name | Type | Description | Notes

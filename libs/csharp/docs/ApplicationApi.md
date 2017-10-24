@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Api.ApplicationApi
+# com.bluejeans.api.rest.meetings.Api.ApplicationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -21,9 +21,9 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -89,9 +89,9 @@ This endpoint forces the regeneration of a client application secret for use in 
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {
@@ -157,9 +157,9 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 ```csharp
 using System;
 using System.Diagnostics;
-using com.bluejeans.api.rest.onvideo.Api;
-using com.bluejeans.api.rest.onvideo.Client;
-using com.bluejeans.api.rest.onvideo.Model;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
 
 namespace Example
 {

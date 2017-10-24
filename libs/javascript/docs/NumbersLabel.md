@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.NumbersLabel
+# BlueJeansMeetingsRestApi.NumbersLabel
 
 ## Properties
 Name | Type | Description | Notes

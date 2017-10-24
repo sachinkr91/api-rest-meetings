@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.MeetingApi
+# BlueJeansMeetingsRestApi.MeetingApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -36,8 +36,8 @@ This endpoint deletes a scheuled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -45,7 +45,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -92,8 +92,8 @@ This endpoint will create a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -101,11 +101,11 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The details of the meeting.
+var meeting = new BlueJeansMeetingsRestApi.Meeting(); // Meeting | The details of the meeting.
 
 var opts = { 
   'email': true // Boolean | If set to true, sends invitation emails to all listed participants.
@@ -152,8 +152,8 @@ Places a PSTN call to a user to join meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -161,13 +161,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadDialout = new BlueJeansOnVideoRestApi.PayloadDialout(); // PayloadDialout | 
+var payloadDialout = new BlueJeansMeetingsRestApi.PayloadDialout(); // PayloadDialout | 
 
 
 var callback = function(error, data, response) {
@@ -211,8 +211,8 @@ This endpoint generates a PSTN pairing code that can be used to connect to a mee
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -220,13 +220,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadPairingCodePstn = new BlueJeansOnVideoRestApi.PayloadPairingCodePstn(); // PayloadPairingCodePstn | 
+var payloadPairingCodePstn = new BlueJeansMeetingsRestApi.PayloadPairingCodePstn(); // PayloadPairingCodePstn | 
 
 var opts = { 
   'role': "USER" // String | 
@@ -274,8 +274,8 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -283,13 +283,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadPairingCodeSIP = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
+var payloadPairingCodeSIP = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP(); // PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 
 var callback = function(error, data, response) {
@@ -333,8 +333,8 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -342,13 +342,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadPairingCodeWebRTC = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
+var payloadPairingCodeWebRTC = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC(); // PayloadPairingCodeWebRTC | 
 
 var opts = { 
   'role': "USER" // String | 
@@ -396,8 +396,8 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -405,7 +405,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -455,8 +455,8 @@ This endpoint gets the settings for a user&#39;s meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -464,7 +464,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -511,8 +511,8 @@ This endpoint retrieves the email object for a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -520,7 +520,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -575,8 +575,8 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -584,7 +584,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -634,8 +634,8 @@ This endpoint returns an array of all endpoints in the current meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -643,7 +643,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -690,8 +690,8 @@ This endpoint retrieves the join information for a scheduled meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -699,7 +699,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -746,8 +746,8 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -755,7 +755,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -802,8 +802,8 @@ This endpoint gets a list of the user&#39;s scheduled upcoming meetings.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -811,7 +811,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -859,8 +859,8 @@ This endpoint generates an email invite to the specified meeting.
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -868,13 +868,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadInvite = new BlueJeansOnVideoRestApi.PayloadInvite(); // PayloadInvite | 
+var payloadInvite = new BlueJeansMeetingsRestApi.PayloadInvite(); // PayloadInvite | 
 
 
 var callback = function(error, data, response) {
@@ -918,8 +918,8 @@ This endpoint allows you to update an individual endpoint’s current layout set
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -927,7 +927,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -983,8 +983,8 @@ This endpoint changes the settings for a user&#39;s meeting. For example, use fo
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -992,13 +992,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var meetingId = 56; // Number | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
-var meeting = new BlueJeansOnVideoRestApi.Meeting(); // Meeting | The user's room details that you wish to update.
+var meeting = new BlueJeansMeetingsRestApi.Meeting(); // Meeting | The user's room details that you wish to update.
 
 
 var callback = function(error, data, response) {
@@ -1042,8 +1042,8 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -1051,7 +1051,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -1109,8 +1109,8 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Se
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -1118,7 +1118,7 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
@@ -1171,8 +1171,8 @@ This endpoint’s purpose is to be able to modify a meeting. Actions include loc
 
 ### Example
 ```javascript
-var BlueJeansOnVideoRestApi = require('bluejeans-api-rest-onvideo');
-var defaultClient = BlueJeansOnVideoRestApi.ApiClient.instance;
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -1180,13 +1180,13 @@ access_token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
-var apiInstance = new BlueJeansOnVideoRestApi.MeetingApi();
+var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 var numericMeetingId = 56; // Number | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-var payloadMeetingState = new BlueJeansOnVideoRestApi.PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
+var payloadMeetingState = new BlueJeansMeetingsRestApi.PayloadMeetingState(); // PayloadMeetingState | The meeting properties that you wish to update.
 
 var opts = { 
   'delay': 56 // Number | Number of seconds to delay the end meeting operation.

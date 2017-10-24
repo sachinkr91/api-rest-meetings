@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,103 +53,103 @@
   describe('AnalyticsEndpointDistributionDistribution', function() {
     it('should create an instance of AnalyticsEndpointDistributionDistribution', function() {
       // uncomment below and update the code to test AnalyticsEndpointDistributionDistribution
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution);
     });
 
     it('should have the property google (base name: "Google")', function() {
       // uncomment below and update the code to test the property google
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property telepresence (base name: "Telepresence")', function() {
       // uncomment below and update the code to test the property telepresence
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property lync (base name: "Lync")', function() {
       // uncomment below and update the code to test the property lync
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property iOS (base name: "iOS")', function() {
       // uncomment below and update the code to test the property iOS
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property h323 (base name: "H323")', function() {
       // uncomment below and update the code to test the property h323
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property interCall (base name: "InterCall")', function() {
       // uncomment below and update the code to test the property interCall
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property jabber (base name: "Jabber")', function() {
       // uncomment below and update the code to test the property jabber
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property android (base name: "Android")', function() {
       // uncomment below and update the code to test the property android
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property skype (base name: "Skype")', function() {
       // uncomment below and update the code to test the property skype
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property ISDN (base name: "ISDN")', function() {
       // uncomment below and update the code to test the property ISDN
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property PSTN (base name: "PSTN")', function() {
       // uncomment below and update the code to test the property PSTN
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property level3 (base name: "Level3")', function() {
       // uncomment below and update the code to test the property level3
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property SIP (base name: "SIP")', function() {
       // uncomment below and update the code to test the property SIP
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property blueJeansApp (base name: "BlueJeansApp")', function() {
       // uncomment below and update the code to test the property blueJeansApp
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property browser (base name: "Browser")', function() {
       // uncomment below and update the code to test the property browser
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 
     it('should have the property webRTC (base name: "WebRTC")', function() {
       // uncomment below and update the code to test the property webRTC
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution();
       //expect(instance).to.be();
     });
 

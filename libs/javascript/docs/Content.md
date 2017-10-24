@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.Content
+# BlueJeansMeetingsRestApi.Content
 
 ## Properties
 Name | Type | Description | Notes

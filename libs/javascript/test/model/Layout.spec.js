@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Layout();
+    instance = new BlueJeansMeetingsRestApi.Layout();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('Layout', function() {
     it('should create an instance of Layout', function() {
       // uncomment below and update the code to test Layout
-      //var instane = new BlueJeansOnVideoRestApi.Layout();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Layout);
+      //var instane = new BlueJeansMeetingsRestApi.Layout();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Layout);
     });
 
     it('should have the property layoutMode (base name: "layoutMode")', function() {
       // uncomment below and update the code to test the property layoutMode
-      //var instane = new BlueJeansOnVideoRestApi.Layout();
+      //var instane = new BlueJeansMeetingsRestApi.Layout();
       //expect(instance).to.be();
     });
 
     it('should have the property subLayoutMode (base name: "subLayoutMode")', function() {
       // uncomment below and update the code to test the property subLayoutMode
-      //var instane = new BlueJeansOnVideoRestApi.Layout();
+      //var instane = new BlueJeansMeetingsRestApi.Layout();
       //expect(instance).to.be();
     });
 

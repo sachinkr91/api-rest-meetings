@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Endpoints();
+    instance = new BlueJeansMeetingsRestApi.Endpoints();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('Endpoints', function() {
     it('should create an instance of Endpoints', function() {
       // uncomment below and update the code to test Endpoints
-      //var instane = new BlueJeansOnVideoRestApi.Endpoints();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Endpoints);
+      //var instane = new BlueJeansMeetingsRestApi.Endpoints();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Endpoints);
     });
 
   });

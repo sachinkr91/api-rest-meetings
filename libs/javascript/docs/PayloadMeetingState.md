@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PayloadMeetingState
+# BlueJeansMeetingsRestApi.PayloadMeetingState
 
 ## Properties
 Name | Type | Description | Notes

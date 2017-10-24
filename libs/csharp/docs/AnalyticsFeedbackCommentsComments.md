@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.AnalyticsFeedbackCommentsComments
+# com.bluejeans.api.rest.meetings.Model.AnalyticsFeedbackCommentsComments
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,14 +1,14 @@
 {
-	"artifactUrl":"https://github.com/bluejeans/api-rest-onvideo",
-	"artifactDescription":"BlueJeans onVideo REST API",
+	"artifactUrl":"https://github.com/bluejeans/api-rest-meetings",
+	"artifactDescription":"BlueJeans Meetings REST API",
 	"hideGenerationTimestamp":true,
-	"developerEmail":"brandon@bluejeans.com",
-	"developerName":"Brandon Fuller",
+	"developerEmail":"api@bluejeans.com",
+	"developerName":"Blue Jeans",
 	"developerOrganization":"Blue Jeans Network",
 	"developerOrganizationUrl":"http://bluejeans.com/",
-	"scmConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
-    "scmDeveloperConnection":"scm:git:git@github.com:bluejeans/api-rest-onvideo.git",
-    "scmUrl":"https://github.com/bluejeans/api-rest-onvideo",
+	"scmConnection":"scm:git:git@github.com:bluejeans/api-rest-meetings.git",
+    "scmDeveloperConnection":"scm:git:git@github.com:bluejeans/api-rest-meetings.git",
+    "scmUrl":"https://github.com/bluejeans/api-rest-meetings",
     "gitUserId":"bluejeans",
-    "gitRepoId":"api-rest-onvideo"
+    "gitRepoId":"api-rest-meetings"
 }

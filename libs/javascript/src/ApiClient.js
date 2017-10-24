@@ -23,10 +23,10 @@
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.ApiClient = factory(root.superagent, root.querystring);
+    root.BlueJeansMeetingsRestApi.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';

@@ -2,8 +2,8 @@
 
 rm -rf /usr/local/lib/node_modules/gh-pages/.cache
 
-cd ../libs/php/BlueJeansOnVideoRestApi
+cd ../libs/php/BlueJeansMeetingsRestApi
 
-gh-pages --branch php-repo --dist . --repo git@github.com:bluejeans/api-rest-onvideo.git
+gh-pages --branch php-repo --dist . --repo git@github.com:bluejeans/api-rest-meetings.git
 
 cd ../../../build

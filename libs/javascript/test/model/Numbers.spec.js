@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Numbers();
+    instance = new BlueJeansMeetingsRestApi.Numbers();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,61 +53,61 @@
   describe('Numbers', function() {
     it('should create an instance of Numbers', function() {
       // uncomment below and update the code to test Numbers
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Numbers);
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Numbers);
     });
 
     it('should have the property meetingId (base name: "meetingId")', function() {
       // uncomment below and update the code to test the property meetingId
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property allowDirectDial (base name: "allowDirectDial")', function() {
       // uncomment below and update the code to test the property allowDirectDial
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property useAttendeePasscode (base name: "useAttendeePasscode")', function() {
       // uncomment below and update the code to test the property useAttendeePasscode
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property pstnNumbersUrl (base name: "pstnNumbersUrl")', function() {
       // uncomment below and update the code to test the property pstnNumbersUrl
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property moderatorPasscode (base name: "moderatorPasscode")', function() {
       // uncomment below and update the code to test the property moderatorPasscode
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property precision (base name: "precision")', function() {
       // uncomment below and update the code to test the property precision
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property pstnLocalizationSupported (base name: "pstnLocalizationSupported")', function() {
       // uncomment below and update the code to test the property pstnLocalizationSupported
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property partnerIntegratedMeeting (base name: "partnerIntegratedMeeting")', function() {
       // uncomment below and update the code to test the property partnerIntegratedMeeting
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 
     it('should have the property numbers (base name: "numbers")', function() {
       // uncomment below and update the code to test the property numbers
-      //var instane = new BlueJeansOnVideoRestApi.Numbers();
+      //var instane = new BlueJeansMeetingsRestApi.Numbers();
       //expect(instance).to.be();
     });
 

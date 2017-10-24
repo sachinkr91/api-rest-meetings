@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.MeetingHistory();
+    instance = new BlueJeansMeetingsRestApi.MeetingHistory();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,157 +53,157 @@
   describe('MeetingHistory', function() {
     it('should create an instance of MeetingHistory', function() {
       // uncomment below and update the code to test MeetingHistory
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.MeetingHistory);
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.MeetingHistory);
     });
 
     it('should have the property meetingGuid (base name: "meetingGuid")', function() {
       // uncomment below and update the code to test the property meetingGuid
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingNumericId (base name: "meetingNumericId")', function() {
       // uncomment below and update the code to test the property meetingNumericId
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property leaderInfo (base name: "leaderInfo")', function() {
       // uncomment below and update the code to test the property leaderInfo
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingDuration (base name: "meetingDuration")', function() {
       // uncomment below and update the code to test the property meetingDuration
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property maxParticipantCount (base name: "maxParticipantCount")', function() {
       // uncomment below and update the code to test the property maxParticipantCount
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property totalParticipantMinutes (base name: "totalParticipantMinutes")', function() {
       // uncomment below and update the code to test the property totalParticipantMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property maxParticipantMinutes (base name: "maxParticipantMinutes")', function() {
       // uncomment below and update the code to test the property maxParticipantMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property extraParticipantMinutes (base name: "extraParticipantMinutes")', function() {
       // uncomment below and update the code to test the property extraParticipantMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property isdnEndpoints (base name: "isdnEndpoints")', function() {
       // uncomment below and update the code to test the property isdnEndpoints
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property totalDialoutMinutes (base name: "totalDialoutMinutes")', function() {
       // uncomment below and update the code to test the property totalDialoutMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property totalTollFreeMinutes (base name: "totalTollFreeMinutes")', function() {
       // uncomment below and update the code to test the property totalTollFreeMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property callDIDMinutes (base name: "callDIDMinutes")', function() {
       // uncomment below and update the code to test the property callDIDMinutes
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property startTime (base name: "startTime")', function() {
       // uncomment below and update the code to test the property startTime
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property endTime (base name: "endTime")', function() {
       // uncomment below and update the code to test the property endTime
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingStatus (base name: "meetingStatus")', function() {
       // uncomment below and update the code to test the property meetingStatus
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingThumbnail (base name: "meetingThumbnail")', function() {
       // uncomment below and update the code to test the property meetingThumbnail
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property startTimeZone (base name: "startTimeZone")', function() {
       // uncomment below and update the code to test the property startTimeZone
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property processingStatus (base name: "processingStatus")', function() {
       // uncomment below and update the code to test the property processingStatus
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property concurrentCalls (base name: "concurrentCalls")', function() {
       // uncomment below and update the code to test the property concurrentCalls
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property uploadStatus (base name: "uploadStatus")', function() {
       // uncomment below and update the code to test the property uploadStatus
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property pstnonly (base name: "pstnonly")', function() {
       // uncomment below and update the code to test the property pstnonly
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 
     it('should have the property participantList (base name: "participantList")', function() {
       // uncomment below and update the code to test the property participantList
-      //var instane = new BlueJeansOnVideoRestApi.MeetingHistory();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingHistory();
       //expect(instance).to.be();
     });
 

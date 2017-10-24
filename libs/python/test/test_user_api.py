@@ -17,16 +17,16 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.apis.user_api import UserApi
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.apis.user_api import UserApi
 
 
 class TestUserApi(unittest.TestCase):
     """ UserApi unit test stubs """
 
     def setUp(self):
-        self.api = BlueJeansOnVideoRestApi.apis.user_api.UserApi()
+        self.api = BlueJeansMeetingsRestApi.apis.user_api.UserApi()
 
     def tearDown(self):
         pass

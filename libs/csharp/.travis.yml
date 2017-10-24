@@ -4,6 +4,6 @@
 language: csharp
 mono:
   - latest
-solution: com.bluejeans.api.rest.onvideo.sln
+solution: com.bluejeans.api.rest.meetings.sln
 script:
   - /bin/sh ./mono_nunit_test.sh

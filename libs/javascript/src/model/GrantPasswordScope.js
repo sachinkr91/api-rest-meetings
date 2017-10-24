@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Partition'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.GrantPasswordScope = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Partition);
+    root.BlueJeansMeetingsRestApi.GrantPasswordScope = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.Partition);
   }
 }(this, function(ApiClient, Partition) {
   'use strict';

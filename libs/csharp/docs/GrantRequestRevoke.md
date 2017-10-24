@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantRequestRevoke
+# com.bluejeans.api.rest.meetings.Model.GrantRequestRevoke
 ## Properties
 
 Name | Type | Description | Notes

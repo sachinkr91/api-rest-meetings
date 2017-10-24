@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsRoiData();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsRoiData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('AnalyticsRoiData', function() {
     it('should create an instance of AnalyticsRoiData', function() {
       // uncomment below and update the code to test AnalyticsRoiData
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsRoiData();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsRoiData);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsRoiData();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsRoiData);
     });
 
     it('should have the property roiRanges (base name: "roi_ranges")', function() {
       // uncomment below and update the code to test the property roiRanges
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsRoiData();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsRoiData();
       //expect(instance).to.be();
     });
 

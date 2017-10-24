@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute import EndpointIndigoTraceroute
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.endpoint_indigo_traceroute import EndpointIndigoTraceroute
 
 
 class TestEndpointIndigoTraceroute(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestEndpointIndigoTraceroute(unittest.TestCase):
         Test EndpointIndigoTraceroute
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
+        #model = BlueJeansMeetingsRestApi.models.endpoint_indigo_traceroute.EndpointIndigoTraceroute()
         pass
 
 

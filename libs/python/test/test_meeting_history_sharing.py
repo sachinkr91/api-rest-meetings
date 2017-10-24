@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.meeting_history_sharing import MeetingHistorySharing
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.meeting_history_sharing import MeetingHistorySharing
 
 
 class TestMeetingHistorySharing(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestMeetingHistorySharing(unittest.TestCase):
         Test MeetingHistorySharing
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.meeting_history_sharing.MeetingHistorySharing()
+        #model = BlueJeansMeetingsRestApi.models.meeting_history_sharing.MeetingHistorySharing()
         pass
 
 

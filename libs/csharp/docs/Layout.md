@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.Layout
+# com.bluejeans.api.rest.meetings.Model.Layout
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.EndpointIndigoSummaryStats
+# com.bluejeans.api.rest.meetings.Model.EndpointIndigoSummaryStats
 ## Properties
 
 Name | Type | Description | Notes

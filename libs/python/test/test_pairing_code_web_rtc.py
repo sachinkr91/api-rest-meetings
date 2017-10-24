@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.pairing_code_web_rtc import PairingCodeWebRTC
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.pairing_code_web_rtc import PairingCodeWebRTC
 
 
 class TestPairingCodeWebRTC(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestPairingCodeWebRTC(unittest.TestCase):
         Test PairingCodeWebRTC
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.pairing_code_web_rtc.PairingCodeWebRTC()
+        #model = BlueJeansMeetingsRestApi.models.pairing_code_web_rtc.PairingCodeWebRTC()
         pass
 
 

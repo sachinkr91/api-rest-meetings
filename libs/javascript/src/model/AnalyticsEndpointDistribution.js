@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./AnalyticsEndpointDistributionDistribution'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsEndpointDistributionDistribution);
+    root.BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.AnalyticsEndpointDistributionDistribution);
   }
 }(this, function(ApiClient, AnalyticsEndpointDistributionDistribution) {
   'use strict';

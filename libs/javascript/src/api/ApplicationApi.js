@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Application'), require('../model/ApplicationSecret'), require('../model/Error'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.ApplicationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Application, root.BlueJeansOnVideoRestApi.ApplicationSecret, root.BlueJeansOnVideoRestApi.Error);
+    root.BlueJeansMeetingsRestApi.ApplicationApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.Application, root.BlueJeansMeetingsRestApi.ApplicationSecret, root.BlueJeansMeetingsRestApi.Error);
   }
 }(this, function(ApiClient, Application, ApplicationSecret, Error) {
   'use strict';

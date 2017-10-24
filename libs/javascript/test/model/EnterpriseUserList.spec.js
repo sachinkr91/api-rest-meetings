@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EnterpriseUserList();
+    instance = new BlueJeansMeetingsRestApi.EnterpriseUserList();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('EnterpriseUserList', function() {
     it('should create an instance of EnterpriseUserList', function() {
       // uncomment below and update the code to test EnterpriseUserList
-      //var instane = new BlueJeansOnVideoRestApi.EnterpriseUserList();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EnterpriseUserList);
+      //var instane = new BlueJeansMeetingsRestApi.EnterpriseUserList();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EnterpriseUserList);
     });
 
     it('should have the property count (base name: "count")', function() {
       // uncomment below and update the code to test the property count
-      //var instane = new BlueJeansOnVideoRestApi.EnterpriseUserList();
+      //var instane = new BlueJeansMeetingsRestApi.EnterpriseUserList();
       //expect(instance).to.be();
     });
 
     it('should have the property users (base name: "users")', function() {
       // uncomment below and update the code to test the property users
-      //var instane = new BlueJeansOnVideoRestApi.EnterpriseUserList();
+      //var instane = new BlueJeansMeetingsRestApi.EnterpriseUserList();
       //expect(instance).to.be();
     });
 

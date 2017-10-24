@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Attendee'), require('./MeetingAdvancedMeetingOptions'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.Meeting = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Attendee, root.BlueJeansOnVideoRestApi.MeetingAdvancedMeetingOptions);
+    root.BlueJeansMeetingsRestApi.Meeting = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.Attendee, root.BlueJeansMeetingsRestApi.MeetingAdvancedMeetingOptions);
   }
 }(this, function(ApiClient, Attendee, MeetingAdvancedMeetingOptions) {
   'use strict';

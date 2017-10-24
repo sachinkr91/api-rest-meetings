@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EndpointIndigoTraceroute();
+    instance = new BlueJeansMeetingsRestApi.EndpointIndigoTraceroute();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('EndpointIndigoTraceroute', function() {
     it('should create an instance of EndpointIndigoTraceroute', function() {
       // uncomment below and update the code to test EndpointIndigoTraceroute
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTraceroute();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EndpointIndigoTraceroute);
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTraceroute();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EndpointIndigoTraceroute);
     });
 
     it('should have the property tracePath (base name: "tracePath")', function() {
       // uncomment below and update the code to test the property tracePath
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoTraceroute();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoTraceroute();
       //expect(instance).to.be();
     });
 

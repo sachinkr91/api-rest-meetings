@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./AnalyticsFeedbackCommentsComments'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AnalyticsFeedbackComments = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments);
+    root.BlueJeansMeetingsRestApi.AnalyticsFeedbackComments = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments);
   }
 }(this, function(ApiClient, AnalyticsFeedbackCommentsComments) {
   'use strict';

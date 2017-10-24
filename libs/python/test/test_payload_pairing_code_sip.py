@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.payload_pairing_code_sip import PayloadPairingCodeSIP
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.payload_pairing_code_sip import PayloadPairingCodeSIP
 
 
 class TestPayloadPairingCodeSIP(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestPayloadPairingCodeSIP(unittest.TestCase):
         Test PayloadPairingCodeSIP
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
+        #model = BlueJeansMeetingsRestApi.models.payload_pairing_code_sip.PayloadPairingCodeSIP()
         pass
 
 

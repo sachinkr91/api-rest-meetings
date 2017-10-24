@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.analytics_feedback_comments_comments import AnalyticsFeedbackCommentsComments
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.analytics_feedback_comments_comments import AnalyticsFeedbackCommentsComments
 
 
 class TestAnalyticsFeedbackCommentsComments(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestAnalyticsFeedbackCommentsComments(unittest.TestCase):
         Test AnalyticsFeedbackCommentsComments
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.analytics_feedback_comments_comments.AnalyticsFeedbackCommentsComments()
+        #model = BlueJeansMeetingsRestApi.models.analytics_feedback_comments_comments.AnalyticsFeedbackCommentsComments()
         pass
 
 

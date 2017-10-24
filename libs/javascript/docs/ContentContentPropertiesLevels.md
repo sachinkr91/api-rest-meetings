@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.ContentContentPropertiesLevels
+# BlueJeansMeetingsRestApi.ContentContentPropertiesLevels
 
 ## Properties
 Name | Type | Description | Notes

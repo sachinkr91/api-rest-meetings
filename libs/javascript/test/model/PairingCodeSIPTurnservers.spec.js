@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers();
+    instance = new BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('PairingCodeSIPTurnservers', function() {
     it('should create an instance of PairingCodeSIPTurnservers', function() {
       // uncomment below and update the code to test PairingCodeSIPTurnservers
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers);
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers);
     });
 
     it('should have the property credential (base name: "credential")', function() {
       // uncomment below and update the code to test the property credential
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers();
       //expect(instance).to.be();
     });
 
     it('should have the property urls (base name: "urls")', function() {
       // uncomment below and update the code to test the property urls
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers();
       //expect(instance).to.be();
     });
 
     it('should have the property username (base name: "username")', function() {
       // uncomment below and update the code to test the property username
-      //var instane = new BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers();
+      //var instane = new BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers();
       //expect(instance).to.be();
     });
 

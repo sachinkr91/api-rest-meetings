@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.application_secret import ApplicationSecret
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.application_secret import ApplicationSecret
 
 
 class TestApplicationSecret(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestApplicationSecret(unittest.TestCase):
         Test ApplicationSecret
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.application_secret.ApplicationSecret()
+        #model = BlueJeansMeetingsRestApi.models.application_secret.ApplicationSecret()
         pass
 
 

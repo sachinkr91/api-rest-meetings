@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PayloadPairingCodePstn
+# com.bluejeans.api.rest.meetings.Model.PayloadPairingCodePstn
 ## Properties
 
 Name | Type | Description | Notes

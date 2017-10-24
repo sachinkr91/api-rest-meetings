@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PairingCodeSIPTurnservers
+# BlueJeansMeetingsRestApi.PairingCodeSIPTurnservers
 
 ## Properties
 Name | Type | Description | Notes

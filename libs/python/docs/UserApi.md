@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.UserApi
+# BlueJeansMeetingsRestApi.UserApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -26,17 +26,17 @@ This endpoint retrieves the enterprise profile associated with the user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -79,17 +79,17 @@ This endpoint retrieves the granted applications associated with the user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -132,17 +132,17 @@ This endpoint retrieves the feature groups associated with the user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -185,17 +185,17 @@ This endpoint gets a user’s default meeting settings.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -238,17 +238,17 @@ This endpoint retrieves the basic account details for a given user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -291,17 +291,17 @@ This endpoint revokes the granted application associated with the user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the granted application.
 
@@ -345,17 +345,17 @@ This endpoint sets the feature groups associated with the user.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 enable = 'enable_example' # str | The feature group you want to enable. (optional)
 disable = 'disable_example' # str | The feature group you want to disable. (optional)
@@ -401,19 +401,19 @@ This endpoint allows updating a user’s default meeting settings.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-room = BlueJeansOnVideoRestApi.Room() # Room | The user's room details that you wish to update.
+room = BlueJeansMeetingsRestApi.Room() # Room | The user's room details that you wish to update.
 
 try: 
     # Update User’s Default Meeting Settings
@@ -456,19 +456,19 @@ This endpoint allows updating a user’s basic account details.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-user = BlueJeansOnVideoRestApi.User() # User | The user details that you wish to update.
+user = BlueJeansMeetingsRestApi.User() # User | The user details that you wish to update.
 
 try: 
     # Update User Account Details

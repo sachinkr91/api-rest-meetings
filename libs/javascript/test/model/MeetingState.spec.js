@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.MeetingState();
+    instance = new BlueJeansMeetingsRestApi.MeetingState();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,151 +53,151 @@
   describe('MeetingState', function() {
     it('should create an instance of MeetingState', function() {
       // uncomment below and update the code to test MeetingState
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.MeetingState);
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.MeetingState);
     });
 
     it('should have the property meetingId (base name: "meetingId")', function() {
       // uncomment below and update the code to test the property meetingId
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingGuid (base name: "meetingGuid")', function() {
       // uncomment below and update the code to test the property meetingGuid
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingState (base name: "meetingState")', function() {
       // uncomment below and update the code to test the property meetingState
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property isContentSharingActive (base name: "isContentSharingActive")', function() {
       // uncomment below and update the code to test the property isContentSharingActive
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property bridged (base name: "bridged")', function() {
       // uncomment below and update the code to test the property bridged
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property locked (base name: "locked")', function() {
       // uncomment below and update the code to test the property locked
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property audioMuteOnEntry (base name: "audioMuteOnEntry")', function() {
       // uncomment below and update the code to test the property audioMuteOnEntry
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property videoMuteOnEntry (base name: "videoMuteOnEntry")', function() {
       // uncomment below and update the code to test the property videoMuteOnEntry
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property moderatorLess (base name: "moderatorLess")', function() {
       // uncomment below and update the code to test the property moderatorLess
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property chatEnabled (base name: "chatEnabled")', function() {
       // uncomment below and update the code to test the property chatEnabled
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property pinnedEndpointGuid (base name: "pinnedEndpointGuid")', function() {
       // uncomment below and update the code to test the property pinnedEndpointGuid
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property audioEndpointCount (base name: "audioEndpointCount")', function() {
       // uncomment below and update the code to test the property audioEndpointCount
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property videoEndpointCount (base name: "videoEndpointCount")', function() {
       // uncomment below and update the code to test the property videoEndpointCount
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property recordingEnabled (base name: "recordingEnabled")', function() {
       // uncomment below and update the code to test the property recordingEnabled
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property participantWebJoinURL (base name: "participantWebJoinURL")', function() {
       // uncomment below and update the code to test the property participantWebJoinURL
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property isLargeMeeting (base name: "isLargeMeeting")', function() {
       // uncomment below and update the code to test the property isLargeMeeting
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property features (base name: "features")', function() {
       // uncomment below and update the code to test the property features
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property delayedMeetingEndTime (base name: "delayedMeetingEndTime")', function() {
       // uncomment below and update the code to test the property delayedMeetingEndTime
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property smStreams (base name: "smStreams")', function() {
       // uncomment below and update the code to test the property smStreams
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property inactiveMeetingStatus (base name: "inactiveMeetingStatus")', function() {
       // uncomment below and update the code to test the property inactiveMeetingStatus
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingMarkedForDelayedTermination (base name: "meetingMarkedForDelayedTermination")', function() {
       // uncomment below and update the code to test the property meetingMarkedForDelayedTermination
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property recordinginfo (base name: "recordinginfo")', function() {
       // uncomment below and update the code to test the property recordinginfo
-      //var instane = new BlueJeansOnVideoRestApi.MeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.MeetingState();
       //expect(instance).to.be();
     });
 

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantClient();
+    instance = new BlueJeansMeetingsRestApi.GrantClient();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('GrantClient', function() {
     it('should create an instance of GrantClient', function() {
       // uncomment below and update the code to test GrantClient
-      //var instane = new BlueJeansOnVideoRestApi.GrantClient();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantClient);
+      //var instane = new BlueJeansMeetingsRestApi.GrantClient();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantClient);
     });
 
     it('should have the property accessToken (base name: "access_token")', function() {
       // uncomment below and update the code to test the property accessToken
-      //var instane = new BlueJeansOnVideoRestApi.GrantClient();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClient();
       //expect(instance).to.be();
     });
 
     it('should have the property expiresIn (base name: "expires_in")', function() {
       // uncomment below and update the code to test the property expiresIn
-      //var instane = new BlueJeansOnVideoRestApi.GrantClient();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClient();
       //expect(instance).to.be();
     });
 
     it('should have the property scope (base name: "scope")', function() {
       // uncomment below and update the code to test the property scope
-      //var instane = new BlueJeansOnVideoRestApi.GrantClient();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClient();
       //expect(instance).to.be();
     });
 

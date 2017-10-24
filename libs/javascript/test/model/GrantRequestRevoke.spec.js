@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantRequestRevoke();
+    instance = new BlueJeansMeetingsRestApi.GrantRequestRevoke();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('GrantRequestRevoke', function() {
     it('should create an instance of GrantRequestRevoke', function() {
       // uncomment below and update the code to test GrantRequestRevoke
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRevoke();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestRevoke);
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRevoke();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantRequestRevoke);
     });
 
     it('should have the property clientId (base name: "client_id")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRevoke();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRevoke();
       //expect(instance).to.be();
     });
 
     it('should have the property clientSecret (base name: "client_secret")', function() {
       // uncomment below and update the code to test the property clientSecret
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRevoke();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRevoke();
       //expect(instance).to.be();
     });
 

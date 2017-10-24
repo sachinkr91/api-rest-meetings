@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.Room();
+    instance = new BlueJeansMeetingsRestApi.Room();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,151 +53,151 @@
   describe('Room', function() {
     it('should create an instance of Room', function() {
       // uncomment below and update the code to test Room
-      //var instane = new BlueJeansOnVideoRestApi.Room();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.Room);
+      //var instane = new BlueJeansMeetingsRestApi.Room();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.Room);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property numericId (base name: "numericId")', function() {
       // uncomment below and update the code to test the property numericId
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property originPopId (base name: "originPopId")', function() {
       // uncomment below and update the code to test the property originPopId
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property isLargeMeeting (base name: "isLargeMeeting")', function() {
       // uncomment below and update the code to test the property isLargeMeeting
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property showVideoAnimations (base name: "showVideoAnimations")', function() {
       // uncomment below and update the code to test the property showVideoAnimations
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property backgroundImage (base name: "backgroundImage")', function() {
       // uncomment below and update the code to test the property backgroundImage
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property isModeratorLess (base name: "isModeratorLess")', function() {
       // uncomment below and update the code to test the property isModeratorLess
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property welcomeMessage (base name: "welcomeMessage")', function() {
       // uncomment below and update the code to test the property welcomeMessage
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property disallowChat (base name: "disallowChat")', function() {
       // uncomment below and update the code to test the property disallowChat
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property encryptionType (base name: "encryptionType")', function() {
       // uncomment below and update the code to test the property encryptionType
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property showAllParticipantsInIcs (base name: "showAllParticipantsInIcs")', function() {
       // uncomment below and update the code to test the property showAllParticipantsInIcs
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property participantPasscode (base name: "participantPasscode")', function() {
       // uncomment below and update the code to test the property participantPasscode
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property publishMeeting (base name: "publishMeeting")', function() {
       // uncomment below and update the code to test the property publishMeeting
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property moderatorLess (base name: "moderatorLess")', function() {
       // uncomment below and update the code to test the property moderatorLess
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property videoBestFit (base name: "videoBestFit")', function() {
       // uncomment below and update the code to test the property videoBestFit
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property muteParticipantsOnEntry (base name: "muteParticipantsOnEntry")', function() {
       // uncomment below and update the code to test the property muteParticipantsOnEntry
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property enforceMeetingEncryption (base name: "enforceMeetingEncryption")', function() {
       // uncomment below and update the code to test the property enforceMeetingEncryption
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property enforceMeetingEncryptionAllowPSTN (base name: "enforceMeetingEncryptionAllowPSTN")', function() {
       // uncomment below and update the code to test the property enforceMeetingEncryptionAllowPSTN
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property idleTimeout (base name: "idleTimeout")', function() {
       // uncomment below and update the code to test the property idleTimeout
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultLayout (base name: "defaultLayout")', function() {
       // uncomment below and update the code to test the property defaultLayout
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property playAudioAlerts (base name: "playAudioAlerts")', function() {
       // uncomment below and update the code to test the property playAudioAlerts
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property personalMeetingId (base name: "personalMeetingId")', function() {
       // uncomment below and update the code to test the property personalMeetingId
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 
     it('should have the property moderatorPasscode (base name: "moderatorPasscode")', function() {
       // uncomment below and update the code to test the property moderatorPasscode
-      //var instane = new BlueJeansOnVideoRestApi.Room();
+      //var instane = new BlueJeansMeetingsRestApi.Room();
       //expect(instance).to.be();
     });
 

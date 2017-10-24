@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.EnterpriseUserListUsers
+# com.bluejeans.api.rest.meetings.Model.EnterpriseUserListUsers
 ## Properties
 
 Name | Type | Description | Notes

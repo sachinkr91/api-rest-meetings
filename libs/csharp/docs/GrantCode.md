@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantCode
+# com.bluejeans.api.rest.meetings.Model.GrantCode
 ## Properties
 
 Name | Type | Description | Notes

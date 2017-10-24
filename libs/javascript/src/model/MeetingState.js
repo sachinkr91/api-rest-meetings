@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./MeetingStateRecordinginfo'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.MeetingState = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.MeetingStateRecordinginfo);
+    root.BlueJeansMeetingsRestApi.MeetingState = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.MeetingStateRecordinginfo);
   }
 }(this, function(ApiClient, MeetingStateRecordinginfo) {
   'use strict';

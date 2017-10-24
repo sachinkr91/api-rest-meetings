@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.Attendee
+# com.bluejeans.api.rest.meetings.Model.Attendee
 ## Properties
 
 Name | Type | Description | Notes

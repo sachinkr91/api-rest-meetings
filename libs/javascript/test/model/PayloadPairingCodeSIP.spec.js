@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
+    instance = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('PayloadPairingCodeSIP', function() {
     it('should create an instance of PayloadPairingCodeSIP', function() {
       // uncomment below and update the code to test PayloadPairingCodeSIP
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PayloadPairingCodeSIP);
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PayloadPairingCodeSIP);
     });
 
     it('should have the property endpointType (base name: "endpointType")', function() {
       // uncomment below and update the code to test the property endpointType
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property languageCode (base name: "languageCode")', function() {
       // uncomment below and update the code to test the property languageCode
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
       //expect(instance).to.be();
     });
 
     it('should have the property endpointName (base name: "endpointName")', function() {
       // uncomment below and update the code to test the property endpointName
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeSIP();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeSIP();
       //expect(instance).to.be();
     });
 

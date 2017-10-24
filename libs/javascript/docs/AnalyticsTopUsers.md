@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AnalyticsTopUsers
+# BlueJeansMeetingsRestApi.AnalyticsTopUsers
 
 ## Properties
 Name | Type | Description | Notes

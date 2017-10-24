@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+    instance = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,49 +53,49 @@
   describe('GrantMeetingScopeMeeting', function() {
     it('should create an instance of GrantMeetingScopeMeeting', function() {
       // uncomment below and update the code to test GrantMeetingScopeMeeting
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting);
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property leaderId (base name: "leaderId")', function() {
       // uncomment below and update the code to test the property leaderId
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingNumericId (base name: "meetingNumericId")', function() {
       // uncomment below and update the code to test the property meetingNumericId
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingUri (base name: "meetingUri")', function() {
       // uncomment below and update the code to test the property meetingUri
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property isModerator (base name: "isModerator")', function() {
       // uncomment below and update the code to test the property isModerator
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property endpointUriSet (base name: "endpointUriSet")', function() {
       // uncomment below and update the code to test the property endpointUriSet
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingId (base name: "meetingId")', function() {
       // uncomment below and update the code to test the property meetingId
-      //var instane = new BlueJeansOnVideoRestApi.GrantMeetingScopeMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantMeetingScopeMeeting();
       //expect(instance).to.be();
     });
 

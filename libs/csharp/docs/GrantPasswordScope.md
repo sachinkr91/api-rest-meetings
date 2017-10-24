@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantPasswordScope
+# com.bluejeans.api.rest.meetings.Model.GrantPasswordScope
 ## Properties
 
 Name | Type | Description | Notes

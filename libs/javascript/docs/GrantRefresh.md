@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantRefresh
+# BlueJeansMeetingsRestApi.GrantRefresh
 
 ## Properties
 Name | Type | Description | Notes

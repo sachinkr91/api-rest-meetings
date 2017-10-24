@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution_distribution import AnalyticsEndpointDistributionDistribution
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.analytics_endpoint_distribution_distribution import AnalyticsEndpointDistributionDistribution
 
 
 class TestAnalyticsEndpointDistributionDistribution(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestAnalyticsEndpointDistributionDistribution(unittest.TestCase):
         Test AnalyticsEndpointDistributionDistribution
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.analytics_endpoint_distribution_distribution.AnalyticsEndpointDistributionDistribution()
+        #model = BlueJeansMeetingsRestApi.models.analytics_endpoint_distribution_distribution.AnalyticsEndpointDistributionDistribution()
         pass
 
 

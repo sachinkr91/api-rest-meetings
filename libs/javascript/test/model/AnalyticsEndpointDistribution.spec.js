@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('AnalyticsEndpointDistribution', function() {
     it('should create an instance of AnalyticsEndpointDistribution', function() {
       // uncomment below and update the code to test AnalyticsEndpointDistribution
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution);
     });
 
     it('should have the property distribution (base name: "distribution")', function() {
       // uncomment below and update the code to test the property distribution
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsEndpointDistribution();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsEndpointDistribution();
       //expect(instance).to.be();
     });
 

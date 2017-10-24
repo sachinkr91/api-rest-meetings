@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
+    instance = new BlueJeansMeetingsRestApi.GrantRequestMeeting();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('GrantRequestMeeting', function() {
     it('should create an instance of GrantRequestMeeting', function() {
       // uncomment below and update the code to test GrantRequestMeeting
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestMeeting);
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestMeeting();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantRequestMeeting);
     });
 
     it('should have the property grantType (base name: "grant_type")', function() {
       // uncomment below and update the code to test the property grantType
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingNumericId (base name: "meetingNumericId")', function() {
       // uncomment below and update the code to test the property meetingNumericId
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingPasscode (base name: "meetingPasscode")', function() {
       // uncomment below and update the code to test the property meetingPasscode
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestMeeting();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestMeeting();
       //expect(instance).to.be();
     });
 

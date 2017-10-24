@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.content_content_properties import ContentContentProperties
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.content_content_properties import ContentContentProperties
 
 
 class TestContentContentProperties(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestContentContentProperties(unittest.TestCase):
         Test ContentContentProperties
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.content_content_properties.ContentContentProperties()
+        #model = BlueJeansMeetingsRestApi.models.content_content_properties.ContentContentProperties()
         pass
 
 

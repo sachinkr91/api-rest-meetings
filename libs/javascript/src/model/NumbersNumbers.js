@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./NumbersLabel'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.NumbersNumbers = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.NumbersLabel);
+    root.BlueJeansMeetingsRestApi.NumbersNumbers = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.NumbersLabel);
   }
 }(this, function(ApiClient, NumbersLabel) {
   'use strict';

@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.analytics_roi_data_roi_ranges import AnalyticsRoiDataRoiRanges
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.analytics_roi_data_roi_ranges import AnalyticsRoiDataRoiRanges
 
 
 class TestAnalyticsRoiDataRoiRanges(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestAnalyticsRoiDataRoiRanges(unittest.TestCase):
         Test AnalyticsRoiDataRoiRanges
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.analytics_roi_data_roi_ranges.AnalyticsRoiDataRoiRanges()
+        #model = BlueJeansMeetingsRestApi.models.analytics_roi_data_roi_ranges.AnalyticsRoiDataRoiRanges()
         pass
 
 

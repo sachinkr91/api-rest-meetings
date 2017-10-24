@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.ContentContentPropertiesLevels
+# com.bluejeans.api.rest.meetings.Model.ContentContentPropertiesLevels
 ## Properties
 
 Name | Type | Description | Notes

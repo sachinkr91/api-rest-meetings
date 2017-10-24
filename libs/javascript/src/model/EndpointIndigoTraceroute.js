@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./EndpointIndigoTracerouteTracePath'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EndpointIndigoTraceroute = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.EndpointIndigoTracerouteTracePath);
+    root.BlueJeansMeetingsRestApi.EndpointIndigoTraceroute = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.EndpointIndigoTracerouteTracePath);
   }
 }(this, function(ApiClient, EndpointIndigoTracerouteTracePath) {
   'use strict';

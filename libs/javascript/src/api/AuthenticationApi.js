@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Error'), require('../model/GrantClient'), require('../model/GrantCode'), require('../model/GrantMeeting'), require('../model/GrantPassword'), require('../model/GrantRefresh'), require('../model/GrantRequestClient'), require('../model/GrantRequestCode'), require('../model/GrantRequestMeeting'), require('../model/GrantRequestPassword'), require('../model/GrantRequestRefresh'), require('../model/GrantRequestRevoke'), require('../model/InlineResponse200'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.AuthenticationApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.GrantClient, root.BlueJeansOnVideoRestApi.GrantCode, root.BlueJeansOnVideoRestApi.GrantMeeting, root.BlueJeansOnVideoRestApi.GrantPassword, root.BlueJeansOnVideoRestApi.GrantRefresh, root.BlueJeansOnVideoRestApi.GrantRequestClient, root.BlueJeansOnVideoRestApi.GrantRequestCode, root.BlueJeansOnVideoRestApi.GrantRequestMeeting, root.BlueJeansOnVideoRestApi.GrantRequestPassword, root.BlueJeansOnVideoRestApi.GrantRequestRefresh, root.BlueJeansOnVideoRestApi.GrantRequestRevoke, root.BlueJeansOnVideoRestApi.InlineResponse200);
+    root.BlueJeansMeetingsRestApi.AuthenticationApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.Error, root.BlueJeansMeetingsRestApi.GrantClient, root.BlueJeansMeetingsRestApi.GrantCode, root.BlueJeansMeetingsRestApi.GrantMeeting, root.BlueJeansMeetingsRestApi.GrantPassword, root.BlueJeansMeetingsRestApi.GrantRefresh, root.BlueJeansMeetingsRestApi.GrantRequestClient, root.BlueJeansMeetingsRestApi.GrantRequestCode, root.BlueJeansMeetingsRestApi.GrantRequestMeeting, root.BlueJeansMeetingsRestApi.GrantRequestPassword, root.BlueJeansMeetingsRestApi.GrantRequestRefresh, root.BlueJeansMeetingsRestApi.GrantRequestRevoke, root.BlueJeansMeetingsRestApi.InlineResponse200);
   }
 }(this, function(ApiClient, Error, GrantClient, GrantCode, GrantMeeting, GrantPassword, GrantRefresh, GrantRequestClient, GrantRequestCode, GrantRequestMeeting, GrantRequestPassword, GrantRequestRefresh, GrantRequestRevoke, InlineResponse200) {
   'use strict';

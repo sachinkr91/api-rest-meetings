@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.RecordingRecordingChapters
+# com.bluejeans.api.rest.meetings.Model.RecordingRecordingChapters
 ## Properties
 
 Name | Type | Description | Notes

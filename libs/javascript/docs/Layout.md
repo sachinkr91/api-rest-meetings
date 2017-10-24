@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.Layout
+# BlueJeansMeetingsRestApi.Layout
 
 ## Properties
 Name | Type | Description | Notes

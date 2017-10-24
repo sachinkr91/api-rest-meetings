@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PayloadPairingCodePstn
+# BlueJeansMeetingsRestApi.PayloadPairingCodePstn
 
 ## Properties
 Name | Type | Description | Notes

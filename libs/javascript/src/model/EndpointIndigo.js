@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./EndpointIndigoEndpointAttributes1'), require('./EndpointIndigoLocation'), require('./EndpointIndigoSummaryStats'), require('./EndpointIndigoTraceroute'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.EndpointIndigo = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.EndpointIndigoEndpointAttributes1, root.BlueJeansOnVideoRestApi.EndpointIndigoLocation, root.BlueJeansOnVideoRestApi.EndpointIndigoSummaryStats, root.BlueJeansOnVideoRestApi.EndpointIndigoTraceroute);
+    root.BlueJeansMeetingsRestApi.EndpointIndigo = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.EndpointIndigoEndpointAttributes1, root.BlueJeansMeetingsRestApi.EndpointIndigoLocation, root.BlueJeansMeetingsRestApi.EndpointIndigoSummaryStats, root.BlueJeansMeetingsRestApi.EndpointIndigoTraceroute);
   }
 }(this, function(ApiClient, EndpointIndigoEndpointAttributes1, EndpointIndigoLocation, EndpointIndigoSummaryStats, EndpointIndigoTraceroute) {
   'use strict';

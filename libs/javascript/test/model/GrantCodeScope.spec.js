@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantCodeScope();
+    instance = new BlueJeansMeetingsRestApi.GrantCodeScope();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('GrantCodeScope', function() {
     it('should create an instance of GrantCodeScope', function() {
       // uncomment below and update the code to test GrantCodeScope
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantCodeScope);
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantCodeScope);
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 
     it('should have the property appPermissions (base name: "appPermissions")', function() {
       // uncomment below and update the code to test the property appPermissions
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 
     it('should have the property partitionName (base name: "partitionName")', function() {
       // uncomment below and update the code to test the property partitionName
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 
     it('should have the property partition (base name: "partition")', function() {
       // uncomment below and update the code to test the property partition
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 
     it('should have the property bearerPermissions (base name: "bearerPermissions")', function() {
       // uncomment below and update the code to test the property bearerPermissions
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.GrantCodeScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantCodeScope();
       //expect(instance).to.be();
     });
 

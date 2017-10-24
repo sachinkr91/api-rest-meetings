@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.AnalyticsRoiData
+# com.bluejeans.api.rest.meetings.Model.AnalyticsRoiData
 ## Properties
 
 Name | Type | Description | Notes

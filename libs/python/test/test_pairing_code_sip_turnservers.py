@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.pairing_code_sip_turnservers import PairingCodeSIPTurnservers
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.pairing_code_sip_turnservers import PairingCodeSIPTurnservers
 
 
 class TestPairingCodeSIPTurnservers(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestPairingCodeSIPTurnservers(unittest.TestCase):
         Test PairingCodeSIPTurnservers
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.pairing_code_sip_turnservers.PairingCodeSIPTurnservers()
+        #model = BlueJeansMeetingsRestApi.models.pairing_code_sip_turnservers.PairingCodeSIPTurnservers()
         pass
 
 

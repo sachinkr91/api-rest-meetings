@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.GrantPasswordScope
+# BlueJeansMeetingsRestApi.GrantPasswordScope
 
 ## Properties
 Name | Type | Description | Notes

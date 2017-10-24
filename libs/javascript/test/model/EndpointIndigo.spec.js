@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EndpointIndigo();
+    instance = new BlueJeansMeetingsRestApi.EndpointIndigo();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,157 +53,157 @@
   describe('EndpointIndigo', function() {
     it('should create an instance of EndpointIndigo', function() {
       // uncomment below and update the code to test EndpointIndigo
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EndpointIndigo);
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EndpointIndigo);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property callguid (base name: "callguid")', function() {
       // uncomment below and update the code to test the property callguid
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property endpoint (base name: "endpoint")', function() {
       // uncomment below and update the code to test the property endpoint
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property vendor (base name: "vendor")', function() {
       // uncomment below and update the code to test the property vendor
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property version (base name: "version")', function() {
       // uncomment below and update the code to test the property version
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property uniqId (base name: "uniqId")', function() {
       // uncomment below and update the code to test the property uniqId
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property remoteAddress (base name: "remoteAddress")', function() {
       // uncomment below and update the code to test the property remoteAddress
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property leader (base name: "leader")', function() {
       // uncomment below and update the code to test the property leader
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property secureCall (base name: "secureCall")', function() {
       // uncomment below and update the code to test the property secureCall
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property natDetected (base name: "natDetected")', function() {
       // uncomment below and update the code to test the property natDetected
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property proxy (base name: "proxy")', function() {
       // uncomment below and update the code to test the property proxy
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property roiDistance (base name: "roiDistance")', function() {
       // uncomment below and update the code to test the property roiDistance
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property mpls (base name: "mpls")', function() {
       // uncomment below and update the code to test the property mpls
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property videoShare (base name: "videoShare")', function() {
       // uncomment below and update the code to test the property videoShare
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property recording (base name: "recording")', function() {
       // uncomment below and update the code to test the property recording
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property creationTime (base name: "creationTime")', function() {
       // uncomment below and update the code to test the property creationTime
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingJoinTime (base name: "meetingJoinTime")', function() {
       // uncomment below and update the code to test the property meetingJoinTime
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingLeaveTime (base name: "meetingLeaveTime")', function() {
       // uncomment below and update the code to test the property meetingLeaveTime
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property didNumber (base name: "didNumber")', function() {
       // uncomment below and update the code to test the property didNumber
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property location (base name: "location")', function() {
       // uncomment below and update the code to test the property location
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property summaryStats (base name: "summaryStats")', function() {
       // uncomment below and update the code to test the property summaryStats
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property endpointAttributes1 (base name: "endpointAttributes1")', function() {
       // uncomment below and update the code to test the property endpointAttributes1
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property traceroute (base name: "traceroute")', function() {
       // uncomment below and update the code to test the property traceroute
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 
     it('should have the property mhtaskStopped (base name: "mhtaskStopped")', function() {
       // uncomment below and update the code to test the property mhtaskStopped
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigo();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigo();
       //expect(instance).to.be();
     });
 

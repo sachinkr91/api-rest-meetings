@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Content'), require('../model/Error'), require('../model/Meeting'), require('../model/RecordingHistoryList'));
   } else {
     // Browser globals (root is window)
-    if (!root.BlueJeansOnVideoRestApi) {
-      root.BlueJeansOnVideoRestApi = {};
+    if (!root.BlueJeansMeetingsRestApi) {
+      root.BlueJeansMeetingsRestApi = {};
     }
-    root.BlueJeansOnVideoRestApi.RecordingApi = factory(root.BlueJeansOnVideoRestApi.ApiClient, root.BlueJeansOnVideoRestApi.Content, root.BlueJeansOnVideoRestApi.Error, root.BlueJeansOnVideoRestApi.Meeting, root.BlueJeansOnVideoRestApi.RecordingHistoryList);
+    root.BlueJeansMeetingsRestApi.RecordingApi = factory(root.BlueJeansMeetingsRestApi.ApiClient, root.BlueJeansMeetingsRestApi.Content, root.BlueJeansMeetingsRestApi.Error, root.BlueJeansMeetingsRestApi.Meeting, root.BlueJeansMeetingsRestApi.RecordingHistoryList);
   }
 }(this, function(ApiClient, Content, Error, Meeting, RecordingHistoryList) {
   'use strict';

@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.Partition
+# com.bluejeans.api.rest.meetings.Model.Partition
 ## Properties
 
 Name | Type | Description | Notes

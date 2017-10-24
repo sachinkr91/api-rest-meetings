@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.endpoint import Endpoint
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.endpoint import Endpoint
 
 
 class TestEndpoint(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestEndpoint(unittest.TestCase):
         Test Endpoint
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.endpoint.Endpoint()
+        #model = BlueJeansMeetingsRestApi.models.endpoint.Endpoint()
         pass
 
 

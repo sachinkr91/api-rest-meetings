@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
+    instance = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('PayloadPairingCodeWebRTC', function() {
     it('should create an instance of PayloadPairingCodeWebRTC', function() {
       // uncomment below and update the code to test PayloadPairingCodeWebRTC
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC);
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC);
     });
 
     it('should have the property endpointType (base name: "endpointType")', function() {
       // uncomment below and update the code to test the property endpointType
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
       //expect(instance).to.be();
     });
 
     it('should have the property languageCode (base name: "languageCode")', function() {
       // uncomment below and update the code to test the property languageCode
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
       //expect(instance).to.be();
     });
 
     it('should have the property capabilities (base name: "capabilities")', function() {
       // uncomment below and update the code to test the property capabilities
-      //var instane = new BlueJeansOnVideoRestApi.PayloadPairingCodeWebRTC();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC();
       //expect(instance).to.be();
     });
 

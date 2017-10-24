@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.PayloadDialout
+# BlueJeansMeetingsRestApi.PayloadDialout
 
 ## Properties
 Name | Type | Description | Notes

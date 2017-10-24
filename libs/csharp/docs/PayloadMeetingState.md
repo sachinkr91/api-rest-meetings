@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PayloadMeetingState
+# com.bluejeans.api.rest.meetings.Model.PayloadMeetingState
 ## Properties
 
 Name | Type | Description | Notes

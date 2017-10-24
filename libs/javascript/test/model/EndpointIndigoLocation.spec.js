@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+    instance = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,37 +53,37 @@
   describe('EndpointIndigoLocation', function() {
     it('should create an instance of EndpointIndigoLocation', function() {
       // uncomment below and update the code to test EndpointIndigoLocation
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.EndpointIndigoLocation);
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.EndpointIndigoLocation);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
       //expect(instance).to.be();
     });
 
     it('should have the property countryCode (base name: "countryCode")', function() {
       // uncomment below and update the code to test the property countryCode
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
       //expect(instance).to.be();
     });
 
     it('should have the property countryName (base name: "countryName")', function() {
       // uncomment below and update the code to test the property countryName
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
       //expect(instance).to.be();
     });
 
     it('should have the property latitude (base name: "latitude")', function() {
       // uncomment below and update the code to test the property latitude
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
       //expect(instance).to.be();
     });
 
     it('should have the property longitude (base name: "longitude")', function() {
       // uncomment below and update the code to test the property longitude
-      //var instane = new BlueJeansOnVideoRestApi.EndpointIndigoLocation();
+      //var instane = new BlueJeansMeetingsRestApi.EndpointIndigoLocation();
       //expect(instance).to.be();
     });
 

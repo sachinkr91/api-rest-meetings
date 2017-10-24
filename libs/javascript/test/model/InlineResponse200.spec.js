@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.InlineResponse200();
+    instance = new BlueJeansMeetingsRestApi.InlineResponse200();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('InlineResponse200', function() {
     it('should create an instance of InlineResponse200', function() {
       // uncomment below and update the code to test InlineResponse200
-      //var instane = new BlueJeansOnVideoRestApi.InlineResponse200();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.InlineResponse200);
+      //var instane = new BlueJeansMeetingsRestApi.InlineResponse200();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.InlineResponse200);
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new BlueJeansOnVideoRestApi.InlineResponse200();
+      //var instane = new BlueJeansMeetingsRestApi.InlineResponse200();
       //expect(instance).to.be();
     });
 

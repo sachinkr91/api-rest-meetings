@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.PayloadMeetingState();
+    instance = new BlueJeansMeetingsRestApi.PayloadMeetingState();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('PayloadMeetingState', function() {
     it('should create an instance of PayloadMeetingState', function() {
       // uncomment below and update the code to test PayloadMeetingState
-      //var instane = new BlueJeansOnVideoRestApi.PayloadMeetingState();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.PayloadMeetingState);
+      //var instane = new BlueJeansMeetingsRestApi.PayloadMeetingState();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.PayloadMeetingState);
     });
 
     it('should have the property locked (base name: "locked")', function() {
       // uncomment below and update the code to test the property locked
-      //var instane = new BlueJeansOnVideoRestApi.PayloadMeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadMeetingState();
       //expect(instance).to.be();
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instane = new BlueJeansOnVideoRestApi.PayloadMeetingState();
+      //var instane = new BlueJeansMeetingsRestApi.PayloadMeetingState();
       //expect(instance).to.be();
     });
 

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,37 +53,37 @@
   describe('AnalyticsFeedbackScores', function() {
     it('should create an instance of AnalyticsFeedbackScores', function() {
       // uncomment below and update the code to test AnalyticsFeedbackScores
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsFeedbackScores);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsFeedbackScores);
     });
 
     it('should have the property great (base name: "Great")', function() {
       // uncomment below and update the code to test the property great
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
       //expect(instance).to.be();
     });
 
     it('should have the property okay (base name: "Okay")', function() {
       // uncomment below and update the code to test the property okay
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
       //expect(instance).to.be();
     });
 
     it('should have the property bad (base name: "Bad")', function() {
       // uncomment below and update the code to test the property bad
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
       //expect(instance).to.be();
     });
 
     it('should have the property poor (base name: "Poor")', function() {
       // uncomment below and update the code to test the property poor
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
       //expect(instance).to.be();
     });
 
     it('should have the property good (base name: "Good")', function() {
       // uncomment below and update the code to test the property good
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackScores();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackScores();
       //expect(instance).to.be();
     });
 

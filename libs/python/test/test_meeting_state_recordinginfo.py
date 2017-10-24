@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.meeting_state_recordinginfo import MeetingStateRecordinginfo
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.meeting_state_recordinginfo import MeetingStateRecordinginfo
 
 
 class TestMeetingStateRecordinginfo(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestMeetingStateRecordinginfo(unittest.TestCase):
         Test MeetingStateRecordinginfo
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.meeting_state_recordinginfo.MeetingStateRecordinginfo()
+        #model = BlueJeansMeetingsRestApi.models.meeting_state_recordinginfo.MeetingStateRecordinginfo()
         pass
 
 

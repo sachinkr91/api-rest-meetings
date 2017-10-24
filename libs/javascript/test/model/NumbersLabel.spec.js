@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.NumbersLabel();
+    instance = new BlueJeansMeetingsRestApi.NumbersLabel();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('NumbersLabel', function() {
     it('should create an instance of NumbersLabel', function() {
       // uncomment below and update the code to test NumbersLabel
-      //var instane = new BlueJeansOnVideoRestApi.NumbersLabel();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.NumbersLabel);
+      //var instane = new BlueJeansMeetingsRestApi.NumbersLabel();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.NumbersLabel);
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new BlueJeansOnVideoRestApi.NumbersLabel();
+      //var instane = new BlueJeansMeetingsRestApi.NumbersLabel();
       //expect(instance).to.be();
     });
 

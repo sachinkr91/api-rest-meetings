@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
-from BlueJeansOnVideoRestApi.models.endpoints_inner_connections import EndpointsInnerConnections
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from BlueJeansMeetingsRestApi.models.endpoints_inner_connections import EndpointsInnerConnections
 
 
 class TestEndpointsInnerConnections(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestEndpointsInnerConnections(unittest.TestCase):
         Test EndpointsInnerConnections
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = BlueJeansOnVideoRestApi.models.endpoints_inner_connections.EndpointsInnerConnections()
+        #model = BlueJeansMeetingsRestApi.models.endpoints_inner_connections.EndpointsInnerConnections()
         pass
 
 

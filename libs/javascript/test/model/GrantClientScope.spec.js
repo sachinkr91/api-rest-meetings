@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantClientScope();
+    instance = new BlueJeansMeetingsRestApi.GrantClientScope();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('GrantClientScope', function() {
     it('should create an instance of GrantClientScope', function() {
       // uncomment below and update the code to test GrantClientScope
-      //var instane = new BlueJeansOnVideoRestApi.GrantClientScope();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantClientScope);
+      //var instane = new BlueJeansMeetingsRestApi.GrantClientScope();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantClientScope);
     });
 
     it('should have the property enterprise (base name: "enterprise")', function() {
       // uncomment below and update the code to test the property enterprise
-      //var instane = new BlueJeansOnVideoRestApi.GrantClientScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClientScope();
       //expect(instance).to.be();
     });
 
     it('should have the property partitionName (base name: "partitionName")', function() {
       // uncomment below and update the code to test the property partitionName
-      //var instane = new BlueJeansOnVideoRestApi.GrantClientScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClientScope();
       //expect(instance).to.be();
     });
 
     it('should have the property partition (base name: "partition")', function() {
       // uncomment below and update the code to test the property partition
-      //var instane = new BlueJeansOnVideoRestApi.GrantClientScope();
+      //var instane = new BlueJeansMeetingsRestApi.GrantClientScope();
       //expect(instance).to.be();
     });
 

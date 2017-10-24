@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.AnalyticsEndpointDistribution
+# com.bluejeans.api.rest.meetings.Model.AnalyticsEndpointDistribution
 ## Properties
 
 Name | Type | Description | Notes

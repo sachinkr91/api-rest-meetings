@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.RecordingSummary
+# com.bluejeans.api.rest.meetings.Model.RecordingSummary
 ## Properties
 
 Name | Type | Description | Notes

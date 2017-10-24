@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.AnalyticsUsageUsage
+# BlueJeansMeetingsRestApi.AnalyticsUsageUsage
 
 ## Properties
 Name | Type | Description | Notes

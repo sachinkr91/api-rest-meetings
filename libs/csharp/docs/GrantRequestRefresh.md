@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantRequestRefresh
+# com.bluejeans.api.rest.meetings.Model.GrantRequestRefresh
 ## Properties
 
 Name | Type | Description | Notes

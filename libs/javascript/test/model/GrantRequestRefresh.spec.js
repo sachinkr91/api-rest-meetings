@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
+    instance = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('GrantRequestRefresh', function() {
     it('should create an instance of GrantRequestRefresh', function() {
       // uncomment below and update the code to test GrantRequestRefresh
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.GrantRequestRefresh);
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.GrantRequestRefresh);
     });
 
     it('should have the property grantType (base name: "grant_type")', function() {
       // uncomment below and update the code to test the property grantType
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "client_id")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
       //expect(instance).to.be();
     });
 
     it('should have the property clientSecret (base name: "client_secret")', function() {
       // uncomment below and update the code to test the property clientSecret
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
       //expect(instance).to.be();
     });
 
     it('should have the property refreshToken (base name: "refresh_token")', function() {
       // uncomment below and update the code to test the property refreshToken
-      //var instane = new BlueJeansOnVideoRestApi.GrantRequestRefresh();
+      //var instane = new BlueJeansMeetingsRestApi.GrantRequestRefresh();
       //expect(instance).to.be();
     });
 

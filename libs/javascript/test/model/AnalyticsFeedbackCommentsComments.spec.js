@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.BlueJeansOnVideoRestApi);
+    factory(root.expect, root.BlueJeansMeetingsRestApi);
   }
-}(this, function(expect, BlueJeansOnVideoRestApi) {
+}(this, function(expect, BlueJeansMeetingsRestApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
+    instance = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('AnalyticsFeedbackCommentsComments', function() {
     it('should create an instance of AnalyticsFeedbackCommentsComments', function() {
       // uncomment below and update the code to test AnalyticsFeedbackCommentsComments
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
-      //expect(instance).to.be.a(BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments);
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
+      //expect(instance).to.be.a(BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments);
     });
 
     it('should have the property qualarooFeedback (base name: "qualaroo_feedback")', function() {
       // uncomment below and update the code to test the property qualarooFeedback
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
       //expect(instance).to.be();
     });
 
     it('should have the property meetingUuid (base name: "meeting_uuid")', function() {
       // uncomment below and update the code to test the property meetingUuid
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
       //expect(instance).to.be();
     });
 
     it('should have the property callguid (base name: "callguid")', function() {
       // uncomment below and update the code to test the property callguid
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
       //expect(instance).to.be();
     });
 
     it('should have the property qualarooComments (base name: "qualaroo_comments")', function() {
       // uncomment below and update the code to test the property qualarooComments
-      //var instane = new BlueJeansOnVideoRestApi.AnalyticsFeedbackCommentsComments();
+      //var instane = new BlueJeansMeetingsRestApi.AnalyticsFeedbackCommentsComments();
       //expect(instance).to.be();
     });
 

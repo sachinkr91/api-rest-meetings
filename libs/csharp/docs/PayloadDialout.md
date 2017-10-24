@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.PayloadDialout
+# com.bluejeans.api.rest.meetings.Model.PayloadDialout
 ## Properties
 
 Name | Type | Description | Notes

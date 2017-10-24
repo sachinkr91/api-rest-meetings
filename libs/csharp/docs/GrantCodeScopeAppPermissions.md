@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo.Model.GrantCodeScopeAppPermissions
+# com.bluejeans.api.rest.meetings.Model.GrantCodeScopeAppPermissions
 ## Properties
 
 Name | Type | Description | Notes
