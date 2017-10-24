@@ -2,11 +2,11 @@
 var config = require('./config.json');
 
 // Include the library for the APIs
-var BlueJeansOnVideoRestApi = require('../src/index');
+var BlueJeansMeetingsRestApi = require('../src/index');
 
 // Instantiate the service APIs
-var authSvc = new BlueJeansOnVideoRestApi.AuthenticationApi();
-var meetingSvc = new BlueJeansOnVideoRestApi.MeetingApi();
+var authSvc = new BlueJeansMeetingsRestApi.AuthenticationApi();
+var meetingSvc = new BlueJeansMeetingsRestApi.MeetingApi();
 
 // Authenticate with username & password grant type
 authSvc.getTokenByPassword(
