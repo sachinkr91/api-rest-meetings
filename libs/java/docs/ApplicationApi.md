@@ -20,11 +20,11 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.ApplicationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.ApplicationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -77,11 +77,11 @@ This endpoint forces the regeneration of a client application secret for use in 
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.ApplicationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.ApplicationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -134,11 +134,11 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.ApplicationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.ApplicationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

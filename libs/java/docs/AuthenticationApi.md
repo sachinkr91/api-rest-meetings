@@ -25,11 +25,11 @@ This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a 
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -91,11 +91,11 @@ This API is typically called from an application that needs to make API requests
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -146,11 +146,11 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -201,11 +201,11 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -256,11 +256,11 @@ This API performs an authentication based upon a username and password.   Call t
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -311,11 +311,11 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -366,11 +366,11 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -421,11 +421,11 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.AuthenticationApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

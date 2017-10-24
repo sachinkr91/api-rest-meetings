@@ -1,4 +1,4 @@
-# com.bluejeans.api.rest.onvideo - the C# library for the BlueJeans onVideo REST API
+# com.bluejeans.api.rest.onvideo - the C# library for the BlueJeans Meetings REST API
 
  ## Video That Works Where You Do.
 

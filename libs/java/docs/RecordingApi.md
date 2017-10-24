@@ -23,11 +23,11 @@ This endpoint lists the recordings for a meeting.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -82,11 +82,11 @@ This endpoint retrieves properties about the recording chapter.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -141,11 +141,11 @@ This endpoint starts recording for a meeting in progress. Note that this is a PO
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -199,11 +199,11 @@ This endpoint stops recording for a meeting in progress. Note that this is a PUT
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -257,11 +257,11 @@ This endpoint stops recording for a meeting in progress.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -314,11 +314,11 @@ This endpoint stops recording for a meeting in progress.
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.onvideo.ApiClient;
-//import com.bluejeans.api.rest.onvideo.ApiException;
-//import com.bluejeans.api.rest.onvideo.Configuration;
-//import com.bluejeans.api.rest.onvideo.auth.*;
-//import com.bluejeans.api.rest.onvideo.api.RecordingApi;
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.RecordingApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

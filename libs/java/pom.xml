@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.bluejeans</groupId>
-  <artifactId>api-rest-onvideo</artifactId>
+  <artifactId>api-rest-meetings</artifactId>
   <packaging>jar</packaging>
-  <name>api-rest-onvideo</name>
+  <name>api-rest-meetings</name>
   <version>1.0.0</version>
   <url>https://github.com/bluejeans/api-rest-onvideo</url>
   <description>BlueJeans onVideo REST API</description>

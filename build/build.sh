@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rm -rf ../libs/java
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api-rest-onvideo --api-package com.bluejeans.api.rest.onvideo.api --model-package com.bluejeans.api.rest.onvideo.model --invoker-package com.bluejeans.api.rest.onvideo --config config.java.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api-rest-meetings --api-package com.bluejeans.api.rest.meetings.api --model-package com.bluejeans.api.rest.meetings.model --invoker-package com.bluejeans.api.rest.meetings --config config.java.json
 cd ../libs/java
 
 perl -p -i -e "s|</properties>|  <github.global.server>github</github.global.server>\n  </properties>|" pom.xml
@@ -48,7 +48,7 @@ perl -p -i -e "s|^    </plugins>|      </plugin>\n    </plugins>|"  pom.xml
 mvn package
 
 mkdir bin
-cp target/api-rest-onvideo-1.0.0.jar bin/bluejeans-api-rest-onvideo-1.0.0.jar
+cp target/api-rest-meetings-1.0.0.jar bin/bluejeans-api-rest-meetings-1.0.0.jar
 cd ../../build
 
 #
@@ -59,7 +59,7 @@ rm -rf ../libs/php
 
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php --config config.php.json
 
-cd ../libs/php/BlueJeansOnVideoRestApi
+cd ../libs/php/BlueJeansMeetingsRestApi
 
 perl -p -i -e "s|\*\@dev|dev-php-repo|" README.md
 perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
@@ -82,7 +82,7 @@ perl -p -i -e "s|Unlicense|MIT|" package.json
 perl -p -i -e "s|^  }$|  },|" package.json
 perl -p -i -e "s|^}|  \"repository\": {\n}|" package.json
 perl -p -i -e "s|^}|    \"type\": \"git\",\n}|" package.json
-perl -p -i -e "s|^}|    \"url\": \"https://github.com/bluejeans/api-rest-onvideo.git\"\n}|" package.json
+perl -p -i -e "s|^}|    \"url\": \"https://github.com/bluejeans/api-rest-meetings.git\"\n}|" package.json
 perl -p -i -e "s|^}|  }\n}|" package.json
 
 npm test
