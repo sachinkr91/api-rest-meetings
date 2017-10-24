@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.CommandCenterApi
+# BlueJeansMeetingsRestApi.CommandCenterApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -29,17 +29,17 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"creation_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"creation_time\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}])
 
@@ -84,17 +84,17 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 start = '2017-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
 end = '2018-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
@@ -141,17 +141,17 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 start = '2017-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
 end = '2018-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
@@ -198,17 +198,17 @@ This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
@@ -253,17 +253,17 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 include_endpoints = true # bool | Option to include detailed data on endpoints (optional)
@@ -310,17 +310,17 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires /
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
@@ -365,17 +365,17 @@ This endpoint reports on meeting usage. Requires /oauth2/token?Password authenti
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 client_tz = 'America/Denver' # str | Based on standard TZ code. (optional) (default to America/Denver)
 filter = '[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"hights\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
@@ -422,17 +422,17 @@ This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?P
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 try: 
@@ -475,17 +475,17 @@ This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Pas
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 offset = 56 # int | Page Number (optional)
 limit = 56 # int | Per page (optional)
@@ -534,17 +534,17 @@ This endpoint lists completed meetings by user. Requires /oauth2/token?Password 
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try: 
@@ -587,17 +587,17 @@ This endpoint lists return on investment (ROI) data for meetings. Requires /oaut
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"startTime\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"startTime\"}]' # str | URL-encoded JSON string (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"startTime"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"startTime"}])
 
@@ -642,17 +642,17 @@ This endpoint retrieves the top users by usage for an enterprise. Requires /oaut
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"end_time\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
 

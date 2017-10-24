@@ -1,4 +1,4 @@
-# BlueJeansOnVideoRestApi.ApplicationApi
+# BlueJeansMeetingsRestApi.ApplicationApi
 
 All URIs are relative to *https://api.bluejeans.com*
 
@@ -20,19 +20,19 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-application = BlueJeansOnVideoRestApi.Application() # Application | The information about the new client application.
+application = BlueJeansMeetingsRestApi.Application() # Application | The information about the new client application.
 
 try: 
     # Create Client Application
@@ -75,17 +75,17 @@ This endpoint forces the regeneration of a client application secret for use in 
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
 
@@ -130,20 +130,20 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 ```python
 from __future__ import print_function
 import time
-import BlueJeansOnVideoRestApi
-from BlueJeansOnVideoRestApi.rest import ApiException
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansOnVideoRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansOnVideoRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansOnVideoRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
-application = BlueJeansOnVideoRestApi.Application() # Application | The information about the new client application.
+application = BlueJeansMeetingsRestApi.Application() # Application | The information about the new client application.
 
 try: 
     # Update Client Application
