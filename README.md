@@ -4,7 +4,7 @@ Visit our API Explorer for documentation: https://bluejeans.github.io/api-rest-m
 
 ## C#
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/csharp
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/csharp
 
 ## Java
 
@@ -13,8 +13,8 @@ https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/csharp
 ```xml
 <repositories>
     <repository>
-        <id>bluejeans-api-rest-onvideo-mvn-repo</id>
-        <url>https://raw.githubusercontent.com/bluejeans/api-rest-onvideo/mvn-repo</url>
+        <id>bluejeans-api-rest-meetings-mvn-repo</id>
+        <url>https://raw.githubusercontent.com/bluejeans/api-rest-meetings/mvn-repo</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -25,7 +25,7 @@ https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/csharp
 
 2. Futher instructions can be found at:
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/java
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/java
 
 ## JavaScript
 
@@ -37,16 +37,16 @@ npm install bluejeans/api-rest-onvideo#npm-repo --save
 
 2. Further instructions can be found at:
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/javascript
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/javascript
 
 3. Some examples at:
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/javascript/examples
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/javascript/examples
 
 ## PHP
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/php/BlueJeansOnVideoRestApi
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/php/BlueJeansOnVideoRestApi
 
 ## Python
 
-https://github.com/bluejeans/api-rest-onvideo/tree/master/libs/python
+https://github.com/bluejeans/api-rest-meetings/tree/master/libs/python
