@@ -1,6 +1,6 @@
 # api-rest-onvideo
 
-Visit our API Explorer for documentation: https://bluejeans.github.io/api-rest-onvideo/site/index.html
+Visit our API Explorer for documentation: https://bluejeans.github.io/api-rest-meetings/site/index.html
 
 ## C#
 
