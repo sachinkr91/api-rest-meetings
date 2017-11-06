@@ -1,4 +1,4 @@
-# api-rest-onvideo
+# api-rest-meetings
 
 Visit our API Explorer for documentation: https://bluejeans.github.io/api-rest-meetings/site/index.html
 
