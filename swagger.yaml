@@ -2954,6 +2954,9 @@ definitions:
       attendeePasscode:
         type: string
         readOnly: true
+      isLargeMeeting:
+        type: boolean
+        description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
       addAttendeePasscode:
         type: boolean
         description: Indicate if you want the attendees to be forced to enter a passcode on entry for extra security. The passcode will be randomly generated at schedule and will be returned in attendeePasscode property of the meeting.
