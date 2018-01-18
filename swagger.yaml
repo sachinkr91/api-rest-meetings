@@ -756,6 +756,60 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/user/{user_id}/personal_meeting:
+    get:
+      summary: Get Personal Meeting
+      description: This endpoint gets the settings for a user's personal meeting.
+      operationId: getPersonalMeeting
+      tags:
+        - User 
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The settings for the meeting.
+          schema:
+            $ref: '#/definitions/PersonalMeetingRoom'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update Personal Meeting
+      description: This endpoint changes the settings for a user's personal meeting.
+      operationId: updatePeresonalMeeting
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: personalMeeting
+          in: body
+          description: The user's personal meeting room details that you wish to update.
+          required: true
+          schema:
+            $ref: "#/definitions/PersonalMeetingRoom"
+      responses:
+        '200':
+          description: The settings for the meeting.
+          schema:
+            $ref: '#/definitions/PersonalMeetingRoom'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
   /v1/user/{user_id}/scheduled_meeting:
     get:
       summary: List Meetings
@@ -914,60 +968,6 @@ paths:
       responses:
         '200':
           description: No content.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-
-  /v1/user/{user_id}/personal_meeting:
-    get:
-      summary: Get Personal Meeting
-      description: This endpoint gets the settings for a user's personal meeting.
-      operationId: getPersonalMeeting
-      tags:
-        - Meeting
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-      responses:
-        '200':
-          description: The settings for the meeting.
-          schema:
-            $ref: '#/definitions/PersonalMeetingRoom'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-    put:
-      summary: Update Personal Meeting
-      description: This endpoint changes the settings for a user's personal meeting. 
-      operationId: updatePeresonalMeeting
-      tags:
-        - Meeting
-      security:
-        - access_token: []
-      parameters:
-        - name: user_id
-          in: path
-          description: The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-        - name: personalMeeting
-          in: body
-          description: The user's personal meeting room details that you wish to update.
-          required: true
-          schema:
-            $ref: "#/definitions/PersonalMeetingRoom"
-      responses:
-        '200':
-          description: The settings for the meeting.
-          schema:
-            $ref: '#/definitions/PersonalMeetingRoom'
         default:
           description: Unexpected error
           schema:
