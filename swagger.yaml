@@ -8,6 +8,16 @@ info:
     This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information.
 
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
+    
+    
+    
+    <alert>2/5/2018 The JSON objects associated with Meetings and Users have been updated.
+    <ol>
+      <li>API's to manage meetings now provide fields associated with recurring meetings</li>
+      <li>The User Profile API's include more information</li>
+    </ol>
+    
+    Refer to the <i>Models</i> section below for deprecation information</alert>
 
     <hr>
     
@@ -109,11 +119,12 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0
+  version: 1.0.0.mm40 (2/5/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
     email: glenn@bluejeans.com
+    description: foo
 externalDocs:
   description: >
     Find more info here
@@ -835,7 +846,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Meeting'
+                $ref: '#/definitions/Meeting'
         default:
           description: Unexpected error
           schema:
@@ -1020,7 +1031,7 @@ paths:
         '200':
           description: The settings for the email.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingEmails'
         default:
           description: Unexpected error
           schema:
@@ -2832,8 +2843,10 @@ definitions:
         type: integer
       name:
         type: string
+        
   User:
     type: object
+    description: 2/5/2018 -- JSON object containing the BlueJeans' user profile fields
     properties:
       id:
         type: integer
@@ -2874,7 +2887,66 @@ definitions:
         description: User's preference of 12 or 24 hour time display
       language:
         type: string
-        description: User's language code
+        description: User's language code, e.g., "en"
+      skypeId:
+        type: string
+        description: User's skype account identifier
+      gtalkId:
+        type: string
+        description: User's Google Talk account identified
+      defaultEndpoint:
+        type: string
+        description: Default type of client user attends meetings
+      passwordChangeRequired:
+        type:  boolean
+        description: Force user to change their password on next login
+      marketoId:
+        type: string
+        description: User's Marketo Account identifier
+      optOutOffers:
+        type: boolean
+        description:
+      optOutNews:
+        type: boolean
+      geoInfo:
+        type: string
+        description: JSON string containing User's geographic information including city,state,postal code, country (abbrev, i.e., "US"),time zone, country name (i.e.,"United States"), ISP, latitude, and longitude
+      howDidYouHear:
+        type: string
+        description:
+      sfdcToken:
+        type: string
+        description: OAuth token used for Salesforce integration
+      linkedinProfileUrl:
+        type: string
+        description: hyperlink to User's LinkedIn profile
+      lastLogin:
+        type: integer
+        description: Date and time (in milliseconds) of the User's last login
+      dateJoined:
+        type: integer
+        description: Date and time when BlueJeans account was created
+      jid:
+        type: string
+        description: User's Jabber Account Identifier
+      primaryPhone:
+        type: string
+        description: User's phone number
+      failedLoginCount:
+        type: integer
+        description: Count of how many times a user tried to enter their account password
+      isInitialSetupDone:
+        type: boolean
+      channel_id:
+        type: integer
+      isVerified:
+        type: boolean
+        description:  BlueJeans has validated authenticity of the account owner
+       
+        
+        
+        
+        
   Enterprise:
     type: object
     properties:
@@ -2973,8 +3045,10 @@ definitions:
         type: integer
       moderatorPasscode:
         type: string
+        
   Meeting:
     type: object
+    description: 2/5/2018 -- JSON object containing the  fields describing a BlueJeans meeting. Includes recurring meeting fields.
     required:
       - title
       - start
@@ -2986,6 +3060,8 @@ definitions:
         type: integer
         description: Unique identifier for meeting.
         readOnly: true
+      uuid:
+        type: string
       title:
         type: string
         default: My Test Meeting
@@ -2993,44 +3069,21 @@ definitions:
         type: string
       start:
         type: integer
-        format: int64
+        format: integer
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
-        format: int64
+        format: integer
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string
         default: America/New_York
-      numericMeetingId:
-        type: string
-        description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
-        readOnly: true
-      attendeePasscode:
-        type: string
-        readOnly: true
-      isLargeMeeting:
-        type: boolean
-        description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
-      addAttendeePasscode:
-        type: boolean
-        description: Indicate if you want the attendees to be forced to enter a passcode on entry for extra security. The passcode will be randomly generated at schedule and will be returned in attendeePasscode property of the meeting.
-      endPointVersion:
-        type: string
-        default: "2.10"
-      endPointType:
-        type: string
-        default: "WEB_APP"
-      attendees:
-        type: array
-        items:
-          $ref: '#/definitions/Attendee'
       advancedMeetingOptions:
         type: object
         properties:
-          autoRecord:
+          videoBestFit:
             type: boolean
-          muteParticipantsOnEntry:
+          publishMeeting:
             type: boolean
           encryptionType:
             type: string
@@ -3040,14 +3093,226 @@ definitions:
               - ENCRYPTED_OR_PSTN_ONLY
           moderatorLess:
             type: boolean
-          videoBestFit:
+          allowStream:
+            type: boolean
+          autoRecord:
             type: boolean
           disallowChat:
             type: boolean
-          publishMeeting:
+          muteParticipantsOnEntry:
             type: boolean
           showAllAttendeesInMeetingInvite:
             type: boolean
+          editability:
+            type: object
+            properties:
+              autoRecord: 
+                type: boolean
+              enforceMeetingEncryption: 
+                type: boolean 
+              videoBestFit:
+                type: boolean 
+              enforceMeetingEncryptionAllowPSTN:
+                type: boolean 
+              disallowChat:
+                type: boolean 
+              muteParticipantsOnEntry:
+                type: boolean 
+              moderatorLess:
+                type: boolean 
+              showAllAttendeesInMeetingInvite:
+                type: boolean 
+            
+      notificationUrl:
+        type: string
+      notificationData:
+        type: string
+      moderator:
+        type: object
+        properties:
+          id:
+            type: integer
+          username:
+            type: string 
+          firstname:
+            type: string 
+          lastname:
+            type: string 
+          profile_pic_url:
+            type: string 
+      numericMeetingId:
+        type: string
+        description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+        readOnly: true
+      attendeePasscode:
+        type: string
+        readOnly: true
+      addAttendeePasscode:
+        type: boolean
+        description: Indicate if you want the attendees to be forced to enter a passcode on entry for extra security. The passcode will be randomly generated at schedule and will be returned in attendeePasscode property of the meeting.
+      delete:
+        type: boolean
+      allow720p:
+        type: boolean
+      status:
+        type: string
+      locked:
+        type: boolean
+      seqeuenceNumber:
+        type: integer
+      icsUid:
+        type: string
+      endPointType:
+        type: string
+        default: "WEB_APP"
+      endPointVersion:
+        type: string
+        default: "2.10"
+      attendees:
+        type: array
+        items:
+          $ref: '#/definitions/Attendee'
+      isLargeMeeting:
+        type: boolean
+        description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
+      created:
+        type: integer
+        description: This is the epoch-based time (in milliseconds) when the meeting was initially created.
+      lastModified:
+        type: integer;
+        description: This is the epoch-based time (in milliseconds) when the meeting was last changed.
+      isExpired:
+        type: boolean
+      parentMeetingId:
+        type: integer
+        description:  This field contains the Meeting Id of the first meeting in a recurrence chain of meetings.
+      parentMeetingUUID:
+        type: string
+      nextOccurrence:
+        type: string
+      timelessMeeting: 
+        type: boolean
+      endlessMeeting:
+        type: boolean
+      recurrencePattern:
+        type: object
+        properties:
+          recurrenceType:
+            type: string
+            enum:
+              - DAILY
+              - WEEKLY
+              - MONTHLY 
+          endDate:
+            type: integer
+            description: This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings.
+          recurrenceCount:
+            type: integer
+            description: The number of reoccurring meetings
+          frequency:
+            type: integer
+            description: the interval of reoccurring meetings.
+          daysOfWeekMask:
+            type: integer
+            description: bit mask for selecting which days of the week.  Sunday:1, Monday:2, Tuesday:4, Wednesday:8, Thursday:16, Friday:32, and Saturday:64
+          dayOfMonth:
+            type: integer
+            description:  the numerical day in the month for monthly reoccurring meetings.
+          weekOfMonth:
+            type: string
+            enum:
+              - NONE
+              - FIRST
+              - SECOND 
+              - THIRD
+              - FOURTH
+              - LAST
+            default: NONE
+            description: the numerical week in the month for reoccuring meetings.
+          monthOfYear:
+            type: string
+            enum:
+              - NONE
+              - JANUARY
+              - FEBRUARY
+              - MARCH
+              - APRIL
+              - MAY
+              - JUNE
+              - JULY
+              - AUGUST
+              - SEPTEMBER
+              - OCTOBER
+              - NOVEMBER
+              - DECEMBER
+            default: NONE
+            description: the month in the year for reoccurring meetings.
+      first:
+        description: Starting and ending times of the first meeting in a chain of recurring meetings.
+        $ref: '#/definitions/StartEnd'
+      last:
+        description: Starting and ending times of the last meeting in a chain of recurring meetings.
+        $ref: '#/definitions/StartEnd'
+      next:
+        description: Starting and ending times of the next meeting in a chain of recurring meetings.
+        $ref: '#/definitions/StartEnd'
+      nextStart:
+        type: integer
+      nextEnd:
+        type: integer
+      isPersonalMeeting:
+        type: boolean
+        default: false
+        description: Use the scheduler's personal meeting room and Id for this meeting.
+      inviteeJoinOption:
+        type: integer
+    
+  StartEnd:
+    type: object
+    properties:
+      start:
+        type: integer
+        description: This is the epoch-based starting-time (in milliseconds) for the specified function.
+      end:
+        type: integer
+        description: This is the epoch-based ending-time (in milliseconds) for the specified function.
+          
+  MeetingEmails:
+    type: object
+    properties:
+      moderator:
+        type: object
+        properties:
+          create:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          update:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          delete:
+            $ref: '#/definitions/MeetingEmailsProperty'
+      participant:
+        type: object
+        properties:
+          inmeeting:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          create:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          update:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          delete:
+            $ref: '#/definitions/MeetingEmailsProperty'
+          
+  MeetingEmailsProperty:
+    type: object
+    properties:
+      ICS:
+        type: string
+      Text:
+        type: string
+      HTML:
+        type: string
+      ICS_FILE:
+        type: string
+        
   Attendee:
     type: object
     properties:
@@ -3838,11 +4103,11 @@ definitions:
         type: string
       created:
         type: integer
-        format: int64
+        format: integer
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       lastmodified:
         type: integer
-        format: int64
+        format: integer
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
   MeetingIndigoList:
     type: object
@@ -3892,15 +4157,15 @@ definitions:
         type: boolean
       startTime:
         type: integer
-        format: int64
+        format: integer
       endTime:
         type: integer
-        format: int64
+        format: integer
       totalCallSeconds:
         type: integer
       createTime:
         type: integer
-        format: int64
+        format: integer
       endpointsCount:
         type: integer
       concurrentEndpoints:
@@ -3980,13 +4245,13 @@ definitions:
         type: boolean
       creationTime:
         type: integer
-        format: int64
+        format: integer
       meetingJoinTime:
         type: integer
-        format: int64
+        format: integer
       meetingLeaveTime:
         type: integer
-        format: int64
+        format: integer
       didNumber:
         type: string
       location:
@@ -4787,3 +5052,184 @@ definitions:
       inviteeJoinOption:
          type: integer
          description: 
+
+  MeetingDeprecated:
+    description: DEPRECATED (2/5/2018) -- This JSON object contains the fields associated with a BlueJeans'meeting.
+    type: object
+    required:
+      - title
+      - start
+      - end
+      - endPointVersion
+      - endPointType
+    properties:
+      id:
+        type: integer
+        description: Unique identifier for meeting.
+        readOnly: true
+      title:
+        type: string
+        default: My Test Meeting
+      description:
+        type: string
+      start:
+        type: integer
+        format: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+      end:
+        type: integer
+        format: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+      timezone:
+        type: string
+        default: America/New_York
+      numericMeetingId:
+        type: string
+        description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
+        readOnly: true
+      attendeePasscode:
+        type: string
+        readOnly: true
+      isPersonalMeeting:
+        type: boolean
+        default: false
+        description: Use the scheduler's personal meeting room and Id for this meeting.
+      isLargeMeeting:
+        type: boolean
+        description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
+      addAttendeePasscode:
+        type: boolean
+        description: Indicate if you want the attendees to be forced to enter a passcode on entry for extra security. The passcode will be randomly generated at schedule and will be returned in attendeePasscode property of the meeting.
+      endPointVersion:
+        type: string
+        default: "2.10"
+      endPointType:
+        type: string
+        default: "WEB_APP"
+      attendees:
+        type: array
+        items:
+          $ref: '#/definitions/Attendee'
+      advancedMeetingOptions:
+        type: object
+        properties:
+          autoRecord:
+            type: boolean
+          muteParticipantsOnEntry:
+            type: boolean
+          encryptionType:
+            type: string
+            enum:
+              - NO_ENCRYPTION
+              - ENCRYPTED_ONLY
+              - ENCRYPTED_OR_PSTN_ONLY
+          moderatorLess:
+            type: boolean
+          videoBestFit:
+            type: boolean
+          disallowChat:
+            type: boolean
+          publishMeeting:
+            type: boolean
+          showAllAttendeesInMeetingInvite:
+            type: boolean
+      recurrencePattern:
+        type: object
+        properties:
+          recurrenceType:
+            type: string
+            enum:
+              - DAILY
+              - WEEKLY
+              - MONTHLY 
+          endDate:
+            type: integer
+            description: This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings.
+          recurrenceCount:
+            type: integer
+            description: The number of reoccurring meetings
+          frequency:
+            type: integer
+            description: the interval of reoccurring meetings.
+          daysOfWeekMask:
+            type: integer
+            description: bit mask for selecting which days of the week.  Sunday:1, Monday:2, Tuesday:4, Wednesday:8, Thursday:16, Friday:32, and Saturday:64
+          dayOfMonth:
+            type: integer
+            description:  the numerical day in the month for monthly reoccurring meetings.
+          weekOfMonth:
+            type: string
+            enum:
+              - NONE
+              - FIRST
+              - SECOND 
+              - THIRD
+              - FOURTH
+              - LAST
+            default: NONE
+            description: the numerical week in the month for reoccuring meetings.
+          monthOfYear:
+            type: string
+            enum:
+              - NONE
+              - JANUARY
+              - FEBRUARY
+              - MARCH
+              - APRIL
+              - MAY
+              - JUNE
+              - JULY
+              - AUGUST
+              - SEPTEMBER
+              - OCTOBER
+              - NOVEMBER
+              - DECEMBER
+            default: NONE
+            description: the month in the year for reoccurring meetings.
+    
+
+  UserDeprecated:
+    type: object
+    description: DEPRECATED (2/5/2018) -- This JSON object contains the BlueJeans' user profile fields prior to MeetMe35.    
+    properties:
+      id:
+        type: integer
+        description: Unique identifier for the user.
+        readOnly: true
+      username:
+        type: string
+        description: User's username
+      firstName:
+        type: string
+        description: User's first name
+      middleName:
+        type: string
+        description: User's middle name
+      lastName:
+        type: string
+        description: User's last name
+      emailId:
+        type: string
+        description: User's email address
+      company:
+        type: string
+        description: User's company name
+      title:
+        type: string
+        description: User's title
+      phone:
+        type: string
+        description: User's phone
+      profilePicture:
+        type: string
+        description: Path to user's profile picture
+      timezone:
+        type: string
+        description: User's timezone
+      timeFormat:
+        type: integer
+        description: User's preference of 12 or 24 hour time display
+      language:
+        type: string
+        description: User's language code
+
