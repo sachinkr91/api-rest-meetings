@@ -738,6 +738,36 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+    post:
+      summary: Create User’s Default Meeting Settings
+      description: This endpoint creates the user’s default meeting settings.
+      operationId: createRoom
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: room
+          in: body
+          description: The user's room details
+          required: true
+          schema:
+            $ref: "#/definitions/Room"
+      responses:
+        '200':
+          description: The default meeting settings.
+          schema:
+            $ref: '#/definitions/Room'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    
     put:
       summary: Update User’s Default Meeting Settings
       description: This endpoint allows updating a user’s default meeting settings.
