@@ -2505,6 +2505,31 @@ paths:
           schema:
             $ref: '#/definitions/Error'
   /v1/user/{user_id}/developer_applications:
+    get:
+      summary: LIst Client Applications
+      description: This endpoint lists all the client applications associated with the access_token.
+      operationId: createClientApplication
+      tags:
+        - Application
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '201':
+          description: The new application.
+          schema:
+              $ref: '#/definitions/ApplicationList'
+        '401':
+          description: The access token is invalid or does not have permission.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
     post:
       summary: Create Client Application
       description: This endpoint creates a client application for use in 3-legged OAuth2 authorization.
@@ -4827,6 +4852,29 @@ definitions:
         type: string
         description: The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
         readOnly: true
+  ApplicationList:
+    type: array
+    items:
+       type: object
+       properties:
+         description:
+           type: string
+         appLogoUrl:
+           type: string
+           description: Location of Logo to display on BlueJeans Oauth sign-in page
+         redirectUrls:
+           type: array
+           items:
+              type: string
+         clientId:
+           type: string
+           description: OAuth key created for this application
+         appName:
+           type: string
+           description: Name that application registered under
+         client_id:
+           type: string
+           description: Same as clientId           
   ApplicationSecret:
     type: object
     properties:
