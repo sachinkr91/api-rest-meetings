@@ -3209,7 +3209,7 @@ definitions:
         type: integer
         description: This is the epoch-based time (in milliseconds) when the meeting was initially created.
       lastModified:
-        type: integer;
+        type: integer
         description: This is the epoch-based time (in milliseconds) when the meeting was last changed.
       isExpired:
         type: boolean
