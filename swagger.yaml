@@ -1449,9 +1449,17 @@ paths:
             type: object
             properties:
               endpointType:
-                type: integer
-                description: 1:GENERIC 2:LYNC 3:JABBER 4:BluejeansBrowser 5:BluejeansMobile
-                default: 1
+                type: string
+                description: Type of physical device is pairing.
+                enum:
+                  -  GENERIC
+                  -  LYNC
+                  -  JABBER
+                  -  BlueJeansBrowserEndpoint
+                  -  BlueJeansMobileEndpoint
+                  -  WranglerSkypeEndpoint
+                  -  PSTN
+                  -  DCPAudioOnly
               userId:
                 type: integer
                 description: Optional database id of user associated with endpoint
@@ -1514,7 +1522,17 @@ paths:
             type: object
             properties:
               endpointType:
-                type: integer
+                type: string
+                description: Type of physical device is pairing.
+                enum:
+                  -  GENERIC
+                  -  LYNC
+                  -  JABBER
+                  -  BlueJeansBrowserEndpoint
+                  -  BlueJeansMobileEndpoint
+                  -  WranglerSkypeEndpoint
+                  -  PSTN
+                  -  DCPAudioOnly
               userId:
                 type: integer
               languageCode:
@@ -1574,6 +1592,7 @@ paths:
                 description: Typically, the first and last name of the user.
               endpointType:
                 type: string
+                description: Type of physical device is pairing.
                 enum:
                   - PSTN
               userId:
