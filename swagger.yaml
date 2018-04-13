@@ -11,13 +11,7 @@ info:
     
     
     
-    <alert>2/5/2018 The JSON objects associated with Meetings and Users have been updated.
-    <ol>
-      <li>API's to manage meetings now provide fields associated with recurring meetings</li>
-      <li>The User Profile API's include more information</li>
-    </ol>
-    
-    Refer to the <i>Models</i> section below for deprecation information</alert>
+    <alert>4/13/2018 </alert>Clarified Pairing Code, PSTN dialout, and email invitation API's in the Meeting section require a Meeting Access token when called.
 
     <hr>
     
@@ -119,7 +113,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm40 (2/5/2018)
+  version: 1.0.0.mm42 (4/13/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -1424,7 +1418,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP:
     post:
       summary: Generate Pairing Code (SIP)
-      description: This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+      description: This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
       operationId: generatePairingCodeSip
       tags:
         - Meeting
@@ -1494,7 +1488,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc:
     post:
       summary: Generate Pairing Code (WebRTC)
-      description: This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+      description: This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
       operationId: generatePairingCodeWebRtc
       tags:
         - Meeting
@@ -1544,6 +1538,10 @@ paths:
                 description: Reserved for future use. Pass just an empty array for now. No parameters are currently accepted.
                 items:
                   type: string
+                  enum:
+                    - AUDIO
+                    - VIDEO
+                    - CONTENT
       responses:
         '200':
           description: The pairing code information.
@@ -1560,7 +1558,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN:
     post:
       summary: Generate Pairing Code (PSTN)
-      description: This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+      description: This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
       operationId: generatePairingCodePstn
       tags:
         - Meeting
@@ -1597,6 +1595,7 @@ paths:
                   - PSTN
               userId:
                 type: integer
+                description: (optional) The ID of a registered BlueJeans user associated with this outdial
               languageCode:
                 type: string
                 enum:
@@ -1606,11 +1605,13 @@ paths:
                 description: Send a single element set to AUDIO at this time.
                 items:
                   type: string
+                  enum:
+                   - AUDIO
       responses:
         '200':
           description: The pairing code information.
           schema:
-            $ref: '#/definitions/PairingCodeWebRTC'
+            $ref: '#/definitions/PairingCodePSTN'
         '401':
           description: The access token is invalid or does not have permission.
         '404':
@@ -1622,7 +1623,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn:
     post:
       summary: Dialout via PSTN
-      description: Places a PSTN call to a user to join meeting.
+      description: Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
       operationId: dialoutPstn
       tags:
         - Meeting
@@ -1647,19 +1648,21 @@ paths:
             properties:
               connectionGuid:
                 type: string
+                description: Globally unique identifier associated with this endpoint in this meeting. (Typically a string starting with "connguid:")
               countryCode:
                 type: integer
+                description: One or two digit number corresponding to the ITU identifier for the country being called
               pairedParticipantGuid:
                 type: string
+                description: Globally unique identifier associated with the media component of this endpoint for this meeting.  (Typically a string starting with "seamguid:")
               phoneNumber:
                 type: string
+                description: The invited user's phone number 
       responses:
         '200':
           description: Response with connection information.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/DialoutPstn'
+            $ref: '#/definitions/DialoutPstn'
         '401':
           description: The access token is invalid or does not have permission.
         '404':
@@ -1671,7 +1674,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite:
     post:
       summary: Send Email Invite
-      description: This endpoint generates an email invite to the specified meeting.
+      description: This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
       operationId: sendMeetingInvite
       tags:
         - Meeting
@@ -1698,6 +1701,7 @@ paths:
                 type: array
                 items:
                   type: string
+                  description: invited user's email address
       responses:
         '202':
           description: Empty response on success.
@@ -2656,6 +2660,8 @@ definitions:
         type: string
         default: password
         description: The type of access token you are requesting.
+        enum:
+          - password
       username:
         type: string
         description: Your user name that you use to login to our site.
@@ -2696,6 +2702,8 @@ definitions:
         type: string
         default: meeting_passcode
         description: The type of access token you are requesting.
+        enum:
+          - meeting_passcode
       meetingNumericId:
         type: string
         description: Meeting ID
@@ -2749,6 +2757,8 @@ definitions:
         type: string
         default: client_credentials
         description: The type of access token you are requesting.
+        enum:
+          - client_credentials
       client_id:
         type: string
         description: The value given within the BlueJeans Enterprise Administration console.
@@ -2786,6 +2796,8 @@ definitions:
         type: string
         default: authorization_code
         description: The type of access token you are requesting. Use "authorization_code".
+        enum:
+          - authorization_code
       client_id:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string.
@@ -2849,6 +2861,8 @@ definitions:
         type: string
         default: refresh_token
         description: The type of access token you are requesting.
+        enum:
+          - refresh_token
       client_id:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string.
@@ -3501,10 +3515,28 @@ definitions:
         type: string
       seamEndpointGuid:
         type: string
+        description: Globally unique identifier associated with the media component of this endpoint for this meeting.  (Typically a string starting with "seamguid:")
       connectionGuid:
         type: string
+        description: Globally unique identifier associated with this endpoint in this meeting. (Typically a string starting with "connguid:")
       endpointName:
         type: string
+  PairingCodePSTN:
+    type: object
+    properties:
+      pairingCode:
+        type: string
+        description: Unique number associated with this endpoint in this meeting
+      connectionGuid:
+        type: string
+        description: Globally unique identifier associated with this endpoint in this meeting. (Typically a string starting with "connguid:")
+      seamEndpointGuid:
+        type: string
+        description: Globally unique identifier associated with the media component of this endpoint for this meeting.  (Typically a string starting with "seamguid:")
+      endpointName:
+        type: string
+        description: String name assigned to this endpoint
+
   DialoutPstn:
     type: object
     properties:
