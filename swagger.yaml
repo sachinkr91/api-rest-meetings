@@ -1124,7 +1124,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Meeting State
-      description: This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+      description: This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  **Note:** call this API using a meeting access token
       operationId: updateMeetingState
       tags:
         - Meeting
@@ -1160,11 +1160,20 @@ paths:
                 description: Set to "terminated" to end the meeting.
                 enum:
                   - terminated
+              audioMuteOnEntry:
+                type: boolean
+                description: True forces each party to automatically mute when the connect into the meeting
+              isLargeMeeting:
+                type: boolean
+                description: True causes BlueJeans to suppress playing announcement/tones when a party joins the meeting
       responses:
         '200':
           description: The results for this meeting.
           schema:
             $ref: '#/definitions/Meeting'
+        '204':
+          description: Changes made, no response data sent.
+          schema:
         '401':
           description: The access token is invalid or does not have permission.
         '404':
