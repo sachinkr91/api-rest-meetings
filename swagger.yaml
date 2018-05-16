@@ -5064,7 +5064,7 @@ definitions:
       notificationData: 
          type: string
          description: this property is not used in the BlueJeans Meetings product
-     moderator: 
+      moderator: 
          type: object
          properties:
            id:
