@@ -113,7 +113,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm42 (4/13/2018)
+  version: 1.0.0.mm44 (5/14/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -3222,8 +3222,10 @@ definitions:
             
       notificationUrl:
         type: string
+        description: this property is not used in the BlueJeans Meetings product
       notificationData:
         type: string
+        description: this property is not used in the BlueJeans Meetings product
       moderator:
         type: object
         properties:
@@ -5058,11 +5060,11 @@ definitions:
                   description: 
       notificationUrl: 
          type: string
-         description:
+         description: this property is not used in the BlueJeans Meetings product
       notificationData: 
          type: string
-         description:
-      moderator: 
+         description: this property is not used in the BlueJeans Meetings product
+     moderator: 
          type: object
          properties:
            id:
