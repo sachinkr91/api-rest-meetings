@@ -2182,6 +2182,13 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: filter
+          in: query
+          required: true
+          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+          type: object
+          schema:
+            $ref: '#/definitions/FilterSpecification'
       responses:
         '200':
           description: The results for this meeting.
@@ -2245,8 +2252,15 @@ paths:
           type: integer
         - name: filter
           in: query
-          description: URL-encoded JSON string
-          type: string
+          required: true
+          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+          type: object
+          schema:
+            $ref: '#/definitions/FilterSpecification'
+        - name: count
+          in: query
+          type: integer
+          description: The number of records to return
       responses:
         '200':
           description: The results for this enterprise.
@@ -2271,6 +2285,13 @@ paths:
           description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
           required: true
           type: integer
+        - name: filter
+          in: query
+          required: true
+          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+          type: object
+          schema:
+            $ref: '#/definitions/FilterSpecification'
       responses:
         '200':
           description: The results for this user.
@@ -3620,6 +3641,7 @@ definitions:
           recorded:
             type: boolean
   Endpoints:
+    title: Endpoints
     type: array
     items:
       type: object
@@ -3967,6 +3989,7 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/RecordingHistory'
+    title: RecordingHistoryList
   RecordingHistory:
     type: object
     properties:
@@ -4913,6 +4936,7 @@ definitions:
         description: The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
         readOnly: true
   ApplicationList:
+    title: ApplicationList
     type: array
     items:
        type: object
@@ -5371,3 +5395,48 @@ definitions:
         type: string
         description: User's language code
 
+  FilterSpecification:
+    type: array
+    title:  FilterSpecification
+    minItems: 3
+    maxItems: 3
+    description: Array for specifying a search filter.  The general format of the array us [lower,upper,third].  Lower is an object describing the lower search limit, upper describes the upper search limit, and third is generally a copy of the upper limit.
+    items:
+        $ref: '#/definitions/FilterObject'
+    
+  FilterObject:
+    type: object
+    properties:
+      type: 
+        type: string
+        enum:
+            - string
+            - boolean
+            - numeric
+            - date
+            - list
+        description: The data type of the comparison variable as selected from this list
+      value:
+        type: string
+        description: Value for comparison testing.  A time field must be formatted as yyyy-mm-ddThh:mm:ss{gmt offset}. Example 2018-05-10T23:59:00-07:00
+      field:
+        type: string
+        enum:
+            - startTime
+            - endTime
+            - meetingUUID
+            - userId
+            - enterpriseId
+        desription:  One of the BlueJeans meetings fields selected from this list to be used for comparison testing
+      comparison:
+        type: string
+        enum:
+            - lt
+            - gt
+            - eq
+            - in
+        description: A comparison operator selected from this list- less than, greater than, equal,and in
+        
+        
+      
+        
