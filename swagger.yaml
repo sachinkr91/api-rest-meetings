@@ -10,7 +10,7 @@ info:
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
     
-    
+    <alert>5/21/2018 </alert>Corrected return model for meeting history call
     <alert>4/13/2018 </alert>Clarified Pairing Code, PSTN dialout, and email invitation API's in the Meeting section require a Meeting Access token when called.
 
     <hr>
@@ -1901,8 +1901,8 @@ paths:
       responses:
         '200':
           description: The meeting history object.
-          schema:
-            $ref: '#/definitions/Meeting'
+          schema: 
+            $ref: '#/definitions/MeetingHistory'
         default:
           description: Unexpected error
           schema:
@@ -1931,7 +1931,7 @@ paths:
         '200':
           description: The meeting history object.
           schema:
-            $ref: '#/definitions/Meeting'
+            $ref: '#/definitions/MeetingHistory'
         default:
           description: Unexpected error
           schema:
