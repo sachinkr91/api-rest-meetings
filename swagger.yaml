@@ -10,8 +10,9 @@ info:
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
     
-    <alert>5/21/2018 </alert>Corrected return model for meeting history call
-    <alert>4/13/2018 </alert>Clarified Pairing Code, PSTN dialout, and email invitation API's in the Meeting section require a Meeting Access token when called.
+    <alert>6/01/2018 </alert>Clarified Access Token requirements for meeting endpoint API's.<br/>
+    5/21/2018 Corrected return model for meeting history call.<br/>
+    4/13/2018 Clarified Pairing Code, PSTN dialout, and email invitation API's in the Meeting section require a Meeting Access token when called.<br/>
 
     <hr>
     
@@ -113,7 +114,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm44 (5/14/2018)
+  version: 1.0.0.mm44 (6/01/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -1124,7 +1125,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Meeting State
-      description: This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  **Note:** call this API using a meeting access token
+      description: This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
       operationId: updateMeetingState
       tags:
         - Meeting
@@ -1185,7 +1186,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints:
     get:
       summary: List Meeting Endpoints
-      description: This endpoint returns an array of all endpoints in the current meeting.
+      description: This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
       operationId: getMeetingEndpoints
       tags:
         - Meeting
@@ -1217,7 +1218,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Meeting Endpoints State
-      description: This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+      description: This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
       operationId: updateMeetingEndpoints
       tags:
         - Meeting
@@ -1259,7 +1260,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}:
     get:
       summary: Get Endpoint Information
-      description: This endpoint allows you to retrieve information about an endpoint in the meeting.
+      description: This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
       operationId: getMeetingEndpoint
       tags:
         - Meeting
@@ -1296,7 +1297,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Endpoint Video/Audio State
-      description: This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+      description: This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
       operationId: updateMeetingEndpoint
       tags:
         - Meeting
@@ -1346,7 +1347,7 @@ paths:
   /v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout:
     get:
       summary: Get Endpoint Layout
-      description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+      description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
       operationId: getEndpointLayout
       tags:
         - Meeting
@@ -1383,7 +1384,7 @@ paths:
             $ref: '#/definitions/Error'
     put:
       summary: Update Endpoint Layout
-      description: This endpoint allows you to update an individual endpoint’s current layout setting.
+      description: This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
       operationId: updateEndpointLayout
       tags:
         - Meeting
