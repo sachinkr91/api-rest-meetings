@@ -145,7 +145,7 @@ tags:
     description:  Manage End User Accounts
   -
     name: Enterprise
-    description:  Manage Enterprise User Accounts
+    description:  Manage User Accounts in Enterprise
   -
     name: Meeting
     description:  Manage Video Meetings and Endpoints
@@ -581,75 +581,55 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/users:
+  /v1/enterprise/{enterpriseId}/users:
     get:
-      summary: List Enterprise Users
-      description: This endpoint allows listing the users that are associated with an enterprise account. Requires enterprise admin access level.
-      operationId: listUsers
+      summary: Search for User(s)
+      description: This endpoint provides a search facility for the specified enterprise.  <ul><li>If textSearch is provided, the results will be a partial string-match search of the given textSearch value.</li><li> Otherwise, the search will return an exact lookup by emailId.</li></ul>
+      operationId: searchUsers
       tags:
         - Enterprise
       security:
         - access_token: []
       parameters:
-        - name: enterprise_id
+        - name: enterpriseId
           in: path
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
+        - name: fields
+          in: query
+          description: A comma-separated list one or more of these BlueJeans enteprise profile fields to include in the API responses- username, firstName, middleName, lastName, isEnterpriseAdmin, enterpriseJoinDate, email
+          type: string
+        - name: order
+          in: query
+          type: string
+          description: If specificed, order defines how the API sorts results- ascending or descending
+          enum: [asc,desc]
+        - name: sortBy
+          in: query
+          type: string
+          description: Name of BlueJeans profile field by with API response data is sorted
+        - name: textSearch
+          in: query
+          type: string
+          description: If specified textSearch provides a string (partial or complete) by which to search the list of BlueJeans users
+        - name: emailId
+          in: query
+          type: string
+          description:  If specified, emailId specifies performing a search for the user profile associated with this email address.  Wildcards are <b>not</b> supported for the email address value.
         - name: pageSize
           in: query
           description: Sets number of items returned per page.
           type: integer
         - name: pageNumber
           in: query
-          description: Selects which page of results to return.
+          description: Selects which page of results to return (1-based value)
           type: integer
-        - name: emailId
-          in: query
-          description: Allows filtering the response by a user’s email address.
-          type: string
       responses:
         '200':
-          description: The list of users in the enterprise.
+          description: The settings for the user
           schema:
-            $ref: "#/definitions/EnterpriseUserList"
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-    post:
-      summary: Create Enterprise User
-      description: This endpoint allows adding a user to an existing enterprise. Requires enterprise admin access level.
-      operationId: createUser
-      tags:
-        - Enterprise
-      security:
-        - access_token: []
-      parameters:
-        - name: enterprise_id
-          in: path
-          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-          required: true
-          type: integer
-        - name: forcePasswordChange
-          in: query
-          description: Forces the user to change his or her password on first log in.
-          type: boolean
-        - name: sendVerificationMail
-          in: query
-          description: Prevents welcome emails from being sent to the newly created user.
-          type: boolean
-        - name: user
-          in: body
-          description: The information about the new user.
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      responses:
-        '201':
-          description: The new user.
-          schema:
-            $ref: '#/definitions/UserId'
+            $ref: "#/definitions/EnterpriseUserSearch"
         default:
           description: Unexpected error
           schema:
@@ -1968,6 +1948,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
   /v1/user/{user_id}/live_meetings/{meeting_id}/recordings:
     post:
       summary: Start Recording
@@ -2133,6 +2114,141 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+
+  /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing:
+    get:
+      summary: List Recording Sharing
+      description: This endpoint retrieves a the sharing authorization information for a meeting's recording. If no sharing has been authorized for the meeting, this API returns a 404 error.
+      operationId: getShareRecordings
+      tags:
+        - Recording
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meetingGuid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. 
+          required: true
+      responses:
+        '200':
+          description: The results for the request.
+          schema:
+            $ref: '#/definitions/meetingSharing'
+        '404':
+          description: Sharing authorization has not been created
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    post:
+      summary: Enable Recording Sharing
+      description: This endpoint creates a sharing authorization record for the specified meeting recording. 
+      operationId: createShareRecordings
+      tags:
+        - Recording
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meetingGuid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes.
+          required: true
+        - name: setSharing
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/setSharing'        
+      responses:
+        '201':
+          description: The results for the request.
+          schema:
+            $ref: '#/definitions/meetingSharing'
+        '400':
+          description: Sharing authorization already created, use PUT to modify
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Delete Recording Sharing
+      description: This endpoint deletes the sharing authorization associated with a meeting recording. 
+      operationId: deleteShareRecordings
+      tags:
+        - Recording
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meetingGuid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes.
+          required: true
+      responses:
+        '204':
+          description: The sharing authorization has been deleted
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+            
+  /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/{sharingId}:
+    put:
+      summary: Modify Recording Sharing
+      description: This endpoint modifieds the sharing authorization attributes for a meeting recording. 
+      operationId: modifyShareRecordings
+      tags:
+        - Recording
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: meetingGuid
+          in: path
+          description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes.
+          required: true
+        - name: sharingId
+          in: path
+          description: The identifier of the sharing authorization record.  This value can be obtained from the "Id" in the response to the API GET /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing
+          required: true
+        - name: modifySharing
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/modifySharing'        
+      responses:
+        '200':
+          description: The results for the request.
+          schema:
+            $ref: '#/definitions/meetingSharing'
+        '400':
+          description: Sharing authorization already created, use PUT to modify
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+            
   /v1/user/{user_id}/cms/{content_id}:
     get:
       summary: Get Recording Download Link
@@ -3086,8 +3202,21 @@ definitions:
       expiryDate:
         type: integer
         description: Date of expiration; null if not set
+  EnterpriseUserSearch:
+    type: object
+    properties:
+      count:
+        type: integer
+        description:  The total count of profiles returned in this query
+      user:
+        type: array
+        description:  The list of matching enterprise profiles
+        items:
+          $ref: '#/components/EnterpriseUserInfo'
+
   EnterpriseUserList:
     type: object
+    description: This Model has been deprecated (6/25/2018)
     properties:
       count:
         type: integer
@@ -5442,4 +5571,103 @@ definitions:
         
         
       
-        
+  meetingSharing:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: This field is the Sharing Authorization unique identifier.
+      meetingGuid:
+        type: string
+        description: The meetingGuid is a globally unique Id for this particular recording. It is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 6 alphanumeric segments separated by dashes.         
+      ownerId:
+        type: integer
+        description:  The ownerId field is the unique Id number of the BlueJeans account that owns the recording
+      sharingUrl: 
+        type: string 
+      recepientType: 
+         $ref: '#/components/recepientOptions'
+      properties:
+        type: object
+        description: TBD
+        properties:
+            nothing:
+              type: string
+      status: 
+        type: string 
+        description: This status field indicates the state of the sharing authorization record.
+        enum: 
+        - ACTIVE
+        - DELETED
+      downloadable:
+        type: boolean
+        description: The downloadable field indicates whether the recording can be downloaded
+      passcode:
+        type: string
+        description: TBD
+      validity:
+        type: string
+        description: TBD
+      created:
+        type: integer
+        description: Date, since epoch time, that the recording was created (in milliseconds).
+      lastmodified: 
+        type: integer 
+        description: Date, since epoch time, that the recording was last modified (in milliseconds).
+  setSharing:
+    type: object
+    properties:
+      meetingGuid:
+        type: string
+        description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. 
+      ownerId:
+        type: integer
+      recepientType: 
+        description:  The ownerId field is the unique Id number of the BlueJeans account that owns the recording
+        $ref: '#/components/recepientOptions'
+  modifySharing:
+    type: object
+    properties:
+      downloadable:
+        type: boolean
+        description: If true, allow people to download the recording
+      recepientType:
+         $ref: '#/components/recepientOptions'
+components:
+  recepientOptions:
+    type: string
+    description: The recepient (sic) options describe the type of users who will have access to a recording
+    enum:
+     - PUBLIC
+     - ENTERPRISE
+  EnterpriseUserInfo:
+    type: object
+    properties:
+      id: 
+        type: integer 
+        description: Unique enteprise account identifier
+      username: 
+        type: string 
+        description: Name of user's account 
+      email:
+        type: string
+        description: Email associated with this enterprise account.
+      firstName: 
+        type: string
+        description:  User's first (Given) name 
+      middleName: 
+        type: string
+        description: User's middle name 
+      lastName: 
+        type: string
+        description:  User's last (Family) name 
+      enterpriseJoinDate: 
+        type: integer 
+        description: Date since epoch (in milliseconds) when account was added to the entperprise 
+      isEnterpriseAdmin: 
+        type: boolean 
+        description: Indicates if this profile has Administrative BlueJeans privileges within its enterprise.
+      uri: 
+        type: string
+        description: Internal enterprise profile URI for referencing BlueJeans resources.
+      
