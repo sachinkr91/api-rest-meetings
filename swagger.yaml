@@ -10,9 +10,9 @@ info:
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
     
-    <alert>6/01/2018 </alert>Clarified Access Token requirements for meeting endpoint API's.<br/>
+    <alert>6/28/2018 </alert>Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
+    6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/>
     5/21/2018 Corrected return model for meeting history call.<br/>
-    4/13/2018 Clarified Pairing Code, PSTN dialout, and email invitation API's in the Meeting section require a Meeting Access token when called.<br/>
 
     <hr>
     
@@ -114,7 +114,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm44 (6/01/2018)
+  version: 1.0.0.mm44 (6/28/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -581,114 +581,6 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/enterprise/{enterpriseId}/users:
-    get:
-      summary: Search for User(s)
-      description: This endpoint provides a search facility for the specified enterprise.  <ul><li>If textSearch is provided, the results will be a partial string-match search of the given textSearch value.</li><li> Otherwise, the search will return an exact lookup by emailId.</li></ul>
-      operationId: searchUsers
-      tags:
-        - Enterprise
-      security:
-        - access_token: []
-      parameters:
-        - name: enterpriseId
-          in: path
-          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-          required: true
-          type: integer
-        - name: fields
-          in: query
-          description: A comma-separated list one or more of these BlueJeans enteprise profile fields to include in the API responses- username, firstName, middleName, lastName, isEnterpriseAdmin, enterpriseJoinDate, email
-          type: string
-        - name: order
-          in: query
-          type: string
-          description: If specificed, order defines how the API sorts results- ascending or descending
-          enum: [asc,desc]
-        - name: sortBy
-          in: query
-          type: string
-          description: Name of BlueJeans profile field by with API response data is sorted
-        - name: textSearch
-          in: query
-          type: string
-          description: If specified textSearch provides a string (partial or complete) by which to search the list of BlueJeans users
-        - name: emailId
-          in: query
-          type: string
-          description:  If specified, emailId specifies performing a search for the user profile associated with this email address.  Wildcards are <b>not</b> supported for the email address value.
-        - name: pageSize
-          in: query
-          description: Sets number of items returned per page.
-          type: integer
-        - name: pageNumber
-          in: query
-          description: Selects which page of results to return (1-based value)
-          type: integer
-      responses:
-        '200':
-          description: The settings for the user
-          schema:
-            $ref: "#/definitions/EnterpriseUserSearch"
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/users/export:
-    get:
-      summary: Export Enterprise Users
-      description: This endpoint exports existing users into a CSV file.
-      operationId: exportUsers
-      produces:
-        - text/csv
-      tags:
-        - Enterprise
-      security:
-        - access_token: []
-      parameters:
-        - name: enterprise_id
-          in: path
-          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-          required: true
-          type: integer
-      responses:
-        '404':
-          description: Enterprise not found
-        '406':
-          description: Not acceptable. Usually, this is because you hava an accept header set to application/json and the server is trying to return you text/csv. So it is saying it cannot do what you want.
-        '200':
-          description: Returns a text/csv file. Not a JSON response.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/enterprise/{enterprise_id}/users/{user_id}:
-    delete:
-      summary: Remove Enterprise User
-      description: This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
-      operationId: removeUser
-      tags:
-        - Enterprise
-      security:
-        - access_token: []
-      parameters:
-        - name: enterprise_id
-          in: path
-          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-          required: true
-          type: integer
-        - name: user_id
-          in: path
-          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-          required: true
-          type: integer
-      responses:
-        '204':
-          description: Empty response on success.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
   /v1/user/{user_id}/room:
     get:
       summary: Get User’s Default Meeting Settings
@@ -826,6 +718,280 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
+  /v1/user/{userId}/tags:
+    get:
+      summary: List User Tags
+      description: This endpoint retrieves all tags associated with the specified user. 
+      operationId: getUserTags
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: userId
+          in: path
+          description: The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The list of tags 
+          schema:
+            $ref: '#/components/tagList'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    put:
+      summary: Set User Tags
+      description: This endpoint modifies the list of tags associated with the specified user. <b>NOTE</b> Adding a tag that is not defined in the user's Enterprise returns a 200 (success) status code.  It is recommended you validate the returned list of tags.
+      operationId: changeUserTags
+      tags:
+        - User
+      security:
+        - access_token: []
+      parameters:
+        - name: userId
+          in: path
+          description: The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: action
+          in: query
+          description: Type of operation to be done
+          required: true
+          type: string
+          enum: [add,delete]
+        - name: tag
+          in: query
+          description: The name of tag
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The list of tags 
+          schema:
+            $ref: '#/components/tagList'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    
+  /v1/enterprise/{enterpriseId}/users:
+    get:
+      summary: Search for User(s)
+      description: This endpoint provides a search facility for the specified enterprise.  <ul><li>If textSearch is provided, the results will be a partial string-match search of the given textSearch value.</li><li> Otherwise, the search will return an exact lookup by emailId.</li></ul>
+      operationId: searchUsers
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterpriseId
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: fields
+          in: query
+          description: A comma-separated list one or more of these BlueJeans enteprise profile fields to include in the API responses- username, firstName, middleName, lastName, isEnterpriseAdmin, enterpriseJoinDate, email
+          type: string
+        - name: order
+          in: query
+          type: string
+          description: If specificed, order defines how the API sorts results- ascending or descending
+          enum: [asc,desc]
+        - name: sortBy
+          in: query
+          type: string
+          description: Name of BlueJeans profile field by with API response data is sorted
+        - name: textSearch
+          in: query
+          type: string
+          description: If specified textSearch provides a string (partial or complete) by which to search the list of BlueJeans users
+        - name: emailId
+          in: query
+          type: string
+          description:  If specified, emailId specifies performing a search for the user profile associated with this email address.  Wildcards are <b>not</b> supported for the email address value.
+        - name: pageSize
+          in: query
+          description: Sets number of items returned per page.
+          type: integer
+        - name: pageNumber
+          in: query
+          description: Selects which page of results to return (1-based value)
+          type: integer
+      responses:
+        '200':
+          description: The settings for the user
+          schema:
+            $ref: "#/definitions/EnterpriseUserSearch"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    post:
+      summary: Create User
+      description: This endpoint creates a user profile within the specified enterprise.  It is the first of the 2-step process to create a BlueJeans user.  It should be followed by an API call to create the user's personal meeting room.
+      operationId: createEnterpriseUser
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterpriseId
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: billingCategory
+          in: query
+          type: string
+          default: ENTERPRISE
+          description: What general billing group does this profile belong?
+        - name: forcePasswordChange
+          in: query
+          description: Create profile and force user to change password on next login
+          type: boolean
+        - name: isAdmin
+          in: query
+          type: boolean
+          description: Create this account to have Administrative Privileges for the enterprise
+        - name: EnterpriseUser
+          description: Basic Enterprise Account information
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/EnterpriseCreateUser'
+      responses:
+        '201':
+          description: The settings for the user
+          schema:
+            $ref: "#/definitions/UserId"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+            
+  /v1/enterprise/{enterprise_id}/users/export:
+    get:
+      summary: Export Enterprise Users
+      description: This endpoint exports existing users into a CSV file.
+      operationId: exportUsers
+      produces:
+        - text/csv
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+      responses:
+        '404':
+          description: Enterprise not found
+        '406':
+          description: Not acceptable. Usually, this is because you hava an accept header set to application/json and the server is trying to return you text/csv. So it is saying it cannot do what you want.
+        '200':
+          description: Returns a text/csv file. Not a JSON response.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/enterprise/{enterprise_id}/users/{user_id}:
+    delete:
+      summary: Remove Enterprise User
+      description: This endpoint allows removing a user from an enterprise; it does not delete the user. Requires enterprise admin access level.
+      operationId: removeUser
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: user_id
+          in: path
+          description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+      responses:
+        '204':
+          description: Empty response on success.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/enterprise/{enterpriseId}/tags:
+    get:
+      summary: List Enterprise Tags
+      description: This endpoint retrieves all profile tags defined for the specified enterprise. 
+      operationId: getEnterpriseTags
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterpriseId
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: The list of tags 
+          schema:
+            $ref: '#/components/tagList'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    put:
+      summary: Set Enterprise Tags
+      description: This endpoint modifies the list of profile tags associated with the specified enterprise. 
+      operationId: changeEnterpriseTags
+      tags:
+        - Enterprise
+      security:
+        - access_token: []
+      parameters:
+        - name: enterpriseId
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: action
+          in: query
+          description: Type of operation to be done
+          required: true
+          type: string
+          enum: [add,delete]
+        - name: tag
+          in: query
+          description: The name of tag
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The list of tags 
+          schema:
+            $ref: '#/components/tagList'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    
+    
   /v1/user/{user_id}/scheduled_meeting:
     get:
       summary: List Meetings
@@ -3232,6 +3398,33 @@ definitions:
             uri:
               type: string
               description: The URI of this user in order to fetch further details.
+  EnterpriseCreateUser:
+    type: object
+    properties:
+      emailId:
+        type: string
+        description: UNIQUE email address for this user
+      username:
+        type: string
+        description: UNIQUE username to assign to this account
+      userName:      
+        type: string
+        description: duplicate field - same value as 'username' field 
+      firstName:
+        type: string
+        description: first (Given) name of the user     
+      lastName:
+        type: string
+        description: last (Family) name of the user
+      password:
+        type: string
+        description: cleartext password to be assigned to the account
+      company:
+        type: string
+        description: Name of company for the user   
+      title:
+        type: string
+        description: User's job title
   UserId:
     type: object
     properties:
@@ -5670,4 +5863,8 @@ components:
       uri: 
         type: string
         description: Internal enterprise profile URI for referencing BlueJeans resources.
-      
+  tagList:
+    type: array
+    items:
+      type: string
+      description: name of tag 
