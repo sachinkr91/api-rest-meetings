@@ -1042,10 +1042,10 @@ paths:
           type: boolean
         - name: meeting
           in: body
-          description: The details of the meeting.
+          description: The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
           required: true
           schema:
-            $ref: "#/definitions/Meeting"
+            $ref: "#/components/scheduleMeetingMin"
       responses:
         '201':
           description: The settings for the meeting.
@@ -5868,3 +5868,42 @@ components:
     items:
       type: string
       description: name of tag 
+
+  scheduleMeetingMin:
+    type: object
+    description: A typical minimum set of Properties required to schedule a meeting
+    required: [title,start,end,timezone,endPointVersion,endPointType]
+    properties:
+      title:
+        type: string
+        default: My Test Meeting
+      description:
+        type: string
+      start:
+        type: integer
+        format: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+      end:
+        type: integer
+        format: integer
+        description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
+      timezone:
+        type: string
+        default: America/New_York
+      endPointType:
+        type: string
+        default: "WEB_APP"
+      endPointVersion:
+        type: string
+        default: "2.10"
+      attendees:
+        type: array
+        items:
+          $ref: '#/definitions/Attendee'
+      isLargeMeeting:
+        type: boolean
+        description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
+      isPersonalMeeting:
+        type: boolean
+        default: false
+        description: Use the scheduler's personal meeting room and Id for this meeting.
