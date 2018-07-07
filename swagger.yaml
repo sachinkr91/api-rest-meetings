@@ -9,8 +9,8 @@ info:
 
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
-    
-    <alert>6/28/2018 </alert>Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
+    <alert>7/06/2018 </alert>Added API for changing ownership of recordings.<br/>
+    6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
     6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/>
     5/21/2018 Corrected return model for meeting history call.<br/>
 
@@ -114,7 +114,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm44 (6/28/2018)
+  version: 1.0.0.mm44 (7/06/2018)
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -2450,6 +2450,45 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  
+  /v1/user/{user_id}/meeting_history/move_recordings/from_user/{originalOwner}/to_user/{newOwner}:
+    post:
+      summary: Move Recording Ownership
+      description: This endpoint changes the ownership for all recordings from the original owner account and moves them to the new owner account.
+      operationId: moveRecordingOwner
+      tags:
+        - Recording
+      security:
+        - access_token: []
+      parameters:
+        - name: user_id
+          in: path
+          description: The ID of the user requesting the move.  This user must have Enterprise Administrator privileges.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+          required: true
+          type: integer
+        - name: originalOwner
+          in: path
+          description: The ID of the recording's current owner. 
+          required: true
+          type: integer
+        - name: newOwner
+          in: path
+          description: The ID of the intended owner for the recording.
+          required: true
+          type: integer
+
+      responses:
+        '200':
+          description: The results for the request.
+          schema:
+            $ref: '#/components/recordingMoved'
+        '405':
+          description: Incorrect method.  Make sure you are calling API with POST method.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       summary: Live Meetings Summary by Enterprise
@@ -5907,3 +5946,13 @@ components:
         type: boolean
         default: false
         description: Use the scheduler's personal meeting room and Id for this meeting.
+  recordingMoved:
+    type: object
+    properties:
+      code:
+        type: integer
+        description:  The equivalent HTTP response code from the move operation
+      message:
+        type: string
+        description: General description of results of the move
+      
