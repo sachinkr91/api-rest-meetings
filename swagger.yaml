@@ -9,7 +9,9 @@ info:
 
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
-    <alert>7/06/2018 </alert>Added API for changing ownership of recordings.<br/>
+    
+    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
+    7/06/2018 Added API for changing ownership of recordings.<br/>
     6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
     6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/>
     5/21/2018 Corrected return model for meeting history call.<br/>
@@ -2492,7 +2494,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       summary: Live Meetings Summary by Enterprise
-      description: This endpoint lists meetings in progress by enterprise. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists meetings in progress by enterprise. Requires enterprise administrator access token
       operationId: getMeetingsLiveByEnterprise
       tags:
         - Command Center
@@ -2504,13 +2506,11 @@ paths:
           description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
           required: true
           type: integer
-        - name: filter
+        - name: app_name
           in: query
-          required: true
-          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
-          type: object
-          schema:
-            $ref: '#/definitions/FilterSpecification'
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
       responses:
         '200':
           description: The results for this meeting.
@@ -2523,7 +2523,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/:
     get:
       summary: List Live Meeting Endpoints by Enterprise
-      description: This endpoint lists endpoints for a given meeting in progress. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists endpoints for a given meeting in progress. Requires enterprise administrator access token
       operationId: getMeetingLiveByEnterprise
       tags:
         - Command Center
@@ -2540,6 +2540,11 @@ paths:
           description: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
           required: true
           type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
       responses:
         '200':
           description: The results for this enterprise.
@@ -2552,7 +2557,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
       summary: List Past Meetings by Enterprise
-      description: This endpoint lists completed meetings by enterprise. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists completed meetings by enterprise. Requires enterprise administrator access token
       operationId: getMeetingsPastByEnterprise
       tags:
         - Command Center
@@ -2574,15 +2579,20 @@ paths:
           type: integer
         - name: filter
           in: query
-          required: true
-          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+          required: false
+          description: An array of search filter conditions that describe the limits of the search to perform. For example `[{"type":"date","value":"2018-06-05T00:00:00-07:00","field":"startTime","comparison":"gt"},{"type":"date","value":"2018-06-12T23:59:59-07:00","field":"endTime","comparison":"lt"},{"type":"date","value":"2018-06-12T23:59:59-07:00","field":"startTime","comparison":"lt"}]`
           type: object
           schema:
             $ref: '#/definitions/FilterSpecification'
         - name: count
           in: query
-          type: integer
-          description: The number of records to return
+          type: boolean
+          description: Include total count of meetings in response
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
       responses:
         '200':
           description: The results for this enterprise.
@@ -2595,7 +2605,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings:
     get:
       summary: List Past Meetings by User
-      description: This endpoint lists completed meetings by user. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists completed meetings by user. Requires enterprise administrator access token
       operationId: getMeetingsPastByUser
       tags:
         - Command Center
@@ -2626,7 +2636,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by Enterprise
-      description: This endpoint lists meeting endpoints for completed meetings by enterprise. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists meeting endpoints for completed meetings by enterprise. Requires enterprise administrator access token
       operationId: getMeetingPastByEnterprise
       tags:
         - Command Center
@@ -2659,7 +2669,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings/{meeting_uuid}:
      get:
       summary: List Meeting Endpoints & Stats by User
-      description: This endpoint lists meeting endpoints for completed meetings by user. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists meeting endpoints for completed meetings by user. Requires enterprise administrator access token
       operationId: getMeetingPastByUser
       tags:
         - Command Center
@@ -2685,10 +2695,143 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary:
+    get:
+      summary: Overall Enterprise Summary
+      description: This endpoint lists the summary usage statistics for the specified Enterprise. Requires enterprise administrator access token
+      operationId: getEnterpriseOverallSummary
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          required: true
+          description: A JSON array of FilterHighLowTs objects to bracket the search time `[{"type":"date","comparison":"eq","value":"2018-06-04T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2018-06-10T23:59:59-07:00","field":"hights"}]`
+
+          schema:
+            $ref: '#/definitions/FilterTs'
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/MeetingSummaryInfo'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /v2/enterprise/{enterprise_id}/indigo/analytics/users/active:
+    get:
+      summary: Enterprise User Summary
+      description: This endpoint lists the summary of active users statistics for the specified Enterprise.  Requires enterprise administrator access token
+      operationId: getEnterpriseUsersActive 
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          required: true
+          description: A JSON array of FilterHighLowTs objects to bracket the search time `[{"type":"string","comparison":"eq","value":"'%Y-%m-%d'","field":"dateFormat"},{"type":"date","comparison":"eq","value":"2018-06-14T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2018-06-20T23:59:00-07:00","field":"hights"}]`
+          type: string
+        - name: clientTZ
+          in: query
+          description: Timezone of the requesting site in the format `America/Los_Angeles`
+          type: string
+        - name: limit
+          in: query
+          description:  The maximum number of records to return.  A value of `0` returns all records
+          type: integer
+          default: 0
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/EnterpriseUsersActive'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+            
+
+
+            
+            
+  /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries:
+    get:
+      summary: Geographic Demographics 
+      description: This endpoint lists the Geographic endpoint accesses.  Requires enterprise administrator access token
+      operationId: getGeoMap
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+          default: 0 
+          description: Offset into the total set of datarecords.  If offset=0, return data includes size of data.  
+        - name: limit
+          in: query
+          type: integer
+          default: 0 
+          description: The Limit sets the maximum number of data records to return .  Limit=0 returns the full dataset
+        - name: filter
+          in: query
+          required: true
+          description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{"type":"date","comparison":"gt","value":"2018-05-31T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2018-06-07T23:59:59-07:00","field":"start_time"}]`
+          type: object
+          schema:
+            $ref: '#/definitions/FilterSpecification'
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema: 
+            $ref: '#/definitions/EndpointLocationSummary'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
      get:
       summary: Top Users
-      description: This endpoint retrieves the top users by usage for an enterprise. Requires /oauth2/token?Password authentication.
+      description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
+      deprecated: true
       operationId: getTopUsers
       tags:
         - Command Center
@@ -2714,10 +2857,45 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v2/enterprise/{enterprise_id}/indigo/analytics/users/usage:
+     get:
+      summary: Top Users
+      description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
+      operationId: getTopUsers
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          required: true
+          description: A JSON array of objects that bracket the search time 	[{"type":"date","comparison":"gt","value":"2018-06-19T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2018-06-26T23:59:59-07:00","field":"end_time"}]
+          type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsTopUsers'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
      get:
       summary: Endpoint Distribution
-      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires /oauth2/token?Password authentication.
+      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
+      deprecated: true
       operationId: getEndpointDistribution
       tags:
         - Command Center
@@ -2743,10 +2921,48 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new:
+     get:
+      summary: Endpoint Distribution
+      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
+      operationId: getEndpointDistribution
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          required: true
+          description: A JSON array of objects that bracket the search time 	[{"type":"date","comparison":"gt","value":"2018-06-19T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2018-06-26T23:59:59-07:00","field":"end_time"}]
+          type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsEndpointDistributionV2'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+            
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
      get:
       summary: Meeting Usage Over Time
-      description: This endpoint reports on meeting usage. Requires /oauth2/token?Password authentication.
+      description: This endpoint reports on meeting usage. Requires enterprise administrator access token
+      deprecated: true
       operationId: getMeetingUsage
       tags:
         - Command Center
@@ -2777,10 +2993,53 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
+     get:
+      summary: Meeting Usage Over Time
+      description: This endpoint reports on meeting usage.  Requires enterprise administrator access token
+      operationId: getMeetingUsage
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: clientTZ
+          in: query
+          description: Based on standard TZ code.
+          default: America/Denver
+          type: string
+        - name: filter
+          in: query
+          required: true
+          description: URL-encoded Array of JSON objects defining the time interval [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2018-06-19T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2018-06-26T23:59:59-07:00","field":"hights"}]
+          type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsUsage'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
      get:
       summary: ROI Data
-      description: This endpoint lists return on investment (ROI) data for meetings. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
+      deprecated: true
       operationId: getRoiRanges
       tags:
         - Command Center
@@ -2807,10 +3066,49 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
+     get:
+      summary: ROI Data
+      description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
+      operationId: getRoiRanges
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          description: URL-encoded Array of JSON objects defining the time interval [{"type":"date", "comparison":"gt", "value":"2018-06-19T00:00:00-07:00", "field":"startTime"}, {"type":"date", "comparison":"lt", "value":"2018-06-26T23:59:59-07:00", "field":"startTime" }]
+          required: true
+          type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsRoiData'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
+
   /v1/enterprise/{enterprise_id}/indigo/feedback/count:
      get:
       summary: Survey Feedback Scores
-      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
+      deprecated: true
       operationId: getFeedbackCount
       tags:
         - Command Center
@@ -2843,10 +3141,55 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /v2/enterprise/{enterprise_id}/indigo/feedback/count:
+     get:
+      summary: Survey Feedback Scores
+      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
+      operationId: getFeedbackCount
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: start
+          in: query
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          default: "2017-01-01T00:00:00-00:00"
+          required: true
+          type: string
+        - name: end
+          in: query
+          description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+          default: "2018-01-01T23:59:59-00:00"
+          required: true
+          type: string
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsFeedbackScores'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
   /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
      get:
       summary: Survey Feedback Comments
-      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires /oauth2/token?Password authentication.
+      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
+      deprecated: true
       operationId: getFeedbackComments
       tags:
         - Command Center
@@ -2879,6 +3222,47 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
+     get:
+      summary: Survey Feedback Comments
+      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
+      operationId: getFeedbackComments
+      tags:
+        - Command Center
+      security:
+        - access_token: []
+      parameters:
+        - name: enterprise_id
+          in: path
+          description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+          required: true
+          type: integer
+        - name: filter
+          in: query
+          description: URL-encoded Array of JSON objects defining the time interval [{"type":"date", "comparison":"gt", "value":"2018-06-19T00:00:00-07:00", "field":"startTime"}, {"type":"date", "comparison":"lt", "value":"2018-06-26T23:59:59-07:00", "field":"endTime" }]
+          required: true
+          type: string
+        - name: limit
+          in: query
+          type: integer
+          description:  The limit on the number of responses to return
+        - name: app_name
+          in: query
+          type: string
+          default: api_developer
+          description: name of your application.  While not required, providing an app_name improves API performance      
+      responses:
+        '200':
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsFeedbackComments'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+
   /v1/user/{user_id}/developer_applications:
     get:
       summary: LIst Client Applications
@@ -3005,6 +3389,137 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 definitions:
+  MeetingSummaryInfo:
+    type: object
+    properties:
+      summary:
+        type: array
+        items:
+            $ref: '#/definitions/MeetingsSummaryRec'
+  MeetingsSummaryRec:
+    type: object
+    properties:
+      meetings_count:
+        type: integer
+        description:  Number of meetings held
+      country_count:
+        type: integer
+        description: Number of countries with participants in a meeting 
+      registered_users:
+        type: integer 
+        description: Number of registered BlueJeans users who were in meetings.
+      active_users:
+        type: integer 
+      total_minutes:
+        type: integer
+        description: Total minutes of meetings.
+      average_call_duration:
+        type: number 
+        description:  Average number of minutes participants were in a meeting.
+      total_participants:
+        type: integer
+        description: Total people who were in meetings. 
+      recording_count:
+        type: integer
+        description: Total number of meetings recorded.
+      average_participants:
+        type: number
+        description: Average number of participants per meeting.
+      video_share_count:
+        type: integer
+      city_count:
+        type: integer
+        description: Total number of cities with meeting participants.
+      recording_view_count:
+        type: integer
+        description: Total number of times that recordings were viewed.        
+      
+  EndpointLocationSummary:
+    type: object
+    properties:
+      countries_count:
+        type: array
+        description: Description of the size of the country endpoints dataset
+        items:
+            $ref: '#/definitions/CountriesCountRec'
+      countries:
+        type: array
+        items:
+            $ref: '#/definitions/CountryEndpoint'
+  EnterpriseDailyUsers:
+    type: object
+    properties:
+      active_users:
+        type: integer
+        description:  The number of users active for this period
+      the_date:
+        type: string
+        description:  Date of event in the format %y-%m-%d
+  EnterpriseUsersActive:
+    type: object
+    properties:
+      active:
+        type: array
+        items:
+            $ref: '#/definitions/EnterpriseDailyUsers'
+
+  CountriesCountRec:
+    type: object
+    properties:
+      country_count:
+        type: integer
+        description:  The number of country records contained in the report
+      city_count:
+        type: integer
+        description:  The number of cities represented in the report
+  CountryEndpoint:
+    type: object
+    properties:
+      country_code:
+        type: string
+        description:  Two letter standard abbreviation of the country's name
+      endpoint_count:
+        type: integer
+        description:  The number of endpoints
+      country_name:
+        type: string
+        description:  The full name of the country
+  FilterTs:
+    type: array
+    title:  FilterTs
+    minItems: 2
+    maxItems: 2
+    items:    
+        $ref: '#/definitions/FilterHighLowTs'
+  FilterHighLowTs:
+    type: object
+    properties:
+      type:
+       type: string
+       enum:
+         - string
+         - boolean
+         - numeric
+         - date
+         - list
+       default: date
+      comparison:
+       type: string
+       enum:
+         - le
+         - lt
+         - eq
+         - ge
+         - gt
+      value:
+       type: string
+       enum:
+         - lowts
+         - hights
+        
+  
+
+
   GrantRequestPassword:
     type: object
     properties:
@@ -5174,6 +5689,20 @@ definitions:
               type: integer
             first_name:
               type: string
+  AnalyticsEndpointDistributionV2:
+    type: object
+    properties:
+      distribution_new:
+        type: array
+        items:
+          type: object
+          properties:
+            endpoint_type:
+              type: string
+              description: Name of endpoint device type
+            count:
+              type: integer
+              description: Count of the number of device engagements
   AnalyticsEndpointDistribution:
     type: object
     properties:
