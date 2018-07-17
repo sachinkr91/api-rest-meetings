@@ -8,3 +8,12 @@ Name | Type | Description | Notes
 **clientSecret** | **String** | The value given within the BlueJeans Enterprise Administration console. | 
 
 
+<a name="GrantTypeEnum"></a>
+## Enum: GrantTypeEnum
+
+
+* `credentials` (value: `"client_credentials"`)
+
+
+
+

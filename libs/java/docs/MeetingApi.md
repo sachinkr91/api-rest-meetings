@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 <a name="cancelMeeting"></a>
 # **cancelMeeting**
-> cancelMeeting(userId, meetingId)
+> cancelMeeting(userId, meetingId, email, cancellationMessage)
 
 Cancel Meeting
 
@@ -54,8 +54,10 @@ access_token.setApiKey("YOUR API KEY");
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+Boolean email = true; // Boolean | Dispatch an email to participants with the specified cancellation message.
+String cancellationMessage = "cancellationMessage_example"; // String | Message sent to participants when meeting is deleted and email is selected
 try {
-    apiInstance.cancelMeeting(userId, meetingId);
+    apiInstance.cancelMeeting(userId, meetingId, email, cancellationMessage);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#cancelMeeting");
     e.printStackTrace();
@@ -68,6 +70,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **email** | **Boolean**| Dispatch an email to participants with the specified cancellation message. |
+ **cancellationMessage** | **String**| Message sent to participants when meeting is deleted and email is selected |
 
 ### Return type
 
@@ -109,7 +113,7 @@ access_token.setApiKey("YOUR API KEY");
 
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-Meeting meeting = new Meeting(); // Meeting | The details of the meeting.
+ScheduleMeetingMin meeting = new ScheduleMeetingMin(); // ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 Boolean email = true; // Boolean | If set to true, sends invitation emails to all listed participants.
 try {
     Meeting result = apiInstance.createMeeting(userId, meeting, email);
@@ -125,7 +129,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. |
+ **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) |
  **email** | **Boolean**| If set to true, sends invitation emails to all listed participants. | [optional]
 
 ### Return type
@@ -143,11 +147,11 @@ Name | Type | Description  | Notes
 
 <a name="dialoutPstn"></a>
 # **dialoutPstn**
-> List&lt;DialoutPstn&gt; dialoutPstn(userId, numericMeetingId, payloadDialout)
+> DialoutPstn dialoutPstn(userId, numericMeetingId, payloadDialout)
 
 Dialout via PSTN
 
-Places a PSTN call to a user to join meeting.
+Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```java
@@ -171,7 +175,7 @@ Integer userId = 56; // Integer | The ID of the user of interest. This value is 
 Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 PayloadDialout payloadDialout = new PayloadDialout(); // PayloadDialout | 
 try {
-    List<DialoutPstn> result = apiInstance.dialoutPstn(userId, numericMeetingId, payloadDialout);
+    DialoutPstn result = apiInstance.dialoutPstn(userId, numericMeetingId, payloadDialout);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#dialoutPstn");
@@ -189,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;DialoutPstn&gt;**](DialoutPstn.md)
+[**DialoutPstn**](DialoutPstn.md)
 
 ### Authorization
 
@@ -202,11 +206,11 @@ Name | Type | Description  | Notes
 
 <a name="generatePairingCodePstn"></a>
 # **generatePairingCodePstn**
-> PairingCodeWebRTC generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role)
+> PairingCodePSTN generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role)
 
 Generate Pairing Code (PSTN)
 
-This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
 
 ### Example
 ```java
@@ -231,7 +235,7 @@ Integer numericMeetingId = 56; // Integer | The meeting ID that participants wil
 PayloadPairingCodePstn payloadPairingCodePstn = new PayloadPairingCodePstn(); // PayloadPairingCodePstn | 
 String role = "USER"; // String | 
 try {
-    PairingCodeWebRTC result = apiInstance.generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role);
+    PairingCodePSTN result = apiInstance.generatePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#generatePairingCodePstn");
@@ -250,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
+[**PairingCodePSTN**](PairingCodePSTN.md)
 
 ### Authorization
 
@@ -267,7 +271,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (SIP)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```java
@@ -326,7 +330,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (WebRTC)
 
-This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```java
@@ -387,7 +391,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Layout
 
-This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
 
 ### Example
 ```java
@@ -499,7 +503,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingEmails"></a>
 # **getMeetingEmails**
-> Meeting getMeetingEmails(userId, meetingId, type, role, action)
+> MeetingEmails getMeetingEmails(userId, meetingId, type, role, action)
 
 Get Meeting Email
 
@@ -529,7 +533,7 @@ String type = "type_example"; // String | TEXT, ICS, HTML
 String role = "role_example"; // String | moderator, participant
 String action = "action_example"; // String | create, edit, delete
 try {
-    Meeting result = apiInstance.getMeetingEmails(userId, meetingId, type, role, action);
+    MeetingEmails result = apiInstance.getMeetingEmails(userId, meetingId, type, role, action);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#getMeetingEmails");
@@ -549,7 +553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingEmails**](MeetingEmails.md)
 
 ### Authorization
 
@@ -566,7 +570,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Information
 
-This endpoint allows you to retrieve information about an endpoint in the meeting.
+This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```java
@@ -625,7 +629,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints
 
-This endpoint returns an array of all endpoints in the current meeting.
+This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```java
@@ -853,7 +857,7 @@ Name | Type | Description  | Notes
 
 Send Email Invite
 
-This endpoint generates an email invite to the specified meeting.
+This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```java
@@ -911,7 +915,7 @@ null (empty response body)
 
 Update Endpoint Layout
 
-This endpoint allows you to update an individual endpoint’s current layout setting.
+This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```java
@@ -1033,7 +1037,7 @@ Name | Type | Description  | Notes
 
 Update Endpoint Video/Audio State
 
-This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```java
@@ -1098,7 +1102,7 @@ Name | Type | Description  | Notes
 
 Update Meeting Endpoints State
 
-This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```java
@@ -1158,7 +1162,7 @@ null (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
 
 ### Example
 ```java

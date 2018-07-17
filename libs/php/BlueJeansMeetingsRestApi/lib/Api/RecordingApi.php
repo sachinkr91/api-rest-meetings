@@ -12,10 +12,10 @@
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.0.mm44 (7/06/2018)
+ * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  *
  */
@@ -85,6 +85,447 @@ class RecordingApi
     {
         $this->apiClient = $apiClient;
         return $this;
+    }
+
+    /**
+     * Operation createShareRecordings
+     *
+     * Enable Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @param \BlueJeansMeetingsRestApi\Model\SetSharing $set_sharing  (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\MeetingSharing
+     */
+    public function createShareRecordings($user_id, $meeting_guid, $set_sharing)
+    {
+        list($response) = $this->createShareRecordingsWithHttpInfo($user_id, $meeting_guid, $set_sharing);
+        return $response;
+    }
+
+    /**
+     * Operation createShareRecordingsWithHttpInfo
+     *
+     * Enable Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @param \BlueJeansMeetingsRestApi\Model\SetSharing $set_sharing  (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\MeetingSharing, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createShareRecordingsWithHttpInfo($user_id, $meeting_guid, $set_sharing)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling createShareRecordings');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling createShareRecordings');
+        }
+        // verify the required parameter 'set_sharing' is set
+        if ($set_sharing === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $set_sharing when calling createShareRecordings');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meetingGuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($set_sharing)) {
+            $_tempBody = $set_sharing;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\MeetingSharing',
+                '/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAllRecordingsByMeetingGuid
+     *
+     * Delete All Recordings for a Specified Meeting GUID
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\Meeting
+     */
+    public function deleteAllRecordingsByMeetingGuid($user_id, $meeting_guid)
+    {
+        list($response) = $this->deleteAllRecordingsByMeetingGuidWithHttpInfo($user_id, $meeting_guid);
+        return $response;
+    }
+
+    /**
+     * Operation deleteAllRecordingsByMeetingGuidWithHttpInfo
+     *
+     * Delete All Recordings for a Specified Meeting GUID
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAllRecordingsByMeetingGuidWithHttpInfo($user_id, $meeting_guid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling deleteAllRecordingsByMeetingGuid');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling deleteAllRecordingsByMeetingGuid');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_guid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\Meeting',
+                '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Meeting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteRecordingChapter
+     *
+     * Delete a Specified Recording Chapter
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\Meeting
+     */
+    public function deleteRecordingChapter($user_id, $meeting_id, $recording_chapter_id)
+    {
+        list($response) = $this->deleteRecordingChapterWithHttpInfo($user_id, $meeting_id, $recording_chapter_id);
+        return $response;
+    }
+
+    /**
+     * Operation deleteRecordingChapterWithHttpInfo
+     *
+     * Delete a Specified Recording Chapter
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteRecordingChapterWithHttpInfo($user_id, $meeting_id, $recording_chapter_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling deleteRecordingChapter');
+        }
+        // verify the required parameter 'meeting_id' is set
+        if ($meeting_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling deleteRecordingChapter');
+        }
+        // verify the required parameter 'recording_chapter_id' is set
+        if ($recording_chapter_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $recording_chapter_id when calling deleteRecordingChapter');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "meeting_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($recording_chapter_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "recording_chapter_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($recording_chapter_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\Meeting',
+                '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Meeting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteShareRecordings
+     *
+     * Delete Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return void
+     */
+    public function deleteShareRecordings($user_id, $meeting_guid)
+    {
+        list($response) = $this->deleteShareRecordingsWithHttpInfo($user_id, $meeting_guid);
+        return $response;
+    }
+
+    /**
+     * Operation deleteShareRecordingsWithHttpInfo
+     *
+     * Delete Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteShareRecordingsWithHttpInfo($user_id, $meeting_guid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling deleteShareRecordings');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling deleteShareRecordings');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meetingGuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
     }
 
     /**
@@ -314,6 +755,360 @@ class RecordingApi
     }
 
     /**
+     * Operation getShareRecordings
+     *
+     * List Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\MeetingSharing
+     */
+    public function getShareRecordings($user_id, $meeting_guid)
+    {
+        list($response) = $this->getShareRecordingsWithHttpInfo($user_id, $meeting_guid);
+        return $response;
+    }
+
+    /**
+     * Operation getShareRecordingsWithHttpInfo
+     *
+     * List Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\MeetingSharing, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getShareRecordingsWithHttpInfo($user_id, $meeting_guid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling getShareRecordings');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling getShareRecordings');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meetingGuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\MeetingSharing',
+                '/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation modifyShareRecordings
+     *
+     * Modify Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @param string $sharing_id The identifier of the sharing authorization record.  This value can be obtained from the \&quot;Id\&quot; in the response to the API GET /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing (required)
+     * @param \BlueJeansMeetingsRestApi\Model\ModifySharing $modify_sharing  (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\MeetingSharing
+     */
+    public function modifyShareRecordings($user_id, $meeting_guid, $sharing_id, $modify_sharing)
+    {
+        list($response) = $this->modifyShareRecordingsWithHttpInfo($user_id, $meeting_guid, $sharing_id, $modify_sharing);
+        return $response;
+    }
+
+    /**
+     * Operation modifyShareRecordingsWithHttpInfo
+     *
+     * Modify Recording Sharing
+     *
+     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. (required)
+     * @param string $sharing_id The identifier of the sharing authorization record.  This value can be obtained from the \&quot;Id\&quot; in the response to the API GET /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing (required)
+     * @param \BlueJeansMeetingsRestApi\Model\ModifySharing $modify_sharing  (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\MeetingSharing, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function modifyShareRecordingsWithHttpInfo($user_id, $meeting_guid, $sharing_id, $modify_sharing)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling modifyShareRecordings');
+        }
+        // verify the required parameter 'meeting_guid' is set
+        if ($meeting_guid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling modifyShareRecordings');
+        }
+        // verify the required parameter 'sharing_id' is set
+        if ($sharing_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sharing_id when calling modifyShareRecordings');
+        }
+        // verify the required parameter 'modify_sharing' is set
+        if ($modify_sharing === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $modify_sharing when calling modifyShareRecordings');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/{sharingId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meeting_guid !== null) {
+            $resourcePath = str_replace(
+                "{" . "meetingGuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($sharing_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "sharingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($sharing_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($modify_sharing)) {
+            $_tempBody = $modify_sharing;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\MeetingSharing',
+                '/v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/{sharingId}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\MeetingSharing', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation moveRecordingOwner
+     *
+     * Move Recording Ownership
+     *
+     * @param int $user_id The ID of the user requesting the move.  This user must have Enterprise Administrator privileges.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $original_owner The ID of the recording&#39;s current owner. (required)
+     * @param int $new_owner The ID of the intended owner for the recording. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return \BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved
+     */
+    public function moveRecordingOwner($user_id, $original_owner, $new_owner)
+    {
+        list($response) = $this->moveRecordingOwnerWithHttpInfo($user_id, $original_owner, $new_owner);
+        return $response;
+    }
+
+    /**
+     * Operation moveRecordingOwnerWithHttpInfo
+     *
+     * Move Recording Ownership
+     *
+     * @param int $user_id The ID of the user requesting the move.  This user must have Enterprise Administrator privileges.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
+     * @param int $original_owner The ID of the recording&#39;s current owner. (required)
+     * @param int $new_owner The ID of the intended owner for the recording. (required)
+     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
+     * @return array of \BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function moveRecordingOwnerWithHttpInfo($user_id, $original_owner, $new_owner)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling moveRecordingOwner');
+        }
+        // verify the required parameter 'original_owner' is set
+        if ($original_owner === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $original_owner when calling moveRecordingOwner');
+        }
+        // verify the required parameter 'new_owner' is set
+        if ($new_owner === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $new_owner when calling moveRecordingOwner');
+        }
+        // parse inputs
+        $resourcePath = "/v1/user/{user_id}/meeting_history/move_recordings/from_user/{originalOwner}/to_user/{newOwner}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "user_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($original_owner !== null) {
+            $resourcePath = str_replace(
+                "{" . "originalOwner" . "}",
+                $this->apiClient->getSerializer()->toPathValue($original_owner),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($new_owner !== null) {
+            $resourcePath = str_replace(
+                "{" . "newOwner" . "}",
+                $this->apiClient->getSerializer()->toPathValue($new_owner),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['access_token'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved',
+                '/v1/user/{user_id}/meeting_history/move_recordings/from_user/{originalOwner}/to_user/{newOwner}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation startRecording
      *
      * Start Recording
@@ -525,230 +1320,6 @@ class RecordingApi
             return [null, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete
-     *
-     * Delete All Recordings for a Specified Meeting GUID
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
-     * @return \BlueJeansMeetingsRestApi\Model\Meeting
-     */
-    public function v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete($user_id, $meeting_guid)
-    {
-        list($response) = $this->v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteWithHttpInfo($user_id, $meeting_guid);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteWithHttpInfo
-     *
-     * Delete All Recordings for a Specified Meeting GUID
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param string $meeting_guid The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest. (required)
-     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
-     * @return array of \BlueJeansMeetingsRestApi\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1UserUserIdMeetingHistoryMeetingGuidRecordingsDeleteWithHttpInfo($user_id, $meeting_guid)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete');
-        }
-        // verify the required parameter 'meeting_guid' is set
-        if ($meeting_guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_guid when calling v1UserUserIdMeetingHistoryMeetingGuidRecordingsDelete');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_guid !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_guid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_guid),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\BlueJeansMeetingsRestApi\Model\Meeting',
-                '/v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete
-     *
-     * Delete a Specified Recording Chapter
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
-     * @return \BlueJeansMeetingsRestApi\Model\Meeting
-     */
-    public function v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete($user_id, $meeting_id, $recording_chapter_id)
-    {
-        list($response) = $this->v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDeleteWithHttpInfo($user_id, $meeting_id, $recording_chapter_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDeleteWithHttpInfo
-     *
-     * Delete a Specified Recording Chapter
-     *
-     * @param int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param int $meeting_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param int $recording_chapter_id The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
-     * @return array of \BlueJeansMeetingsRestApi\Model\Meeting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDeleteWithHttpInfo($user_id, $meeting_id, $recording_chapter_id)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user_id when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete');
-        }
-        // verify the required parameter 'meeting_id' is set
-        if ($meeting_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $meeting_id when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete');
-        }
-        // verify the required parameter 'recording_chapter_id' is set
-        if ($recording_chapter_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $recording_chapter_id when calling v1UserUserIdMeetingHistoryMeetingIdRecordingsRecordingChapterIdDelete');
-        }
-        // parse inputs
-        $resourcePath = "/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "user_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($meeting_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "meeting_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($meeting_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($recording_chapter_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "recording_chapter_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($recording_chapter_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('access_token');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['access_token'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\BlueJeansMeetingsRestApi\Model\Meeting',
-                '/v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BlueJeansMeetingsRestApi\Model\Meeting', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Meeting', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BlueJeansMeetingsRestApi\Model\Error', $e->getResponseHeaders());
                     $e->setResponseObject($data);

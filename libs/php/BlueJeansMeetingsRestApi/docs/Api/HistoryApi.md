@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getHistoryByEnterprise**
-> \BlueJeansMeetingsRestApi\Model\Meeting getHistoryByEnterprise($enterprise_id, $meeting_guid)
+> \BlueJeansMeetingsRestApi\Model\MeetingHistory getHistoryByEnterprise($enterprise_id, $meeting_guid)
 
 Get Meeting History by Enterprise
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansMeetingsRestApi\Model\MeetingHistory**](../Model/MeetingHistory.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getHistoryByUser**
-> \BlueJeansMeetingsRestApi\Model\Meeting getHistoryByUser($user_id, $meeting_guid)
+> \BlueJeansMeetingsRestApi\Model\MeetingHistory getHistoryByUser($user_id, $meeting_guid)
 
 Get Meeting History by User
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansMeetingsRestApi\Model\MeetingHistory**](../Model/MeetingHistory.md)
 
 ### Authorization
 

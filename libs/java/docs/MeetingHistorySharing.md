@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **downloadable** | **Boolean** |  |  [optional]
 **passcode** | **String** |  |  [optional]
 **validity** | **String** |  |  [optional]
-**created** | **Long** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds |  [optional]
-**lastmodified** | **Long** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds |  [optional]
+**created** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds |  [optional]
+**lastmodified** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds |  [optional]
 
 
 <a name="RecepientTypeEnum"></a>

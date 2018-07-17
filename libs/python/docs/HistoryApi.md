@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_history_by_enterprise**
-> Meeting get_history_by_enterprise(enterprise_id, meeting_guid)
+> MeetingHistory get_history_by_enterprise(enterprise_id, meeting_guid)
 
 Get Meeting History by Enterprise
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_history_by_user**
-> Meeting get_history_by_user(user_id, meeting_guid)
+> MeetingHistory get_history_by_user(user_id, meeting_guid)
 
 Get Meeting History by User
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 

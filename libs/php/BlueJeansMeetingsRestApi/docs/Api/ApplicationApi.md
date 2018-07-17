@@ -5,6 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createClientApplication**](ApplicationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+[**listClientApplications**](ApplicationApi.md#listClientApplications) | **GET** /v1/user/{user_id}/developer_applications | List Client Applications
 [**regenerateClientApplicationSecret**](ApplicationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
 [**updateClientApplication**](ApplicationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 
@@ -49,6 +50,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\BlueJeansMeetingsRestApi\Model\Application**](../Model/Application.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listClientApplications**
+> \BlueJeansMeetingsRestApi\Model\ApplicationList listClientApplications($user_id)
+
+List Client Applications
+
+This endpoint lists all the client applications associated with the access_token.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\ApplicationApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try {
+    $result = $api_instance->listClientApplications($user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->listClientApplications: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\ApplicationList**](../Model/ApplicationList.md)
 
 ### Authorization
 

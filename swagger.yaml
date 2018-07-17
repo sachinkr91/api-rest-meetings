@@ -2225,6 +2225,7 @@ paths:
       summary: Delete All Recordings for a Specified Meeting GUID
       description: >
         This endpoint stops recording for a meeting in progress.
+      operationId: deleteAllRecordingsByMeetingGuid
       tags:
         - Recording
       security:
@@ -2253,6 +2254,7 @@ paths:
     delete:
       summary: Delete a Specified Recording Chapter
       description: This endpoint stops recording for a meeting in progress.
+      operationId: deleteRecordingChapter
       tags:
         - Recording
       security:
@@ -2524,7 +2526,7 @@ paths:
     get:
       summary: List Live Meeting Endpoints by Enterprise
       description: This endpoint lists endpoints for a given meeting in progress. Requires enterprise administrator access token
-      operationId: getMeetingLiveByEnterprise
+      operationId: getMeetingEndpointsLiveByEnterprise
       tags:
         - Command Center
       security:
@@ -2861,7 +2863,7 @@ paths:
      get:
       summary: Top Users
       description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
-      operationId: getTopUsers
+      operationId: getTopUsersV2
       tags:
         - Command Center
       security:
@@ -2926,7 +2928,7 @@ paths:
      get:
       summary: Endpoint Distribution
       description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
-      operationId: getEndpointDistribution
+      operationId: getEndpointDistributionV2
       tags:
         - Command Center
       security:
@@ -2998,7 +3000,7 @@ paths:
      get:
       summary: Meeting Usage Over Time
       description: This endpoint reports on meeting usage.  Requires enterprise administrator access token
-      operationId: getMeetingUsage
+      operationId: getMeetingUsageV2
       tags:
         - Command Center
       security:
@@ -3071,7 +3073,7 @@ paths:
      get:
       summary: ROI Data
       description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
-      operationId: getRoiRanges
+      operationId: getRoiRangesV2
       tags:
         - Command Center
       security:
@@ -3146,7 +3148,7 @@ paths:
      get:
       summary: Survey Feedback Scores
       description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
-      operationId: getFeedbackCount
+      operationId: getFeedbackCountV2
       tags:
         - Command Center
       security:
@@ -3227,7 +3229,7 @@ paths:
      get:
       summary: Survey Feedback Comments
       description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
-      operationId: getFeedbackComments
+      operationId: getFeedbackCommentsV2
       tags:
         - Command Center
       security:
@@ -3265,9 +3267,9 @@ paths:
 
   /v1/user/{user_id}/developer_applications:
     get:
-      summary: LIst Client Applications
+      summary: List Client Applications
       description: This endpoint lists all the client applications associated with the access_token.
-      operationId: createClientApplication
+      operationId: listClientApplications
       tags:
         - Application
       security:

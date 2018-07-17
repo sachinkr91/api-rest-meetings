@@ -9,3 +9,12 @@ Name | Type | Description | Notes
 **refreshToken** | **String** | Refresh token obtained after token authorization. | 
 
 
+<a name="GrantTypeEnum"></a>
+## Enum: GrantTypeEnum
+
+
+* `token` (value: `"refresh_token"`)
+
+
+
+

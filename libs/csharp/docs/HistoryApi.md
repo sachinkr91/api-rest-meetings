@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="gethistorybyenterprise"></a>
 # **GetHistoryByEnterprise**
-> Meeting GetHistoryByEnterprise (int? enterpriseId, string meetingGuid)
+> MeetingHistory GetHistoryByEnterprise (int? enterpriseId, string meetingGuid)
 
 Get Meeting History by Enterprise
 
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Get Meeting History by Enterprise
-                Meeting result = apiInstance.GetHistoryByEnterprise(enterpriseId, meetingGuid);
+                MeetingHistory result = apiInstance.GetHistoryByEnterprise(enterpriseId, meetingGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 <a name="gethistorybyuser"></a>
 # **GetHistoryByUser**
-> Meeting GetHistoryByUser (int? userId, string meetingGuid)
+> MeetingHistory GetHistoryByUser (int? userId, string meetingGuid)
 
 Get Meeting History by User
 
@@ -115,7 +115,7 @@ namespace Example
             try
             {
                 // Get Meeting History by User
-                Meeting result = apiInstance.GetHistoryByUser(userId, meetingGuid);
+                MeetingHistory result = apiInstance.GetHistoryByUser(userId, meetingGuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 

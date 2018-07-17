@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GrantType** | **string** | The type of access token you are requesting. | [default to "meeting_passcode"]
+**GrantType** | **string** | The type of access token you are requesting. | [default to GrantTypeEnum.Passcode]
 **MeetingNumericId** | **string** | Meeting ID | 
 **MeetingPasscode** | **string** | Pin | 
 

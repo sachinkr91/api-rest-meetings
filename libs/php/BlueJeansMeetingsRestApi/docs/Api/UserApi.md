@@ -4,16 +4,127 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**changeUserTags**](UserApi.md#changeUserTags) | **PUT** /v1/user/{userId}/tags | Set User Tags
+[**createRoom**](UserApi.md#createRoom) | **POST** /v1/user/{user_id}/room | Create User’s Default Meeting Settings
 [**getEnterpriseProfile**](UserApi.md#getEnterpriseProfile) | **GET** /v1/user/{user_id}/enterprise_profile | Get Enterprise Profile
 [**getGrantedApplications**](UserApi.md#getGrantedApplications) | **GET** /v1/user/{user_id}/granted_applications | Get Granted Applications
 [**getGroups**](UserApi.md#getGroups) | **GET** /v1/user/{user_id}/groups | Get User Feature Groups
+[**getPersonalMeeting**](UserApi.md#getPersonalMeeting) | **GET** /v1/user/{user_id}/personal_meeting | Get Personal Meeting
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
+[**getUserTags**](UserApi.md#getUserTags) | **GET** /v1/user/{userId}/tags | List User Tags
 [**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
 [**setGroups**](UserApi.md#setGroups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
+[**updatePeresonalMeeting**](UserApi.md#updatePeresonalMeeting) | **PUT** /v1/user/{user_id}/personal_meeting | Update Personal Meeting
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
 
+
+# **changeUserTags**
+> \BlueJeansMeetingsRestApi\Model\ComponentsTagList changeUserTags($user_id, $action, $tag)
+
+Set User Tags
+
+This endpoint modifies the list of tags associated with the specified user. <b>NOTE</b> Adding a tag that is not defined in the user's Enterprise returns a 200 (success) status code.  It is recommended you validate the returned list of tags.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\UserApi();
+$user_id = 56; // int | The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+$action = "action_example"; // string | Type of operation to be done
+$tag = "tag_example"; // string | The name of tag
+
+try {
+    $result = $api_instance->changeUserTags($user_id, $action, $tag);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->changeUserTags: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+ **action** | **string**| Type of operation to be done |
+ **tag** | **string**| The name of tag |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createRoom**
+> \BlueJeansMeetingsRestApi\Model\Room createRoom($user_id, $room)
+
+Create User’s Default Meeting Settings
+
+This endpoint creates the user’s default meeting settings.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\UserApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$room = new \BlueJeansMeetingsRestApi\Model\Room(); // \BlueJeansMeetingsRestApi\Model\Room | The user's room details
+
+try {
+    $result = $api_instance->createRoom($user_id, $room);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->createRoom: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **room** | [**\BlueJeansMeetingsRestApi\Model\Room**](../Model/Room.md)| The user&#39;s room details |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\Room**](../Model/Room.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEnterpriseProfile**
 > \BlueJeansMeetingsRestApi\Model\Enterprise getEnterpriseProfile($user_id)
@@ -165,6 +276,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getPersonalMeeting**
+> \BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom getPersonalMeeting($user_id)
+
+Get Personal Meeting
+
+This endpoint gets the settings for a user's personal meeting.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\UserApi();
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try {
+    $result = $api_instance->getPersonalMeeting($user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->getPersonalMeeting: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom**](../Model/PersonalMeetingRoom.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getRoom**
 > \BlueJeansMeetingsRestApi\Model\Room getRoom($user_id)
 
@@ -253,6 +414,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\BlueJeansMeetingsRestApi\Model\User**](../Model/User.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getUserTags**
+> \BlueJeansMeetingsRestApi\Model\ComponentsTagList getUserTags($user_id)
+
+List User Tags
+
+This endpoint retrieves all tags associated with the specified user.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\UserApi();
+$user_id = 56; // int | The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+
+try {
+    $result = $api_instance->getUserTags($user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->getUserTags: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
 
 ### Authorization
 
@@ -357,6 +568,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updatePeresonalMeeting**
+> \BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom updatePeresonalMeeting($user_id, $personal_meeting)
+
+Update Personal Meeting
+
+This endpoint changes the settings for a user's personal meeting.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$api_instance = new BlueJeansMeetingsRestApi\Api\UserApi();
+$user_id = 56; // int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$personal_meeting = new \BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom(); // \BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom | The user's personal meeting room details that you wish to update.
+
+try {
+    $result = $api_instance->updatePeresonalMeeting($user_id, $personal_meeting);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updatePeresonalMeeting: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **personal_meeting** | [**\BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom**](../Model/PersonalMeetingRoom.md)| The user&#39;s personal meeting room details that you wish to update. |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\PersonalMeetingRoom**](../Model/PersonalMeetingRoom.md)
 
 ### Authorization
 

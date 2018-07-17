@@ -1,9 +1,9 @@
 /*
  * BlueJeans Meetings REST API
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.0.mm44 (7/06/2018)
+ * Contact: glenn@bluejeans.com
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
@@ -33,8 +33,10 @@ import com.bluejeans.api.rest.meetings.model.Endpoints;
 import com.bluejeans.api.rest.meetings.model.Error;
 import com.bluejeans.api.rest.meetings.model.Layout;
 import com.bluejeans.api.rest.meetings.model.Meeting;
+import com.bluejeans.api.rest.meetings.model.MeetingEmails;
 import com.bluejeans.api.rest.meetings.model.MeetingState;
 import com.bluejeans.api.rest.meetings.model.Numbers;
+import com.bluejeans.api.rest.meetings.model.PairingCodePSTN;
 import com.bluejeans.api.rest.meetings.model.PairingCodeSIP;
 import com.bluejeans.api.rest.meetings.model.PairingCodeWebRTC;
 import com.bluejeans.api.rest.meetings.model.PayloadDialout;
@@ -43,6 +45,7 @@ import com.bluejeans.api.rest.meetings.model.PayloadMeetingState;
 import com.bluejeans.api.rest.meetings.model.PayloadPairingCodePstn;
 import com.bluejeans.api.rest.meetings.model.PayloadPairingCodeSIP;
 import com.bluejeans.api.rest.meetings.model.PayloadPairingCodeWebRTC;
+import com.bluejeans.api.rest.meetings.model.ScheduleMeetingMin;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -73,18 +76,22 @@ public class MeetingApi {
      * Build call for cancelMeeting
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (required)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call cancelMeetingCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call cancelMeetingCall(Integer userId, Integer meetingId, Boolean email, String cancellationMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-            .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
+            .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()))
+            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()))
+            .replaceAll("\\{" + "cancellationMessage" + "\\}", apiClient.escapeString(cancellationMessage.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -121,7 +128,7 @@ public class MeetingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call cancelMeetingValidateBeforeCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call cancelMeetingValidateBeforeCall(Integer userId, Integer meetingId, Boolean email, String cancellationMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -133,8 +140,18 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling cancelMeeting(Async)");
         }
         
+        // verify the required parameter 'email' is set
+        if (email == null) {
+            throw new ApiException("Missing the required parameter 'email' when calling cancelMeeting(Async)");
+        }
         
-        com.squareup.okhttp.Call call = cancelMeetingCall(userId, meetingId, progressListener, progressRequestListener);
+        // verify the required parameter 'cancellationMessage' is set
+        if (cancellationMessage == null) {
+            throw new ApiException("Missing the required parameter 'cancellationMessage' when calling cancelMeeting(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = cancelMeetingCall(userId, meetingId, email, cancellationMessage, progressListener, progressRequestListener);
         return call;
 
         
@@ -148,10 +165,12 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (required)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void cancelMeeting(Integer userId, Integer meetingId) throws ApiException {
-        cancelMeetingWithHttpInfo(userId, meetingId);
+    public void cancelMeeting(Integer userId, Integer meetingId, Boolean email, String cancellationMessage) throws ApiException {
+        cancelMeetingWithHttpInfo(userId, meetingId, email, cancellationMessage);
     }
 
     /**
@@ -159,11 +178,13 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (required)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> cancelMeetingWithHttpInfo(Integer userId, Integer meetingId) throws ApiException {
-        com.squareup.okhttp.Call call = cancelMeetingValidateBeforeCall(userId, meetingId, null, null);
+    public ApiResponse<Void> cancelMeetingWithHttpInfo(Integer userId, Integer meetingId, Boolean email, String cancellationMessage) throws ApiException {
+        com.squareup.okhttp.Call call = cancelMeetingValidateBeforeCall(userId, meetingId, email, cancellationMessage, null, null);
         return apiClient.execute(call);
     }
 
@@ -172,11 +193,13 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (required)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cancelMeetingAsync(Integer userId, Integer meetingId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call cancelMeetingAsync(Integer userId, Integer meetingId, Boolean email, String cancellationMessage, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -197,21 +220,21 @@ public class MeetingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = cancelMeetingValidateBeforeCall(userId, meetingId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = cancelMeetingValidateBeforeCall(userId, meetingId, email, cancellationMessage, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for createMeeting
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The details of the meeting. (required)
+     * @param meeting The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createMeetingCall(Integer userId, Meeting meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createMeetingCall(Integer userId, ScheduleMeetingMin meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = meeting;
         
         // create path and map variables
@@ -255,7 +278,7 @@ public class MeetingApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createMeetingValidateBeforeCall(Integer userId, Meeting meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createMeetingValidateBeforeCall(Integer userId, ScheduleMeetingMin meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -281,12 +304,12 @@ public class MeetingApi {
      * Create Meeting
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The details of the meeting. (required)
+     * @param meeting The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return Meeting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting createMeeting(Integer userId, Meeting meeting, Boolean email) throws ApiException {
+    public Meeting createMeeting(Integer userId, ScheduleMeetingMin meeting, Boolean email) throws ApiException {
         ApiResponse<Meeting> resp = createMeetingWithHttpInfo(userId, meeting, email);
         return resp.getData();
     }
@@ -295,12 +318,12 @@ public class MeetingApi {
      * Create Meeting
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The details of the meeting. (required)
+     * @param meeting The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @return ApiResponse&lt;Meeting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> createMeetingWithHttpInfo(Integer userId, Meeting meeting, Boolean email) throws ApiException {
+    public ApiResponse<Meeting> createMeetingWithHttpInfo(Integer userId, ScheduleMeetingMin meeting, Boolean email) throws ApiException {
         com.squareup.okhttp.Call call = createMeetingValidateBeforeCall(userId, meeting, email, null, null);
         Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -310,13 +333,13 @@ public class MeetingApi {
      * Create Meeting (asynchronously)
      * This endpoint will create a scheduled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param meeting The details of the meeting. (required)
+     * @param meeting The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) (required)
      * @param email If set to true, sends invitation emails to all listed participants. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createMeetingAsync(Integer userId, Meeting meeting, Boolean email, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call createMeetingAsync(Integer userId, ScheduleMeetingMin meeting, Boolean email, final ApiCallback<Meeting> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -424,36 +447,36 @@ public class MeetingApi {
 
     /**
      * Dialout via PSTN
-     * Places a PSTN call to a user to join meeting.
+     * Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadDialout  (required)
-     * @return List&lt;DialoutPstn&gt;
+     * @return DialoutPstn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<DialoutPstn> dialoutPstn(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout) throws ApiException {
-        ApiResponse<List<DialoutPstn>> resp = dialoutPstnWithHttpInfo(userId, numericMeetingId, payloadDialout);
+    public DialoutPstn dialoutPstn(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout) throws ApiException {
+        ApiResponse<DialoutPstn> resp = dialoutPstnWithHttpInfo(userId, numericMeetingId, payloadDialout);
         return resp.getData();
     }
 
     /**
      * Dialout via PSTN
-     * Places a PSTN call to a user to join meeting.
+     * Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadDialout  (required)
-     * @return ApiResponse&lt;List&lt;DialoutPstn&gt;&gt;
+     * @return ApiResponse&lt;DialoutPstn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<DialoutPstn>> dialoutPstnWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout) throws ApiException {
+    public ApiResponse<DialoutPstn> dialoutPstnWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout) throws ApiException {
         com.squareup.okhttp.Call call = dialoutPstnValidateBeforeCall(userId, numericMeetingId, payloadDialout, null, null);
-        Type localVarReturnType = new TypeToken<List<DialoutPstn>>(){}.getType();
+        Type localVarReturnType = new TypeToken<DialoutPstn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Dialout via PSTN (asynchronously)
-     * Places a PSTN call to a user to join meeting.
+     * Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadDialout  (required)
@@ -461,7 +484,7 @@ public class MeetingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call dialoutPstnAsync(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout, final ApiCallback<List<DialoutPstn>> callback) throws ApiException {
+    public com.squareup.okhttp.Call dialoutPstnAsync(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout, final ApiCallback<DialoutPstn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -483,7 +506,7 @@ public class MeetingApi {
         }
 
         com.squareup.okhttp.Call call = dialoutPstnValidateBeforeCall(userId, numericMeetingId, payloadDialout, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<DialoutPstn>>(){}.getType();
+        Type localVarReturnType = new TypeToken<DialoutPstn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -572,38 +595,38 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (PSTN)
-     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodePstn  (required)
      * @param role  (optional, default to USER)
-     * @return PairingCodeWebRTC
+     * @return PairingCodePSTN
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PairingCodeWebRTC generatePairingCodePstn(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role) throws ApiException {
-        ApiResponse<PairingCodeWebRTC> resp = generatePairingCodePstnWithHttpInfo(userId, numericMeetingId, payloadPairingCodePstn, role);
+    public PairingCodePSTN generatePairingCodePstn(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role) throws ApiException {
+        ApiResponse<PairingCodePSTN> resp = generatePairingCodePstnWithHttpInfo(userId, numericMeetingId, payloadPairingCodePstn, role);
         return resp.getData();
     }
 
     /**
      * Generate Pairing Code (PSTN)
-     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodePstn  (required)
      * @param role  (optional, default to USER)
-     * @return ApiResponse&lt;PairingCodeWebRTC&gt;
+     * @return ApiResponse&lt;PairingCodePSTN&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PairingCodeWebRTC> generatePairingCodePstnWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role) throws ApiException {
+    public ApiResponse<PairingCodePSTN> generatePairingCodePstnWithHttpInfo(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role) throws ApiException {
         com.squareup.okhttp.Call call = generatePairingCodePstnValidateBeforeCall(userId, numericMeetingId, payloadPairingCodePstn, role, null, null);
-        Type localVarReturnType = new TypeToken<PairingCodeWebRTC>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodePSTN>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Generate Pairing Code (PSTN) (asynchronously)
-     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+     * This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodePstn  (required)
@@ -612,7 +635,7 @@ public class MeetingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generatePairingCodePstnAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role, final ApiCallback<PairingCodeWebRTC> callback) throws ApiException {
+    public com.squareup.okhttp.Call generatePairingCodePstnAsync(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role, final ApiCallback<PairingCodePSTN> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -634,7 +657,7 @@ public class MeetingApi {
         }
 
         com.squareup.okhttp.Call call = generatePairingCodePstnValidateBeforeCall(userId, numericMeetingId, payloadPairingCodePstn, role, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PairingCodeWebRTC>(){}.getType();
+        Type localVarReturnType = new TypeToken<PairingCodePSTN>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -720,7 +743,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (SIP)
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
@@ -734,7 +757,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (SIP)
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
@@ -749,7 +772,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (SIP) (asynchronously)
-     * This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+     * This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeSIP Information about the device that will be joining via SIP. (required)
@@ -868,7 +891,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (WebRTC)
-     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeWebRTC  (required)
@@ -883,7 +906,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (WebRTC)
-     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeWebRTC  (required)
@@ -899,7 +922,7 @@ public class MeetingApi {
 
     /**
      * Generate Pairing Code (WebRTC) (asynchronously)
-     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+     * This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadPairingCodeWebRTC  (required)
@@ -1017,7 +1040,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Layout
-     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1031,7 +1054,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Layout
-     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1046,7 +1069,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Layout (asynchronously)
-     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+     * This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1307,11 +1330,11 @@ public class MeetingApi {
      * @param type TEXT, ICS, HTML (optional)
      * @param role moderator, participant (optional)
      * @param action create, edit, delete (optional)
-     * @return Meeting
+     * @return MeetingEmails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Meeting getMeetingEmails(Integer userId, Integer meetingId, String type, String role, String action) throws ApiException {
-        ApiResponse<Meeting> resp = getMeetingEmailsWithHttpInfo(userId, meetingId, type, role, action);
+    public MeetingEmails getMeetingEmails(Integer userId, Integer meetingId, String type, String role, String action) throws ApiException {
+        ApiResponse<MeetingEmails> resp = getMeetingEmailsWithHttpInfo(userId, meetingId, type, role, action);
         return resp.getData();
     }
 
@@ -1323,12 +1346,12 @@ public class MeetingApi {
      * @param type TEXT, ICS, HTML (optional)
      * @param role moderator, participant (optional)
      * @param action create, edit, delete (optional)
-     * @return ApiResponse&lt;Meeting&gt;
+     * @return ApiResponse&lt;MeetingEmails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Meeting> getMeetingEmailsWithHttpInfo(Integer userId, Integer meetingId, String type, String role, String action) throws ApiException {
+    public ApiResponse<MeetingEmails> getMeetingEmailsWithHttpInfo(Integer userId, Integer meetingId, String type, String role, String action) throws ApiException {
         com.squareup.okhttp.Call call = getMeetingEmailsValidateBeforeCall(userId, meetingId, type, role, action, null, null);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        Type localVarReturnType = new TypeToken<MeetingEmails>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1344,7 +1367,7 @@ public class MeetingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMeetingEmailsAsync(Integer userId, Integer meetingId, String type, String role, String action, final ApiCallback<Meeting> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingEmailsAsync(Integer userId, Integer meetingId, String type, String role, String action, final ApiCallback<MeetingEmails> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1366,7 +1389,7 @@ public class MeetingApi {
         }
 
         com.squareup.okhttp.Call call = getMeetingEmailsValidateBeforeCall(userId, meetingId, type, role, action, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Meeting>(){}.getType();
+        Type localVarReturnType = new TypeToken<MeetingEmails>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1453,7 +1476,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Information
-     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     * This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1467,7 +1490,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Information
-     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     * This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1482,7 +1505,7 @@ public class MeetingApi {
 
     /**
      * Get Endpoint Information (asynchronously)
-     * This endpoint allows you to retrieve information about an endpoint in the meeting.
+     * This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -1592,7 +1615,7 @@ public class MeetingApi {
 
     /**
      * List Meeting Endpoints
-     * This endpoint returns an array of all endpoints in the current meeting.
+     * This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @return Endpoints
@@ -1605,7 +1628,7 @@ public class MeetingApi {
 
     /**
      * List Meeting Endpoints
-     * This endpoint returns an array of all endpoints in the current meeting.
+     * This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @return ApiResponse&lt;Endpoints&gt;
@@ -1619,7 +1642,7 @@ public class MeetingApi {
 
     /**
      * List Meeting Endpoints (asynchronously)
-     * This endpoint returns an array of all endpoints in the current meeting.
+     * This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -2138,7 +2161,7 @@ public class MeetingApi {
 
     /**
      * Send Email Invite
-     * This endpoint generates an email invite to the specified meeting.
+     * This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadInvite  (required)
@@ -2150,7 +2173,7 @@ public class MeetingApi {
 
     /**
      * Send Email Invite
-     * This endpoint generates an email invite to the specified meeting.
+     * This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadInvite  (required)
@@ -2164,7 +2187,7 @@ public class MeetingApi {
 
     /**
      * Send Email Invite (asynchronously)
-     * This endpoint generates an email invite to the specified meeting.
+     * This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadInvite  (required)
@@ -2286,7 +2309,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Layout
-     * This endpoint allows you to update an individual endpoint’s current layout setting.
+     * This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2302,7 +2325,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Layout
-     * This endpoint allows you to update an individual endpoint’s current layout setting.
+     * This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2319,7 +2342,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Layout (asynchronously)
-     * This endpoint allows you to update an individual endpoint’s current layout setting.
+     * This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2592,7 +2615,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Video/Audio State
-     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2609,7 +2632,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Video/Audio State
-     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2627,7 +2650,7 @@ public class MeetingApi {
 
     /**
      * Update Endpoint Video/Audio State (asynchronously)
-     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+     * This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param endpointGuid The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. (required)
@@ -2746,7 +2769,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting Endpoints State
-     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
@@ -2759,7 +2782,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting Endpoints State
-     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
@@ -2774,7 +2797,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting Endpoints State (asynchronously)
-     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+     * This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param mute Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
@@ -2893,7 +2916,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting State
-     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadMeetingState The meeting properties that you wish to update. (required)
@@ -2908,7 +2931,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting State
-     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadMeetingState The meeting properties that you wish to update. (required)
@@ -2924,7 +2947,7 @@ public class MeetingApi {
 
     /**
      * Update Meeting State (asynchronously)
-     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+     * This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param numericMeetingId The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. (required)
      * @param payloadMeetingState The meeting properties that you wish to update. (required)

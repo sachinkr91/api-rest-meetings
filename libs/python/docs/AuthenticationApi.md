@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is **not a true REST endpoint**. <br /> This URL should be used by a user's browser-client application to perform authorization. <br />Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \"bluejeans.com\" as hostname. <br />**Note:**<br />&nbsp;&nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
+This is **not a true REST endpoint**. <br /> This URL should be used by a user's browser-client application to perform authorization. <br />Upon completion, the user will be redirected back to the client application with state and code return parameters. <br />**Note**<ul><li>This API is activated through <b> https://bluejeans.com/oauth2/authorize </b></li><li>The API's return code has a very short valid period of <b>30 seconds</b>.  Your application must call the <b>/oauth2/token</b> API as soon as possible once you receive this API's return code.</li></ul>
 
 ### Example 
 ```python

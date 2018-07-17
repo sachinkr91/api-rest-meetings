@@ -5,6 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createClientApplication**](ApplicationApi.md#createClientApplication) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+[**listClientApplications**](ApplicationApi.md#listClientApplications) | **GET** /v1/user/{user_id}/developer_applications | List Client Applications
 [**regenerateClientApplicationSecret**](ApplicationApi.md#regenerateClientApplicationSecret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
 [**updateClientApplication**](ApplicationApi.md#updateClientApplication) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 
@@ -56,6 +57,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Application**](Application.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listClientApplications"></a>
+# **listClientApplications**
+> ApplicationList listClientApplications(userId)
+
+List Client Applications
+
+This endpoint lists all the client applications associated with the access_token.
+
+### Example
+```java
+// Import classes:
+//import com.bluejeans.api.rest.meetings.ApiClient;
+//import com.bluejeans.api.rest.meetings.ApiException;
+//import com.bluejeans.api.rest.meetings.Configuration;
+//import com.bluejeans.api.rest.meetings.auth.*;
+//import com.bluejeans.api.rest.meetings.api.ApplicationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: access_token
+ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
+access_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.setApiKeyPrefix("Token");
+
+ApplicationApi apiInstance = new ApplicationApi();
+Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+try {
+    ApplicationList result = apiInstance.listClientApplications(userId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ApplicationApi#listClientApplications");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+
+### Return type
+
+[**ApplicationList**](ApplicationList.md)
 
 ### Authorization
 

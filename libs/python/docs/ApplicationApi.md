@@ -5,6 +5,7 @@ All URIs are relative to *https://api.bluejeans.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_client_application**](ApplicationApi.md#create_client_application) | **POST** /v1/user/{user_id}/developer_applications | Create Client Application
+[**list_client_applications**](ApplicationApi.md#list_client_applications) | **GET** /v1/user/{user_id}/developer_applications | List Client Applications
 [**regenerate_client_application_secret**](ApplicationApi.md#regenerate_client_application_secret) | **PUT** /v1/user/{user_id}/developer_applications/{client_id}/secret | Regenerate Client Application Secret
 [**update_client_application**](ApplicationApi.md#update_client_application) | **PUT** /v1/user/{user_id}/developer_applications/{client_id} | Update Client Application
 
@@ -52,6 +53,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Application**](Application.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_client_applications**
+> ApplicationList list_client_applications(user_id)
+
+List Client Applications
+
+This endpoint lists all the client applications associated with the access_token.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+try: 
+    # List Client Applications
+    api_response = api_instance.list_client_applications(user_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ApplicationApi->list_client_applications: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+
+### Return type
+
+[**ApplicationList**](ApplicationList.md)
 
 ### Authorization
 

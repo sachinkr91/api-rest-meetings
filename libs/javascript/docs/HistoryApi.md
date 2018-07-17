@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="getHistoryByEnterprise"></a>
 # **getHistoryByEnterprise**
-> Meeting getHistoryByEnterprise(enterpriseId, meetingGuid)
+> MeetingHistory getHistoryByEnterprise(enterpriseId, meetingGuid)
 
 Get Meeting History by Enterprise
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getHistoryByUser"></a>
 # **getHistoryByUser**
-> Meeting getHistoryByUser(userId, meetingGuid)
+> MeetingHistory getHistoryByUser(userId, meetingGuid)
 
 Get Meeting History by User
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 

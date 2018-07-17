@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 <a name="cancelmeeting"></a>
 # **CancelMeeting**
-> void CancelMeeting (int? userId, int? meetingId)
+> void CancelMeeting (int? userId, int? meetingId, bool? email, string cancellationMessage)
 
 Cancel Meeting
 
@@ -56,11 +56,13 @@ namespace Example
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+            var email = true;  // bool? | Dispatch an email to participants with the specified cancellation message.
+            var cancellationMessage = cancellationMessage_example;  // string | Message sent to participants when meeting is deleted and email is selected
 
             try
             {
                 // Cancel Meeting
-                apiInstance.CancelMeeting(userId, meetingId);
+                apiInstance.CancelMeeting(userId, meetingId, email, cancellationMessage);
             }
             catch (Exception e)
             {
@@ -77,6 +79,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **email** | **bool?**| Dispatch an email to participants with the specified cancellation message. | 
+ **cancellationMessage** | **string**| Message sent to participants when meeting is deleted and email is selected | 
 
 ### Return type
 
@@ -95,7 +99,7 @@ void (empty response body)
 
 <a name="createmeeting"></a>
 # **CreateMeeting**
-> Meeting CreateMeeting (int? userId, Meeting meeting, bool? email = null)
+> Meeting CreateMeeting (int? userId, ScheduleMeetingMin meeting, bool? email = null)
 
 Create Meeting
 
@@ -122,7 +126,7 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meeting = new Meeting(); // Meeting | The details of the meeting.
+            var meeting = new ScheduleMeetingMin(); // ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
             var email = true;  // bool? | If set to true, sends invitation emails to all listed participants. (optional) 
 
             try
@@ -145,7 +149,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. | 
+ **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
  **email** | **bool?**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type
@@ -165,11 +169,11 @@ Name | Type | Description  | Notes
 
 <a name="dialoutpstn"></a>
 # **DialoutPstn**
-> List<DialoutPstn> DialoutPstn (int? userId, int? numericMeetingId, PayloadDialout payloadDialout)
+> DialoutPstn DialoutPstn (int? userId, int? numericMeetingId, PayloadDialout payloadDialout)
 
 Dialout via PSTN
 
-Places a PSTN call to a user to join meeting.
+Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```csharp
@@ -198,7 +202,7 @@ namespace Example
             try
             {
                 // Dialout via PSTN
-                List&lt;DialoutPstn&gt; result = apiInstance.DialoutPstn(userId, numericMeetingId, payloadDialout);
+                DialoutPstn result = apiInstance.DialoutPstn(userId, numericMeetingId, payloadDialout);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -220,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<DialoutPstn>**](DialoutPstn.md)
+[**DialoutPstn**](DialoutPstn.md)
 
 ### Authorization
 
@@ -235,11 +239,11 @@ Name | Type | Description  | Notes
 
 <a name="generatepairingcodepstn"></a>
 # **GeneratePairingCodePstn**
-> PairingCodeWebRTC GeneratePairingCodePstn (int? userId, int? numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, string role = null)
+> PairingCodePSTN GeneratePairingCodePstn (int? userId, int? numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, string role = null)
 
 Generate Pairing Code (PSTN)
 
-This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
 
 ### Example
 ```csharp
@@ -269,7 +273,7 @@ namespace Example
             try
             {
                 // Generate Pairing Code (PSTN)
-                PairingCodeWebRTC result = apiInstance.GeneratePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role);
+                PairingCodePSTN result = apiInstance.GeneratePairingCodePstn(userId, numericMeetingId, payloadPairingCodePstn, role);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -292,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
+[**PairingCodePSTN**](PairingCodePSTN.md)
 
 ### Authorization
 
@@ -311,7 +315,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (SIP)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```csharp
@@ -381,7 +385,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (WebRTC)
 
-This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```csharp
@@ -453,7 +457,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Layout
 
-This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
 
 ### Example
 ```csharp
@@ -587,7 +591,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingemails"></a>
 # **GetMeetingEmails**
-> Meeting GetMeetingEmails (int? userId, int? meetingId, string type = null, string role = null, string action = null)
+> MeetingEmails GetMeetingEmails (int? userId, int? meetingId, string type = null, string role = null, string action = null)
 
 Get Meeting Email
 
@@ -622,7 +626,7 @@ namespace Example
             try
             {
                 // Get Meeting Email
-                Meeting result = apiInstance.GetMeetingEmails(userId, meetingId, type, role, action);
+                MeetingEmails result = apiInstance.GetMeetingEmails(userId, meetingId, type, role, action);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -646,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingEmails**](MeetingEmails.md)
 
 ### Authorization
 
@@ -665,7 +669,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Information
 
-This endpoint allows you to retrieve information about an endpoint in the meeting.
+This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```csharp
@@ -735,7 +739,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints
 
-This endpoint returns an array of all endpoints in the current meeting.
+This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```csharp
@@ -1007,7 +1011,7 @@ Name | Type | Description  | Notes
 
 Send Email Invite
 
-This endpoint generates an email invite to the specified meeting.
+This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```csharp
@@ -1076,7 +1080,7 @@ void (empty response body)
 
 Update Endpoint Layout
 
-This endpoint allows you to update an individual endpoint’s current layout setting.
+This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```csharp
@@ -1220,7 +1224,7 @@ Name | Type | Description  | Notes
 
 Update Endpoint Video/Audio State
 
-This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```csharp
@@ -1296,7 +1300,7 @@ Name | Type | Description  | Notes
 
 Update Meeting Endpoints State
 
-This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```csharp
@@ -1367,7 +1371,7 @@ void (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
 
 ### Example
 ```csharp

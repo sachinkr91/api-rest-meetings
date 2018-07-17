@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 
 # **cancelMeeting**
-> cancelMeeting($user_id, $meeting_id)
+> cancelMeeting($user_id, $meeting_id, $email, $cancellation_message)
 
 Cancel Meeting
 
@@ -46,9 +46,11 @@ BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('ac
 $api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+$email = true; // bool | Dispatch an email to participants with the specified cancellation message.
+$cancellation_message = "cancellation_message_example"; // string | Message sent to participants when meeting is deleted and email is selected
 
 try {
-    $api_instance->cancelMeeting($user_id, $meeting_id);
+    $api_instance->cancelMeeting($user_id, $meeting_id, $email, $cancellation_message);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->cancelMeeting: ', $e->getMessage(), PHP_EOL;
 }
@@ -61,6 +63,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
+ **email** | **bool**| Dispatch an email to participants with the specified cancellation message. |
+ **cancellation_message** | **string**| Message sent to participants when meeting is deleted and email is selected |
 
 ### Return type
 
@@ -96,7 +100,7 @@ BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('ac
 
 $api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$meeting = new \BlueJeansMeetingsRestApi\Model\Meeting(); // \BlueJeansMeetingsRestApi\Model\Meeting | The details of the meeting.
+$meeting = new \BlueJeansMeetingsRestApi\Model\ScheduleMeetingMin(); // \BlueJeansMeetingsRestApi\Model\ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 $email = true; // bool | If set to true, sends invitation emails to all listed participants.
 
 try {
@@ -113,7 +117,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **meeting** | [**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)| The details of the meeting. |
+ **meeting** | [**\BlueJeansMeetingsRestApi\Model\ScheduleMeetingMin**](../Model/ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) |
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional]
 
 ### Return type
@@ -132,11 +136,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **dialoutPstn**
-> \BlueJeansMeetingsRestApi\Model\DialoutPstn[] dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout)
+> \BlueJeansMeetingsRestApi\Model\DialoutPstn dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout)
 
 Dialout via PSTN
 
-Places a PSTN call to a user to join meeting.
+Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```php
@@ -172,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\DialoutPstn[]**](../Model/DialoutPstn.md)
+[**\BlueJeansMeetingsRestApi\Model\DialoutPstn**](../Model/DialoutPstn.md)
 
 ### Authorization
 
@@ -186,11 +190,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePairingCodePstn**
-> \BlueJeansMeetingsRestApi\Model\PairingCodeWebRTC generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role)
+> \BlueJeansMeetingsRestApi\Model\PairingCodePSTN generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role)
 
 Generate Pairing Code (PSTN)
 
-This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
 
 ### Example
 ```php
@@ -228,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\PairingCodeWebRTC**](../Model/PairingCodeWebRTC.md)
+[**\BlueJeansMeetingsRestApi\Model\PairingCodePSTN**](../Model/PairingCodePSTN.md)
 
 ### Authorization
 
@@ -246,7 +250,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (SIP)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```php
@@ -300,7 +304,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (WebRTC)
 
-This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```php
@@ -356,7 +360,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Layout
 
-This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
 
 ### Example
 ```php
@@ -458,7 +462,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingEmails**
-> \BlueJeansMeetingsRestApi\Model\Meeting getMeetingEmails($user_id, $meeting_id, $type, $role, $action)
+> \BlueJeansMeetingsRestApi\Model\MeetingEmails getMeetingEmails($user_id, $meeting_id, $type, $role, $action)
 
 Get Meeting Email
 
@@ -502,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansMeetingsRestApi\Model\MeetingEmails**](../Model/MeetingEmails.md)
 
 ### Authorization
 
@@ -520,7 +524,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Information
 
-This endpoint allows you to retrieve information about an endpoint in the meeting.
+This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```php
@@ -574,7 +578,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints
 
-This endpoint returns an array of all endpoints in the current meeting.
+This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
 
 ### Example
 ```php
@@ -782,7 +786,7 @@ Name | Type | Description  | Notes
 
 Send Email Invite
 
-This endpoint generates an email invite to the specified meeting.
+This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
 
 ### Example
 ```php
@@ -835,7 +839,7 @@ void (empty response body)
 
 Update Endpoint Layout
 
-This endpoint allows you to update an individual endpoint’s current layout setting.
+This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```php
@@ -947,7 +951,7 @@ Name | Type | Description  | Notes
 
 Update Endpoint Video/Audio State
 
-This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```php
@@ -1007,7 +1011,7 @@ Name | Type | Description  | Notes
 
 Update Meeting Endpoints State
 
-This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
 
 ### Example
 ```php
@@ -1062,7 +1066,7 @@ void (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
 
 ### Example
 ```php

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GrantType** | **string** | The type of access token you are requesting. | [default to "password"]
+**GrantType** | **string** | The type of access token you are requesting. | [default to GrantTypeEnum.Password]
 **Username** | **string** | Your user name that you use to login to our site. | 
 **Password** | **string** | Your user password that you use to login to our site. | 
 

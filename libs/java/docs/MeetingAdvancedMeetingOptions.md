@@ -4,14 +4,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**autoRecord** | **Boolean** |  |  [optional]
-**muteParticipantsOnEntry** | **Boolean** |  |  [optional]
+**videoBestFit** | **Boolean** |  |  [optional]
+**publishMeeting** | **Boolean** |  |  [optional]
 **encryptionType** | [**EncryptionTypeEnum**](#EncryptionTypeEnum) |  |  [optional]
 **moderatorLess** | **Boolean** |  |  [optional]
-**videoBestFit** | **Boolean** |  |  [optional]
+**allowStream** | **Boolean** |  |  [optional]
+**autoRecord** | **Boolean** |  |  [optional]
 **disallowChat** | **Boolean** |  |  [optional]
-**publishMeeting** | **Boolean** |  |  [optional]
+**muteParticipantsOnEntry** | **Boolean** |  |  [optional]
 **showAllAttendeesInMeetingInvite** | **Boolean** |  |  [optional]
+**editability** | [**MeetingAdvancedMeetingOptionsEditability**](MeetingAdvancedMeetingOptionsEditability.md) |  |  [optional]
 
 
 <a name="EncryptionTypeEnum"></a>

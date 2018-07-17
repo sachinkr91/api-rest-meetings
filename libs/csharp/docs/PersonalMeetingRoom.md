@@ -1,0 +1,47 @@
+# com.bluejeans.api.rest.meetings.Model.PersonalMeetingRoom
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **int?** | This is a unique number that is associated with the personal meeting room. | [optional] 
+**Uuid** | **string** | This is a unique guid used in BlueJeans cloud that is associated with the personal meeting room. | [optional] 
+**Title** | **string** | This is the name associated with personal room. | [optional] 
+**Description** | **string** | This is a short descriptive text for the personal meeting room. | [optional] 
+**Start** | **int?** | This is the epoch-based starting time (in milliseconds) of the personal meeting. | [optional] 
+**End** | **int?** | This is the epoch-based ending time (in milliseconds) of the personal meeting. | [optional] 
+**Timezone** | **string** | This is the unix timezone string describing the timezone for the meeting | [optional] 
+**AdvancedMeetingOptions** | [**PersonalMeetingRoomAdvancedMeetingOptions**](PersonalMeetingRoomAdvancedMeetingOptions.md) |  | [optional] 
+**NotificationUrl** | **string** | this property is not used in the BlueJeans Meetings product | [optional] 
+**NotificationData** | **string** | this property is not used in the BlueJeans Meetings product | [optional] 
+**Moderator** | [**PersonalMeetingRoomModerator**](PersonalMeetingRoomModerator.md) |  | [optional] 
+**NumericMeetingId** | **string** | This is the number that a participant would enter when joining this meeting. | [optional] 
+**AttendeePasscode** | **string** | This is a passcode that must be provided by people joining the meeting. | [optional] 
+**AddAttendeePasscode** | **bool?** | If set, causes BlueJeans to require participants to enter a passcode in order to join the meeting. | [optional] 
+**Deleted** | **bool?** | If set, indicates that this meeting has been deleted. | [optional] 
+**Allow720p** | **bool?** | If set allows clients to send and receive 720p video resolution. | [optional] 
+**Status** | **string** | This string indicates the meeting&#39;s operational status. | [optional] 
+**Locked** | **bool?** | If set the meeting has been locked, and future attendees require a member to allow them to join. | [optional] 
+**SequenceNumber** | **int?** | null | [optional] 
+**IcsUid** | **string** | null | [optional] 
+**EndPointType** | **string** | This string is the name of the type of scheduling entity. | [optional] [default to "WEB_APP"]
+**EndPointVersion** | **string** | This is a string that describes the version number of the endpoint type. | [optional] 
+**Attendees** | [**List&lt;PersonalMeetingRoomAttendees&gt;**](PersonalMeetingRoomAttendees.md) |  | [optional] 
+**IsLargeMeeting** | **bool?** | If set indicates that this meeting will have a large | [optional] 
+**Created** | **int?** | This is the date and time (in milliseconds) when the meeting was created. | [optional] 
+**LastModified** | **int?** | This is the date and time (in milliseconds) when the meeting was last changed. | [optional] 
+**IsExpired** | **bool?** | If set indicates that the meeting has expired. | [optional] 
+**ParentMeetingId** | **int?** | This is a unique number associated with the first meeting in a series of meetings. | [optional] 
+**ParentMeetingUUID** | **string** | This is the guid for the first meeting in a series of meetings. | [optional] 
+**NextOccurrence** | **int?** | This is a unique number associated with the next in a chain of meetings. | [optional] 
+**TimelessMeeting** | **bool?** | This field, if set, indicates that this meeting is continously running. | [optional] 
+**EndlessMeeting** | **bool?** | This field, if set, indicates that there is no end of recurring meetings. | [optional] 
+**First** | [**PersonalMeetingRoomFirst**](PersonalMeetingRoomFirst.md) |  | [optional] 
+**Last** | [**PersonalMeetingRoomLast**](PersonalMeetingRoomLast.md) |  | [optional] 
+**Next** | [**PersonalMeetingRoomNext**](PersonalMeetingRoomNext.md) |  | [optional] 
+**NextStart** | **int?** | This is the epoch-based starting time for the next in chain of meetings. | [optional] 
+**NextEnd** | **int?** | This is the epoch-based ending time for the next in chain of meetings. | [optional] 
+**IsPersonalMeeting** | **bool?** | if set, indicates that this ia personal meeting. | [optional] 
+**InviteeJoinOption** | **int?** | null | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

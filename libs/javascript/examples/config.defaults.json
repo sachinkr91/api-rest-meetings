@@ -1,7 +1,0 @@
-// Copy this file to config.json and edit
-{
-	"username":"YourBlueJeansEmailAddressHere - Only needed for password grants",
-	"password":"YourBlueJeansPasswordHere - Only needed for password grants"
-	"client_id":"YourBlueJeansAppKeyHere - Only needed for client grants",
-	"client_secret":"YourBlueJeansAppSecretHere - Only needed for client grants"
-}

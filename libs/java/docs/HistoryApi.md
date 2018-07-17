@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="getHistoryByEnterprise"></a>
 # **getHistoryByEnterprise**
-> Meeting getHistoryByEnterprise(enterpriseId, meetingGuid)
+> MeetingHistory getHistoryByEnterprise(enterpriseId, meetingGuid)
 
 Get Meeting History by Enterprise
 
@@ -42,7 +42,7 @@ HistoryApi apiInstance = new HistoryApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 try {
-    Meeting result = apiInstance.getHistoryByEnterprise(enterpriseId, meetingGuid);
+    MeetingHistory result = apiInstance.getHistoryByEnterprise(enterpriseId, meetingGuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling HistoryApi#getHistoryByEnterprise");
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 <a name="getHistoryByUser"></a>
 # **getHistoryByUser**
-> Meeting getHistoryByUser(userId, meetingGuid)
+> MeetingHistory getHistoryByUser(userId, meetingGuid)
 
 Get Meeting History by User
 
@@ -99,7 +99,7 @@ HistoryApi apiInstance = new HistoryApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 String meetingGuid = "meetingGuid_example"; // String | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 try {
-    Meeting result = apiInstance.getHistoryByUser(userId, meetingGuid);
+    MeetingHistory result = apiInstance.getHistoryByUser(userId, meetingGuid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling HistoryApi#getHistoryByUser");
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 

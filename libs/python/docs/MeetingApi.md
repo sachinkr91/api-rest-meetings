@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 
 # **cancel_meeting**
-> cancel_meeting(user_id, meeting_id)
+> cancel_meeting(user_id, meeting_id, email, cancellation_message)
 
 Cancel Meeting
 
@@ -50,10 +50,12 @@ BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 api_instance = BlueJeansMeetingsRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
+email = true # bool | Dispatch an email to participants with the specified cancellation message.
+cancellation_message = 'cancellation_message_example' # str | Message sent to participants when meeting is deleted and email is selected
 
 try: 
     # Cancel Meeting
-    api_instance.cancel_meeting(user_id, meeting_id)
+    api_instance.cancel_meeting(user_id, meeting_id, email, cancellation_message)
 except ApiException as e:
     print("Exception when calling MeetingApi->cancel_meeting: %s\n" % e)
 ```
@@ -64,6 +66,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
+ **email** | **bool**| Dispatch an email to participants with the specified cancellation message. | 
+ **cancellation_message** | **str**| Message sent to participants when meeting is deleted and email is selected | 
 
 ### Return type
 
@@ -103,7 +107,7 @@ BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting = BlueJeansMeetingsRestApi.Meeting() # Meeting | The details of the meeting.
+meeting = BlueJeansMeetingsRestApi.ScheduleMeetingMin() # ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
 try: 
@@ -119,7 +123,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**Meeting**](Meeting.md)| The details of the meeting. | 
+ **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type
@@ -138,11 +142,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dialout_pstn**
-> list[DialoutPstn] dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
+> DialoutPstn dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
 
 Dialout via PSTN
 
-Places a PSTN call to a user to join meeting.
+Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
 
 ### Example 
 ```python
@@ -181,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DialoutPstn]**](DialoutPstn.md)
+[**DialoutPstn**](DialoutPstn.md)
 
 ### Authorization
 
@@ -195,11 +199,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_pairing_code_pstn**
-> PairingCodeWebRTC generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
+> PairingCodePSTN generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
 
 Generate Pairing Code (PSTN)
 
-This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone.
+This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
 
 ### Example 
 ```python
@@ -240,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairingCodeWebRTC**](PairingCodeWebRTC.md)
+[**PairingCodePSTN**](PairingCodePSTN.md)
 
 ### Authorization
 
@@ -258,7 +262,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (SIP)
 
-This endpoint generates a SIP pairing code that can be used to connect to a meeting.
+This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example 
 ```python
@@ -315,7 +319,7 @@ Name | Type | Description  | Notes
 
 Generate Pairing Code (WebRTC)
 
-This endpoint generates a WebRTC pairing code that can be used to connect to a meeting.
+This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
 ### Example 
 ```python
@@ -374,7 +378,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Layout
 
-This endpoint allows you to retrieve an individual endpoint’s current layout setting.
+This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
 
 ### Example 
 ```python
@@ -482,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meeting_emails**
-> Meeting get_meeting_emails(user_id, meeting_id, type=type, role=role, action=action)
+> MeetingEmails get_meeting_emails(user_id, meeting_id, type=type, role=role, action=action)
 
 Get Meeting Email
 
@@ -529,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingEmails**](MeetingEmails.md)
 
 ### Authorization
 
@@ -547,7 +551,7 @@ Name | Type | Description  | Notes
 
 Get Endpoint Information
 
-This endpoint allows you to retrieve information about an endpoint in the meeting.
+This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
 
 ### Example 
 ```python
@@ -604,7 +608,7 @@ Name | Type | Description  | Notes
 
 List Meeting Endpoints
 
-This endpoint returns an array of all endpoints in the current meeting.
+This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
 
 ### Example 
 ```python
@@ -824,7 +828,7 @@ Name | Type | Description  | Notes
 
 Send Email Invite
 
-This endpoint generates an email invite to the specified meeting.
+This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
 
 ### Example 
 ```python
@@ -880,7 +884,7 @@ void (empty response body)
 
 Update Endpoint Layout
 
-This endpoint allows you to update an individual endpoint’s current layout setting.
+This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
 
 ### Example 
 ```python
@@ -998,7 +1002,7 @@ Name | Type | Description  | Notes
 
 Update Endpoint Video/Audio State
 
-This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting.
+This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
 
 ### Example 
 ```python
@@ -1061,7 +1065,7 @@ Name | Type | Description  | Notes
 
 Update Meeting Endpoints State
 
-This endpoint’s purpose is to be able to modify the endpoints in a meeting. Seems to require a Meeting-level access token.
+This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
 
 ### Example 
 ```python
@@ -1119,7 +1123,7 @@ void (empty response body)
 
 Update Meeting State
 
-This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.
+This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
 
 ### Example 
 ```python
