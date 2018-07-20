@@ -111,7 +111,7 @@ var apiInstance = new BlueJeansMeetingsRestApi.MeetingApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var meeting = new BlueJeansMeetingsRestApi.ScheduleMeetingMin(); // ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
+var meeting = new BlueJeansMeetingsRestApi.ScheduleMeetingMinComp(); // ScheduleMeetingMinComp | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 
 var opts = { 
   'email': true // Boolean | If set to true, sends invitation emails to all listed participants.
@@ -132,7 +132,7 @@ apiInstance.createMeeting(userId, meeting, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
+ **meeting** | [**ScheduleMeetingMinComp**](ScheduleMeetingMinComp.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
  **email** | **Boolean**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

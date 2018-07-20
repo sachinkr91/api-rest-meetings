@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="changeusertags"></a>
 # **ChangeUserTags**
-> ComponentstagList ChangeUserTags (int? userId, string action, string tag)
+> TagListComp ChangeUserTags (int? userId, string action, string tag)
 
 Set User Tags
 
@@ -55,7 +55,7 @@ namespace Example
             try
             {
                 // Set User Tags
-                ComponentstagList result = apiInstance.ChangeUserTags(userId, action, tag);
+                TagListComp result = apiInstance.ChangeUserTags(userId, action, tag);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 <a name="getusertags"></a>
 # **GetUserTags**
-> ComponentstagList GetUserTags (int? userId)
+> TagListComp GetUserTags (int? userId)
 
 List User Tags
 
@@ -587,7 +587,7 @@ namespace Example
             try
             {
                 // List User Tags
-                ComponentstagList result = apiInstance.GetUserTags(userId);
+                TagListComp result = apiInstance.GetUserTags(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -607,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

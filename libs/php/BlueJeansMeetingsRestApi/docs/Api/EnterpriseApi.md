@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **changeEnterpriseTags**
-> \BlueJeansMeetingsRestApi\Model\ComponentsTagList changeEnterpriseTags($enterprise_id, $action, $tag)
+> \BlueJeansMeetingsRestApi\Model\TagListComp changeEnterpriseTags($enterprise_id, $action, $tag)
 
 Set Enterprise Tags
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
+[**\BlueJeansMeetingsRestApi\Model\TagListComp**](../Model/TagListComp.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEnterpriseTags**
-> \BlueJeansMeetingsRestApi\Model\ComponentsTagList getEnterpriseTags($enterprise_id)
+> \BlueJeansMeetingsRestApi\Model\TagListComp getEnterpriseTags($enterprise_id)
 
 List Enterprise Tags
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
+[**\BlueJeansMeetingsRestApi\Model\TagListComp**](../Model/TagListComp.md)
 
 ### Authorization
 

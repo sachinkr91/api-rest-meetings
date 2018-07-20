@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **MeetingGuid** | **string** | The meetingGuid is a globally unique Id for this particular recording. It is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 6 alphanumeric segments separated by dashes. | [optional] 
 **OwnerId** | **int?** | The ownerId field is the unique Id number of the BlueJeans account that owns the recording | [optional] 
 **SharingUrl** | **string** |  | [optional] 
-**RecepientType** | [**ComponentsrecepientOptions**](ComponentsrecepientOptions.md) |  | [optional] 
+**RecepientType** | [**RecepientOptionsComp**](RecepientOptionsComp.md) |  | [optional] 
 **Properties** | [**MeetingSharingProperties**](MeetingSharingProperties.md) |  | [optional] 
 **Status** | **string** | This status field indicates the state of the sharing authorization record. | [optional] 
 **Downloadable** | **bool?** | The downloadable field indicates whether the recording can be downloaded | [optional] 

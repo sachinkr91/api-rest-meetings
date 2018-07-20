@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="moveRecordingOwner"></a>
 # **moveRecordingOwner**
-> ComponentsrecordingMoved moveRecordingOwner(userId, originalOwner, newOwner)
+> RecordingMovedComp moveRecordingOwner(userId, originalOwner, newOwner)
 
 Move Recording Ownership
 
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentsrecordingMoved**](ComponentsrecordingMoved.md)
+[**RecordingMovedComp**](RecordingMovedComp.md)
 
 ### Authorization
 

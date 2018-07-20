@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **moveRecordingOwner**
-> \BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved moveRecordingOwner($user_id, $original_owner, $new_owner)
+> \BlueJeansMeetingsRestApi\Model\RecordingMovedComp moveRecordingOwner($user_id, $original_owner, $new_owner)
 
 Move Recording Ownership
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\ComponentsRecordingMoved**](../Model/ComponentsRecordingMoved.md)
+[**\BlueJeansMeetingsRestApi\Model\RecordingMovedComp**](../Model/RecordingMovedComp.md)
 
 ### Authorization
 

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **change_user_tags**
-> ComponentstagList change_user_tags(user_id, action, tag)
+> TagListComp change_user_tags(user_id, action, tag)
 
 Set User Tags
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_tags**
-> ComponentstagList get_user_tags(user_id)
+> TagListComp get_user_tags(user_id)
 
 List User Tags
 
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

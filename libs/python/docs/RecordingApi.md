@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **move_recording_owner**
-> ComponentsrecordingMoved move_recording_owner(user_id, original_owner, new_owner)
+> RecordingMovedComp move_recording_owner(user_id, original_owner, new_owner)
 
 Move Recording Ownership
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentsrecordingMoved**](ComponentsrecordingMoved.md)
+[**RecordingMovedComp**](RecordingMovedComp.md)
 
 ### Authorization
 

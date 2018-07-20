@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="moveRecordingOwner"></a>
 # **moveRecordingOwner**
-> ComponentsrecordingMoved moveRecordingOwner(userId, originalOwner, newOwner)
+> RecordingMovedComp moveRecordingOwner(userId, originalOwner, newOwner)
 
 Move Recording Ownership
 
@@ -514,7 +514,7 @@ Integer userId = 56; // Integer | The ID of the user requesting the move.  This 
 Integer originalOwner = 56; // Integer | The ID of the recording's current owner.
 Integer newOwner = 56; // Integer | The ID of the intended owner for the recording.
 try {
-    ComponentsrecordingMoved result = apiInstance.moveRecordingOwner(userId, originalOwner, newOwner);
+    RecordingMovedComp result = apiInstance.moveRecordingOwner(userId, originalOwner, newOwner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecordingApi#moveRecordingOwner");
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentsrecordingMoved**](ComponentsrecordingMoved.md)
+[**RecordingMovedComp**](RecordingMovedComp.md)
 
 ### Authorization
 

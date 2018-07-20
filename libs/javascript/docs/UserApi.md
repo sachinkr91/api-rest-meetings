@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="changeUserTags"></a>
 # **changeUserTags**
-> ComponentstagList changeUserTags(userId, action, tag)
+> TagListComp changeUserTags(userId, action, tag)
 
 Set User Tags
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserTags"></a>
 # **getUserTags**
-> ComponentstagList getUserTags(userId)
+> TagListComp getUserTags(userId)
 
 List User Tags
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

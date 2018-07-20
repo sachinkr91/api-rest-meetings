@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="changeenterprisetags"></a>
 # **ChangeEnterpriseTags**
-> ComponentstagList ChangeEnterpriseTags (int? enterpriseId, string action, string tag)
+> TagListComp ChangeEnterpriseTags (int? enterpriseId, string action, string tag)
 
 Set Enterprise Tags
 
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Set Enterprise Tags
-                ComponentstagList result = apiInstance.ChangeEnterpriseTags(enterpriseId, action, tag);
+                TagListComp result = apiInstance.ChangeEnterpriseTags(enterpriseId, action, tag);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ void (empty response body)
 
 <a name="getenterprisetags"></a>
 # **GetEnterpriseTags**
-> ComponentstagList GetEnterpriseTags (int? enterpriseId)
+> TagListComp GetEnterpriseTags (int? enterpriseId)
 
 List Enterprise Tags
 
@@ -254,7 +254,7 @@ namespace Example
             try
             {
                 // List Enterprise Tags
-                ComponentstagList result = apiInstance.GetEnterpriseTags(enterpriseId);
+                TagListComp result = apiInstance.GetEnterpriseTags(enterpriseId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

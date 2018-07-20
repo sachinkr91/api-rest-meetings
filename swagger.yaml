@@ -116,7 +116,7 @@ info:
   license:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
-  version: 1.0.0.mm44 (7/06/2018)
+  version: 1.0.4407102018
   contact:
     name: Glenn Inn
     url: http://bluejeans.com/
@@ -739,7 +739,7 @@ paths:
         '200':
           description: The list of tags 
           schema:
-            $ref: '#/components/tagList'
+            $ref: '#/definitions/tagListComp'
         default:
           description: Unexpected error
           schema:
@@ -774,7 +774,7 @@ paths:
         '200':
           description: The list of tags 
           schema:
-            $ref: '#/components/tagList'
+            $ref: '#/definitions/tagListComp'
         default:
           description: Unexpected error
           schema:
@@ -952,7 +952,7 @@ paths:
         '200':
           description: The list of tags 
           schema:
-            $ref: '#/components/tagList'
+            $ref: '#/definitions/tagListComp'
         default:
           description: Unexpected error
           schema:
@@ -987,7 +987,7 @@ paths:
         '200':
           description: The list of tags 
           schema:
-            $ref: '#/components/tagList'
+            $ref: '#/definitions/tagListComp'
         default:
           description: Unexpected error
           schema:
@@ -1047,7 +1047,7 @@ paths:
           description: The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
           required: true
           schema:
-            $ref: "#/components/scheduleMeetingMin"
+            $ref: "#/definitions/scheduleMeetingMinComp"
       responses:
         '201':
           description: The settings for the meeting.
@@ -2485,7 +2485,7 @@ paths:
         '200':
           description: The results for the request.
           schema:
-            $ref: '#/components/recordingMoved'
+            $ref: '#/definitions/recordingMovedComp'
         '405':
           description: Incorrect method.  Make sure you are calling API with POST method.
         default:
@@ -3934,7 +3934,7 @@ definitions:
         type: array
         description:  The list of matching enterprise profiles
         items:
-          $ref: '#/components/EnterpriseUserInfo'
+          $ref: '#/definitions/EnterpriseUserInfoComp'
 
   EnterpriseUserList:
     type: object
@@ -6349,7 +6349,7 @@ definitions:
       sharingUrl: 
         type: string 
       recepientType: 
-         $ref: '#/components/recepientOptions'
+         $ref: '#/definitions/recepientOptionsComp'
       properties:
         type: object
         description: TBD
@@ -6387,7 +6387,7 @@ definitions:
         type: integer
       recepientType: 
         description:  The ownerId field is the unique Id number of the BlueJeans account that owns the recording
-        $ref: '#/components/recepientOptions'
+        $ref: '#/definitions/recepientOptionsComp'
   modifySharing:
     type: object
     properties:
@@ -6395,15 +6395,16 @@ definitions:
         type: boolean
         description: If true, allow people to download the recording
       recepientType:
-         $ref: '#/components/recepientOptions'
-components:
-  recepientOptions:
+         $ref: '#/definitions/recepientOptionsComp'
+
+         
+  recepientOptionsComp:
     type: string
     description: The recepient (sic) options describe the type of users who will have access to a recording
     enum:
      - PUBLIC
      - ENTERPRISE
-  EnterpriseUserInfo:
+  EnterpriseUserInfoComp:
     type: object
     properties:
       id: 
@@ -6433,13 +6434,13 @@ components:
       uri: 
         type: string
         description: Internal enterprise profile URI for referencing BlueJeans resources.
-  tagList:
+  tagListComp:
     type: array
     items:
       type: string
       description: name of tag 
 
-  scheduleMeetingMin:
+  scheduleMeetingMinComp:
     type: object
     description: A typical minimum set of Properties required to schedule a meeting
     required: [title,start,end,timezone,endPointVersion,endPointType]
@@ -6477,7 +6478,7 @@ components:
         type: boolean
         default: false
         description: Use the scheduler's personal meeting room and Id for this meeting.
-  recordingMoved:
+  recordingMovedComp:
     type: object
     properties:
       code:

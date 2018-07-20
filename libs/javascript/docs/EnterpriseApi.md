@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="changeEnterpriseTags"></a>
 # **changeEnterpriseTags**
-> ComponentstagList changeEnterpriseTags(enterpriseId, action, tag)
+> TagListComp changeEnterpriseTags(enterpriseId, action, tag)
 
 Set Enterprise Tags
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ null (empty response body)
 
 <a name="getEnterpriseTags"></a>
 # **getEnterpriseTags**
-> ComponentstagList getEnterpriseTags(enterpriseId)
+> TagListComp getEnterpriseTags(enterpriseId)
 
 List Enterprise Tags
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 {
   "name": "bluejeans-api-rest-meetings",
-  "version": "1.0.0.mm44 (7/06/2018)",
+  "version": "1.0.4407102018",
   "description": "JavaScript client for BlueJeans Meetings REST APIs",
   "license": "MIT",
   "main": "src/index.js",

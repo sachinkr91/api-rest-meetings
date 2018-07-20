@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **changeUserTags**
-> \BlueJeansMeetingsRestApi\Model\ComponentsTagList changeUserTags($user_id, $action, $tag)
+> \BlueJeansMeetingsRestApi\Model\TagListComp changeUserTags($user_id, $action, $tag)
 
 Set User Tags
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
+[**\BlueJeansMeetingsRestApi\Model\TagListComp**](../Model/TagListComp.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserTags**
-> \BlueJeansMeetingsRestApi\Model\ComponentsTagList getUserTags($user_id)
+> \BlueJeansMeetingsRestApi\Model\TagListComp getUserTags($user_id)
 
 List User Tags
 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\ComponentsTagList**](../Model/ComponentsTagList.md)
+[**\BlueJeansMeetingsRestApi\Model\TagListComp**](../Model/TagListComp.md)
 
 ### Authorization
 

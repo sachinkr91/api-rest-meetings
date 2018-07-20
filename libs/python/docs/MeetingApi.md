@@ -107,7 +107,7 @@ BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.MeetingApi()
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-meeting = BlueJeansMeetingsRestApi.ScheduleMeetingMin() # ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
+meeting = BlueJeansMeetingsRestApi.ScheduleMeetingMinComp() # ScheduleMeetingMinComp | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
 try: 
@@ -123,7 +123,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
+ **meeting** | [**ScheduleMeetingMinComp**](ScheduleMeetingMinComp.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
  **email** | **bool**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

@@ -99,7 +99,7 @@ void (empty response body)
 
 <a name="createmeeting"></a>
 # **CreateMeeting**
-> Meeting CreateMeeting (int? userId, ScheduleMeetingMin meeting, bool? email = null)
+> Meeting CreateMeeting (int? userId, ScheduleMeetingMinComp meeting, bool? email = null)
 
 Create Meeting
 
@@ -126,7 +126,7 @@ namespace Example
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var meeting = new ScheduleMeetingMin(); // ScheduleMeetingMin | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
+            var meeting = new ScheduleMeetingMinComp(); // ScheduleMeetingMinComp | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
             var email = true;  // bool? | If set to true, sends invitation emails to all listed participants. (optional) 
 
             try
@@ -149,7 +149,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **meeting** | [**ScheduleMeetingMin**](ScheduleMeetingMin.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
+ **meeting** | [**ScheduleMeetingMinComp**](ScheduleMeetingMinComp.md)| The desired configuration for the meeting. (&lt;b&gt;NOTE&lt;/b&gt; The model provided here is a &lt;i&gt;typical&lt;/i&gt; minimum set of meeting parameters.) | 
  **email** | **bool?**| If set to true, sends invitation emails to all listed participants. | [optional] 
 
 ### Return type

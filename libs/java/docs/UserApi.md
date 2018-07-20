@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="changeUserTags"></a>
 # **changeUserTags**
-> ComponentstagList changeUserTags(userId, action, tag)
+> TagListComp changeUserTags(userId, action, tag)
 
 Set User Tags
 
@@ -50,7 +50,7 @@ Integer userId = 56; // Integer | The user ID for the account to retrieve tags. 
 String action = "action_example"; // String | Type of operation to be done
 String tag = "tag_example"; // String | The name of tag
 try {
-    ComponentstagList result = apiInstance.changeUserTags(userId, action, tag);
+    TagListComp result = apiInstance.changeUserTags(userId, action, tag);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#changeUserTags");
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserTags"></a>
 # **getUserTags**
-> ComponentstagList getUserTags(userId)
+> TagListComp getUserTags(userId)
 
 List User Tags
 
@@ -494,7 +494,7 @@ access_token.setApiKey("YOUR API KEY");
 UserApi apiInstance = new UserApi();
 Integer userId = 56; // Integer | The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 try {
-    ComponentstagList result = apiInstance.getUserTags(userId);
+    TagListComp result = apiInstance.getUserTags(userId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#getUserTags");
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

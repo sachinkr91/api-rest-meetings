@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 
 <a name="moverecordingowner"></a>
 # **MoveRecordingOwner**
-> ComponentsrecordingMoved MoveRecordingOwner (int? userId, int? originalOwner, int? newOwner)
+> RecordingMovedComp MoveRecordingOwner (int? userId, int? originalOwner, int? newOwner)
 
 Move Recording Ownership
 
@@ -607,7 +607,7 @@ namespace Example
             try
             {
                 // Move Recording Ownership
-                ComponentsrecordingMoved result = apiInstance.MoveRecordingOwner(userId, originalOwner, newOwner);
+                RecordingMovedComp result = apiInstance.MoveRecordingOwner(userId, originalOwner, newOwner);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentsrecordingMoved**](ComponentsrecordingMoved.md)
+[**RecordingMovedComp**](RecordingMovedComp.md)
 
 ### Authorization
 

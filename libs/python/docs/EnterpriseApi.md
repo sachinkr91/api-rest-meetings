@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **change_enterprise_tags**
-> ComponentstagList change_enterprise_tags(enterprise_id, action, tag)
+> TagListComp change_enterprise_tags(enterprise_id, action, tag)
 
 Set Enterprise Tags
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_enterprise_tags**
-> ComponentstagList get_enterprise_tags(enterprise_id)
+> TagListComp get_enterprise_tags(enterprise_id)
 
 List Enterprise Tags
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 

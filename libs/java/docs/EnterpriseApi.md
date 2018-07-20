@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="changeEnterpriseTags"></a>
 # **changeEnterpriseTags**
-> ComponentstagList changeEnterpriseTags(enterpriseId, action, tag)
+> TagListComp changeEnterpriseTags(enterpriseId, action, tag)
 
 Set Enterprise Tags
 
@@ -42,7 +42,7 @@ Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. Th
 String action = "action_example"; // String | Type of operation to be done
 String tag = "tag_example"; // String | The name of tag
 try {
-    ComponentstagList result = apiInstance.changeEnterpriseTags(enterpriseId, action, tag);
+    TagListComp result = apiInstance.changeEnterpriseTags(enterpriseId, action, tag);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EnterpriseApi#changeEnterpriseTags");
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ null (empty response body)
 
 <a name="getEnterpriseTags"></a>
 # **getEnterpriseTags**
-> ComponentstagList getEnterpriseTags(enterpriseId)
+> TagListComp getEnterpriseTags(enterpriseId)
 
 List Enterprise Tags
 
@@ -216,7 +216,7 @@ access_token.setApiKey("YOUR API KEY");
 EnterpriseApi apiInstance = new EnterpriseApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 try {
-    ComponentstagList result = apiInstance.getEnterpriseTags(enterpriseId);
+    TagListComp result = apiInstance.getEnterpriseTags(enterpriseId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EnterpriseApi#getEnterpriseTags");
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentstagList**](ComponentstagList.md)
+[**TagListComp**](TagListComp.md)
 
 ### Authorization
 
