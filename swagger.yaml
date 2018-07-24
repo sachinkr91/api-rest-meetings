@@ -11,7 +11,7 @@ info:
     With these APIs you can quickly integrate **BlueJeans** video administration into your applications.  
     
     
-    <alert>7/23/2018 </alert>Corrected errors in API definition file.
+    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/>
     7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
     7/06/2018 Added API for changing ownership of recordings.<br/>
     6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
