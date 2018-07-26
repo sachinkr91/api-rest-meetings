@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rm -rf ../libs/java
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java --group-id com.bluejeans --artifact-id api-rest-meetings --api-package com.bluejeans.api.rest.meetings.api --model-package com.bluejeans.api.rest.meetings.model --invoker-package com.bluejeans.api.rest.meetings --config config.java.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java -t ./templates/java  --group-id com.bluejeans --artifact-id api-rest-meetings --api-package com.bluejeans.api.rest.meetings.api --model-package com.bluejeans.api.rest.meetings.model --invoker-package com.bluejeans.api.rest.meetings --config config.java.json
 cd ../libs/java
 
 perl -p -i -e "s|</properties>|  <github.global.server>github</github.global.server>\n  </properties>|" pom.xml
@@ -122,3 +122,9 @@ perl -p -i -e "s|\.git|\.git\@pip-repo|" README.md
 perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|" README.md
 
 cd ../../build
+
+find ../libs -type f -name "*.bak" -exec rm {} +
+
+
+pause
+

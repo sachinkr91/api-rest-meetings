@@ -38,7 +38,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -97,7 +97,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -154,7 +154,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -213,7 +213,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -269,7 +269,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -328,7 +328,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -387,7 +387,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -444,7 +444,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -505,7 +505,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -564,7 +564,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
@@ -622,7 +622,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: access_token
 ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
+access_token.setApiKey("YOUR ACCESS TOKEN");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.setApiKeyPrefix("Token");
 
