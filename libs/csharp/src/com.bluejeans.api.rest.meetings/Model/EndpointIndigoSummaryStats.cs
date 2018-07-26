@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -33,298 +33,298 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EndpointIndigoSummaryStats" /> class.
         /// </summary>
-        /// <param name="AudioRecvCodec">AudioRecvCodec.</param>
-        /// <param name="AudioSendCodec">AudioSendCodec.</param>
-        /// <param name="ContentRecv">ContentRecv.</param>
-        /// <param name="ContentSend">ContentSend.</param>
-        /// <param name="TalkDetected">TalkDetected.</param>
-        /// <param name="SessionRelay">SessionRelay.</param>
-        /// <param name="SessionInRelay">SessionInRelay.</param>
-        /// <param name="SessionOutRelay">SessionOutRelay.</param>
-        /// <param name="AudioRtpRelay">AudioRtpRelay.</param>
-        /// <param name="CallRate">CallRate.</param>
-        /// <param name="CumulLossPercentAI">CumulLossPercentAI.</param>
-        /// <param name="CumulLossPercentAO">CumulLossPercentAO.</param>
-        /// <param name="CumulLossPercentVI">CumulLossPercentVI.</param>
-        /// <param name="CumulLossPercentVO">CumulLossPercentVO.</param>
-        /// <param name="CumulLossPercentVIC">CumulLossPercentVIC.</param>
-        /// <param name="CumulLossPercentVOC">CumulLossPercentVOC.</param>
-        /// <param name="CumulLossAI">CumulLossAI.</param>
-        /// <param name="CumulLossAO">CumulLossAO.</param>
-        /// <param name="CumulLossVI">CumulLossVI.</param>
-        /// <param name="CumulLossVO">CumulLossVO.</param>
-        /// <param name="CumulLossVIC">CumulLossVIC.</param>
-        /// <param name="CumulLossVOC">CumulLossVOC.</param>
-        /// <param name="DiscontinuityCount">DiscontinuityCount.</param>
-        /// <param name="DroppedPacketsAI">DroppedPacketsAI.</param>
-        /// <param name="DroppedPacketsVI">DroppedPacketsVI.</param>
-        /// <param name="DroppedPacketsVIC">DroppedPacketsVIC.</param>
-        /// <param name="MixUnderRunsAI">MixUnderRunsAI.</param>
-        /// <param name="NetworkAvgLossAI">NetworkAvgLossAI.</param>
-        /// <param name="NetworkAvgLossAO">NetworkAvgLossAO.</param>
-        /// <param name="NetworkAvgLossVI">NetworkAvgLossVI.</param>
-        /// <param name="NetworkAvgLossVO">NetworkAvgLossVO.</param>
-        /// <param name="NetworkCumulLossAI">NetworkCumulLossAI.</param>
-        /// <param name="NetworkCumulLossAO">NetworkCumulLossAO.</param>
-        /// <param name="NetworkCumulLossVI">NetworkCumulLossVI.</param>
-        /// <param name="NetworkCumulLossVO">NetworkCumulLossVO.</param>
-        /// <param name="NetworkLossAI">NetworkLossAI.</param>
-        /// <param name="NetworkLossAO">NetworkLossAO.</param>
-        /// <param name="NetworkLossVI">NetworkLossVI.</param>
-        /// <param name="NetworkLossVO">NetworkLossVO.</param>
-        /// <param name="CallQualityMin">CallQualityMin.</param>
-        /// <param name="CallQualityMax">CallQualityMax.</param>
-        /// <param name="CallQualityAvg">CallQualityAvg.</param>
-        /// <param name="FpsMinVI">FpsMinVI.</param>
-        /// <param name="FpsMinVO">FpsMinVO.</param>
-        /// <param name="FpsMinVIC">FpsMinVIC.</param>
-        /// <param name="FpsMinVOC">FpsMinVOC.</param>
-        /// <param name="FpsMaxVI">FpsMaxVI.</param>
-        /// <param name="FpsMaxVO">FpsMaxVO.</param>
-        /// <param name="FpsMaxVIC">FpsMaxVIC.</param>
-        /// <param name="FpsMaxVOC">FpsMaxVOC.</param>
-        /// <param name="FpsAvgVI">FpsAvgVI.</param>
-        /// <param name="FpsAvgVO">FpsAvgVO.</param>
-        /// <param name="FpsAvgVIC">FpsAvgVIC.</param>
-        /// <param name="FpsAvgVOC">FpsAvgVOC.</param>
-        /// <param name="BitrateMinAI">BitrateMinAI.</param>
-        /// <param name="BitrateMinAO">BitrateMinAO.</param>
-        /// <param name="BitrateMinVI">BitrateMinVI.</param>
-        /// <param name="BitrateMinVO">BitrateMinVO.</param>
-        /// <param name="BitrateMinVIC">BitrateMinVIC.</param>
-        /// <param name="BitrateMinVOC">BitrateMinVOC.</param>
-        /// <param name="BitrateMaxAI">BitrateMaxAI.</param>
-        /// <param name="BitrateMaxAO">BitrateMaxAO.</param>
-        /// <param name="BitrateMaxVI">BitrateMaxVI.</param>
-        /// <param name="BitrateMaxVO">BitrateMaxVO.</param>
-        /// <param name="BitrateMaxVIC">BitrateMaxVIC.</param>
-        /// <param name="BitrateMaxVOC">BitrateMaxVOC.</param>
-        /// <param name="BitrateAvgAI">BitrateAvgAI.</param>
-        /// <param name="BitrateAvgAO">BitrateAvgAO.</param>
-        /// <param name="BitrateAvgVI">BitrateAvgVI.</param>
-        /// <param name="BitrateAvgVO">BitrateAvgVO.</param>
-        /// <param name="BitrateAvgVIC">BitrateAvgVIC.</param>
-        /// <param name="BitrateAvgVOC">BitrateAvgVOC.</param>
-        /// <param name="JitterMinAI">JitterMinAI.</param>
-        /// <param name="JitterMinAO">JitterMinAO.</param>
-        /// <param name="JitterMinVI">JitterMinVI.</param>
-        /// <param name="JitterMinVO">JitterMinVO.</param>
-        /// <param name="JitterMinVIC">JitterMinVIC.</param>
-        /// <param name="JitterMinVOC">JitterMinVOC.</param>
-        /// <param name="JitterMaxAI">JitterMaxAI.</param>
-        /// <param name="JitterMaxAO">JitterMaxAO.</param>
-        /// <param name="JitterMaxVI">JitterMaxVI.</param>
-        /// <param name="JitterMaxVO">JitterMaxVO.</param>
-        /// <param name="JitterMaxVIC">JitterMaxVIC.</param>
-        /// <param name="JitterMaxVOC">JitterMaxVOC.</param>
-        /// <param name="JitterAvgAI">JitterAvgAI.</param>
-        /// <param name="JitterAvgAO">JitterAvgAO.</param>
-        /// <param name="JitterAvgVI">JitterAvgVI.</param>
-        /// <param name="JitterAvgVO">JitterAvgVO.</param>
-        /// <param name="JitterAvgVIC">JitterAvgVIC.</param>
-        /// <param name="JitterAvgVOC">JitterAvgVOC.</param>
-        /// <param name="MaxJitterMinAI">MaxJitterMinAI.</param>
-        /// <param name="MaxJitterMinVI">MaxJitterMinVI.</param>
-        /// <param name="MaxJitterMinVIC">MaxJitterMinVIC.</param>
-        /// <param name="MaxJitterMaxAI">MaxJitterMaxAI.</param>
-        /// <param name="MaxJitterMaxVI">MaxJitterMaxVI.</param>
-        /// <param name="MaxJitterMaxVIC">MaxJitterMaxVIC.</param>
-        /// <param name="MaxJitterAvgAI">MaxJitterAvgAI.</param>
-        /// <param name="MaxJitterAvgVI">MaxJitterAvgVI.</param>
-        /// <param name="MaxJitterAvgVIC">MaxJitterAvgVIC.</param>
-        /// <param name="VideoRecvHeightMin">VideoRecvHeightMin.</param>
-        /// <param name="VideoRecvHeightMax">VideoRecvHeightMax.</param>
-        /// <param name="VideoRecvWidthMin">VideoRecvWidthMin.</param>
-        /// <param name="VideoRecvWidthMax">VideoRecvWidthMax.</param>
-        /// <param name="VideoSendHeightMin">VideoSendHeightMin.</param>
-        /// <param name="VideoSendHeightMax">VideoSendHeightMax.</param>
-        /// <param name="VideoSendWidthMin">VideoSendWidthMin.</param>
-        /// <param name="VideoSendWidthMax">VideoSendWidthMax.</param>
-        /// <param name="ContentRecvHeightMin">ContentRecvHeightMin.</param>
-        /// <param name="ContentRecvHeightMax">ContentRecvHeightMax.</param>
-        /// <param name="ContentRecvWidthMin">ContentRecvWidthMin.</param>
-        /// <param name="ContentRecvWidthMax">ContentRecvWidthMax.</param>
-        /// <param name="ContentSendHeightMin">ContentSendHeightMin.</param>
-        /// <param name="ContentSendHeightMax">ContentSendHeightMax.</param>
-        /// <param name="ContentSendWidthMin">ContentSendWidthMin.</param>
-        /// <param name="ContentSendWidthMax">ContentSendWidthMax.</param>
-        /// <param name="RoundTripDelayMin">RoundTripDelayMin.</param>
-        /// <param name="RoundTripDelayMax">RoundTripDelayMax.</param>
-        /// <param name="RoundTripDelayAvg">RoundTripDelayAvg.</param>
-        /// <param name="RfactorMin">RfactorMin.</param>
-        /// <param name="RfactorMax">RfactorMax.</param>
-        /// <param name="RfactorAvg">RfactorAvg.</param>
-        /// <param name="ProcessCpuLoadMin">ProcessCpuLoadMin.</param>
-        /// <param name="ProcessCpuLoadMax">ProcessCpuLoadMax.</param>
-        /// <param name="ProcessCpuLoadAvg">ProcessCpuLoadAvg.</param>
-        /// <param name="SystemCpuLoadMin">SystemCpuLoadMin.</param>
-        /// <param name="SystemCpuLoadMax">SystemCpuLoadMax.</param>
-        /// <param name="SystemCpuLoadAvg">SystemCpuLoadAvg.</param>
-        /// <param name="WifiRecvStrengthMin">WifiRecvStrengthMin.</param>
-        /// <param name="WifiRecvStrengthMax">WifiRecvStrengthMax.</param>
-        /// <param name="WifiRecvStrengthAvg">WifiRecvStrengthAvg.</param>
-        /// <param name="KeyFrameRateAvgVI">KeyFrameRateAvgVI.</param>
-        /// <param name="KeyFrameRateAvgVO">KeyFrameRateAvgVO.</param>
-        /// <param name="KeyFrameRateAvgVIC">KeyFrameRateAvgVIC.</param>
-        /// <param name="KeyFrameRateAvgVOC">KeyFrameRateAvgVOC.</param>
-        /// <param name="KeyFrameRateMinVI">KeyFrameRateMinVI.</param>
-        /// <param name="KeyFrameRateMinVO">KeyFrameRateMinVO.</param>
-        /// <param name="KeyFrameRateMinVIC">KeyFrameRateMinVIC.</param>
-        /// <param name="KeyFrameRateMinVOC">KeyFrameRateMinVOC.</param>
-        /// <param name="KeyFrameRateMaxVI">KeyFrameRateMaxVI.</param>
-        /// <param name="KeyFrameRateMaxVO">KeyFrameRateMaxVO.</param>
-        /// <param name="KeyFrameRateMaxVIC">KeyFrameRateMaxVIC.</param>
-        /// <param name="KeyFrameRateMaxVOC">KeyFrameRateMaxVOC.</param>
-        /// <param name="RoundTripDelayAvgVO">RoundTripDelayAvgVO.</param>
-        /// <param name="RoundTripDelayAvgVOC">RoundTripDelayAvgVOC.</param>
-        /// <param name="RoundTripDelayAvgAO">RoundTripDelayAvgAO.</param>
-        public EndpointIndigoSummaryStats(string AudioRecvCodec = default(string), string AudioSendCodec = default(string), bool? ContentRecv = default(bool?), bool? ContentSend = default(bool?), bool? TalkDetected = default(bool?), bool? SessionRelay = default(bool?), bool? SessionInRelay = default(bool?), bool? SessionOutRelay = default(bool?), bool? AudioRtpRelay = default(bool?), int? CallRate = default(int?), decimal? CumulLossPercentAI = default(decimal?), decimal? CumulLossPercentAO = default(decimal?), decimal? CumulLossPercentVI = default(decimal?), decimal? CumulLossPercentVO = default(decimal?), decimal? CumulLossPercentVIC = default(decimal?), decimal? CumulLossPercentVOC = default(decimal?), decimal? CumulLossAI = default(decimal?), decimal? CumulLossAO = default(decimal?), decimal? CumulLossVI = default(decimal?), decimal? CumulLossVO = default(decimal?), decimal? CumulLossVIC = default(decimal?), decimal? CumulLossVOC = default(decimal?), decimal? DiscontinuityCount = default(decimal?), decimal? DroppedPacketsAI = default(decimal?), decimal? DroppedPacketsVI = default(decimal?), decimal? DroppedPacketsVIC = default(decimal?), decimal? MixUnderRunsAI = default(decimal?), decimal? NetworkAvgLossAI = default(decimal?), decimal? NetworkAvgLossAO = default(decimal?), decimal? NetworkAvgLossVI = default(decimal?), decimal? NetworkAvgLossVO = default(decimal?), decimal? NetworkCumulLossAI = default(decimal?), decimal? NetworkCumulLossAO = default(decimal?), decimal? NetworkCumulLossVI = default(decimal?), decimal? NetworkCumulLossVO = default(decimal?), decimal? NetworkLossAI = default(decimal?), decimal? NetworkLossAO = default(decimal?), decimal? NetworkLossVI = default(decimal?), decimal? NetworkLossVO = default(decimal?), decimal? CallQualityMin = default(decimal?), decimal? CallQualityMax = default(decimal?), decimal? CallQualityAvg = default(decimal?), decimal? FpsMinVI = default(decimal?), decimal? FpsMinVO = default(decimal?), decimal? FpsMinVIC = default(decimal?), decimal? FpsMinVOC = default(decimal?), decimal? FpsMaxVI = default(decimal?), decimal? FpsMaxVO = default(decimal?), decimal? FpsMaxVIC = default(decimal?), decimal? FpsMaxVOC = default(decimal?), decimal? FpsAvgVI = default(decimal?), decimal? FpsAvgVO = default(decimal?), decimal? FpsAvgVIC = default(decimal?), decimal? FpsAvgVOC = default(decimal?), decimal? BitrateMinAI = default(decimal?), decimal? BitrateMinAO = default(decimal?), decimal? BitrateMinVI = default(decimal?), decimal? BitrateMinVO = default(decimal?), decimal? BitrateMinVIC = default(decimal?), decimal? BitrateMinVOC = default(decimal?), decimal? BitrateMaxAI = default(decimal?), decimal? BitrateMaxAO = default(decimal?), decimal? BitrateMaxVI = default(decimal?), decimal? BitrateMaxVO = default(decimal?), decimal? BitrateMaxVIC = default(decimal?), decimal? BitrateMaxVOC = default(decimal?), decimal? BitrateAvgAI = default(decimal?), decimal? BitrateAvgAO = default(decimal?), decimal? BitrateAvgVI = default(decimal?), decimal? BitrateAvgVO = default(decimal?), decimal? BitrateAvgVIC = default(decimal?), decimal? BitrateAvgVOC = default(decimal?), decimal? JitterMinAI = default(decimal?), decimal? JitterMinAO = default(decimal?), decimal? JitterMinVI = default(decimal?), decimal? JitterMinVO = default(decimal?), decimal? JitterMinVIC = default(decimal?), decimal? JitterMinVOC = default(decimal?), decimal? JitterMaxAI = default(decimal?), decimal? JitterMaxAO = default(decimal?), decimal? JitterMaxVI = default(decimal?), decimal? JitterMaxVO = default(decimal?), decimal? JitterMaxVIC = default(decimal?), decimal? JitterMaxVOC = default(decimal?), decimal? JitterAvgAI = default(decimal?), decimal? JitterAvgAO = default(decimal?), decimal? JitterAvgVI = default(decimal?), decimal? JitterAvgVO = default(decimal?), decimal? JitterAvgVIC = default(decimal?), decimal? JitterAvgVOC = default(decimal?), decimal? MaxJitterMinAI = default(decimal?), decimal? MaxJitterMinVI = default(decimal?), decimal? MaxJitterMinVIC = default(decimal?), decimal? MaxJitterMaxAI = default(decimal?), decimal? MaxJitterMaxVI = default(decimal?), decimal? MaxJitterMaxVIC = default(decimal?), decimal? MaxJitterAvgAI = default(decimal?), decimal? MaxJitterAvgVI = default(decimal?), decimal? MaxJitterAvgVIC = default(decimal?), decimal? VideoRecvHeightMin = default(decimal?), decimal? VideoRecvHeightMax = default(decimal?), decimal? VideoRecvWidthMin = default(decimal?), decimal? VideoRecvWidthMax = default(decimal?), decimal? VideoSendHeightMin = default(decimal?), decimal? VideoSendHeightMax = default(decimal?), decimal? VideoSendWidthMin = default(decimal?), decimal? VideoSendWidthMax = default(decimal?), decimal? ContentRecvHeightMin = default(decimal?), decimal? ContentRecvHeightMax = default(decimal?), decimal? ContentRecvWidthMin = default(decimal?), decimal? ContentRecvWidthMax = default(decimal?), decimal? ContentSendHeightMin = default(decimal?), decimal? ContentSendHeightMax = default(decimal?), decimal? ContentSendWidthMin = default(decimal?), decimal? ContentSendWidthMax = default(decimal?), decimal? RoundTripDelayMin = default(decimal?), decimal? RoundTripDelayMax = default(decimal?), decimal? RoundTripDelayAvg = default(decimal?), decimal? RfactorMin = default(decimal?), decimal? RfactorMax = default(decimal?), decimal? RfactorAvg = default(decimal?), decimal? ProcessCpuLoadMin = default(decimal?), decimal? ProcessCpuLoadMax = default(decimal?), decimal? ProcessCpuLoadAvg = default(decimal?), decimal? SystemCpuLoadMin = default(decimal?), decimal? SystemCpuLoadMax = default(decimal?), decimal? SystemCpuLoadAvg = default(decimal?), decimal? WifiRecvStrengthMin = default(decimal?), decimal? WifiRecvStrengthMax = default(decimal?), decimal? WifiRecvStrengthAvg = default(decimal?), decimal? KeyFrameRateAvgVI = default(decimal?), decimal? KeyFrameRateAvgVO = default(decimal?), decimal? KeyFrameRateAvgVIC = default(decimal?), decimal? KeyFrameRateAvgVOC = default(decimal?), decimal? KeyFrameRateMinVI = default(decimal?), decimal? KeyFrameRateMinVO = default(decimal?), decimal? KeyFrameRateMinVIC = default(decimal?), decimal? KeyFrameRateMinVOC = default(decimal?), decimal? KeyFrameRateMaxVI = default(decimal?), decimal? KeyFrameRateMaxVO = default(decimal?), decimal? KeyFrameRateMaxVIC = default(decimal?), decimal? KeyFrameRateMaxVOC = default(decimal?), decimal? RoundTripDelayAvgVO = default(decimal?), decimal? RoundTripDelayAvgVOC = default(decimal?), decimal? RoundTripDelayAvgAO = default(decimal?))
+        /// <param name="audioRecvCodec">audioRecvCodec.</param>
+        /// <param name="audioSendCodec">audioSendCodec.</param>
+        /// <param name="contentRecv">contentRecv.</param>
+        /// <param name="contentSend">contentSend.</param>
+        /// <param name="talkDetected">talkDetected.</param>
+        /// <param name="sessionRelay">sessionRelay.</param>
+        /// <param name="sessionInRelay">sessionInRelay.</param>
+        /// <param name="sessionOutRelay">sessionOutRelay.</param>
+        /// <param name="audioRtpRelay">audioRtpRelay.</param>
+        /// <param name="callRate">callRate.</param>
+        /// <param name="cumulLossPercentAI">cumulLossPercentAI.</param>
+        /// <param name="cumulLossPercentAO">cumulLossPercentAO.</param>
+        /// <param name="cumulLossPercentVI">cumulLossPercentVI.</param>
+        /// <param name="cumulLossPercentVO">cumulLossPercentVO.</param>
+        /// <param name="cumulLossPercentVIC">cumulLossPercentVIC.</param>
+        /// <param name="cumulLossPercentVOC">cumulLossPercentVOC.</param>
+        /// <param name="cumulLossAI">cumulLossAI.</param>
+        /// <param name="cumulLossAO">cumulLossAO.</param>
+        /// <param name="cumulLossVI">cumulLossVI.</param>
+        /// <param name="cumulLossVO">cumulLossVO.</param>
+        /// <param name="cumulLossVIC">cumulLossVIC.</param>
+        /// <param name="cumulLossVOC">cumulLossVOC.</param>
+        /// <param name="discontinuityCount">discontinuityCount.</param>
+        /// <param name="droppedPacketsAI">droppedPacketsAI.</param>
+        /// <param name="droppedPacketsVI">droppedPacketsVI.</param>
+        /// <param name="droppedPacketsVIC">droppedPacketsVIC.</param>
+        /// <param name="mixUnderRunsAI">mixUnderRunsAI.</param>
+        /// <param name="networkAvgLossAI">networkAvgLossAI.</param>
+        /// <param name="networkAvgLossAO">networkAvgLossAO.</param>
+        /// <param name="networkAvgLossVI">networkAvgLossVI.</param>
+        /// <param name="networkAvgLossVO">networkAvgLossVO.</param>
+        /// <param name="networkCumulLossAI">networkCumulLossAI.</param>
+        /// <param name="networkCumulLossAO">networkCumulLossAO.</param>
+        /// <param name="networkCumulLossVI">networkCumulLossVI.</param>
+        /// <param name="networkCumulLossVO">networkCumulLossVO.</param>
+        /// <param name="networkLossAI">networkLossAI.</param>
+        /// <param name="networkLossAO">networkLossAO.</param>
+        /// <param name="networkLossVI">networkLossVI.</param>
+        /// <param name="networkLossVO">networkLossVO.</param>
+        /// <param name="callQualityMin">callQualityMin.</param>
+        /// <param name="callQualityMax">callQualityMax.</param>
+        /// <param name="callQualityAvg">callQualityAvg.</param>
+        /// <param name="fpsMinVI">fpsMinVI.</param>
+        /// <param name="fpsMinVO">fpsMinVO.</param>
+        /// <param name="fpsMinVIC">fpsMinVIC.</param>
+        /// <param name="fpsMinVOC">fpsMinVOC.</param>
+        /// <param name="fpsMaxVI">fpsMaxVI.</param>
+        /// <param name="fpsMaxVO">fpsMaxVO.</param>
+        /// <param name="fpsMaxVIC">fpsMaxVIC.</param>
+        /// <param name="fpsMaxVOC">fpsMaxVOC.</param>
+        /// <param name="fpsAvgVI">fpsAvgVI.</param>
+        /// <param name="fpsAvgVO">fpsAvgVO.</param>
+        /// <param name="fpsAvgVIC">fpsAvgVIC.</param>
+        /// <param name="fpsAvgVOC">fpsAvgVOC.</param>
+        /// <param name="bitrateMinAI">bitrateMinAI.</param>
+        /// <param name="bitrateMinAO">bitrateMinAO.</param>
+        /// <param name="bitrateMinVI">bitrateMinVI.</param>
+        /// <param name="bitrateMinVO">bitrateMinVO.</param>
+        /// <param name="bitrateMinVIC">bitrateMinVIC.</param>
+        /// <param name="bitrateMinVOC">bitrateMinVOC.</param>
+        /// <param name="bitrateMaxAI">bitrateMaxAI.</param>
+        /// <param name="bitrateMaxAO">bitrateMaxAO.</param>
+        /// <param name="bitrateMaxVI">bitrateMaxVI.</param>
+        /// <param name="bitrateMaxVO">bitrateMaxVO.</param>
+        /// <param name="bitrateMaxVIC">bitrateMaxVIC.</param>
+        /// <param name="bitrateMaxVOC">bitrateMaxVOC.</param>
+        /// <param name="bitrateAvgAI">bitrateAvgAI.</param>
+        /// <param name="bitrateAvgAO">bitrateAvgAO.</param>
+        /// <param name="bitrateAvgVI">bitrateAvgVI.</param>
+        /// <param name="bitrateAvgVO">bitrateAvgVO.</param>
+        /// <param name="bitrateAvgVIC">bitrateAvgVIC.</param>
+        /// <param name="bitrateAvgVOC">bitrateAvgVOC.</param>
+        /// <param name="jitterMinAI">jitterMinAI.</param>
+        /// <param name="jitterMinAO">jitterMinAO.</param>
+        /// <param name="jitterMinVI">jitterMinVI.</param>
+        /// <param name="jitterMinVO">jitterMinVO.</param>
+        /// <param name="jitterMinVIC">jitterMinVIC.</param>
+        /// <param name="jitterMinVOC">jitterMinVOC.</param>
+        /// <param name="jitterMaxAI">jitterMaxAI.</param>
+        /// <param name="jitterMaxAO">jitterMaxAO.</param>
+        /// <param name="jitterMaxVI">jitterMaxVI.</param>
+        /// <param name="jitterMaxVO">jitterMaxVO.</param>
+        /// <param name="jitterMaxVIC">jitterMaxVIC.</param>
+        /// <param name="jitterMaxVOC">jitterMaxVOC.</param>
+        /// <param name="jitterAvgAI">jitterAvgAI.</param>
+        /// <param name="jitterAvgAO">jitterAvgAO.</param>
+        /// <param name="jitterAvgVI">jitterAvgVI.</param>
+        /// <param name="jitterAvgVO">jitterAvgVO.</param>
+        /// <param name="jitterAvgVIC">jitterAvgVIC.</param>
+        /// <param name="jitterAvgVOC">jitterAvgVOC.</param>
+        /// <param name="maxJitterMinAI">maxJitterMinAI.</param>
+        /// <param name="maxJitterMinVI">maxJitterMinVI.</param>
+        /// <param name="maxJitterMinVIC">maxJitterMinVIC.</param>
+        /// <param name="maxJitterMaxAI">maxJitterMaxAI.</param>
+        /// <param name="maxJitterMaxVI">maxJitterMaxVI.</param>
+        /// <param name="maxJitterMaxVIC">maxJitterMaxVIC.</param>
+        /// <param name="maxJitterAvgAI">maxJitterAvgAI.</param>
+        /// <param name="maxJitterAvgVI">maxJitterAvgVI.</param>
+        /// <param name="maxJitterAvgVIC">maxJitterAvgVIC.</param>
+        /// <param name="videoRecvHeightMin">videoRecvHeightMin.</param>
+        /// <param name="videoRecvHeightMax">videoRecvHeightMax.</param>
+        /// <param name="videoRecvWidthMin">videoRecvWidthMin.</param>
+        /// <param name="videoRecvWidthMax">videoRecvWidthMax.</param>
+        /// <param name="videoSendHeightMin">videoSendHeightMin.</param>
+        /// <param name="videoSendHeightMax">videoSendHeightMax.</param>
+        /// <param name="videoSendWidthMin">videoSendWidthMin.</param>
+        /// <param name="videoSendWidthMax">videoSendWidthMax.</param>
+        /// <param name="contentRecvHeightMin">contentRecvHeightMin.</param>
+        /// <param name="contentRecvHeightMax">contentRecvHeightMax.</param>
+        /// <param name="contentRecvWidthMin">contentRecvWidthMin.</param>
+        /// <param name="contentRecvWidthMax">contentRecvWidthMax.</param>
+        /// <param name="contentSendHeightMin">contentSendHeightMin.</param>
+        /// <param name="contentSendHeightMax">contentSendHeightMax.</param>
+        /// <param name="contentSendWidthMin">contentSendWidthMin.</param>
+        /// <param name="contentSendWidthMax">contentSendWidthMax.</param>
+        /// <param name="roundTripDelayMin">roundTripDelayMin.</param>
+        /// <param name="roundTripDelayMax">roundTripDelayMax.</param>
+        /// <param name="roundTripDelayAvg">roundTripDelayAvg.</param>
+        /// <param name="rfactorMin">rfactorMin.</param>
+        /// <param name="rfactorMax">rfactorMax.</param>
+        /// <param name="rfactorAvg">rfactorAvg.</param>
+        /// <param name="processCpuLoadMin">processCpuLoadMin.</param>
+        /// <param name="processCpuLoadMax">processCpuLoadMax.</param>
+        /// <param name="processCpuLoadAvg">processCpuLoadAvg.</param>
+        /// <param name="systemCpuLoadMin">systemCpuLoadMin.</param>
+        /// <param name="systemCpuLoadMax">systemCpuLoadMax.</param>
+        /// <param name="systemCpuLoadAvg">systemCpuLoadAvg.</param>
+        /// <param name="wifiRecvStrengthMin">wifiRecvStrengthMin.</param>
+        /// <param name="wifiRecvStrengthMax">wifiRecvStrengthMax.</param>
+        /// <param name="wifiRecvStrengthAvg">wifiRecvStrengthAvg.</param>
+        /// <param name="keyFrameRateAvgVI">keyFrameRateAvgVI.</param>
+        /// <param name="keyFrameRateAvgVO">keyFrameRateAvgVO.</param>
+        /// <param name="keyFrameRateAvgVIC">keyFrameRateAvgVIC.</param>
+        /// <param name="keyFrameRateAvgVOC">keyFrameRateAvgVOC.</param>
+        /// <param name="keyFrameRateMinVI">keyFrameRateMinVI.</param>
+        /// <param name="keyFrameRateMinVO">keyFrameRateMinVO.</param>
+        /// <param name="keyFrameRateMinVIC">keyFrameRateMinVIC.</param>
+        /// <param name="keyFrameRateMinVOC">keyFrameRateMinVOC.</param>
+        /// <param name="keyFrameRateMaxVI">keyFrameRateMaxVI.</param>
+        /// <param name="keyFrameRateMaxVO">keyFrameRateMaxVO.</param>
+        /// <param name="keyFrameRateMaxVIC">keyFrameRateMaxVIC.</param>
+        /// <param name="keyFrameRateMaxVOC">keyFrameRateMaxVOC.</param>
+        /// <param name="roundTripDelayAvgVO">roundTripDelayAvgVO.</param>
+        /// <param name="roundTripDelayAvgVOC">roundTripDelayAvgVOC.</param>
+        /// <param name="roundTripDelayAvgAO">roundTripDelayAvgAO.</param>
+        public EndpointIndigoSummaryStats(string audioRecvCodec = default(string), string audioSendCodec = default(string), bool? contentRecv = default(bool?), bool? contentSend = default(bool?), bool? talkDetected = default(bool?), bool? sessionRelay = default(bool?), bool? sessionInRelay = default(bool?), bool? sessionOutRelay = default(bool?), bool? audioRtpRelay = default(bool?), int? callRate = default(int?), decimal? cumulLossPercentAI = default(decimal?), decimal? cumulLossPercentAO = default(decimal?), decimal? cumulLossPercentVI = default(decimal?), decimal? cumulLossPercentVO = default(decimal?), decimal? cumulLossPercentVIC = default(decimal?), decimal? cumulLossPercentVOC = default(decimal?), decimal? cumulLossAI = default(decimal?), decimal? cumulLossAO = default(decimal?), decimal? cumulLossVI = default(decimal?), decimal? cumulLossVO = default(decimal?), decimal? cumulLossVIC = default(decimal?), decimal? cumulLossVOC = default(decimal?), decimal? discontinuityCount = default(decimal?), decimal? droppedPacketsAI = default(decimal?), decimal? droppedPacketsVI = default(decimal?), decimal? droppedPacketsVIC = default(decimal?), decimal? mixUnderRunsAI = default(decimal?), decimal? networkAvgLossAI = default(decimal?), decimal? networkAvgLossAO = default(decimal?), decimal? networkAvgLossVI = default(decimal?), decimal? networkAvgLossVO = default(decimal?), decimal? networkCumulLossAI = default(decimal?), decimal? networkCumulLossAO = default(decimal?), decimal? networkCumulLossVI = default(decimal?), decimal? networkCumulLossVO = default(decimal?), decimal? networkLossAI = default(decimal?), decimal? networkLossAO = default(decimal?), decimal? networkLossVI = default(decimal?), decimal? networkLossVO = default(decimal?), decimal? callQualityMin = default(decimal?), decimal? callQualityMax = default(decimal?), decimal? callQualityAvg = default(decimal?), decimal? fpsMinVI = default(decimal?), decimal? fpsMinVO = default(decimal?), decimal? fpsMinVIC = default(decimal?), decimal? fpsMinVOC = default(decimal?), decimal? fpsMaxVI = default(decimal?), decimal? fpsMaxVO = default(decimal?), decimal? fpsMaxVIC = default(decimal?), decimal? fpsMaxVOC = default(decimal?), decimal? fpsAvgVI = default(decimal?), decimal? fpsAvgVO = default(decimal?), decimal? fpsAvgVIC = default(decimal?), decimal? fpsAvgVOC = default(decimal?), decimal? bitrateMinAI = default(decimal?), decimal? bitrateMinAO = default(decimal?), decimal? bitrateMinVI = default(decimal?), decimal? bitrateMinVO = default(decimal?), decimal? bitrateMinVIC = default(decimal?), decimal? bitrateMinVOC = default(decimal?), decimal? bitrateMaxAI = default(decimal?), decimal? bitrateMaxAO = default(decimal?), decimal? bitrateMaxVI = default(decimal?), decimal? bitrateMaxVO = default(decimal?), decimal? bitrateMaxVIC = default(decimal?), decimal? bitrateMaxVOC = default(decimal?), decimal? bitrateAvgAI = default(decimal?), decimal? bitrateAvgAO = default(decimal?), decimal? bitrateAvgVI = default(decimal?), decimal? bitrateAvgVO = default(decimal?), decimal? bitrateAvgVIC = default(decimal?), decimal? bitrateAvgVOC = default(decimal?), decimal? jitterMinAI = default(decimal?), decimal? jitterMinAO = default(decimal?), decimal? jitterMinVI = default(decimal?), decimal? jitterMinVO = default(decimal?), decimal? jitterMinVIC = default(decimal?), decimal? jitterMinVOC = default(decimal?), decimal? jitterMaxAI = default(decimal?), decimal? jitterMaxAO = default(decimal?), decimal? jitterMaxVI = default(decimal?), decimal? jitterMaxVO = default(decimal?), decimal? jitterMaxVIC = default(decimal?), decimal? jitterMaxVOC = default(decimal?), decimal? jitterAvgAI = default(decimal?), decimal? jitterAvgAO = default(decimal?), decimal? jitterAvgVI = default(decimal?), decimal? jitterAvgVO = default(decimal?), decimal? jitterAvgVIC = default(decimal?), decimal? jitterAvgVOC = default(decimal?), decimal? maxJitterMinAI = default(decimal?), decimal? maxJitterMinVI = default(decimal?), decimal? maxJitterMinVIC = default(decimal?), decimal? maxJitterMaxAI = default(decimal?), decimal? maxJitterMaxVI = default(decimal?), decimal? maxJitterMaxVIC = default(decimal?), decimal? maxJitterAvgAI = default(decimal?), decimal? maxJitterAvgVI = default(decimal?), decimal? maxJitterAvgVIC = default(decimal?), decimal? videoRecvHeightMin = default(decimal?), decimal? videoRecvHeightMax = default(decimal?), decimal? videoRecvWidthMin = default(decimal?), decimal? videoRecvWidthMax = default(decimal?), decimal? videoSendHeightMin = default(decimal?), decimal? videoSendHeightMax = default(decimal?), decimal? videoSendWidthMin = default(decimal?), decimal? videoSendWidthMax = default(decimal?), decimal? contentRecvHeightMin = default(decimal?), decimal? contentRecvHeightMax = default(decimal?), decimal? contentRecvWidthMin = default(decimal?), decimal? contentRecvWidthMax = default(decimal?), decimal? contentSendHeightMin = default(decimal?), decimal? contentSendHeightMax = default(decimal?), decimal? contentSendWidthMin = default(decimal?), decimal? contentSendWidthMax = default(decimal?), decimal? roundTripDelayMin = default(decimal?), decimal? roundTripDelayMax = default(decimal?), decimal? roundTripDelayAvg = default(decimal?), decimal? rfactorMin = default(decimal?), decimal? rfactorMax = default(decimal?), decimal? rfactorAvg = default(decimal?), decimal? processCpuLoadMin = default(decimal?), decimal? processCpuLoadMax = default(decimal?), decimal? processCpuLoadAvg = default(decimal?), decimal? systemCpuLoadMin = default(decimal?), decimal? systemCpuLoadMax = default(decimal?), decimal? systemCpuLoadAvg = default(decimal?), decimal? wifiRecvStrengthMin = default(decimal?), decimal? wifiRecvStrengthMax = default(decimal?), decimal? wifiRecvStrengthAvg = default(decimal?), decimal? keyFrameRateAvgVI = default(decimal?), decimal? keyFrameRateAvgVO = default(decimal?), decimal? keyFrameRateAvgVIC = default(decimal?), decimal? keyFrameRateAvgVOC = default(decimal?), decimal? keyFrameRateMinVI = default(decimal?), decimal? keyFrameRateMinVO = default(decimal?), decimal? keyFrameRateMinVIC = default(decimal?), decimal? keyFrameRateMinVOC = default(decimal?), decimal? keyFrameRateMaxVI = default(decimal?), decimal? keyFrameRateMaxVO = default(decimal?), decimal? keyFrameRateMaxVIC = default(decimal?), decimal? keyFrameRateMaxVOC = default(decimal?), decimal? roundTripDelayAvgVO = default(decimal?), decimal? roundTripDelayAvgVOC = default(decimal?), decimal? roundTripDelayAvgAO = default(decimal?))
         {
-            this.AudioRecvCodec = AudioRecvCodec;
-            this.AudioSendCodec = AudioSendCodec;
-            this.ContentRecv = ContentRecv;
-            this.ContentSend = ContentSend;
-            this.TalkDetected = TalkDetected;
-            this.SessionRelay = SessionRelay;
-            this.SessionInRelay = SessionInRelay;
-            this.SessionOutRelay = SessionOutRelay;
-            this.AudioRtpRelay = AudioRtpRelay;
-            this.CallRate = CallRate;
-            this.CumulLossPercentAI = CumulLossPercentAI;
-            this.CumulLossPercentAO = CumulLossPercentAO;
-            this.CumulLossPercentVI = CumulLossPercentVI;
-            this.CumulLossPercentVO = CumulLossPercentVO;
-            this.CumulLossPercentVIC = CumulLossPercentVIC;
-            this.CumulLossPercentVOC = CumulLossPercentVOC;
-            this.CumulLossAI = CumulLossAI;
-            this.CumulLossAO = CumulLossAO;
-            this.CumulLossVI = CumulLossVI;
-            this.CumulLossVO = CumulLossVO;
-            this.CumulLossVIC = CumulLossVIC;
-            this.CumulLossVOC = CumulLossVOC;
-            this.DiscontinuityCount = DiscontinuityCount;
-            this.DroppedPacketsAI = DroppedPacketsAI;
-            this.DroppedPacketsVI = DroppedPacketsVI;
-            this.DroppedPacketsVIC = DroppedPacketsVIC;
-            this.MixUnderRunsAI = MixUnderRunsAI;
-            this.NetworkAvgLossAI = NetworkAvgLossAI;
-            this.NetworkAvgLossAO = NetworkAvgLossAO;
-            this.NetworkAvgLossVI = NetworkAvgLossVI;
-            this.NetworkAvgLossVO = NetworkAvgLossVO;
-            this.NetworkCumulLossAI = NetworkCumulLossAI;
-            this.NetworkCumulLossAO = NetworkCumulLossAO;
-            this.NetworkCumulLossVI = NetworkCumulLossVI;
-            this.NetworkCumulLossVO = NetworkCumulLossVO;
-            this.NetworkLossAI = NetworkLossAI;
-            this.NetworkLossAO = NetworkLossAO;
-            this.NetworkLossVI = NetworkLossVI;
-            this.NetworkLossVO = NetworkLossVO;
-            this.CallQualityMin = CallQualityMin;
-            this.CallQualityMax = CallQualityMax;
-            this.CallQualityAvg = CallQualityAvg;
-            this.FpsMinVI = FpsMinVI;
-            this.FpsMinVO = FpsMinVO;
-            this.FpsMinVIC = FpsMinVIC;
-            this.FpsMinVOC = FpsMinVOC;
-            this.FpsMaxVI = FpsMaxVI;
-            this.FpsMaxVO = FpsMaxVO;
-            this.FpsMaxVIC = FpsMaxVIC;
-            this.FpsMaxVOC = FpsMaxVOC;
-            this.FpsAvgVI = FpsAvgVI;
-            this.FpsAvgVO = FpsAvgVO;
-            this.FpsAvgVIC = FpsAvgVIC;
-            this.FpsAvgVOC = FpsAvgVOC;
-            this.BitrateMinAI = BitrateMinAI;
-            this.BitrateMinAO = BitrateMinAO;
-            this.BitrateMinVI = BitrateMinVI;
-            this.BitrateMinVO = BitrateMinVO;
-            this.BitrateMinVIC = BitrateMinVIC;
-            this.BitrateMinVOC = BitrateMinVOC;
-            this.BitrateMaxAI = BitrateMaxAI;
-            this.BitrateMaxAO = BitrateMaxAO;
-            this.BitrateMaxVI = BitrateMaxVI;
-            this.BitrateMaxVO = BitrateMaxVO;
-            this.BitrateMaxVIC = BitrateMaxVIC;
-            this.BitrateMaxVOC = BitrateMaxVOC;
-            this.BitrateAvgAI = BitrateAvgAI;
-            this.BitrateAvgAO = BitrateAvgAO;
-            this.BitrateAvgVI = BitrateAvgVI;
-            this.BitrateAvgVO = BitrateAvgVO;
-            this.BitrateAvgVIC = BitrateAvgVIC;
-            this.BitrateAvgVOC = BitrateAvgVOC;
-            this.JitterMinAI = JitterMinAI;
-            this.JitterMinAO = JitterMinAO;
-            this.JitterMinVI = JitterMinVI;
-            this.JitterMinVO = JitterMinVO;
-            this.JitterMinVIC = JitterMinVIC;
-            this.JitterMinVOC = JitterMinVOC;
-            this.JitterMaxAI = JitterMaxAI;
-            this.JitterMaxAO = JitterMaxAO;
-            this.JitterMaxVI = JitterMaxVI;
-            this.JitterMaxVO = JitterMaxVO;
-            this.JitterMaxVIC = JitterMaxVIC;
-            this.JitterMaxVOC = JitterMaxVOC;
-            this.JitterAvgAI = JitterAvgAI;
-            this.JitterAvgAO = JitterAvgAO;
-            this.JitterAvgVI = JitterAvgVI;
-            this.JitterAvgVO = JitterAvgVO;
-            this.JitterAvgVIC = JitterAvgVIC;
-            this.JitterAvgVOC = JitterAvgVOC;
-            this.MaxJitterMinAI = MaxJitterMinAI;
-            this.MaxJitterMinVI = MaxJitterMinVI;
-            this.MaxJitterMinVIC = MaxJitterMinVIC;
-            this.MaxJitterMaxAI = MaxJitterMaxAI;
-            this.MaxJitterMaxVI = MaxJitterMaxVI;
-            this.MaxJitterMaxVIC = MaxJitterMaxVIC;
-            this.MaxJitterAvgAI = MaxJitterAvgAI;
-            this.MaxJitterAvgVI = MaxJitterAvgVI;
-            this.MaxJitterAvgVIC = MaxJitterAvgVIC;
-            this.VideoRecvHeightMin = VideoRecvHeightMin;
-            this.VideoRecvHeightMax = VideoRecvHeightMax;
-            this.VideoRecvWidthMin = VideoRecvWidthMin;
-            this.VideoRecvWidthMax = VideoRecvWidthMax;
-            this.VideoSendHeightMin = VideoSendHeightMin;
-            this.VideoSendHeightMax = VideoSendHeightMax;
-            this.VideoSendWidthMin = VideoSendWidthMin;
-            this.VideoSendWidthMax = VideoSendWidthMax;
-            this.ContentRecvHeightMin = ContentRecvHeightMin;
-            this.ContentRecvHeightMax = ContentRecvHeightMax;
-            this.ContentRecvWidthMin = ContentRecvWidthMin;
-            this.ContentRecvWidthMax = ContentRecvWidthMax;
-            this.ContentSendHeightMin = ContentSendHeightMin;
-            this.ContentSendHeightMax = ContentSendHeightMax;
-            this.ContentSendWidthMin = ContentSendWidthMin;
-            this.ContentSendWidthMax = ContentSendWidthMax;
-            this.RoundTripDelayMin = RoundTripDelayMin;
-            this.RoundTripDelayMax = RoundTripDelayMax;
-            this.RoundTripDelayAvg = RoundTripDelayAvg;
-            this.RfactorMin = RfactorMin;
-            this.RfactorMax = RfactorMax;
-            this.RfactorAvg = RfactorAvg;
-            this.ProcessCpuLoadMin = ProcessCpuLoadMin;
-            this.ProcessCpuLoadMax = ProcessCpuLoadMax;
-            this.ProcessCpuLoadAvg = ProcessCpuLoadAvg;
-            this.SystemCpuLoadMin = SystemCpuLoadMin;
-            this.SystemCpuLoadMax = SystemCpuLoadMax;
-            this.SystemCpuLoadAvg = SystemCpuLoadAvg;
-            this.WifiRecvStrengthMin = WifiRecvStrengthMin;
-            this.WifiRecvStrengthMax = WifiRecvStrengthMax;
-            this.WifiRecvStrengthAvg = WifiRecvStrengthAvg;
-            this.KeyFrameRateAvgVI = KeyFrameRateAvgVI;
-            this.KeyFrameRateAvgVO = KeyFrameRateAvgVO;
-            this.KeyFrameRateAvgVIC = KeyFrameRateAvgVIC;
-            this.KeyFrameRateAvgVOC = KeyFrameRateAvgVOC;
-            this.KeyFrameRateMinVI = KeyFrameRateMinVI;
-            this.KeyFrameRateMinVO = KeyFrameRateMinVO;
-            this.KeyFrameRateMinVIC = KeyFrameRateMinVIC;
-            this.KeyFrameRateMinVOC = KeyFrameRateMinVOC;
-            this.KeyFrameRateMaxVI = KeyFrameRateMaxVI;
-            this.KeyFrameRateMaxVO = KeyFrameRateMaxVO;
-            this.KeyFrameRateMaxVIC = KeyFrameRateMaxVIC;
-            this.KeyFrameRateMaxVOC = KeyFrameRateMaxVOC;
-            this.RoundTripDelayAvgVO = RoundTripDelayAvgVO;
-            this.RoundTripDelayAvgVOC = RoundTripDelayAvgVOC;
-            this.RoundTripDelayAvgAO = RoundTripDelayAvgAO;
+            this.AudioRecvCodec = audioRecvCodec;
+            this.AudioSendCodec = audioSendCodec;
+            this.ContentRecv = contentRecv;
+            this.ContentSend = contentSend;
+            this.TalkDetected = talkDetected;
+            this.SessionRelay = sessionRelay;
+            this.SessionInRelay = sessionInRelay;
+            this.SessionOutRelay = sessionOutRelay;
+            this.AudioRtpRelay = audioRtpRelay;
+            this.CallRate = callRate;
+            this.CumulLossPercentAI = cumulLossPercentAI;
+            this.CumulLossPercentAO = cumulLossPercentAO;
+            this.CumulLossPercentVI = cumulLossPercentVI;
+            this.CumulLossPercentVO = cumulLossPercentVO;
+            this.CumulLossPercentVIC = cumulLossPercentVIC;
+            this.CumulLossPercentVOC = cumulLossPercentVOC;
+            this.CumulLossAI = cumulLossAI;
+            this.CumulLossAO = cumulLossAO;
+            this.CumulLossVI = cumulLossVI;
+            this.CumulLossVO = cumulLossVO;
+            this.CumulLossVIC = cumulLossVIC;
+            this.CumulLossVOC = cumulLossVOC;
+            this.DiscontinuityCount = discontinuityCount;
+            this.DroppedPacketsAI = droppedPacketsAI;
+            this.DroppedPacketsVI = droppedPacketsVI;
+            this.DroppedPacketsVIC = droppedPacketsVIC;
+            this.MixUnderRunsAI = mixUnderRunsAI;
+            this.NetworkAvgLossAI = networkAvgLossAI;
+            this.NetworkAvgLossAO = networkAvgLossAO;
+            this.NetworkAvgLossVI = networkAvgLossVI;
+            this.NetworkAvgLossVO = networkAvgLossVO;
+            this.NetworkCumulLossAI = networkCumulLossAI;
+            this.NetworkCumulLossAO = networkCumulLossAO;
+            this.NetworkCumulLossVI = networkCumulLossVI;
+            this.NetworkCumulLossVO = networkCumulLossVO;
+            this.NetworkLossAI = networkLossAI;
+            this.NetworkLossAO = networkLossAO;
+            this.NetworkLossVI = networkLossVI;
+            this.NetworkLossVO = networkLossVO;
+            this.CallQualityMin = callQualityMin;
+            this.CallQualityMax = callQualityMax;
+            this.CallQualityAvg = callQualityAvg;
+            this.FpsMinVI = fpsMinVI;
+            this.FpsMinVO = fpsMinVO;
+            this.FpsMinVIC = fpsMinVIC;
+            this.FpsMinVOC = fpsMinVOC;
+            this.FpsMaxVI = fpsMaxVI;
+            this.FpsMaxVO = fpsMaxVO;
+            this.FpsMaxVIC = fpsMaxVIC;
+            this.FpsMaxVOC = fpsMaxVOC;
+            this.FpsAvgVI = fpsAvgVI;
+            this.FpsAvgVO = fpsAvgVO;
+            this.FpsAvgVIC = fpsAvgVIC;
+            this.FpsAvgVOC = fpsAvgVOC;
+            this.BitrateMinAI = bitrateMinAI;
+            this.BitrateMinAO = bitrateMinAO;
+            this.BitrateMinVI = bitrateMinVI;
+            this.BitrateMinVO = bitrateMinVO;
+            this.BitrateMinVIC = bitrateMinVIC;
+            this.BitrateMinVOC = bitrateMinVOC;
+            this.BitrateMaxAI = bitrateMaxAI;
+            this.BitrateMaxAO = bitrateMaxAO;
+            this.BitrateMaxVI = bitrateMaxVI;
+            this.BitrateMaxVO = bitrateMaxVO;
+            this.BitrateMaxVIC = bitrateMaxVIC;
+            this.BitrateMaxVOC = bitrateMaxVOC;
+            this.BitrateAvgAI = bitrateAvgAI;
+            this.BitrateAvgAO = bitrateAvgAO;
+            this.BitrateAvgVI = bitrateAvgVI;
+            this.BitrateAvgVO = bitrateAvgVO;
+            this.BitrateAvgVIC = bitrateAvgVIC;
+            this.BitrateAvgVOC = bitrateAvgVOC;
+            this.JitterMinAI = jitterMinAI;
+            this.JitterMinAO = jitterMinAO;
+            this.JitterMinVI = jitterMinVI;
+            this.JitterMinVO = jitterMinVO;
+            this.JitterMinVIC = jitterMinVIC;
+            this.JitterMinVOC = jitterMinVOC;
+            this.JitterMaxAI = jitterMaxAI;
+            this.JitterMaxAO = jitterMaxAO;
+            this.JitterMaxVI = jitterMaxVI;
+            this.JitterMaxVO = jitterMaxVO;
+            this.JitterMaxVIC = jitterMaxVIC;
+            this.JitterMaxVOC = jitterMaxVOC;
+            this.JitterAvgAI = jitterAvgAI;
+            this.JitterAvgAO = jitterAvgAO;
+            this.JitterAvgVI = jitterAvgVI;
+            this.JitterAvgVO = jitterAvgVO;
+            this.JitterAvgVIC = jitterAvgVIC;
+            this.JitterAvgVOC = jitterAvgVOC;
+            this.MaxJitterMinAI = maxJitterMinAI;
+            this.MaxJitterMinVI = maxJitterMinVI;
+            this.MaxJitterMinVIC = maxJitterMinVIC;
+            this.MaxJitterMaxAI = maxJitterMaxAI;
+            this.MaxJitterMaxVI = maxJitterMaxVI;
+            this.MaxJitterMaxVIC = maxJitterMaxVIC;
+            this.MaxJitterAvgAI = maxJitterAvgAI;
+            this.MaxJitterAvgVI = maxJitterAvgVI;
+            this.MaxJitterAvgVIC = maxJitterAvgVIC;
+            this.VideoRecvHeightMin = videoRecvHeightMin;
+            this.VideoRecvHeightMax = videoRecvHeightMax;
+            this.VideoRecvWidthMin = videoRecvWidthMin;
+            this.VideoRecvWidthMax = videoRecvWidthMax;
+            this.VideoSendHeightMin = videoSendHeightMin;
+            this.VideoSendHeightMax = videoSendHeightMax;
+            this.VideoSendWidthMin = videoSendWidthMin;
+            this.VideoSendWidthMax = videoSendWidthMax;
+            this.ContentRecvHeightMin = contentRecvHeightMin;
+            this.ContentRecvHeightMax = contentRecvHeightMax;
+            this.ContentRecvWidthMin = contentRecvWidthMin;
+            this.ContentRecvWidthMax = contentRecvWidthMax;
+            this.ContentSendHeightMin = contentSendHeightMin;
+            this.ContentSendHeightMax = contentSendHeightMax;
+            this.ContentSendWidthMin = contentSendWidthMin;
+            this.ContentSendWidthMax = contentSendWidthMax;
+            this.RoundTripDelayMin = roundTripDelayMin;
+            this.RoundTripDelayMax = roundTripDelayMax;
+            this.RoundTripDelayAvg = roundTripDelayAvg;
+            this.RfactorMin = rfactorMin;
+            this.RfactorMax = rfactorMax;
+            this.RfactorAvg = rfactorAvg;
+            this.ProcessCpuLoadMin = processCpuLoadMin;
+            this.ProcessCpuLoadMax = processCpuLoadMax;
+            this.ProcessCpuLoadAvg = processCpuLoadAvg;
+            this.SystemCpuLoadMin = systemCpuLoadMin;
+            this.SystemCpuLoadMax = systemCpuLoadMax;
+            this.SystemCpuLoadAvg = systemCpuLoadAvg;
+            this.WifiRecvStrengthMin = wifiRecvStrengthMin;
+            this.WifiRecvStrengthMax = wifiRecvStrengthMax;
+            this.WifiRecvStrengthAvg = wifiRecvStrengthAvg;
+            this.KeyFrameRateAvgVI = keyFrameRateAvgVI;
+            this.KeyFrameRateAvgVO = keyFrameRateAvgVO;
+            this.KeyFrameRateAvgVIC = keyFrameRateAvgVIC;
+            this.KeyFrameRateAvgVOC = keyFrameRateAvgVOC;
+            this.KeyFrameRateMinVI = keyFrameRateMinVI;
+            this.KeyFrameRateMinVO = keyFrameRateMinVO;
+            this.KeyFrameRateMinVIC = keyFrameRateMinVIC;
+            this.KeyFrameRateMinVOC = keyFrameRateMinVOC;
+            this.KeyFrameRateMaxVI = keyFrameRateMaxVI;
+            this.KeyFrameRateMaxVO = keyFrameRateMaxVO;
+            this.KeyFrameRateMaxVIC = keyFrameRateMaxVIC;
+            this.KeyFrameRateMaxVOC = keyFrameRateMaxVOC;
+            this.RoundTripDelayAvgVO = roundTripDelayAvgVO;
+            this.RoundTripDelayAvgVOC = roundTripDelayAvgVOC;
+            this.RoundTripDelayAvgAO = roundTripDelayAvgAO;
         }
         
         /// <summary>
@@ -1358,7 +1358,7 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -1366,750 +1366,748 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as EndpointIndigoSummaryStats);
+            return this.Equals(input as EndpointIndigoSummaryStats);
         }
 
         /// <summary>
         /// Returns true if EndpointIndigoSummaryStats instances are equal
         /// </summary>
-        /// <param name="other">Instance of EndpointIndigoSummaryStats to be compared</param>
+        /// <param name="input">Instance of EndpointIndigoSummaryStats to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EndpointIndigoSummaryStats other)
+        public bool Equals(EndpointIndigoSummaryStats input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AudioRecvCodec == other.AudioRecvCodec ||
-                    this.AudioRecvCodec != null &&
-                    this.AudioRecvCodec.Equals(other.AudioRecvCodec)
+                    this.AudioRecvCodec == input.AudioRecvCodec ||
+                    (this.AudioRecvCodec != null &&
+                    this.AudioRecvCodec.Equals(input.AudioRecvCodec))
                 ) && 
                 (
-                    this.AudioSendCodec == other.AudioSendCodec ||
-                    this.AudioSendCodec != null &&
-                    this.AudioSendCodec.Equals(other.AudioSendCodec)
+                    this.AudioSendCodec == input.AudioSendCodec ||
+                    (this.AudioSendCodec != null &&
+                    this.AudioSendCodec.Equals(input.AudioSendCodec))
                 ) && 
                 (
-                    this.ContentRecv == other.ContentRecv ||
-                    this.ContentRecv != null &&
-                    this.ContentRecv.Equals(other.ContentRecv)
+                    this.ContentRecv == input.ContentRecv ||
+                    (this.ContentRecv != null &&
+                    this.ContentRecv.Equals(input.ContentRecv))
                 ) && 
                 (
-                    this.ContentSend == other.ContentSend ||
-                    this.ContentSend != null &&
-                    this.ContentSend.Equals(other.ContentSend)
+                    this.ContentSend == input.ContentSend ||
+                    (this.ContentSend != null &&
+                    this.ContentSend.Equals(input.ContentSend))
                 ) && 
                 (
-                    this.TalkDetected == other.TalkDetected ||
-                    this.TalkDetected != null &&
-                    this.TalkDetected.Equals(other.TalkDetected)
+                    this.TalkDetected == input.TalkDetected ||
+                    (this.TalkDetected != null &&
+                    this.TalkDetected.Equals(input.TalkDetected))
                 ) && 
                 (
-                    this.SessionRelay == other.SessionRelay ||
-                    this.SessionRelay != null &&
-                    this.SessionRelay.Equals(other.SessionRelay)
+                    this.SessionRelay == input.SessionRelay ||
+                    (this.SessionRelay != null &&
+                    this.SessionRelay.Equals(input.SessionRelay))
                 ) && 
                 (
-                    this.SessionInRelay == other.SessionInRelay ||
-                    this.SessionInRelay != null &&
-                    this.SessionInRelay.Equals(other.SessionInRelay)
+                    this.SessionInRelay == input.SessionInRelay ||
+                    (this.SessionInRelay != null &&
+                    this.SessionInRelay.Equals(input.SessionInRelay))
                 ) && 
                 (
-                    this.SessionOutRelay == other.SessionOutRelay ||
-                    this.SessionOutRelay != null &&
-                    this.SessionOutRelay.Equals(other.SessionOutRelay)
+                    this.SessionOutRelay == input.SessionOutRelay ||
+                    (this.SessionOutRelay != null &&
+                    this.SessionOutRelay.Equals(input.SessionOutRelay))
                 ) && 
                 (
-                    this.AudioRtpRelay == other.AudioRtpRelay ||
-                    this.AudioRtpRelay != null &&
-                    this.AudioRtpRelay.Equals(other.AudioRtpRelay)
+                    this.AudioRtpRelay == input.AudioRtpRelay ||
+                    (this.AudioRtpRelay != null &&
+                    this.AudioRtpRelay.Equals(input.AudioRtpRelay))
                 ) && 
                 (
-                    this.CallRate == other.CallRate ||
-                    this.CallRate != null &&
-                    this.CallRate.Equals(other.CallRate)
+                    this.CallRate == input.CallRate ||
+                    (this.CallRate != null &&
+                    this.CallRate.Equals(input.CallRate))
                 ) && 
                 (
-                    this.CumulLossPercentAI == other.CumulLossPercentAI ||
-                    this.CumulLossPercentAI != null &&
-                    this.CumulLossPercentAI.Equals(other.CumulLossPercentAI)
+                    this.CumulLossPercentAI == input.CumulLossPercentAI ||
+                    (this.CumulLossPercentAI != null &&
+                    this.CumulLossPercentAI.Equals(input.CumulLossPercentAI))
                 ) && 
                 (
-                    this.CumulLossPercentAO == other.CumulLossPercentAO ||
-                    this.CumulLossPercentAO != null &&
-                    this.CumulLossPercentAO.Equals(other.CumulLossPercentAO)
+                    this.CumulLossPercentAO == input.CumulLossPercentAO ||
+                    (this.CumulLossPercentAO != null &&
+                    this.CumulLossPercentAO.Equals(input.CumulLossPercentAO))
                 ) && 
                 (
-                    this.CumulLossPercentVI == other.CumulLossPercentVI ||
-                    this.CumulLossPercentVI != null &&
-                    this.CumulLossPercentVI.Equals(other.CumulLossPercentVI)
+                    this.CumulLossPercentVI == input.CumulLossPercentVI ||
+                    (this.CumulLossPercentVI != null &&
+                    this.CumulLossPercentVI.Equals(input.CumulLossPercentVI))
                 ) && 
                 (
-                    this.CumulLossPercentVO == other.CumulLossPercentVO ||
-                    this.CumulLossPercentVO != null &&
-                    this.CumulLossPercentVO.Equals(other.CumulLossPercentVO)
+                    this.CumulLossPercentVO == input.CumulLossPercentVO ||
+                    (this.CumulLossPercentVO != null &&
+                    this.CumulLossPercentVO.Equals(input.CumulLossPercentVO))
                 ) && 
                 (
-                    this.CumulLossPercentVIC == other.CumulLossPercentVIC ||
-                    this.CumulLossPercentVIC != null &&
-                    this.CumulLossPercentVIC.Equals(other.CumulLossPercentVIC)
+                    this.CumulLossPercentVIC == input.CumulLossPercentVIC ||
+                    (this.CumulLossPercentVIC != null &&
+                    this.CumulLossPercentVIC.Equals(input.CumulLossPercentVIC))
                 ) && 
                 (
-                    this.CumulLossPercentVOC == other.CumulLossPercentVOC ||
-                    this.CumulLossPercentVOC != null &&
-                    this.CumulLossPercentVOC.Equals(other.CumulLossPercentVOC)
+                    this.CumulLossPercentVOC == input.CumulLossPercentVOC ||
+                    (this.CumulLossPercentVOC != null &&
+                    this.CumulLossPercentVOC.Equals(input.CumulLossPercentVOC))
                 ) && 
                 (
-                    this.CumulLossAI == other.CumulLossAI ||
-                    this.CumulLossAI != null &&
-                    this.CumulLossAI.Equals(other.CumulLossAI)
+                    this.CumulLossAI == input.CumulLossAI ||
+                    (this.CumulLossAI != null &&
+                    this.CumulLossAI.Equals(input.CumulLossAI))
                 ) && 
                 (
-                    this.CumulLossAO == other.CumulLossAO ||
-                    this.CumulLossAO != null &&
-                    this.CumulLossAO.Equals(other.CumulLossAO)
+                    this.CumulLossAO == input.CumulLossAO ||
+                    (this.CumulLossAO != null &&
+                    this.CumulLossAO.Equals(input.CumulLossAO))
                 ) && 
                 (
-                    this.CumulLossVI == other.CumulLossVI ||
-                    this.CumulLossVI != null &&
-                    this.CumulLossVI.Equals(other.CumulLossVI)
+                    this.CumulLossVI == input.CumulLossVI ||
+                    (this.CumulLossVI != null &&
+                    this.CumulLossVI.Equals(input.CumulLossVI))
                 ) && 
                 (
-                    this.CumulLossVO == other.CumulLossVO ||
-                    this.CumulLossVO != null &&
-                    this.CumulLossVO.Equals(other.CumulLossVO)
+                    this.CumulLossVO == input.CumulLossVO ||
+                    (this.CumulLossVO != null &&
+                    this.CumulLossVO.Equals(input.CumulLossVO))
                 ) && 
                 (
-                    this.CumulLossVIC == other.CumulLossVIC ||
-                    this.CumulLossVIC != null &&
-                    this.CumulLossVIC.Equals(other.CumulLossVIC)
+                    this.CumulLossVIC == input.CumulLossVIC ||
+                    (this.CumulLossVIC != null &&
+                    this.CumulLossVIC.Equals(input.CumulLossVIC))
                 ) && 
                 (
-                    this.CumulLossVOC == other.CumulLossVOC ||
-                    this.CumulLossVOC != null &&
-                    this.CumulLossVOC.Equals(other.CumulLossVOC)
+                    this.CumulLossVOC == input.CumulLossVOC ||
+                    (this.CumulLossVOC != null &&
+                    this.CumulLossVOC.Equals(input.CumulLossVOC))
                 ) && 
                 (
-                    this.DiscontinuityCount == other.DiscontinuityCount ||
-                    this.DiscontinuityCount != null &&
-                    this.DiscontinuityCount.Equals(other.DiscontinuityCount)
+                    this.DiscontinuityCount == input.DiscontinuityCount ||
+                    (this.DiscontinuityCount != null &&
+                    this.DiscontinuityCount.Equals(input.DiscontinuityCount))
                 ) && 
                 (
-                    this.DroppedPacketsAI == other.DroppedPacketsAI ||
-                    this.DroppedPacketsAI != null &&
-                    this.DroppedPacketsAI.Equals(other.DroppedPacketsAI)
+                    this.DroppedPacketsAI == input.DroppedPacketsAI ||
+                    (this.DroppedPacketsAI != null &&
+                    this.DroppedPacketsAI.Equals(input.DroppedPacketsAI))
                 ) && 
                 (
-                    this.DroppedPacketsVI == other.DroppedPacketsVI ||
-                    this.DroppedPacketsVI != null &&
-                    this.DroppedPacketsVI.Equals(other.DroppedPacketsVI)
+                    this.DroppedPacketsVI == input.DroppedPacketsVI ||
+                    (this.DroppedPacketsVI != null &&
+                    this.DroppedPacketsVI.Equals(input.DroppedPacketsVI))
                 ) && 
                 (
-                    this.DroppedPacketsVIC == other.DroppedPacketsVIC ||
-                    this.DroppedPacketsVIC != null &&
-                    this.DroppedPacketsVIC.Equals(other.DroppedPacketsVIC)
+                    this.DroppedPacketsVIC == input.DroppedPacketsVIC ||
+                    (this.DroppedPacketsVIC != null &&
+                    this.DroppedPacketsVIC.Equals(input.DroppedPacketsVIC))
                 ) && 
                 (
-                    this.MixUnderRunsAI == other.MixUnderRunsAI ||
-                    this.MixUnderRunsAI != null &&
-                    this.MixUnderRunsAI.Equals(other.MixUnderRunsAI)
+                    this.MixUnderRunsAI == input.MixUnderRunsAI ||
+                    (this.MixUnderRunsAI != null &&
+                    this.MixUnderRunsAI.Equals(input.MixUnderRunsAI))
                 ) && 
                 (
-                    this.NetworkAvgLossAI == other.NetworkAvgLossAI ||
-                    this.NetworkAvgLossAI != null &&
-                    this.NetworkAvgLossAI.Equals(other.NetworkAvgLossAI)
+                    this.NetworkAvgLossAI == input.NetworkAvgLossAI ||
+                    (this.NetworkAvgLossAI != null &&
+                    this.NetworkAvgLossAI.Equals(input.NetworkAvgLossAI))
                 ) && 
                 (
-                    this.NetworkAvgLossAO == other.NetworkAvgLossAO ||
-                    this.NetworkAvgLossAO != null &&
-                    this.NetworkAvgLossAO.Equals(other.NetworkAvgLossAO)
+                    this.NetworkAvgLossAO == input.NetworkAvgLossAO ||
+                    (this.NetworkAvgLossAO != null &&
+                    this.NetworkAvgLossAO.Equals(input.NetworkAvgLossAO))
                 ) && 
                 (
-                    this.NetworkAvgLossVI == other.NetworkAvgLossVI ||
-                    this.NetworkAvgLossVI != null &&
-                    this.NetworkAvgLossVI.Equals(other.NetworkAvgLossVI)
+                    this.NetworkAvgLossVI == input.NetworkAvgLossVI ||
+                    (this.NetworkAvgLossVI != null &&
+                    this.NetworkAvgLossVI.Equals(input.NetworkAvgLossVI))
                 ) && 
                 (
-                    this.NetworkAvgLossVO == other.NetworkAvgLossVO ||
-                    this.NetworkAvgLossVO != null &&
-                    this.NetworkAvgLossVO.Equals(other.NetworkAvgLossVO)
+                    this.NetworkAvgLossVO == input.NetworkAvgLossVO ||
+                    (this.NetworkAvgLossVO != null &&
+                    this.NetworkAvgLossVO.Equals(input.NetworkAvgLossVO))
                 ) && 
                 (
-                    this.NetworkCumulLossAI == other.NetworkCumulLossAI ||
-                    this.NetworkCumulLossAI != null &&
-                    this.NetworkCumulLossAI.Equals(other.NetworkCumulLossAI)
+                    this.NetworkCumulLossAI == input.NetworkCumulLossAI ||
+                    (this.NetworkCumulLossAI != null &&
+                    this.NetworkCumulLossAI.Equals(input.NetworkCumulLossAI))
                 ) && 
                 (
-                    this.NetworkCumulLossAO == other.NetworkCumulLossAO ||
-                    this.NetworkCumulLossAO != null &&
-                    this.NetworkCumulLossAO.Equals(other.NetworkCumulLossAO)
+                    this.NetworkCumulLossAO == input.NetworkCumulLossAO ||
+                    (this.NetworkCumulLossAO != null &&
+                    this.NetworkCumulLossAO.Equals(input.NetworkCumulLossAO))
                 ) && 
                 (
-                    this.NetworkCumulLossVI == other.NetworkCumulLossVI ||
-                    this.NetworkCumulLossVI != null &&
-                    this.NetworkCumulLossVI.Equals(other.NetworkCumulLossVI)
+                    this.NetworkCumulLossVI == input.NetworkCumulLossVI ||
+                    (this.NetworkCumulLossVI != null &&
+                    this.NetworkCumulLossVI.Equals(input.NetworkCumulLossVI))
                 ) && 
                 (
-                    this.NetworkCumulLossVO == other.NetworkCumulLossVO ||
-                    this.NetworkCumulLossVO != null &&
-                    this.NetworkCumulLossVO.Equals(other.NetworkCumulLossVO)
+                    this.NetworkCumulLossVO == input.NetworkCumulLossVO ||
+                    (this.NetworkCumulLossVO != null &&
+                    this.NetworkCumulLossVO.Equals(input.NetworkCumulLossVO))
                 ) && 
                 (
-                    this.NetworkLossAI == other.NetworkLossAI ||
-                    this.NetworkLossAI != null &&
-                    this.NetworkLossAI.Equals(other.NetworkLossAI)
+                    this.NetworkLossAI == input.NetworkLossAI ||
+                    (this.NetworkLossAI != null &&
+                    this.NetworkLossAI.Equals(input.NetworkLossAI))
                 ) && 
                 (
-                    this.NetworkLossAO == other.NetworkLossAO ||
-                    this.NetworkLossAO != null &&
-                    this.NetworkLossAO.Equals(other.NetworkLossAO)
+                    this.NetworkLossAO == input.NetworkLossAO ||
+                    (this.NetworkLossAO != null &&
+                    this.NetworkLossAO.Equals(input.NetworkLossAO))
                 ) && 
                 (
-                    this.NetworkLossVI == other.NetworkLossVI ||
-                    this.NetworkLossVI != null &&
-                    this.NetworkLossVI.Equals(other.NetworkLossVI)
+                    this.NetworkLossVI == input.NetworkLossVI ||
+                    (this.NetworkLossVI != null &&
+                    this.NetworkLossVI.Equals(input.NetworkLossVI))
                 ) && 
                 (
-                    this.NetworkLossVO == other.NetworkLossVO ||
-                    this.NetworkLossVO != null &&
-                    this.NetworkLossVO.Equals(other.NetworkLossVO)
+                    this.NetworkLossVO == input.NetworkLossVO ||
+                    (this.NetworkLossVO != null &&
+                    this.NetworkLossVO.Equals(input.NetworkLossVO))
                 ) && 
                 (
-                    this.CallQualityMin == other.CallQualityMin ||
-                    this.CallQualityMin != null &&
-                    this.CallQualityMin.Equals(other.CallQualityMin)
+                    this.CallQualityMin == input.CallQualityMin ||
+                    (this.CallQualityMin != null &&
+                    this.CallQualityMin.Equals(input.CallQualityMin))
                 ) && 
                 (
-                    this.CallQualityMax == other.CallQualityMax ||
-                    this.CallQualityMax != null &&
-                    this.CallQualityMax.Equals(other.CallQualityMax)
+                    this.CallQualityMax == input.CallQualityMax ||
+                    (this.CallQualityMax != null &&
+                    this.CallQualityMax.Equals(input.CallQualityMax))
                 ) && 
                 (
-                    this.CallQualityAvg == other.CallQualityAvg ||
-                    this.CallQualityAvg != null &&
-                    this.CallQualityAvg.Equals(other.CallQualityAvg)
+                    this.CallQualityAvg == input.CallQualityAvg ||
+                    (this.CallQualityAvg != null &&
+                    this.CallQualityAvg.Equals(input.CallQualityAvg))
                 ) && 
                 (
-                    this.FpsMinVI == other.FpsMinVI ||
-                    this.FpsMinVI != null &&
-                    this.FpsMinVI.Equals(other.FpsMinVI)
+                    this.FpsMinVI == input.FpsMinVI ||
+                    (this.FpsMinVI != null &&
+                    this.FpsMinVI.Equals(input.FpsMinVI))
                 ) && 
                 (
-                    this.FpsMinVO == other.FpsMinVO ||
-                    this.FpsMinVO != null &&
-                    this.FpsMinVO.Equals(other.FpsMinVO)
+                    this.FpsMinVO == input.FpsMinVO ||
+                    (this.FpsMinVO != null &&
+                    this.FpsMinVO.Equals(input.FpsMinVO))
                 ) && 
                 (
-                    this.FpsMinVIC == other.FpsMinVIC ||
-                    this.FpsMinVIC != null &&
-                    this.FpsMinVIC.Equals(other.FpsMinVIC)
+                    this.FpsMinVIC == input.FpsMinVIC ||
+                    (this.FpsMinVIC != null &&
+                    this.FpsMinVIC.Equals(input.FpsMinVIC))
                 ) && 
                 (
-                    this.FpsMinVOC == other.FpsMinVOC ||
-                    this.FpsMinVOC != null &&
-                    this.FpsMinVOC.Equals(other.FpsMinVOC)
+                    this.FpsMinVOC == input.FpsMinVOC ||
+                    (this.FpsMinVOC != null &&
+                    this.FpsMinVOC.Equals(input.FpsMinVOC))
                 ) && 
                 (
-                    this.FpsMaxVI == other.FpsMaxVI ||
-                    this.FpsMaxVI != null &&
-                    this.FpsMaxVI.Equals(other.FpsMaxVI)
+                    this.FpsMaxVI == input.FpsMaxVI ||
+                    (this.FpsMaxVI != null &&
+                    this.FpsMaxVI.Equals(input.FpsMaxVI))
                 ) && 
                 (
-                    this.FpsMaxVO == other.FpsMaxVO ||
-                    this.FpsMaxVO != null &&
-                    this.FpsMaxVO.Equals(other.FpsMaxVO)
+                    this.FpsMaxVO == input.FpsMaxVO ||
+                    (this.FpsMaxVO != null &&
+                    this.FpsMaxVO.Equals(input.FpsMaxVO))
                 ) && 
                 (
-                    this.FpsMaxVIC == other.FpsMaxVIC ||
-                    this.FpsMaxVIC != null &&
-                    this.FpsMaxVIC.Equals(other.FpsMaxVIC)
+                    this.FpsMaxVIC == input.FpsMaxVIC ||
+                    (this.FpsMaxVIC != null &&
+                    this.FpsMaxVIC.Equals(input.FpsMaxVIC))
                 ) && 
                 (
-                    this.FpsMaxVOC == other.FpsMaxVOC ||
-                    this.FpsMaxVOC != null &&
-                    this.FpsMaxVOC.Equals(other.FpsMaxVOC)
+                    this.FpsMaxVOC == input.FpsMaxVOC ||
+                    (this.FpsMaxVOC != null &&
+                    this.FpsMaxVOC.Equals(input.FpsMaxVOC))
                 ) && 
                 (
-                    this.FpsAvgVI == other.FpsAvgVI ||
-                    this.FpsAvgVI != null &&
-                    this.FpsAvgVI.Equals(other.FpsAvgVI)
+                    this.FpsAvgVI == input.FpsAvgVI ||
+                    (this.FpsAvgVI != null &&
+                    this.FpsAvgVI.Equals(input.FpsAvgVI))
                 ) && 
                 (
-                    this.FpsAvgVO == other.FpsAvgVO ||
-                    this.FpsAvgVO != null &&
-                    this.FpsAvgVO.Equals(other.FpsAvgVO)
+                    this.FpsAvgVO == input.FpsAvgVO ||
+                    (this.FpsAvgVO != null &&
+                    this.FpsAvgVO.Equals(input.FpsAvgVO))
                 ) && 
                 (
-                    this.FpsAvgVIC == other.FpsAvgVIC ||
-                    this.FpsAvgVIC != null &&
-                    this.FpsAvgVIC.Equals(other.FpsAvgVIC)
+                    this.FpsAvgVIC == input.FpsAvgVIC ||
+                    (this.FpsAvgVIC != null &&
+                    this.FpsAvgVIC.Equals(input.FpsAvgVIC))
                 ) && 
                 (
-                    this.FpsAvgVOC == other.FpsAvgVOC ||
-                    this.FpsAvgVOC != null &&
-                    this.FpsAvgVOC.Equals(other.FpsAvgVOC)
+                    this.FpsAvgVOC == input.FpsAvgVOC ||
+                    (this.FpsAvgVOC != null &&
+                    this.FpsAvgVOC.Equals(input.FpsAvgVOC))
                 ) && 
                 (
-                    this.BitrateMinAI == other.BitrateMinAI ||
-                    this.BitrateMinAI != null &&
-                    this.BitrateMinAI.Equals(other.BitrateMinAI)
+                    this.BitrateMinAI == input.BitrateMinAI ||
+                    (this.BitrateMinAI != null &&
+                    this.BitrateMinAI.Equals(input.BitrateMinAI))
                 ) && 
                 (
-                    this.BitrateMinAO == other.BitrateMinAO ||
-                    this.BitrateMinAO != null &&
-                    this.BitrateMinAO.Equals(other.BitrateMinAO)
+                    this.BitrateMinAO == input.BitrateMinAO ||
+                    (this.BitrateMinAO != null &&
+                    this.BitrateMinAO.Equals(input.BitrateMinAO))
                 ) && 
                 (
-                    this.BitrateMinVI == other.BitrateMinVI ||
-                    this.BitrateMinVI != null &&
-                    this.BitrateMinVI.Equals(other.BitrateMinVI)
+                    this.BitrateMinVI == input.BitrateMinVI ||
+                    (this.BitrateMinVI != null &&
+                    this.BitrateMinVI.Equals(input.BitrateMinVI))
                 ) && 
                 (
-                    this.BitrateMinVO == other.BitrateMinVO ||
-                    this.BitrateMinVO != null &&
-                    this.BitrateMinVO.Equals(other.BitrateMinVO)
+                    this.BitrateMinVO == input.BitrateMinVO ||
+                    (this.BitrateMinVO != null &&
+                    this.BitrateMinVO.Equals(input.BitrateMinVO))
                 ) && 
                 (
-                    this.BitrateMinVIC == other.BitrateMinVIC ||
-                    this.BitrateMinVIC != null &&
-                    this.BitrateMinVIC.Equals(other.BitrateMinVIC)
+                    this.BitrateMinVIC == input.BitrateMinVIC ||
+                    (this.BitrateMinVIC != null &&
+                    this.BitrateMinVIC.Equals(input.BitrateMinVIC))
                 ) && 
                 (
-                    this.BitrateMinVOC == other.BitrateMinVOC ||
-                    this.BitrateMinVOC != null &&
-                    this.BitrateMinVOC.Equals(other.BitrateMinVOC)
+                    this.BitrateMinVOC == input.BitrateMinVOC ||
+                    (this.BitrateMinVOC != null &&
+                    this.BitrateMinVOC.Equals(input.BitrateMinVOC))
                 ) && 
                 (
-                    this.BitrateMaxAI == other.BitrateMaxAI ||
-                    this.BitrateMaxAI != null &&
-                    this.BitrateMaxAI.Equals(other.BitrateMaxAI)
+                    this.BitrateMaxAI == input.BitrateMaxAI ||
+                    (this.BitrateMaxAI != null &&
+                    this.BitrateMaxAI.Equals(input.BitrateMaxAI))
                 ) && 
                 (
-                    this.BitrateMaxAO == other.BitrateMaxAO ||
-                    this.BitrateMaxAO != null &&
-                    this.BitrateMaxAO.Equals(other.BitrateMaxAO)
+                    this.BitrateMaxAO == input.BitrateMaxAO ||
+                    (this.BitrateMaxAO != null &&
+                    this.BitrateMaxAO.Equals(input.BitrateMaxAO))
                 ) && 
                 (
-                    this.BitrateMaxVI == other.BitrateMaxVI ||
-                    this.BitrateMaxVI != null &&
-                    this.BitrateMaxVI.Equals(other.BitrateMaxVI)
+                    this.BitrateMaxVI == input.BitrateMaxVI ||
+                    (this.BitrateMaxVI != null &&
+                    this.BitrateMaxVI.Equals(input.BitrateMaxVI))
                 ) && 
                 (
-                    this.BitrateMaxVO == other.BitrateMaxVO ||
-                    this.BitrateMaxVO != null &&
-                    this.BitrateMaxVO.Equals(other.BitrateMaxVO)
+                    this.BitrateMaxVO == input.BitrateMaxVO ||
+                    (this.BitrateMaxVO != null &&
+                    this.BitrateMaxVO.Equals(input.BitrateMaxVO))
                 ) && 
                 (
-                    this.BitrateMaxVIC == other.BitrateMaxVIC ||
-                    this.BitrateMaxVIC != null &&
-                    this.BitrateMaxVIC.Equals(other.BitrateMaxVIC)
+                    this.BitrateMaxVIC == input.BitrateMaxVIC ||
+                    (this.BitrateMaxVIC != null &&
+                    this.BitrateMaxVIC.Equals(input.BitrateMaxVIC))
                 ) && 
                 (
-                    this.BitrateMaxVOC == other.BitrateMaxVOC ||
-                    this.BitrateMaxVOC != null &&
-                    this.BitrateMaxVOC.Equals(other.BitrateMaxVOC)
+                    this.BitrateMaxVOC == input.BitrateMaxVOC ||
+                    (this.BitrateMaxVOC != null &&
+                    this.BitrateMaxVOC.Equals(input.BitrateMaxVOC))
                 ) && 
                 (
-                    this.BitrateAvgAI == other.BitrateAvgAI ||
-                    this.BitrateAvgAI != null &&
-                    this.BitrateAvgAI.Equals(other.BitrateAvgAI)
+                    this.BitrateAvgAI == input.BitrateAvgAI ||
+                    (this.BitrateAvgAI != null &&
+                    this.BitrateAvgAI.Equals(input.BitrateAvgAI))
                 ) && 
                 (
-                    this.BitrateAvgAO == other.BitrateAvgAO ||
-                    this.BitrateAvgAO != null &&
-                    this.BitrateAvgAO.Equals(other.BitrateAvgAO)
+                    this.BitrateAvgAO == input.BitrateAvgAO ||
+                    (this.BitrateAvgAO != null &&
+                    this.BitrateAvgAO.Equals(input.BitrateAvgAO))
                 ) && 
                 (
-                    this.BitrateAvgVI == other.BitrateAvgVI ||
-                    this.BitrateAvgVI != null &&
-                    this.BitrateAvgVI.Equals(other.BitrateAvgVI)
+                    this.BitrateAvgVI == input.BitrateAvgVI ||
+                    (this.BitrateAvgVI != null &&
+                    this.BitrateAvgVI.Equals(input.BitrateAvgVI))
                 ) && 
                 (
-                    this.BitrateAvgVO == other.BitrateAvgVO ||
-                    this.BitrateAvgVO != null &&
-                    this.BitrateAvgVO.Equals(other.BitrateAvgVO)
+                    this.BitrateAvgVO == input.BitrateAvgVO ||
+                    (this.BitrateAvgVO != null &&
+                    this.BitrateAvgVO.Equals(input.BitrateAvgVO))
                 ) && 
                 (
-                    this.BitrateAvgVIC == other.BitrateAvgVIC ||
-                    this.BitrateAvgVIC != null &&
-                    this.BitrateAvgVIC.Equals(other.BitrateAvgVIC)
+                    this.BitrateAvgVIC == input.BitrateAvgVIC ||
+                    (this.BitrateAvgVIC != null &&
+                    this.BitrateAvgVIC.Equals(input.BitrateAvgVIC))
                 ) && 
                 (
-                    this.BitrateAvgVOC == other.BitrateAvgVOC ||
-                    this.BitrateAvgVOC != null &&
-                    this.BitrateAvgVOC.Equals(other.BitrateAvgVOC)
+                    this.BitrateAvgVOC == input.BitrateAvgVOC ||
+                    (this.BitrateAvgVOC != null &&
+                    this.BitrateAvgVOC.Equals(input.BitrateAvgVOC))
                 ) && 
                 (
-                    this.JitterMinAI == other.JitterMinAI ||
-                    this.JitterMinAI != null &&
-                    this.JitterMinAI.Equals(other.JitterMinAI)
+                    this.JitterMinAI == input.JitterMinAI ||
+                    (this.JitterMinAI != null &&
+                    this.JitterMinAI.Equals(input.JitterMinAI))
                 ) && 
                 (
-                    this.JitterMinAO == other.JitterMinAO ||
-                    this.JitterMinAO != null &&
-                    this.JitterMinAO.Equals(other.JitterMinAO)
+                    this.JitterMinAO == input.JitterMinAO ||
+                    (this.JitterMinAO != null &&
+                    this.JitterMinAO.Equals(input.JitterMinAO))
                 ) && 
                 (
-                    this.JitterMinVI == other.JitterMinVI ||
-                    this.JitterMinVI != null &&
-                    this.JitterMinVI.Equals(other.JitterMinVI)
+                    this.JitterMinVI == input.JitterMinVI ||
+                    (this.JitterMinVI != null &&
+                    this.JitterMinVI.Equals(input.JitterMinVI))
                 ) && 
                 (
-                    this.JitterMinVO == other.JitterMinVO ||
-                    this.JitterMinVO != null &&
-                    this.JitterMinVO.Equals(other.JitterMinVO)
+                    this.JitterMinVO == input.JitterMinVO ||
+                    (this.JitterMinVO != null &&
+                    this.JitterMinVO.Equals(input.JitterMinVO))
                 ) && 
                 (
-                    this.JitterMinVIC == other.JitterMinVIC ||
-                    this.JitterMinVIC != null &&
-                    this.JitterMinVIC.Equals(other.JitterMinVIC)
+                    this.JitterMinVIC == input.JitterMinVIC ||
+                    (this.JitterMinVIC != null &&
+                    this.JitterMinVIC.Equals(input.JitterMinVIC))
                 ) && 
                 (
-                    this.JitterMinVOC == other.JitterMinVOC ||
-                    this.JitterMinVOC != null &&
-                    this.JitterMinVOC.Equals(other.JitterMinVOC)
+                    this.JitterMinVOC == input.JitterMinVOC ||
+                    (this.JitterMinVOC != null &&
+                    this.JitterMinVOC.Equals(input.JitterMinVOC))
                 ) && 
                 (
-                    this.JitterMaxAI == other.JitterMaxAI ||
-                    this.JitterMaxAI != null &&
-                    this.JitterMaxAI.Equals(other.JitterMaxAI)
+                    this.JitterMaxAI == input.JitterMaxAI ||
+                    (this.JitterMaxAI != null &&
+                    this.JitterMaxAI.Equals(input.JitterMaxAI))
                 ) && 
                 (
-                    this.JitterMaxAO == other.JitterMaxAO ||
-                    this.JitterMaxAO != null &&
-                    this.JitterMaxAO.Equals(other.JitterMaxAO)
+                    this.JitterMaxAO == input.JitterMaxAO ||
+                    (this.JitterMaxAO != null &&
+                    this.JitterMaxAO.Equals(input.JitterMaxAO))
                 ) && 
                 (
-                    this.JitterMaxVI == other.JitterMaxVI ||
-                    this.JitterMaxVI != null &&
-                    this.JitterMaxVI.Equals(other.JitterMaxVI)
+                    this.JitterMaxVI == input.JitterMaxVI ||
+                    (this.JitterMaxVI != null &&
+                    this.JitterMaxVI.Equals(input.JitterMaxVI))
                 ) && 
                 (
-                    this.JitterMaxVO == other.JitterMaxVO ||
-                    this.JitterMaxVO != null &&
-                    this.JitterMaxVO.Equals(other.JitterMaxVO)
+                    this.JitterMaxVO == input.JitterMaxVO ||
+                    (this.JitterMaxVO != null &&
+                    this.JitterMaxVO.Equals(input.JitterMaxVO))
                 ) && 
                 (
-                    this.JitterMaxVIC == other.JitterMaxVIC ||
-                    this.JitterMaxVIC != null &&
-                    this.JitterMaxVIC.Equals(other.JitterMaxVIC)
+                    this.JitterMaxVIC == input.JitterMaxVIC ||
+                    (this.JitterMaxVIC != null &&
+                    this.JitterMaxVIC.Equals(input.JitterMaxVIC))
                 ) && 
                 (
-                    this.JitterMaxVOC == other.JitterMaxVOC ||
-                    this.JitterMaxVOC != null &&
-                    this.JitterMaxVOC.Equals(other.JitterMaxVOC)
+                    this.JitterMaxVOC == input.JitterMaxVOC ||
+                    (this.JitterMaxVOC != null &&
+                    this.JitterMaxVOC.Equals(input.JitterMaxVOC))
                 ) && 
                 (
-                    this.JitterAvgAI == other.JitterAvgAI ||
-                    this.JitterAvgAI != null &&
-                    this.JitterAvgAI.Equals(other.JitterAvgAI)
+                    this.JitterAvgAI == input.JitterAvgAI ||
+                    (this.JitterAvgAI != null &&
+                    this.JitterAvgAI.Equals(input.JitterAvgAI))
                 ) && 
                 (
-                    this.JitterAvgAO == other.JitterAvgAO ||
-                    this.JitterAvgAO != null &&
-                    this.JitterAvgAO.Equals(other.JitterAvgAO)
+                    this.JitterAvgAO == input.JitterAvgAO ||
+                    (this.JitterAvgAO != null &&
+                    this.JitterAvgAO.Equals(input.JitterAvgAO))
                 ) && 
                 (
-                    this.JitterAvgVI == other.JitterAvgVI ||
-                    this.JitterAvgVI != null &&
-                    this.JitterAvgVI.Equals(other.JitterAvgVI)
+                    this.JitterAvgVI == input.JitterAvgVI ||
+                    (this.JitterAvgVI != null &&
+                    this.JitterAvgVI.Equals(input.JitterAvgVI))
                 ) && 
                 (
-                    this.JitterAvgVO == other.JitterAvgVO ||
-                    this.JitterAvgVO != null &&
-                    this.JitterAvgVO.Equals(other.JitterAvgVO)
+                    this.JitterAvgVO == input.JitterAvgVO ||
+                    (this.JitterAvgVO != null &&
+                    this.JitterAvgVO.Equals(input.JitterAvgVO))
                 ) && 
                 (
-                    this.JitterAvgVIC == other.JitterAvgVIC ||
-                    this.JitterAvgVIC != null &&
-                    this.JitterAvgVIC.Equals(other.JitterAvgVIC)
+                    this.JitterAvgVIC == input.JitterAvgVIC ||
+                    (this.JitterAvgVIC != null &&
+                    this.JitterAvgVIC.Equals(input.JitterAvgVIC))
                 ) && 
                 (
-                    this.JitterAvgVOC == other.JitterAvgVOC ||
-                    this.JitterAvgVOC != null &&
-                    this.JitterAvgVOC.Equals(other.JitterAvgVOC)
+                    this.JitterAvgVOC == input.JitterAvgVOC ||
+                    (this.JitterAvgVOC != null &&
+                    this.JitterAvgVOC.Equals(input.JitterAvgVOC))
                 ) && 
                 (
-                    this.MaxJitterMinAI == other.MaxJitterMinAI ||
-                    this.MaxJitterMinAI != null &&
-                    this.MaxJitterMinAI.Equals(other.MaxJitterMinAI)
+                    this.MaxJitterMinAI == input.MaxJitterMinAI ||
+                    (this.MaxJitterMinAI != null &&
+                    this.MaxJitterMinAI.Equals(input.MaxJitterMinAI))
                 ) && 
                 (
-                    this.MaxJitterMinVI == other.MaxJitterMinVI ||
-                    this.MaxJitterMinVI != null &&
-                    this.MaxJitterMinVI.Equals(other.MaxJitterMinVI)
+                    this.MaxJitterMinVI == input.MaxJitterMinVI ||
+                    (this.MaxJitterMinVI != null &&
+                    this.MaxJitterMinVI.Equals(input.MaxJitterMinVI))
                 ) && 
                 (
-                    this.MaxJitterMinVIC == other.MaxJitterMinVIC ||
-                    this.MaxJitterMinVIC != null &&
-                    this.MaxJitterMinVIC.Equals(other.MaxJitterMinVIC)
+                    this.MaxJitterMinVIC == input.MaxJitterMinVIC ||
+                    (this.MaxJitterMinVIC != null &&
+                    this.MaxJitterMinVIC.Equals(input.MaxJitterMinVIC))
                 ) && 
                 (
-                    this.MaxJitterMaxAI == other.MaxJitterMaxAI ||
-                    this.MaxJitterMaxAI != null &&
-                    this.MaxJitterMaxAI.Equals(other.MaxJitterMaxAI)
+                    this.MaxJitterMaxAI == input.MaxJitterMaxAI ||
+                    (this.MaxJitterMaxAI != null &&
+                    this.MaxJitterMaxAI.Equals(input.MaxJitterMaxAI))
                 ) && 
                 (
-                    this.MaxJitterMaxVI == other.MaxJitterMaxVI ||
-                    this.MaxJitterMaxVI != null &&
-                    this.MaxJitterMaxVI.Equals(other.MaxJitterMaxVI)
+                    this.MaxJitterMaxVI == input.MaxJitterMaxVI ||
+                    (this.MaxJitterMaxVI != null &&
+                    this.MaxJitterMaxVI.Equals(input.MaxJitterMaxVI))
                 ) && 
                 (
-                    this.MaxJitterMaxVIC == other.MaxJitterMaxVIC ||
-                    this.MaxJitterMaxVIC != null &&
-                    this.MaxJitterMaxVIC.Equals(other.MaxJitterMaxVIC)
+                    this.MaxJitterMaxVIC == input.MaxJitterMaxVIC ||
+                    (this.MaxJitterMaxVIC != null &&
+                    this.MaxJitterMaxVIC.Equals(input.MaxJitterMaxVIC))
                 ) && 
                 (
-                    this.MaxJitterAvgAI == other.MaxJitterAvgAI ||
-                    this.MaxJitterAvgAI != null &&
-                    this.MaxJitterAvgAI.Equals(other.MaxJitterAvgAI)
+                    this.MaxJitterAvgAI == input.MaxJitterAvgAI ||
+                    (this.MaxJitterAvgAI != null &&
+                    this.MaxJitterAvgAI.Equals(input.MaxJitterAvgAI))
                 ) && 
                 (
-                    this.MaxJitterAvgVI == other.MaxJitterAvgVI ||
-                    this.MaxJitterAvgVI != null &&
-                    this.MaxJitterAvgVI.Equals(other.MaxJitterAvgVI)
+                    this.MaxJitterAvgVI == input.MaxJitterAvgVI ||
+                    (this.MaxJitterAvgVI != null &&
+                    this.MaxJitterAvgVI.Equals(input.MaxJitterAvgVI))
                 ) && 
                 (
-                    this.MaxJitterAvgVIC == other.MaxJitterAvgVIC ||
-                    this.MaxJitterAvgVIC != null &&
-                    this.MaxJitterAvgVIC.Equals(other.MaxJitterAvgVIC)
+                    this.MaxJitterAvgVIC == input.MaxJitterAvgVIC ||
+                    (this.MaxJitterAvgVIC != null &&
+                    this.MaxJitterAvgVIC.Equals(input.MaxJitterAvgVIC))
                 ) && 
                 (
-                    this.VideoRecvHeightMin == other.VideoRecvHeightMin ||
-                    this.VideoRecvHeightMin != null &&
-                    this.VideoRecvHeightMin.Equals(other.VideoRecvHeightMin)
+                    this.VideoRecvHeightMin == input.VideoRecvHeightMin ||
+                    (this.VideoRecvHeightMin != null &&
+                    this.VideoRecvHeightMin.Equals(input.VideoRecvHeightMin))
                 ) && 
                 (
-                    this.VideoRecvHeightMax == other.VideoRecvHeightMax ||
-                    this.VideoRecvHeightMax != null &&
-                    this.VideoRecvHeightMax.Equals(other.VideoRecvHeightMax)
+                    this.VideoRecvHeightMax == input.VideoRecvHeightMax ||
+                    (this.VideoRecvHeightMax != null &&
+                    this.VideoRecvHeightMax.Equals(input.VideoRecvHeightMax))
                 ) && 
                 (
-                    this.VideoRecvWidthMin == other.VideoRecvWidthMin ||
-                    this.VideoRecvWidthMin != null &&
-                    this.VideoRecvWidthMin.Equals(other.VideoRecvWidthMin)
+                    this.VideoRecvWidthMin == input.VideoRecvWidthMin ||
+                    (this.VideoRecvWidthMin != null &&
+                    this.VideoRecvWidthMin.Equals(input.VideoRecvWidthMin))
                 ) && 
                 (
-                    this.VideoRecvWidthMax == other.VideoRecvWidthMax ||
-                    this.VideoRecvWidthMax != null &&
-                    this.VideoRecvWidthMax.Equals(other.VideoRecvWidthMax)
+                    this.VideoRecvWidthMax == input.VideoRecvWidthMax ||
+                    (this.VideoRecvWidthMax != null &&
+                    this.VideoRecvWidthMax.Equals(input.VideoRecvWidthMax))
                 ) && 
                 (
-                    this.VideoSendHeightMin == other.VideoSendHeightMin ||
-                    this.VideoSendHeightMin != null &&
-                    this.VideoSendHeightMin.Equals(other.VideoSendHeightMin)
+                    this.VideoSendHeightMin == input.VideoSendHeightMin ||
+                    (this.VideoSendHeightMin != null &&
+                    this.VideoSendHeightMin.Equals(input.VideoSendHeightMin))
                 ) && 
                 (
-                    this.VideoSendHeightMax == other.VideoSendHeightMax ||
-                    this.VideoSendHeightMax != null &&
-                    this.VideoSendHeightMax.Equals(other.VideoSendHeightMax)
+                    this.VideoSendHeightMax == input.VideoSendHeightMax ||
+                    (this.VideoSendHeightMax != null &&
+                    this.VideoSendHeightMax.Equals(input.VideoSendHeightMax))
                 ) && 
                 (
-                    this.VideoSendWidthMin == other.VideoSendWidthMin ||
-                    this.VideoSendWidthMin != null &&
-                    this.VideoSendWidthMin.Equals(other.VideoSendWidthMin)
+                    this.VideoSendWidthMin == input.VideoSendWidthMin ||
+                    (this.VideoSendWidthMin != null &&
+                    this.VideoSendWidthMin.Equals(input.VideoSendWidthMin))
                 ) && 
                 (
-                    this.VideoSendWidthMax == other.VideoSendWidthMax ||
-                    this.VideoSendWidthMax != null &&
-                    this.VideoSendWidthMax.Equals(other.VideoSendWidthMax)
+                    this.VideoSendWidthMax == input.VideoSendWidthMax ||
+                    (this.VideoSendWidthMax != null &&
+                    this.VideoSendWidthMax.Equals(input.VideoSendWidthMax))
                 ) && 
                 (
-                    this.ContentRecvHeightMin == other.ContentRecvHeightMin ||
-                    this.ContentRecvHeightMin != null &&
-                    this.ContentRecvHeightMin.Equals(other.ContentRecvHeightMin)
+                    this.ContentRecvHeightMin == input.ContentRecvHeightMin ||
+                    (this.ContentRecvHeightMin != null &&
+                    this.ContentRecvHeightMin.Equals(input.ContentRecvHeightMin))
                 ) && 
                 (
-                    this.ContentRecvHeightMax == other.ContentRecvHeightMax ||
-                    this.ContentRecvHeightMax != null &&
-                    this.ContentRecvHeightMax.Equals(other.ContentRecvHeightMax)
+                    this.ContentRecvHeightMax == input.ContentRecvHeightMax ||
+                    (this.ContentRecvHeightMax != null &&
+                    this.ContentRecvHeightMax.Equals(input.ContentRecvHeightMax))
                 ) && 
                 (
-                    this.ContentRecvWidthMin == other.ContentRecvWidthMin ||
-                    this.ContentRecvWidthMin != null &&
-                    this.ContentRecvWidthMin.Equals(other.ContentRecvWidthMin)
+                    this.ContentRecvWidthMin == input.ContentRecvWidthMin ||
+                    (this.ContentRecvWidthMin != null &&
+                    this.ContentRecvWidthMin.Equals(input.ContentRecvWidthMin))
                 ) && 
                 (
-                    this.ContentRecvWidthMax == other.ContentRecvWidthMax ||
-                    this.ContentRecvWidthMax != null &&
-                    this.ContentRecvWidthMax.Equals(other.ContentRecvWidthMax)
+                    this.ContentRecvWidthMax == input.ContentRecvWidthMax ||
+                    (this.ContentRecvWidthMax != null &&
+                    this.ContentRecvWidthMax.Equals(input.ContentRecvWidthMax))
                 ) && 
                 (
-                    this.ContentSendHeightMin == other.ContentSendHeightMin ||
-                    this.ContentSendHeightMin != null &&
-                    this.ContentSendHeightMin.Equals(other.ContentSendHeightMin)
+                    this.ContentSendHeightMin == input.ContentSendHeightMin ||
+                    (this.ContentSendHeightMin != null &&
+                    this.ContentSendHeightMin.Equals(input.ContentSendHeightMin))
                 ) && 
                 (
-                    this.ContentSendHeightMax == other.ContentSendHeightMax ||
-                    this.ContentSendHeightMax != null &&
-                    this.ContentSendHeightMax.Equals(other.ContentSendHeightMax)
+                    this.ContentSendHeightMax == input.ContentSendHeightMax ||
+                    (this.ContentSendHeightMax != null &&
+                    this.ContentSendHeightMax.Equals(input.ContentSendHeightMax))
                 ) && 
                 (
-                    this.ContentSendWidthMin == other.ContentSendWidthMin ||
-                    this.ContentSendWidthMin != null &&
-                    this.ContentSendWidthMin.Equals(other.ContentSendWidthMin)
+                    this.ContentSendWidthMin == input.ContentSendWidthMin ||
+                    (this.ContentSendWidthMin != null &&
+                    this.ContentSendWidthMin.Equals(input.ContentSendWidthMin))
                 ) && 
                 (
-                    this.ContentSendWidthMax == other.ContentSendWidthMax ||
-                    this.ContentSendWidthMax != null &&
-                    this.ContentSendWidthMax.Equals(other.ContentSendWidthMax)
+                    this.ContentSendWidthMax == input.ContentSendWidthMax ||
+                    (this.ContentSendWidthMax != null &&
+                    this.ContentSendWidthMax.Equals(input.ContentSendWidthMax))
                 ) && 
                 (
-                    this.RoundTripDelayMin == other.RoundTripDelayMin ||
-                    this.RoundTripDelayMin != null &&
-                    this.RoundTripDelayMin.Equals(other.RoundTripDelayMin)
+                    this.RoundTripDelayMin == input.RoundTripDelayMin ||
+                    (this.RoundTripDelayMin != null &&
+                    this.RoundTripDelayMin.Equals(input.RoundTripDelayMin))
                 ) && 
                 (
-                    this.RoundTripDelayMax == other.RoundTripDelayMax ||
-                    this.RoundTripDelayMax != null &&
-                    this.RoundTripDelayMax.Equals(other.RoundTripDelayMax)
+                    this.RoundTripDelayMax == input.RoundTripDelayMax ||
+                    (this.RoundTripDelayMax != null &&
+                    this.RoundTripDelayMax.Equals(input.RoundTripDelayMax))
                 ) && 
                 (
-                    this.RoundTripDelayAvg == other.RoundTripDelayAvg ||
-                    this.RoundTripDelayAvg != null &&
-                    this.RoundTripDelayAvg.Equals(other.RoundTripDelayAvg)
+                    this.RoundTripDelayAvg == input.RoundTripDelayAvg ||
+                    (this.RoundTripDelayAvg != null &&
+                    this.RoundTripDelayAvg.Equals(input.RoundTripDelayAvg))
                 ) && 
                 (
-                    this.RfactorMin == other.RfactorMin ||
-                    this.RfactorMin != null &&
-                    this.RfactorMin.Equals(other.RfactorMin)
+                    this.RfactorMin == input.RfactorMin ||
+                    (this.RfactorMin != null &&
+                    this.RfactorMin.Equals(input.RfactorMin))
                 ) && 
                 (
-                    this.RfactorMax == other.RfactorMax ||
-                    this.RfactorMax != null &&
-                    this.RfactorMax.Equals(other.RfactorMax)
+                    this.RfactorMax == input.RfactorMax ||
+                    (this.RfactorMax != null &&
+                    this.RfactorMax.Equals(input.RfactorMax))
                 ) && 
                 (
-                    this.RfactorAvg == other.RfactorAvg ||
-                    this.RfactorAvg != null &&
-                    this.RfactorAvg.Equals(other.RfactorAvg)
+                    this.RfactorAvg == input.RfactorAvg ||
+                    (this.RfactorAvg != null &&
+                    this.RfactorAvg.Equals(input.RfactorAvg))
                 ) && 
                 (
-                    this.ProcessCpuLoadMin == other.ProcessCpuLoadMin ||
-                    this.ProcessCpuLoadMin != null &&
-                    this.ProcessCpuLoadMin.Equals(other.ProcessCpuLoadMin)
+                    this.ProcessCpuLoadMin == input.ProcessCpuLoadMin ||
+                    (this.ProcessCpuLoadMin != null &&
+                    this.ProcessCpuLoadMin.Equals(input.ProcessCpuLoadMin))
                 ) && 
                 (
-                    this.ProcessCpuLoadMax == other.ProcessCpuLoadMax ||
-                    this.ProcessCpuLoadMax != null &&
-                    this.ProcessCpuLoadMax.Equals(other.ProcessCpuLoadMax)
+                    this.ProcessCpuLoadMax == input.ProcessCpuLoadMax ||
+                    (this.ProcessCpuLoadMax != null &&
+                    this.ProcessCpuLoadMax.Equals(input.ProcessCpuLoadMax))
                 ) && 
                 (
-                    this.ProcessCpuLoadAvg == other.ProcessCpuLoadAvg ||
-                    this.ProcessCpuLoadAvg != null &&
-                    this.ProcessCpuLoadAvg.Equals(other.ProcessCpuLoadAvg)
+                    this.ProcessCpuLoadAvg == input.ProcessCpuLoadAvg ||
+                    (this.ProcessCpuLoadAvg != null &&
+                    this.ProcessCpuLoadAvg.Equals(input.ProcessCpuLoadAvg))
                 ) && 
                 (
-                    this.SystemCpuLoadMin == other.SystemCpuLoadMin ||
-                    this.SystemCpuLoadMin != null &&
-                    this.SystemCpuLoadMin.Equals(other.SystemCpuLoadMin)
+                    this.SystemCpuLoadMin == input.SystemCpuLoadMin ||
+                    (this.SystemCpuLoadMin != null &&
+                    this.SystemCpuLoadMin.Equals(input.SystemCpuLoadMin))
                 ) && 
                 (
-                    this.SystemCpuLoadMax == other.SystemCpuLoadMax ||
-                    this.SystemCpuLoadMax != null &&
-                    this.SystemCpuLoadMax.Equals(other.SystemCpuLoadMax)
+                    this.SystemCpuLoadMax == input.SystemCpuLoadMax ||
+                    (this.SystemCpuLoadMax != null &&
+                    this.SystemCpuLoadMax.Equals(input.SystemCpuLoadMax))
                 ) && 
                 (
-                    this.SystemCpuLoadAvg == other.SystemCpuLoadAvg ||
-                    this.SystemCpuLoadAvg != null &&
-                    this.SystemCpuLoadAvg.Equals(other.SystemCpuLoadAvg)
+                    this.SystemCpuLoadAvg == input.SystemCpuLoadAvg ||
+                    (this.SystemCpuLoadAvg != null &&
+                    this.SystemCpuLoadAvg.Equals(input.SystemCpuLoadAvg))
                 ) && 
                 (
-                    this.WifiRecvStrengthMin == other.WifiRecvStrengthMin ||
-                    this.WifiRecvStrengthMin != null &&
-                    this.WifiRecvStrengthMin.Equals(other.WifiRecvStrengthMin)
+                    this.WifiRecvStrengthMin == input.WifiRecvStrengthMin ||
+                    (this.WifiRecvStrengthMin != null &&
+                    this.WifiRecvStrengthMin.Equals(input.WifiRecvStrengthMin))
                 ) && 
                 (
-                    this.WifiRecvStrengthMax == other.WifiRecvStrengthMax ||
-                    this.WifiRecvStrengthMax != null &&
-                    this.WifiRecvStrengthMax.Equals(other.WifiRecvStrengthMax)
+                    this.WifiRecvStrengthMax == input.WifiRecvStrengthMax ||
+                    (this.WifiRecvStrengthMax != null &&
+                    this.WifiRecvStrengthMax.Equals(input.WifiRecvStrengthMax))
                 ) && 
                 (
-                    this.WifiRecvStrengthAvg == other.WifiRecvStrengthAvg ||
-                    this.WifiRecvStrengthAvg != null &&
-                    this.WifiRecvStrengthAvg.Equals(other.WifiRecvStrengthAvg)
+                    this.WifiRecvStrengthAvg == input.WifiRecvStrengthAvg ||
+                    (this.WifiRecvStrengthAvg != null &&
+                    this.WifiRecvStrengthAvg.Equals(input.WifiRecvStrengthAvg))
                 ) && 
                 (
-                    this.KeyFrameRateAvgVI == other.KeyFrameRateAvgVI ||
-                    this.KeyFrameRateAvgVI != null &&
-                    this.KeyFrameRateAvgVI.Equals(other.KeyFrameRateAvgVI)
+                    this.KeyFrameRateAvgVI == input.KeyFrameRateAvgVI ||
+                    (this.KeyFrameRateAvgVI != null &&
+                    this.KeyFrameRateAvgVI.Equals(input.KeyFrameRateAvgVI))
                 ) && 
                 (
-                    this.KeyFrameRateAvgVO == other.KeyFrameRateAvgVO ||
-                    this.KeyFrameRateAvgVO != null &&
-                    this.KeyFrameRateAvgVO.Equals(other.KeyFrameRateAvgVO)
+                    this.KeyFrameRateAvgVO == input.KeyFrameRateAvgVO ||
+                    (this.KeyFrameRateAvgVO != null &&
+                    this.KeyFrameRateAvgVO.Equals(input.KeyFrameRateAvgVO))
                 ) && 
                 (
-                    this.KeyFrameRateAvgVIC == other.KeyFrameRateAvgVIC ||
-                    this.KeyFrameRateAvgVIC != null &&
-                    this.KeyFrameRateAvgVIC.Equals(other.KeyFrameRateAvgVIC)
+                    this.KeyFrameRateAvgVIC == input.KeyFrameRateAvgVIC ||
+                    (this.KeyFrameRateAvgVIC != null &&
+                    this.KeyFrameRateAvgVIC.Equals(input.KeyFrameRateAvgVIC))
                 ) && 
                 (
-                    this.KeyFrameRateAvgVOC == other.KeyFrameRateAvgVOC ||
-                    this.KeyFrameRateAvgVOC != null &&
-                    this.KeyFrameRateAvgVOC.Equals(other.KeyFrameRateAvgVOC)
+                    this.KeyFrameRateAvgVOC == input.KeyFrameRateAvgVOC ||
+                    (this.KeyFrameRateAvgVOC != null &&
+                    this.KeyFrameRateAvgVOC.Equals(input.KeyFrameRateAvgVOC))
                 ) && 
                 (
-                    this.KeyFrameRateMinVI == other.KeyFrameRateMinVI ||
-                    this.KeyFrameRateMinVI != null &&
-                    this.KeyFrameRateMinVI.Equals(other.KeyFrameRateMinVI)
+                    this.KeyFrameRateMinVI == input.KeyFrameRateMinVI ||
+                    (this.KeyFrameRateMinVI != null &&
+                    this.KeyFrameRateMinVI.Equals(input.KeyFrameRateMinVI))
                 ) && 
                 (
-                    this.KeyFrameRateMinVO == other.KeyFrameRateMinVO ||
-                    this.KeyFrameRateMinVO != null &&
-                    this.KeyFrameRateMinVO.Equals(other.KeyFrameRateMinVO)
+                    this.KeyFrameRateMinVO == input.KeyFrameRateMinVO ||
+                    (this.KeyFrameRateMinVO != null &&
+                    this.KeyFrameRateMinVO.Equals(input.KeyFrameRateMinVO))
                 ) && 
                 (
-                    this.KeyFrameRateMinVIC == other.KeyFrameRateMinVIC ||
-                    this.KeyFrameRateMinVIC != null &&
-                    this.KeyFrameRateMinVIC.Equals(other.KeyFrameRateMinVIC)
+                    this.KeyFrameRateMinVIC == input.KeyFrameRateMinVIC ||
+                    (this.KeyFrameRateMinVIC != null &&
+                    this.KeyFrameRateMinVIC.Equals(input.KeyFrameRateMinVIC))
                 ) && 
                 (
-                    this.KeyFrameRateMinVOC == other.KeyFrameRateMinVOC ||
-                    this.KeyFrameRateMinVOC != null &&
-                    this.KeyFrameRateMinVOC.Equals(other.KeyFrameRateMinVOC)
+                    this.KeyFrameRateMinVOC == input.KeyFrameRateMinVOC ||
+                    (this.KeyFrameRateMinVOC != null &&
+                    this.KeyFrameRateMinVOC.Equals(input.KeyFrameRateMinVOC))
                 ) && 
                 (
-                    this.KeyFrameRateMaxVI == other.KeyFrameRateMaxVI ||
-                    this.KeyFrameRateMaxVI != null &&
-                    this.KeyFrameRateMaxVI.Equals(other.KeyFrameRateMaxVI)
+                    this.KeyFrameRateMaxVI == input.KeyFrameRateMaxVI ||
+                    (this.KeyFrameRateMaxVI != null &&
+                    this.KeyFrameRateMaxVI.Equals(input.KeyFrameRateMaxVI))
                 ) && 
                 (
-                    this.KeyFrameRateMaxVO == other.KeyFrameRateMaxVO ||
-                    this.KeyFrameRateMaxVO != null &&
-                    this.KeyFrameRateMaxVO.Equals(other.KeyFrameRateMaxVO)
+                    this.KeyFrameRateMaxVO == input.KeyFrameRateMaxVO ||
+                    (this.KeyFrameRateMaxVO != null &&
+                    this.KeyFrameRateMaxVO.Equals(input.KeyFrameRateMaxVO))
                 ) && 
                 (
-                    this.KeyFrameRateMaxVIC == other.KeyFrameRateMaxVIC ||
-                    this.KeyFrameRateMaxVIC != null &&
-                    this.KeyFrameRateMaxVIC.Equals(other.KeyFrameRateMaxVIC)
+                    this.KeyFrameRateMaxVIC == input.KeyFrameRateMaxVIC ||
+                    (this.KeyFrameRateMaxVIC != null &&
+                    this.KeyFrameRateMaxVIC.Equals(input.KeyFrameRateMaxVIC))
                 ) && 
                 (
-                    this.KeyFrameRateMaxVOC == other.KeyFrameRateMaxVOC ||
-                    this.KeyFrameRateMaxVOC != null &&
-                    this.KeyFrameRateMaxVOC.Equals(other.KeyFrameRateMaxVOC)
+                    this.KeyFrameRateMaxVOC == input.KeyFrameRateMaxVOC ||
+                    (this.KeyFrameRateMaxVOC != null &&
+                    this.KeyFrameRateMaxVOC.Equals(input.KeyFrameRateMaxVOC))
                 ) && 
                 (
-                    this.RoundTripDelayAvgVO == other.RoundTripDelayAvgVO ||
-                    this.RoundTripDelayAvgVO != null &&
-                    this.RoundTripDelayAvgVO.Equals(other.RoundTripDelayAvgVO)
+                    this.RoundTripDelayAvgVO == input.RoundTripDelayAvgVO ||
+                    (this.RoundTripDelayAvgVO != null &&
+                    this.RoundTripDelayAvgVO.Equals(input.RoundTripDelayAvgVO))
                 ) && 
                 (
-                    this.RoundTripDelayAvgVOC == other.RoundTripDelayAvgVOC ||
-                    this.RoundTripDelayAvgVOC != null &&
-                    this.RoundTripDelayAvgVOC.Equals(other.RoundTripDelayAvgVOC)
+                    this.RoundTripDelayAvgVOC == input.RoundTripDelayAvgVOC ||
+                    (this.RoundTripDelayAvgVOC != null &&
+                    this.RoundTripDelayAvgVOC.Equals(input.RoundTripDelayAvgVOC))
                 ) && 
                 (
-                    this.RoundTripDelayAvgAO == other.RoundTripDelayAvgAO ||
-                    this.RoundTripDelayAvgAO != null &&
-                    this.RoundTripDelayAvgAO.Equals(other.RoundTripDelayAvgAO)
+                    this.RoundTripDelayAvgAO == input.RoundTripDelayAvgAO ||
+                    (this.RoundTripDelayAvgAO != null &&
+                    this.RoundTripDelayAvgAO.Equals(input.RoundTripDelayAvgAO))
                 );
         }
 
@@ -2119,302 +2117,300 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AudioRecvCodec != null)
-                    hash = hash * 59 + this.AudioRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvCodec.GetHashCode();
                 if (this.AudioSendCodec != null)
-                    hash = hash * 59 + this.AudioSendCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioSendCodec.GetHashCode();
                 if (this.ContentRecv != null)
-                    hash = hash * 59 + this.ContentRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecv.GetHashCode();
                 if (this.ContentSend != null)
-                    hash = hash * 59 + this.ContentSend.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSend.GetHashCode();
                 if (this.TalkDetected != null)
-                    hash = hash * 59 + this.TalkDetected.GetHashCode();
+                    hashCode = hashCode * 59 + this.TalkDetected.GetHashCode();
                 if (this.SessionRelay != null)
-                    hash = hash * 59 + this.SessionRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionRelay.GetHashCode();
                 if (this.SessionInRelay != null)
-                    hash = hash * 59 + this.SessionInRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionInRelay.GetHashCode();
                 if (this.SessionOutRelay != null)
-                    hash = hash * 59 + this.SessionOutRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionOutRelay.GetHashCode();
                 if (this.AudioRtpRelay != null)
-                    hash = hash * 59 + this.AudioRtpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRtpRelay.GetHashCode();
                 if (this.CallRate != null)
-                    hash = hash * 59 + this.CallRate.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallRate.GetHashCode();
                 if (this.CumulLossPercentAI != null)
-                    hash = hash * 59 + this.CumulLossPercentAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentAI.GetHashCode();
                 if (this.CumulLossPercentAO != null)
-                    hash = hash * 59 + this.CumulLossPercentAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentAO.GetHashCode();
                 if (this.CumulLossPercentVI != null)
-                    hash = hash * 59 + this.CumulLossPercentVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentVI.GetHashCode();
                 if (this.CumulLossPercentVO != null)
-                    hash = hash * 59 + this.CumulLossPercentVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentVO.GetHashCode();
                 if (this.CumulLossPercentVIC != null)
-                    hash = hash * 59 + this.CumulLossPercentVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentVIC.GetHashCode();
                 if (this.CumulLossPercentVOC != null)
-                    hash = hash * 59 + this.CumulLossPercentVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossPercentVOC.GetHashCode();
                 if (this.CumulLossAI != null)
-                    hash = hash * 59 + this.CumulLossAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossAI.GetHashCode();
                 if (this.CumulLossAO != null)
-                    hash = hash * 59 + this.CumulLossAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossAO.GetHashCode();
                 if (this.CumulLossVI != null)
-                    hash = hash * 59 + this.CumulLossVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossVI.GetHashCode();
                 if (this.CumulLossVO != null)
-                    hash = hash * 59 + this.CumulLossVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossVO.GetHashCode();
                 if (this.CumulLossVIC != null)
-                    hash = hash * 59 + this.CumulLossVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossVIC.GetHashCode();
                 if (this.CumulLossVOC != null)
-                    hash = hash * 59 + this.CumulLossVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulLossVOC.GetHashCode();
                 if (this.DiscontinuityCount != null)
-                    hash = hash * 59 + this.DiscontinuityCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.DiscontinuityCount.GetHashCode();
                 if (this.DroppedPacketsAI != null)
-                    hash = hash * 59 + this.DroppedPacketsAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.DroppedPacketsAI.GetHashCode();
                 if (this.DroppedPacketsVI != null)
-                    hash = hash * 59 + this.DroppedPacketsVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.DroppedPacketsVI.GetHashCode();
                 if (this.DroppedPacketsVIC != null)
-                    hash = hash * 59 + this.DroppedPacketsVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.DroppedPacketsVIC.GetHashCode();
                 if (this.MixUnderRunsAI != null)
-                    hash = hash * 59 + this.MixUnderRunsAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixUnderRunsAI.GetHashCode();
                 if (this.NetworkAvgLossAI != null)
-                    hash = hash * 59 + this.NetworkAvgLossAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkAvgLossAI.GetHashCode();
                 if (this.NetworkAvgLossAO != null)
-                    hash = hash * 59 + this.NetworkAvgLossAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkAvgLossAO.GetHashCode();
                 if (this.NetworkAvgLossVI != null)
-                    hash = hash * 59 + this.NetworkAvgLossVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkAvgLossVI.GetHashCode();
                 if (this.NetworkAvgLossVO != null)
-                    hash = hash * 59 + this.NetworkAvgLossVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkAvgLossVO.GetHashCode();
                 if (this.NetworkCumulLossAI != null)
-                    hash = hash * 59 + this.NetworkCumulLossAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkCumulLossAI.GetHashCode();
                 if (this.NetworkCumulLossAO != null)
-                    hash = hash * 59 + this.NetworkCumulLossAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkCumulLossAO.GetHashCode();
                 if (this.NetworkCumulLossVI != null)
-                    hash = hash * 59 + this.NetworkCumulLossVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkCumulLossVI.GetHashCode();
                 if (this.NetworkCumulLossVO != null)
-                    hash = hash * 59 + this.NetworkCumulLossVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkCumulLossVO.GetHashCode();
                 if (this.NetworkLossAI != null)
-                    hash = hash * 59 + this.NetworkLossAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkLossAI.GetHashCode();
                 if (this.NetworkLossAO != null)
-                    hash = hash * 59 + this.NetworkLossAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkLossAO.GetHashCode();
                 if (this.NetworkLossVI != null)
-                    hash = hash * 59 + this.NetworkLossVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkLossVI.GetHashCode();
                 if (this.NetworkLossVO != null)
-                    hash = hash * 59 + this.NetworkLossVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.NetworkLossVO.GetHashCode();
                 if (this.CallQualityMin != null)
-                    hash = hash * 59 + this.CallQualityMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQualityMin.GetHashCode();
                 if (this.CallQualityMax != null)
-                    hash = hash * 59 + this.CallQualityMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQualityMax.GetHashCode();
                 if (this.CallQualityAvg != null)
-                    hash = hash * 59 + this.CallQualityAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQualityAvg.GetHashCode();
                 if (this.FpsMinVI != null)
-                    hash = hash * 59 + this.FpsMinVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMinVI.GetHashCode();
                 if (this.FpsMinVO != null)
-                    hash = hash * 59 + this.FpsMinVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMinVO.GetHashCode();
                 if (this.FpsMinVIC != null)
-                    hash = hash * 59 + this.FpsMinVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMinVIC.GetHashCode();
                 if (this.FpsMinVOC != null)
-                    hash = hash * 59 + this.FpsMinVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMinVOC.GetHashCode();
                 if (this.FpsMaxVI != null)
-                    hash = hash * 59 + this.FpsMaxVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMaxVI.GetHashCode();
                 if (this.FpsMaxVO != null)
-                    hash = hash * 59 + this.FpsMaxVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMaxVO.GetHashCode();
                 if (this.FpsMaxVIC != null)
-                    hash = hash * 59 + this.FpsMaxVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMaxVIC.GetHashCode();
                 if (this.FpsMaxVOC != null)
-                    hash = hash * 59 + this.FpsMaxVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsMaxVOC.GetHashCode();
                 if (this.FpsAvgVI != null)
-                    hash = hash * 59 + this.FpsAvgVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsAvgVI.GetHashCode();
                 if (this.FpsAvgVO != null)
-                    hash = hash * 59 + this.FpsAvgVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsAvgVO.GetHashCode();
                 if (this.FpsAvgVIC != null)
-                    hash = hash * 59 + this.FpsAvgVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsAvgVIC.GetHashCode();
                 if (this.FpsAvgVOC != null)
-                    hash = hash * 59 + this.FpsAvgVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.FpsAvgVOC.GetHashCode();
                 if (this.BitrateMinAI != null)
-                    hash = hash * 59 + this.BitrateMinAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinAI.GetHashCode();
                 if (this.BitrateMinAO != null)
-                    hash = hash * 59 + this.BitrateMinAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinAO.GetHashCode();
                 if (this.BitrateMinVI != null)
-                    hash = hash * 59 + this.BitrateMinVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinVI.GetHashCode();
                 if (this.BitrateMinVO != null)
-                    hash = hash * 59 + this.BitrateMinVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinVO.GetHashCode();
                 if (this.BitrateMinVIC != null)
-                    hash = hash * 59 + this.BitrateMinVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinVIC.GetHashCode();
                 if (this.BitrateMinVOC != null)
-                    hash = hash * 59 + this.BitrateMinVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMinVOC.GetHashCode();
                 if (this.BitrateMaxAI != null)
-                    hash = hash * 59 + this.BitrateMaxAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxAI.GetHashCode();
                 if (this.BitrateMaxAO != null)
-                    hash = hash * 59 + this.BitrateMaxAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxAO.GetHashCode();
                 if (this.BitrateMaxVI != null)
-                    hash = hash * 59 + this.BitrateMaxVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxVI.GetHashCode();
                 if (this.BitrateMaxVO != null)
-                    hash = hash * 59 + this.BitrateMaxVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxVO.GetHashCode();
                 if (this.BitrateMaxVIC != null)
-                    hash = hash * 59 + this.BitrateMaxVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxVIC.GetHashCode();
                 if (this.BitrateMaxVOC != null)
-                    hash = hash * 59 + this.BitrateMaxVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateMaxVOC.GetHashCode();
                 if (this.BitrateAvgAI != null)
-                    hash = hash * 59 + this.BitrateAvgAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgAI.GetHashCode();
                 if (this.BitrateAvgAO != null)
-                    hash = hash * 59 + this.BitrateAvgAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgAO.GetHashCode();
                 if (this.BitrateAvgVI != null)
-                    hash = hash * 59 + this.BitrateAvgVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgVI.GetHashCode();
                 if (this.BitrateAvgVO != null)
-                    hash = hash * 59 + this.BitrateAvgVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgVO.GetHashCode();
                 if (this.BitrateAvgVIC != null)
-                    hash = hash * 59 + this.BitrateAvgVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgVIC.GetHashCode();
                 if (this.BitrateAvgVOC != null)
-                    hash = hash * 59 + this.BitrateAvgVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.BitrateAvgVOC.GetHashCode();
                 if (this.JitterMinAI != null)
-                    hash = hash * 59 + this.JitterMinAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinAI.GetHashCode();
                 if (this.JitterMinAO != null)
-                    hash = hash * 59 + this.JitterMinAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinAO.GetHashCode();
                 if (this.JitterMinVI != null)
-                    hash = hash * 59 + this.JitterMinVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinVI.GetHashCode();
                 if (this.JitterMinVO != null)
-                    hash = hash * 59 + this.JitterMinVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinVO.GetHashCode();
                 if (this.JitterMinVIC != null)
-                    hash = hash * 59 + this.JitterMinVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinVIC.GetHashCode();
                 if (this.JitterMinVOC != null)
-                    hash = hash * 59 + this.JitterMinVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMinVOC.GetHashCode();
                 if (this.JitterMaxAI != null)
-                    hash = hash * 59 + this.JitterMaxAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxAI.GetHashCode();
                 if (this.JitterMaxAO != null)
-                    hash = hash * 59 + this.JitterMaxAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxAO.GetHashCode();
                 if (this.JitterMaxVI != null)
-                    hash = hash * 59 + this.JitterMaxVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxVI.GetHashCode();
                 if (this.JitterMaxVO != null)
-                    hash = hash * 59 + this.JitterMaxVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxVO.GetHashCode();
                 if (this.JitterMaxVIC != null)
-                    hash = hash * 59 + this.JitterMaxVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxVIC.GetHashCode();
                 if (this.JitterMaxVOC != null)
-                    hash = hash * 59 + this.JitterMaxVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterMaxVOC.GetHashCode();
                 if (this.JitterAvgAI != null)
-                    hash = hash * 59 + this.JitterAvgAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgAI.GetHashCode();
                 if (this.JitterAvgAO != null)
-                    hash = hash * 59 + this.JitterAvgAO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgAO.GetHashCode();
                 if (this.JitterAvgVI != null)
-                    hash = hash * 59 + this.JitterAvgVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgVI.GetHashCode();
                 if (this.JitterAvgVO != null)
-                    hash = hash * 59 + this.JitterAvgVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgVO.GetHashCode();
                 if (this.JitterAvgVIC != null)
-                    hash = hash * 59 + this.JitterAvgVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgVIC.GetHashCode();
                 if (this.JitterAvgVOC != null)
-                    hash = hash * 59 + this.JitterAvgVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.JitterAvgVOC.GetHashCode();
                 if (this.MaxJitterMinAI != null)
-                    hash = hash * 59 + this.MaxJitterMinAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMinAI.GetHashCode();
                 if (this.MaxJitterMinVI != null)
-                    hash = hash * 59 + this.MaxJitterMinVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMinVI.GetHashCode();
                 if (this.MaxJitterMinVIC != null)
-                    hash = hash * 59 + this.MaxJitterMinVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMinVIC.GetHashCode();
                 if (this.MaxJitterMaxAI != null)
-                    hash = hash * 59 + this.MaxJitterMaxAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMaxAI.GetHashCode();
                 if (this.MaxJitterMaxVI != null)
-                    hash = hash * 59 + this.MaxJitterMaxVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMaxVI.GetHashCode();
                 if (this.MaxJitterMaxVIC != null)
-                    hash = hash * 59 + this.MaxJitterMaxVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterMaxVIC.GetHashCode();
                 if (this.MaxJitterAvgAI != null)
-                    hash = hash * 59 + this.MaxJitterAvgAI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterAvgAI.GetHashCode();
                 if (this.MaxJitterAvgVI != null)
-                    hash = hash * 59 + this.MaxJitterAvgVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterAvgVI.GetHashCode();
                 if (this.MaxJitterAvgVIC != null)
-                    hash = hash * 59 + this.MaxJitterAvgVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxJitterAvgVIC.GetHashCode();
                 if (this.VideoRecvHeightMin != null)
-                    hash = hash * 59 + this.VideoRecvHeightMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvHeightMin.GetHashCode();
                 if (this.VideoRecvHeightMax != null)
-                    hash = hash * 59 + this.VideoRecvHeightMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvHeightMax.GetHashCode();
                 if (this.VideoRecvWidthMin != null)
-                    hash = hash * 59 + this.VideoRecvWidthMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvWidthMin.GetHashCode();
                 if (this.VideoRecvWidthMax != null)
-                    hash = hash * 59 + this.VideoRecvWidthMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvWidthMax.GetHashCode();
                 if (this.VideoSendHeightMin != null)
-                    hash = hash * 59 + this.VideoSendHeightMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendHeightMin.GetHashCode();
                 if (this.VideoSendHeightMax != null)
-                    hash = hash * 59 + this.VideoSendHeightMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendHeightMax.GetHashCode();
                 if (this.VideoSendWidthMin != null)
-                    hash = hash * 59 + this.VideoSendWidthMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendWidthMin.GetHashCode();
                 if (this.VideoSendWidthMax != null)
-                    hash = hash * 59 + this.VideoSendWidthMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendWidthMax.GetHashCode();
                 if (this.ContentRecvHeightMin != null)
-                    hash = hash * 59 + this.ContentRecvHeightMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvHeightMin.GetHashCode();
                 if (this.ContentRecvHeightMax != null)
-                    hash = hash * 59 + this.ContentRecvHeightMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvHeightMax.GetHashCode();
                 if (this.ContentRecvWidthMin != null)
-                    hash = hash * 59 + this.ContentRecvWidthMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvWidthMin.GetHashCode();
                 if (this.ContentRecvWidthMax != null)
-                    hash = hash * 59 + this.ContentRecvWidthMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvWidthMax.GetHashCode();
                 if (this.ContentSendHeightMin != null)
-                    hash = hash * 59 + this.ContentSendHeightMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSendHeightMin.GetHashCode();
                 if (this.ContentSendHeightMax != null)
-                    hash = hash * 59 + this.ContentSendHeightMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSendHeightMax.GetHashCode();
                 if (this.ContentSendWidthMin != null)
-                    hash = hash * 59 + this.ContentSendWidthMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSendWidthMin.GetHashCode();
                 if (this.ContentSendWidthMax != null)
-                    hash = hash * 59 + this.ContentSendWidthMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSendWidthMax.GetHashCode();
                 if (this.RoundTripDelayMin != null)
-                    hash = hash * 59 + this.RoundTripDelayMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoundTripDelayMin.GetHashCode();
                 if (this.RoundTripDelayMax != null)
-                    hash = hash * 59 + this.RoundTripDelayMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoundTripDelayMax.GetHashCode();
                 if (this.RoundTripDelayAvg != null)
-                    hash = hash * 59 + this.RoundTripDelayAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoundTripDelayAvg.GetHashCode();
                 if (this.RfactorMin != null)
-                    hash = hash * 59 + this.RfactorMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.RfactorMin.GetHashCode();
                 if (this.RfactorMax != null)
-                    hash = hash * 59 + this.RfactorMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.RfactorMax.GetHashCode();
                 if (this.RfactorAvg != null)
-                    hash = hash * 59 + this.RfactorAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.RfactorAvg.GetHashCode();
                 if (this.ProcessCpuLoadMin != null)
-                    hash = hash * 59 + this.ProcessCpuLoadMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessCpuLoadMin.GetHashCode();
                 if (this.ProcessCpuLoadMax != null)
-                    hash = hash * 59 + this.ProcessCpuLoadMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessCpuLoadMax.GetHashCode();
                 if (this.ProcessCpuLoadAvg != null)
-                    hash = hash * 59 + this.ProcessCpuLoadAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessCpuLoadAvg.GetHashCode();
                 if (this.SystemCpuLoadMin != null)
-                    hash = hash * 59 + this.SystemCpuLoadMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.SystemCpuLoadMin.GetHashCode();
                 if (this.SystemCpuLoadMax != null)
-                    hash = hash * 59 + this.SystemCpuLoadMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.SystemCpuLoadMax.GetHashCode();
                 if (this.SystemCpuLoadAvg != null)
-                    hash = hash * 59 + this.SystemCpuLoadAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.SystemCpuLoadAvg.GetHashCode();
                 if (this.WifiRecvStrengthMin != null)
-                    hash = hash * 59 + this.WifiRecvStrengthMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.WifiRecvStrengthMin.GetHashCode();
                 if (this.WifiRecvStrengthMax != null)
-                    hash = hash * 59 + this.WifiRecvStrengthMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.WifiRecvStrengthMax.GetHashCode();
                 if (this.WifiRecvStrengthAvg != null)
-                    hash = hash * 59 + this.WifiRecvStrengthAvg.GetHashCode();
+                    hashCode = hashCode * 59 + this.WifiRecvStrengthAvg.GetHashCode();
                 if (this.KeyFrameRateAvgVI != null)
-                    hash = hash * 59 + this.KeyFrameRateAvgVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateAvgVI.GetHashCode();
                 if (this.KeyFrameRateAvgVO != null)
-                    hash = hash * 59 + this.KeyFrameRateAvgVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateAvgVO.GetHashCode();
                 if (this.KeyFrameRateAvgVIC != null)
-                    hash = hash * 59 + this.KeyFrameRateAvgVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateAvgVIC.GetHashCode();
                 if (this.KeyFrameRateAvgVOC != null)
-                    hash = hash * 59 + this.KeyFrameRateAvgVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateAvgVOC.GetHashCode();
                 if (this.KeyFrameRateMinVI != null)
-                    hash = hash * 59 + this.KeyFrameRateMinVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMinVI.GetHashCode();
                 if (this.KeyFrameRateMinVO != null)
-                    hash = hash * 59 + this.KeyFrameRateMinVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMinVO.GetHashCode();
                 if (this.KeyFrameRateMinVIC != null)
-                    hash = hash * 59 + this.KeyFrameRateMinVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMinVIC.GetHashCode();
                 if (this.KeyFrameRateMinVOC != null)
-                    hash = hash * 59 + this.KeyFrameRateMinVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMinVOC.GetHashCode();
                 if (this.KeyFrameRateMaxVI != null)
-                    hash = hash * 59 + this.KeyFrameRateMaxVI.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMaxVI.GetHashCode();
                 if (this.KeyFrameRateMaxVO != null)
-                    hash = hash * 59 + this.KeyFrameRateMaxVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMaxVO.GetHashCode();
                 if (this.KeyFrameRateMaxVIC != null)
-                    hash = hash * 59 + this.KeyFrameRateMaxVIC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMaxVIC.GetHashCode();
                 if (this.KeyFrameRateMaxVOC != null)
-                    hash = hash * 59 + this.KeyFrameRateMaxVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.KeyFrameRateMaxVOC.GetHashCode();
                 if (this.RoundTripDelayAvgVO != null)
-                    hash = hash * 59 + this.RoundTripDelayAvgVO.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoundTripDelayAvgVO.GetHashCode();
                 if (this.RoundTripDelayAvgVOC != null)
-                    hash = hash * 59 + this.RoundTripDelayAvgVOC.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoundTripDelayAvgVOC.GetHashCode();
                 if (this.RoundTripDelayAvgAO != null)
-                    hash = hash * 59 + this.RoundTripDelayAvgAO.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RoundTripDelayAvgAO.GetHashCode();
+                return hashCode;
             }
         }
 

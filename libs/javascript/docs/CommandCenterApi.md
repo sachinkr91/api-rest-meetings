@@ -42,7 +42,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -99,7 +100,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -107,7 +109,7 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var filter = "filter_example"; // String | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+var filter = "filter_example"; // String | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 
 var opts = { 
   'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
@@ -128,7 +130,7 @@ apiInstance.getEndpointDistributionV2(enterpriseId, filter, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **String**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **String**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -159,7 +161,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -219,7 +222,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -283,7 +287,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -291,9 +296,9 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var start = "2017-01-01T00:00:00-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var start = "2017-01-01T00:00:00.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
-var end = "2018-01-01T00:00:00-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var end = "2018-01-01T00:00:00.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
 
 var callback = function(error, data, response) {
@@ -311,8 +316,8 @@ apiInstance.getFeedbackComments(enterpriseId, start, end, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -342,7 +347,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -404,7 +410,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -412,9 +419,9 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var start = "2017-01-01T00:00:00-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var start = "2017-01-01T00:00:00.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
-var end = "2018-01-01T00:00:00-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var end = "2018-01-01T00:00:00.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
 
 var callback = function(error, data, response) {
@@ -432,8 +439,8 @@ apiInstance.getFeedbackCount(enterpriseId, start, end, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -463,7 +470,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -471,9 +479,9 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var start = "2017-01-01T00:00:00-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var start = "2017-01-01T00:00:00.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
-var end = "2018-01-01T23:59:59-00:00"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+var end = "2018-01-01T23:59:59.000+0000"; // String | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
 var opts = { 
   'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
@@ -494,8 +502,8 @@ apiInstance.getFeedbackCountV2(enterpriseId, start, end, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59-00:00]
+ **start** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **String**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59.000+0000]
  **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -526,7 +534,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -534,7 +543,7 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var filter = {key: "filter_example"}; // {String: String} | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
+var filter = "filter_example"; // String | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
 
 var opts = { 
   'offset': 0, // Number | Offset into the total set of datarecords.  If offset=0, return data includes size of data.
@@ -557,7 +566,7 @@ apiInstance.getGeoMap(enterpriseId, filter, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | [**{String: String}**](String.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
+ **filter** | **String**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
  **offset** | **Number**| Offset into the total set of datarecords.  If offset&#x3D;0, return data includes size of data. | [optional] [default to 0]
  **limit** | **Number**| The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset | [optional] [default to 0]
  **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
@@ -590,7 +599,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -650,7 +660,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -710,7 +721,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -766,7 +778,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -825,7 +838,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -887,7 +901,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -944,7 +959,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -955,7 +971,7 @@ var enterpriseId = 56; // Number | The ID of the enterprise of interest. This va
 var opts = { 
   'offset': 56, // Number | Page Number
   'limit': 56, // Number | Per page
-  'filter': {key: "filter_example"}, // {String: String} | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+  'filter': "filter_example", // String | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
   'count': true, // Boolean | Include total count of meetings in response
   'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
 };
@@ -977,7 +993,7 @@ Name | Type | Description  | Notes
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **offset** | **Number**| Page Number | [optional] 
  **limit** | **Number**| Per page | [optional] 
- **filter** | [**{String: String}**](String.md)| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
+ **filter** | **String**| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
  **count** | **Boolean**| Include total count of meetings in response | [optional] 
  **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
@@ -1009,7 +1025,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -1017,7 +1034,7 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var filter = {key: "filter_example"}; // {String: String} | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+var filter = "filter_example"; // String | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
 
 
 var callback = function(error, data, response) {
@@ -1035,7 +1052,7 @@ apiInstance.getMeetingsPastByUser(userId, filter, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | [**{String: String}**](String.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **String**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
 
 ### Return type
 
@@ -1065,7 +1082,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -1121,7 +1139,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -1181,7 +1200,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -1238,7 +1258,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -1246,7 +1267,7 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var enterpriseId = 56; // Number | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-var filter = "filter_example"; // String | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+var filter = "filter_example"; // String | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 
 var opts = { 
   'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
@@ -1267,7 +1288,7 @@ apiInstance.getTopUsersV2(enterpriseId, filter, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **String**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **String**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type

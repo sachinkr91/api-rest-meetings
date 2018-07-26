@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 
 
-* `code` (value: `"authorization_code"`)
+* `authorization_code` (value: `"authorization_code"`)
 
 
 

@@ -1,8 +1,8 @@
 /*
  * BlueJeans Meetings REST API
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -74,17 +74,20 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getEndpointDistributionCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -115,9 +118,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEndpointDistributionValidateBeforeCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -126,14 +130,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling getEndpointDistribution(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEndpointDistributionCall(enterpriseId, filter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -143,7 +143,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}])
      * @return AnalyticsEndpointDistribution
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsEndpointDistribution getEndpointDistribution(Integer enterpriseId, String filter) throws ApiException {
         ApiResponse<AnalyticsEndpointDistribution> resp = getEndpointDistributionWithHttpInfo(enterpriseId, filter);
         return resp.getData();
@@ -156,7 +158,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}])
      * @return ApiResponse&lt;AnalyticsEndpointDistribution&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsEndpointDistribution> getEndpointDistributionWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
         com.squareup.okhttp.Call call = getEndpointDistributionValidateBeforeCall(enterpriseId, filter, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsEndpointDistribution>(){}.getType();
@@ -171,7 +175,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getEndpointDistributionAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsEndpointDistribution> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -201,7 +207,7 @@ public class CommandCenterApi {
     /**
      * Build call for getEndpointDistributionV2
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -210,16 +216,17 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getEndpointDistributionV2Call(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -250,9 +257,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEndpointDistributionV2ValidateBeforeCall(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -266,21 +273,17 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getEndpointDistributionV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEndpointDistributionV2Call(enterpriseId, filter, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Endpoint Distribution
      * This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @return AnalyticsEndpointDistributionV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -294,7 +297,7 @@ public class CommandCenterApi {
      * Endpoint Distribution
      * This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @return ApiResponse&lt;AnalyticsEndpointDistributionV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -309,7 +312,7 @@ public class CommandCenterApi {
      * Endpoint Distribution (asynchronously)
      * This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -353,16 +356,17 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getEnterpriseOverallSummaryCall(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -393,9 +397,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEnterpriseOverallSummaryValidateBeforeCall(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -409,14 +413,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getEnterpriseOverallSummary(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEnterpriseOverallSummaryCall(enterpriseId, filter, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -498,20 +498,21 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getEnterpriseUsersActiveCall(Integer enterpriseId, String filter, String clientTZ, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/active"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (clientTZ != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTZ", clientTZ));
+        localVarQueryParams.addAll(apiClient.parameterToPair("clientTZ", clientTZ));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -542,9 +543,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEnterpriseUsersActiveValidateBeforeCall(Integer enterpriseId, String filter, String clientTZ, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -558,14 +559,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getEnterpriseUsersActive(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEnterpriseUsersActiveCall(enterpriseId, filter, clientTZ, limit, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -648,19 +645,22 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getFeedbackCommentsCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
         if (end != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+        localVarQueryParams.addAll(apiClient.parameterToPair("end", end));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -691,9 +691,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFeedbackCommentsValidateBeforeCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -712,14 +713,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'end' when calling getFeedbackComments(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getFeedbackCommentsCall(enterpriseId, start, end, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -730,7 +727,9 @@ public class CommandCenterApi {
      * @param end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
      * @return AnalyticsFeedbackComments
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsFeedbackComments getFeedbackComments(Integer enterpriseId, String start, String end) throws ApiException {
         ApiResponse<AnalyticsFeedbackComments> resp = getFeedbackCommentsWithHttpInfo(enterpriseId, start, end);
         return resp.getData();
@@ -744,7 +743,9 @@ public class CommandCenterApi {
      * @param end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
      * @return ApiResponse&lt;AnalyticsFeedbackComments&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsFeedbackComments> getFeedbackCommentsWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
         com.squareup.okhttp.Call call = getFeedbackCommentsValidateBeforeCall(enterpriseId, start, end, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackComments>(){}.getType();
@@ -760,7 +761,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getFeedbackCommentsAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackComments> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -800,18 +803,19 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getFeedbackCommentsV2Call(Integer enterpriseId, String filter, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -842,9 +846,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFeedbackCommentsV2ValidateBeforeCall(Integer enterpriseId, String filter, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -858,14 +862,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getFeedbackCommentsV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getFeedbackCommentsV2Call(enterpriseId, filter, limit, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -945,19 +945,22 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getFeedbackCountCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
         if (end != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+        localVarQueryParams.addAll(apiClient.parameterToPair("end", end));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -988,9 +991,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFeedbackCountValidateBeforeCall(Integer enterpriseId, String start, String end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1009,14 +1013,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'end' when calling getFeedbackCount(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getFeedbackCountCall(enterpriseId, start, end, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1027,7 +1027,9 @@ public class CommandCenterApi {
      * @param end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
      * @return AnalyticsFeedbackScores
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsFeedbackScores getFeedbackCount(Integer enterpriseId, String start, String end) throws ApiException {
         ApiResponse<AnalyticsFeedbackScores> resp = getFeedbackCountWithHttpInfo(enterpriseId, start, end);
         return resp.getData();
@@ -1041,7 +1043,9 @@ public class CommandCenterApi {
      * @param end Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (required)
      * @return ApiResponse&lt;AnalyticsFeedbackScores&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsFeedbackScores> getFeedbackCountWithHttpInfo(Integer enterpriseId, String start, String end) throws ApiException {
         com.squareup.okhttp.Call call = getFeedbackCountValidateBeforeCall(enterpriseId, start, end, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsFeedbackScores>(){}.getType();
@@ -1057,7 +1061,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getFeedbackCountAsync(Integer enterpriseId, String start, String end, final ApiCallback<AnalyticsFeedbackScores> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1097,18 +1103,19 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getFeedbackCountV2Call(Integer enterpriseId, String start, String end, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/feedback/count"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
         if (end != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+        localVarQueryParams.addAll(apiClient.parameterToPair("end", end));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1139,9 +1146,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFeedbackCountV2ValidateBeforeCall(Integer enterpriseId, String start, String end, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1160,14 +1167,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'end' when calling getFeedbackCountV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getFeedbackCountV2Call(enterpriseId, start, end, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1250,22 +1253,23 @@ public class CommandCenterApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getGeoMapCall(Integer enterpriseId, Map<String, String> filter, Integer offset, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getGeoMapCall(Integer enterpriseId, String filter, Integer offset, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1296,11 +1300,11 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getGeoMapValidateBeforeCall(Integer enterpriseId, Map<String, String> filter, Integer offset, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getGeoMapValidateBeforeCall(Integer enterpriseId, String filter, Integer offset, Integer limit, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
@@ -1312,14 +1316,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getGeoMap(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getGeoMapCall(enterpriseId, filter, offset, limit, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1333,7 +1333,7 @@ public class CommandCenterApi {
      * @return EndpointLocationSummary
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EndpointLocationSummary getGeoMap(Integer enterpriseId, Map<String, String> filter, Integer offset, Integer limit, String appName) throws ApiException {
+    public EndpointLocationSummary getGeoMap(Integer enterpriseId, String filter, Integer offset, Integer limit, String appName) throws ApiException {
         ApiResponse<EndpointLocationSummary> resp = getGeoMapWithHttpInfo(enterpriseId, filter, offset, limit, appName);
         return resp.getData();
     }
@@ -1349,7 +1349,7 @@ public class CommandCenterApi {
      * @return ApiResponse&lt;EndpointLocationSummary&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EndpointLocationSummary> getGeoMapWithHttpInfo(Integer enterpriseId, Map<String, String> filter, Integer offset, Integer limit, String appName) throws ApiException {
+    public ApiResponse<EndpointLocationSummary> getGeoMapWithHttpInfo(Integer enterpriseId, String filter, Integer offset, Integer limit, String appName) throws ApiException {
         com.squareup.okhttp.Call call = getGeoMapValidateBeforeCall(enterpriseId, filter, offset, limit, appName, null, null);
         Type localVarReturnType = new TypeToken<EndpointLocationSummary>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1367,7 +1367,7 @@ public class CommandCenterApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getGeoMapAsync(Integer enterpriseId, Map<String, String> filter, Integer offset, Integer limit, String appName, final ApiCallback<EndpointLocationSummary> callback) throws ApiException {
+    public com.squareup.okhttp.Call getGeoMapAsync(Integer enterpriseId, String filter, Integer offset, Integer limit, String appName, final ApiCallback<EndpointLocationSummary> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1405,15 +1405,16 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getMeetingEndpointsLiveByEnterpriseCall(Integer enterpriseId, String meetingUuid, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
             .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1444,9 +1445,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingEndpointsLiveByEnterpriseValidateBeforeCall(Integer enterpriseId, String meetingUuid, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1460,14 +1461,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingEndpointsLiveByEnterprise(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingEndpointsLiveByEnterpriseCall(enterpriseId, meetingUuid, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1547,15 +1544,16 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getMeetingPastByEnterpriseCall(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()))
             .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeEndpoints != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeEndpoints", includeEndpoints));
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeEndpoints", includeEndpoints));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1586,9 +1584,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingPastByEnterpriseValidateBeforeCall(Integer enterpriseId, String meetingUuid, Boolean includeEndpoints, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1602,14 +1600,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingPastByEnterprise(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingPastByEnterpriseCall(enterpriseId, meetingUuid, includeEndpoints, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1688,13 +1682,14 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getMeetingPastByUserCall(Integer userId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "meeting_uuid" + "\\}", apiClient.escapeString(meetingUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1725,9 +1720,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingPastByUserValidateBeforeCall(Integer userId, String meetingUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1741,14 +1736,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'meetingUuid' when calling getMeetingPastByUser(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingPastByUserCall(userId, meetingUuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1822,19 +1813,22 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getMeetingUsageCall(Integer enterpriseId, String clientTZ, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clientTZ != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTZ", clientTZ));
+        localVarQueryParams.addAll(apiClient.parameterToPair("clientTZ", clientTZ));
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1865,9 +1859,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingUsageValidateBeforeCall(Integer enterpriseId, String clientTZ, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1876,14 +1871,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingUsage(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingUsageCall(enterpriseId, clientTZ, filter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1894,7 +1885,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
      * @return AnalyticsUsage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsUsage getMeetingUsage(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
         ApiResponse<AnalyticsUsage> resp = getMeetingUsageWithHttpInfo(enterpriseId, clientTZ, filter);
         return resp.getData();
@@ -1908,7 +1901,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
      * @return ApiResponse&lt;AnalyticsUsage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsUsage> getMeetingUsageWithHttpInfo(Integer enterpriseId, String clientTZ, String filter) throws ApiException {
         com.squareup.okhttp.Call call = getMeetingUsageValidateBeforeCall(enterpriseId, clientTZ, filter, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsUsage>(){}.getType();
@@ -1924,7 +1919,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getMeetingUsageAsync(Integer enterpriseId, String clientTZ, String filter, final ApiCallback<AnalyticsUsage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1964,18 +1961,19 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getMeetingUsageV2Call(Integer enterpriseId, String filter, String clientTZ, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clientTZ != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTZ", clientTZ));
+        localVarQueryParams.addAll(apiClient.parameterToPair("clientTZ", clientTZ));
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2006,9 +2004,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingUsageV2ValidateBeforeCall(Integer enterpriseId, String filter, String clientTZ, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2022,14 +2020,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getMeetingUsageV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingUsageV2Call(enterpriseId, filter, clientTZ, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2111,14 +2105,15 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getMeetingsLiveByEnterpriseCall(Integer enterpriseId, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2149,9 +2144,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingsLiveByEnterpriseValidateBeforeCall(Integer enterpriseId, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2160,14 +2155,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingsLiveByEnterprise(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingsLiveByEnterpriseCall(enterpriseId, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2245,24 +2236,25 @@ public class CommandCenterApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getMeetingsPastByEnterpriseCall(Integer enterpriseId, Integer offset, Integer limit, Map<String, String> filter, Boolean count, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByEnterpriseCall(Integer enterpriseId, Integer offset, Integer limit, String filter, Boolean count, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (count != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2293,25 +2285,21 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMeetingsPastByEnterpriseValidateBeforeCall(Integer enterpriseId, Integer offset, Integer limit, Map<String, String> filter, Boolean count, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingsPastByEnterpriseValidateBeforeCall(Integer enterpriseId, Integer offset, Integer limit, String filter, Boolean count, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'enterpriseId' is set
         if (enterpriseId == null) {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling getMeetingsPastByEnterprise(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingsPastByEnterpriseCall(enterpriseId, offset, limit, filter, count, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2326,7 +2314,7 @@ public class CommandCenterApi {
      * @return MeetingIndigoList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MeetingIndigoList getMeetingsPastByEnterprise(Integer enterpriseId, Integer offset, Integer limit, Map<String, String> filter, Boolean count, String appName) throws ApiException {
+    public MeetingIndigoList getMeetingsPastByEnterprise(Integer enterpriseId, Integer offset, Integer limit, String filter, Boolean count, String appName) throws ApiException {
         ApiResponse<MeetingIndigoList> resp = getMeetingsPastByEnterpriseWithHttpInfo(enterpriseId, offset, limit, filter, count, appName);
         return resp.getData();
     }
@@ -2343,7 +2331,7 @@ public class CommandCenterApi {
      * @return ApiResponse&lt;MeetingIndigoList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MeetingIndigoList> getMeetingsPastByEnterpriseWithHttpInfo(Integer enterpriseId, Integer offset, Integer limit, Map<String, String> filter, Boolean count, String appName) throws ApiException {
+    public ApiResponse<MeetingIndigoList> getMeetingsPastByEnterpriseWithHttpInfo(Integer enterpriseId, Integer offset, Integer limit, String filter, Boolean count, String appName) throws ApiException {
         com.squareup.okhttp.Call call = getMeetingsPastByEnterpriseValidateBeforeCall(enterpriseId, offset, limit, filter, count, appName, null, null);
         Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2362,7 +2350,7 @@ public class CommandCenterApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMeetingsPastByEnterpriseAsync(Integer enterpriseId, Integer offset, Integer limit, Map<String, String> filter, Boolean count, String appName, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByEnterpriseAsync(Integer enterpriseId, Integer offset, Integer limit, String filter, Boolean count, String appName, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2397,16 +2385,17 @@ public class CommandCenterApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getMeetingsPastByUserCall(Integer userId, Map<String, String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByUserCall(Integer userId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/indigo/meetings"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2437,11 +2426,11 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMeetingsPastByUserValidateBeforeCall(Integer userId, Map<String, String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMeetingsPastByUserValidateBeforeCall(Integer userId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -2453,14 +2442,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getMeetingsPastByUser(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingsPastByUserCall(userId, filter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2471,7 +2456,7 @@ public class CommandCenterApi {
      * @return MeetingIndigoList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MeetingIndigoList getMeetingsPastByUser(Integer userId, Map<String, String> filter) throws ApiException {
+    public MeetingIndigoList getMeetingsPastByUser(Integer userId, String filter) throws ApiException {
         ApiResponse<MeetingIndigoList> resp = getMeetingsPastByUserWithHttpInfo(userId, filter);
         return resp.getData();
     }
@@ -2484,7 +2469,7 @@ public class CommandCenterApi {
      * @return ApiResponse&lt;MeetingIndigoList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MeetingIndigoList> getMeetingsPastByUserWithHttpInfo(Integer userId, Map<String, String> filter) throws ApiException {
+    public ApiResponse<MeetingIndigoList> getMeetingsPastByUserWithHttpInfo(Integer userId, String filter) throws ApiException {
         com.squareup.okhttp.Call call = getMeetingsPastByUserValidateBeforeCall(userId, filter, null, null);
         Type localVarReturnType = new TypeToken<MeetingIndigoList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2499,7 +2484,7 @@ public class CommandCenterApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMeetingsPastByUserAsync(Integer userId, Map<String, String> filter, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMeetingsPastByUserAsync(Integer userId, String filter, final ApiCallback<MeetingIndigoList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2533,17 +2518,20 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getRoiRangesCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2574,9 +2562,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRoiRangesValidateBeforeCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2590,14 +2579,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getRoiRanges(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getRoiRangesCall(enterpriseId, filter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2607,7 +2592,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (required)
      * @return AnalyticsRoiData
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsRoiData getRoiRanges(Integer enterpriseId, String filter) throws ApiException {
         ApiResponse<AnalyticsRoiData> resp = getRoiRangesWithHttpInfo(enterpriseId, filter);
         return resp.getData();
@@ -2620,7 +2607,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (required)
      * @return ApiResponse&lt;AnalyticsRoiData&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsRoiData> getRoiRangesWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
         com.squareup.okhttp.Call call = getRoiRangesValidateBeforeCall(enterpriseId, filter, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsRoiData>(){}.getType();
@@ -2635,7 +2624,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getRoiRangesAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsRoiData> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2674,16 +2665,17 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getRoiRangesV2Call(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2714,9 +2706,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRoiRangesV2ValidateBeforeCall(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2730,14 +2722,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getRoiRangesV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getRoiRangesV2Call(enterpriseId, filter, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2813,17 +2801,20 @@ public class CommandCenterApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getTopUsersCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2854,9 +2845,10 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTopUsersValidateBeforeCall(Integer enterpriseId, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2865,14 +2857,10 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'enterpriseId' when calling getTopUsers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getTopUsersCall(enterpriseId, filter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2882,7 +2870,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
      * @return AnalyticsTopUsers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public AnalyticsTopUsers getTopUsers(Integer enterpriseId, String filter) throws ApiException {
         ApiResponse<AnalyticsTopUsers> resp = getTopUsersWithHttpInfo(enterpriseId, filter);
         return resp.getData();
@@ -2895,7 +2885,9 @@ public class CommandCenterApi {
      * @param filter URL-encoded JSON string (optional, default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
      * @return ApiResponse&lt;AnalyticsTopUsers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalyticsTopUsers> getTopUsersWithHttpInfo(Integer enterpriseId, String filter) throws ApiException {
         com.squareup.okhttp.Call call = getTopUsersValidateBeforeCall(enterpriseId, filter, null, null);
         Type localVarReturnType = new TypeToken<AnalyticsTopUsers>(){}.getType();
@@ -2910,7 +2902,9 @@ public class CommandCenterApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call getTopUsersAsync(Integer enterpriseId, String filter, final ApiCallback<AnalyticsTopUsers> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2940,7 +2934,7 @@ public class CommandCenterApi {
     /**
      * Build call for getTopUsersV2
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2949,16 +2943,17 @@ public class CommandCenterApi {
      */
     public com.squareup.okhttp.Call getTopUsersV2Call(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/usage"
             .replaceAll("\\{" + "enterprise_id" + "\\}", apiClient.escapeString(enterpriseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (appName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "app_name", appName));
+        localVarQueryParams.addAll(apiClient.parameterToPair("app_name", appName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2989,9 +2984,9 @@ public class CommandCenterApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTopUsersV2ValidateBeforeCall(Integer enterpriseId, String filter, String appName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -3005,21 +3000,17 @@ public class CommandCenterApi {
             throw new ApiException("Missing the required parameter 'filter' when calling getTopUsersV2(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getTopUsersV2Call(enterpriseId, filter, appName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Top Users
      * This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @return AnalyticsTopUsers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3033,7 +3024,7 @@ public class CommandCenterApi {
      * Top Users
      * This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @return ApiResponse&lt;AnalyticsTopUsers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3048,7 +3039,7 @@ public class CommandCenterApi {
      * Top Users (asynchronously)
      * This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
      * @param enterpriseId The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
-     * @param filter A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
+     * @param filter A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] (required)
      * @param appName name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

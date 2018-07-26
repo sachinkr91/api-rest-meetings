@@ -40,16 +40,21 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"creation_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"creation_time\"}]"; // string | URL-encoded JSON string
 
 try {
-    $result = $api_instance->getEndpointDistribution($enterprise_id, $filter);
+    $result = $apiInstance->getEndpointDistribution($enterprise_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getEndpointDistribution: ', $e->getMessage(), PHP_EOL;
@@ -92,17 +97,22 @@ This endpoint retrieves endpoint connection type distribution by enterprise. Req
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$filter = "filter_example"; // string | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+$filter = "filter_example"; // string | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getEndpointDistributionV2($enterprise_id, $filter, $app_name);
+    $result = $apiInstance->getEndpointDistributionV2($enterprise_id, $filter, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getEndpointDistributionV2: ', $e->getMessage(), PHP_EOL;
@@ -115,7 +125,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **filter** | **string**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] |
+ **filter** | **string**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] |
  **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -146,17 +156,22 @@ This endpoint lists the summary usage statistics for the specified Enterprise. R
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "filter_example"; // string | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-04T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-10T23:59:59-07:00\",\"field\":\"hights\"}]`
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getEnterpriseOverallSummary($enterprise_id, $filter, $app_name);
+    $result = $apiInstance->getEnterpriseOverallSummary($enterprise_id, $filter, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getEnterpriseOverallSummary: ', $e->getMessage(), PHP_EOL;
@@ -200,11 +215,16 @@ This endpoint lists the summary of active users statistics for the specified Ent
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "filter_example"; // string | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"'%Y-%m-%d'\",\"field\":\"dateFormat\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-14T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-20T23:59:00-07:00\",\"field\":\"hights\"}]`
 $client_tz = "client_tz_example"; // string | Timezone of the requesting site in the format `America/Los_Angeles`
@@ -212,7 +232,7 @@ $limit = 0; // int | The maximum number of records to return.  A value of `0` re
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getEnterpriseUsersActive($enterprise_id, $filter, $client_tz, $limit, $app_name);
+    $result = $apiInstance->getEnterpriseUsersActive($enterprise_id, $filter, $client_tz, $limit, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getEnterpriseUsersActive: ', $e->getMessage(), PHP_EOL;
@@ -258,17 +278,22 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$start = "2017-01-01T00:00:00-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-$end = "2018-01-01T00:00:00-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$start = "2017-01-01T00:00:00.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$end = "2018-01-01T00:00:00.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
 try {
-    $result = $api_instance->getFeedbackComments($enterprise_id, $start, $end);
+    $result = $apiInstance->getFeedbackComments($enterprise_id, $start, $end);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getFeedbackComments: ', $e->getMessage(), PHP_EOL;
@@ -281,8 +306,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -312,18 +337,23 @@ This endpoint lists end of meeting survey comments by enterprise by time period.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "filter_example"; // string | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"date\", \"comparison\":\"gt\", \"value\":\"2018-06-19T00:00:00-07:00\", \"field\":\"startTime\"}, {\"type\":\"date\", \"comparison\":\"lt\", \"value\":\"2018-06-26T23:59:59-07:00\", \"field\":\"endTime\" }]
 $limit = 56; // int | The limit on the number of responses to return
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getFeedbackCommentsV2($enterprise_id, $filter, $limit, $app_name);
+    $result = $apiInstance->getFeedbackCommentsV2($enterprise_id, $filter, $limit, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getFeedbackCommentsV2: ', $e->getMessage(), PHP_EOL;
@@ -368,17 +398,22 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$start = "2017-01-01T00:00:00-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-$end = "2018-01-01T00:00:00-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$start = "2017-01-01T00:00:00.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$end = "2018-01-01T00:00:00.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 
 try {
-    $result = $api_instance->getFeedbackCount($enterprise_id, $start, $end);
+    $result = $apiInstance->getFeedbackCount($enterprise_id, $start, $end);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getFeedbackCount: ', $e->getMessage(), PHP_EOL;
@@ -391,8 +426,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -422,18 +457,23 @@ This endpoint lists end of meeting survey scores by enterprise by time period. R
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$start = "2017-01-01T00:00:00-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-$end = "2018-01-01T23:59:59-00:00"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$start = "2017-01-01T00:00:00.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+$end = "2018-01-01T23:59:59.000+0000"; // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getFeedbackCountV2($enterprise_id, $start, $end, $app_name);
+    $result = $apiInstance->getFeedbackCountV2($enterprise_id, $start, $end, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getFeedbackCountV2: ', $e->getMessage(), PHP_EOL;
@@ -446,8 +486,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59.000+0000]
  **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -478,19 +518,24 @@ This endpoint lists the Geographic endpoint accesses.  Requires enterprise admin
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$filter = array('key' => "filter_example"); // map[string,string] | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
+$filter = "filter_example"; // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
 $offset = 0; // int | Offset into the total set of datarecords.  If offset=0, return data includes size of data.
 $limit = 0; // int | The Limit sets the maximum number of data records to return .  Limit=0 returns the full dataset
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getGeoMap($enterprise_id, $filter, $offset, $limit, $app_name);
+    $result = $apiInstance->getGeoMap($enterprise_id, $filter, $offset, $limit, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getGeoMap: ', $e->getMessage(), PHP_EOL;
@@ -503,7 +548,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **filter** | [**map[string,string]**](../Model/string.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; |
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; |
  **offset** | **int**| Offset into the total set of datarecords.  If offset&#x3D;0, return data includes size of data. | [optional] [default to 0]
  **limit** | **int**| The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset | [optional] [default to 0]
  **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
@@ -536,17 +581,22 @@ This endpoint lists endpoints for a given meeting in progress. Requires enterpri
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getMeetingEndpointsLiveByEnterprise($enterprise_id, $meeting_uuid, $app_name);
+    $result = $apiInstance->getMeetingEndpointsLiveByEnterprise($enterprise_id, $meeting_uuid, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingEndpointsLiveByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -590,17 +640,22 @@ This endpoint lists meeting endpoints for completed meetings by enterprise. Requ
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 $include_endpoints = true; // bool | Option to include detailed data on endpoints
 
 try {
-    $result = $api_instance->getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints);
+    $result = $apiInstance->getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingPastByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -644,16 +699,21 @@ This endpoint lists meeting endpoints for completed meetings by user. Requires e
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
 try {
-    $result = $api_instance->getMeetingPastByUser($user_id, $meeting_uuid);
+    $result = $apiInstance->getMeetingPastByUser($user_id, $meeting_uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingPastByUser: ', $e->getMessage(), PHP_EOL;
@@ -696,17 +756,22 @@ This endpoint reports on meeting usage. Requires enterprise administrator access
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $client_tz = "America/Denver"; // string | Based on standard TZ code.
 $filter = "[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"hights\"}]"; // string | URL-encoded JSON string
 
 try {
-    $result = $api_instance->getMeetingUsage($enterprise_id, $client_tz, $filter);
+    $result = $apiInstance->getMeetingUsage($enterprise_id, $client_tz, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingUsage: ', $e->getMessage(), PHP_EOL;
@@ -750,18 +815,23 @@ This endpoint reports on meeting usage.  Requires enterprise administrator acces
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "filter_example"; // string | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"hights\"}]
 $client_tz = "America/Denver"; // string | Based on standard TZ code.
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getMeetingUsageV2($enterprise_id, $filter, $client_tz, $app_name);
+    $result = $apiInstance->getMeetingUsageV2($enterprise_id, $filter, $client_tz, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingUsageV2: ', $e->getMessage(), PHP_EOL;
@@ -806,16 +876,21 @@ This endpoint lists meetings in progress by enterprise. Requires enterprise admi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getMeetingsLiveByEnterprise($enterprise_id, $app_name);
+    $result = $apiInstance->getMeetingsLiveByEnterprise($enterprise_id, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingsLiveByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -858,20 +933,25 @@ This endpoint lists completed meetings by enterprise. Requires enterprise admini
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $offset = 56; // int | Page Number
 $limit = 56; // int | Per page
-$filter = array('key' => "filter_example"); // map[string,string] | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+$filter = "filter_example"; // string | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
 $count = true; // bool | Include total count of meetings in response
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter, $count, $app_name);
+    $result = $apiInstance->getMeetingsPastByEnterprise($enterprise_id, $offset, $limit, $filter, $count, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingsPastByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -886,7 +966,7 @@ Name | Type | Description  | Notes
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
  **offset** | **int**| Page Number | [optional]
  **limit** | **int**| Per page | [optional]
- **filter** | [**map[string,string]**](../Model/string.md)| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional]
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional]
  **count** | **bool**| Include total count of meetings in response | [optional]
  **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
@@ -918,16 +998,21 @@ This endpoint lists completed meetings by user. Requires enterprise administrato
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$filter = array('key' => "filter_example"); // map[string,string] | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+$filter = "filter_example"; // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
 
 try {
-    $result = $api_instance->getMeetingsPastByUser($user_id, $filter);
+    $result = $apiInstance->getMeetingsPastByUser($user_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingsPastByUser: ', $e->getMessage(), PHP_EOL;
@@ -940,7 +1025,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **filter** | [**map[string,string]**](../Model/string.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. |
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. |
 
 ### Return type
 
@@ -970,16 +1055,21 @@ This endpoint lists return on investment (ROI) data for meetings. Requires enter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"startTime\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"startTime\"}]"; // string | URL-encoded JSON string
 
 try {
-    $result = $api_instance->getRoiRanges($enterprise_id, $filter);
+    $result = $apiInstance->getRoiRanges($enterprise_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getRoiRanges: ', $e->getMessage(), PHP_EOL;
@@ -1022,17 +1112,22 @@ This endpoint lists return on investment (ROI) data for meetings. Requires enter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "filter_example"; // string | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"date\", \"comparison\":\"gt\", \"value\":\"2018-06-19T00:00:00-07:00\", \"field\":\"startTime\"}, {\"type\":\"date\", \"comparison\":\"lt\", \"value\":\"2018-06-26T23:59:59-07:00\", \"field\":\"startTime\" }]
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getRoiRangesV2($enterprise_id, $filter, $app_name);
+    $result = $apiInstance->getRoiRangesV2($enterprise_id, $filter, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getRoiRangesV2: ', $e->getMessage(), PHP_EOL;
@@ -1076,16 +1171,21 @@ This endpoint retrieves the top users by usage for an enterprise. Requires enter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $filter = "[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"end_time\"}]"; // string | URL-encoded JSON string
 
 try {
-    $result = $api_instance->getTopUsers($enterprise_id, $filter);
+    $result = $apiInstance->getTopUsers($enterprise_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getTopUsers: ', $e->getMessage(), PHP_EOL;
@@ -1128,17 +1228,22 @@ This endpoint retrieves the top users by usage for an enterprise. Requires enter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-$filter = "filter_example"; // string | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+$filter = "filter_example"; // string | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 $app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $api_instance->getTopUsersV2($enterprise_id, $filter, $app_name);
+    $result = $apiInstance->getTopUsersV2($enterprise_id, $filter, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getTopUsersV2: ', $e->getMessage(), PHP_EOL;
@@ -1151,7 +1256,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
- **filter** | **string**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] |
+ **filter** | **string**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] |
  **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type

@@ -27,13 +27,13 @@ Method | HTTP request | Description
 
 
 # **cancel_meeting**
-> cancel_meeting(user_id, meeting_id, email, cancellation_message)
+> cancel_meeting(user_id, meeting_id, email=email, cancellation_message=cancellation_message)
 
 Cancel Meeting
 
 This endpoint deletes a scheuled meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -42,20 +42,21 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-email = true # bool | Dispatch an email to participants with the specified cancellation message.
-cancellation_message = 'cancellation_message_example' # str | Message sent to participants when meeting is deleted and email is selected
+email = false # bool | Dispatch an email to participants with the specified cancellation message. (optional) (default to false)
+cancellation_message = 'cancellation_message_example' # str | Message sent to participants when meeting is deleted and email is selected (optional)
 
-try: 
+try:
     # Cancel Meeting
-    api_instance.cancel_meeting(user_id, meeting_id, email, cancellation_message)
+    api_instance.cancel_meeting(user_id, meeting_id, email=email, cancellation_message=cancellation_message)
 except ApiException as e:
     print("Exception when calling MeetingApi->cancel_meeting: %s\n" % e)
 ```
@@ -66,8 +67,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **email** | **bool**| Dispatch an email to participants with the specified cancellation message. | 
- **cancellation_message** | **str**| Message sent to participants when meeting is deleted and email is selected | 
+ **email** | **bool**| Dispatch an email to participants with the specified cancellation message. | [optional] [default to false]
+ **cancellation_message** | **str**| Message sent to participants when meeting is deleted and email is selected | [optional] 
 
 ### Return type
 
@@ -91,7 +92,7 @@ Create Meeting
 
 This endpoint will create a scheduled meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -100,17 +101,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting = BlueJeansMeetingsRestApi.ScheduleMeetingMinComp() # ScheduleMeetingMinComp | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 email = true # bool | If set to true, sends invitation emails to all listed participants. (optional)
 
-try: 
+try:
     # Create Meeting
     api_response = api_instance.create_meeting(user_id, meeting, email=email)
     pprint(api_response)
@@ -148,7 +150,7 @@ Dialout via PSTN
 
 Places a PSTN call to a user to join meeting. **Note:** call this API using a meeting access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -157,17 +159,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_dialout = BlueJeansMeetingsRestApi.PayloadDialout() # PayloadDialout | 
 
-try: 
+try:
     # Dialout via PSTN
     api_response = api_instance.dialout_pstn(user_id, numeric_meeting_id, payload_dialout)
     pprint(api_response)
@@ -205,7 +208,7 @@ Generate Pairing Code (PSTN)
 
 This endpoint generates a PSTN pairing code that can be used to connect to a meeting via telephone. **Note:** call this API using a meeting access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -214,18 +217,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_pairing_code_pstn = BlueJeansMeetingsRestApi.PayloadPairingCodePstn() # PayloadPairingCodePstn | 
 role = 'USER' # str |  (optional) (default to USER)
 
-try: 
+try:
     # Generate Pairing Code (PSTN)
     api_response = api_instance.generate_pairing_code_pstn(user_id, numeric_meeting_id, payload_pairing_code_pstn, role=role)
     pprint(api_response)
@@ -264,7 +268,7 @@ Generate Pairing Code (SIP)
 
 This endpoint generates a SIP pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -273,17 +277,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_pairing_code_sip = BlueJeansMeetingsRestApi.PayloadPairingCodeSIP() # PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
-try: 
+try:
     # Generate Pairing Code (SIP)
     api_response = api_instance.generate_pairing_code_sip(user_id, numeric_meeting_id, payload_pairing_code_sip)
     pprint(api_response)
@@ -321,7 +326,7 @@ Generate Pairing Code (WebRTC)
 
 This endpoint generates a WebRTC pairing code that can be used to connect to a meeting. **Note:** call this API using a meeting access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -330,18 +335,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_pairing_code_web_rtc = BlueJeansMeetingsRestApi.PayloadPairingCodeWebRTC() # PayloadPairingCodeWebRTC | 
 role = 'USER' # str |  (optional) (default to USER)
 
-try: 
+try:
     # Generate Pairing Code (WebRTC)
     api_response = api_instance.generate_pairing_code_web_rtc(user_id, numeric_meeting_id, payload_pairing_code_web_rtc, role=role)
     pprint(api_response)
@@ -380,7 +386,7 @@ Get Endpoint Layout
 
 This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -389,17 +395,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
-try: 
+try:
     # Get Endpoint Layout
     api_response = api_instance.get_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid)
     pprint(api_response)
@@ -437,7 +444,7 @@ Get Meeting
 
 This endpoint gets the settings for a user's meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -446,16 +453,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
-try: 
+try:
     # Get Meeting
     api_response = api_instance.get_meeting(user_id, meeting_id)
     pprint(api_response)
@@ -492,7 +500,7 @@ Get Meeting Email
 
 This endpoint retrieves the email object for a scheduled meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -501,19 +509,20 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 type = 'type_example' # str | TEXT, ICS, HTML (optional)
 role = 'role_example' # str | moderator, participant (optional)
 action = 'action_example' # str | create, edit, delete (optional)
 
-try: 
+try:
     # Get Meeting Email
     api_response = api_instance.get_meeting_emails(user_id, meeting_id, type=type, role=role, action=action)
     pprint(api_response)
@@ -553,7 +562,7 @@ Get Endpoint Information
 
 This endpoint allows you to retrieve information about an endpoint in the meeting.  Can use either of a general or meeting access token.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -562,17 +571,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
-try: 
+try:
     # Get Endpoint Information
     api_response = api_instance.get_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid)
     pprint(api_response)
@@ -610,7 +620,7 @@ List Meeting Endpoints
 
 This endpoint returns an array of all endpoints in the current meeting.  Can use either of a general or meeting access token.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -619,16 +629,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-try: 
+try:
     # List Meeting Endpoints
     api_response = api_instance.get_meeting_endpoints(user_id, numeric_meeting_id)
     pprint(api_response)
@@ -665,7 +676,7 @@ Get Meeting Join Info
 
 This endpoint retrieves the join information for a scheduled meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -674,16 +685,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
-try: 
+try:
     # Get Meeting Join Info
     api_response = api_instance.get_meeting_numbers(user_id, meeting_id)
     pprint(api_response)
@@ -720,7 +732,7 @@ Get Meeting State
 
 This endpoint’s purpose is to return whether the meeting is in progress or not.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -729,16 +741,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
-try: 
+try:
     # Get Meeting State
     api_response = api_instance.get_meeting_state(user_id, numeric_meeting_id)
     pprint(api_response)
@@ -775,7 +788,7 @@ List Meetings
 
 This endpoint gets a list of the user's scheduled upcoming meetings.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -784,16 +797,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 'numeric_meeting_id_example' # str | Filter the results by the meeting ID that participants will see and use to join the conference. (optional)
 
-try: 
+try:
     # List Meetings
     api_response = api_instance.list_meetings(user_id, numeric_meeting_id=numeric_meeting_id)
     pprint(api_response)
@@ -830,7 +844,7 @@ Send Email Invite
 
 This endpoint generates an email invite to the specified meeting. **Note:** call this API using a meeting access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -839,17 +853,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_invite = BlueJeansMeetingsRestApi.PayloadInvite() # PayloadInvite | 
 
-try: 
+try:
     # Send Email Invite
     api_instance.send_meeting_invite(user_id, numeric_meeting_id, payload_invite)
 except ApiException as e:
@@ -886,7 +901,7 @@ Update Endpoint Layout
 
 This endpoint allows you to update an individual endpoint’s current layout setting. Requires Meeting access token with moderator privileges
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -895,19 +910,20 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 is_leader = true # bool |  (optional)
 push = true # bool |  (optional)
 
-try: 
+try:
     # Update Endpoint Layout
     api_response = api_instance.update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, is_leader=is_leader, push=push)
     pprint(api_response)
@@ -947,7 +963,7 @@ Update Meeting
 
 This endpoint changes the settings for a user's meeting. For example, use for rescheduling.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -956,17 +972,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 56 # int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 meeting = BlueJeansMeetingsRestApi.Meeting() # Meeting | The user's room details that you wish to update.
 
-try: 
+try:
     # Update Meeting
     api_response = api_instance.update_meeting(user_id, meeting_id, meeting)
     pprint(api_response)
@@ -1004,7 +1021,7 @@ Update Endpoint Video/Audio State
 
 This endpoint allows you to update an individual endpoint’s ability to send audio or video, and also allows removing an endpoint from the meeting. Requires Meeting access token with moderator privileges
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1013,12 +1030,13 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -1026,7 +1044,7 @@ mute_audio = true # bool | Toggle the audio source mute. (optional)
 mute_video = true # bool | Toggle the video source mute. (optional)
 leave_meeting = true # bool | Remove the user from the meeting. (optional)
 
-try: 
+try:
     # Update Endpoint Video/Audio State
     api_response = api_instance.update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
     pprint(api_response)
@@ -1067,7 +1085,7 @@ Update Meeting Endpoints State
 
 This endpoint’s purpose is to be able to modify the endpoints in a meeting. Requires Meeting access token with moderator privileges
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1076,18 +1094,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 mute = true # bool | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute. (optional)
 media = 'media_example' # str | Specify the type of media you which to mute/unmute. (optional)
 
-try: 
+try:
     # Update Meeting Endpoints State
     api_instance.update_meeting_endpoints(user_id, numeric_meeting_id, mute=mute, media=media)
 except ApiException as e:
@@ -1125,7 +1144,7 @@ Update Meeting State
 
 This endpoint’s purpose is to be able to modify a meeting. Actions include locking the meeting, or terminating the meeting.  This API requires a meeting access token with moderator privileges.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1134,18 +1153,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.MeetingApi()
+api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 payload_meeting_state = BlueJeansMeetingsRestApi.PayloadMeetingState() # PayloadMeetingState | The meeting properties that you wish to update.
 delay = 56 # int | Number of seconds to delay the end meeting operation. (optional)
 
-try: 
+try:
     # Update Meeting State
     api_response = api_instance.update_meeting_state(user_id, numeric_meeting_id, payload_meeting_state, delay=delay)
     pprint(api_response)

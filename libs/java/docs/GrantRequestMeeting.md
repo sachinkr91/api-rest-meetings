@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 Name | Value
 ---- | -----
-PASSCODE | &quot;meeting_passcode&quot;
+MEETING_PASSCODE | &quot;meeting_passcode&quot;
 
 
 

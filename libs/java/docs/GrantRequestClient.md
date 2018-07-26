@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 Name | Value
 ---- | -----
-CREDENTIALS | &quot;client_credentials&quot;
+CLIENT_CREDENTIALS | &quot;client_credentials&quot;
 
 
 

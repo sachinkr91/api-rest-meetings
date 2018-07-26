@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -31,17 +31,17 @@ namespace com.bluejeans.api.rest.meetings.Model
     public partial class MeetingIndigo :  IEquatable<MeetingIndigo>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ScheduledFrom
+        /// Defines ScheduledFrom
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduledFromEnum
         {
             
             /// <summary>
-            /// Enum APP for "WEB_APP"
+            /// Enum WEBAPP for value: WEB_APP
             /// </summary>
             [EnumMember(Value = "WEB_APP")]
-            APP
+            WEBAPP = 1
         }
 
         /// <summary>
@@ -52,78 +52,78 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeetingIndigo" /> class.
         /// </summary>
-        /// <param name="MeetingId">This is the same as the numericMeetingId found elsewhere. We should have been more consistent..</param>
-        /// <param name="MeetingUUID">The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes..</param>
-        /// <param name="UserName">UserName.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="EncryptionType">EncryptionType.</param>
-        /// <param name="Title">Title.</param>
-        /// <param name="UserFullName">UserFullName.</param>
-        /// <param name="PhoneNumber">PhoneNumber.</param>
-        /// <param name="UserFeatures">UserFeatures.</param>
-        /// <param name="ScheduledFrom">ScheduledFrom.</param>
-        /// <param name="InviteeCount">InviteeCount.</param>
-        /// <param name="Personal">Personal.</param>
-        /// <param name="MuteOnEntry">MuteOnEntry.</param>
-        /// <param name="AutoRecord">AutoRecord.</param>
-        /// <param name="EnterpriseName">EnterpriseName.</param>
-        /// <param name="ModeratorLess">ModeratorLess.</param>
-        /// <param name="StartTime">StartTime.</param>
-        /// <param name="EndTime">EndTime.</param>
-        /// <param name="TotalCallSeconds">TotalCallSeconds.</param>
-        /// <param name="CreateTime">CreateTime.</param>
-        /// <param name="EndpointsCount">EndpointsCount.</param>
-        /// <param name="ConcurrentEndpoints">ConcurrentEndpoints.</param>
-        /// <param name="LiveVisibleEndpointsCount">LiveVisibleEndpointsCount.</param>
-        /// <param name="QualarooRating">QualarooRating.</param>
-        /// <param name="QualarooCount">QualarooCount.</param>
-        /// <param name="MeetingRecording">MeetingRecording.</param>
-        /// <param name="VideoShare">VideoShare.</param>
-        /// <param name="ContentShare">ContentShare.</param>
-        /// <param name="LiveRecording">LiveRecording.</param>
-        /// <param name="LiveVideoShare">LiveVideoShare.</param>
-        /// <param name="LiveContentShare">LiveContentShare.</param>
-        /// <param name="LargeMeeting">LargeMeeting.</param>
-        /// <param name="RoiDistance">RoiDistance.</param>
-        /// <param name="Mpls">Mpls.</param>
-        /// <param name="Id">Same as the meetingUUID property in this object..</param>
-        public MeetingIndigo(string MeetingId = default(string), string MeetingUUID = default(string), string UserName = default(string), string Email = default(string), int? EncryptionType = default(int?), string Title = default(string), string UserFullName = default(string), string PhoneNumber = default(string), string UserFeatures = default(string), ScheduledFromEnum? ScheduledFrom = default(ScheduledFromEnum?), int? InviteeCount = default(int?), bool? Personal = default(bool?), bool? MuteOnEntry = default(bool?), bool? AutoRecord = default(bool?), string EnterpriseName = default(string), bool? ModeratorLess = default(bool?), int? StartTime = default(int?), int? EndTime = default(int?), int? TotalCallSeconds = default(int?), int? CreateTime = default(int?), int? EndpointsCount = default(int?), int? ConcurrentEndpoints = default(int?), int? LiveVisibleEndpointsCount = default(int?), int? QualarooRating = default(int?), int? QualarooCount = default(int?), bool? MeetingRecording = default(bool?), bool? VideoShare = default(bool?), bool? ContentShare = default(bool?), bool? LiveRecording = default(bool?), bool? LiveVideoShare = default(bool?), bool? LiveContentShare = default(bool?), bool? LargeMeeting = default(bool?), float? RoiDistance = default(float?), bool? Mpls = default(bool?), string Id = default(string))
+        /// <param name="meetingId">This is the same as the numericMeetingId found elsewhere. We should have been more consistent..</param>
+        /// <param name="meetingUUID">The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes..</param>
+        /// <param name="userName">userName.</param>
+        /// <param name="email">email.</param>
+        /// <param name="encryptionType">encryptionType.</param>
+        /// <param name="title">title.</param>
+        /// <param name="userFullName">userFullName.</param>
+        /// <param name="phoneNumber">phoneNumber.</param>
+        /// <param name="userFeatures">userFeatures.</param>
+        /// <param name="scheduledFrom">scheduledFrom.</param>
+        /// <param name="inviteeCount">inviteeCount.</param>
+        /// <param name="personal">personal.</param>
+        /// <param name="muteOnEntry">muteOnEntry.</param>
+        /// <param name="autoRecord">autoRecord.</param>
+        /// <param name="enterpriseName">enterpriseName.</param>
+        /// <param name="moderatorLess">moderatorLess.</param>
+        /// <param name="startTime">startTime.</param>
+        /// <param name="endTime">endTime.</param>
+        /// <param name="totalCallSeconds">totalCallSeconds.</param>
+        /// <param name="createTime">createTime.</param>
+        /// <param name="endpointsCount">endpointsCount.</param>
+        /// <param name="concurrentEndpoints">concurrentEndpoints.</param>
+        /// <param name="liveVisibleEndpointsCount">liveVisibleEndpointsCount.</param>
+        /// <param name="qualarooRating">qualarooRating.</param>
+        /// <param name="qualarooCount">qualarooCount.</param>
+        /// <param name="meetingRecording">meetingRecording.</param>
+        /// <param name="videoShare">videoShare.</param>
+        /// <param name="contentShare">contentShare.</param>
+        /// <param name="liveRecording">liveRecording.</param>
+        /// <param name="liveVideoShare">liveVideoShare.</param>
+        /// <param name="liveContentShare">liveContentShare.</param>
+        /// <param name="largeMeeting">largeMeeting.</param>
+        /// <param name="roiDistance">roiDistance.</param>
+        /// <param name="mpls">mpls.</param>
+        /// <param name="id">Same as the meetingUUID property in this object..</param>
+        public MeetingIndigo(string meetingId = default(string), string meetingUUID = default(string), string userName = default(string), string email = default(string), int? encryptionType = default(int?), string title = default(string), string userFullName = default(string), string phoneNumber = default(string), string userFeatures = default(string), ScheduledFromEnum? scheduledFrom = default(ScheduledFromEnum?), int? inviteeCount = default(int?), bool? personal = default(bool?), bool? muteOnEntry = default(bool?), bool? autoRecord = default(bool?), string enterpriseName = default(string), bool? moderatorLess = default(bool?), int? startTime = default(int?), int? endTime = default(int?), int? totalCallSeconds = default(int?), int? createTime = default(int?), int? endpointsCount = default(int?), int? concurrentEndpoints = default(int?), int? liveVisibleEndpointsCount = default(int?), int? qualarooRating = default(int?), int? qualarooCount = default(int?), bool? meetingRecording = default(bool?), bool? videoShare = default(bool?), bool? contentShare = default(bool?), bool? liveRecording = default(bool?), bool? liveVideoShare = default(bool?), bool? liveContentShare = default(bool?), bool? largeMeeting = default(bool?), float? roiDistance = default(float?), bool? mpls = default(bool?), string id = default(string))
         {
-            this.MeetingId = MeetingId;
-            this.MeetingUUID = MeetingUUID;
-            this.UserName = UserName;
-            this.Email = Email;
-            this.EncryptionType = EncryptionType;
-            this.Title = Title;
-            this.UserFullName = UserFullName;
-            this.PhoneNumber = PhoneNumber;
-            this.UserFeatures = UserFeatures;
-            this.ScheduledFrom = ScheduledFrom;
-            this.InviteeCount = InviteeCount;
-            this.Personal = Personal;
-            this.MuteOnEntry = MuteOnEntry;
-            this.AutoRecord = AutoRecord;
-            this.EnterpriseName = EnterpriseName;
-            this.ModeratorLess = ModeratorLess;
-            this.StartTime = StartTime;
-            this.EndTime = EndTime;
-            this.TotalCallSeconds = TotalCallSeconds;
-            this.CreateTime = CreateTime;
-            this.EndpointsCount = EndpointsCount;
-            this.ConcurrentEndpoints = ConcurrentEndpoints;
-            this.LiveVisibleEndpointsCount = LiveVisibleEndpointsCount;
-            this.QualarooRating = QualarooRating;
-            this.QualarooCount = QualarooCount;
-            this.MeetingRecording = MeetingRecording;
-            this.VideoShare = VideoShare;
-            this.ContentShare = ContentShare;
-            this.LiveRecording = LiveRecording;
-            this.LiveVideoShare = LiveVideoShare;
-            this.LiveContentShare = LiveContentShare;
-            this.LargeMeeting = LargeMeeting;
-            this.RoiDistance = RoiDistance;
-            this.Mpls = Mpls;
-            this.Id = Id;
+            this.MeetingId = meetingId;
+            this.MeetingUUID = meetingUUID;
+            this.UserName = userName;
+            this.Email = email;
+            this.EncryptionType = encryptionType;
+            this.Title = title;
+            this.UserFullName = userFullName;
+            this.PhoneNumber = phoneNumber;
+            this.UserFeatures = userFeatures;
+            this.ScheduledFrom = scheduledFrom;
+            this.InviteeCount = inviteeCount;
+            this.Personal = personal;
+            this.MuteOnEntry = muteOnEntry;
+            this.AutoRecord = autoRecord;
+            this.EnterpriseName = enterpriseName;
+            this.ModeratorLess = moderatorLess;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
+            this.TotalCallSeconds = totalCallSeconds;
+            this.CreateTime = createTime;
+            this.EndpointsCount = endpointsCount;
+            this.ConcurrentEndpoints = concurrentEndpoints;
+            this.LiveVisibleEndpointsCount = liveVisibleEndpointsCount;
+            this.QualarooRating = qualarooRating;
+            this.QualarooCount = qualarooCount;
+            this.MeetingRecording = meetingRecording;
+            this.VideoShare = videoShare;
+            this.ContentShare = contentShare;
+            this.LiveRecording = liveRecording;
+            this.LiveVideoShare = liveVideoShare;
+            this.LiveContentShare = liveContentShare;
+            this.LargeMeeting = largeMeeting;
+            this.RoiDistance = roiDistance;
+            this.Mpls = mpls;
+            this.Id = id;
         }
         
         /// <summary>
@@ -385,7 +385,7 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -393,200 +393,198 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MeetingIndigo);
+            return this.Equals(input as MeetingIndigo);
         }
 
         /// <summary>
         /// Returns true if MeetingIndigo instances are equal
         /// </summary>
-        /// <param name="other">Instance of MeetingIndigo to be compared</param>
+        /// <param name="input">Instance of MeetingIndigo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MeetingIndigo other)
+        public bool Equals(MeetingIndigo input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.MeetingId == other.MeetingId ||
-                    this.MeetingId != null &&
-                    this.MeetingId.Equals(other.MeetingId)
+                    this.MeetingId == input.MeetingId ||
+                    (this.MeetingId != null &&
+                    this.MeetingId.Equals(input.MeetingId))
                 ) && 
                 (
-                    this.MeetingUUID == other.MeetingUUID ||
-                    this.MeetingUUID != null &&
-                    this.MeetingUUID.Equals(other.MeetingUUID)
+                    this.MeetingUUID == input.MeetingUUID ||
+                    (this.MeetingUUID != null &&
+                    this.MeetingUUID.Equals(input.MeetingUUID))
                 ) && 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 ) && 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.EncryptionType == other.EncryptionType ||
-                    this.EncryptionType != null &&
-                    this.EncryptionType.Equals(other.EncryptionType)
+                    this.EncryptionType == input.EncryptionType ||
+                    (this.EncryptionType != null &&
+                    this.EncryptionType.Equals(input.EncryptionType))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.UserFullName == other.UserFullName ||
-                    this.UserFullName != null &&
-                    this.UserFullName.Equals(other.UserFullName)
+                    this.UserFullName == input.UserFullName ||
+                    (this.UserFullName != null &&
+                    this.UserFullName.Equals(input.UserFullName))
                 ) && 
                 (
-                    this.PhoneNumber == other.PhoneNumber ||
-                    this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(other.PhoneNumber)
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
-                    this.UserFeatures == other.UserFeatures ||
-                    this.UserFeatures != null &&
-                    this.UserFeatures.Equals(other.UserFeatures)
+                    this.UserFeatures == input.UserFeatures ||
+                    (this.UserFeatures != null &&
+                    this.UserFeatures.Equals(input.UserFeatures))
                 ) && 
                 (
-                    this.ScheduledFrom == other.ScheduledFrom ||
-                    this.ScheduledFrom != null &&
-                    this.ScheduledFrom.Equals(other.ScheduledFrom)
+                    this.ScheduledFrom == input.ScheduledFrom ||
+                    (this.ScheduledFrom != null &&
+                    this.ScheduledFrom.Equals(input.ScheduledFrom))
                 ) && 
                 (
-                    this.InviteeCount == other.InviteeCount ||
-                    this.InviteeCount != null &&
-                    this.InviteeCount.Equals(other.InviteeCount)
+                    this.InviteeCount == input.InviteeCount ||
+                    (this.InviteeCount != null &&
+                    this.InviteeCount.Equals(input.InviteeCount))
                 ) && 
                 (
-                    this.Personal == other.Personal ||
-                    this.Personal != null &&
-                    this.Personal.Equals(other.Personal)
+                    this.Personal == input.Personal ||
+                    (this.Personal != null &&
+                    this.Personal.Equals(input.Personal))
                 ) && 
                 (
-                    this.MuteOnEntry == other.MuteOnEntry ||
-                    this.MuteOnEntry != null &&
-                    this.MuteOnEntry.Equals(other.MuteOnEntry)
+                    this.MuteOnEntry == input.MuteOnEntry ||
+                    (this.MuteOnEntry != null &&
+                    this.MuteOnEntry.Equals(input.MuteOnEntry))
                 ) && 
                 (
-                    this.AutoRecord == other.AutoRecord ||
-                    this.AutoRecord != null &&
-                    this.AutoRecord.Equals(other.AutoRecord)
+                    this.AutoRecord == input.AutoRecord ||
+                    (this.AutoRecord != null &&
+                    this.AutoRecord.Equals(input.AutoRecord))
                 ) && 
                 (
-                    this.EnterpriseName == other.EnterpriseName ||
-                    this.EnterpriseName != null &&
-                    this.EnterpriseName.Equals(other.EnterpriseName)
+                    this.EnterpriseName == input.EnterpriseName ||
+                    (this.EnterpriseName != null &&
+                    this.EnterpriseName.Equals(input.EnterpriseName))
                 ) && 
                 (
-                    this.ModeratorLess == other.ModeratorLess ||
-                    this.ModeratorLess != null &&
-                    this.ModeratorLess.Equals(other.ModeratorLess)
+                    this.ModeratorLess == input.ModeratorLess ||
+                    (this.ModeratorLess != null &&
+                    this.ModeratorLess.Equals(input.ModeratorLess))
                 ) && 
                 (
-                    this.StartTime == other.StartTime ||
-                    this.StartTime != null &&
-                    this.StartTime.Equals(other.StartTime)
+                    this.StartTime == input.StartTime ||
+                    (this.StartTime != null &&
+                    this.StartTime.Equals(input.StartTime))
                 ) && 
                 (
-                    this.EndTime == other.EndTime ||
-                    this.EndTime != null &&
-                    this.EndTime.Equals(other.EndTime)
+                    this.EndTime == input.EndTime ||
+                    (this.EndTime != null &&
+                    this.EndTime.Equals(input.EndTime))
                 ) && 
                 (
-                    this.TotalCallSeconds == other.TotalCallSeconds ||
-                    this.TotalCallSeconds != null &&
-                    this.TotalCallSeconds.Equals(other.TotalCallSeconds)
+                    this.TotalCallSeconds == input.TotalCallSeconds ||
+                    (this.TotalCallSeconds != null &&
+                    this.TotalCallSeconds.Equals(input.TotalCallSeconds))
                 ) && 
                 (
-                    this.CreateTime == other.CreateTime ||
-                    this.CreateTime != null &&
-                    this.CreateTime.Equals(other.CreateTime)
+                    this.CreateTime == input.CreateTime ||
+                    (this.CreateTime != null &&
+                    this.CreateTime.Equals(input.CreateTime))
                 ) && 
                 (
-                    this.EndpointsCount == other.EndpointsCount ||
-                    this.EndpointsCount != null &&
-                    this.EndpointsCount.Equals(other.EndpointsCount)
+                    this.EndpointsCount == input.EndpointsCount ||
+                    (this.EndpointsCount != null &&
+                    this.EndpointsCount.Equals(input.EndpointsCount))
                 ) && 
                 (
-                    this.ConcurrentEndpoints == other.ConcurrentEndpoints ||
-                    this.ConcurrentEndpoints != null &&
-                    this.ConcurrentEndpoints.Equals(other.ConcurrentEndpoints)
+                    this.ConcurrentEndpoints == input.ConcurrentEndpoints ||
+                    (this.ConcurrentEndpoints != null &&
+                    this.ConcurrentEndpoints.Equals(input.ConcurrentEndpoints))
                 ) && 
                 (
-                    this.LiveVisibleEndpointsCount == other.LiveVisibleEndpointsCount ||
-                    this.LiveVisibleEndpointsCount != null &&
-                    this.LiveVisibleEndpointsCount.Equals(other.LiveVisibleEndpointsCount)
+                    this.LiveVisibleEndpointsCount == input.LiveVisibleEndpointsCount ||
+                    (this.LiveVisibleEndpointsCount != null &&
+                    this.LiveVisibleEndpointsCount.Equals(input.LiveVisibleEndpointsCount))
                 ) && 
                 (
-                    this.QualarooRating == other.QualarooRating ||
-                    this.QualarooRating != null &&
-                    this.QualarooRating.Equals(other.QualarooRating)
+                    this.QualarooRating == input.QualarooRating ||
+                    (this.QualarooRating != null &&
+                    this.QualarooRating.Equals(input.QualarooRating))
                 ) && 
                 (
-                    this.QualarooCount == other.QualarooCount ||
-                    this.QualarooCount != null &&
-                    this.QualarooCount.Equals(other.QualarooCount)
+                    this.QualarooCount == input.QualarooCount ||
+                    (this.QualarooCount != null &&
+                    this.QualarooCount.Equals(input.QualarooCount))
                 ) && 
                 (
-                    this.MeetingRecording == other.MeetingRecording ||
-                    this.MeetingRecording != null &&
-                    this.MeetingRecording.Equals(other.MeetingRecording)
+                    this.MeetingRecording == input.MeetingRecording ||
+                    (this.MeetingRecording != null &&
+                    this.MeetingRecording.Equals(input.MeetingRecording))
                 ) && 
                 (
-                    this.VideoShare == other.VideoShare ||
-                    this.VideoShare != null &&
-                    this.VideoShare.Equals(other.VideoShare)
+                    this.VideoShare == input.VideoShare ||
+                    (this.VideoShare != null &&
+                    this.VideoShare.Equals(input.VideoShare))
                 ) && 
                 (
-                    this.ContentShare == other.ContentShare ||
-                    this.ContentShare != null &&
-                    this.ContentShare.Equals(other.ContentShare)
+                    this.ContentShare == input.ContentShare ||
+                    (this.ContentShare != null &&
+                    this.ContentShare.Equals(input.ContentShare))
                 ) && 
                 (
-                    this.LiveRecording == other.LiveRecording ||
-                    this.LiveRecording != null &&
-                    this.LiveRecording.Equals(other.LiveRecording)
+                    this.LiveRecording == input.LiveRecording ||
+                    (this.LiveRecording != null &&
+                    this.LiveRecording.Equals(input.LiveRecording))
                 ) && 
                 (
-                    this.LiveVideoShare == other.LiveVideoShare ||
-                    this.LiveVideoShare != null &&
-                    this.LiveVideoShare.Equals(other.LiveVideoShare)
+                    this.LiveVideoShare == input.LiveVideoShare ||
+                    (this.LiveVideoShare != null &&
+                    this.LiveVideoShare.Equals(input.LiveVideoShare))
                 ) && 
                 (
-                    this.LiveContentShare == other.LiveContentShare ||
-                    this.LiveContentShare != null &&
-                    this.LiveContentShare.Equals(other.LiveContentShare)
+                    this.LiveContentShare == input.LiveContentShare ||
+                    (this.LiveContentShare != null &&
+                    this.LiveContentShare.Equals(input.LiveContentShare))
                 ) && 
                 (
-                    this.LargeMeeting == other.LargeMeeting ||
-                    this.LargeMeeting != null &&
-                    this.LargeMeeting.Equals(other.LargeMeeting)
+                    this.LargeMeeting == input.LargeMeeting ||
+                    (this.LargeMeeting != null &&
+                    this.LargeMeeting.Equals(input.LargeMeeting))
                 ) && 
                 (
-                    this.RoiDistance == other.RoiDistance ||
-                    this.RoiDistance != null &&
-                    this.RoiDistance.Equals(other.RoiDistance)
+                    this.RoiDistance == input.RoiDistance ||
+                    (this.RoiDistance != null &&
+                    this.RoiDistance.Equals(input.RoiDistance))
                 ) && 
                 (
-                    this.Mpls == other.Mpls ||
-                    this.Mpls != null &&
-                    this.Mpls.Equals(other.Mpls)
+                    this.Mpls == input.Mpls ||
+                    (this.Mpls != null &&
+                    this.Mpls.Equals(input.Mpls))
                 ) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -596,82 +594,80 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.MeetingId != null)
-                    hash = hash * 59 + this.MeetingId.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingId.GetHashCode();
                 if (this.MeetingUUID != null)
-                    hash = hash * 59 + this.MeetingUUID.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingUUID.GetHashCode();
                 if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.EncryptionType != null)
-                    hash = hash * 59 + this.EncryptionType.GetHashCode();
+                    hashCode = hashCode * 59 + this.EncryptionType.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.UserFullName != null)
-                    hash = hash * 59 + this.UserFullName.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserFullName.GetHashCode();
                 if (this.PhoneNumber != null)
-                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.UserFeatures != null)
-                    hash = hash * 59 + this.UserFeatures.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserFeatures.GetHashCode();
                 if (this.ScheduledFrom != null)
-                    hash = hash * 59 + this.ScheduledFrom.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScheduledFrom.GetHashCode();
                 if (this.InviteeCount != null)
-                    hash = hash * 59 + this.InviteeCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.InviteeCount.GetHashCode();
                 if (this.Personal != null)
-                    hash = hash * 59 + this.Personal.GetHashCode();
+                    hashCode = hashCode * 59 + this.Personal.GetHashCode();
                 if (this.MuteOnEntry != null)
-                    hash = hash * 59 + this.MuteOnEntry.GetHashCode();
+                    hashCode = hashCode * 59 + this.MuteOnEntry.GetHashCode();
                 if (this.AutoRecord != null)
-                    hash = hash * 59 + this.AutoRecord.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoRecord.GetHashCode();
                 if (this.EnterpriseName != null)
-                    hash = hash * 59 + this.EnterpriseName.GetHashCode();
+                    hashCode = hashCode * 59 + this.EnterpriseName.GetHashCode();
                 if (this.ModeratorLess != null)
-                    hash = hash * 59 + this.ModeratorLess.GetHashCode();
+                    hashCode = hashCode * 59 + this.ModeratorLess.GetHashCode();
                 if (this.StartTime != null)
-                    hash = hash * 59 + this.StartTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
                 if (this.EndTime != null)
-                    hash = hash * 59 + this.EndTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
                 if (this.TotalCallSeconds != null)
-                    hash = hash * 59 + this.TotalCallSeconds.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalCallSeconds.GetHashCode();
                 if (this.CreateTime != null)
-                    hash = hash * 59 + this.CreateTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 if (this.EndpointsCount != null)
-                    hash = hash * 59 + this.EndpointsCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.EndpointsCount.GetHashCode();
                 if (this.ConcurrentEndpoints != null)
-                    hash = hash * 59 + this.ConcurrentEndpoints.GetHashCode();
+                    hashCode = hashCode * 59 + this.ConcurrentEndpoints.GetHashCode();
                 if (this.LiveVisibleEndpointsCount != null)
-                    hash = hash * 59 + this.LiveVisibleEndpointsCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiveVisibleEndpointsCount.GetHashCode();
                 if (this.QualarooRating != null)
-                    hash = hash * 59 + this.QualarooRating.GetHashCode();
+                    hashCode = hashCode * 59 + this.QualarooRating.GetHashCode();
                 if (this.QualarooCount != null)
-                    hash = hash * 59 + this.QualarooCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.QualarooCount.GetHashCode();
                 if (this.MeetingRecording != null)
-                    hash = hash * 59 + this.MeetingRecording.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingRecording.GetHashCode();
                 if (this.VideoShare != null)
-                    hash = hash * 59 + this.VideoShare.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoShare.GetHashCode();
                 if (this.ContentShare != null)
-                    hash = hash * 59 + this.ContentShare.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentShare.GetHashCode();
                 if (this.LiveRecording != null)
-                    hash = hash * 59 + this.LiveRecording.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiveRecording.GetHashCode();
                 if (this.LiveVideoShare != null)
-                    hash = hash * 59 + this.LiveVideoShare.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiveVideoShare.GetHashCode();
                 if (this.LiveContentShare != null)
-                    hash = hash * 59 + this.LiveContentShare.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiveContentShare.GetHashCode();
                 if (this.LargeMeeting != null)
-                    hash = hash * 59 + this.LargeMeeting.GetHashCode();
+                    hashCode = hashCode * 59 + this.LargeMeeting.GetHashCode();
                 if (this.RoiDistance != null)
-                    hash = hash * 59 + this.RoiDistance.GetHashCode();
+                    hashCode = hashCode * 59 + this.RoiDistance.GetHashCode();
                 if (this.Mpls != null)
-                    hash = hash * 59 + this.Mpls.GetHashCode();
+                    hashCode = hashCode * 59 + this.Mpls.GetHashCode();
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                return hashCode;
             }
         }
 

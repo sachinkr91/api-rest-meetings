@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GrantType** | **string** | The type of access token you are requesting. | [default to GrantTypeEnum.Credentials]
+**GrantType** | **string** | The type of access token you are requesting. | [default to GrantTypeEnum.Clientcredentials]
 **ClientId** | **string** | The value given within the BlueJeans Enterprise Administration console. | 
 **ClientSecret** | **string** | The value given within the BlueJeans Enterprise Administration console. | 
 

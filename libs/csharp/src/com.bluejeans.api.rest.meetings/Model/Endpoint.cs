@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -33,230 +33,230 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Endpoint" /> class.
         /// </summary>
-        /// <param name="EcMode">EcMode.</param>
-        /// <param name="Creationtime">Creationtime.</param>
-        /// <param name="AudioRemoteRtcpAddress">AudioRemoteRtcpAddress.</param>
-        /// <param name="VideoSendCodec">VideoSendCodec.</param>
-        /// <param name="AudioPlayID">AudioPlayID.</param>
-        /// <param name="CallQualityRecv">CallQualityRecv.</param>
-        /// <param name="SessionOut">SessionOut.</param>
-        /// <param name="AudioLocalAddress">AudioLocalAddress.</param>
-        /// <param name="Meetingid">Meetingid.</param>
-        /// <param name="VideoSendWidth">VideoSendWidth.</param>
-        /// <param name="CallQualitySend">CallQualitySend.</param>
-        /// <param name="Mhaddress">Mhaddress.</param>
-        /// <param name="RDCControlleeCapable">RDCControlleeCapable.</param>
-        /// <param name="AudioCapName">AudioCapName.</param>
-        /// <param name="ProxyInfo">ProxyInfo.</param>
-        /// <param name="AudioSendCodec">AudioSendCodec.</param>
-        /// <param name="Vendor">Vendor.</param>
-        /// <param name="VideoRecvWidth">VideoRecvWidth.</param>
-        /// <param name="Conaddress">Conaddress.</param>
-        /// <param name="TalkDetected">TalkDetected.</param>
-        /// <param name="SubLayout">SubLayout.</param>
-        /// <param name="AudioRtcpRelay">AudioRtcpRelay.</param>
-        /// <param name="AudioRecvLocalMute">AudioRecvLocalMute.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="VideoLocalAddress">VideoLocalAddress.</param>
-        /// <param name="AudioLocalRtcpAddress">AudioLocalRtcpAddress.</param>
-        /// <param name="ContentRtpRelay">ContentRtpRelay.</param>
-        /// <param name="ContentLocalRtcpAddress">ContentLocalRtcpAddress.</param>
-        /// <param name="RemoteConnectionCount">RemoteConnectionCount.</param>
-        /// <param name="Callrate">Callrate.</param>
-        /// <param name="MixerGuid">MixerGuid.</param>
-        /// <param name="Transport">Transport.</param>
-        /// <param name="AudioCapSelectID">AudioCapSelectID.</param>
-        /// <param name="CountryCode">CountryCode.</param>
-        /// <param name="RDCControllerCapable">RDCControllerCapable.</param>
-        /// <param name="Pairedname">Pairedname.</param>
-        /// <param name="VideoRtcpRelay">VideoRtcpRelay.</param>
-        /// <param name="EndpointCpuParams">EndpointCpuParams.</param>
-        /// <param name="VideoRemoteAddress">VideoRemoteAddress.</param>
-        /// <param name="Version">Version.</param>
-        /// <param name="ContentRecv">ContentRecv.</param>
-        /// <param name="LocalName">LocalName.</param>
-        /// <param name="BJNUserId">BJNUserId.</param>
-        /// <param name="ContentRemoteAddress">ContentRemoteAddress.</param>
-        /// <param name="AudioSend">AudioSend.</param>
-        /// <param name="ParticipantDTMFMenus">ParticipantDTMFMenus.</param>
-        /// <param name="VideoRtcpTranspor">VideoRtcpTranspor.</param>
-        /// <param name="AudioRtcpTransport">AudioRtcpTransport.</param>
-        /// <param name="RelayNodeId">RelayNodeId.</param>
-        /// <param name="ContentRemoteRtcpAddress">ContentRemoteRtcpAddress.</param>
-        /// <param name="AudioRtpRelay">AudioRtpRelay.</param>
-        /// <param name="VideoRtpTransport">VideoRtpTransport.</param>
-        /// <param name="ContentRecvLocalMute">ContentRecvLocalMute.</param>
-        /// <param name="Layout">Layout.</param>
-        /// <param name="ContentSend">ContentSend.</param>
-        /// <param name="Remoteaddress">Remoteaddress.</param>
-        /// <param name="MeetingGuid">MeetingGuid.</param>
-        /// <param name="Connecttime">Connecttime.</param>
-        /// <param name="Localaddress">Localaddress.</param>
-        /// <param name="AudioRemoteAddress">AudioRemoteAddress.</param>
-        /// <param name="BondedAudioGuid">BondedAudioGuid.</param>
-        /// <param name="AudioRecvRemoteMute">AudioRecvRemoteMute.</param>
-        /// <param name="SessionOutRelay">SessionOutRelay.</param>
-        /// <param name="Leader">Leader.</param>
-        /// <param name="ContentLocalAddress">ContentLocalAddress.</param>
-        /// <param name="MovieCapable">MovieCapable.</param>
-        /// <param name="VideoRecvLocalMute">VideoRecvLocalMute.</param>
-        /// <param name="ContentRtpTransport">ContentRtpTransport.</param>
-        /// <param name="RDCVersion">RDCVersion.</param>
-        /// <param name="AudioRecv">AudioRecv.</param>
-        /// <param name="ContentRelayServer">ContentRelayServer.</param>
-        /// <param name="VideoRecv">VideoRecv.</param>
-        /// <param name="Visibility">Visibility.</param>
-        /// <param name="Sessionid">Sessionid.</param>
-        /// <param name="ContentRtcpRelay">ContentRtcpRelay.</param>
-        /// <param name="Locales">Locales.</param>
-        /// <param name="Medaddress">Medaddress.</param>
-        /// <param name="HtmlLayoutGuid">HtmlLayoutGuid.</param>
-        /// <param name="_Endpoint">_Endpoint.</param>
-        /// <param name="VideoDrop">VideoDrop.</param>
-        /// <param name="ContentRtcpTransport">ContentRtcpTransport.</param>
-        /// <param name="VideoRemoteRtcpAddress">VideoRemoteRtcpAddress.</param>
-        /// <param name="VideoRtpRelay">VideoRtpRelay.</param>
-        /// <param name="Mixaddress">Mixaddress.</param>
-        /// <param name="SIPHTTPProxyTransport">SIPHTTPProxyTransport.</param>
-        /// <param name="VideoRecvCodec">VideoRecvCodec.</param>
-        /// <param name="AudioRecvCodec">AudioRecvCodec.</param>
-        /// <param name="SessionIn">SessionIn.</param>
-        /// <param name="BondedVideoGuid">BondedVideoGuid.</param>
-        /// <param name="CallQuality">CallQuality.</param>
-        /// <param name="Meetingjointime">Meetingjointime.</param>
-        /// <param name="SessionInRelay">SessionInRelay.</param>
-        /// <param name="Pairedremoteaddress">Pairedremoteaddress.</param>
-        /// <param name="VideoSendHeight">VideoSendHeight.</param>
-        /// <param name="VideoRecvHeight">VideoRecvHeight.</param>
-        /// <param name="SecureCall">SecureCall.</param>
-        /// <param name="VideoLocalRtcpAddress">VideoLocalRtcpAddress.</param>
-        /// <param name="AudioPlayName">AudioPlayName.</param>
-        /// <param name="VideoCapID">VideoCapID.</param>
-        /// <param name="AudioRtpTransport">AudioRtpTransport.</param>
-        /// <param name="MeetingInfoMode">MeetingInfoMode.</param>
-        /// <param name="Callhostname">Callhostname.</param>
-        /// <param name="Callguid">Callguid.</param>
-        /// <param name="AudioCapID">AudioCapID.</param>
-        /// <param name="VideoSend">VideoSend.</param>
-        /// <param name="ContentRecvCodec">ContentRecvCodec.</param>
-        /// <param name="SessionRelay">SessionRelay.</param>
-        /// <param name="VideoRecvRemoteMute">VideoRecvRemoteMute.</param>
-        /// <param name="Id">Id.</param>
-        /// <param name="BondedVideoName">BondedVideoName.</param>
-        /// <param name="IsInRoster">IsInRoster.</param>
-        public Endpoint(string EcMode = default(string), string Creationtime = default(string), string AudioRemoteRtcpAddress = default(string), string VideoSendCodec = default(string), string AudioPlayID = default(string), string CallQualityRecv = default(string), string SessionOut = default(string), string AudioLocalAddress = default(string), string Meetingid = default(string), string VideoSendWidth = default(string), string CallQualitySend = default(string), string Mhaddress = default(string), string RDCControlleeCapable = default(string), string AudioCapName = default(string), string ProxyInfo = default(string), string AudioSendCodec = default(string), string Vendor = default(string), string VideoRecvWidth = default(string), string Conaddress = default(string), string TalkDetected = default(string), string SubLayout = default(string), string AudioRtcpRelay = default(string), string AudioRecvLocalMute = default(string), string Name = default(string), string VideoLocalAddress = default(string), string AudioLocalRtcpAddress = default(string), string ContentRtpRelay = default(string), string ContentLocalRtcpAddress = default(string), string RemoteConnectionCount = default(string), string Callrate = default(string), string MixerGuid = default(string), string Transport = default(string), string AudioCapSelectID = default(string), string CountryCode = default(string), string RDCControllerCapable = default(string), string Pairedname = default(string), string VideoRtcpRelay = default(string), string EndpointCpuParams = default(string), string VideoRemoteAddress = default(string), string Version = default(string), string ContentRecv = default(string), string LocalName = default(string), string BJNUserId = default(string), string ContentRemoteAddress = default(string), string AudioSend = default(string), string ParticipantDTMFMenus = default(string), string VideoRtcpTranspor = default(string), string AudioRtcpTransport = default(string), string RelayNodeId = default(string), string ContentRemoteRtcpAddress = default(string), string AudioRtpRelay = default(string), string VideoRtpTransport = default(string), string ContentRecvLocalMute = default(string), string Layout = default(string), string ContentSend = default(string), string Remoteaddress = default(string), string MeetingGuid = default(string), string Connecttime = default(string), string Localaddress = default(string), string AudioRemoteAddress = default(string), string BondedAudioGuid = default(string), string AudioRecvRemoteMute = default(string), string SessionOutRelay = default(string), string Leader = default(string), string ContentLocalAddress = default(string), string MovieCapable = default(string), string VideoRecvLocalMute = default(string), string ContentRtpTransport = default(string), string RDCVersion = default(string), string AudioRecv = default(string), string ContentRelayServer = default(string), string VideoRecv = default(string), string Visibility = default(string), string Sessionid = default(string), string ContentRtcpRelay = default(string), string Locales = default(string), string Medaddress = default(string), string HtmlLayoutGuid = default(string), string _Endpoint = default(string), string VideoDrop = default(string), string ContentRtcpTransport = default(string), string VideoRemoteRtcpAddress = default(string), string VideoRtpRelay = default(string), string Mixaddress = default(string), string SIPHTTPProxyTransport = default(string), string VideoRecvCodec = default(string), string AudioRecvCodec = default(string), string SessionIn = default(string), string BondedVideoGuid = default(string), string CallQuality = default(string), string Meetingjointime = default(string), string SessionInRelay = default(string), string Pairedremoteaddress = default(string), string VideoSendHeight = default(string), string VideoRecvHeight = default(string), string SecureCall = default(string), string VideoLocalRtcpAddress = default(string), string AudioPlayName = default(string), string VideoCapID = default(string), string AudioRtpTransport = default(string), string MeetingInfoMode = default(string), string Callhostname = default(string), string Callguid = default(string), string AudioCapID = default(string), string VideoSend = default(string), string ContentRecvCodec = default(string), string SessionRelay = default(string), string VideoRecvRemoteMute = default(string), string Id = default(string), string BondedVideoName = default(string), bool? IsInRoster = default(bool?))
+        /// <param name="ecMode">ecMode.</param>
+        /// <param name="creationtime">creationtime.</param>
+        /// <param name="audioRemoteRtcpAddress">audioRemoteRtcpAddress.</param>
+        /// <param name="videoSendCodec">videoSendCodec.</param>
+        /// <param name="audioPlayID">audioPlayID.</param>
+        /// <param name="callQualityRecv">callQualityRecv.</param>
+        /// <param name="sessionOut">sessionOut.</param>
+        /// <param name="audioLocalAddress">audioLocalAddress.</param>
+        /// <param name="meetingid">meetingid.</param>
+        /// <param name="videoSendWidth">videoSendWidth.</param>
+        /// <param name="callQualitySend">callQualitySend.</param>
+        /// <param name="mhaddress">mhaddress.</param>
+        /// <param name="rDCControlleeCapable">rDCControlleeCapable.</param>
+        /// <param name="audioCapName">audioCapName.</param>
+        /// <param name="proxyInfo">proxyInfo.</param>
+        /// <param name="audioSendCodec">audioSendCodec.</param>
+        /// <param name="vendor">vendor.</param>
+        /// <param name="videoRecvWidth">videoRecvWidth.</param>
+        /// <param name="conaddress">conaddress.</param>
+        /// <param name="talkDetected">talkDetected.</param>
+        /// <param name="subLayout">subLayout.</param>
+        /// <param name="audioRtcpRelay">audioRtcpRelay.</param>
+        /// <param name="audioRecvLocalMute">audioRecvLocalMute.</param>
+        /// <param name="name">name.</param>
+        /// <param name="videoLocalAddress">videoLocalAddress.</param>
+        /// <param name="audioLocalRtcpAddress">audioLocalRtcpAddress.</param>
+        /// <param name="contentRtpRelay">contentRtpRelay.</param>
+        /// <param name="contentLocalRtcpAddress">contentLocalRtcpAddress.</param>
+        /// <param name="remoteConnectionCount">remoteConnectionCount.</param>
+        /// <param name="callrate">callrate.</param>
+        /// <param name="mixerGuid">mixerGuid.</param>
+        /// <param name="transport">transport.</param>
+        /// <param name="audioCapSelectID">audioCapSelectID.</param>
+        /// <param name="countryCode">countryCode.</param>
+        /// <param name="rDCControllerCapable">rDCControllerCapable.</param>
+        /// <param name="pairedname">pairedname.</param>
+        /// <param name="videoRtcpRelay">videoRtcpRelay.</param>
+        /// <param name="endpointCpuParams">endpointCpuParams.</param>
+        /// <param name="videoRemoteAddress">videoRemoteAddress.</param>
+        /// <param name="version">version.</param>
+        /// <param name="contentRecv">contentRecv.</param>
+        /// <param name="localName">localName.</param>
+        /// <param name="bJNUserId">bJNUserId.</param>
+        /// <param name="contentRemoteAddress">contentRemoteAddress.</param>
+        /// <param name="audioSend">audioSend.</param>
+        /// <param name="participantDTMFMenus">participantDTMFMenus.</param>
+        /// <param name="videoRtcpTranspor">videoRtcpTranspor.</param>
+        /// <param name="audioRtcpTransport">audioRtcpTransport.</param>
+        /// <param name="relayNodeId">relayNodeId.</param>
+        /// <param name="contentRemoteRtcpAddress">contentRemoteRtcpAddress.</param>
+        /// <param name="audioRtpRelay">audioRtpRelay.</param>
+        /// <param name="videoRtpTransport">videoRtpTransport.</param>
+        /// <param name="contentRecvLocalMute">contentRecvLocalMute.</param>
+        /// <param name="layout">layout.</param>
+        /// <param name="contentSend">contentSend.</param>
+        /// <param name="remoteaddress">remoteaddress.</param>
+        /// <param name="meetingGuid">meetingGuid.</param>
+        /// <param name="connecttime">connecttime.</param>
+        /// <param name="localaddress">localaddress.</param>
+        /// <param name="audioRemoteAddress">audioRemoteAddress.</param>
+        /// <param name="bondedAudioGuid">bondedAudioGuid.</param>
+        /// <param name="audioRecvRemoteMute">audioRecvRemoteMute.</param>
+        /// <param name="sessionOutRelay">sessionOutRelay.</param>
+        /// <param name="leader">leader.</param>
+        /// <param name="contentLocalAddress">contentLocalAddress.</param>
+        /// <param name="movieCapable">movieCapable.</param>
+        /// <param name="videoRecvLocalMute">videoRecvLocalMute.</param>
+        /// <param name="contentRtpTransport">contentRtpTransport.</param>
+        /// <param name="rDCVersion">rDCVersion.</param>
+        /// <param name="audioRecv">audioRecv.</param>
+        /// <param name="contentRelayServer">contentRelayServer.</param>
+        /// <param name="videoRecv">videoRecv.</param>
+        /// <param name="visibility">visibility.</param>
+        /// <param name="sessionid">sessionid.</param>
+        /// <param name="contentRtcpRelay">contentRtcpRelay.</param>
+        /// <param name="locales">locales.</param>
+        /// <param name="medaddress">medaddress.</param>
+        /// <param name="htmlLayoutGuid">htmlLayoutGuid.</param>
+        /// <param name="endpoint">endpoint.</param>
+        /// <param name="videoDrop">videoDrop.</param>
+        /// <param name="contentRtcpTransport">contentRtcpTransport.</param>
+        /// <param name="videoRemoteRtcpAddress">videoRemoteRtcpAddress.</param>
+        /// <param name="videoRtpRelay">videoRtpRelay.</param>
+        /// <param name="mixaddress">mixaddress.</param>
+        /// <param name="sIPHTTPProxyTransport">sIPHTTPProxyTransport.</param>
+        /// <param name="videoRecvCodec">videoRecvCodec.</param>
+        /// <param name="audioRecvCodec">audioRecvCodec.</param>
+        /// <param name="sessionIn">sessionIn.</param>
+        /// <param name="bondedVideoGuid">bondedVideoGuid.</param>
+        /// <param name="callQuality">callQuality.</param>
+        /// <param name="meetingjointime">meetingjointime.</param>
+        /// <param name="sessionInRelay">sessionInRelay.</param>
+        /// <param name="pairedremoteaddress">pairedremoteaddress.</param>
+        /// <param name="videoSendHeight">videoSendHeight.</param>
+        /// <param name="videoRecvHeight">videoRecvHeight.</param>
+        /// <param name="secureCall">secureCall.</param>
+        /// <param name="videoLocalRtcpAddress">videoLocalRtcpAddress.</param>
+        /// <param name="audioPlayName">audioPlayName.</param>
+        /// <param name="videoCapID">videoCapID.</param>
+        /// <param name="audioRtpTransport">audioRtpTransport.</param>
+        /// <param name="meetingInfoMode">meetingInfoMode.</param>
+        /// <param name="callhostname">callhostname.</param>
+        /// <param name="callguid">callguid.</param>
+        /// <param name="audioCapID">audioCapID.</param>
+        /// <param name="videoSend">videoSend.</param>
+        /// <param name="contentRecvCodec">contentRecvCodec.</param>
+        /// <param name="sessionRelay">sessionRelay.</param>
+        /// <param name="videoRecvRemoteMute">videoRecvRemoteMute.</param>
+        /// <param name="id">id.</param>
+        /// <param name="bondedVideoName">bondedVideoName.</param>
+        /// <param name="isInRoster">isInRoster.</param>
+        public Endpoint(string ecMode = default(string), string creationtime = default(string), string audioRemoteRtcpAddress = default(string), string videoSendCodec = default(string), string audioPlayID = default(string), string callQualityRecv = default(string), string sessionOut = default(string), string audioLocalAddress = default(string), string meetingid = default(string), string videoSendWidth = default(string), string callQualitySend = default(string), string mhaddress = default(string), string rDCControlleeCapable = default(string), string audioCapName = default(string), string proxyInfo = default(string), string audioSendCodec = default(string), string vendor = default(string), string videoRecvWidth = default(string), string conaddress = default(string), string talkDetected = default(string), string subLayout = default(string), string audioRtcpRelay = default(string), string audioRecvLocalMute = default(string), string name = default(string), string videoLocalAddress = default(string), string audioLocalRtcpAddress = default(string), string contentRtpRelay = default(string), string contentLocalRtcpAddress = default(string), string remoteConnectionCount = default(string), string callrate = default(string), string mixerGuid = default(string), string transport = default(string), string audioCapSelectID = default(string), string countryCode = default(string), string rDCControllerCapable = default(string), string pairedname = default(string), string videoRtcpRelay = default(string), string endpointCpuParams = default(string), string videoRemoteAddress = default(string), string version = default(string), string contentRecv = default(string), string localName = default(string), string bJNUserId = default(string), string contentRemoteAddress = default(string), string audioSend = default(string), string participantDTMFMenus = default(string), string videoRtcpTranspor = default(string), string audioRtcpTransport = default(string), string relayNodeId = default(string), string contentRemoteRtcpAddress = default(string), string audioRtpRelay = default(string), string videoRtpTransport = default(string), string contentRecvLocalMute = default(string), string layout = default(string), string contentSend = default(string), string remoteaddress = default(string), string meetingGuid = default(string), string connecttime = default(string), string localaddress = default(string), string audioRemoteAddress = default(string), string bondedAudioGuid = default(string), string audioRecvRemoteMute = default(string), string sessionOutRelay = default(string), string leader = default(string), string contentLocalAddress = default(string), string movieCapable = default(string), string videoRecvLocalMute = default(string), string contentRtpTransport = default(string), string rDCVersion = default(string), string audioRecv = default(string), string contentRelayServer = default(string), string videoRecv = default(string), string visibility = default(string), string sessionid = default(string), string contentRtcpRelay = default(string), string locales = default(string), string medaddress = default(string), string htmlLayoutGuid = default(string), string endpoint = default(string), string videoDrop = default(string), string contentRtcpTransport = default(string), string videoRemoteRtcpAddress = default(string), string videoRtpRelay = default(string), string mixaddress = default(string), string sIPHTTPProxyTransport = default(string), string videoRecvCodec = default(string), string audioRecvCodec = default(string), string sessionIn = default(string), string bondedVideoGuid = default(string), string callQuality = default(string), string meetingjointime = default(string), string sessionInRelay = default(string), string pairedremoteaddress = default(string), string videoSendHeight = default(string), string videoRecvHeight = default(string), string secureCall = default(string), string videoLocalRtcpAddress = default(string), string audioPlayName = default(string), string videoCapID = default(string), string audioRtpTransport = default(string), string meetingInfoMode = default(string), string callhostname = default(string), string callguid = default(string), string audioCapID = default(string), string videoSend = default(string), string contentRecvCodec = default(string), string sessionRelay = default(string), string videoRecvRemoteMute = default(string), string id = default(string), string bondedVideoName = default(string), bool? isInRoster = default(bool?))
         {
-            this.EcMode = EcMode;
-            this.Creationtime = Creationtime;
-            this.AudioRemoteRtcpAddress = AudioRemoteRtcpAddress;
-            this.VideoSendCodec = VideoSendCodec;
-            this.AudioPlayID = AudioPlayID;
-            this.CallQualityRecv = CallQualityRecv;
-            this.SessionOut = SessionOut;
-            this.AudioLocalAddress = AudioLocalAddress;
-            this.Meetingid = Meetingid;
-            this.VideoSendWidth = VideoSendWidth;
-            this.CallQualitySend = CallQualitySend;
-            this.Mhaddress = Mhaddress;
-            this.RDCControlleeCapable = RDCControlleeCapable;
-            this.AudioCapName = AudioCapName;
-            this.ProxyInfo = ProxyInfo;
-            this.AudioSendCodec = AudioSendCodec;
-            this.Vendor = Vendor;
-            this.VideoRecvWidth = VideoRecvWidth;
-            this.Conaddress = Conaddress;
-            this.TalkDetected = TalkDetected;
-            this.SubLayout = SubLayout;
-            this.AudioRtcpRelay = AudioRtcpRelay;
-            this.AudioRecvLocalMute = AudioRecvLocalMute;
-            this.Name = Name;
-            this.VideoLocalAddress = VideoLocalAddress;
-            this.AudioLocalRtcpAddress = AudioLocalRtcpAddress;
-            this.ContentRtpRelay = ContentRtpRelay;
-            this.ContentLocalRtcpAddress = ContentLocalRtcpAddress;
-            this.RemoteConnectionCount = RemoteConnectionCount;
-            this.Callrate = Callrate;
-            this.MixerGuid = MixerGuid;
-            this.Transport = Transport;
-            this.AudioCapSelectID = AudioCapSelectID;
-            this.CountryCode = CountryCode;
-            this.RDCControllerCapable = RDCControllerCapable;
-            this.Pairedname = Pairedname;
-            this.VideoRtcpRelay = VideoRtcpRelay;
-            this.EndpointCpuParams = EndpointCpuParams;
-            this.VideoRemoteAddress = VideoRemoteAddress;
-            this.Version = Version;
-            this.ContentRecv = ContentRecv;
-            this.LocalName = LocalName;
-            this.BJNUserId = BJNUserId;
-            this.ContentRemoteAddress = ContentRemoteAddress;
-            this.AudioSend = AudioSend;
-            this.ParticipantDTMFMenus = ParticipantDTMFMenus;
-            this.VideoRtcpTranspor = VideoRtcpTranspor;
-            this.AudioRtcpTransport = AudioRtcpTransport;
-            this.RelayNodeId = RelayNodeId;
-            this.ContentRemoteRtcpAddress = ContentRemoteRtcpAddress;
-            this.AudioRtpRelay = AudioRtpRelay;
-            this.VideoRtpTransport = VideoRtpTransport;
-            this.ContentRecvLocalMute = ContentRecvLocalMute;
-            this.Layout = Layout;
-            this.ContentSend = ContentSend;
-            this.Remoteaddress = Remoteaddress;
-            this.MeetingGuid = MeetingGuid;
-            this.Connecttime = Connecttime;
-            this.Localaddress = Localaddress;
-            this.AudioRemoteAddress = AudioRemoteAddress;
-            this.BondedAudioGuid = BondedAudioGuid;
-            this.AudioRecvRemoteMute = AudioRecvRemoteMute;
-            this.SessionOutRelay = SessionOutRelay;
-            this.Leader = Leader;
-            this.ContentLocalAddress = ContentLocalAddress;
-            this.MovieCapable = MovieCapable;
-            this.VideoRecvLocalMute = VideoRecvLocalMute;
-            this.ContentRtpTransport = ContentRtpTransport;
-            this.RDCVersion = RDCVersion;
-            this.AudioRecv = AudioRecv;
-            this.ContentRelayServer = ContentRelayServer;
-            this.VideoRecv = VideoRecv;
-            this.Visibility = Visibility;
-            this.Sessionid = Sessionid;
-            this.ContentRtcpRelay = ContentRtcpRelay;
-            this.Locales = Locales;
-            this.Medaddress = Medaddress;
-            this.HtmlLayoutGuid = HtmlLayoutGuid;
-            this._Endpoint = _Endpoint;
-            this.VideoDrop = VideoDrop;
-            this.ContentRtcpTransport = ContentRtcpTransport;
-            this.VideoRemoteRtcpAddress = VideoRemoteRtcpAddress;
-            this.VideoRtpRelay = VideoRtpRelay;
-            this.Mixaddress = Mixaddress;
-            this.SIPHTTPProxyTransport = SIPHTTPProxyTransport;
-            this.VideoRecvCodec = VideoRecvCodec;
-            this.AudioRecvCodec = AudioRecvCodec;
-            this.SessionIn = SessionIn;
-            this.BondedVideoGuid = BondedVideoGuid;
-            this.CallQuality = CallQuality;
-            this.Meetingjointime = Meetingjointime;
-            this.SessionInRelay = SessionInRelay;
-            this.Pairedremoteaddress = Pairedremoteaddress;
-            this.VideoSendHeight = VideoSendHeight;
-            this.VideoRecvHeight = VideoRecvHeight;
-            this.SecureCall = SecureCall;
-            this.VideoLocalRtcpAddress = VideoLocalRtcpAddress;
-            this.AudioPlayName = AudioPlayName;
-            this.VideoCapID = VideoCapID;
-            this.AudioRtpTransport = AudioRtpTransport;
-            this.MeetingInfoMode = MeetingInfoMode;
-            this.Callhostname = Callhostname;
-            this.Callguid = Callguid;
-            this.AudioCapID = AudioCapID;
-            this.VideoSend = VideoSend;
-            this.ContentRecvCodec = ContentRecvCodec;
-            this.SessionRelay = SessionRelay;
-            this.VideoRecvRemoteMute = VideoRecvRemoteMute;
-            this.Id = Id;
-            this.BondedVideoName = BondedVideoName;
-            this.IsInRoster = IsInRoster;
+            this.EcMode = ecMode;
+            this.Creationtime = creationtime;
+            this.AudioRemoteRtcpAddress = audioRemoteRtcpAddress;
+            this.VideoSendCodec = videoSendCodec;
+            this.AudioPlayID = audioPlayID;
+            this.CallQualityRecv = callQualityRecv;
+            this.SessionOut = sessionOut;
+            this.AudioLocalAddress = audioLocalAddress;
+            this.Meetingid = meetingid;
+            this.VideoSendWidth = videoSendWidth;
+            this.CallQualitySend = callQualitySend;
+            this.Mhaddress = mhaddress;
+            this.RDCControlleeCapable = rDCControlleeCapable;
+            this.AudioCapName = audioCapName;
+            this.ProxyInfo = proxyInfo;
+            this.AudioSendCodec = audioSendCodec;
+            this.Vendor = vendor;
+            this.VideoRecvWidth = videoRecvWidth;
+            this.Conaddress = conaddress;
+            this.TalkDetected = talkDetected;
+            this.SubLayout = subLayout;
+            this.AudioRtcpRelay = audioRtcpRelay;
+            this.AudioRecvLocalMute = audioRecvLocalMute;
+            this.Name = name;
+            this.VideoLocalAddress = videoLocalAddress;
+            this.AudioLocalRtcpAddress = audioLocalRtcpAddress;
+            this.ContentRtpRelay = contentRtpRelay;
+            this.ContentLocalRtcpAddress = contentLocalRtcpAddress;
+            this.RemoteConnectionCount = remoteConnectionCount;
+            this.Callrate = callrate;
+            this.MixerGuid = mixerGuid;
+            this.Transport = transport;
+            this.AudioCapSelectID = audioCapSelectID;
+            this.CountryCode = countryCode;
+            this.RDCControllerCapable = rDCControllerCapable;
+            this.Pairedname = pairedname;
+            this.VideoRtcpRelay = videoRtcpRelay;
+            this.EndpointCpuParams = endpointCpuParams;
+            this.VideoRemoteAddress = videoRemoteAddress;
+            this.Version = version;
+            this.ContentRecv = contentRecv;
+            this.LocalName = localName;
+            this.BJNUserId = bJNUserId;
+            this.ContentRemoteAddress = contentRemoteAddress;
+            this.AudioSend = audioSend;
+            this.ParticipantDTMFMenus = participantDTMFMenus;
+            this.VideoRtcpTranspor = videoRtcpTranspor;
+            this.AudioRtcpTransport = audioRtcpTransport;
+            this.RelayNodeId = relayNodeId;
+            this.ContentRemoteRtcpAddress = contentRemoteRtcpAddress;
+            this.AudioRtpRelay = audioRtpRelay;
+            this.VideoRtpTransport = videoRtpTransport;
+            this.ContentRecvLocalMute = contentRecvLocalMute;
+            this.Layout = layout;
+            this.ContentSend = contentSend;
+            this.Remoteaddress = remoteaddress;
+            this.MeetingGuid = meetingGuid;
+            this.Connecttime = connecttime;
+            this.Localaddress = localaddress;
+            this.AudioRemoteAddress = audioRemoteAddress;
+            this.BondedAudioGuid = bondedAudioGuid;
+            this.AudioRecvRemoteMute = audioRecvRemoteMute;
+            this.SessionOutRelay = sessionOutRelay;
+            this.Leader = leader;
+            this.ContentLocalAddress = contentLocalAddress;
+            this.MovieCapable = movieCapable;
+            this.VideoRecvLocalMute = videoRecvLocalMute;
+            this.ContentRtpTransport = contentRtpTransport;
+            this.RDCVersion = rDCVersion;
+            this.AudioRecv = audioRecv;
+            this.ContentRelayServer = contentRelayServer;
+            this.VideoRecv = videoRecv;
+            this.Visibility = visibility;
+            this.Sessionid = sessionid;
+            this.ContentRtcpRelay = contentRtcpRelay;
+            this.Locales = locales;
+            this.Medaddress = medaddress;
+            this.HtmlLayoutGuid = htmlLayoutGuid;
+            this._Endpoint = endpoint;
+            this.VideoDrop = videoDrop;
+            this.ContentRtcpTransport = contentRtcpTransport;
+            this.VideoRemoteRtcpAddress = videoRemoteRtcpAddress;
+            this.VideoRtpRelay = videoRtpRelay;
+            this.Mixaddress = mixaddress;
+            this.SIPHTTPProxyTransport = sIPHTTPProxyTransport;
+            this.VideoRecvCodec = videoRecvCodec;
+            this.AudioRecvCodec = audioRecvCodec;
+            this.SessionIn = sessionIn;
+            this.BondedVideoGuid = bondedVideoGuid;
+            this.CallQuality = callQuality;
+            this.Meetingjointime = meetingjointime;
+            this.SessionInRelay = sessionInRelay;
+            this.Pairedremoteaddress = pairedremoteaddress;
+            this.VideoSendHeight = videoSendHeight;
+            this.VideoRecvHeight = videoRecvHeight;
+            this.SecureCall = secureCall;
+            this.VideoLocalRtcpAddress = videoLocalRtcpAddress;
+            this.AudioPlayName = audioPlayName;
+            this.VideoCapID = videoCapID;
+            this.AudioRtpTransport = audioRtpTransport;
+            this.MeetingInfoMode = meetingInfoMode;
+            this.Callhostname = callhostname;
+            this.Callguid = callguid;
+            this.AudioCapID = audioCapID;
+            this.VideoSend = videoSend;
+            this.ContentRecvCodec = contentRecvCodec;
+            this.SessionRelay = sessionRelay;
+            this.VideoRecvRemoteMute = videoRecvRemoteMute;
+            this.Id = id;
+            this.BondedVideoName = bondedVideoName;
+            this.IsInRoster = isInRoster;
         }
         
         /// <summary>
@@ -1052,7 +1052,7 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -1060,580 +1060,578 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Endpoint);
+            return this.Equals(input as Endpoint);
         }
 
         /// <summary>
         /// Returns true if Endpoint instances are equal
         /// </summary>
-        /// <param name="other">Instance of Endpoint to be compared</param>
+        /// <param name="input">Instance of Endpoint to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Endpoint other)
+        public bool Equals(Endpoint input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.EcMode == other.EcMode ||
-                    this.EcMode != null &&
-                    this.EcMode.Equals(other.EcMode)
+                    this.EcMode == input.EcMode ||
+                    (this.EcMode != null &&
+                    this.EcMode.Equals(input.EcMode))
                 ) && 
                 (
-                    this.Creationtime == other.Creationtime ||
-                    this.Creationtime != null &&
-                    this.Creationtime.Equals(other.Creationtime)
+                    this.Creationtime == input.Creationtime ||
+                    (this.Creationtime != null &&
+                    this.Creationtime.Equals(input.Creationtime))
                 ) && 
                 (
-                    this.AudioRemoteRtcpAddress == other.AudioRemoteRtcpAddress ||
-                    this.AudioRemoteRtcpAddress != null &&
-                    this.AudioRemoteRtcpAddress.Equals(other.AudioRemoteRtcpAddress)
+                    this.AudioRemoteRtcpAddress == input.AudioRemoteRtcpAddress ||
+                    (this.AudioRemoteRtcpAddress != null &&
+                    this.AudioRemoteRtcpAddress.Equals(input.AudioRemoteRtcpAddress))
                 ) && 
                 (
-                    this.VideoSendCodec == other.VideoSendCodec ||
-                    this.VideoSendCodec != null &&
-                    this.VideoSendCodec.Equals(other.VideoSendCodec)
+                    this.VideoSendCodec == input.VideoSendCodec ||
+                    (this.VideoSendCodec != null &&
+                    this.VideoSendCodec.Equals(input.VideoSendCodec))
                 ) && 
                 (
-                    this.AudioPlayID == other.AudioPlayID ||
-                    this.AudioPlayID != null &&
-                    this.AudioPlayID.Equals(other.AudioPlayID)
+                    this.AudioPlayID == input.AudioPlayID ||
+                    (this.AudioPlayID != null &&
+                    this.AudioPlayID.Equals(input.AudioPlayID))
                 ) && 
                 (
-                    this.CallQualityRecv == other.CallQualityRecv ||
-                    this.CallQualityRecv != null &&
-                    this.CallQualityRecv.Equals(other.CallQualityRecv)
+                    this.CallQualityRecv == input.CallQualityRecv ||
+                    (this.CallQualityRecv != null &&
+                    this.CallQualityRecv.Equals(input.CallQualityRecv))
                 ) && 
                 (
-                    this.SessionOut == other.SessionOut ||
-                    this.SessionOut != null &&
-                    this.SessionOut.Equals(other.SessionOut)
+                    this.SessionOut == input.SessionOut ||
+                    (this.SessionOut != null &&
+                    this.SessionOut.Equals(input.SessionOut))
                 ) && 
                 (
-                    this.AudioLocalAddress == other.AudioLocalAddress ||
-                    this.AudioLocalAddress != null &&
-                    this.AudioLocalAddress.Equals(other.AudioLocalAddress)
+                    this.AudioLocalAddress == input.AudioLocalAddress ||
+                    (this.AudioLocalAddress != null &&
+                    this.AudioLocalAddress.Equals(input.AudioLocalAddress))
                 ) && 
                 (
-                    this.Meetingid == other.Meetingid ||
-                    this.Meetingid != null &&
-                    this.Meetingid.Equals(other.Meetingid)
+                    this.Meetingid == input.Meetingid ||
+                    (this.Meetingid != null &&
+                    this.Meetingid.Equals(input.Meetingid))
                 ) && 
                 (
-                    this.VideoSendWidth == other.VideoSendWidth ||
-                    this.VideoSendWidth != null &&
-                    this.VideoSendWidth.Equals(other.VideoSendWidth)
+                    this.VideoSendWidth == input.VideoSendWidth ||
+                    (this.VideoSendWidth != null &&
+                    this.VideoSendWidth.Equals(input.VideoSendWidth))
                 ) && 
                 (
-                    this.CallQualitySend == other.CallQualitySend ||
-                    this.CallQualitySend != null &&
-                    this.CallQualitySend.Equals(other.CallQualitySend)
+                    this.CallQualitySend == input.CallQualitySend ||
+                    (this.CallQualitySend != null &&
+                    this.CallQualitySend.Equals(input.CallQualitySend))
                 ) && 
                 (
-                    this.Mhaddress == other.Mhaddress ||
-                    this.Mhaddress != null &&
-                    this.Mhaddress.Equals(other.Mhaddress)
+                    this.Mhaddress == input.Mhaddress ||
+                    (this.Mhaddress != null &&
+                    this.Mhaddress.Equals(input.Mhaddress))
                 ) && 
                 (
-                    this.RDCControlleeCapable == other.RDCControlleeCapable ||
-                    this.RDCControlleeCapable != null &&
-                    this.RDCControlleeCapable.Equals(other.RDCControlleeCapable)
+                    this.RDCControlleeCapable == input.RDCControlleeCapable ||
+                    (this.RDCControlleeCapable != null &&
+                    this.RDCControlleeCapable.Equals(input.RDCControlleeCapable))
                 ) && 
                 (
-                    this.AudioCapName == other.AudioCapName ||
-                    this.AudioCapName != null &&
-                    this.AudioCapName.Equals(other.AudioCapName)
+                    this.AudioCapName == input.AudioCapName ||
+                    (this.AudioCapName != null &&
+                    this.AudioCapName.Equals(input.AudioCapName))
                 ) && 
                 (
-                    this.ProxyInfo == other.ProxyInfo ||
-                    this.ProxyInfo != null &&
-                    this.ProxyInfo.Equals(other.ProxyInfo)
+                    this.ProxyInfo == input.ProxyInfo ||
+                    (this.ProxyInfo != null &&
+                    this.ProxyInfo.Equals(input.ProxyInfo))
                 ) && 
                 (
-                    this.AudioSendCodec == other.AudioSendCodec ||
-                    this.AudioSendCodec != null &&
-                    this.AudioSendCodec.Equals(other.AudioSendCodec)
+                    this.AudioSendCodec == input.AudioSendCodec ||
+                    (this.AudioSendCodec != null &&
+                    this.AudioSendCodec.Equals(input.AudioSendCodec))
                 ) && 
                 (
-                    this.Vendor == other.Vendor ||
-                    this.Vendor != null &&
-                    this.Vendor.Equals(other.Vendor)
+                    this.Vendor == input.Vendor ||
+                    (this.Vendor != null &&
+                    this.Vendor.Equals(input.Vendor))
                 ) && 
                 (
-                    this.VideoRecvWidth == other.VideoRecvWidth ||
-                    this.VideoRecvWidth != null &&
-                    this.VideoRecvWidth.Equals(other.VideoRecvWidth)
+                    this.VideoRecvWidth == input.VideoRecvWidth ||
+                    (this.VideoRecvWidth != null &&
+                    this.VideoRecvWidth.Equals(input.VideoRecvWidth))
                 ) && 
                 (
-                    this.Conaddress == other.Conaddress ||
-                    this.Conaddress != null &&
-                    this.Conaddress.Equals(other.Conaddress)
+                    this.Conaddress == input.Conaddress ||
+                    (this.Conaddress != null &&
+                    this.Conaddress.Equals(input.Conaddress))
                 ) && 
                 (
-                    this.TalkDetected == other.TalkDetected ||
-                    this.TalkDetected != null &&
-                    this.TalkDetected.Equals(other.TalkDetected)
+                    this.TalkDetected == input.TalkDetected ||
+                    (this.TalkDetected != null &&
+                    this.TalkDetected.Equals(input.TalkDetected))
                 ) && 
                 (
-                    this.SubLayout == other.SubLayout ||
-                    this.SubLayout != null &&
-                    this.SubLayout.Equals(other.SubLayout)
+                    this.SubLayout == input.SubLayout ||
+                    (this.SubLayout != null &&
+                    this.SubLayout.Equals(input.SubLayout))
                 ) && 
                 (
-                    this.AudioRtcpRelay == other.AudioRtcpRelay ||
-                    this.AudioRtcpRelay != null &&
-                    this.AudioRtcpRelay.Equals(other.AudioRtcpRelay)
+                    this.AudioRtcpRelay == input.AudioRtcpRelay ||
+                    (this.AudioRtcpRelay != null &&
+                    this.AudioRtcpRelay.Equals(input.AudioRtcpRelay))
                 ) && 
                 (
-                    this.AudioRecvLocalMute == other.AudioRecvLocalMute ||
-                    this.AudioRecvLocalMute != null &&
-                    this.AudioRecvLocalMute.Equals(other.AudioRecvLocalMute)
+                    this.AudioRecvLocalMute == input.AudioRecvLocalMute ||
+                    (this.AudioRecvLocalMute != null &&
+                    this.AudioRecvLocalMute.Equals(input.AudioRecvLocalMute))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.VideoLocalAddress == other.VideoLocalAddress ||
-                    this.VideoLocalAddress != null &&
-                    this.VideoLocalAddress.Equals(other.VideoLocalAddress)
+                    this.VideoLocalAddress == input.VideoLocalAddress ||
+                    (this.VideoLocalAddress != null &&
+                    this.VideoLocalAddress.Equals(input.VideoLocalAddress))
                 ) && 
                 (
-                    this.AudioLocalRtcpAddress == other.AudioLocalRtcpAddress ||
-                    this.AudioLocalRtcpAddress != null &&
-                    this.AudioLocalRtcpAddress.Equals(other.AudioLocalRtcpAddress)
+                    this.AudioLocalRtcpAddress == input.AudioLocalRtcpAddress ||
+                    (this.AudioLocalRtcpAddress != null &&
+                    this.AudioLocalRtcpAddress.Equals(input.AudioLocalRtcpAddress))
                 ) && 
                 (
-                    this.ContentRtpRelay == other.ContentRtpRelay ||
-                    this.ContentRtpRelay != null &&
-                    this.ContentRtpRelay.Equals(other.ContentRtpRelay)
+                    this.ContentRtpRelay == input.ContentRtpRelay ||
+                    (this.ContentRtpRelay != null &&
+                    this.ContentRtpRelay.Equals(input.ContentRtpRelay))
                 ) && 
                 (
-                    this.ContentLocalRtcpAddress == other.ContentLocalRtcpAddress ||
-                    this.ContentLocalRtcpAddress != null &&
-                    this.ContentLocalRtcpAddress.Equals(other.ContentLocalRtcpAddress)
+                    this.ContentLocalRtcpAddress == input.ContentLocalRtcpAddress ||
+                    (this.ContentLocalRtcpAddress != null &&
+                    this.ContentLocalRtcpAddress.Equals(input.ContentLocalRtcpAddress))
                 ) && 
                 (
-                    this.RemoteConnectionCount == other.RemoteConnectionCount ||
-                    this.RemoteConnectionCount != null &&
-                    this.RemoteConnectionCount.Equals(other.RemoteConnectionCount)
+                    this.RemoteConnectionCount == input.RemoteConnectionCount ||
+                    (this.RemoteConnectionCount != null &&
+                    this.RemoteConnectionCount.Equals(input.RemoteConnectionCount))
                 ) && 
                 (
-                    this.Callrate == other.Callrate ||
-                    this.Callrate != null &&
-                    this.Callrate.Equals(other.Callrate)
+                    this.Callrate == input.Callrate ||
+                    (this.Callrate != null &&
+                    this.Callrate.Equals(input.Callrate))
                 ) && 
                 (
-                    this.MixerGuid == other.MixerGuid ||
-                    this.MixerGuid != null &&
-                    this.MixerGuid.Equals(other.MixerGuid)
+                    this.MixerGuid == input.MixerGuid ||
+                    (this.MixerGuid != null &&
+                    this.MixerGuid.Equals(input.MixerGuid))
                 ) && 
                 (
-                    this.Transport == other.Transport ||
-                    this.Transport != null &&
-                    this.Transport.Equals(other.Transport)
+                    this.Transport == input.Transport ||
+                    (this.Transport != null &&
+                    this.Transport.Equals(input.Transport))
                 ) && 
                 (
-                    this.AudioCapSelectID == other.AudioCapSelectID ||
-                    this.AudioCapSelectID != null &&
-                    this.AudioCapSelectID.Equals(other.AudioCapSelectID)
+                    this.AudioCapSelectID == input.AudioCapSelectID ||
+                    (this.AudioCapSelectID != null &&
+                    this.AudioCapSelectID.Equals(input.AudioCapSelectID))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.RDCControllerCapable == other.RDCControllerCapable ||
-                    this.RDCControllerCapable != null &&
-                    this.RDCControllerCapable.Equals(other.RDCControllerCapable)
+                    this.RDCControllerCapable == input.RDCControllerCapable ||
+                    (this.RDCControllerCapable != null &&
+                    this.RDCControllerCapable.Equals(input.RDCControllerCapable))
                 ) && 
                 (
-                    this.Pairedname == other.Pairedname ||
-                    this.Pairedname != null &&
-                    this.Pairedname.Equals(other.Pairedname)
+                    this.Pairedname == input.Pairedname ||
+                    (this.Pairedname != null &&
+                    this.Pairedname.Equals(input.Pairedname))
                 ) && 
                 (
-                    this.VideoRtcpRelay == other.VideoRtcpRelay ||
-                    this.VideoRtcpRelay != null &&
-                    this.VideoRtcpRelay.Equals(other.VideoRtcpRelay)
+                    this.VideoRtcpRelay == input.VideoRtcpRelay ||
+                    (this.VideoRtcpRelay != null &&
+                    this.VideoRtcpRelay.Equals(input.VideoRtcpRelay))
                 ) && 
                 (
-                    this.EndpointCpuParams == other.EndpointCpuParams ||
-                    this.EndpointCpuParams != null &&
-                    this.EndpointCpuParams.Equals(other.EndpointCpuParams)
+                    this.EndpointCpuParams == input.EndpointCpuParams ||
+                    (this.EndpointCpuParams != null &&
+                    this.EndpointCpuParams.Equals(input.EndpointCpuParams))
                 ) && 
                 (
-                    this.VideoRemoteAddress == other.VideoRemoteAddress ||
-                    this.VideoRemoteAddress != null &&
-                    this.VideoRemoteAddress.Equals(other.VideoRemoteAddress)
+                    this.VideoRemoteAddress == input.VideoRemoteAddress ||
+                    (this.VideoRemoteAddress != null &&
+                    this.VideoRemoteAddress.Equals(input.VideoRemoteAddress))
                 ) && 
                 (
-                    this.Version == other.Version ||
-                    this.Version != null &&
-                    this.Version.Equals(other.Version)
+                    this.Version == input.Version ||
+                    (this.Version != null &&
+                    this.Version.Equals(input.Version))
                 ) && 
                 (
-                    this.ContentRecv == other.ContentRecv ||
-                    this.ContentRecv != null &&
-                    this.ContentRecv.Equals(other.ContentRecv)
+                    this.ContentRecv == input.ContentRecv ||
+                    (this.ContentRecv != null &&
+                    this.ContentRecv.Equals(input.ContentRecv))
                 ) && 
                 (
-                    this.LocalName == other.LocalName ||
-                    this.LocalName != null &&
-                    this.LocalName.Equals(other.LocalName)
+                    this.LocalName == input.LocalName ||
+                    (this.LocalName != null &&
+                    this.LocalName.Equals(input.LocalName))
                 ) && 
                 (
-                    this.BJNUserId == other.BJNUserId ||
-                    this.BJNUserId != null &&
-                    this.BJNUserId.Equals(other.BJNUserId)
+                    this.BJNUserId == input.BJNUserId ||
+                    (this.BJNUserId != null &&
+                    this.BJNUserId.Equals(input.BJNUserId))
                 ) && 
                 (
-                    this.ContentRemoteAddress == other.ContentRemoteAddress ||
-                    this.ContentRemoteAddress != null &&
-                    this.ContentRemoteAddress.Equals(other.ContentRemoteAddress)
+                    this.ContentRemoteAddress == input.ContentRemoteAddress ||
+                    (this.ContentRemoteAddress != null &&
+                    this.ContentRemoteAddress.Equals(input.ContentRemoteAddress))
                 ) && 
                 (
-                    this.AudioSend == other.AudioSend ||
-                    this.AudioSend != null &&
-                    this.AudioSend.Equals(other.AudioSend)
+                    this.AudioSend == input.AudioSend ||
+                    (this.AudioSend != null &&
+                    this.AudioSend.Equals(input.AudioSend))
                 ) && 
                 (
-                    this.ParticipantDTMFMenus == other.ParticipantDTMFMenus ||
-                    this.ParticipantDTMFMenus != null &&
-                    this.ParticipantDTMFMenus.Equals(other.ParticipantDTMFMenus)
+                    this.ParticipantDTMFMenus == input.ParticipantDTMFMenus ||
+                    (this.ParticipantDTMFMenus != null &&
+                    this.ParticipantDTMFMenus.Equals(input.ParticipantDTMFMenus))
                 ) && 
                 (
-                    this.VideoRtcpTranspor == other.VideoRtcpTranspor ||
-                    this.VideoRtcpTranspor != null &&
-                    this.VideoRtcpTranspor.Equals(other.VideoRtcpTranspor)
+                    this.VideoRtcpTranspor == input.VideoRtcpTranspor ||
+                    (this.VideoRtcpTranspor != null &&
+                    this.VideoRtcpTranspor.Equals(input.VideoRtcpTranspor))
                 ) && 
                 (
-                    this.AudioRtcpTransport == other.AudioRtcpTransport ||
-                    this.AudioRtcpTransport != null &&
-                    this.AudioRtcpTransport.Equals(other.AudioRtcpTransport)
+                    this.AudioRtcpTransport == input.AudioRtcpTransport ||
+                    (this.AudioRtcpTransport != null &&
+                    this.AudioRtcpTransport.Equals(input.AudioRtcpTransport))
                 ) && 
                 (
-                    this.RelayNodeId == other.RelayNodeId ||
-                    this.RelayNodeId != null &&
-                    this.RelayNodeId.Equals(other.RelayNodeId)
+                    this.RelayNodeId == input.RelayNodeId ||
+                    (this.RelayNodeId != null &&
+                    this.RelayNodeId.Equals(input.RelayNodeId))
                 ) && 
                 (
-                    this.ContentRemoteRtcpAddress == other.ContentRemoteRtcpAddress ||
-                    this.ContentRemoteRtcpAddress != null &&
-                    this.ContentRemoteRtcpAddress.Equals(other.ContentRemoteRtcpAddress)
+                    this.ContentRemoteRtcpAddress == input.ContentRemoteRtcpAddress ||
+                    (this.ContentRemoteRtcpAddress != null &&
+                    this.ContentRemoteRtcpAddress.Equals(input.ContentRemoteRtcpAddress))
                 ) && 
                 (
-                    this.AudioRtpRelay == other.AudioRtpRelay ||
-                    this.AudioRtpRelay != null &&
-                    this.AudioRtpRelay.Equals(other.AudioRtpRelay)
+                    this.AudioRtpRelay == input.AudioRtpRelay ||
+                    (this.AudioRtpRelay != null &&
+                    this.AudioRtpRelay.Equals(input.AudioRtpRelay))
                 ) && 
                 (
-                    this.VideoRtpTransport == other.VideoRtpTransport ||
-                    this.VideoRtpTransport != null &&
-                    this.VideoRtpTransport.Equals(other.VideoRtpTransport)
+                    this.VideoRtpTransport == input.VideoRtpTransport ||
+                    (this.VideoRtpTransport != null &&
+                    this.VideoRtpTransport.Equals(input.VideoRtpTransport))
                 ) && 
                 (
-                    this.ContentRecvLocalMute == other.ContentRecvLocalMute ||
-                    this.ContentRecvLocalMute != null &&
-                    this.ContentRecvLocalMute.Equals(other.ContentRecvLocalMute)
+                    this.ContentRecvLocalMute == input.ContentRecvLocalMute ||
+                    (this.ContentRecvLocalMute != null &&
+                    this.ContentRecvLocalMute.Equals(input.ContentRecvLocalMute))
                 ) && 
                 (
-                    this.Layout == other.Layout ||
-                    this.Layout != null &&
-                    this.Layout.Equals(other.Layout)
+                    this.Layout == input.Layout ||
+                    (this.Layout != null &&
+                    this.Layout.Equals(input.Layout))
                 ) && 
                 (
-                    this.ContentSend == other.ContentSend ||
-                    this.ContentSend != null &&
-                    this.ContentSend.Equals(other.ContentSend)
+                    this.ContentSend == input.ContentSend ||
+                    (this.ContentSend != null &&
+                    this.ContentSend.Equals(input.ContentSend))
                 ) && 
                 (
-                    this.Remoteaddress == other.Remoteaddress ||
-                    this.Remoteaddress != null &&
-                    this.Remoteaddress.Equals(other.Remoteaddress)
+                    this.Remoteaddress == input.Remoteaddress ||
+                    (this.Remoteaddress != null &&
+                    this.Remoteaddress.Equals(input.Remoteaddress))
                 ) && 
                 (
-                    this.MeetingGuid == other.MeetingGuid ||
-                    this.MeetingGuid != null &&
-                    this.MeetingGuid.Equals(other.MeetingGuid)
+                    this.MeetingGuid == input.MeetingGuid ||
+                    (this.MeetingGuid != null &&
+                    this.MeetingGuid.Equals(input.MeetingGuid))
                 ) && 
                 (
-                    this.Connecttime == other.Connecttime ||
-                    this.Connecttime != null &&
-                    this.Connecttime.Equals(other.Connecttime)
+                    this.Connecttime == input.Connecttime ||
+                    (this.Connecttime != null &&
+                    this.Connecttime.Equals(input.Connecttime))
                 ) && 
                 (
-                    this.Localaddress == other.Localaddress ||
-                    this.Localaddress != null &&
-                    this.Localaddress.Equals(other.Localaddress)
+                    this.Localaddress == input.Localaddress ||
+                    (this.Localaddress != null &&
+                    this.Localaddress.Equals(input.Localaddress))
                 ) && 
                 (
-                    this.AudioRemoteAddress == other.AudioRemoteAddress ||
-                    this.AudioRemoteAddress != null &&
-                    this.AudioRemoteAddress.Equals(other.AudioRemoteAddress)
+                    this.AudioRemoteAddress == input.AudioRemoteAddress ||
+                    (this.AudioRemoteAddress != null &&
+                    this.AudioRemoteAddress.Equals(input.AudioRemoteAddress))
                 ) && 
                 (
-                    this.BondedAudioGuid == other.BondedAudioGuid ||
-                    this.BondedAudioGuid != null &&
-                    this.BondedAudioGuid.Equals(other.BondedAudioGuid)
+                    this.BondedAudioGuid == input.BondedAudioGuid ||
+                    (this.BondedAudioGuid != null &&
+                    this.BondedAudioGuid.Equals(input.BondedAudioGuid))
                 ) && 
                 (
-                    this.AudioRecvRemoteMute == other.AudioRecvRemoteMute ||
-                    this.AudioRecvRemoteMute != null &&
-                    this.AudioRecvRemoteMute.Equals(other.AudioRecvRemoteMute)
+                    this.AudioRecvRemoteMute == input.AudioRecvRemoteMute ||
+                    (this.AudioRecvRemoteMute != null &&
+                    this.AudioRecvRemoteMute.Equals(input.AudioRecvRemoteMute))
                 ) && 
                 (
-                    this.SessionOutRelay == other.SessionOutRelay ||
-                    this.SessionOutRelay != null &&
-                    this.SessionOutRelay.Equals(other.SessionOutRelay)
+                    this.SessionOutRelay == input.SessionOutRelay ||
+                    (this.SessionOutRelay != null &&
+                    this.SessionOutRelay.Equals(input.SessionOutRelay))
                 ) && 
                 (
-                    this.Leader == other.Leader ||
-                    this.Leader != null &&
-                    this.Leader.Equals(other.Leader)
+                    this.Leader == input.Leader ||
+                    (this.Leader != null &&
+                    this.Leader.Equals(input.Leader))
                 ) && 
                 (
-                    this.ContentLocalAddress == other.ContentLocalAddress ||
-                    this.ContentLocalAddress != null &&
-                    this.ContentLocalAddress.Equals(other.ContentLocalAddress)
+                    this.ContentLocalAddress == input.ContentLocalAddress ||
+                    (this.ContentLocalAddress != null &&
+                    this.ContentLocalAddress.Equals(input.ContentLocalAddress))
                 ) && 
                 (
-                    this.MovieCapable == other.MovieCapable ||
-                    this.MovieCapable != null &&
-                    this.MovieCapable.Equals(other.MovieCapable)
+                    this.MovieCapable == input.MovieCapable ||
+                    (this.MovieCapable != null &&
+                    this.MovieCapable.Equals(input.MovieCapable))
                 ) && 
                 (
-                    this.VideoRecvLocalMute == other.VideoRecvLocalMute ||
-                    this.VideoRecvLocalMute != null &&
-                    this.VideoRecvLocalMute.Equals(other.VideoRecvLocalMute)
+                    this.VideoRecvLocalMute == input.VideoRecvLocalMute ||
+                    (this.VideoRecvLocalMute != null &&
+                    this.VideoRecvLocalMute.Equals(input.VideoRecvLocalMute))
                 ) && 
                 (
-                    this.ContentRtpTransport == other.ContentRtpTransport ||
-                    this.ContentRtpTransport != null &&
-                    this.ContentRtpTransport.Equals(other.ContentRtpTransport)
+                    this.ContentRtpTransport == input.ContentRtpTransport ||
+                    (this.ContentRtpTransport != null &&
+                    this.ContentRtpTransport.Equals(input.ContentRtpTransport))
                 ) && 
                 (
-                    this.RDCVersion == other.RDCVersion ||
-                    this.RDCVersion != null &&
-                    this.RDCVersion.Equals(other.RDCVersion)
+                    this.RDCVersion == input.RDCVersion ||
+                    (this.RDCVersion != null &&
+                    this.RDCVersion.Equals(input.RDCVersion))
                 ) && 
                 (
-                    this.AudioRecv == other.AudioRecv ||
-                    this.AudioRecv != null &&
-                    this.AudioRecv.Equals(other.AudioRecv)
+                    this.AudioRecv == input.AudioRecv ||
+                    (this.AudioRecv != null &&
+                    this.AudioRecv.Equals(input.AudioRecv))
                 ) && 
                 (
-                    this.ContentRelayServer == other.ContentRelayServer ||
-                    this.ContentRelayServer != null &&
-                    this.ContentRelayServer.Equals(other.ContentRelayServer)
+                    this.ContentRelayServer == input.ContentRelayServer ||
+                    (this.ContentRelayServer != null &&
+                    this.ContentRelayServer.Equals(input.ContentRelayServer))
                 ) && 
                 (
-                    this.VideoRecv == other.VideoRecv ||
-                    this.VideoRecv != null &&
-                    this.VideoRecv.Equals(other.VideoRecv)
+                    this.VideoRecv == input.VideoRecv ||
+                    (this.VideoRecv != null &&
+                    this.VideoRecv.Equals(input.VideoRecv))
                 ) && 
                 (
-                    this.Visibility == other.Visibility ||
-                    this.Visibility != null &&
-                    this.Visibility.Equals(other.Visibility)
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
-                    this.Sessionid == other.Sessionid ||
-                    this.Sessionid != null &&
-                    this.Sessionid.Equals(other.Sessionid)
+                    this.Sessionid == input.Sessionid ||
+                    (this.Sessionid != null &&
+                    this.Sessionid.Equals(input.Sessionid))
                 ) && 
                 (
-                    this.ContentRtcpRelay == other.ContentRtcpRelay ||
-                    this.ContentRtcpRelay != null &&
-                    this.ContentRtcpRelay.Equals(other.ContentRtcpRelay)
+                    this.ContentRtcpRelay == input.ContentRtcpRelay ||
+                    (this.ContentRtcpRelay != null &&
+                    this.ContentRtcpRelay.Equals(input.ContentRtcpRelay))
                 ) && 
                 (
-                    this.Locales == other.Locales ||
-                    this.Locales != null &&
-                    this.Locales.Equals(other.Locales)
+                    this.Locales == input.Locales ||
+                    (this.Locales != null &&
+                    this.Locales.Equals(input.Locales))
                 ) && 
                 (
-                    this.Medaddress == other.Medaddress ||
-                    this.Medaddress != null &&
-                    this.Medaddress.Equals(other.Medaddress)
+                    this.Medaddress == input.Medaddress ||
+                    (this.Medaddress != null &&
+                    this.Medaddress.Equals(input.Medaddress))
                 ) && 
                 (
-                    this.HtmlLayoutGuid == other.HtmlLayoutGuid ||
-                    this.HtmlLayoutGuid != null &&
-                    this.HtmlLayoutGuid.Equals(other.HtmlLayoutGuid)
+                    this.HtmlLayoutGuid == input.HtmlLayoutGuid ||
+                    (this.HtmlLayoutGuid != null &&
+                    this.HtmlLayoutGuid.Equals(input.HtmlLayoutGuid))
                 ) && 
                 (
-                    this._Endpoint == other._Endpoint ||
-                    this._Endpoint != null &&
-                    this._Endpoint.Equals(other._Endpoint)
+                    this._Endpoint == input._Endpoint ||
+                    (this._Endpoint != null &&
+                    this._Endpoint.Equals(input._Endpoint))
                 ) && 
                 (
-                    this.VideoDrop == other.VideoDrop ||
-                    this.VideoDrop != null &&
-                    this.VideoDrop.Equals(other.VideoDrop)
+                    this.VideoDrop == input.VideoDrop ||
+                    (this.VideoDrop != null &&
+                    this.VideoDrop.Equals(input.VideoDrop))
                 ) && 
                 (
-                    this.ContentRtcpTransport == other.ContentRtcpTransport ||
-                    this.ContentRtcpTransport != null &&
-                    this.ContentRtcpTransport.Equals(other.ContentRtcpTransport)
+                    this.ContentRtcpTransport == input.ContentRtcpTransport ||
+                    (this.ContentRtcpTransport != null &&
+                    this.ContentRtcpTransport.Equals(input.ContentRtcpTransport))
                 ) && 
                 (
-                    this.VideoRemoteRtcpAddress == other.VideoRemoteRtcpAddress ||
-                    this.VideoRemoteRtcpAddress != null &&
-                    this.VideoRemoteRtcpAddress.Equals(other.VideoRemoteRtcpAddress)
+                    this.VideoRemoteRtcpAddress == input.VideoRemoteRtcpAddress ||
+                    (this.VideoRemoteRtcpAddress != null &&
+                    this.VideoRemoteRtcpAddress.Equals(input.VideoRemoteRtcpAddress))
                 ) && 
                 (
-                    this.VideoRtpRelay == other.VideoRtpRelay ||
-                    this.VideoRtpRelay != null &&
-                    this.VideoRtpRelay.Equals(other.VideoRtpRelay)
+                    this.VideoRtpRelay == input.VideoRtpRelay ||
+                    (this.VideoRtpRelay != null &&
+                    this.VideoRtpRelay.Equals(input.VideoRtpRelay))
                 ) && 
                 (
-                    this.Mixaddress == other.Mixaddress ||
-                    this.Mixaddress != null &&
-                    this.Mixaddress.Equals(other.Mixaddress)
+                    this.Mixaddress == input.Mixaddress ||
+                    (this.Mixaddress != null &&
+                    this.Mixaddress.Equals(input.Mixaddress))
                 ) && 
                 (
-                    this.SIPHTTPProxyTransport == other.SIPHTTPProxyTransport ||
-                    this.SIPHTTPProxyTransport != null &&
-                    this.SIPHTTPProxyTransport.Equals(other.SIPHTTPProxyTransport)
+                    this.SIPHTTPProxyTransport == input.SIPHTTPProxyTransport ||
+                    (this.SIPHTTPProxyTransport != null &&
+                    this.SIPHTTPProxyTransport.Equals(input.SIPHTTPProxyTransport))
                 ) && 
                 (
-                    this.VideoRecvCodec == other.VideoRecvCodec ||
-                    this.VideoRecvCodec != null &&
-                    this.VideoRecvCodec.Equals(other.VideoRecvCodec)
+                    this.VideoRecvCodec == input.VideoRecvCodec ||
+                    (this.VideoRecvCodec != null &&
+                    this.VideoRecvCodec.Equals(input.VideoRecvCodec))
                 ) && 
                 (
-                    this.AudioRecvCodec == other.AudioRecvCodec ||
-                    this.AudioRecvCodec != null &&
-                    this.AudioRecvCodec.Equals(other.AudioRecvCodec)
+                    this.AudioRecvCodec == input.AudioRecvCodec ||
+                    (this.AudioRecvCodec != null &&
+                    this.AudioRecvCodec.Equals(input.AudioRecvCodec))
                 ) && 
                 (
-                    this.SessionIn == other.SessionIn ||
-                    this.SessionIn != null &&
-                    this.SessionIn.Equals(other.SessionIn)
+                    this.SessionIn == input.SessionIn ||
+                    (this.SessionIn != null &&
+                    this.SessionIn.Equals(input.SessionIn))
                 ) && 
                 (
-                    this.BondedVideoGuid == other.BondedVideoGuid ||
-                    this.BondedVideoGuid != null &&
-                    this.BondedVideoGuid.Equals(other.BondedVideoGuid)
+                    this.BondedVideoGuid == input.BondedVideoGuid ||
+                    (this.BondedVideoGuid != null &&
+                    this.BondedVideoGuid.Equals(input.BondedVideoGuid))
                 ) && 
                 (
-                    this.CallQuality == other.CallQuality ||
-                    this.CallQuality != null &&
-                    this.CallQuality.Equals(other.CallQuality)
+                    this.CallQuality == input.CallQuality ||
+                    (this.CallQuality != null &&
+                    this.CallQuality.Equals(input.CallQuality))
                 ) && 
                 (
-                    this.Meetingjointime == other.Meetingjointime ||
-                    this.Meetingjointime != null &&
-                    this.Meetingjointime.Equals(other.Meetingjointime)
+                    this.Meetingjointime == input.Meetingjointime ||
+                    (this.Meetingjointime != null &&
+                    this.Meetingjointime.Equals(input.Meetingjointime))
                 ) && 
                 (
-                    this.SessionInRelay == other.SessionInRelay ||
-                    this.SessionInRelay != null &&
-                    this.SessionInRelay.Equals(other.SessionInRelay)
+                    this.SessionInRelay == input.SessionInRelay ||
+                    (this.SessionInRelay != null &&
+                    this.SessionInRelay.Equals(input.SessionInRelay))
                 ) && 
                 (
-                    this.Pairedremoteaddress == other.Pairedremoteaddress ||
-                    this.Pairedremoteaddress != null &&
-                    this.Pairedremoteaddress.Equals(other.Pairedremoteaddress)
+                    this.Pairedremoteaddress == input.Pairedremoteaddress ||
+                    (this.Pairedremoteaddress != null &&
+                    this.Pairedremoteaddress.Equals(input.Pairedremoteaddress))
                 ) && 
                 (
-                    this.VideoSendHeight == other.VideoSendHeight ||
-                    this.VideoSendHeight != null &&
-                    this.VideoSendHeight.Equals(other.VideoSendHeight)
+                    this.VideoSendHeight == input.VideoSendHeight ||
+                    (this.VideoSendHeight != null &&
+                    this.VideoSendHeight.Equals(input.VideoSendHeight))
                 ) && 
                 (
-                    this.VideoRecvHeight == other.VideoRecvHeight ||
-                    this.VideoRecvHeight != null &&
-                    this.VideoRecvHeight.Equals(other.VideoRecvHeight)
+                    this.VideoRecvHeight == input.VideoRecvHeight ||
+                    (this.VideoRecvHeight != null &&
+                    this.VideoRecvHeight.Equals(input.VideoRecvHeight))
                 ) && 
                 (
-                    this.SecureCall == other.SecureCall ||
-                    this.SecureCall != null &&
-                    this.SecureCall.Equals(other.SecureCall)
+                    this.SecureCall == input.SecureCall ||
+                    (this.SecureCall != null &&
+                    this.SecureCall.Equals(input.SecureCall))
                 ) && 
                 (
-                    this.VideoLocalRtcpAddress == other.VideoLocalRtcpAddress ||
-                    this.VideoLocalRtcpAddress != null &&
-                    this.VideoLocalRtcpAddress.Equals(other.VideoLocalRtcpAddress)
+                    this.VideoLocalRtcpAddress == input.VideoLocalRtcpAddress ||
+                    (this.VideoLocalRtcpAddress != null &&
+                    this.VideoLocalRtcpAddress.Equals(input.VideoLocalRtcpAddress))
                 ) && 
                 (
-                    this.AudioPlayName == other.AudioPlayName ||
-                    this.AudioPlayName != null &&
-                    this.AudioPlayName.Equals(other.AudioPlayName)
+                    this.AudioPlayName == input.AudioPlayName ||
+                    (this.AudioPlayName != null &&
+                    this.AudioPlayName.Equals(input.AudioPlayName))
                 ) && 
                 (
-                    this.VideoCapID == other.VideoCapID ||
-                    this.VideoCapID != null &&
-                    this.VideoCapID.Equals(other.VideoCapID)
+                    this.VideoCapID == input.VideoCapID ||
+                    (this.VideoCapID != null &&
+                    this.VideoCapID.Equals(input.VideoCapID))
                 ) && 
                 (
-                    this.AudioRtpTransport == other.AudioRtpTransport ||
-                    this.AudioRtpTransport != null &&
-                    this.AudioRtpTransport.Equals(other.AudioRtpTransport)
+                    this.AudioRtpTransport == input.AudioRtpTransport ||
+                    (this.AudioRtpTransport != null &&
+                    this.AudioRtpTransport.Equals(input.AudioRtpTransport))
                 ) && 
                 (
-                    this.MeetingInfoMode == other.MeetingInfoMode ||
-                    this.MeetingInfoMode != null &&
-                    this.MeetingInfoMode.Equals(other.MeetingInfoMode)
+                    this.MeetingInfoMode == input.MeetingInfoMode ||
+                    (this.MeetingInfoMode != null &&
+                    this.MeetingInfoMode.Equals(input.MeetingInfoMode))
                 ) && 
                 (
-                    this.Callhostname == other.Callhostname ||
-                    this.Callhostname != null &&
-                    this.Callhostname.Equals(other.Callhostname)
+                    this.Callhostname == input.Callhostname ||
+                    (this.Callhostname != null &&
+                    this.Callhostname.Equals(input.Callhostname))
                 ) && 
                 (
-                    this.Callguid == other.Callguid ||
-                    this.Callguid != null &&
-                    this.Callguid.Equals(other.Callguid)
+                    this.Callguid == input.Callguid ||
+                    (this.Callguid != null &&
+                    this.Callguid.Equals(input.Callguid))
                 ) && 
                 (
-                    this.AudioCapID == other.AudioCapID ||
-                    this.AudioCapID != null &&
-                    this.AudioCapID.Equals(other.AudioCapID)
+                    this.AudioCapID == input.AudioCapID ||
+                    (this.AudioCapID != null &&
+                    this.AudioCapID.Equals(input.AudioCapID))
                 ) && 
                 (
-                    this.VideoSend == other.VideoSend ||
-                    this.VideoSend != null &&
-                    this.VideoSend.Equals(other.VideoSend)
+                    this.VideoSend == input.VideoSend ||
+                    (this.VideoSend != null &&
+                    this.VideoSend.Equals(input.VideoSend))
                 ) && 
                 (
-                    this.ContentRecvCodec == other.ContentRecvCodec ||
-                    this.ContentRecvCodec != null &&
-                    this.ContentRecvCodec.Equals(other.ContentRecvCodec)
+                    this.ContentRecvCodec == input.ContentRecvCodec ||
+                    (this.ContentRecvCodec != null &&
+                    this.ContentRecvCodec.Equals(input.ContentRecvCodec))
                 ) && 
                 (
-                    this.SessionRelay == other.SessionRelay ||
-                    this.SessionRelay != null &&
-                    this.SessionRelay.Equals(other.SessionRelay)
+                    this.SessionRelay == input.SessionRelay ||
+                    (this.SessionRelay != null &&
+                    this.SessionRelay.Equals(input.SessionRelay))
                 ) && 
                 (
-                    this.VideoRecvRemoteMute == other.VideoRecvRemoteMute ||
-                    this.VideoRecvRemoteMute != null &&
-                    this.VideoRecvRemoteMute.Equals(other.VideoRecvRemoteMute)
+                    this.VideoRecvRemoteMute == input.VideoRecvRemoteMute ||
+                    (this.VideoRecvRemoteMute != null &&
+                    this.VideoRecvRemoteMute.Equals(input.VideoRecvRemoteMute))
                 ) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.BondedVideoName == other.BondedVideoName ||
-                    this.BondedVideoName != null &&
-                    this.BondedVideoName.Equals(other.BondedVideoName)
+                    this.BondedVideoName == input.BondedVideoName ||
+                    (this.BondedVideoName != null &&
+                    this.BondedVideoName.Equals(input.BondedVideoName))
                 ) && 
                 (
-                    this.IsInRoster == other.IsInRoster ||
-                    this.IsInRoster != null &&
-                    this.IsInRoster.Equals(other.IsInRoster)
+                    this.IsInRoster == input.IsInRoster ||
+                    (this.IsInRoster != null &&
+                    this.IsInRoster.Equals(input.IsInRoster))
                 );
         }
 
@@ -1643,234 +1641,232 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.EcMode != null)
-                    hash = hash * 59 + this.EcMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.EcMode.GetHashCode();
                 if (this.Creationtime != null)
-                    hash = hash * 59 + this.Creationtime.GetHashCode();
+                    hashCode = hashCode * 59 + this.Creationtime.GetHashCode();
                 if (this.AudioRemoteRtcpAddress != null)
-                    hash = hash * 59 + this.AudioRemoteRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRemoteRtcpAddress.GetHashCode();
                 if (this.VideoSendCodec != null)
-                    hash = hash * 59 + this.VideoSendCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendCodec.GetHashCode();
                 if (this.AudioPlayID != null)
-                    hash = hash * 59 + this.AudioPlayID.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioPlayID.GetHashCode();
                 if (this.CallQualityRecv != null)
-                    hash = hash * 59 + this.CallQualityRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQualityRecv.GetHashCode();
                 if (this.SessionOut != null)
-                    hash = hash * 59 + this.SessionOut.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionOut.GetHashCode();
                 if (this.AudioLocalAddress != null)
-                    hash = hash * 59 + this.AudioLocalAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioLocalAddress.GetHashCode();
                 if (this.Meetingid != null)
-                    hash = hash * 59 + this.Meetingid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Meetingid.GetHashCode();
                 if (this.VideoSendWidth != null)
-                    hash = hash * 59 + this.VideoSendWidth.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendWidth.GetHashCode();
                 if (this.CallQualitySend != null)
-                    hash = hash * 59 + this.CallQualitySend.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQualitySend.GetHashCode();
                 if (this.Mhaddress != null)
-                    hash = hash * 59 + this.Mhaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Mhaddress.GetHashCode();
                 if (this.RDCControlleeCapable != null)
-                    hash = hash * 59 + this.RDCControlleeCapable.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCControlleeCapable.GetHashCode();
                 if (this.AudioCapName != null)
-                    hash = hash * 59 + this.AudioCapName.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioCapName.GetHashCode();
                 if (this.ProxyInfo != null)
-                    hash = hash * 59 + this.ProxyInfo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProxyInfo.GetHashCode();
                 if (this.AudioSendCodec != null)
-                    hash = hash * 59 + this.AudioSendCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioSendCodec.GetHashCode();
                 if (this.Vendor != null)
-                    hash = hash * 59 + this.Vendor.GetHashCode();
+                    hashCode = hashCode * 59 + this.Vendor.GetHashCode();
                 if (this.VideoRecvWidth != null)
-                    hash = hash * 59 + this.VideoRecvWidth.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvWidth.GetHashCode();
                 if (this.Conaddress != null)
-                    hash = hash * 59 + this.Conaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Conaddress.GetHashCode();
                 if (this.TalkDetected != null)
-                    hash = hash * 59 + this.TalkDetected.GetHashCode();
+                    hashCode = hashCode * 59 + this.TalkDetected.GetHashCode();
                 if (this.SubLayout != null)
-                    hash = hash * 59 + this.SubLayout.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubLayout.GetHashCode();
                 if (this.AudioRtcpRelay != null)
-                    hash = hash * 59 + this.AudioRtcpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRtcpRelay.GetHashCode();
                 if (this.AudioRecvLocalMute != null)
-                    hash = hash * 59 + this.AudioRecvLocalMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvLocalMute.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.VideoLocalAddress != null)
-                    hash = hash * 59 + this.VideoLocalAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoLocalAddress.GetHashCode();
                 if (this.AudioLocalRtcpAddress != null)
-                    hash = hash * 59 + this.AudioLocalRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioLocalRtcpAddress.GetHashCode();
                 if (this.ContentRtpRelay != null)
-                    hash = hash * 59 + this.ContentRtpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRtpRelay.GetHashCode();
                 if (this.ContentLocalRtcpAddress != null)
-                    hash = hash * 59 + this.ContentLocalRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentLocalRtcpAddress.GetHashCode();
                 if (this.RemoteConnectionCount != null)
-                    hash = hash * 59 + this.RemoteConnectionCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.RemoteConnectionCount.GetHashCode();
                 if (this.Callrate != null)
-                    hash = hash * 59 + this.Callrate.GetHashCode();
+                    hashCode = hashCode * 59 + this.Callrate.GetHashCode();
                 if (this.MixerGuid != null)
-                    hash = hash * 59 + this.MixerGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixerGuid.GetHashCode();
                 if (this.Transport != null)
-                    hash = hash * 59 + this.Transport.GetHashCode();
+                    hashCode = hashCode * 59 + this.Transport.GetHashCode();
                 if (this.AudioCapSelectID != null)
-                    hash = hash * 59 + this.AudioCapSelectID.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioCapSelectID.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.RDCControllerCapable != null)
-                    hash = hash * 59 + this.RDCControllerCapable.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCControllerCapable.GetHashCode();
                 if (this.Pairedname != null)
-                    hash = hash * 59 + this.Pairedname.GetHashCode();
+                    hashCode = hashCode * 59 + this.Pairedname.GetHashCode();
                 if (this.VideoRtcpRelay != null)
-                    hash = hash * 59 + this.VideoRtcpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRtcpRelay.GetHashCode();
                 if (this.EndpointCpuParams != null)
-                    hash = hash * 59 + this.EndpointCpuParams.GetHashCode();
+                    hashCode = hashCode * 59 + this.EndpointCpuParams.GetHashCode();
                 if (this.VideoRemoteAddress != null)
-                    hash = hash * 59 + this.VideoRemoteAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRemoteAddress.GetHashCode();
                 if (this.Version != null)
-                    hash = hash * 59 + this.Version.GetHashCode();
+                    hashCode = hashCode * 59 + this.Version.GetHashCode();
                 if (this.ContentRecv != null)
-                    hash = hash * 59 + this.ContentRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecv.GetHashCode();
                 if (this.LocalName != null)
-                    hash = hash * 59 + this.LocalName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LocalName.GetHashCode();
                 if (this.BJNUserId != null)
-                    hash = hash * 59 + this.BJNUserId.GetHashCode();
+                    hashCode = hashCode * 59 + this.BJNUserId.GetHashCode();
                 if (this.ContentRemoteAddress != null)
-                    hash = hash * 59 + this.ContentRemoteAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRemoteAddress.GetHashCode();
                 if (this.AudioSend != null)
-                    hash = hash * 59 + this.AudioSend.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioSend.GetHashCode();
                 if (this.ParticipantDTMFMenus != null)
-                    hash = hash * 59 + this.ParticipantDTMFMenus.GetHashCode();
+                    hashCode = hashCode * 59 + this.ParticipantDTMFMenus.GetHashCode();
                 if (this.VideoRtcpTranspor != null)
-                    hash = hash * 59 + this.VideoRtcpTranspor.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRtcpTranspor.GetHashCode();
                 if (this.AudioRtcpTransport != null)
-                    hash = hash * 59 + this.AudioRtcpTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRtcpTransport.GetHashCode();
                 if (this.RelayNodeId != null)
-                    hash = hash * 59 + this.RelayNodeId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RelayNodeId.GetHashCode();
                 if (this.ContentRemoteRtcpAddress != null)
-                    hash = hash * 59 + this.ContentRemoteRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRemoteRtcpAddress.GetHashCode();
                 if (this.AudioRtpRelay != null)
-                    hash = hash * 59 + this.AudioRtpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRtpRelay.GetHashCode();
                 if (this.VideoRtpTransport != null)
-                    hash = hash * 59 + this.VideoRtpTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRtpTransport.GetHashCode();
                 if (this.ContentRecvLocalMute != null)
-                    hash = hash * 59 + this.ContentRecvLocalMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvLocalMute.GetHashCode();
                 if (this.Layout != null)
-                    hash = hash * 59 + this.Layout.GetHashCode();
+                    hashCode = hashCode * 59 + this.Layout.GetHashCode();
                 if (this.ContentSend != null)
-                    hash = hash * 59 + this.ContentSend.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentSend.GetHashCode();
                 if (this.Remoteaddress != null)
-                    hash = hash * 59 + this.Remoteaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Remoteaddress.GetHashCode();
                 if (this.MeetingGuid != null)
-                    hash = hash * 59 + this.MeetingGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingGuid.GetHashCode();
                 if (this.Connecttime != null)
-                    hash = hash * 59 + this.Connecttime.GetHashCode();
+                    hashCode = hashCode * 59 + this.Connecttime.GetHashCode();
                 if (this.Localaddress != null)
-                    hash = hash * 59 + this.Localaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Localaddress.GetHashCode();
                 if (this.AudioRemoteAddress != null)
-                    hash = hash * 59 + this.AudioRemoteAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRemoteAddress.GetHashCode();
                 if (this.BondedAudioGuid != null)
-                    hash = hash * 59 + this.BondedAudioGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondedAudioGuid.GetHashCode();
                 if (this.AudioRecvRemoteMute != null)
-                    hash = hash * 59 + this.AudioRecvRemoteMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvRemoteMute.GetHashCode();
                 if (this.SessionOutRelay != null)
-                    hash = hash * 59 + this.SessionOutRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionOutRelay.GetHashCode();
                 if (this.Leader != null)
-                    hash = hash * 59 + this.Leader.GetHashCode();
+                    hashCode = hashCode * 59 + this.Leader.GetHashCode();
                 if (this.ContentLocalAddress != null)
-                    hash = hash * 59 + this.ContentLocalAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentLocalAddress.GetHashCode();
                 if (this.MovieCapable != null)
-                    hash = hash * 59 + this.MovieCapable.GetHashCode();
+                    hashCode = hashCode * 59 + this.MovieCapable.GetHashCode();
                 if (this.VideoRecvLocalMute != null)
-                    hash = hash * 59 + this.VideoRecvLocalMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvLocalMute.GetHashCode();
                 if (this.ContentRtpTransport != null)
-                    hash = hash * 59 + this.ContentRtpTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRtpTransport.GetHashCode();
                 if (this.RDCVersion != null)
-                    hash = hash * 59 + this.RDCVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCVersion.GetHashCode();
                 if (this.AudioRecv != null)
-                    hash = hash * 59 + this.AudioRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecv.GetHashCode();
                 if (this.ContentRelayServer != null)
-                    hash = hash * 59 + this.ContentRelayServer.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRelayServer.GetHashCode();
                 if (this.VideoRecv != null)
-                    hash = hash * 59 + this.VideoRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecv.GetHashCode();
                 if (this.Visibility != null)
-                    hash = hash * 59 + this.Visibility.GetHashCode();
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.Sessionid != null)
-                    hash = hash * 59 + this.Sessionid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Sessionid.GetHashCode();
                 if (this.ContentRtcpRelay != null)
-                    hash = hash * 59 + this.ContentRtcpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRtcpRelay.GetHashCode();
                 if (this.Locales != null)
-                    hash = hash * 59 + this.Locales.GetHashCode();
+                    hashCode = hashCode * 59 + this.Locales.GetHashCode();
                 if (this.Medaddress != null)
-                    hash = hash * 59 + this.Medaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Medaddress.GetHashCode();
                 if (this.HtmlLayoutGuid != null)
-                    hash = hash * 59 + this.HtmlLayoutGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.HtmlLayoutGuid.GetHashCode();
                 if (this._Endpoint != null)
-                    hash = hash * 59 + this._Endpoint.GetHashCode();
+                    hashCode = hashCode * 59 + this._Endpoint.GetHashCode();
                 if (this.VideoDrop != null)
-                    hash = hash * 59 + this.VideoDrop.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoDrop.GetHashCode();
                 if (this.ContentRtcpTransport != null)
-                    hash = hash * 59 + this.ContentRtcpTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRtcpTransport.GetHashCode();
                 if (this.VideoRemoteRtcpAddress != null)
-                    hash = hash * 59 + this.VideoRemoteRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRemoteRtcpAddress.GetHashCode();
                 if (this.VideoRtpRelay != null)
-                    hash = hash * 59 + this.VideoRtpRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRtpRelay.GetHashCode();
                 if (this.Mixaddress != null)
-                    hash = hash * 59 + this.Mixaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Mixaddress.GetHashCode();
                 if (this.SIPHTTPProxyTransport != null)
-                    hash = hash * 59 + this.SIPHTTPProxyTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.SIPHTTPProxyTransport.GetHashCode();
                 if (this.VideoRecvCodec != null)
-                    hash = hash * 59 + this.VideoRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvCodec.GetHashCode();
                 if (this.AudioRecvCodec != null)
-                    hash = hash * 59 + this.AudioRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvCodec.GetHashCode();
                 if (this.SessionIn != null)
-                    hash = hash * 59 + this.SessionIn.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionIn.GetHashCode();
                 if (this.BondedVideoGuid != null)
-                    hash = hash * 59 + this.BondedVideoGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondedVideoGuid.GetHashCode();
                 if (this.CallQuality != null)
-                    hash = hash * 59 + this.CallQuality.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQuality.GetHashCode();
                 if (this.Meetingjointime != null)
-                    hash = hash * 59 + this.Meetingjointime.GetHashCode();
+                    hashCode = hashCode * 59 + this.Meetingjointime.GetHashCode();
                 if (this.SessionInRelay != null)
-                    hash = hash * 59 + this.SessionInRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionInRelay.GetHashCode();
                 if (this.Pairedremoteaddress != null)
-                    hash = hash * 59 + this.Pairedremoteaddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.Pairedremoteaddress.GetHashCode();
                 if (this.VideoSendHeight != null)
-                    hash = hash * 59 + this.VideoSendHeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendHeight.GetHashCode();
                 if (this.VideoRecvHeight != null)
-                    hash = hash * 59 + this.VideoRecvHeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvHeight.GetHashCode();
                 if (this.SecureCall != null)
-                    hash = hash * 59 + this.SecureCall.GetHashCode();
+                    hashCode = hashCode * 59 + this.SecureCall.GetHashCode();
                 if (this.VideoLocalRtcpAddress != null)
-                    hash = hash * 59 + this.VideoLocalRtcpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoLocalRtcpAddress.GetHashCode();
                 if (this.AudioPlayName != null)
-                    hash = hash * 59 + this.AudioPlayName.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioPlayName.GetHashCode();
                 if (this.VideoCapID != null)
-                    hash = hash * 59 + this.VideoCapID.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoCapID.GetHashCode();
                 if (this.AudioRtpTransport != null)
-                    hash = hash * 59 + this.AudioRtpTransport.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRtpTransport.GetHashCode();
                 if (this.MeetingInfoMode != null)
-                    hash = hash * 59 + this.MeetingInfoMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingInfoMode.GetHashCode();
                 if (this.Callhostname != null)
-                    hash = hash * 59 + this.Callhostname.GetHashCode();
+                    hashCode = hashCode * 59 + this.Callhostname.GetHashCode();
                 if (this.Callguid != null)
-                    hash = hash * 59 + this.Callguid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Callguid.GetHashCode();
                 if (this.AudioCapID != null)
-                    hash = hash * 59 + this.AudioCapID.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioCapID.GetHashCode();
                 if (this.VideoSend != null)
-                    hash = hash * 59 + this.VideoSend.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSend.GetHashCode();
                 if (this.ContentRecvCodec != null)
-                    hash = hash * 59 + this.ContentRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContentRecvCodec.GetHashCode();
                 if (this.SessionRelay != null)
-                    hash = hash * 59 + this.SessionRelay.GetHashCode();
+                    hashCode = hashCode * 59 + this.SessionRelay.GetHashCode();
                 if (this.VideoRecvRemoteMute != null)
-                    hash = hash * 59 + this.VideoRecvRemoteMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvRemoteMute.GetHashCode();
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.BondedVideoName != null)
-                    hash = hash * 59 + this.BondedVideoName.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondedVideoName.GetHashCode();
                 if (this.IsInRoster != null)
-                    hash = hash * 59 + this.IsInRoster.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.IsInRoster.GetHashCode();
+                return hashCode;
             }
         }
 

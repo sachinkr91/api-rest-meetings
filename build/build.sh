@@ -57,7 +57,7 @@ cd ../../build
 
 rm -rf ../libs/php
 
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php --config config.php.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l php -o ../libs/php -t ./templates/php -c config.php.json 
 
 cd ../libs/php/BlueJeansMeetingsRestApi
 
@@ -74,7 +74,7 @@ rm -rf ../libs/javascript/docs
 rm -rf ../libs/javascript/src
 rm -rf ../libs/javascript/test
 
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript --config config.javascript.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l javascript -o ../libs/javascript -t ./templates/javascript -c config.javascript.json
 
 cd ../libs/javascript
 
@@ -98,7 +98,7 @@ cd ../../build
 #
 
 rm -rf ../libs/csharp
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l csharp -o ../libs/csharp --config config.csharp.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l csharp -o ../libs/csharp -t ./templates/csharp -c config.csharp.json
 cd ../libs/csharp
 chmod 755 build.sh
 ./build.sh
@@ -112,7 +112,7 @@ cd ../../build
 #
 
 rm -rf ../libs/python
-java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python --config config.python.json
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l python -o ../libs/python -t ./templates/python -c config.python.json
 
 cd ../libs/python
 

@@ -36,11 +36,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var clientId = clientId_example;  // string | The 32 character client ID generated when you created the client application. (optional) 
             var redirectUri = redirectUri_example;  // string | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application. (optional) 
@@ -82,7 +77,7 @@ void (empty response body)
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -113,11 +108,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 
@@ -148,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -179,11 +169,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var grantRequestCode = new GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 
@@ -214,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -245,11 +230,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 
@@ -280,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,11 +291,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 
@@ -346,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -378,9 +353,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
             var grantRequestRefresh = new GrantRequestRefresh(); // GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
@@ -443,11 +418,6 @@ namespace Example
     {
         public void main()
         {
-            // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
-
             var apiInstance = new AuthenticationApi();
             var accessToken = accessToken_example;  // string |  (optional) 
 
@@ -478,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -510,9 +480,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new AuthenticationApi();
             var grantRequestRevoke = new GrantRequestRevoke(); // GrantRequestRevoke | Contains information about the type of grant you are revoking.

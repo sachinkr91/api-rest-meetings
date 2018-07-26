@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -33,70 +33,70 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EndpointsInner" /> class.
         /// </summary>
-        /// <param name="Meetingid">Meetingid.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="CallQuality">CallQuality.</param>
-        /// <param name="Leader">Leader.</param>
-        /// <param name="Callguid">Callguid.</param>
-        /// <param name="Endpoint">Endpoint.</param>
-        /// <param name="TalkDetected">TalkDetected.</param>
-        /// <param name="SecureCall">SecureCall.</param>
-        /// <param name="Layout">Layout.</param>
-        /// <param name="SubLayout">SubLayout.</param>
-        /// <param name="VideoRecv">VideoRecv.</param>
-        /// <param name="VideoRecvLocalMute">VideoRecvLocalMute.</param>
-        /// <param name="VideoRecvRemoteMute">VideoRecvRemoteMute.</param>
-        /// <param name="AudioRecv">AudioRecv.</param>
-        /// <param name="AudioRecvLocalMute">AudioRecvLocalMute.</param>
-        /// <param name="AudioRecvRemoteMute">AudioRecvRemoteMute.</param>
-        /// <param name="AudioRecvCodec">AudioRecvCodec.</param>
-        /// <param name="AudioSendCodec">AudioSendCodec.</param>
-        /// <param name="VideoRecvCodec">VideoRecvCodec.</param>
-        /// <param name="VideoRecvHeight">VideoRecvHeight.</param>
-        /// <param name="VideoRecvWidth">VideoRecvWidth.</param>
-        /// <param name="VideoSendCodec">VideoSendCodec.</param>
-        /// <param name="VideoSendHeight">VideoSendHeight.</param>
-        /// <param name="VideoSendWidth">VideoSendWidth.</param>
-        /// <param name="Visibility">Visibility.</param>
-        /// <param name="ChatEndpointGuid">ChatEndpointGuid.</param>
-        /// <param name="EndpointGuid">EndpointGuid.</param>
-        /// <param name="RDCVersion">RDCVersion.</param>
-        /// <param name="RDCControllerCapable">RDCControllerCapable.</param>
-        /// <param name="RDCControlleeCapable">RDCControlleeCapable.</param>
-        /// <param name="Connections">Connections.</param>
-        public EndpointsInner(string Meetingid = default(string), string Name = default(string), string CallQuality = default(string), string Leader = default(string), string Callguid = default(string), string Endpoint = default(string), string TalkDetected = default(string), string SecureCall = default(string), string Layout = default(string), string SubLayout = default(string), string VideoRecv = default(string), string VideoRecvLocalMute = default(string), string VideoRecvRemoteMute = default(string), string AudioRecv = default(string), string AudioRecvLocalMute = default(string), string AudioRecvRemoteMute = default(string), string AudioRecvCodec = default(string), string AudioSendCodec = default(string), string VideoRecvCodec = default(string), string VideoRecvHeight = default(string), string VideoRecvWidth = default(string), string VideoSendCodec = default(string), string VideoSendHeight = default(string), string VideoSendWidth = default(string), string Visibility = default(string), string ChatEndpointGuid = default(string), string EndpointGuid = default(string), string RDCVersion = default(string), string RDCControllerCapable = default(string), string RDCControlleeCapable = default(string), List<EndpointsInnerConnections> Connections = default(List<EndpointsInnerConnections>))
+        /// <param name="meetingid">meetingid.</param>
+        /// <param name="name">name.</param>
+        /// <param name="callQuality">callQuality.</param>
+        /// <param name="leader">leader.</param>
+        /// <param name="callguid">callguid.</param>
+        /// <param name="endpoint">endpoint.</param>
+        /// <param name="talkDetected">talkDetected.</param>
+        /// <param name="secureCall">secureCall.</param>
+        /// <param name="layout">layout.</param>
+        /// <param name="subLayout">subLayout.</param>
+        /// <param name="videoRecv">videoRecv.</param>
+        /// <param name="videoRecvLocalMute">videoRecvLocalMute.</param>
+        /// <param name="videoRecvRemoteMute">videoRecvRemoteMute.</param>
+        /// <param name="audioRecv">audioRecv.</param>
+        /// <param name="audioRecvLocalMute">audioRecvLocalMute.</param>
+        /// <param name="audioRecvRemoteMute">audioRecvRemoteMute.</param>
+        /// <param name="audioRecvCodec">audioRecvCodec.</param>
+        /// <param name="audioSendCodec">audioSendCodec.</param>
+        /// <param name="videoRecvCodec">videoRecvCodec.</param>
+        /// <param name="videoRecvHeight">videoRecvHeight.</param>
+        /// <param name="videoRecvWidth">videoRecvWidth.</param>
+        /// <param name="videoSendCodec">videoSendCodec.</param>
+        /// <param name="videoSendHeight">videoSendHeight.</param>
+        /// <param name="videoSendWidth">videoSendWidth.</param>
+        /// <param name="visibility">visibility.</param>
+        /// <param name="chatEndpointGuid">chatEndpointGuid.</param>
+        /// <param name="endpointGuid">endpointGuid.</param>
+        /// <param name="rDCVersion">rDCVersion.</param>
+        /// <param name="rDCControllerCapable">rDCControllerCapable.</param>
+        /// <param name="rDCControlleeCapable">rDCControlleeCapable.</param>
+        /// <param name="connections">connections.</param>
+        public EndpointsInner(string meetingid = default(string), string name = default(string), string callQuality = default(string), string leader = default(string), string callguid = default(string), string endpoint = default(string), string talkDetected = default(string), string secureCall = default(string), string layout = default(string), string subLayout = default(string), string videoRecv = default(string), string videoRecvLocalMute = default(string), string videoRecvRemoteMute = default(string), string audioRecv = default(string), string audioRecvLocalMute = default(string), string audioRecvRemoteMute = default(string), string audioRecvCodec = default(string), string audioSendCodec = default(string), string videoRecvCodec = default(string), string videoRecvHeight = default(string), string videoRecvWidth = default(string), string videoSendCodec = default(string), string videoSendHeight = default(string), string videoSendWidth = default(string), string visibility = default(string), string chatEndpointGuid = default(string), string endpointGuid = default(string), string rDCVersion = default(string), string rDCControllerCapable = default(string), string rDCControlleeCapable = default(string), List<EndpointsInnerConnections> connections = default(List<EndpointsInnerConnections>))
         {
-            this.Meetingid = Meetingid;
-            this.Name = Name;
-            this.CallQuality = CallQuality;
-            this.Leader = Leader;
-            this.Callguid = Callguid;
-            this.Endpoint = Endpoint;
-            this.TalkDetected = TalkDetected;
-            this.SecureCall = SecureCall;
-            this.Layout = Layout;
-            this.SubLayout = SubLayout;
-            this.VideoRecv = VideoRecv;
-            this.VideoRecvLocalMute = VideoRecvLocalMute;
-            this.VideoRecvRemoteMute = VideoRecvRemoteMute;
-            this.AudioRecv = AudioRecv;
-            this.AudioRecvLocalMute = AudioRecvLocalMute;
-            this.AudioRecvRemoteMute = AudioRecvRemoteMute;
-            this.AudioRecvCodec = AudioRecvCodec;
-            this.AudioSendCodec = AudioSendCodec;
-            this.VideoRecvCodec = VideoRecvCodec;
-            this.VideoRecvHeight = VideoRecvHeight;
-            this.VideoRecvWidth = VideoRecvWidth;
-            this.VideoSendCodec = VideoSendCodec;
-            this.VideoSendHeight = VideoSendHeight;
-            this.VideoSendWidth = VideoSendWidth;
-            this.Visibility = Visibility;
-            this.ChatEndpointGuid = ChatEndpointGuid;
-            this.EndpointGuid = EndpointGuid;
-            this.RDCVersion = RDCVersion;
-            this.RDCControllerCapable = RDCControllerCapable;
-            this.RDCControlleeCapable = RDCControlleeCapable;
-            this.Connections = Connections;
+            this.Meetingid = meetingid;
+            this.Name = name;
+            this.CallQuality = callQuality;
+            this.Leader = leader;
+            this.Callguid = callguid;
+            this.Endpoint = endpoint;
+            this.TalkDetected = talkDetected;
+            this.SecureCall = secureCall;
+            this.Layout = layout;
+            this.SubLayout = subLayout;
+            this.VideoRecv = videoRecv;
+            this.VideoRecvLocalMute = videoRecvLocalMute;
+            this.VideoRecvRemoteMute = videoRecvRemoteMute;
+            this.AudioRecv = audioRecv;
+            this.AudioRecvLocalMute = audioRecvLocalMute;
+            this.AudioRecvRemoteMute = audioRecvRemoteMute;
+            this.AudioRecvCodec = audioRecvCodec;
+            this.AudioSendCodec = audioSendCodec;
+            this.VideoRecvCodec = videoRecvCodec;
+            this.VideoRecvHeight = videoRecvHeight;
+            this.VideoRecvWidth = videoRecvWidth;
+            this.VideoSendCodec = videoSendCodec;
+            this.VideoSendHeight = videoSendHeight;
+            this.VideoSendWidth = videoSendWidth;
+            this.Visibility = visibility;
+            this.ChatEndpointGuid = chatEndpointGuid;
+            this.EndpointGuid = endpointGuid;
+            this.RDCVersion = rDCVersion;
+            this.RDCControllerCapable = rDCControllerCapable;
+            this.RDCControlleeCapable = rDCControlleeCapable;
+            this.Connections = connections;
         }
         
         /// <summary>
@@ -332,7 +332,7 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -340,180 +340,178 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as EndpointsInner);
+            return this.Equals(input as EndpointsInner);
         }
 
         /// <summary>
         /// Returns true if EndpointsInner instances are equal
         /// </summary>
-        /// <param name="other">Instance of EndpointsInner to be compared</param>
+        /// <param name="input">Instance of EndpointsInner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EndpointsInner other)
+        public bool Equals(EndpointsInner input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Meetingid == other.Meetingid ||
-                    this.Meetingid != null &&
-                    this.Meetingid.Equals(other.Meetingid)
+                    this.Meetingid == input.Meetingid ||
+                    (this.Meetingid != null &&
+                    this.Meetingid.Equals(input.Meetingid))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.CallQuality == other.CallQuality ||
-                    this.CallQuality != null &&
-                    this.CallQuality.Equals(other.CallQuality)
+                    this.CallQuality == input.CallQuality ||
+                    (this.CallQuality != null &&
+                    this.CallQuality.Equals(input.CallQuality))
                 ) && 
                 (
-                    this.Leader == other.Leader ||
-                    this.Leader != null &&
-                    this.Leader.Equals(other.Leader)
+                    this.Leader == input.Leader ||
+                    (this.Leader != null &&
+                    this.Leader.Equals(input.Leader))
                 ) && 
                 (
-                    this.Callguid == other.Callguid ||
-                    this.Callguid != null &&
-                    this.Callguid.Equals(other.Callguid)
+                    this.Callguid == input.Callguid ||
+                    (this.Callguid != null &&
+                    this.Callguid.Equals(input.Callguid))
                 ) && 
                 (
-                    this.Endpoint == other.Endpoint ||
-                    this.Endpoint != null &&
-                    this.Endpoint.Equals(other.Endpoint)
+                    this.Endpoint == input.Endpoint ||
+                    (this.Endpoint != null &&
+                    this.Endpoint.Equals(input.Endpoint))
                 ) && 
                 (
-                    this.TalkDetected == other.TalkDetected ||
-                    this.TalkDetected != null &&
-                    this.TalkDetected.Equals(other.TalkDetected)
+                    this.TalkDetected == input.TalkDetected ||
+                    (this.TalkDetected != null &&
+                    this.TalkDetected.Equals(input.TalkDetected))
                 ) && 
                 (
-                    this.SecureCall == other.SecureCall ||
-                    this.SecureCall != null &&
-                    this.SecureCall.Equals(other.SecureCall)
+                    this.SecureCall == input.SecureCall ||
+                    (this.SecureCall != null &&
+                    this.SecureCall.Equals(input.SecureCall))
                 ) && 
                 (
-                    this.Layout == other.Layout ||
-                    this.Layout != null &&
-                    this.Layout.Equals(other.Layout)
+                    this.Layout == input.Layout ||
+                    (this.Layout != null &&
+                    this.Layout.Equals(input.Layout))
                 ) && 
                 (
-                    this.SubLayout == other.SubLayout ||
-                    this.SubLayout != null &&
-                    this.SubLayout.Equals(other.SubLayout)
+                    this.SubLayout == input.SubLayout ||
+                    (this.SubLayout != null &&
+                    this.SubLayout.Equals(input.SubLayout))
                 ) && 
                 (
-                    this.VideoRecv == other.VideoRecv ||
-                    this.VideoRecv != null &&
-                    this.VideoRecv.Equals(other.VideoRecv)
+                    this.VideoRecv == input.VideoRecv ||
+                    (this.VideoRecv != null &&
+                    this.VideoRecv.Equals(input.VideoRecv))
                 ) && 
                 (
-                    this.VideoRecvLocalMute == other.VideoRecvLocalMute ||
-                    this.VideoRecvLocalMute != null &&
-                    this.VideoRecvLocalMute.Equals(other.VideoRecvLocalMute)
+                    this.VideoRecvLocalMute == input.VideoRecvLocalMute ||
+                    (this.VideoRecvLocalMute != null &&
+                    this.VideoRecvLocalMute.Equals(input.VideoRecvLocalMute))
                 ) && 
                 (
-                    this.VideoRecvRemoteMute == other.VideoRecvRemoteMute ||
-                    this.VideoRecvRemoteMute != null &&
-                    this.VideoRecvRemoteMute.Equals(other.VideoRecvRemoteMute)
+                    this.VideoRecvRemoteMute == input.VideoRecvRemoteMute ||
+                    (this.VideoRecvRemoteMute != null &&
+                    this.VideoRecvRemoteMute.Equals(input.VideoRecvRemoteMute))
                 ) && 
                 (
-                    this.AudioRecv == other.AudioRecv ||
-                    this.AudioRecv != null &&
-                    this.AudioRecv.Equals(other.AudioRecv)
+                    this.AudioRecv == input.AudioRecv ||
+                    (this.AudioRecv != null &&
+                    this.AudioRecv.Equals(input.AudioRecv))
                 ) && 
                 (
-                    this.AudioRecvLocalMute == other.AudioRecvLocalMute ||
-                    this.AudioRecvLocalMute != null &&
-                    this.AudioRecvLocalMute.Equals(other.AudioRecvLocalMute)
+                    this.AudioRecvLocalMute == input.AudioRecvLocalMute ||
+                    (this.AudioRecvLocalMute != null &&
+                    this.AudioRecvLocalMute.Equals(input.AudioRecvLocalMute))
                 ) && 
                 (
-                    this.AudioRecvRemoteMute == other.AudioRecvRemoteMute ||
-                    this.AudioRecvRemoteMute != null &&
-                    this.AudioRecvRemoteMute.Equals(other.AudioRecvRemoteMute)
+                    this.AudioRecvRemoteMute == input.AudioRecvRemoteMute ||
+                    (this.AudioRecvRemoteMute != null &&
+                    this.AudioRecvRemoteMute.Equals(input.AudioRecvRemoteMute))
                 ) && 
                 (
-                    this.AudioRecvCodec == other.AudioRecvCodec ||
-                    this.AudioRecvCodec != null &&
-                    this.AudioRecvCodec.Equals(other.AudioRecvCodec)
+                    this.AudioRecvCodec == input.AudioRecvCodec ||
+                    (this.AudioRecvCodec != null &&
+                    this.AudioRecvCodec.Equals(input.AudioRecvCodec))
                 ) && 
                 (
-                    this.AudioSendCodec == other.AudioSendCodec ||
-                    this.AudioSendCodec != null &&
-                    this.AudioSendCodec.Equals(other.AudioSendCodec)
+                    this.AudioSendCodec == input.AudioSendCodec ||
+                    (this.AudioSendCodec != null &&
+                    this.AudioSendCodec.Equals(input.AudioSendCodec))
                 ) && 
                 (
-                    this.VideoRecvCodec == other.VideoRecvCodec ||
-                    this.VideoRecvCodec != null &&
-                    this.VideoRecvCodec.Equals(other.VideoRecvCodec)
+                    this.VideoRecvCodec == input.VideoRecvCodec ||
+                    (this.VideoRecvCodec != null &&
+                    this.VideoRecvCodec.Equals(input.VideoRecvCodec))
                 ) && 
                 (
-                    this.VideoRecvHeight == other.VideoRecvHeight ||
-                    this.VideoRecvHeight != null &&
-                    this.VideoRecvHeight.Equals(other.VideoRecvHeight)
+                    this.VideoRecvHeight == input.VideoRecvHeight ||
+                    (this.VideoRecvHeight != null &&
+                    this.VideoRecvHeight.Equals(input.VideoRecvHeight))
                 ) && 
                 (
-                    this.VideoRecvWidth == other.VideoRecvWidth ||
-                    this.VideoRecvWidth != null &&
-                    this.VideoRecvWidth.Equals(other.VideoRecvWidth)
+                    this.VideoRecvWidth == input.VideoRecvWidth ||
+                    (this.VideoRecvWidth != null &&
+                    this.VideoRecvWidth.Equals(input.VideoRecvWidth))
                 ) && 
                 (
-                    this.VideoSendCodec == other.VideoSendCodec ||
-                    this.VideoSendCodec != null &&
-                    this.VideoSendCodec.Equals(other.VideoSendCodec)
+                    this.VideoSendCodec == input.VideoSendCodec ||
+                    (this.VideoSendCodec != null &&
+                    this.VideoSendCodec.Equals(input.VideoSendCodec))
                 ) && 
                 (
-                    this.VideoSendHeight == other.VideoSendHeight ||
-                    this.VideoSendHeight != null &&
-                    this.VideoSendHeight.Equals(other.VideoSendHeight)
+                    this.VideoSendHeight == input.VideoSendHeight ||
+                    (this.VideoSendHeight != null &&
+                    this.VideoSendHeight.Equals(input.VideoSendHeight))
                 ) && 
                 (
-                    this.VideoSendWidth == other.VideoSendWidth ||
-                    this.VideoSendWidth != null &&
-                    this.VideoSendWidth.Equals(other.VideoSendWidth)
+                    this.VideoSendWidth == input.VideoSendWidth ||
+                    (this.VideoSendWidth != null &&
+                    this.VideoSendWidth.Equals(input.VideoSendWidth))
                 ) && 
                 (
-                    this.Visibility == other.Visibility ||
-                    this.Visibility != null &&
-                    this.Visibility.Equals(other.Visibility)
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
-                    this.ChatEndpointGuid == other.ChatEndpointGuid ||
-                    this.ChatEndpointGuid != null &&
-                    this.ChatEndpointGuid.Equals(other.ChatEndpointGuid)
+                    this.ChatEndpointGuid == input.ChatEndpointGuid ||
+                    (this.ChatEndpointGuid != null &&
+                    this.ChatEndpointGuid.Equals(input.ChatEndpointGuid))
                 ) && 
                 (
-                    this.EndpointGuid == other.EndpointGuid ||
-                    this.EndpointGuid != null &&
-                    this.EndpointGuid.Equals(other.EndpointGuid)
+                    this.EndpointGuid == input.EndpointGuid ||
+                    (this.EndpointGuid != null &&
+                    this.EndpointGuid.Equals(input.EndpointGuid))
                 ) && 
                 (
-                    this.RDCVersion == other.RDCVersion ||
-                    this.RDCVersion != null &&
-                    this.RDCVersion.Equals(other.RDCVersion)
+                    this.RDCVersion == input.RDCVersion ||
+                    (this.RDCVersion != null &&
+                    this.RDCVersion.Equals(input.RDCVersion))
                 ) && 
                 (
-                    this.RDCControllerCapable == other.RDCControllerCapable ||
-                    this.RDCControllerCapable != null &&
-                    this.RDCControllerCapable.Equals(other.RDCControllerCapable)
+                    this.RDCControllerCapable == input.RDCControllerCapable ||
+                    (this.RDCControllerCapable != null &&
+                    this.RDCControllerCapable.Equals(input.RDCControllerCapable))
                 ) && 
                 (
-                    this.RDCControlleeCapable == other.RDCControlleeCapable ||
-                    this.RDCControlleeCapable != null &&
-                    this.RDCControlleeCapable.Equals(other.RDCControlleeCapable)
+                    this.RDCControlleeCapable == input.RDCControlleeCapable ||
+                    (this.RDCControlleeCapable != null &&
+                    this.RDCControlleeCapable.Equals(input.RDCControlleeCapable))
                 ) && 
                 (
-                    this.Connections == other.Connections ||
+                    this.Connections == input.Connections ||
                     this.Connections != null &&
-                    this.Connections.SequenceEqual(other.Connections)
+                    this.Connections.SequenceEqual(input.Connections)
                 );
         }
 
@@ -523,74 +521,72 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Meetingid != null)
-                    hash = hash * 59 + this.Meetingid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Meetingid.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.CallQuality != null)
-                    hash = hash * 59 + this.CallQuality.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallQuality.GetHashCode();
                 if (this.Leader != null)
-                    hash = hash * 59 + this.Leader.GetHashCode();
+                    hashCode = hashCode * 59 + this.Leader.GetHashCode();
                 if (this.Callguid != null)
-                    hash = hash * 59 + this.Callguid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Callguid.GetHashCode();
                 if (this.Endpoint != null)
-                    hash = hash * 59 + this.Endpoint.GetHashCode();
+                    hashCode = hashCode * 59 + this.Endpoint.GetHashCode();
                 if (this.TalkDetected != null)
-                    hash = hash * 59 + this.TalkDetected.GetHashCode();
+                    hashCode = hashCode * 59 + this.TalkDetected.GetHashCode();
                 if (this.SecureCall != null)
-                    hash = hash * 59 + this.SecureCall.GetHashCode();
+                    hashCode = hashCode * 59 + this.SecureCall.GetHashCode();
                 if (this.Layout != null)
-                    hash = hash * 59 + this.Layout.GetHashCode();
+                    hashCode = hashCode * 59 + this.Layout.GetHashCode();
                 if (this.SubLayout != null)
-                    hash = hash * 59 + this.SubLayout.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubLayout.GetHashCode();
                 if (this.VideoRecv != null)
-                    hash = hash * 59 + this.VideoRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecv.GetHashCode();
                 if (this.VideoRecvLocalMute != null)
-                    hash = hash * 59 + this.VideoRecvLocalMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvLocalMute.GetHashCode();
                 if (this.VideoRecvRemoteMute != null)
-                    hash = hash * 59 + this.VideoRecvRemoteMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvRemoteMute.GetHashCode();
                 if (this.AudioRecv != null)
-                    hash = hash * 59 + this.AudioRecv.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecv.GetHashCode();
                 if (this.AudioRecvLocalMute != null)
-                    hash = hash * 59 + this.AudioRecvLocalMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvLocalMute.GetHashCode();
                 if (this.AudioRecvRemoteMute != null)
-                    hash = hash * 59 + this.AudioRecvRemoteMute.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvRemoteMute.GetHashCode();
                 if (this.AudioRecvCodec != null)
-                    hash = hash * 59 + this.AudioRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioRecvCodec.GetHashCode();
                 if (this.AudioSendCodec != null)
-                    hash = hash * 59 + this.AudioSendCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioSendCodec.GetHashCode();
                 if (this.VideoRecvCodec != null)
-                    hash = hash * 59 + this.VideoRecvCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvCodec.GetHashCode();
                 if (this.VideoRecvHeight != null)
-                    hash = hash * 59 + this.VideoRecvHeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvHeight.GetHashCode();
                 if (this.VideoRecvWidth != null)
-                    hash = hash * 59 + this.VideoRecvWidth.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRecvWidth.GetHashCode();
                 if (this.VideoSendCodec != null)
-                    hash = hash * 59 + this.VideoSendCodec.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendCodec.GetHashCode();
                 if (this.VideoSendHeight != null)
-                    hash = hash * 59 + this.VideoSendHeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendHeight.GetHashCode();
                 if (this.VideoSendWidth != null)
-                    hash = hash * 59 + this.VideoSendWidth.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoSendWidth.GetHashCode();
                 if (this.Visibility != null)
-                    hash = hash * 59 + this.Visibility.GetHashCode();
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.ChatEndpointGuid != null)
-                    hash = hash * 59 + this.ChatEndpointGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChatEndpointGuid.GetHashCode();
                 if (this.EndpointGuid != null)
-                    hash = hash * 59 + this.EndpointGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.EndpointGuid.GetHashCode();
                 if (this.RDCVersion != null)
-                    hash = hash * 59 + this.RDCVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCVersion.GetHashCode();
                 if (this.RDCControllerCapable != null)
-                    hash = hash * 59 + this.RDCControllerCapable.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCControllerCapable.GetHashCode();
                 if (this.RDCControlleeCapable != null)
-                    hash = hash * 59 + this.RDCControlleeCapable.GetHashCode();
+                    hashCode = hashCode * 59 + this.RDCControlleeCapable.GetHashCode();
                 if (this.Connections != null)
-                    hash = hash * 59 + this.Connections.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Connections.GetHashCode();
+                return hashCode;
             }
         }
 

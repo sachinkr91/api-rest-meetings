@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**autoRecord** | **Boolean** | null |  [optional]
-**enforceMeetingEncryption** | **Boolean** | null |  [optional]
-**videoBestFit** | **Boolean** | null |  [optional]
-**enforceMeetingEncryptionAllowPSTN** | **Boolean** | null |  [optional]
-**disallowChat** | **Boolean** | null |  [optional]
-**muteParticipantsOnEntry** | **Boolean** | null |  [optional]
-**moderatorLess** | **Boolean** | null |  [optional]
-**showAllAttendeesInMeetingInvite** | **Boolean** | null |  [optional]
+**autoRecord** | **Boolean** | Allow UI to edit AutoRecord field |  [optional]
+**enforceMeetingEncryption** | **Boolean** | Allow UI to edit this field |  [optional]
+**videoBestFit** | **Boolean** | Allow UI to edict videoBestFit field |  [optional]
+**enforceMeetingEncryptionAllowPSTN** | **Boolean** | Allow UI to edit this field |  [optional]
+**disallowChat** | **Boolean** | Allow UI to edit the disallowChat field |  [optional]
+**muteParticipantsOnEntry** | **Boolean** | Allow UI to edit muteParticipantsOnEntry field |  [optional]
+**moderatorLess** | **Boolean** | Allow UI to edit moderatorLess field |  [optional]
+**showAllAttendeesInMeetingInvite** | **Boolean** | Allow UI to edit this field |  [optional]
 
 
 

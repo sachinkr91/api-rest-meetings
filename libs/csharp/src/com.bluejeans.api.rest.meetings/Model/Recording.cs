@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -33,38 +33,38 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Recording" /> class.
         /// </summary>
-        /// <param name="RecordingEntityId">RecordingEntityId.</param>
-        /// <param name="RecordingEntityGuid">RecordingEntityGuid.</param>
-        /// <param name="RecordingName">RecordingName.</param>
-        /// <param name="MeetingGuid">MeetingGuid.</param>
-        /// <param name="ChapterCount">ChapterCount.</param>
-        /// <param name="TotalSize">TotalSize.</param>
-        /// <param name="TotalDuration">TotalDuration.</param>
-        /// <param name="LastRecordingDate">LastRecordingDate.</param>
-        /// <param name="AggregatedStatus">AggregatedStatus.</param>
-        /// <param name="RecordingThumbnail">RecordingThumbnail.</param>
-        /// <param name="Created">Created.</param>
-        /// <param name="AggregatedViewCount">AggregatedViewCount.</param>
-        /// <param name="IsPremiumRecording">IsPremiumRecording.</param>
-        /// <param name="ShowPremiumRecordingTag">ShowPremiumRecordingTag.</param>
-        /// <param name="RecordingChapters">RecordingChapters.</param>
-        public Recording(int? RecordingEntityId = default(int?), string RecordingEntityGuid = default(string), string RecordingName = default(string), string MeetingGuid = default(string), int? ChapterCount = default(int?), int? TotalSize = default(int?), int? TotalDuration = default(int?), int? LastRecordingDate = default(int?), string AggregatedStatus = default(string), string RecordingThumbnail = default(string), int? Created = default(int?), int? AggregatedViewCount = default(int?), bool? IsPremiumRecording = default(bool?), bool? ShowPremiumRecordingTag = default(bool?), List<RecordingRecordingChapters> RecordingChapters = default(List<RecordingRecordingChapters>))
+        /// <param name="recordingEntityId">recordingEntityId.</param>
+        /// <param name="recordingEntityGuid">recordingEntityGuid.</param>
+        /// <param name="recordingName">recordingName.</param>
+        /// <param name="meetingGuid">meetingGuid.</param>
+        /// <param name="chapterCount">chapterCount.</param>
+        /// <param name="totalSize">totalSize.</param>
+        /// <param name="totalDuration">totalDuration.</param>
+        /// <param name="lastRecordingDate">lastRecordingDate.</param>
+        /// <param name="aggregatedStatus">aggregatedStatus.</param>
+        /// <param name="recordingThumbnail">recordingThumbnail.</param>
+        /// <param name="created">created.</param>
+        /// <param name="aggregatedViewCount">aggregatedViewCount.</param>
+        /// <param name="isPremiumRecording">isPremiumRecording.</param>
+        /// <param name="showPremiumRecordingTag">showPremiumRecordingTag.</param>
+        /// <param name="recordingChapters">recordingChapters.</param>
+        public Recording(int? recordingEntityId = default(int?), string recordingEntityGuid = default(string), string recordingName = default(string), string meetingGuid = default(string), int? chapterCount = default(int?), int? totalSize = default(int?), int? totalDuration = default(int?), int? lastRecordingDate = default(int?), string aggregatedStatus = default(string), string recordingThumbnail = default(string), int? created = default(int?), int? aggregatedViewCount = default(int?), bool? isPremiumRecording = default(bool?), bool? showPremiumRecordingTag = default(bool?), List<RecordingRecordingChapters> recordingChapters = default(List<RecordingRecordingChapters>))
         {
-            this.RecordingEntityId = RecordingEntityId;
-            this.RecordingEntityGuid = RecordingEntityGuid;
-            this.RecordingName = RecordingName;
-            this.MeetingGuid = MeetingGuid;
-            this.ChapterCount = ChapterCount;
-            this.TotalSize = TotalSize;
-            this.TotalDuration = TotalDuration;
-            this.LastRecordingDate = LastRecordingDate;
-            this.AggregatedStatus = AggregatedStatus;
-            this.RecordingThumbnail = RecordingThumbnail;
-            this.Created = Created;
-            this.AggregatedViewCount = AggregatedViewCount;
-            this.IsPremiumRecording = IsPremiumRecording;
-            this.ShowPremiumRecordingTag = ShowPremiumRecordingTag;
-            this.RecordingChapters = RecordingChapters;
+            this.RecordingEntityId = recordingEntityId;
+            this.RecordingEntityGuid = recordingEntityGuid;
+            this.RecordingName = recordingName;
+            this.MeetingGuid = meetingGuid;
+            this.ChapterCount = chapterCount;
+            this.TotalSize = totalSize;
+            this.TotalDuration = totalDuration;
+            this.LastRecordingDate = lastRecordingDate;
+            this.AggregatedStatus = aggregatedStatus;
+            this.RecordingThumbnail = recordingThumbnail;
+            this.Created = created;
+            this.AggregatedViewCount = aggregatedViewCount;
+            this.IsPremiumRecording = isPremiumRecording;
+            this.ShowPremiumRecordingTag = showPremiumRecordingTag;
+            this.RecordingChapters = recordingChapters;
         }
         
         /// <summary>
@@ -188,7 +188,7 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -196,100 +196,98 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Recording);
+            return this.Equals(input as Recording);
         }
 
         /// <summary>
         /// Returns true if Recording instances are equal
         /// </summary>
-        /// <param name="other">Instance of Recording to be compared</param>
+        /// <param name="input">Instance of Recording to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Recording other)
+        public bool Equals(Recording input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.RecordingEntityId == other.RecordingEntityId ||
-                    this.RecordingEntityId != null &&
-                    this.RecordingEntityId.Equals(other.RecordingEntityId)
+                    this.RecordingEntityId == input.RecordingEntityId ||
+                    (this.RecordingEntityId != null &&
+                    this.RecordingEntityId.Equals(input.RecordingEntityId))
                 ) && 
                 (
-                    this.RecordingEntityGuid == other.RecordingEntityGuid ||
-                    this.RecordingEntityGuid != null &&
-                    this.RecordingEntityGuid.Equals(other.RecordingEntityGuid)
+                    this.RecordingEntityGuid == input.RecordingEntityGuid ||
+                    (this.RecordingEntityGuid != null &&
+                    this.RecordingEntityGuid.Equals(input.RecordingEntityGuid))
                 ) && 
                 (
-                    this.RecordingName == other.RecordingName ||
-                    this.RecordingName != null &&
-                    this.RecordingName.Equals(other.RecordingName)
+                    this.RecordingName == input.RecordingName ||
+                    (this.RecordingName != null &&
+                    this.RecordingName.Equals(input.RecordingName))
                 ) && 
                 (
-                    this.MeetingGuid == other.MeetingGuid ||
-                    this.MeetingGuid != null &&
-                    this.MeetingGuid.Equals(other.MeetingGuid)
+                    this.MeetingGuid == input.MeetingGuid ||
+                    (this.MeetingGuid != null &&
+                    this.MeetingGuid.Equals(input.MeetingGuid))
                 ) && 
                 (
-                    this.ChapterCount == other.ChapterCount ||
-                    this.ChapterCount != null &&
-                    this.ChapterCount.Equals(other.ChapterCount)
+                    this.ChapterCount == input.ChapterCount ||
+                    (this.ChapterCount != null &&
+                    this.ChapterCount.Equals(input.ChapterCount))
                 ) && 
                 (
-                    this.TotalSize == other.TotalSize ||
-                    this.TotalSize != null &&
-                    this.TotalSize.Equals(other.TotalSize)
+                    this.TotalSize == input.TotalSize ||
+                    (this.TotalSize != null &&
+                    this.TotalSize.Equals(input.TotalSize))
                 ) && 
                 (
-                    this.TotalDuration == other.TotalDuration ||
-                    this.TotalDuration != null &&
-                    this.TotalDuration.Equals(other.TotalDuration)
+                    this.TotalDuration == input.TotalDuration ||
+                    (this.TotalDuration != null &&
+                    this.TotalDuration.Equals(input.TotalDuration))
                 ) && 
                 (
-                    this.LastRecordingDate == other.LastRecordingDate ||
-                    this.LastRecordingDate != null &&
-                    this.LastRecordingDate.Equals(other.LastRecordingDate)
+                    this.LastRecordingDate == input.LastRecordingDate ||
+                    (this.LastRecordingDate != null &&
+                    this.LastRecordingDate.Equals(input.LastRecordingDate))
                 ) && 
                 (
-                    this.AggregatedStatus == other.AggregatedStatus ||
-                    this.AggregatedStatus != null &&
-                    this.AggregatedStatus.Equals(other.AggregatedStatus)
+                    this.AggregatedStatus == input.AggregatedStatus ||
+                    (this.AggregatedStatus != null &&
+                    this.AggregatedStatus.Equals(input.AggregatedStatus))
                 ) && 
                 (
-                    this.RecordingThumbnail == other.RecordingThumbnail ||
-                    this.RecordingThumbnail != null &&
-                    this.RecordingThumbnail.Equals(other.RecordingThumbnail)
+                    this.RecordingThumbnail == input.RecordingThumbnail ||
+                    (this.RecordingThumbnail != null &&
+                    this.RecordingThumbnail.Equals(input.RecordingThumbnail))
                 ) && 
                 (
-                    this.Created == other.Created ||
-                    this.Created != null &&
-                    this.Created.Equals(other.Created)
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 ) && 
                 (
-                    this.AggregatedViewCount == other.AggregatedViewCount ||
-                    this.AggregatedViewCount != null &&
-                    this.AggregatedViewCount.Equals(other.AggregatedViewCount)
+                    this.AggregatedViewCount == input.AggregatedViewCount ||
+                    (this.AggregatedViewCount != null &&
+                    this.AggregatedViewCount.Equals(input.AggregatedViewCount))
                 ) && 
                 (
-                    this.IsPremiumRecording == other.IsPremiumRecording ||
-                    this.IsPremiumRecording != null &&
-                    this.IsPremiumRecording.Equals(other.IsPremiumRecording)
+                    this.IsPremiumRecording == input.IsPremiumRecording ||
+                    (this.IsPremiumRecording != null &&
+                    this.IsPremiumRecording.Equals(input.IsPremiumRecording))
                 ) && 
                 (
-                    this.ShowPremiumRecordingTag == other.ShowPremiumRecordingTag ||
-                    this.ShowPremiumRecordingTag != null &&
-                    this.ShowPremiumRecordingTag.Equals(other.ShowPremiumRecordingTag)
+                    this.ShowPremiumRecordingTag == input.ShowPremiumRecordingTag ||
+                    (this.ShowPremiumRecordingTag != null &&
+                    this.ShowPremiumRecordingTag.Equals(input.ShowPremiumRecordingTag))
                 ) && 
                 (
-                    this.RecordingChapters == other.RecordingChapters ||
+                    this.RecordingChapters == input.RecordingChapters ||
                     this.RecordingChapters != null &&
-                    this.RecordingChapters.SequenceEqual(other.RecordingChapters)
+                    this.RecordingChapters.SequenceEqual(input.RecordingChapters)
                 );
         }
 
@@ -299,42 +297,40 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.RecordingEntityId != null)
-                    hash = hash * 59 + this.RecordingEntityId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecordingEntityId.GetHashCode();
                 if (this.RecordingEntityGuid != null)
-                    hash = hash * 59 + this.RecordingEntityGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecordingEntityGuid.GetHashCode();
                 if (this.RecordingName != null)
-                    hash = hash * 59 + this.RecordingName.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecordingName.GetHashCode();
                 if (this.MeetingGuid != null)
-                    hash = hash * 59 + this.MeetingGuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MeetingGuid.GetHashCode();
                 if (this.ChapterCount != null)
-                    hash = hash * 59 + this.ChapterCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChapterCount.GetHashCode();
                 if (this.TotalSize != null)
-                    hash = hash * 59 + this.TotalSize.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalSize.GetHashCode();
                 if (this.TotalDuration != null)
-                    hash = hash * 59 + this.TotalDuration.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalDuration.GetHashCode();
                 if (this.LastRecordingDate != null)
-                    hash = hash * 59 + this.LastRecordingDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastRecordingDate.GetHashCode();
                 if (this.AggregatedStatus != null)
-                    hash = hash * 59 + this.AggregatedStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.AggregatedStatus.GetHashCode();
                 if (this.RecordingThumbnail != null)
-                    hash = hash * 59 + this.RecordingThumbnail.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecordingThumbnail.GetHashCode();
                 if (this.Created != null)
-                    hash = hash * 59 + this.Created.GetHashCode();
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.AggregatedViewCount != null)
-                    hash = hash * 59 + this.AggregatedViewCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.AggregatedViewCount.GetHashCode();
                 if (this.IsPremiumRecording != null)
-                    hash = hash * 59 + this.IsPremiumRecording.GetHashCode();
+                    hashCode = hashCode * 59 + this.IsPremiumRecording.GetHashCode();
                 if (this.ShowPremiumRecordingTag != null)
-                    hash = hash * 59 + this.ShowPremiumRecordingTag.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShowPremiumRecordingTag.GetHashCode();
                 if (this.RecordingChapters != null)
-                    hash = hash * 59 + this.RecordingChapters.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RecordingChapters.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -34,7 +34,7 @@ Endpoint Distribution
 
 This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -43,16 +43,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"creation_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"creation_time\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}])
 
-try: 
+try:
     # Endpoint Distribution
     api_response = api_instance.get_endpoint_distribution(enterprise_id, filter=filter)
     pprint(api_response)
@@ -89,7 +90,7 @@ Endpoint Distribution
 
 This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -98,17 +99,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-filter = 'filter_example' # str | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+filter = 'filter_example' # str | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Endpoint Distribution
     api_response = api_instance.get_endpoint_distribution_v2(enterprise_id, filter, app_name=app_name)
     pprint(api_response)
@@ -121,7 +123,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **str**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **str**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -146,7 +148,7 @@ Overall Enterprise Summary
 
 This endpoint lists the summary usage statistics for the specified Enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -155,17 +157,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = 'filter_example' # str | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-04T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-10T23:59:59-07:00\",\"field\":\"hights\"}]`
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Overall Enterprise Summary
     api_response = api_instance.get_enterprise_overall_summary(enterprise_id, filter, app_name=app_name)
     pprint(api_response)
@@ -203,7 +206,7 @@ Enterprise User Summary
 
 This endpoint lists the summary of active users statistics for the specified Enterprise.  Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -212,19 +215,20 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = 'filter_example' # str | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"'%Y-%m-%d'\",\"field\":\"dateFormat\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-14T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-20T23:59:00-07:00\",\"field\":\"hights\"}]`
 client_tz = 'client_tz_example' # str | Timezone of the requesting site in the format `America/Los_Angeles` (optional)
 limit = 0 # int | The maximum number of records to return.  A value of `0` returns all records (optional) (default to 0)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Enterprise User Summary
     api_response = api_instance.get_enterprise_users_active(enterprise_id, filter, client_tz=client_tz, limit=limit, app_name=app_name)
     pprint(api_response)
@@ -264,7 +268,7 @@ Survey Feedback Comments
 
 This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -273,17 +277,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-start = '2017-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-end = '2018-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
+start = '2017-01-01T00:00:00.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+end = '2018-01-01T00:00:00.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00.000+0000)
 
-try: 
+try:
     # Survey Feedback Comments
     api_response = api_instance.get_feedback_comments(enterprise_id, start, end)
     pprint(api_response)
@@ -296,8 +301,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -321,7 +326,7 @@ Survey Feedback Comments
 
 This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -330,18 +335,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = 'filter_example' # str | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"date\", \"comparison\":\"gt\", \"value\":\"2018-06-19T00:00:00-07:00\", \"field\":\"startTime\"}, {\"type\":\"date\", \"comparison\":\"lt\", \"value\":\"2018-06-26T23:59:59-07:00\", \"field\":\"endTime\" }]
 limit = 56 # int | The limit on the number of responses to return (optional)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Survey Feedback Comments
     api_response = api_instance.get_feedback_comments_v2(enterprise_id, filter, limit=limit, app_name=app_name)
     pprint(api_response)
@@ -380,7 +386,7 @@ Survey Feedback Scores
 
 This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -389,17 +395,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-start = '2017-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-end = '2018-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
+start = '2017-01-01T00:00:00.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+end = '2018-01-01T00:00:00.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00.000+0000)
 
-try: 
+try:
     # Survey Feedback Scores
     api_response = api_instance.get_feedback_count(enterprise_id, start, end)
     pprint(api_response)
@@ -412,8 +419,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -437,7 +444,7 @@ Survey Feedback Scores
 
 This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -446,18 +453,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-start = '2017-01-01T00:00:00-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-end = '2018-01-01T23:59:59-00:00' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T23:59:59-00:00)
+start = '2017-01-01T00:00:00.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+end = '2018-01-01T23:59:59.000+0000' # str | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T23:59:59.000+0000)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Survey Feedback Scores
     api_response = api_instance.get_feedback_count_v2(enterprise_id, start, end, app_name=app_name)
     pprint(api_response)
@@ -470,8 +478,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59-00:00]
+ **start** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **str**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59.000+0000]
  **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -496,7 +504,7 @@ Geographic Demographics
 
 This endpoint lists the Geographic endpoint accesses.  Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -505,19 +513,20 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-filter = {'key': 'filter_example'} # dict(str, str) | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
+filter = 'filter_example' # str | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
 offset = 0 # int | Offset into the total set of datarecords.  If offset=0, return data includes size of data. (optional) (default to 0)
 limit = 0 # int | The Limit sets the maximum number of data records to return .  Limit=0 returns the full dataset (optional) (default to 0)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Geographic Demographics
     api_response = api_instance.get_geo_map(enterprise_id, filter, offset=offset, limit=limit, app_name=app_name)
     pprint(api_response)
@@ -530,7 +539,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | [**dict(str, str)**](str.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
+ **filter** | **str**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
  **offset** | **int**| Offset into the total set of datarecords.  If offset&#x3D;0, return data includes size of data. | [optional] [default to 0]
  **limit** | **int**| The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset | [optional] [default to 0]
  **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
@@ -557,7 +566,7 @@ List Live Meeting Endpoints by Enterprise
 
 This endpoint lists endpoints for a given meeting in progress. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -566,17 +575,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # List Live Meeting Endpoints by Enterprise
     api_response = api_instance.get_meeting_endpoints_live_by_enterprise(enterprise_id, meeting_uuid, app_name=app_name)
     pprint(api_response)
@@ -614,7 +624,7 @@ List Meeting Endpoints & Stats by Enterprise
 
 This endpoint lists meeting endpoints for completed meetings by enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -623,17 +633,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 include_endpoints = true # bool | Option to include detailed data on endpoints (optional)
 
-try: 
+try:
     # List Meeting Endpoints & Stats by Enterprise
     api_response = api_instance.get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints)
     pprint(api_response)
@@ -671,7 +682,7 @@ List Meeting Endpoints & Stats by User
 
 This endpoint lists meeting endpoints for completed meetings by user. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -680,16 +691,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
-try: 
+try:
     # List Meeting Endpoints & Stats by User
     api_response = api_instance.get_meeting_past_by_user(user_id, meeting_uuid)
     pprint(api_response)
@@ -726,7 +738,7 @@ Meeting Usage Over Time
 
 This endpoint reports on meeting usage. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -735,17 +747,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 client_tz = 'America/Denver' # str | Based on standard TZ code. (optional) (default to America/Denver)
 filter = '[{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"hights\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}])
 
-try: 
+try:
     # Meeting Usage Over Time
     api_response = api_instance.get_meeting_usage(enterprise_id, client_tz=client_tz, filter=filter)
     pprint(api_response)
@@ -783,7 +796,7 @@ Meeting Usage Over Time
 
 This endpoint reports on meeting usage.  Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -792,18 +805,19 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = 'filter_example' # str | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"string\",\"comparison\":\"eq\",\"value\":\"DAY\",\"field\":\"groupInterval\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"lowts\"},{\"type\":\"date\",\"comparison\":\"eq\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"hights\"}]
 client_tz = 'America/Denver' # str | Based on standard TZ code. (optional) (default to America/Denver)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Meeting Usage Over Time
     api_response = api_instance.get_meeting_usage_v2(enterprise_id, filter, client_tz=client_tz, app_name=app_name)
     pprint(api_response)
@@ -842,7 +856,7 @@ Live Meetings Summary by Enterprise
 
 This endpoint lists meetings in progress by enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -851,16 +865,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Live Meetings Summary by Enterprise
     api_response = api_instance.get_meetings_live_by_enterprise(enterprise_id, app_name=app_name)
     pprint(api_response)
@@ -897,7 +912,7 @@ List Past Meetings by Enterprise
 
 This endpoint lists completed meetings by enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -906,20 +921,21 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 offset = 56 # int | Page Number (optional)
 limit = 56 # int | Per page (optional)
-filter = {'key': 'filter_example'} # dict(str, str) | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]` (optional)
+filter = 'filter_example' # str | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]` (optional)
 count = true # bool | Include total count of meetings in response (optional)
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # List Past Meetings by Enterprise
     api_response = api_instance.get_meetings_past_by_enterprise(enterprise_id, offset=offset, limit=limit, filter=filter, count=count, app_name=app_name)
     pprint(api_response)
@@ -934,7 +950,7 @@ Name | Type | Description  | Notes
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **offset** | **int**| Page Number | [optional] 
  **limit** | **int**| Per page | [optional] 
- **filter** | [**dict(str, str)**](str.md)| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
+ **filter** | **str**| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
  **count** | **bool**| Include total count of meetings in response | [optional] 
  **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
@@ -960,7 +976,7 @@ List Past Meetings by User
 
 This endpoint lists completed meetings by user. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -969,16 +985,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-filter = {'key': 'filter_example'} # dict(str, str) | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+filter = 'filter_example' # str | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
 
-try: 
+try:
     # List Past Meetings by User
     api_response = api_instance.get_meetings_past_by_user(user_id, filter)
     pprint(api_response)
@@ -991,7 +1008,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | [**dict(str, str)**](str.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **str**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
 
 ### Return type
 
@@ -1015,7 +1032,7 @@ ROI Data
 
 This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1024,16 +1041,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"startTime\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"startTime\"}]' # str | URL-encoded JSON string (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"startTime"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"startTime"}])
 
-try: 
+try:
     # ROI Data
     api_response = api_instance.get_roi_ranges(enterprise_id, filter)
     pprint(api_response)
@@ -1070,7 +1088,7 @@ ROI Data
 
 This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1079,17 +1097,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = 'filter_example' # str | URL-encoded Array of JSON objects defining the time interval [{\"type\":\"date\", \"comparison\":\"gt\", \"value\":\"2018-06-19T00:00:00-07:00\", \"field\":\"startTime\"}, {\"type\":\"date\", \"comparison\":\"lt\", \"value\":\"2018-06-26T23:59:59-07:00\", \"field\":\"startTime\" }]
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # ROI Data
     api_response = api_instance.get_roi_ranges_v2(enterprise_id, filter, app_name=app_name)
     pprint(api_response)
@@ -1127,7 +1146,7 @@ Top Users
 
 This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1136,16 +1155,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 filter = '[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2017-01-16T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2017-01-23T23:59:59-07:00\",\"field\":\"end_time\"}]' # str | URL-encoded JSON string (optional) (default to [{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}])
 
-try: 
+try:
     # Top Users
     api_response = api_instance.get_top_users(enterprise_id, filter=filter)
     pprint(api_response)
@@ -1182,7 +1202,7 @@ Top Users
 
 This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1191,17 +1211,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.CommandCenterApi()
+api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-filter = 'filter_example' # str | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+filter = 'filter_example' # str | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
 app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
-try: 
+try:
     # Top Users
     api_response = api_instance.get_top_users_v2(enterprise_id, filter, app_name=app_name)
     pprint(api_response)
@@ -1214,7 +1235,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **str**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **str**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type

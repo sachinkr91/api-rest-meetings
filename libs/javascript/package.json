@@ -1,8 +1,8 @@
 {
   "name": "bluejeans-api-rest-meetings",
-  "version": "1.0.4407102018",
+  "version": "1.0.4407232018",
   "description": "JavaScript client for BlueJeans Meetings REST APIs",
-  "license": "MIT",
+  "license": "Commercial",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"

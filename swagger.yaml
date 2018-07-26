@@ -175,6 +175,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /oauth2/token?Meeting:
     post:
       tags:
@@ -204,6 +205,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /oauth2/token?Client:
     post:
       tags:
@@ -233,6 +235,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /oauth2/token?Code:
     post:
       tags:
@@ -264,6 +267,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /oauth2/token?Refresh:
     post:
       tags:
@@ -355,6 +359,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /oauth2/authorize:
     get:
       tags:
@@ -408,6 +413,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
+      security: []
   /v1/user/{user_id}:
     get:
       tags:

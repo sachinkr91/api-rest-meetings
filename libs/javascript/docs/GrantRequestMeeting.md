@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 
 
-* `passcode` (value: `"meeting_passcode"`)
+* `meeting_passcode` (value: `"meeting_passcode"`)
 
 
 

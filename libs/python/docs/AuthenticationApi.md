@@ -21,18 +21,13 @@ Get Authorization Code
 
 This is **not a true REST endpoint**. <br /> This URL should be used by a user's browser-client application to perform authorization. <br />Upon completion, the user will be redirected back to the client application with state and code return parameters. <br />**Note**<ul><li>This API is activated through <b> https://bluejeans.com/oauth2/authorize </b></li><li>The API's return code has a very short valid period of <b>30 seconds</b>.  Your application must call the <b>/oauth2/token</b> API as soon as possible once you receive this API's return code.</li></ul>
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
 import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
@@ -44,7 +39,7 @@ response_type = 'code' # str | The type of authorization you are peforrming.  Se
 app_name = 'app_name_example' # str | The name of the client application shown to user during authorization. (optional)
 app_logo_url = 'app_logo_url_example' # str | URL to an 84x84 image shown to user during authorization. (optional)
 
-try: 
+try:
     # Get Authorization Code
     api_instance.get_authorization_code(client_id=client_id, redirect_uri=redirect_uri, state=state, scope=scope, response_type=response_type, app_name=app_name, app_logo_url=app_logo_url)
 except ApiException as e:
@@ -69,7 +64,7 @@ void (empty response body)
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,7 +80,7 @@ Authentication via Client Grant Type
 
 This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**client_credentials**\" (string).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -93,16 +88,11 @@ import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
 grant_request_client = BlueJeansMeetingsRestApi.GrantRequestClient() # GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 
-try: 
+try:
     # Authentication via Client Grant Type
     api_response = api_instance.get_token_by_client(grant_request_client)
     pprint(api_response)
@@ -122,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,7 +128,7 @@ Authentication via Code Grant Type
 
 This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**authorization_code**\" (string).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -146,16 +136,11 @@ import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
 grant_request_code = BlueJeansMeetingsRestApi.GrantRequestCode() # GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 
-try: 
+try:
     # Authentication via Code Grant Type
     api_response = api_instance.get_token_by_code(grant_request_code)
     pprint(api_response)
@@ -175,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -191,7 +176,7 @@ Authentication via Meeting Grant Type
 
 This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. <br />Call this API with the meeting's numeric ID, and the meeting passcode (if one exists). <br />&nbsp;&nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. <br />&nbsp;&nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.<br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**meeting_passcode**\" (string).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -199,16 +184,11 @@ import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
 grant_request_meeting = BlueJeansMeetingsRestApi.GrantRequestMeeting() # GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 
-try: 
+try:
     # Authentication via Meeting Grant Type
     api_response = api_instance.get_token_by_meeting(grant_request_meeting)
     pprint(api_response)
@@ -228,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -244,7 +224,7 @@ Authentication via Password Grant Type
 
 This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**password**\" (string).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -252,16 +232,11 @@ import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
 grant_request_password = BlueJeansMeetingsRestApi.GrantRequestPassword() # GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 
-try: 
+try:
     # Authentication via Password Grant Type
     api_response = api_instance.get_token_by_password(grant_request_password)
     pprint(api_response)
@@ -281,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -297,7 +272,7 @@ Authentication via Refresh Grant Type
 
 This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works for access tokens obtained via /oauth2/token?Code endpoint. It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**refresh_token**\" (string).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -306,15 +281,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
+api_instance = BlueJeansMeetingsRestApi.AuthenticationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 grant_request_refresh = BlueJeansMeetingsRestApi.GrantRequestRefresh() # GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
 
-try: 
+try:
     # Authentication via Refresh Grant Type
     api_response = api_instance.get_token_by_refresh(grant_request_refresh)
     pprint(api_response)
@@ -350,7 +326,7 @@ Validate a Token
 
 This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -358,16 +334,11 @@ import BlueJeansMeetingsRestApi
 from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
 access_token = 'access_token_example' # str |  (optional)
 
-try: 
+try:
     # Validate a Token
     api_response = api_instance.get_token_info(access_token=access_token)
     pprint(api_response)
@@ -387,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -403,7 +374,7 @@ Revoke Access Token
 
 This API is part of the 3-legged OAuth 2.0 authorization flow.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -412,16 +383,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.AuthenticationApi()
+api_instance = BlueJeansMeetingsRestApi.AuthenticationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 grant_request_revoke = BlueJeansMeetingsRestApi.GrantRequestRevoke() # GrantRequestRevoke | Contains information about the type of grant you are revoking.
 access_token = 'access_token_example' # str |  (optional)
 
-try: 
+try:
     # Revoke Access Token
     api_instance.revoke_access_token(grant_request_revoke, access_token=access_token)
 except ApiException as e:

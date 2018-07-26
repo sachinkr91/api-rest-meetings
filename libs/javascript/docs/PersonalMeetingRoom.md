@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **allow720p** | **Boolean** | If set allows clients to send and receive 720p video resolution. | [optional] 
 **status** | **String** | This string indicates the meeting&#39;s operational status. | [optional] 
 **locked** | **Boolean** | If set the meeting has been locked, and future attendees require a member to allow them to join. | [optional] 
-**sequenceNumber** | **Number** | null | [optional] 
-**icsUid** | **String** | null | [optional] 
+**sequenceNumber** | **Number** | Internal tracking number | [optional] 
+**icsUid** | **String** | Internal tracking number | [optional] 
 **endPointType** | **String** | This string is the name of the type of scheduling entity. | [optional] [default to &#39;WEB_APP&#39;]
 **endPointVersion** | **String** | This is a string that describes the version number of the endpoint type. | [optional] 
 **attendees** | [**[PersonalMeetingRoomAttendees]**](PersonalMeetingRoomAttendees.md) |  | [optional] 
@@ -41,6 +41,6 @@ Name | Type | Description | Notes
 **nextStart** | **Number** | This is the epoch-based starting time for the next in chain of meetings. | [optional] 
 **nextEnd** | **Number** | This is the epoch-based ending time for the next in chain of meetings. | [optional] 
 **isPersonalMeeting** | **Boolean** | if set, indicates that this ia personal meeting. | [optional] 
-**inviteeJoinOption** | **Number** | null | [optional] 
+**inviteeJoinOption** | **Number** | How Invitee should join | [optional] 
 
 

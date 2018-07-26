@@ -50,9 +50,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -118,13 +118,13 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var filter = filter_example;  // string | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+            var filter = filter_example;  // string | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
             var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
@@ -147,7 +147,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **string**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **string**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -188,9 +188,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -258,9 +258,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -332,14 +332,14 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
+            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00.000+0000)
 
             try
             {
@@ -361,8 +361,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -402,9 +402,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -474,14 +474,14 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00-00:00)
+            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T00:00:00.000+0000)
 
             try
             {
@@ -503,8 +503,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T00:00:00.000+0000]
 
 ### Return type
 
@@ -544,14 +544,14 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00-00:00)
-            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T23:59:59-00:00)
+            var start = start_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2017-01-01T00:00:00.000+0000)
+            var end = end_example;  // string | Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. (default to 2018-01-01T23:59:59.000+0000)
             var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
@@ -574,8 +574,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00-00:00]
- **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59-00:00]
+ **start** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2017-01-01T00:00:00.000+0000]
+ **end** | **string**| Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format. | [default to 2018-01-01T23:59:59.000+0000]
  **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 <a name="getgeomap"></a>
 # **GetGeoMap**
-> EndpointLocationSummary GetGeoMap (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null)
+> EndpointLocationSummary GetGeoMap (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null)
 
 Geographic Demographics
 
@@ -616,13 +616,13 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var filter = new Dictionary<string, string>(); // Dictionary<string, string> | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
+            var filter = filter_example;  // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. `[{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-05-31T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-07T23:59:59-07:00\",\"field\":\"start_time\"}]`
             var offset = 56;  // int? | Offset into the total set of datarecords.  If offset=0, return data includes size of data. (optional)  (default to 0)
             var limit = 56;  // int? | The Limit sets the maximum number of data records to return .  Limit=0 returns the full dataset (optional)  (default to 0)
             var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
@@ -647,7 +647,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | [**Dictionary&lt;string, string&gt;**](string.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-05-31T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-07T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;}]&#x60; | 
  **offset** | **int?**| Offset into the total set of datarecords.  If offset&#x3D;0, return data includes size of data. | [optional] [default to 0]
  **limit** | **int?**| The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset | [optional] [default to 0]
  **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
@@ -690,9 +690,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -760,9 +760,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -830,9 +830,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -898,9 +898,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -968,9 +968,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -1040,9 +1040,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingspastbyenterprise"></a>
 # **GetMeetingsPastByEnterprise**
-> MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null)
+> MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null)
 
 List Past Meetings by Enterprise
 
@@ -1108,15 +1108,15 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
             var offset = 56;  // int? | Page Number (optional) 
             var limit = 56;  // int? | Per page (optional) 
-            var filter = new Dictionary<string, string>(); // Dictionary<string, string> | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]` (optional) 
+            var filter = filter_example;  // string | An array of search filter conditions that describe the limits of the search to perform. For example `[{\"type\":\"date\",\"value\":\"2018-06-05T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-06-12T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]` (optional) 
             var count = true;  // bool? | Include total count of meetings in response (optional) 
             var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
@@ -1142,7 +1142,7 @@ Name | Type | Description  | Notes
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **offset** | **int?**| Page Number | [optional] 
  **limit** | **int?**| Per page | [optional] 
- **filter** | [**Dictionary&lt;string, string&gt;**](string.md)| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform. For example &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-05T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-06-12T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | [optional] 
  **count** | **bool?**| Include total count of meetings in response | [optional] 
  **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
@@ -1163,7 +1163,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingspastbyuser"></a>
 # **GetMeetingsPastByUser**
-> MeetingIndigoList GetMeetingsPastByUser (int? userId, Dictionary<string, string> filter)
+> MeetingIndigoList GetMeetingsPastByUser (int? userId, string filter)
 
 List Past Meetings by User
 
@@ -1184,13 +1184,13 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var filter = new Dictionary<string, string>(); // Dictionary<string, string> | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+            var filter = filter_example;  // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
 
             try
             {
@@ -1212,7 +1212,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | [**Dictionary&lt;string, string&gt;**](string.md)| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
 
 ### Return type
 
@@ -1252,9 +1252,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -1320,9 +1320,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -1390,9 +1390,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -1458,13 +1458,13 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new CommandCenterApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-            var filter = filter_example;  // string | A JSON array of objects that bracket the search time  [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
+            var filter = filter_example;  // string | A JSON array of objects that bracket the search time   [{\"type\":\"date\",\"comparison\":\"gt\",\"value\":\"2018-06-19T00:00:00-07:00\",\"field\":\"start_time\"},{\"type\":\"date\",\"comparison\":\"lt\",\"value\":\"2018-06-26T23:59:59-07:00\",\"field\":\"end_time\"}]
             var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
@@ -1487,7 +1487,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
- **filter** | **string**| A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
+ **filter** | **string**| A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}] | 
  **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type

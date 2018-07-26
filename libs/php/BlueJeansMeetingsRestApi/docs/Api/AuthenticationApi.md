@@ -26,12 +26,11 @@ This is **not a true REST endpoint**. <br /> This URL should be used by a user's
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $client_id = "client_id_example"; // string | The 32 character client ID generated when you created the client application.
 $redirect_uri = "redirect_uri_example"; // string | The URL where the authorization code will be returned via redirect.  The URL must match a URL registered with the client application.
 $state = "state_example"; // string | Client application specific state passed through and returned in the redirect URL. May be useful for identifying operations or users.
@@ -41,7 +40,7 @@ $app_name = "app_name_example"; // string | The name of the client application s
 $app_logo_url = "app_logo_url_example"; // string | URL to an 84x84 image shown to user during authorization.
 
 try {
-    $api_instance->getAuthorizationCode($client_id, $redirect_uri, $state, $scope, $response_type, $app_name, $app_logo_url);
+    $apiInstance->getAuthorizationCode($client_id, $redirect_uri, $state, $scope, $response_type, $app_name, $app_logo_url);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getAuthorizationCode: ', $e->getMessage(), PHP_EOL;
 }
@@ -66,7 +65,7 @@ void (empty response body)
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -87,16 +86,15 @@ This API is typically called from an application that needs to make API requests
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $grant_request_client = new \BlueJeansMeetingsRestApi\Model\GrantRequestClient(); // \BlueJeansMeetingsRestApi\Model\GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
 
 try {
-    $result = $api_instance->getTokenByClient($grant_request_client);
+    $result = $apiInstance->getTokenByClient($grant_request_client);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByClient: ', $e->getMessage(), PHP_EOL;
@@ -116,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -137,16 +135,15 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $grant_request_code = new \BlueJeansMeetingsRestApi\Model\GrantRequestCode(); // \BlueJeansMeetingsRestApi\Model\GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
 
 try {
-    $result = $api_instance->getTokenByCode($grant_request_code);
+    $result = $apiInstance->getTokenByCode($grant_request_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByCode: ', $e->getMessage(), PHP_EOL;
@@ -166,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -187,16 +184,15 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $grant_request_meeting = new \BlueJeansMeetingsRestApi\Model\GrantRequestMeeting(); // \BlueJeansMeetingsRestApi\Model\GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
 
 try {
-    $result = $api_instance->getTokenByMeeting($grant_request_meeting);
+    $result = $apiInstance->getTokenByMeeting($grant_request_meeting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByMeeting: ', $e->getMessage(), PHP_EOL;
@@ -216,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -237,16 +233,15 @@ This API performs an authentication based upon a username and password.   Call t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $grant_request_password = new \BlueJeansMeetingsRestApi\Model\GrantRequestPassword(); // \BlueJeansMeetingsRestApi\Model\GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
 
 try {
-    $result = $api_instance->getTokenByPassword($grant_request_password);
+    $result = $apiInstance->getTokenByPassword($grant_request_password);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByPassword: ', $e->getMessage(), PHP_EOL;
@@ -266,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,15 +283,20 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works fo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $grant_request_refresh = new \BlueJeansMeetingsRestApi\Model\GrantRequestRefresh(); // \BlueJeansMeetingsRestApi\Model\GrantRequestRefresh | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *refresh_token*.
 
 try {
-    $result = $api_instance->getTokenByRefresh($grant_request_refresh);
+    $result = $apiInstance->getTokenByRefresh($grant_request_refresh);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenByRefresh: ', $e->getMessage(), PHP_EOL;
@@ -337,16 +337,15 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
-
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $access_token = "access_token_example"; // string | 
 
 try {
-    $result = $api_instance->getTokenInfo($access_token);
+    $result = $apiInstance->getTokenInfo($access_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->getTokenInfo: ', $e->getMessage(), PHP_EOL;
@@ -366,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -388,16 +387,21 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\AuthenticationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $grant_request_revoke = new \BlueJeansMeetingsRestApi\Model\GrantRequestRevoke(); // \BlueJeansMeetingsRestApi\Model\GrantRequestRevoke | Contains information about the type of grant you are revoking.
 $access_token = "access_token_example"; // string | 
 
 try {
-    $api_instance->revokeAccessToken($grant_request_revoke, $access_token);
+    $apiInstance->revokeAccessToken($grant_request_revoke, $access_token);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->revokeAccessToken: ', $e->getMessage(), PHP_EOL;
 }

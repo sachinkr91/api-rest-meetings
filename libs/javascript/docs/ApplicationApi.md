@@ -25,7 +25,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -81,7 +82,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -134,7 +136,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -190,7 +193,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 

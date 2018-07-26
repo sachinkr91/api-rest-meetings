@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 <a name="cancelmeeting"></a>
 # **CancelMeeting**
-> void CancelMeeting (int? userId, int? meetingId, bool? email, string cancellationMessage)
+> void CancelMeeting (int? userId, int? meetingId, bool? email = null, string cancellationMessage = null)
 
 Cancel Meeting
 
@@ -49,15 +49,15 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingId = 56;  // int? | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-            var email = true;  // bool? | Dispatch an email to participants with the specified cancellation message.
-            var cancellationMessage = cancellationMessage_example;  // string | Message sent to participants when meeting is deleted and email is selected
+            var email = true;  // bool? | Dispatch an email to participants with the specified cancellation message. (optional)  (default to false)
+            var cancellationMessage = cancellationMessage_example;  // string | Message sent to participants when meeting is deleted and email is selected (optional) 
 
             try
             {
@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingId** | **int?**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. | 
- **email** | **bool?**| Dispatch an email to participants with the specified cancellation message. | 
- **cancellationMessage** | **string**| Message sent to participants when meeting is deleted and email is selected | 
+ **email** | **bool?**| Dispatch an email to participants with the specified cancellation message. | [optional] [default to false]
+ **cancellationMessage** | **string**| Message sent to participants when meeting is deleted and email is selected | [optional] 
 
 ### Return type
 
@@ -120,9 +120,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -190,9 +190,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -260,9 +260,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -332,9 +332,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -402,9 +402,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -474,9 +474,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -544,9 +544,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -612,9 +612,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -686,9 +686,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -756,9 +756,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -824,9 +824,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -892,9 +892,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -960,9 +960,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1028,9 +1028,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1097,9 +1097,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1171,9 +1171,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1241,9 +1241,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1317,9 +1317,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -1388,9 +1388,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new MeetingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.

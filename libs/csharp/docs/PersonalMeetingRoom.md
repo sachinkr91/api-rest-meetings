@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **Allow720p** | **bool?** | If set allows clients to send and receive 720p video resolution. | [optional] 
 **Status** | **string** | This string indicates the meeting&#39;s operational status. | [optional] 
 **Locked** | **bool?** | If set the meeting has been locked, and future attendees require a member to allow them to join. | [optional] 
-**SequenceNumber** | **int?** | null | [optional] 
-**IcsUid** | **string** | null | [optional] 
+**SequenceNumber** | **int?** | Internal tracking number | [optional] 
+**IcsUid** | **string** | Internal tracking number | [optional] 
 **EndPointType** | **string** | This string is the name of the type of scheduling entity. | [optional] [default to "WEB_APP"]
 **EndPointVersion** | **string** | This is a string that describes the version number of the endpoint type. | [optional] 
 **Attendees** | [**List&lt;PersonalMeetingRoomAttendees&gt;**](PersonalMeetingRoomAttendees.md) |  | [optional] 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **NextStart** | **int?** | This is the epoch-based starting time for the next in chain of meetings. | [optional] 
 **NextEnd** | **int?** | This is the epoch-based ending time for the next in chain of meetings. | [optional] 
 **IsPersonalMeeting** | **bool?** | if set, indicates that this ia personal meeting. | [optional] 
-**InviteeJoinOption** | **int?** | null | [optional] 
+**InviteeJoinOption** | **int?** | How Invitee should join | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

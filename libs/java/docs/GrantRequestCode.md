@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 Name | Value
 ---- | -----
-CODE | &quot;authorization_code&quot;
+AUTHORIZATION_CODE | &quot;authorization_code&quot;
 
 
 

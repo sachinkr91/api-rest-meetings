@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 
 
-* `credentials` (value: `"client_credentials"`)
+* `client_credentials` (value: `"client_credentials"`)
 
 
 

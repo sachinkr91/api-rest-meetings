@@ -39,18 +39,23 @@ This endpoint deletes a scheuled meeting.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-$email = true; // bool | Dispatch an email to participants with the specified cancellation message.
+$email = false; // bool | Dispatch an email to participants with the specified cancellation message.
 $cancellation_message = "cancellation_message_example"; // string | Message sent to participants when meeting is deleted and email is selected
 
 try {
-    $api_instance->cancelMeeting($user_id, $meeting_id, $email, $cancellation_message);
+    $apiInstance->cancelMeeting($user_id, $meeting_id, $email, $cancellation_message);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->cancelMeeting: ', $e->getMessage(), PHP_EOL;
 }
@@ -63,8 +68,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_id** | **int**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **email** | **bool**| Dispatch an email to participants with the specified cancellation message. |
- **cancellation_message** | **string**| Message sent to participants when meeting is deleted and email is selected |
+ **email** | **bool**| Dispatch an email to participants with the specified cancellation message. | [optional] [default to false]
+ **cancellation_message** | **string**| Message sent to participants when meeting is deleted and email is selected | [optional]
 
 ### Return type
 
@@ -94,17 +99,22 @@ This endpoint will create a scheduled meeting.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting = new \BlueJeansMeetingsRestApi\Model\ScheduleMeetingMinComp(); // \BlueJeansMeetingsRestApi\Model\ScheduleMeetingMinComp | The desired configuration for the meeting. (<b>NOTE</b> The model provided here is a <i>typical</i> minimum set of meeting parameters.)
 $email = true; // bool | If set to true, sends invitation emails to all listed participants.
 
 try {
-    $result = $api_instance->createMeeting($user_id, $meeting, $email);
+    $result = $apiInstance->createMeeting($user_id, $meeting, $email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->createMeeting: ', $e->getMessage(), PHP_EOL;
@@ -148,17 +158,22 @@ Places a PSTN call to a user to join meeting. **Note:** call this API using a me
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_dialout = new \BlueJeansMeetingsRestApi\Model\PayloadDialout(); // \BlueJeansMeetingsRestApi\Model\PayloadDialout | 
 
 try {
-    $result = $api_instance->dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout);
+    $result = $apiInstance->dialoutPstn($user_id, $numeric_meeting_id, $payload_dialout);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->dialoutPstn: ', $e->getMessage(), PHP_EOL;
@@ -202,18 +217,23 @@ This endpoint generates a PSTN pairing code that can be used to connect to a mee
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_pairing_code_pstn = new \BlueJeansMeetingsRestApi\Model\PayloadPairingCodePstn(); // \BlueJeansMeetingsRestApi\Model\PayloadPairingCodePstn | 
 $role = "USER"; // string | 
 
 try {
-    $result = $api_instance->generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role);
+    $result = $apiInstance->generatePairingCodePstn($user_id, $numeric_meeting_id, $payload_pairing_code_pstn, $role);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->generatePairingCodePstn: ', $e->getMessage(), PHP_EOL;
@@ -258,17 +278,22 @@ This endpoint generates a SIP pairing code that can be used to connect to a meet
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_pairing_code_sip = new \BlueJeansMeetingsRestApi\Model\PayloadPairingCodeSIP(); // \BlueJeansMeetingsRestApi\Model\PayloadPairingCodeSIP | Information about the device that will be joining via SIP.
 
 try {
-    $result = $api_instance->generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip);
+    $result = $apiInstance->generatePairingCodeSip($user_id, $numeric_meeting_id, $payload_pairing_code_sip);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->generatePairingCodeSip: ', $e->getMessage(), PHP_EOL;
@@ -312,18 +337,23 @@ This endpoint generates a WebRTC pairing code that can be used to connect to a m
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_pairing_code_web_rtc = new \BlueJeansMeetingsRestApi\Model\PayloadPairingCodeWebRTC(); // \BlueJeansMeetingsRestApi\Model\PayloadPairingCodeWebRTC | 
 $role = "USER"; // string | 
 
 try {
-    $result = $api_instance->generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role);
+    $result = $apiInstance->generatePairingCodeWebRtc($user_id, $numeric_meeting_id, $payload_pairing_code_web_rtc, $role);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->generatePairingCodeWebRtc: ', $e->getMessage(), PHP_EOL;
@@ -368,17 +398,22 @@ This endpoint allows you to retrieve an individual endpoint’s current layout s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
 try {
-    $result = $api_instance->getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid);
+    $result = $apiInstance->getEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getEndpointLayout: ', $e->getMessage(), PHP_EOL;
@@ -422,16 +457,21 @@ This endpoint gets the settings for a user's meeting.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property. This is not the numeric meeting ID visible to users.
 
 try {
-    $result = $api_instance->getMeeting($user_id, $meeting_id);
+    $result = $apiInstance->getMeeting($user_id, $meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeeting: ', $e->getMessage(), PHP_EOL;
@@ -474,11 +514,16 @@ This endpoint retrieves the email object for a scheduled meeting.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 $type = "type_example"; // string | TEXT, ICS, HTML
@@ -486,7 +531,7 @@ $role = "role_example"; // string | moderator, participant
 $action = "action_example"; // string | create, edit, delete
 
 try {
-    $result = $api_instance->getMeetingEmails($user_id, $meeting_id, $type, $role, $action);
+    $result = $apiInstance->getMeetingEmails($user_id, $meeting_id, $type, $role, $action);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingEmails: ', $e->getMessage(), PHP_EOL;
@@ -532,17 +577,22 @@ This endpoint allows you to retrieve information about an endpoint in the meetin
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
 try {
-    $result = $api_instance->getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid);
+    $result = $apiInstance->getMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingEndpoint: ', $e->getMessage(), PHP_EOL;
@@ -586,16 +636,21 @@ This endpoint returns an array of all endpoints in the current meeting.  Can use
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 try {
-    $result = $api_instance->getMeetingEndpoints($user_id, $numeric_meeting_id);
+    $result = $apiInstance->getMeetingEndpoints($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingEndpoints: ', $e->getMessage(), PHP_EOL;
@@ -638,16 +693,21 @@ This endpoint retrieves the join information for a scheduled meeting.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 
 try {
-    $result = $api_instance->getMeetingNumbers($user_id, $meeting_id);
+    $result = $apiInstance->getMeetingNumbers($user_id, $meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingNumbers: ', $e->getMessage(), PHP_EOL;
@@ -690,16 +750,21 @@ This endpoint’s purpose is to return whether the meeting is in progress or not
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 
 try {
-    $result = $api_instance->getMeetingState($user_id, $numeric_meeting_id);
+    $result = $apiInstance->getMeetingState($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->getMeetingState: ', $e->getMessage(), PHP_EOL;
@@ -742,16 +807,21 @@ This endpoint gets a list of the user's scheduled upcoming meetings.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = "numeric_meeting_id_example"; // string | Filter the results by the meeting ID that participants will see and use to join the conference.
 
 try {
-    $result = $api_instance->listMeetings($user_id, $numeric_meeting_id);
+    $result = $apiInstance->listMeetings($user_id, $numeric_meeting_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->listMeetings: ', $e->getMessage(), PHP_EOL;
@@ -794,17 +864,22 @@ This endpoint generates an email invite to the specified meeting. **Note:** call
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_invite = new \BlueJeansMeetingsRestApi\Model\PayloadInvite(); // \BlueJeansMeetingsRestApi\Model\PayloadInvite | 
 
 try {
-    $api_instance->sendMeetingInvite($user_id, $numeric_meeting_id, $payload_invite);
+    $apiInstance->sendMeetingInvite($user_id, $numeric_meeting_id, $payload_invite);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->sendMeetingInvite: ', $e->getMessage(), PHP_EOL;
 }
@@ -847,11 +922,16 @@ This endpoint allows you to update an individual endpoint’s current layout set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -859,7 +939,7 @@ $is_leader = true; // bool |
 $push = true; // bool | 
 
 try {
-    $result = $api_instance->updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push);
+    $result = $apiInstance->updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateEndpointLayout: ', $e->getMessage(), PHP_EOL;
@@ -905,17 +985,22 @@ This endpoint changes the settings for a user's meeting. For example, use for re
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = 56; // int | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
 $meeting = new \BlueJeansMeetingsRestApi\Model\Meeting(); // \BlueJeansMeetingsRestApi\Model\Meeting | The user's room details that you wish to update.
 
 try {
-    $result = $api_instance->updateMeeting($user_id, $meeting_id, $meeting);
+    $result = $apiInstance->updateMeeting($user_id, $meeting_id, $meeting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeeting: ', $e->getMessage(), PHP_EOL;
@@ -959,11 +1044,16 @@ This endpoint allows you to update an individual endpoint’s ability to send au
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
@@ -972,7 +1062,7 @@ $mute_video = true; // bool | Toggle the video source mute.
 $leave_meeting = true; // bool | Remove the user from the meeting.
 
 try {
-    $result = $api_instance->updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
+    $result = $apiInstance->updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingEndpoint: ', $e->getMessage(), PHP_EOL;
@@ -1019,18 +1109,23 @@ This endpoint’s purpose is to be able to modify the endpoints in a meeting. Re
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $mute = true; // bool | Allows you to mute/unmute all participants in a meeting. Set mute to true to mute.  Set mute to false to unmute.
 $media = "media_example"; // string | Specify the type of media you which to mute/unmute.
 
 try {
-    $api_instance->updateMeetingEndpoints($user_id, $numeric_meeting_id, $mute, $media);
+    $apiInstance->updateMeetingEndpoints($user_id, $numeric_meeting_id, $mute, $media);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingEndpoints: ', $e->getMessage(), PHP_EOL;
 }
@@ -1074,18 +1169,23 @@ This endpoint’s purpose is to be able to modify a meeting. Actions include loc
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\MeetingApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $payload_meeting_state = new \BlueJeansMeetingsRestApi\Model\PayloadMeetingState(); // \BlueJeansMeetingsRestApi\Model\PayloadMeetingState | The meeting properties that you wish to update.
 $delay = 56; // int | Number of seconds to delay the end meeting operation.
 
 try {
-    $result = $api_instance->updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay);
+    $result = $apiInstance->updateMeetingState($user_id, $numeric_meeting_id, $payload_meeting_state, $delay);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingState: ', $e->getMessage(), PHP_EOL;

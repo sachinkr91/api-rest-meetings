@@ -17,7 +17,7 @@ Create Client Application
 
 This endpoint creates a client application for use in 3-legged OAuth2 authorization.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -26,16 +26,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 application = BlueJeansMeetingsRestApi.Application() # Application | The information about the new client application.
 
-try: 
+try:
     # Create Client Application
     api_response = api_instance.create_client_application(user_id, application)
     pprint(api_response)
@@ -72,7 +73,7 @@ List Client Applications
 
 This endpoint lists all the client applications associated with the access_token.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -81,15 +82,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # List Client Applications
     api_response = api_instance.list_client_applications(user_id)
     pprint(api_response)
@@ -125,7 +127,7 @@ Regenerate Client Application Secret
 
 This endpoint forces the regeneration of a client application secret for use in 3-legged OAuth2 authorization.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -134,16 +136,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
 
-try: 
+try:
     # Regenerate Client Application Secret
     api_response = api_instance.regenerate_client_application_secret(user_id, client_id)
     pprint(api_response)
@@ -180,7 +183,7 @@ Update Client Application
 
 This endpoint updates a client application for use in 3-legged OAuth2 authorization.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -189,17 +192,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.ApplicationApi()
+api_instance = BlueJeansMeetingsRestApi.ApplicationApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the client application of interest. This value was given as a response during client application creation.
 application = BlueJeansMeetingsRestApi.Application() # Application | The information about the new client application.
 
-try: 
+try:
     # Update Client Application
     api_response = api_instance.update_client_application(user_id, client_id, application)
     pprint(api_response)

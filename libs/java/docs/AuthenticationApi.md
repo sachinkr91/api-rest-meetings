@@ -25,19 +25,9 @@ This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a 
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 String clientId = "clientId_example"; // String | The 32 character client ID generated when you created the client application.
@@ -73,7 +63,7 @@ null (empty response body)
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -91,19 +81,9 @@ This API is typically called from an application that needs to make API requests
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 GrantRequestClient grantRequestClient = new GrantRequestClient(); // GrantRequestClient | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *client_credentials*.
@@ -128,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -146,19 +126,9 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 GrantRequestCode grantRequestCode = new GrantRequestCode(); // GrantRequestCode | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *authorization_code*.
@@ -183,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -201,19 +171,9 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 GrantRequestMeeting grantRequestMeeting = new GrantRequestMeeting(); // GrantRequestMeeting | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *meeting_passcode*.
@@ -238,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -256,19 +216,9 @@ This API performs an authentication based upon a username and password.   Call t
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 GrantRequestPassword grantRequestPassword = new GrantRequestPassword(); // GrantRequestPassword | Contains information about the type of grant you are requesting.  **Remember**, the field *grant_type* must be set to *password*.
@@ -293,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -366,19 +316,9 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 ### Example
 ```java
 // Import classes:
-//import com.bluejeans.api.rest.meetings.ApiClient;
 //import com.bluejeans.api.rest.meetings.ApiException;
-//import com.bluejeans.api.rest.meetings.Configuration;
-//import com.bluejeans.api.rest.meetings.auth.*;
 //import com.bluejeans.api.rest.meetings.api.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: access_token
-ApiKeyAuth access_token = (ApiKeyAuth) defaultClient.getAuthentication("access_token");
-access_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.setApiKeyPrefix("Token");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 String accessToken = "accessToken_example"; // String | 
@@ -403,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 

@@ -25,17 +25,22 @@ This endpoint modifies the list of profile tags associated with the specified en
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $action = "action_example"; // string | Type of operation to be done
 $tag = "tag_example"; // string | The name of tag
 
 try {
-    $result = $api_instance->changeEnterpriseTags($enterprise_id, $action, $tag);
+    $result = $apiInstance->changeEnterpriseTags($enterprise_id, $action, $tag);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->changeEnterpriseTags: ', $e->getMessage(), PHP_EOL;
@@ -79,11 +84,16 @@ This endpoint creates a user profile within the specified enterprise.  It is the
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $enterprise_user = new \BlueJeansMeetingsRestApi\Model\EnterpriseCreateUser(); // \BlueJeansMeetingsRestApi\Model\EnterpriseCreateUser | Basic Enterprise Account information
 $billing_category = "ENTERPRISE"; // string | What general billing group does this profile belong?
@@ -91,7 +101,7 @@ $force_password_change = true; // bool | Create profile and force user to change
 $is_admin = true; // bool | Create this account to have Administrative Privileges for the enterprise
 
 try {
-    $result = $api_instance->createEnterpriseUser($enterprise_id, $enterprise_user, $billing_category, $force_password_change, $is_admin);
+    $result = $apiInstance->createEnterpriseUser($enterprise_id, $enterprise_user, $billing_category, $force_password_change, $is_admin);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->createEnterpriseUser: ', $e->getMessage(), PHP_EOL;
@@ -137,15 +147,20 @@ This endpoint exports existing users into a CSV file.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 try {
-    $api_instance->exportUsers($enterprise_id);
+    $apiInstance->exportUsers($enterprise_id);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->exportUsers: ', $e->getMessage(), PHP_EOL;
 }
@@ -186,15 +201,20 @@ This endpoint retrieves all profile tags defined for the specified enterprise.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 try {
-    $result = $api_instance->getEnterpriseTags($enterprise_id);
+    $result = $apiInstance->getEnterpriseTags($enterprise_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->getEnterpriseTags: ', $e->getMessage(), PHP_EOL;
@@ -236,16 +256,21 @@ This endpoint allows removing a user from an enterprise; it does not delete the 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
-    $api_instance->removeUser($enterprise_id, $user_id);
+    $apiInstance->removeUser($enterprise_id, $user_id);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->removeUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -287,11 +312,16 @@ This endpoint provides a search facility for the specified enterprise.  <ul><li>
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\EnterpriseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $fields = "fields_example"; // string | A comma-separated list one or more of these BlueJeans enteprise profile fields to include in the API responses- username, firstName, middleName, lastName, isEnterpriseAdmin, enterpriseJoinDate, email
 $order = "order_example"; // string | If specificed, order defines how the API sorts results- ascending or descending
@@ -302,7 +332,7 @@ $page_size = 56; // int | Sets number of items returned per page.
 $page_number = 56; // int | Selects which page of results to return (1-based value)
 
 try {
-    $result = $api_instance->searchUsers($enterprise_id, $fields, $order, $sort_by, $text_search, $email_id, $page_size, $page_number);
+    $result = $apiInstance->searchUsers($enterprise_id, $fields, $order, $sort_by, $text_search, $email_id, $page_size, $page_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnterpriseApi->searchUsers: ', $e->getMessage(), PHP_EOL;

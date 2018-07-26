@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 Name | Value
 ---- | -----
-TOKEN | &quot;refresh_token&quot;
+REFRESH_TOKEN | &quot;refresh_token&quot;
 
 
 

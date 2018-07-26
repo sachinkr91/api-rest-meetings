@@ -27,7 +27,7 @@ Set User Tags
 
 This endpoint modifies the list of tags associated with the specified user. <b>NOTE</b> Adding a tag that is not defined in the user's Enterprise returns a 200 (success) status code.  It is recommended you validate the returned list of tags.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -36,17 +36,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 action = 'action_example' # str | Type of operation to be done
 tag = 'tag_example' # str | The name of tag
 
-try: 
+try:
     # Set User Tags
     api_response = api_instance.change_user_tags(user_id, action, tag)
     pprint(api_response)
@@ -84,7 +85,7 @@ Create User’s Default Meeting Settings
 
 This endpoint creates the user’s default meeting settings.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -93,16 +94,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 room = BlueJeansMeetingsRestApi.Room() # Room | The user's room details
 
-try: 
+try:
     # Create User’s Default Meeting Settings
     api_response = api_instance.create_room(user_id, room)
     pprint(api_response)
@@ -139,7 +141,7 @@ Get Enterprise Profile
 
 This endpoint retrieves the enterprise profile associated with the user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -148,15 +150,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get Enterprise Profile
     api_response = api_instance.get_enterprise_profile(user_id)
     pprint(api_response)
@@ -192,7 +195,7 @@ Get Granted Applications
 
 This endpoint retrieves the granted applications associated with the user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -201,15 +204,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get Granted Applications
     api_response = api_instance.get_granted_applications(user_id)
     pprint(api_response)
@@ -245,7 +249,7 @@ Get User Feature Groups
 
 This endpoint retrieves the feature groups associated with the user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -254,15 +258,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get User Feature Groups
     api_response = api_instance.get_groups(user_id)
     pprint(api_response)
@@ -298,7 +303,7 @@ Get Personal Meeting
 
 This endpoint gets the settings for a user's personal meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -307,15 +312,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get Personal Meeting
     api_response = api_instance.get_personal_meeting(user_id)
     pprint(api_response)
@@ -351,7 +357,7 @@ Get User’s Default Meeting Settings
 
 This endpoint gets a user’s default meeting settings.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -360,15 +366,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get User’s Default Meeting Settings
     api_response = api_instance.get_room(user_id)
     pprint(api_response)
@@ -404,7 +411,7 @@ Get User Account Details
 
 This endpoint retrieves the basic account details for a given user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -413,15 +420,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-try: 
+try:
     # Get User Account Details
     api_response = api_instance.get_user(user_id)
     pprint(api_response)
@@ -457,7 +465,7 @@ List User Tags
 
 This endpoint retrieves all tags associated with the specified user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -466,15 +474,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The user ID for the account to retrieve tags.  This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-try: 
+try:
     # List User Tags
     api_response = api_instance.get_user_tags(user_id)
     pprint(api_response)
@@ -510,7 +519,7 @@ Remoke Granted Application
 
 This endpoint revokes the granted application associated with the user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -519,16 +528,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 client_id = 'client_id_example' # str | The ID of the granted application.
 
-try: 
+try:
     # Remoke Granted Application
     api_instance.revoke_granted_application(user_id, client_id)
 except ApiException as e:
@@ -564,7 +574,7 @@ Set User Feature Groups
 
 This endpoint sets the feature groups associated with the user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -573,17 +583,18 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 enable = 'enable_example' # str | The feature group you want to enable. (optional)
 disable = 'disable_example' # str | The feature group you want to disable. (optional)
 
-try: 
+try:
     # Set User Feature Groups
     api_instance.set_groups(user_id, enable=enable, disable=disable)
 except ApiException as e:
@@ -620,7 +631,7 @@ Update Personal Meeting
 
 This endpoint changes the settings for a user's personal meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -629,16 +640,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 personal_meeting = BlueJeansMeetingsRestApi.PersonalMeetingRoom() # PersonalMeetingRoom | The user's personal meeting room details that you wish to update.
 
-try: 
+try:
     # Update Personal Meeting
     api_response = api_instance.update_peresonal_meeting(user_id, personal_meeting)
     pprint(api_response)
@@ -675,7 +687,7 @@ Update User’s Default Meeting Settings
 
 This endpoint allows updating a user’s default meeting settings.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -684,16 +696,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 room = BlueJeansMeetingsRestApi.Room() # Room | The user's room details that you wish to update.
 
-try: 
+try:
     # Update User’s Default Meeting Settings
     api_response = api_instance.update_room(user_id, room)
     pprint(api_response)
@@ -730,7 +743,7 @@ Update User Account Details
 
 This endpoint allows updating a user’s basic account details.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -739,16 +752,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.UserApi()
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 user = BlueJeansMeetingsRestApi.User() # User | The user details that you wish to update.
 
-try: 
+try:
     # Update User Account Details
     api_response = api_instance.update_user(user_id, user)
     pprint(api_response)

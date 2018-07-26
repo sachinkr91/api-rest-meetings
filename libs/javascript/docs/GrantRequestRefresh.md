@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: GrantTypeEnum
 
 
-* `token` (value: `"refresh_token"`)
+* `refresh_token` (value: `"refresh_token"`)
 
 
 

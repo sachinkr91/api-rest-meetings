@@ -54,7 +54,7 @@ access_token.setApiKey("YOUR API KEY");
 MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer meetingId = 56; // Integer | The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \"id\" property.
-Boolean email = true; // Boolean | Dispatch an email to participants with the specified cancellation message.
+Boolean email = false; // Boolean | Dispatch an email to participants with the specified cancellation message.
 String cancellationMessage = "cancellationMessage_example"; // String | Message sent to participants when meeting is deleted and email is selected
 try {
     apiInstance.cancelMeeting(userId, meetingId, email, cancellationMessage);
@@ -70,8 +70,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meetingId** | **Integer**| The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. |
- **email** | **Boolean**| Dispatch an email to participants with the specified cancellation message. |
- **cancellationMessage** | **String**| Message sent to participants when meeting is deleted and email is selected |
+ **email** | **Boolean**| Dispatch an email to participants with the specified cancellation message. | [optional] [default to false]
+ **cancellationMessage** | **String**| Message sent to participants when meeting is deleted and email is selected | [optional]
 
 ### Return type
 

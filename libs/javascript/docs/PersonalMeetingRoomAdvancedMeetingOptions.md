@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **publishMeeting** | **Boolean** | Same user ID as passed in path parameter. | [optional] 
 **encryptionType** | **String** | How this meeting is to be encrypted. | [optional] 
 **moderatorLess** | **Boolean** | If set require that a user enter&#39;s a moderator passcode to start meeting. | [optional] 
-**allowStream** | **Boolean** | null | [optional] 
+**allowStream** | **Boolean** | Allow sending of streamed video | [optional] 
 **autoRecord** | **Boolean** | By default start recording anytime 2 or more join this room. | [optional] 
 **disallowChat** | **Boolean** | If set, disable the ability to send chat message within this meeting. | [optional] 
 **muteParticipantsOnEntry** | **Boolean** | If set, force each joining participant to be muted. | [optional] 

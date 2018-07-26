@@ -23,16 +23,21 @@ This endpoint creates a client application for use in 3-legged OAuth2 authorizat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\ApplicationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $application = new \BlueJeansMeetingsRestApi\Model\Application(); // \BlueJeansMeetingsRestApi\Model\Application | The information about the new client application.
 
 try {
-    $result = $api_instance->createClientApplication($user_id, $application);
+    $result = $apiInstance->createClientApplication($user_id, $application);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->createClientApplication: ', $e->getMessage(), PHP_EOL;
@@ -75,15 +80,20 @@ This endpoint lists all the client applications associated with the access_token
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\ApplicationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
 try {
-    $result = $api_instance->listClientApplications($user_id);
+    $result = $apiInstance->listClientApplications($user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listClientApplications: ', $e->getMessage(), PHP_EOL;
@@ -125,16 +135,21 @@ This endpoint forces the regeneration of a client application secret for use in 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\ApplicationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $client_id = "client_id_example"; // string | The ID of the client application of interest. This value was given as a response during client application creation.
 
 try {
-    $result = $api_instance->regenerateClientApplicationSecret($user_id, $client_id);
+    $result = $apiInstance->regenerateClientApplicationSecret($user_id, $client_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->regenerateClientApplicationSecret: ', $e->getMessage(), PHP_EOL;
@@ -177,17 +192,22 @@ This endpoint updates a client application for use in 3-legged OAuth2 authorizat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\ApplicationApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $client_id = "client_id_example"; // string | The ID of the client application of interest. This value was given as a response during client application creation.
 $application = new \BlueJeansMeetingsRestApi\Model\Application(); // \BlueJeansMeetingsRestApi\Model\Application | The information about the new client application.
 
 try {
-    $result = $api_instance->updateClientApplication($user_id, $client_id, $application);
+    $result = $apiInstance->updateClientApplication($user_id, $client_id, $application);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateClientApplication: ', $e->getMessage(), PHP_EOL;

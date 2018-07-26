@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **City** | **string** |  | [optional] 
 **Label** | [**NumbersLabel**](NumbersLabel.md) |  | [optional] 
 **DefaultSettingsInherited** | **bool?** |  | [optional] 
-**_Default** | **bool?** |  | [optional] 
+**Default** | **bool?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

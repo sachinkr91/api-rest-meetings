@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 ## Enum: ScheduledFromEnum
 Name | Value
 ---- | -----
-APP | &quot;WEB_APP&quot;
+WEB_APP | &quot;WEB_APP&quot;
 
 
 

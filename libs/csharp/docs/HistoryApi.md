@@ -36,9 +36,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -104,9 +104,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -172,9 +172,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -240,9 +240,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -308,9 +308,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
@@ -374,9 +374,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -452,9 +452,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new HistoryApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.

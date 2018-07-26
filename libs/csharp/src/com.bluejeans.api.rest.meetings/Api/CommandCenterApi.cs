@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -55,7 +55,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>AnalyticsEndpointDistributionV2</returns>
         AnalyticsEndpointDistributionV2 GetEndpointDistributionV2 (int? enterpriseId, string filter, string appName = null);
@@ -68,7 +68,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of AnalyticsEndpointDistributionV2</returns>
         ApiResponse<AnalyticsEndpointDistributionV2> GetEndpointDistributionV2WithHttpInfo (int? enterpriseId, string filter, string appName = null);
@@ -243,7 +243,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>EndpointLocationSummary</returns>
-        EndpointLocationSummary GetGeoMap (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null);
+        EndpointLocationSummary GetGeoMap (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null);
 
         /// <summary>
         /// Geographic Demographics
@@ -258,7 +258,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of EndpointLocationSummary</returns>
-        ApiResponse<EndpointLocationSummary> GetGeoMapWithHttpInfo (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null);
+        ApiResponse<EndpointLocationSummary> GetGeoMapWithHttpInfo (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null);
         /// <summary>
         /// List Live Meeting Endpoints by Enterprise
         /// </summary>
@@ -421,7 +421,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>MeetingIndigoList</returns>
-        MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null);
+        MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null);
 
         /// <summary>
         /// List Past Meetings by Enterprise
@@ -437,7 +437,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of MeetingIndigoList</returns>
-        ApiResponse<MeetingIndigoList> GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null);
+        ApiResponse<MeetingIndigoList> GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -448,7 +448,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>MeetingIndigoList</returns>
-        MeetingIndigoList GetMeetingsPastByUser (int? userId, Dictionary<string, string> filter);
+        MeetingIndigoList GetMeetingsPastByUser (int? userId, string filter);
 
         /// <summary>
         /// List Past Meetings by User
@@ -460,7 +460,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>ApiResponse of MeetingIndigoList</returns>
-        ApiResponse<MeetingIndigoList> GetMeetingsPastByUserWithHttpInfo (int? userId, Dictionary<string, string> filter);
+        ApiResponse<MeetingIndigoList> GetMeetingsPastByUserWithHttpInfo (int? userId, string filter);
         /// <summary>
         /// ROI Data
         /// </summary>
@@ -540,7 +540,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>AnalyticsTopUsers</returns>
         AnalyticsTopUsers GetTopUsersV2 (int? enterpriseId, string filter, string appName = null);
@@ -553,7 +553,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of AnalyticsTopUsers</returns>
         ApiResponse<AnalyticsTopUsers> GetTopUsersV2WithHttpInfo (int? enterpriseId, string filter, string appName = null);
@@ -590,7 +590,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of AnalyticsEndpointDistributionV2</returns>
         System.Threading.Tasks.Task<AnalyticsEndpointDistributionV2> GetEndpointDistributionV2Async (int? enterpriseId, string filter, string appName = null);
@@ -603,7 +603,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (AnalyticsEndpointDistributionV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistributionV2>> GetEndpointDistributionV2AsyncWithHttpInfo (int? enterpriseId, string filter, string appName = null);
@@ -778,7 +778,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of EndpointLocationSummary</returns>
-        System.Threading.Tasks.Task<EndpointLocationSummary> GetGeoMapAsync (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null);
+        System.Threading.Tasks.Task<EndpointLocationSummary> GetGeoMapAsync (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null);
 
         /// <summary>
         /// Geographic Demographics
@@ -793,7 +793,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (EndpointLocationSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EndpointLocationSummary>> GetGeoMapAsyncWithHttpInfo (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null);
+        System.Threading.Tasks.Task<ApiResponse<EndpointLocationSummary>> GetGeoMapAsyncWithHttpInfo (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null);
         /// <summary>
         /// List Live Meeting Endpoints by Enterprise
         /// </summary>
@@ -956,7 +956,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of MeetingIndigoList</returns>
-        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null);
+        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null);
 
         /// <summary>
         /// List Past Meetings by Enterprise
@@ -972,7 +972,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null);
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null);
         /// <summary>
         /// List Past Meetings by User
         /// </summary>
@@ -983,7 +983,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>Task of MeetingIndigoList</returns>
-        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId, Dictionary<string, string> filter);
+        System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId, string filter);
 
         /// <summary>
         /// List Past Meetings by User
@@ -995,7 +995,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId, Dictionary<string, string> filter);
+        System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId, string filter);
         /// <summary>
         /// ROI Data
         /// </summary>
@@ -1075,7 +1075,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of AnalyticsTopUsers</returns>
         System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersV2Async (int? enterpriseId, string filter, string appName = null);
@@ -1088,7 +1088,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </remarks>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
         System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersV2AsyncWithHttpInfo (int? enterpriseId, string filter, string appName = null);
@@ -1108,15 +1108,9 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <returns></returns>
         public CommandCenterApi(String basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new com.bluejeans.api.rest.meetings.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = com.bluejeans.api.rest.meetings.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -1125,20 +1119,14 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CommandCenterApi(Configuration configuration = null)
+        public CommandCenterApi(com.bluejeans.api.rest.meetings.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = com.bluejeans.api.rest.meetings.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
             ExceptionFactory = com.bluejeans.api.rest.meetings.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -1164,7 +1152,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public com.bluejeans.api.rest.meetings.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -1187,9 +1175,9 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public IDictionary<String, String> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
         }
 
         /// <summary>
@@ -1232,8 +1220,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1241,28 +1229,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1276,7 +1263,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsEndpointDistribution>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsEndpointDistribution) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
+                (AnalyticsEndpointDistribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
         }
 
         /// <summary>
@@ -1308,8 +1295,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1317,27 +1304,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1351,7 +1338,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsEndpointDistribution>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsEndpointDistribution) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
+                (AnalyticsEndpointDistribution) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistribution)));
         }
 
         /// <summary>
@@ -1359,7 +1346,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>AnalyticsEndpointDistributionV2</returns>
         public AnalyticsEndpointDistributionV2 GetEndpointDistributionV2 (int? enterpriseId, string filter, string appName = null)
@@ -1373,7 +1360,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of AnalyticsEndpointDistributionV2</returns>
         public ApiResponse< AnalyticsEndpointDistributionV2 > GetEndpointDistributionV2WithHttpInfo (int? enterpriseId, string filter, string appName = null)
@@ -1387,8 +1374,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1396,29 +1383,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1432,7 +1418,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsEndpointDistributionV2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsEndpointDistributionV2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistributionV2)));
+                (AnalyticsEndpointDistributionV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistributionV2)));
         }
 
         /// <summary>
@@ -1440,7 +1426,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of AnalyticsEndpointDistributionV2</returns>
         public async System.Threading.Tasks.Task<AnalyticsEndpointDistributionV2> GetEndpointDistributionV2Async (int? enterpriseId, string filter, string appName = null)
@@ -1455,7 +1441,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (AnalyticsEndpointDistributionV2)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AnalyticsEndpointDistributionV2>> GetEndpointDistributionV2AsyncWithHttpInfo (int? enterpriseId, string filter, string appName = null)
@@ -1469,8 +1455,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1478,28 +1464,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1513,7 +1499,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsEndpointDistributionV2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsEndpointDistributionV2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistributionV2)));
+                (AnalyticsEndpointDistributionV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsEndpointDistributionV2)));
         }
 
         /// <summary>
@@ -1549,8 +1535,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1558,29 +1544,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1594,7 +1579,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingSummaryInfo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingSummaryInfo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingSummaryInfo)));
+                (MeetingSummaryInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingSummaryInfo)));
         }
 
         /// <summary>
@@ -1631,8 +1616,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1640,28 +1625,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1675,7 +1660,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingSummaryInfo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingSummaryInfo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingSummaryInfo)));
+                (MeetingSummaryInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingSummaryInfo)));
         }
 
         /// <summary>
@@ -1715,8 +1700,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/active";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1724,31 +1709,30 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1762,7 +1746,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<EnterpriseUsersActive>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EnterpriseUsersActive) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUsersActive)));
+                (EnterpriseUsersActive) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUsersActive)));
         }
 
         /// <summary>
@@ -1803,8 +1787,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/active";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1812,30 +1796,30 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1849,7 +1833,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<EnterpriseUsersActive>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EnterpriseUsersActive) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUsersActive)));
+                (EnterpriseUsersActive) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EnterpriseUsersActive)));
         }
 
         /// <summary>
@@ -1888,8 +1872,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1897,29 +1881,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1933,7 +1916,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+                (AnalyticsFeedbackComments) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
         }
 
         /// <summary>
@@ -1973,8 +1956,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1982,28 +1965,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2017,7 +2000,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+                (AnalyticsFeedbackComments) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
         }
 
         /// <summary>
@@ -2055,8 +2038,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2064,30 +2047,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2101,7 +2083,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+                (AnalyticsFeedbackComments) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
         }
 
         /// <summary>
@@ -2140,8 +2122,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2149,29 +2131,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2185,7 +2167,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackComments>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackComments) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
+                (AnalyticsFeedbackComments) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackComments)));
         }
 
         /// <summary>
@@ -2224,8 +2206,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2233,29 +2215,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2269,7 +2250,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+                (AnalyticsFeedbackScores) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
         }
 
         /// <summary>
@@ -2309,8 +2290,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2318,28 +2299,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2353,7 +2334,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+                (AnalyticsFeedbackScores) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
         }
 
         /// <summary>
@@ -2394,8 +2375,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2403,30 +2384,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2440,7 +2420,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+                (AnalyticsFeedbackScores) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
         }
 
         /// <summary>
@@ -2482,8 +2462,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/feedback/count";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2491,29 +2471,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (start != null) localVarQueryParams.Add("start", Configuration.ApiClient.ParameterToString(start)); // query parameter
-            if (end != null) localVarQueryParams.Add("end", Configuration.ApiClient.ParameterToString(end)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (end != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end", end)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2527,7 +2507,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsFeedbackScores>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsFeedbackScores) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
+                (AnalyticsFeedbackScores) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsFeedbackScores)));
         }
 
         /// <summary>
@@ -2540,7 +2520,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>EndpointLocationSummary</returns>
-        public EndpointLocationSummary GetGeoMap (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null)
+        public EndpointLocationSummary GetGeoMap (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null)
         {
              ApiResponse<EndpointLocationSummary> localVarResponse = GetGeoMapWithHttpInfo(enterpriseId, filter, offset, limit, appName);
              return localVarResponse.Data;
@@ -2556,7 +2536,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of EndpointLocationSummary</returns>
-        public ApiResponse< EndpointLocationSummary > GetGeoMapWithHttpInfo (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null)
+        public ApiResponse< EndpointLocationSummary > GetGeoMapWithHttpInfo (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -2567,8 +2547,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2576,31 +2556,30 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2614,7 +2593,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<EndpointLocationSummary>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EndpointLocationSummary) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EndpointLocationSummary)));
+                (EndpointLocationSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EndpointLocationSummary)));
         }
 
         /// <summary>
@@ -2627,7 +2606,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of EndpointLocationSummary</returns>
-        public async System.Threading.Tasks.Task<EndpointLocationSummary> GetGeoMapAsync (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null)
+        public async System.Threading.Tasks.Task<EndpointLocationSummary> GetGeoMapAsync (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null)
         {
              ApiResponse<EndpointLocationSummary> localVarResponse = await GetGeoMapAsyncWithHttpInfo(enterpriseId, filter, offset, limit, appName);
              return localVarResponse.Data;
@@ -2644,7 +2623,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="limit">The Limit sets the maximum number of data records to return .  Limit&#x3D;0 returns the full dataset (optional, default to 0)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (EndpointLocationSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EndpointLocationSummary>> GetGeoMapAsyncWithHttpInfo (int? enterpriseId, Dictionary<string, string> filter, int? offset = null, int? limit = null, string appName = null)
+        public async System.Threading.Tasks.Task<ApiResponse<EndpointLocationSummary>> GetGeoMapAsyncWithHttpInfo (int? enterpriseId, string filter, int? offset = null, int? limit = null, string appName = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -2655,8 +2634,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2664,30 +2643,30 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2701,7 +2680,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<EndpointLocationSummary>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EndpointLocationSummary) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EndpointLocationSummary)));
+                (EndpointLocationSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EndpointLocationSummary)));
         }
 
         /// <summary>
@@ -2737,8 +2716,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2746,29 +2725,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2782,7 +2760,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -2819,8 +2797,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2828,28 +2806,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2863,7 +2841,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -2899,8 +2877,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2908,29 +2886,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
-            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeEndpoints", includeEndpoints)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2944,7 +2921,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -2981,8 +2958,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2990,28 +2967,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
-            if (includeEndpoints != null) localVarQueryParams.Add("includeEndpoints", Configuration.ApiClient.ParameterToString(includeEndpoints)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (includeEndpoints != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeEndpoints", includeEndpoints)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3025,7 +3002,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -3059,8 +3036,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3068,28 +3045,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3103,7 +3079,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -3138,8 +3114,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings/{meeting_uuid}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3147,27 +3123,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (meetingUuid != null) localVarPathParams.Add("meeting_uuid", this.Configuration.ApiClient.ParameterToString(meetingUuid)); // path parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3181,7 +3157,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingExtendedIndigo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingExtendedIndigo) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
+                (MeetingExtendedIndigo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingExtendedIndigo)));
         }
 
         /// <summary>
@@ -3214,8 +3190,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3223,29 +3199,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3259,7 +3234,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+                (AnalyticsUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
         }
 
         /// <summary>
@@ -3293,8 +3268,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3302,28 +3277,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3337,7 +3312,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+                (AnalyticsUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
         }
 
         /// <summary>
@@ -3375,8 +3350,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3384,30 +3359,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3421,7 +3395,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+                (AnalyticsUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
         }
 
         /// <summary>
@@ -3460,8 +3434,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3469,29 +3443,29 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (clientTZ != null) localVarQueryParams.Add("clientTZ", Configuration.ApiClient.ParameterToString(clientTZ)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (clientTZ != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "clientTZ", clientTZ)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3505,7 +3479,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsUsage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsUsage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
+                (AnalyticsUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsUsage)));
         }
 
         /// <summary>
@@ -3536,8 +3510,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3545,28 +3519,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3580,7 +3553,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -3612,8 +3585,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings/live";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3621,27 +3594,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3655,7 +3628,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -3669,7 +3642,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>MeetingIndigoList</returns>
-        public MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null)
+        public MeetingIndigoList GetMeetingsPastByEnterprise (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null)
         {
              ApiResponse<MeetingIndigoList> localVarResponse = GetMeetingsPastByEnterpriseWithHttpInfo(enterpriseId, offset, limit, filter, count, appName);
              return localVarResponse.Data;
@@ -3686,7 +3659,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of MeetingIndigoList</returns>
-        public ApiResponse< MeetingIndigoList > GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null)
+        public ApiResponse< MeetingIndigoList > GetMeetingsPastByEnterpriseWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -3694,8 +3667,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3703,32 +3676,31 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (count != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "count", count)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3742,7 +3714,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -3756,7 +3728,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of MeetingIndigoList</returns>
-        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null)
+        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByEnterpriseAsync (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null)
         {
              ApiResponse<MeetingIndigoList> localVarResponse = await GetMeetingsPastByEnterpriseAsyncWithHttpInfo(enterpriseId, offset, limit, filter, count, appName);
              return localVarResponse.Data;
@@ -3774,7 +3746,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="count">Include total count of meetings in response (optional)</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, Dictionary<string, string> filter = null, bool? count = null, string appName = null)
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByEnterpriseAsyncWithHttpInfo (int? enterpriseId, int? offset = null, int? limit = null, string filter = null, bool? count = null, string appName = null)
         {
             // verify the required parameter 'enterpriseId' is set
             if (enterpriseId == null)
@@ -3782,8 +3754,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3791,31 +3763,31 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (offset != null) localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (count != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "count", count)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3829,7 +3801,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -3839,7 +3811,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>MeetingIndigoList</returns>
-        public MeetingIndigoList GetMeetingsPastByUser (int? userId, Dictionary<string, string> filter)
+        public MeetingIndigoList GetMeetingsPastByUser (int? userId, string filter)
         {
              ApiResponse<MeetingIndigoList> localVarResponse = GetMeetingsPastByUserWithHttpInfo(userId, filter);
              return localVarResponse.Data;
@@ -3852,7 +3824,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>ApiResponse of MeetingIndigoList</returns>
-        public ApiResponse< MeetingIndigoList > GetMeetingsPastByUserWithHttpInfo (int? userId, Dictionary<string, string> filter)
+        public ApiResponse< MeetingIndigoList > GetMeetingsPastByUserWithHttpInfo (int? userId, string filter)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3863,8 +3835,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3872,28 +3844,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3907,7 +3878,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -3917,7 +3888,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>Task of MeetingIndigoList</returns>
-        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId, Dictionary<string, string> filter)
+        public async System.Threading.Tasks.Task<MeetingIndigoList> GetMeetingsPastByUserAsync (int? userId, string filter)
         {
              ApiResponse<MeetingIndigoList> localVarResponse = await GetMeetingsPastByUserAsyncWithHttpInfo(userId, filter);
              return localVarResponse.Data;
@@ -3931,7 +3902,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="filter">An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.</param>
         /// <returns>Task of ApiResponse (MeetingIndigoList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId, Dictionary<string, string> filter)
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingIndigoList>> GetMeetingsPastByUserAsyncWithHttpInfo (int? userId, string filter)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3942,8 +3913,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/user/{user_id}/indigo/meetings";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3951,27 +3922,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (userId != null) localVarPathParams.Add("user_id", Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (userId != null) localVarPathParams.Add("user_id", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3985,7 +3956,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<MeetingIndigoList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (MeetingIndigoList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
+                (MeetingIndigoList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MeetingIndigoList)));
         }
 
         /// <summary>
@@ -4019,8 +3990,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4028,28 +3999,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4063,7 +4033,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+                (AnalyticsRoiData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
         }
 
         /// <summary>
@@ -4098,8 +4068,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4107,27 +4077,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4141,7 +4111,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+                (AnalyticsRoiData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
         }
 
         /// <summary>
@@ -4177,8 +4147,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4186,29 +4156,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4222,7 +4191,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+                (AnalyticsRoiData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
         }
 
         /// <summary>
@@ -4259,8 +4228,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4268,28 +4237,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4303,7 +4272,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsRoiData>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsRoiData) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
+                (AnalyticsRoiData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsRoiData)));
         }
 
         /// <summary>
@@ -4334,8 +4303,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4343,28 +4312,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4378,7 +4346,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+                (AnalyticsTopUsers) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
         }
 
         /// <summary>
@@ -4410,8 +4378,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v1/enterprise/{enterprise_id}/indigo/analytics/users/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4419,27 +4387,27 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4453,7 +4421,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+                (AnalyticsTopUsers) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
         }
 
         /// <summary>
@@ -4461,7 +4429,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>AnalyticsTopUsers</returns>
         public AnalyticsTopUsers GetTopUsersV2 (int? enterpriseId, string filter, string appName = null)
@@ -4475,7 +4443,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>ApiResponse of AnalyticsTopUsers</returns>
         public ApiResponse< AnalyticsTopUsers > GetTopUsersV2WithHttpInfo (int? enterpriseId, string filter, string appName = null)
@@ -4489,8 +4457,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4498,29 +4466,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
-
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4534,7 +4501,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+                (AnalyticsTopUsers) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
         }
 
         /// <summary>
@@ -4542,7 +4509,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of AnalyticsTopUsers</returns>
         public async System.Threading.Tasks.Task<AnalyticsTopUsers> GetTopUsersV2Async (int? enterpriseId, string filter, string appName = null)
@@ -4557,7 +4524,7 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// </summary>
         /// <exception cref="com.bluejeans.api.rest.meetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enterpriseId">The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.</param>
-        /// <param name="filter">A JSON array of objects that bracket the search time  [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
+        /// <param name="filter">A JSON array of objects that bracket the search time   [{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;,\&quot;value\&quot;:\&quot;2018-06-19T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;start_time\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;,\&quot;value\&quot;:\&quot;2018-06-26T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;end_time\&quot;}]</param>
         /// <param name="appName">name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)</param>
         /// <returns>Task of ApiResponse (AnalyticsTopUsers)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AnalyticsTopUsers>> GetTopUsersV2AsyncWithHttpInfo (int? enterpriseId, string filter, string appName = null)
@@ -4571,8 +4538,8 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             var localVarPath = "/v2/enterprise/{enterprise_id}/indigo/analytics/users/usage";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4580,28 +4547,28 @@ namespace com.bluejeans.api.rest.meetings.Api
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
-            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
-            if (appName != null) localVarQueryParams.Add("app_name", Configuration.ApiClient.ParameterToString(appName)); // query parameter
+            if (enterpriseId != null) localVarPathParams.Add("enterprise_id", this.Configuration.ApiClient.ParameterToString(enterpriseId)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (appName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "app_name", appName)); // query parameter
 
             // authentication (access_token) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("access_token")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
             {
-                localVarQueryParams["access_token"] = Configuration.GetApiKeyWithPrefix("access_token");
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "access_token", this.Configuration.GetApiKeyWithPrefix("access_token")));
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4615,7 +4582,7 @@ namespace com.bluejeans.api.rest.meetings.Api
 
             return new ApiResponse<AnalyticsTopUsers>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AnalyticsTopUsers) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
+                (AnalyticsTopUsers) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticsTopUsers)));
         }
 
     }

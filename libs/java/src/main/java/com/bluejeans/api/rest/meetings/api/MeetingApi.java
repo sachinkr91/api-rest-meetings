@@ -1,8 +1,8 @@
 /*
  * BlueJeans Meetings REST API
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/010/2018 </alert>Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
  *
- * OpenAPI spec version: 1.0.4407102018
+ * OpenAPI spec version: 1.0.4407232018
  * Contact: glenn@bluejeans.com
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -76,8 +76,8 @@ public class MeetingApi {
      * Build call for cancelMeeting
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param email Dispatch an email to participants with the specified cancellation message. (required)
-     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (optional, default to false)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -85,15 +85,18 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call cancelMeetingCall(Integer userId, Integer meetingId, Boolean email, String cancellationMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
-            .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()))
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()))
-            .replaceAll("\\{" + "cancellationMessage" + "\\}", apiClient.escapeString(cancellationMessage.toString()));
+            .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (email != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+        if (cancellationMessage != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("cancellationMessage", cancellationMessage));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -124,9 +127,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call cancelMeetingValidateBeforeCall(Integer userId, Integer meetingId, Boolean email, String cancellationMessage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -140,24 +143,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling cancelMeeting(Async)");
         }
         
-        // verify the required parameter 'email' is set
-        if (email == null) {
-            throw new ApiException("Missing the required parameter 'email' when calling cancelMeeting(Async)");
-        }
-        
-        // verify the required parameter 'cancellationMessage' is set
-        if (cancellationMessage == null) {
-            throw new ApiException("Missing the required parameter 'cancellationMessage' when calling cancelMeeting(Async)");
-        }
-        
-        
+
         com.squareup.okhttp.Call call = cancelMeetingCall(userId, meetingId, email, cancellationMessage, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -165,8 +154,8 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param email Dispatch an email to participants with the specified cancellation message. (required)
-     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (optional, default to false)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void cancelMeeting(Integer userId, Integer meetingId, Boolean email, String cancellationMessage) throws ApiException {
@@ -178,8 +167,8 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param email Dispatch an email to participants with the specified cancellation message. (required)
-     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (optional, default to false)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -193,8 +182,8 @@ public class MeetingApi {
      * This endpoint deletes a scheuled meeting.
      * @param userId The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param meetingId The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the \&quot;id\&quot; property. (required)
-     * @param email Dispatch an email to participants with the specified cancellation message. (required)
-     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (required)
+     * @param email Dispatch an email to participants with the specified cancellation message. (optional, default to false)
+     * @param cancellationMessage Message sent to participants when meeting is deleted and email is selected (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -236,14 +225,15 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call createMeetingCall(Integer userId, ScheduleMeetingMinComp meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = meeting;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (email != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "email", email));
+        localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -274,9 +264,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createMeetingValidateBeforeCall(Integer userId, ScheduleMeetingMinComp meeting, Boolean email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -290,14 +280,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meeting' when calling createMeeting(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = createMeetingCall(userId, meeting, email, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -377,13 +363,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call dialoutPstnCall(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadDialout;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/dialout/pstn"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -414,9 +401,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call dialoutPstnValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadDialout payloadDialout, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -435,14 +422,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadDialout' when calling dialoutPstn(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = dialoutPstnCall(userId, numericMeetingId, payloadDialout, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -523,15 +506,16 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call generatePairingCodePstnCall(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadPairingCodePstn;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/PSTN"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (role != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+        localVarQueryParams.addAll(apiClient.parameterToPair("role", role));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -562,9 +546,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generatePairingCodePstnValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadPairingCodePstn payloadPairingCodePstn, String role, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -583,14 +567,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadPairingCodePstn' when calling generatePairingCodePstn(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = generatePairingCodePstnCall(userId, numericMeetingId, payloadPairingCodePstn, role, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -673,13 +653,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call generatePairingCodeSipCall(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadPairingCodeSIP;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/SIP"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -710,9 +691,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generatePairingCodeSipValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadPairingCodeSIP payloadPairingCodeSIP, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -731,14 +712,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadPairingCodeSIP' when calling generatePairingCodeSip(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = generatePairingCodeSipCall(userId, numericMeetingId, payloadPairingCodeSIP, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -819,15 +796,16 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call generatePairingCodeWebRtcCall(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadPairingCodeWebRTC;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/pairing_code/webrtc"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (role != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+        localVarQueryParams.addAll(apiClient.parameterToPair("role", role));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -858,9 +836,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generatePairingCodeWebRtcValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadPairingCodeWebRTC payloadPairingCodeWebRTC, String role, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -879,14 +857,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadPairingCodeWebRTC' when calling generatePairingCodeWebRtc(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = generatePairingCodeWebRtcCall(userId, numericMeetingId, payloadPairingCodeWebRTC, role, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -969,7 +943,7 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getEndpointLayoutCall(Integer userId, Integer numericMeetingId, String endpointGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
@@ -977,6 +951,7 @@ public class MeetingApi {
             .replaceAll("\\{" + "endpoint_guid" + "\\}", apiClient.escapeString(endpointGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1007,9 +982,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getEndpointLayoutValidateBeforeCall(Integer userId, Integer numericMeetingId, String endpointGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1028,14 +1003,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'endpointGuid' when calling getEndpointLayout(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getEndpointLayoutCall(userId, numericMeetingId, endpointGuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1114,13 +1085,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1151,9 +1123,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingValidateBeforeCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1167,14 +1139,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling getMeeting(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingCall(userId, meetingId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1253,19 +1221,20 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingEmailsCall(Integer userId, Integer meetingId, String type, String role, String action, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}/emails"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (type != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
+        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
         if (role != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+        localVarQueryParams.addAll(apiClient.parameterToPair("role", role));
         if (action != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "action", action));
+        localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1296,9 +1265,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingEmailsValidateBeforeCall(Integer userId, Integer meetingId, String type, String role, String action, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1312,14 +1281,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling getMeetingEmails(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingEmailsCall(userId, meetingId, type, role, action, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1405,7 +1370,7 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingEndpointCall(Integer userId, Integer numericMeetingId, String endpointGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
@@ -1413,6 +1378,7 @@ public class MeetingApi {
             .replaceAll("\\{" + "endpoint_guid" + "\\}", apiClient.escapeString(endpointGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1443,9 +1409,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingEndpointValidateBeforeCall(Integer userId, Integer numericMeetingId, String endpointGuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1464,14 +1430,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'endpointGuid' when calling getMeetingEndpoint(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingEndpointCall(userId, numericMeetingId, endpointGuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1550,13 +1512,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingEndpointsCall(Integer userId, Integer numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1587,9 +1550,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingEndpointsValidateBeforeCall(Integer userId, Integer numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1603,14 +1566,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'numericMeetingId' when calling getMeetingEndpoints(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingEndpointsCall(userId, numericMeetingId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1686,13 +1645,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingNumbersCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/meetings/{meeting_id}/numbers"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1723,9 +1683,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingNumbersValidateBeforeCall(Integer userId, Integer meetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1739,14 +1699,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meetingId' when calling getMeetingNumbers(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingNumbersCall(userId, meetingId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1822,13 +1778,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call getMeetingStateCall(Integer userId, Integer numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1859,9 +1816,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getMeetingStateValidateBeforeCall(Integer userId, Integer numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1875,14 +1832,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'numericMeetingId' when calling getMeetingState(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = getMeetingStateCall(userId, numericMeetingId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1958,14 +1911,15 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call listMeetingsCall(Integer userId, String numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (numericMeetingId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "numericMeetingId", numericMeetingId));
+        localVarQueryParams.addAll(apiClient.parameterToPair("numericMeetingId", numericMeetingId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1996,9 +1950,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call listMeetingsValidateBeforeCall(Integer userId, String numericMeetingId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2007,14 +1961,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'userId' when calling listMeetings(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = listMeetingsCall(userId, numericMeetingId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2091,13 +2041,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call sendMeetingInviteCall(Integer userId, Integer numericMeetingId, PayloadInvite payloadInvite, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadInvite;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/invite"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2128,9 +2079,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sendMeetingInviteValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadInvite payloadInvite, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2149,14 +2100,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadInvite' when calling sendMeetingInvite(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = sendMeetingInviteCall(userId, numericMeetingId, payloadInvite, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2234,7 +2181,7 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call updateEndpointLayoutCall(Integer userId, Integer numericMeetingId, String endpointGuid, Boolean isLeader, Boolean push, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
@@ -2242,10 +2189,11 @@ public class MeetingApi {
             .replaceAll("\\{" + "endpoint_guid" + "\\}", apiClient.escapeString(endpointGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isLeader != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "isLeader", isLeader));
+        localVarQueryParams.addAll(apiClient.parameterToPair("isLeader", isLeader));
         if (push != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "push", push));
+        localVarQueryParams.addAll(apiClient.parameterToPair("push", push));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2276,9 +2224,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateEndpointLayoutValidateBeforeCall(Integer userId, Integer numericMeetingId, String endpointGuid, Boolean isLeader, Boolean push, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2297,14 +2245,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'endpointGuid' when calling updateEndpointLayout(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateEndpointLayoutCall(userId, numericMeetingId, endpointGuid, isLeader, push, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2390,13 +2334,14 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call updateMeetingCall(Integer userId, Integer meetingId, Meeting meeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = meeting;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/scheduled_meeting/{meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "meeting_id" + "\\}", apiClient.escapeString(meetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2427,9 +2372,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateMeetingValidateBeforeCall(Integer userId, Integer meetingId, Meeting meeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2448,14 +2393,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'meeting' when calling updateMeeting(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateMeetingCall(userId, meetingId, meeting, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2538,7 +2479,7 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call updateMeetingEndpointCall(Integer userId, Integer numericMeetingId, String endpointGuid, Boolean muteAudio, Boolean muteVideo, Boolean leaveMeeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
@@ -2546,12 +2487,13 @@ public class MeetingApi {
             .replaceAll("\\{" + "endpoint_guid" + "\\}", apiClient.escapeString(endpointGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (muteAudio != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "muteAudio", muteAudio));
+        localVarQueryParams.addAll(apiClient.parameterToPair("muteAudio", muteAudio));
         if (muteVideo != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "muteVideo", muteVideo));
+        localVarQueryParams.addAll(apiClient.parameterToPair("muteVideo", muteVideo));
         if (leaveMeeting != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "leaveMeeting", leaveMeeting));
+        localVarQueryParams.addAll(apiClient.parameterToPair("leaveMeeting", leaveMeeting));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2582,9 +2524,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateMeetingEndpointValidateBeforeCall(Integer userId, Integer numericMeetingId, String endpointGuid, Boolean muteAudio, Boolean muteVideo, Boolean leaveMeeting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2603,14 +2545,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'endpointGuid' when calling updateMeetingEndpoint(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateMeetingEndpointCall(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2700,17 +2638,18 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call updateMeetingEndpointsCall(Integer userId, Integer numericMeetingId, Boolean mute, String media, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (mute != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "mute", mute));
+        localVarQueryParams.addAll(apiClient.parameterToPair("mute", mute));
         if (media != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "media", media));
+        localVarQueryParams.addAll(apiClient.parameterToPair("media", media));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2741,9 +2680,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateMeetingEndpointsValidateBeforeCall(Integer userId, Integer numericMeetingId, Boolean mute, String media, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2757,14 +2696,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'numericMeetingId' when calling updateMeetingEndpoints(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateMeetingEndpointsCall(userId, numericMeetingId, mute, media, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -2844,15 +2779,16 @@ public class MeetingApi {
      */
     public com.squareup.okhttp.Call updateMeetingStateCall(Integer userId, Integer numericMeetingId, PayloadMeetingState payloadMeetingState, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = payloadMeetingState;
-        
+
         // create path and map variables
         String localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}"
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
             .replaceAll("\\{" + "numeric_meeting_id" + "\\}", apiClient.escapeString(numericMeetingId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (delay != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "delay", delay));
+        localVarQueryParams.addAll(apiClient.parameterToPair("delay", delay));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2883,9 +2819,9 @@ public class MeetingApi {
         }
 
         String[] localVarAuthNames = new String[] { "access_token" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateMeetingStateValidateBeforeCall(Integer userId, Integer numericMeetingId, PayloadMeetingState payloadMeetingState, Integer delay, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -2904,14 +2840,10 @@ public class MeetingApi {
             throw new ApiException("Missing the required parameter 'payloadMeetingState' when calling updateMeetingState(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = updateMeetingStateCall(userId, numericMeetingId, payloadMeetingState, delay, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

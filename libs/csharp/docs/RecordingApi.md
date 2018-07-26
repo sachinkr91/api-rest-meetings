@@ -4,13 +4,13 @@ All URIs are relative to *https://api.bluejeans.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateShareRecordings**](RecordingApi.md#createsharerecordings) | **POST** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing | Enable Recording Sharing
+[**CreateShareRecordings**](RecordingApi.md#createsharerecordings) | **POST** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/ | Enable Recording Sharing
 [**DeleteAllRecordingsByMeetingGuid**](RecordingApi.md#deleteallrecordingsbymeetingguid) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/ | Delete All Recordings for a Specified Meeting GUID
 [**DeleteRecordingChapter**](RecordingApi.md#deleterecordingchapter) | **DELETE** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/ | Delete a Specified Recording Chapter
-[**DeleteShareRecordings**](RecordingApi.md#deletesharerecordings) | **DELETE** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing | Delete Recording Sharing
+[**DeleteShareRecordings**](RecordingApi.md#deletesharerecordings) | **DELETE** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/ | Delete Recording Sharing
 [**GetMeetingRecordings**](RecordingApi.md#getmeetingrecordings) | **GET** /v1/user/{user_id}/meeting_history/{meeting_id}/recordings | Get All Recordings for a Specified Meeting ID
 [**GetRecordingContent**](RecordingApi.md#getrecordingcontent) | **GET** /v1/user/{user_id}/cms/{content_id} | Get Recording Download Link
-[**GetShareRecordings**](RecordingApi.md#getsharerecordings) | **GET** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing | List Recording Sharing
+[**GetShareRecordings**](RecordingApi.md#getsharerecordings) | **GET** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/ | List Recording Sharing
 [**ModifyShareRecordings**](RecordingApi.md#modifysharerecordings) | **PUT** /v1/user/{user_id}/meeting_history/{meetingGuid}/sharing/{sharingId} | Modify Recording Sharing
 [**MoveRecordingOwner**](RecordingApi.md#moverecordingowner) | **POST** /v1/user/{user_id}/meeting_history/move_recordings/from_user/{originalOwner}/to_user/{newOwner} | Move Recording Ownership
 [**StartRecording**](RecordingApi.md#startrecording) | **POST** /v1/user/{user_id}/live_meetings/{meeting_id}/recordings | Start Recording
@@ -40,9 +40,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -110,9 +110,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -178,9 +178,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -248,9 +248,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -315,9 +315,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -385,9 +385,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -455,9 +455,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -523,9 +523,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -595,9 +595,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user requesting the move.  This user must have Enterprise Administrator privileges.  This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -665,9 +665,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
@@ -734,9 +734,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: access_token
-            Configuration.Default.ApiKey.Add("access_token", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("access_token", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
 
             var apiInstance = new RecordingApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
