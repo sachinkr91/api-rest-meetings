@@ -8,6 +8,5 @@ Name | Type | Description | Notes
 **redirectUrls** | **[String]** |  | [optional] 
 **clientId** | **String** | OAuth key created for this application | [optional] 
 **appName** | **String** | Name that application registered under | [optional] 
-**clientId** | **String** | Same as clientId | [optional] 
 
 

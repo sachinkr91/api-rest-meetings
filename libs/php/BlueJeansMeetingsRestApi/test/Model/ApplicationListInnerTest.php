@@ -110,11 +110,4 @@ class ApplicationListInnerTest extends \PHPUnit_Framework_TestCase
     public function testPropertyAppName()
     {
     }
-
-    /**
-     * Test attribute "client_id"
-     */
-    public function testPropertyClientId()
-    {
-    }
 }

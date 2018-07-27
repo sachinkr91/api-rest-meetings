@@ -46,9 +46,6 @@ public class ApplicationListInner {
   @SerializedName("appName")
   private String appName = null;
 
-  @SerializedName("client_id")
-  private String clientId = null;
-
   public ApplicationListInner description(String description) {
     this.description = description;
     return this;
@@ -147,24 +144,6 @@ public class ApplicationListInner {
     this.appName = appName;
   }
 
-  public ApplicationListInner clientId(String clientId) {
-    this.clientId = clientId;
-    return this;
-  }
-
-   /**
-   * Same as clientId
-   * @return clientId
-  **/
-  @ApiModelProperty(value = "Same as clientId")
-  public String getClientId() {
-    return clientId;
-  }
-
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,13 +158,12 @@ public class ApplicationListInner {
         Objects.equals(this.appLogoUrl, applicationListInner.appLogoUrl) &&
         Objects.equals(this.redirectUrls, applicationListInner.redirectUrls) &&
         Objects.equals(this.clientId, applicationListInner.clientId) &&
-        Objects.equals(this.appName, applicationListInner.appName) &&
-        Objects.equals(this.clientId, applicationListInner.clientId);
+        Objects.equals(this.appName, applicationListInner.appName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, appLogoUrl, redirectUrls, clientId, appName, clientId);
+    return Objects.hash(description, appLogoUrl, redirectUrls, clientId, appName);
   }
 
 
@@ -199,7 +177,6 @@ public class ApplicationListInner {
     sb.append("    redirectUrls: ").append(toIndentedString(redirectUrls)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    appName: ").append(toIndentedString(appName)).append("\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -125,6 +125,6 @@ cd ../../build
 
 find ../libs -type f -name "*.bak" -exec rm {} +
 
-
-pause
+echo Press Return
+read nothing
 

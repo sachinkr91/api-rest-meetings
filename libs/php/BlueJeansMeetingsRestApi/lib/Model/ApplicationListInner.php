@@ -61,8 +61,7 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         'app_logo_url' => 'string',
         'redirect_urls' => 'string[]',
         'client_id' => 'string',
-        'app_name' => 'string',
-        'client_id' => 'string'
+        'app_name' => 'string'
     ];
 
     /**
@@ -75,8 +74,7 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         'app_logo_url' => null,
         'redirect_urls' => null,
         'client_id' => null,
-        'app_name' => null,
-        'client_id' => null
+        'app_name' => null
     ];
 
     /**
@@ -110,8 +108,7 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         'app_logo_url' => 'appLogoUrl',
         'redirect_urls' => 'redirectUrls',
         'client_id' => 'clientId',
-        'app_name' => 'appName',
-        'client_id' => 'client_id'
+        'app_name' => 'appName'
     ];
 
     /**
@@ -124,8 +121,7 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         'app_logo_url' => 'setAppLogoUrl',
         'redirect_urls' => 'setRedirectUrls',
         'client_id' => 'setClientId',
-        'app_name' => 'setAppName',
-        'client_id' => 'setClientId'
+        'app_name' => 'setAppName'
     ];
 
     /**
@@ -138,8 +134,7 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         'app_logo_url' => 'getAppLogoUrl',
         'redirect_urls' => 'getRedirectUrls',
         'client_id' => 'getClientId',
-        'app_name' => 'getAppName',
-        'client_id' => 'getClientId'
+        'app_name' => 'getAppName'
     ];
 
     /**
@@ -207,7 +202,6 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
         $this->container['redirect_urls'] = isset($data['redirect_urls']) ? $data['redirect_urls'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['app_name'] = isset($data['app_name']) ? $data['app_name'] : null;
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
     }
 
     /**
@@ -350,30 +344,6 @@ class ApplicationListInner implements ModelInterface, ArrayAccess
     public function setAppName($app_name)
     {
         $this->container['app_name'] = $app_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_id
-     *
-     * @return string
-     */
-    public function getClientId()
-    {
-        return $this->container['client_id'];
-    }
-
-    /**
-     * Sets client_id
-     *
-     * @param string $client_id Same as clientId
-     *
-     * @return $this
-     */
-    public function setClientId($client_id)
-    {
-        $this->container['client_id'] = $client_id;
 
         return $this;
     }

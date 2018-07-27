@@ -38,15 +38,13 @@ namespace com.bluejeans.api.rest.meetings.Model
         /// <param name="redirectUrls">redirectUrls.</param>
         /// <param name="clientId">OAuth key created for this application.</param>
         /// <param name="appName">Name that application registered under.</param>
-        /// <param name="clientId">Same as clientId.</param>
-        public ApplicationListInner(string description = default(string), string appLogoUrl = default(string), List<string> redirectUrls = default(List<string>), string clientId = default(string), string appName = default(string), string clientId = default(string))
+        public ApplicationListInner(string description = default(string), string appLogoUrl = default(string), List<string> redirectUrls = default(List<string>), string clientId = default(string), string appName = default(string))
         {
             this.Description = description;
             this.AppLogoUrl = appLogoUrl;
             this.RedirectUrls = redirectUrls;
             this.ClientId = clientId;
             this.AppName = appName;
-            this.ClientId = clientId;
         }
         
         /// <summary>
@@ -83,13 +81,6 @@ namespace com.bluejeans.api.rest.meetings.Model
         public string AppName { get; set; }
 
         /// <summary>
-        /// Same as clientId
-        /// </summary>
-        /// <value>Same as clientId</value>
-        [DataMember(Name="client_id", EmitDefaultValue=false)]
-        public string ClientId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,7 +93,6 @@ namespace com.bluejeans.api.rest.meetings.Model
             sb.Append("  RedirectUrls: ").Append(RedirectUrls).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  AppName: ").Append(AppName).Append("\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,11 +151,6 @@ namespace com.bluejeans.api.rest.meetings.Model
                     this.AppName == input.AppName ||
                     (this.AppName != null &&
                     this.AppName.Equals(input.AppName))
-                ) && 
-                (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
                 );
         }
 
@@ -188,8 +173,6 @@ namespace com.bluejeans.api.rest.meetings.Model
                     hashCode = hashCode * 59 + this.ClientId.GetHashCode();
                 if (this.AppName != null)
                     hashCode = hashCode * 59 + this.AppName.GetHashCode();
-                if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
                 return hashCode;
             }
         }

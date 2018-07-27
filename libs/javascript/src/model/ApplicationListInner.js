@@ -53,7 +53,6 @@
 
 
 
-
   };
 
   /**
@@ -82,9 +81,6 @@
       if (data.hasOwnProperty('appName')) {
         obj['appName'] = ApiClient.convertToType(data['appName'], 'String');
       }
-      if (data.hasOwnProperty('client_id')) {
-        obj['client_id'] = ApiClient.convertToType(data['client_id'], 'String');
-      }
     }
     return obj;
   }
@@ -112,11 +108,6 @@
    * @member {String} appName
    */
   exports.prototype['appName'] = undefined;
-  /**
-   * Same as clientId
-   * @member {String} client_id
-   */
-  exports.prototype['client_id'] = undefined;
 
 
 

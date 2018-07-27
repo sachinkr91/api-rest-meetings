@@ -8173,9 +8173,6 @@ definitions:
       appName:
         type: string
         description: Name that application registered under
-      client_id:
-        type: string
-        description: Same as clientId
   PersonalMeetingRoom_advancedMeetingOptions_editability:
     properties:
       autoRecord:

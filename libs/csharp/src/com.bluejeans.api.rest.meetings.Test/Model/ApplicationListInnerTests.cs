@@ -106,14 +106,6 @@ namespace com.bluejeans.api.rest.meetings.Test
         {
             // TODO unit test for the property 'AppName'
         }
-        /// <summary>
-        /// Test the property 'ClientId'
-        /// </summary>
-        [Test]
-        public void ClientIdTest()
-        {
-            // TODO unit test for the property 'ClientId'
-        }
 
     }
 

@@ -35,8 +35,7 @@ class ApplicationListInner(object):
         'app_logo_url': 'str',
         'redirect_urls': 'list[str]',
         'client_id': 'str',
-        'app_name': 'str',
-        'client_id': 'str'
+        'app_name': 'str'
     }
 
     attribute_map = {
@@ -44,11 +43,10 @@ class ApplicationListInner(object):
         'app_logo_url': 'appLogoUrl',
         'redirect_urls': 'redirectUrls',
         'client_id': 'clientId',
-        'app_name': 'appName',
-        'client_id': 'client_id'
+        'app_name': 'appName'
     }
 
-    def __init__(self, description=None, app_logo_url=None, redirect_urls=None, client_id=None, app_name=None, client_id=None):  # noqa: E501
+    def __init__(self, description=None, app_logo_url=None, redirect_urls=None, client_id=None, app_name=None):  # noqa: E501
         """ApplicationListInner - a model defined in Swagger"""  # noqa: E501
 
         self._description = None
@@ -56,7 +54,6 @@ class ApplicationListInner(object):
         self._redirect_urls = None
         self._client_id = None
         self._app_name = None
-        self._client_id = None
         self.discriminator = None
 
         if description is not None:
@@ -69,8 +66,6 @@ class ApplicationListInner(object):
             self.client_id = client_id
         if app_name is not None:
             self.app_name = app_name
-        if client_id is not None:
-            self.client_id = client_id
 
     @property
     def description(self):
@@ -182,29 +177,6 @@ class ApplicationListInner(object):
         """
 
         self._app_name = app_name
-
-    @property
-    def client_id(self):
-        """Gets the client_id of this ApplicationListInner.  # noqa: E501
-
-        Same as clientId  # noqa: E501
-
-        :return: The client_id of this ApplicationListInner.  # noqa: E501
-        :rtype: str
-        """
-        return self._client_id
-
-    @client_id.setter
-    def client_id(self, client_id):
-        """Sets the client_id of this ApplicationListInner.
-
-        Same as clientId  # noqa: E501
-
-        :param client_id: The client_id of this ApplicationListInner.  # noqa: E501
-        :type: str
-        """
-
-        self._client_id = client_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
