@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpointName** | **String** | Typically, the first and last name of the user. | [optional] 
-**endpointType** | **String** |  | [optional] 
-**userId** | **Number** |  | [optional] 
+**endpointType** | **String** | Type of physical device is pairing. | [optional] 
+**userId** | **Number** | (optional) The ID of a registered BlueJeans user associated with this outdial | [optional] 
 **languageCode** | **String** |  | [optional] 
 **capabilities** | **[String]** | Send a single element set to AUDIO at this time. | [optional] 
 
@@ -24,6 +24,15 @@ Name | Type | Description | Notes
 
 
 * `en` (value: `"en"`)
+
+
+
+
+<a name="[CapabilitiesEnum]"></a>
+## Enum: [CapabilitiesEnum]
+
+
+* `AUDIO` (value: `"AUDIO"`)
 
 
 

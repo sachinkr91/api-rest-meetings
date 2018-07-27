@@ -10,3 +10,12 @@ Name | Type | Description | Notes
 **code** | **String** | Code obtained after /oauth2/authorize redirect. | 
 
 
+<a name="GrantTypeEnum"></a>
+## Enum: GrantTypeEnum
+
+
+* `authorization_code` (value: `"authorization_code"`)
+
+
+
+

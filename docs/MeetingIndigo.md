@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 ## Enum: ScheduledFromEnum
 
 
-* `APP` (value: `"WEB_APP"`)
+* `WEB_APP` (value: `"WEB_APP"`)
 
 
 

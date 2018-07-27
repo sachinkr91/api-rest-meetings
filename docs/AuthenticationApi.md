@@ -20,18 +20,11 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. Use \&quot;bluejeans.com\&quot; as hostname. &lt;br /&gt;**Note:**&lt;br /&gt;&amp;nbsp;&amp;nbsp;The code returned is only valid for *30 seconds.*  Your application must call as soon as possible the /oauth2/token API to generate an access token from the returned code.
+This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. &lt;br /&gt;**Note**&lt;ul&gt;&lt;li&gt;This API is activated through &lt;b&gt; https://bluejeans.com/oauth2/authorize &lt;/b&gt;&lt;/li&gt;&lt;li&gt;The API&#39;s return code has a very short valid period of &lt;b&gt;30 seconds&lt;/b&gt;.  Your application must call the &lt;b&gt;/oauth2/token&lt;/b&gt; API as soon as possible once you receive this API&#39;s return code.&lt;/li&gt;&lt;/ul&gt;
 
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -73,7 +66,7 @@ null (empty response body)
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -91,13 +84,6 @@ This API is typically called from an application that needs to make API requests
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -126,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,13 +130,6 @@ This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -179,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -197,13 +176,6 @@ This API uses an OAuth-like grant/request method similar to the Password grant t
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -232,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -250,13 +222,6 @@ This API performs an authentication based upon a username and password.   Call t
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -285,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -307,7 +272,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -356,13 +322,6 @@ This endpoint will determine if a token is valid or not.  If the token is valid,
 ### Example
 ```javascript
 var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
-var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
 
 var apiInstance = new BlueJeansMeetingsRestApi.AuthenticationApi();
 
@@ -392,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[access_token](../README.md#access_token)
+No authorization required
 
 ### HTTP request headers
 
@@ -414,7 +373,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 

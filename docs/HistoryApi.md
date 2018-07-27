@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="getHistoryByEnterprise"></a>
 # **getHistoryByEnterprise**
-> Meeting getHistoryByEnterprise(enterpriseId, meetingGuid)
+> MeetingHistory getHistoryByEnterprise(enterpriseId, meetingGuid)
 
 Get Meeting History by Enterprise
 
@@ -28,7 +28,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -58,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -71,7 +72,7 @@ Name | Type | Description  | Notes
 
 <a name="getHistoryByUser"></a>
 # **getHistoryByUser**
-> Meeting getHistoryByUser(userId, meetingGuid)
+> MeetingHistory getHistoryByUser(userId, meetingGuid)
 
 Get Meeting History by User
 
@@ -84,7 +85,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -114,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -140,7 +142,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -196,7 +199,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -252,7 +256,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -305,7 +310,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 
@@ -372,7 +378,8 @@ var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //access_token.apiKeyPrefix = 'Token';
 

@@ -8,3 +8,12 @@ Name | Type | Description | Notes
 **password** | **String** | Your user password that you use to login to our site. | 
 
 
+<a name="GrantTypeEnum"></a>
+## Enum: GrantTypeEnum
+
+
+* `password` (value: `"password"`)
+
+
+
+

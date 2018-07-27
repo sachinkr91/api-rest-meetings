@@ -8,3 +8,12 @@ Name | Type | Description | Notes
 **meetingPasscode** | **String** | Pin | 
 
 
+<a name="GrantTypeEnum"></a>
+## Enum: GrantTypeEnum
+
+
+* `meeting_passcode` (value: `"meeting_passcode"`)
+
+
+
+
