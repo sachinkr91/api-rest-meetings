@@ -14,13 +14,13 @@ Method | HTTP request | Description
 
 
 # **get_history_by_enterprise**
-> Meeting get_history_by_enterprise(enterprise_id, meeting_guid)
+> MeetingHistory get_history_by_enterprise(enterprise_id, meeting_guid)
 
 Get Meeting History by Enterprise
 
 This endpoint retrieves the meeting history for a specific instance of a meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -29,16 +29,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
-try: 
+try:
     # Get Meeting History by Enterprise
     api_response = api_instance.get_history_by_enterprise(enterprise_id, meeting_guid)
     pprint(api_response)
@@ -55,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -69,13 +70,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_history_by_user**
-> Meeting get_history_by_user(user_id, meeting_guid)
+> MeetingHistory get_history_by_user(user_id, meeting_guid)
 
 Get Meeting History by User
 
 This endpoint retrieves the meeting history for a specific instance of a meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -84,16 +85,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
-try: 
+try:
     # Get Meeting History by User
     api_response = api_instance.get_history_by_user(user_id, meeting_guid)
     pprint(api_response)
@@ -110,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Meeting**](Meeting.md)
+[**MeetingHistory**](MeetingHistory.md)
 
 ### Authorization
 
@@ -130,7 +132,7 @@ Get Meeting History Sharing by User
 
 This endpoint retrieves the meeting history sharing for a specific instance of a meeting.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -139,16 +141,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_guid = 'meeting_guid_example' # str | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
-try: 
+try:
     # Get Meeting History Sharing by User
     api_response = api_instance.get_history_sharing_by_user(user_id, meeting_guid)
     pprint(api_response)
@@ -185,7 +188,7 @@ Get Recording
 
 This endpoint retrieves the details about a meeting recording.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -194,16 +197,17 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 recording_entity_id = 56 # int | The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
 
-try: 
+try:
     # Get Recording
     api_response = api_instance.get_recording(user_id, recording_entity_id)
     pprint(api_response)
@@ -240,7 +244,7 @@ List History by Enterprise
 
 This endpoint retrieves a list of meeting histories by the given enterprise.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -249,15 +253,16 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
-try: 
+try:
     # List History by Enterprise
     api_response = api_instance.list_history_by_enterprise(enterprise_id)
     pprint(api_response)
@@ -293,7 +298,7 @@ List History by User
 
 This endpoint retrieves a list of meeting histories by the given user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -302,12 +307,13 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_id = 'meeting_id_example' # str | Return only meetings with the specified meeting numeric ID. (optional)
 start_date = 'start_date_example' # str | Return meetings starting from the specified date. MM/DD/YYYY (optional)
@@ -316,7 +322,7 @@ page_size = 56 # int | Sets number of items returned per page. (optional)
 page_number = 56 # int | Selects which page of results to return. (optional)
 order = 'order_example' # str | Puts results in ascending or descending order. asc/desc (optional)
 
-try: 
+try:
     # List History by User
     api_response = api_instance.list_history_by_user(user_id, meeting_id=meeting_id, start_date=start_date, end_date=end_date, page_size=page_size, page_number=page_number, order=order)
     pprint(api_response)
@@ -358,7 +364,7 @@ List Meeting Recordings
 
 This endpoint retrieves a list of meeting recordings.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -367,19 +373,20 @@ from BlueJeansMeetingsRestApi.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: access_token
-BlueJeansMeetingsRestApi.configuration.api_key['access_token'] = 'YOUR_API_KEY'
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# BlueJeansMeetingsRestApi.configuration.api_key_prefix['access_token'] = 'Bearer'
+# configuration.api_key_prefix['access_token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = BlueJeansMeetingsRestApi.HistoryApi()
+api_instance = BlueJeansMeetingsRestApi.HistoryApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 page_size = 10 # int | Sets number of items returned per page. (optional) (default to 10)
 page_number = 1 # int | Selects which page of results to return. (optional) (default to 1)
 sort_by = 'start_time' # str | Selects which page of results to return. (optional) (default to start_time)
 order = 'desc' # str | Puts results in ascending or descending order. (optional) (default to desc)
 
-try: 
+try:
     # List Meeting Recordings
     api_response = api_instance.list_recordings(user_id, page_size=page_size, page_number=page_number, sort_by=sort_by, order=order)
     pprint(api_response)
