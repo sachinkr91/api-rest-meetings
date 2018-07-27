@@ -6,19 +6,19 @@
  *
  * @category Class
  * @package  BlueJeansMeetingsRestApi
- * @author   Swaagger Codegen team
+ * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.4407232018
+ * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 2.4.0-SNAPSHOT
  */
 
 /**
@@ -30,27 +30,30 @@
 namespace BlueJeansMeetingsRestApi\Model;
 
 use \ArrayAccess;
+use \BlueJeansMeetingsRestApi\ObjectSerializer;
 
 /**
  * MeetingHistory Class Doc Comment
  *
- * @category    Class
- * @package     BlueJeansMeetingsRestApi
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  BlueJeansMeetingsRestApi
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MeetingHistory implements ArrayAccess
+class MeetingHistory implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
+      *
       * @var string
       */
     protected static $swaggerModelName = 'MeetingHistory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerTypes = [
@@ -83,6 +86,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerFormats = [
@@ -113,18 +117,30 @@ class MeetingHistory implements ArrayAccess
         'participant_list' => null
     ];
 
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
     }
 
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerFormats()
     {
         return self::$swaggerFormats;
     }
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
      * @var string[]
      */
     protected static $attributeMap = [
@@ -155,9 +171,9 @@ class MeetingHistory implements ArrayAccess
         'participant_list' => 'participantList'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
      * @var string[]
      */
     protected static $setters = [
@@ -188,9 +204,9 @@ class MeetingHistory implements ArrayAccess
         'participant_list' => 'setParticipantList'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
      * @var string[]
      */
     protected static $getters = [
@@ -221,19 +237,45 @@ class MeetingHistory implements ArrayAccess
         'participant_list' => 'getParticipantList'
     ];
 
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
     public static function attributeMap()
     {
         return self::$attributeMap;
     }
 
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
     public static function setters()
     {
         return self::$setters;
     }
 
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
     public static function getters()
     {
         return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
     }
 
     const MEETING_STATUS_COMPLETE = 'Complete';
@@ -243,6 +285,7 @@ class MeetingHistory implements ArrayAccess
     
     /**
      * Gets allowable values of the enum
+     *
      * @return string[]
      */
     public function getMeetingStatusAllowableValues()
@@ -254,6 +297,7 @@ class MeetingHistory implements ArrayAccess
     
     /**
      * Gets allowable values of the enum
+     *
      * @return string[]
      */
     public function getProcessingStatusAllowableValues()
@@ -266,13 +310,16 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Associative array for storing property values
+     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -304,56 +351,48 @@ class MeetingHistory implements ArrayAccess
     }
 
     /**
-     * show all the invalid properties with reasons.
+     * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalidProperties = [];
 
-        $allowed_values = $this->getMeetingStatusAllowableValues();
-        if (!in_array($this->container['meeting_status'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
+        $allowedValues = $this->getMeetingStatusAllowableValues();
+        if (!is_null($this->container['meeting_status']) && !in_array($this->container['meeting_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
                 "invalid value for 'meeting_status', must be one of '%s'",
-                implode("', '", $allowed_values)
+                implode("', '", $allowedValues)
             );
         }
 
-        $allowed_values = $this->getProcessingStatusAllowableValues();
-        if (!in_array($this->container['processing_status'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
+        $allowedValues = $this->getProcessingStatusAllowableValues();
+        if (!is_null($this->container['processing_status']) && !in_array($this->container['processing_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
                 "invalid value for 'processing_status', must be one of '%s'",
-                implode("', '", $allowed_values)
+                implode("', '", $allowedValues)
             );
         }
 
-        return $invalid_properties;
+        return $invalidProperties;
     }
 
     /**
-     * validate all the properties in the model
+     * Validate all the properties in the model
      * return true if all passed
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-
-        $allowed_values = $this->getMeetingStatusAllowableValues();
-        if (!in_array($this->container['meeting_status'], $allowed_values)) {
-            return false;
-        }
-        $allowed_values = $this->getProcessingStatusAllowableValues();
-        if (!in_array($this->container['processing_status'], $allowed_values)) {
-            return false;
-        }
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
     /**
      * Gets meeting_guid
+     *
      * @return string
      */
     public function getMeetingGuid()
@@ -363,7 +402,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets meeting_guid
-     * @param string $meeting_guid
+     *
+     * @param string $meeting_guid meeting_guid
+     *
      * @return $this
      */
     public function setMeetingGuid($meeting_guid)
@@ -375,6 +416,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets meeting_numeric_id
+     *
      * @return string
      */
     public function getMeetingNumericId()
@@ -384,7 +426,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets meeting_numeric_id
-     * @param string $meeting_numeric_id
+     *
+     * @param string $meeting_numeric_id meeting_numeric_id
+     *
      * @return $this
      */
     public function setMeetingNumericId($meeting_numeric_id)
@@ -396,6 +440,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets title
+     *
      * @return string
      */
     public function getTitle()
@@ -405,7 +450,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets title
-     * @param string $title
+     *
+     * @param string $title title
+     *
      * @return $this
      */
     public function setTitle($title)
@@ -417,6 +464,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets description
+     *
      * @return string
      */
     public function getDescription()
@@ -426,7 +474,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     *
+     * @param string $description description
+     *
      * @return $this
      */
     public function setDescription($description)
@@ -438,6 +488,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets leader_info
+     *
      * @return \BlueJeansMeetingsRestApi\Model\MeetingHistoryLeaderInfo
      */
     public function getLeaderInfo()
@@ -447,7 +498,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets leader_info
-     * @param \BlueJeansMeetingsRestApi\Model\MeetingHistoryLeaderInfo $leader_info
+     *
+     * @param \BlueJeansMeetingsRestApi\Model\MeetingHistoryLeaderInfo $leader_info leader_info
+     *
      * @return $this
      */
     public function setLeaderInfo($leader_info)
@@ -459,6 +512,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets user_id
+     *
      * @return int
      */
     public function getUserId()
@@ -468,7 +522,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets user_id
-     * @param int $user_id
+     *
+     * @param int $user_id user_id
+     *
      * @return $this
      */
     public function setUserId($user_id)
@@ -480,6 +536,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets meeting_duration
+     *
      * @return int
      */
     public function getMeetingDuration()
@@ -489,7 +546,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets meeting_duration
-     * @param int $meeting_duration
+     *
+     * @param int $meeting_duration meeting_duration
+     *
      * @return $this
      */
     public function setMeetingDuration($meeting_duration)
@@ -501,6 +560,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets max_participant_count
+     *
      * @return int
      */
     public function getMaxParticipantCount()
@@ -510,7 +570,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets max_participant_count
-     * @param int $max_participant_count
+     *
+     * @param int $max_participant_count max_participant_count
+     *
      * @return $this
      */
     public function setMaxParticipantCount($max_participant_count)
@@ -522,6 +584,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets total_participant_minutes
+     *
      * @return int
      */
     public function getTotalParticipantMinutes()
@@ -531,7 +594,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets total_participant_minutes
-     * @param int $total_participant_minutes
+     *
+     * @param int $total_participant_minutes total_participant_minutes
+     *
      * @return $this
      */
     public function setTotalParticipantMinutes($total_participant_minutes)
@@ -543,6 +608,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets max_participant_minutes
+     *
      * @return int
      */
     public function getMaxParticipantMinutes()
@@ -552,7 +618,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets max_participant_minutes
-     * @param int $max_participant_minutes
+     *
+     * @param int $max_participant_minutes max_participant_minutes
+     *
      * @return $this
      */
     public function setMaxParticipantMinutes($max_participant_minutes)
@@ -564,6 +632,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets extra_participant_minutes
+     *
      * @return int
      */
     public function getExtraParticipantMinutes()
@@ -573,7 +642,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets extra_participant_minutes
-     * @param int $extra_participant_minutes
+     *
+     * @param int $extra_participant_minutes extra_participant_minutes
+     *
      * @return $this
      */
     public function setExtraParticipantMinutes($extra_participant_minutes)
@@ -585,6 +656,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets isdn_endpoints
+     *
      * @return int
      */
     public function getIsdnEndpoints()
@@ -594,7 +666,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets isdn_endpoints
-     * @param int $isdn_endpoints
+     *
+     * @param int $isdn_endpoints isdn_endpoints
+     *
      * @return $this
      */
     public function setIsdnEndpoints($isdn_endpoints)
@@ -606,6 +680,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets total_dialout_minutes
+     *
      * @return int
      */
     public function getTotalDialoutMinutes()
@@ -615,7 +690,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets total_dialout_minutes
-     * @param int $total_dialout_minutes
+     *
+     * @param int $total_dialout_minutes total_dialout_minutes
+     *
      * @return $this
      */
     public function setTotalDialoutMinutes($total_dialout_minutes)
@@ -627,6 +704,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets total_toll_free_minutes
+     *
      * @return int
      */
     public function getTotalTollFreeMinutes()
@@ -636,7 +714,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets total_toll_free_minutes
-     * @param int $total_toll_free_minutes
+     *
+     * @param int $total_toll_free_minutes total_toll_free_minutes
+     *
      * @return $this
      */
     public function setTotalTollFreeMinutes($total_toll_free_minutes)
@@ -648,6 +728,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets call_did_minutes
+     *
      * @return int
      */
     public function getCallDidMinutes()
@@ -657,7 +738,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets call_did_minutes
-     * @param int $call_did_minutes
+     *
+     * @param int $call_did_minutes call_did_minutes
+     *
      * @return $this
      */
     public function setCallDidMinutes($call_did_minutes)
@@ -669,6 +752,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets start_time
+     *
      * @return int
      */
     public function getStartTime()
@@ -678,7 +762,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets start_time
-     * @param int $start_time
+     *
+     * @param int $start_time start_time
+     *
      * @return $this
      */
     public function setStartTime($start_time)
@@ -690,6 +776,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets end_time
+     *
      * @return int
      */
     public function getEndTime()
@@ -699,7 +786,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets end_time
-     * @param int $end_time
+     *
+     * @param int $end_time end_time
+     *
      * @return $this
      */
     public function setEndTime($end_time)
@@ -711,6 +800,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets meeting_status
+     *
      * @return string
      */
     public function getMeetingStatus()
@@ -720,17 +810,19 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets meeting_status
-     * @param string $meeting_status
+     *
+     * @param string $meeting_status meeting_status
+     *
      * @return $this
      */
     public function setMeetingStatus($meeting_status)
     {
-        $allowed_values = $this->getMeetingStatusAllowableValues();
-        if (!is_null($meeting_status) && !in_array($meeting_status, $allowed_values)) {
+        $allowedValues = $this->getMeetingStatusAllowableValues();
+        if (!is_null($meeting_status) && !in_array($meeting_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'meeting_status', must be one of '%s'",
-                    implode("', '", $allowed_values)
+                    implode("', '", $allowedValues)
                 )
             );
         }
@@ -741,6 +833,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets meeting_thumbnail
+     *
      * @return string
      */
     public function getMeetingThumbnail()
@@ -750,7 +843,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets meeting_thumbnail
-     * @param string $meeting_thumbnail
+     *
+     * @param string $meeting_thumbnail meeting_thumbnail
+     *
      * @return $this
      */
     public function setMeetingThumbnail($meeting_thumbnail)
@@ -762,6 +857,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets start_time_zone
+     *
      * @return string
      */
     public function getStartTimeZone()
@@ -771,7 +867,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets start_time_zone
-     * @param string $start_time_zone
+     *
+     * @param string $start_time_zone start_time_zone
+     *
      * @return $this
      */
     public function setStartTimeZone($start_time_zone)
@@ -783,6 +881,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets processing_status
+     *
      * @return string
      */
     public function getProcessingStatus()
@@ -792,17 +891,19 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets processing_status
-     * @param string $processing_status
+     *
+     * @param string $processing_status processing_status
+     *
      * @return $this
      */
     public function setProcessingStatus($processing_status)
     {
-        $allowed_values = $this->getProcessingStatusAllowableValues();
-        if (!is_null($processing_status) && !in_array($processing_status, $allowed_values)) {
+        $allowedValues = $this->getProcessingStatusAllowableValues();
+        if (!is_null($processing_status) && !in_array($processing_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'processing_status', must be one of '%s'",
-                    implode("', '", $allowed_values)
+                    implode("', '", $allowedValues)
                 )
             );
         }
@@ -813,6 +914,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets concurrent_calls
+     *
      * @return string
      */
     public function getConcurrentCalls()
@@ -822,7 +924,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets concurrent_calls
-     * @param string $concurrent_calls
+     *
+     * @param string $concurrent_calls concurrent_calls
+     *
      * @return $this
      */
     public function setConcurrentCalls($concurrent_calls)
@@ -834,6 +938,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets upload_status
+     *
      * @return string
      */
     public function getUploadStatus()
@@ -843,7 +948,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets upload_status
-     * @param string $upload_status
+     *
+     * @param string $upload_status upload_status
+     *
      * @return $this
      */
     public function setUploadStatus($upload_status)
@@ -855,6 +962,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets pstnonly
+     *
      * @return bool
      */
     public function getPstnonly()
@@ -864,7 +972,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets pstnonly
-     * @param bool $pstnonly
+     *
+     * @param bool $pstnonly pstnonly
+     *
      * @return $this
      */
     public function setPstnonly($pstnonly)
@@ -876,6 +986,7 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets participant_list
+     *
      * @return \BlueJeansMeetingsRestApi\Model\MeetingHistoryParticipantList[]
      */
     public function getParticipantList()
@@ -885,7 +996,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets participant_list
-     * @param \BlueJeansMeetingsRestApi\Model\MeetingHistoryParticipantList[] $participant_list
+     *
+     * @param \BlueJeansMeetingsRestApi\Model\MeetingHistoryParticipantList[] $participant_list participant_list
+     *
      * @return $this
      */
     public function setParticipantList($participant_list)
@@ -896,7 +1009,9 @@ class MeetingHistory implements ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return boolean
      */
     public function offsetExists($offset)
@@ -906,7 +1021,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -916,8 +1033,10 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -931,7 +1050,9 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -941,15 +1062,19 @@ class MeetingHistory implements ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

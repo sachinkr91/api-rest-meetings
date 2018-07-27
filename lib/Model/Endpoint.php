@@ -6,19 +6,19 @@
  *
  * @category Class
  * @package  BlueJeansMeetingsRestApi
- * @author   Swaagger Codegen team
+ * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.4407232018
+ * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 2.4.0-SNAPSHOT
  */
 
 /**
@@ -30,27 +30,30 @@
 namespace BlueJeansMeetingsRestApi\Model;
 
 use \ArrayAccess;
+use \BlueJeansMeetingsRestApi\ObjectSerializer;
 
 /**
  * Endpoint Class Doc Comment
  *
- * @category    Class
- * @package     BlueJeansMeetingsRestApi
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  BlueJeansMeetingsRestApi
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Endpoint implements ArrayAccess
+class Endpoint implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
+      *
       * @var string
       */
     protected static $swaggerModelName = 'Endpoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerTypes = [
@@ -169,6 +172,7 @@ class Endpoint implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerFormats = [
@@ -285,18 +289,30 @@ class Endpoint implements ArrayAccess
         'is_in_roster' => null
     ];
 
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
     }
 
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerFormats()
     {
         return self::$swaggerFormats;
     }
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
      * @var string[]
      */
     protected static $attributeMap = [
@@ -413,9 +429,9 @@ class Endpoint implements ArrayAccess
         'is_in_roster' => 'isInRoster'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
      * @var string[]
      */
     protected static $setters = [
@@ -532,9 +548,9 @@ class Endpoint implements ArrayAccess
         'is_in_roster' => 'setIsInRoster'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
      * @var string[]
      */
     protected static $getters = [
@@ -651,19 +667,45 @@ class Endpoint implements ArrayAccess
         'is_in_roster' => 'getIsInRoster'
     ];
 
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
     public static function attributeMap()
     {
         return self::$attributeMap;
     }
 
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
     public static function setters()
     {
         return self::$setters;
     }
 
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
     public static function getters()
     {
         return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
     }
 
     
@@ -672,13 +714,16 @@ class Endpoint implements ArrayAccess
 
     /**
      * Associative array for storing property values
+     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -796,32 +841,32 @@ class Endpoint implements ArrayAccess
     }
 
     /**
-     * show all the invalid properties with reasons.
+     * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalidProperties = [];
 
-        return $invalid_properties;
+        return $invalidProperties;
     }
 
     /**
-     * validate all the properties in the model
+     * Validate all the properties in the model
      * return true if all passed
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
     /**
      * Gets ec_mode
+     *
      * @return string
      */
     public function getEcMode()
@@ -831,7 +876,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets ec_mode
-     * @param string $ec_mode
+     *
+     * @param string $ec_mode ec_mode
+     *
      * @return $this
      */
     public function setEcMode($ec_mode)
@@ -843,6 +890,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets creationtime
+     *
      * @return string
      */
     public function getCreationtime()
@@ -852,7 +900,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets creationtime
-     * @param string $creationtime
+     *
+     * @param string $creationtime creationtime
+     *
      * @return $this
      */
     public function setCreationtime($creationtime)
@@ -864,6 +914,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_remote_rtcp_address
+     *
      * @return string
      */
     public function getAudioRemoteRtcpAddress()
@@ -873,7 +924,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_remote_rtcp_address
-     * @param string $audio_remote_rtcp_address
+     *
+     * @param string $audio_remote_rtcp_address audio_remote_rtcp_address
+     *
      * @return $this
      */
     public function setAudioRemoteRtcpAddress($audio_remote_rtcp_address)
@@ -885,6 +938,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_send_codec
+     *
      * @return string
      */
     public function getVideoSendCodec()
@@ -894,7 +948,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_send_codec
-     * @param string $video_send_codec
+     *
+     * @param string $video_send_codec video_send_codec
+     *
      * @return $this
      */
     public function setVideoSendCodec($video_send_codec)
@@ -906,6 +962,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_play_id
+     *
      * @return string
      */
     public function getAudioPlayId()
@@ -915,7 +972,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_play_id
-     * @param string $audio_play_id
+     *
+     * @param string $audio_play_id audio_play_id
+     *
      * @return $this
      */
     public function setAudioPlayId($audio_play_id)
@@ -927,6 +986,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets call_quality_recv
+     *
      * @return string
      */
     public function getCallQualityRecv()
@@ -936,7 +996,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets call_quality_recv
-     * @param string $call_quality_recv
+     *
+     * @param string $call_quality_recv call_quality_recv
+     *
      * @return $this
      */
     public function setCallQualityRecv($call_quality_recv)
@@ -948,6 +1010,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets session_out
+     *
      * @return string
      */
     public function getSessionOut()
@@ -957,7 +1020,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets session_out
-     * @param string $session_out
+     *
+     * @param string $session_out session_out
+     *
      * @return $this
      */
     public function setSessionOut($session_out)
@@ -969,6 +1034,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_local_address
+     *
      * @return string
      */
     public function getAudioLocalAddress()
@@ -978,7 +1044,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_local_address
-     * @param string $audio_local_address
+     *
+     * @param string $audio_local_address audio_local_address
+     *
      * @return $this
      */
     public function setAudioLocalAddress($audio_local_address)
@@ -990,6 +1058,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets meetingid
+     *
      * @return string
      */
     public function getMeetingid()
@@ -999,7 +1068,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets meetingid
-     * @param string $meetingid
+     *
+     * @param string $meetingid meetingid
+     *
      * @return $this
      */
     public function setMeetingid($meetingid)
@@ -1011,6 +1082,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_send_width
+     *
      * @return string
      */
     public function getVideoSendWidth()
@@ -1020,7 +1092,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_send_width
-     * @param string $video_send_width
+     *
+     * @param string $video_send_width video_send_width
+     *
      * @return $this
      */
     public function setVideoSendWidth($video_send_width)
@@ -1032,6 +1106,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets call_quality_send
+     *
      * @return string
      */
     public function getCallQualitySend()
@@ -1041,7 +1116,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets call_quality_send
-     * @param string $call_quality_send
+     *
+     * @param string $call_quality_send call_quality_send
+     *
      * @return $this
      */
     public function setCallQualitySend($call_quality_send)
@@ -1053,6 +1130,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets mhaddress
+     *
      * @return string
      */
     public function getMhaddress()
@@ -1062,7 +1140,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets mhaddress
-     * @param string $mhaddress
+     *
+     * @param string $mhaddress mhaddress
+     *
      * @return $this
      */
     public function setMhaddress($mhaddress)
@@ -1074,6 +1154,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets rdc_controllee_capable
+     *
      * @return string
      */
     public function getRdcControlleeCapable()
@@ -1083,7 +1164,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets rdc_controllee_capable
-     * @param string $rdc_controllee_capable
+     *
+     * @param string $rdc_controllee_capable rdc_controllee_capable
+     *
      * @return $this
      */
     public function setRdcControlleeCapable($rdc_controllee_capable)
@@ -1095,6 +1178,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_cap_name
+     *
      * @return string
      */
     public function getAudioCapName()
@@ -1104,7 +1188,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_cap_name
-     * @param string $audio_cap_name
+     *
+     * @param string $audio_cap_name audio_cap_name
+     *
      * @return $this
      */
     public function setAudioCapName($audio_cap_name)
@@ -1116,6 +1202,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets proxy_info
+     *
      * @return string
      */
     public function getProxyInfo()
@@ -1125,7 +1212,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets proxy_info
-     * @param string $proxy_info
+     *
+     * @param string $proxy_info proxy_info
+     *
      * @return $this
      */
     public function setProxyInfo($proxy_info)
@@ -1137,6 +1226,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_send_codec
+     *
      * @return string
      */
     public function getAudioSendCodec()
@@ -1146,7 +1236,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_send_codec
-     * @param string $audio_send_codec
+     *
+     * @param string $audio_send_codec audio_send_codec
+     *
      * @return $this
      */
     public function setAudioSendCodec($audio_send_codec)
@@ -1158,6 +1250,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets vendor
+     *
      * @return string
      */
     public function getVendor()
@@ -1167,7 +1260,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets vendor
-     * @param string $vendor
+     *
+     * @param string $vendor vendor
+     *
      * @return $this
      */
     public function setVendor($vendor)
@@ -1179,6 +1274,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv_width
+     *
      * @return string
      */
     public function getVideoRecvWidth()
@@ -1188,7 +1284,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv_width
-     * @param string $video_recv_width
+     *
+     * @param string $video_recv_width video_recv_width
+     *
      * @return $this
      */
     public function setVideoRecvWidth($video_recv_width)
@@ -1200,6 +1298,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets conaddress
+     *
      * @return string
      */
     public function getConaddress()
@@ -1209,7 +1308,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets conaddress
-     * @param string $conaddress
+     *
+     * @param string $conaddress conaddress
+     *
      * @return $this
      */
     public function setConaddress($conaddress)
@@ -1221,6 +1322,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets talk_detected
+     *
      * @return string
      */
     public function getTalkDetected()
@@ -1230,7 +1332,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets talk_detected
-     * @param string $talk_detected
+     *
+     * @param string $talk_detected talk_detected
+     *
      * @return $this
      */
     public function setTalkDetected($talk_detected)
@@ -1242,6 +1346,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets sub_layout
+     *
      * @return string
      */
     public function getSubLayout()
@@ -1251,7 +1356,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets sub_layout
-     * @param string $sub_layout
+     *
+     * @param string $sub_layout sub_layout
+     *
      * @return $this
      */
     public function setSubLayout($sub_layout)
@@ -1263,6 +1370,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_rtcp_relay
+     *
      * @return string
      */
     public function getAudioRtcpRelay()
@@ -1272,7 +1380,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_rtcp_relay
-     * @param string $audio_rtcp_relay
+     *
+     * @param string $audio_rtcp_relay audio_rtcp_relay
+     *
      * @return $this
      */
     public function setAudioRtcpRelay($audio_rtcp_relay)
@@ -1284,6 +1394,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_recv_local_mute
+     *
      * @return string
      */
     public function getAudioRecvLocalMute()
@@ -1293,7 +1404,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_recv_local_mute
-     * @param string $audio_recv_local_mute
+     *
+     * @param string $audio_recv_local_mute audio_recv_local_mute
+     *
      * @return $this
      */
     public function setAudioRecvLocalMute($audio_recv_local_mute)
@@ -1305,6 +1418,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets name
+     *
      * @return string
      */
     public function getName()
@@ -1314,7 +1428,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     *
+     * @param string $name name
+     *
      * @return $this
      */
     public function setName($name)
@@ -1326,6 +1442,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_local_address
+     *
      * @return string
      */
     public function getVideoLocalAddress()
@@ -1335,7 +1452,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_local_address
-     * @param string $video_local_address
+     *
+     * @param string $video_local_address video_local_address
+     *
      * @return $this
      */
     public function setVideoLocalAddress($video_local_address)
@@ -1347,6 +1466,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_local_rtcp_address
+     *
      * @return string
      */
     public function getAudioLocalRtcpAddress()
@@ -1356,7 +1476,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_local_rtcp_address
-     * @param string $audio_local_rtcp_address
+     *
+     * @param string $audio_local_rtcp_address audio_local_rtcp_address
+     *
      * @return $this
      */
     public function setAudioLocalRtcpAddress($audio_local_rtcp_address)
@@ -1368,6 +1490,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_rtp_relay
+     *
      * @return string
      */
     public function getContentRtpRelay()
@@ -1377,7 +1500,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_rtp_relay
-     * @param string $content_rtp_relay
+     *
+     * @param string $content_rtp_relay content_rtp_relay
+     *
      * @return $this
      */
     public function setContentRtpRelay($content_rtp_relay)
@@ -1389,6 +1514,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_local_rtcp_address
+     *
      * @return string
      */
     public function getContentLocalRtcpAddress()
@@ -1398,7 +1524,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_local_rtcp_address
-     * @param string $content_local_rtcp_address
+     *
+     * @param string $content_local_rtcp_address content_local_rtcp_address
+     *
      * @return $this
      */
     public function setContentLocalRtcpAddress($content_local_rtcp_address)
@@ -1410,6 +1538,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets remote_connection_count
+     *
      * @return string
      */
     public function getRemoteConnectionCount()
@@ -1419,7 +1548,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets remote_connection_count
-     * @param string $remote_connection_count
+     *
+     * @param string $remote_connection_count remote_connection_count
+     *
      * @return $this
      */
     public function setRemoteConnectionCount($remote_connection_count)
@@ -1431,6 +1562,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets callrate
+     *
      * @return string
      */
     public function getCallrate()
@@ -1440,7 +1572,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets callrate
-     * @param string $callrate
+     *
+     * @param string $callrate callrate
+     *
      * @return $this
      */
     public function setCallrate($callrate)
@@ -1452,6 +1586,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets mixer_guid
+     *
      * @return string
      */
     public function getMixerGuid()
@@ -1461,7 +1596,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets mixer_guid
-     * @param string $mixer_guid
+     *
+     * @param string $mixer_guid mixer_guid
+     *
      * @return $this
      */
     public function setMixerGuid($mixer_guid)
@@ -1473,6 +1610,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets transport
+     *
      * @return string
      */
     public function getTransport()
@@ -1482,7 +1620,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets transport
-     * @param string $transport
+     *
+     * @param string $transport transport
+     *
      * @return $this
      */
     public function setTransport($transport)
@@ -1494,6 +1634,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_cap_select_id
+     *
      * @return string
      */
     public function getAudioCapSelectId()
@@ -1503,7 +1644,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_cap_select_id
-     * @param string $audio_cap_select_id
+     *
+     * @param string $audio_cap_select_id audio_cap_select_id
+     *
      * @return $this
      */
     public function setAudioCapSelectId($audio_cap_select_id)
@@ -1515,6 +1658,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets country_code
+     *
      * @return string
      */
     public function getCountryCode()
@@ -1524,7 +1668,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code
+     *
+     * @param string $country_code country_code
+     *
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -1536,6 +1682,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets rdc_controller_capable
+     *
      * @return string
      */
     public function getRdcControllerCapable()
@@ -1545,7 +1692,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets rdc_controller_capable
-     * @param string $rdc_controller_capable
+     *
+     * @param string $rdc_controller_capable rdc_controller_capable
+     *
      * @return $this
      */
     public function setRdcControllerCapable($rdc_controller_capable)
@@ -1557,6 +1706,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets pairedname
+     *
      * @return string
      */
     public function getPairedname()
@@ -1566,7 +1716,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets pairedname
-     * @param string $pairedname
+     *
+     * @param string $pairedname pairedname
+     *
      * @return $this
      */
     public function setPairedname($pairedname)
@@ -1578,6 +1730,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_rtcp_relay
+     *
      * @return string
      */
     public function getVideoRtcpRelay()
@@ -1587,7 +1740,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_rtcp_relay
-     * @param string $video_rtcp_relay
+     *
+     * @param string $video_rtcp_relay video_rtcp_relay
+     *
      * @return $this
      */
     public function setVideoRtcpRelay($video_rtcp_relay)
@@ -1599,6 +1754,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets endpoint_cpu_params
+     *
      * @return string
      */
     public function getEndpointCpuParams()
@@ -1608,7 +1764,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets endpoint_cpu_params
-     * @param string $endpoint_cpu_params
+     *
+     * @param string $endpoint_cpu_params endpoint_cpu_params
+     *
      * @return $this
      */
     public function setEndpointCpuParams($endpoint_cpu_params)
@@ -1620,6 +1778,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_remote_address
+     *
      * @return string
      */
     public function getVideoRemoteAddress()
@@ -1629,7 +1788,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_remote_address
-     * @param string $video_remote_address
+     *
+     * @param string $video_remote_address video_remote_address
+     *
      * @return $this
      */
     public function setVideoRemoteAddress($video_remote_address)
@@ -1641,6 +1802,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets version
+     *
      * @return string
      */
     public function getVersion()
@@ -1650,7 +1812,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets version
-     * @param string $version
+     *
+     * @param string $version version
+     *
      * @return $this
      */
     public function setVersion($version)
@@ -1662,6 +1826,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_recv
+     *
      * @return string
      */
     public function getContentRecv()
@@ -1671,7 +1836,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_recv
-     * @param string $content_recv
+     *
+     * @param string $content_recv content_recv
+     *
      * @return $this
      */
     public function setContentRecv($content_recv)
@@ -1683,6 +1850,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets local_name
+     *
      * @return string
      */
     public function getLocalName()
@@ -1692,7 +1860,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets local_name
-     * @param string $local_name
+     *
+     * @param string $local_name local_name
+     *
      * @return $this
      */
     public function setLocalName($local_name)
@@ -1704,6 +1874,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets bjn_user_id
+     *
      * @return string
      */
     public function getBjnUserId()
@@ -1713,7 +1884,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets bjn_user_id
-     * @param string $bjn_user_id
+     *
+     * @param string $bjn_user_id bjn_user_id
+     *
      * @return $this
      */
     public function setBjnUserId($bjn_user_id)
@@ -1725,6 +1898,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_remote_address
+     *
      * @return string
      */
     public function getContentRemoteAddress()
@@ -1734,7 +1908,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_remote_address
-     * @param string $content_remote_address
+     *
+     * @param string $content_remote_address content_remote_address
+     *
      * @return $this
      */
     public function setContentRemoteAddress($content_remote_address)
@@ -1746,6 +1922,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_send
+     *
      * @return string
      */
     public function getAudioSend()
@@ -1755,7 +1932,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_send
-     * @param string $audio_send
+     *
+     * @param string $audio_send audio_send
+     *
      * @return $this
      */
     public function setAudioSend($audio_send)
@@ -1767,6 +1946,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets participant_dtmf_menus
+     *
      * @return string
      */
     public function getParticipantDtmfMenus()
@@ -1776,7 +1956,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets participant_dtmf_menus
-     * @param string $participant_dtmf_menus
+     *
+     * @param string $participant_dtmf_menus participant_dtmf_menus
+     *
      * @return $this
      */
     public function setParticipantDtmfMenus($participant_dtmf_menus)
@@ -1788,6 +1970,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_rtcp_transpor
+     *
      * @return string
      */
     public function getVideoRtcpTranspor()
@@ -1797,7 +1980,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_rtcp_transpor
-     * @param string $video_rtcp_transpor
+     *
+     * @param string $video_rtcp_transpor video_rtcp_transpor
+     *
      * @return $this
      */
     public function setVideoRtcpTranspor($video_rtcp_transpor)
@@ -1809,6 +1994,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_rtcp_transport
+     *
      * @return string
      */
     public function getAudioRtcpTransport()
@@ -1818,7 +2004,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_rtcp_transport
-     * @param string $audio_rtcp_transport
+     *
+     * @param string $audio_rtcp_transport audio_rtcp_transport
+     *
      * @return $this
      */
     public function setAudioRtcpTransport($audio_rtcp_transport)
@@ -1830,6 +2018,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets relay_node_id
+     *
      * @return string
      */
     public function getRelayNodeId()
@@ -1839,7 +2028,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets relay_node_id
-     * @param string $relay_node_id
+     *
+     * @param string $relay_node_id relay_node_id
+     *
      * @return $this
      */
     public function setRelayNodeId($relay_node_id)
@@ -1851,6 +2042,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_remote_rtcp_address
+     *
      * @return string
      */
     public function getContentRemoteRtcpAddress()
@@ -1860,7 +2052,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_remote_rtcp_address
-     * @param string $content_remote_rtcp_address
+     *
+     * @param string $content_remote_rtcp_address content_remote_rtcp_address
+     *
      * @return $this
      */
     public function setContentRemoteRtcpAddress($content_remote_rtcp_address)
@@ -1872,6 +2066,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_rtp_relay
+     *
      * @return string
      */
     public function getAudioRtpRelay()
@@ -1881,7 +2076,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_rtp_relay
-     * @param string $audio_rtp_relay
+     *
+     * @param string $audio_rtp_relay audio_rtp_relay
+     *
      * @return $this
      */
     public function setAudioRtpRelay($audio_rtp_relay)
@@ -1893,6 +2090,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_rtp_transport
+     *
      * @return string
      */
     public function getVideoRtpTransport()
@@ -1902,7 +2100,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_rtp_transport
-     * @param string $video_rtp_transport
+     *
+     * @param string $video_rtp_transport video_rtp_transport
+     *
      * @return $this
      */
     public function setVideoRtpTransport($video_rtp_transport)
@@ -1914,6 +2114,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_recv_local_mute
+     *
      * @return string
      */
     public function getContentRecvLocalMute()
@@ -1923,7 +2124,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_recv_local_mute
-     * @param string $content_recv_local_mute
+     *
+     * @param string $content_recv_local_mute content_recv_local_mute
+     *
      * @return $this
      */
     public function setContentRecvLocalMute($content_recv_local_mute)
@@ -1935,6 +2138,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets layout
+     *
      * @return string
      */
     public function getLayout()
@@ -1944,7 +2148,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets layout
-     * @param string $layout
+     *
+     * @param string $layout layout
+     *
      * @return $this
      */
     public function setLayout($layout)
@@ -1956,6 +2162,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_send
+     *
      * @return string
      */
     public function getContentSend()
@@ -1965,7 +2172,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_send
-     * @param string $content_send
+     *
+     * @param string $content_send content_send
+     *
      * @return $this
      */
     public function setContentSend($content_send)
@@ -1977,6 +2186,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets remoteaddress
+     *
      * @return string
      */
     public function getRemoteaddress()
@@ -1986,7 +2196,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets remoteaddress
-     * @param string $remoteaddress
+     *
+     * @param string $remoteaddress remoteaddress
+     *
      * @return $this
      */
     public function setRemoteaddress($remoteaddress)
@@ -1998,6 +2210,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets meeting_guid
+     *
      * @return string
      */
     public function getMeetingGuid()
@@ -2007,7 +2220,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets meeting_guid
-     * @param string $meeting_guid
+     *
+     * @param string $meeting_guid meeting_guid
+     *
      * @return $this
      */
     public function setMeetingGuid($meeting_guid)
@@ -2019,6 +2234,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets connecttime
+     *
      * @return string
      */
     public function getConnecttime()
@@ -2028,7 +2244,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets connecttime
-     * @param string $connecttime
+     *
+     * @param string $connecttime connecttime
+     *
      * @return $this
      */
     public function setConnecttime($connecttime)
@@ -2040,6 +2258,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets localaddress
+     *
      * @return string
      */
     public function getLocaladdress()
@@ -2049,7 +2268,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets localaddress
-     * @param string $localaddress
+     *
+     * @param string $localaddress localaddress
+     *
      * @return $this
      */
     public function setLocaladdress($localaddress)
@@ -2061,6 +2282,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_remote_address
+     *
      * @return string
      */
     public function getAudioRemoteAddress()
@@ -2070,7 +2292,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_remote_address
-     * @param string $audio_remote_address
+     *
+     * @param string $audio_remote_address audio_remote_address
+     *
      * @return $this
      */
     public function setAudioRemoteAddress($audio_remote_address)
@@ -2082,6 +2306,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets bonded_audio_guid
+     *
      * @return string
      */
     public function getBondedAudioGuid()
@@ -2091,7 +2316,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets bonded_audio_guid
-     * @param string $bonded_audio_guid
+     *
+     * @param string $bonded_audio_guid bonded_audio_guid
+     *
      * @return $this
      */
     public function setBondedAudioGuid($bonded_audio_guid)
@@ -2103,6 +2330,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_recv_remote_mute
+     *
      * @return string
      */
     public function getAudioRecvRemoteMute()
@@ -2112,7 +2340,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_recv_remote_mute
-     * @param string $audio_recv_remote_mute
+     *
+     * @param string $audio_recv_remote_mute audio_recv_remote_mute
+     *
      * @return $this
      */
     public function setAudioRecvRemoteMute($audio_recv_remote_mute)
@@ -2124,6 +2354,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets session_out_relay
+     *
      * @return string
      */
     public function getSessionOutRelay()
@@ -2133,7 +2364,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets session_out_relay
-     * @param string $session_out_relay
+     *
+     * @param string $session_out_relay session_out_relay
+     *
      * @return $this
      */
     public function setSessionOutRelay($session_out_relay)
@@ -2145,6 +2378,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets leader
+     *
      * @return string
      */
     public function getLeader()
@@ -2154,7 +2388,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets leader
-     * @param string $leader
+     *
+     * @param string $leader leader
+     *
      * @return $this
      */
     public function setLeader($leader)
@@ -2166,6 +2402,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_local_address
+     *
      * @return string
      */
     public function getContentLocalAddress()
@@ -2175,7 +2412,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_local_address
-     * @param string $content_local_address
+     *
+     * @param string $content_local_address content_local_address
+     *
      * @return $this
      */
     public function setContentLocalAddress($content_local_address)
@@ -2187,6 +2426,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets movie_capable
+     *
      * @return string
      */
     public function getMovieCapable()
@@ -2196,7 +2436,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets movie_capable
-     * @param string $movie_capable
+     *
+     * @param string $movie_capable movie_capable
+     *
      * @return $this
      */
     public function setMovieCapable($movie_capable)
@@ -2208,6 +2450,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv_local_mute
+     *
      * @return string
      */
     public function getVideoRecvLocalMute()
@@ -2217,7 +2460,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv_local_mute
-     * @param string $video_recv_local_mute
+     *
+     * @param string $video_recv_local_mute video_recv_local_mute
+     *
      * @return $this
      */
     public function setVideoRecvLocalMute($video_recv_local_mute)
@@ -2229,6 +2474,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_rtp_transport
+     *
      * @return string
      */
     public function getContentRtpTransport()
@@ -2238,7 +2484,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_rtp_transport
-     * @param string $content_rtp_transport
+     *
+     * @param string $content_rtp_transport content_rtp_transport
+     *
      * @return $this
      */
     public function setContentRtpTransport($content_rtp_transport)
@@ -2250,6 +2498,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets rdc_version
+     *
      * @return string
      */
     public function getRdcVersion()
@@ -2259,7 +2508,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets rdc_version
-     * @param string $rdc_version
+     *
+     * @param string $rdc_version rdc_version
+     *
      * @return $this
      */
     public function setRdcVersion($rdc_version)
@@ -2271,6 +2522,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_recv
+     *
      * @return string
      */
     public function getAudioRecv()
@@ -2280,7 +2532,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_recv
-     * @param string $audio_recv
+     *
+     * @param string $audio_recv audio_recv
+     *
      * @return $this
      */
     public function setAudioRecv($audio_recv)
@@ -2292,6 +2546,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_relay_server
+     *
      * @return string
      */
     public function getContentRelayServer()
@@ -2301,7 +2556,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_relay_server
-     * @param string $content_relay_server
+     *
+     * @param string $content_relay_server content_relay_server
+     *
      * @return $this
      */
     public function setContentRelayServer($content_relay_server)
@@ -2313,6 +2570,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv
+     *
      * @return string
      */
     public function getVideoRecv()
@@ -2322,7 +2580,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv
-     * @param string $video_recv
+     *
+     * @param string $video_recv video_recv
+     *
      * @return $this
      */
     public function setVideoRecv($video_recv)
@@ -2334,6 +2594,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets visibility
+     *
      * @return string
      */
     public function getVisibility()
@@ -2343,7 +2604,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets visibility
-     * @param string $visibility
+     *
+     * @param string $visibility visibility
+     *
      * @return $this
      */
     public function setVisibility($visibility)
@@ -2355,6 +2618,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets sessionid
+     *
      * @return string
      */
     public function getSessionid()
@@ -2364,7 +2628,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets sessionid
-     * @param string $sessionid
+     *
+     * @param string $sessionid sessionid
+     *
      * @return $this
      */
     public function setSessionid($sessionid)
@@ -2376,6 +2642,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_rtcp_relay
+     *
      * @return string
      */
     public function getContentRtcpRelay()
@@ -2385,7 +2652,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_rtcp_relay
-     * @param string $content_rtcp_relay
+     *
+     * @param string $content_rtcp_relay content_rtcp_relay
+     *
      * @return $this
      */
     public function setContentRtcpRelay($content_rtcp_relay)
@@ -2397,6 +2666,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets locales
+     *
      * @return string
      */
     public function getLocales()
@@ -2406,7 +2676,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets locales
-     * @param string $locales
+     *
+     * @param string $locales locales
+     *
      * @return $this
      */
     public function setLocales($locales)
@@ -2418,6 +2690,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets medaddress
+     *
      * @return string
      */
     public function getMedaddress()
@@ -2427,7 +2700,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets medaddress
-     * @param string $medaddress
+     *
+     * @param string $medaddress medaddress
+     *
      * @return $this
      */
     public function setMedaddress($medaddress)
@@ -2439,6 +2714,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets html_layout_guid
+     *
      * @return string
      */
     public function getHtmlLayoutGuid()
@@ -2448,7 +2724,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets html_layout_guid
-     * @param string $html_layout_guid
+     *
+     * @param string $html_layout_guid html_layout_guid
+     *
      * @return $this
      */
     public function setHtmlLayoutGuid($html_layout_guid)
@@ -2460,6 +2738,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets endpoint
+     *
      * @return string
      */
     public function getEndpoint()
@@ -2469,7 +2748,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets endpoint
-     * @param string $endpoint
+     *
+     * @param string $endpoint endpoint
+     *
      * @return $this
      */
     public function setEndpoint($endpoint)
@@ -2481,6 +2762,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_drop
+     *
      * @return string
      */
     public function getVideoDrop()
@@ -2490,7 +2772,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_drop
-     * @param string $video_drop
+     *
+     * @param string $video_drop video_drop
+     *
      * @return $this
      */
     public function setVideoDrop($video_drop)
@@ -2502,6 +2786,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_rtcp_transport
+     *
      * @return string
      */
     public function getContentRtcpTransport()
@@ -2511,7 +2796,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_rtcp_transport
-     * @param string $content_rtcp_transport
+     *
+     * @param string $content_rtcp_transport content_rtcp_transport
+     *
      * @return $this
      */
     public function setContentRtcpTransport($content_rtcp_transport)
@@ -2523,6 +2810,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_remote_rtcp_address
+     *
      * @return string
      */
     public function getVideoRemoteRtcpAddress()
@@ -2532,7 +2820,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_remote_rtcp_address
-     * @param string $video_remote_rtcp_address
+     *
+     * @param string $video_remote_rtcp_address video_remote_rtcp_address
+     *
      * @return $this
      */
     public function setVideoRemoteRtcpAddress($video_remote_rtcp_address)
@@ -2544,6 +2834,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_rtp_relay
+     *
      * @return string
      */
     public function getVideoRtpRelay()
@@ -2553,7 +2844,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_rtp_relay
-     * @param string $video_rtp_relay
+     *
+     * @param string $video_rtp_relay video_rtp_relay
+     *
      * @return $this
      */
     public function setVideoRtpRelay($video_rtp_relay)
@@ -2565,6 +2858,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets mixaddress
+     *
      * @return string
      */
     public function getMixaddress()
@@ -2574,7 +2868,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets mixaddress
-     * @param string $mixaddress
+     *
+     * @param string $mixaddress mixaddress
+     *
      * @return $this
      */
     public function setMixaddress($mixaddress)
@@ -2586,6 +2882,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets siphttp_proxy_transport
+     *
      * @return string
      */
     public function getSiphttpProxyTransport()
@@ -2595,7 +2892,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets siphttp_proxy_transport
-     * @param string $siphttp_proxy_transport
+     *
+     * @param string $siphttp_proxy_transport siphttp_proxy_transport
+     *
      * @return $this
      */
     public function setSiphttpProxyTransport($siphttp_proxy_transport)
@@ -2607,6 +2906,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv_codec
+     *
      * @return string
      */
     public function getVideoRecvCodec()
@@ -2616,7 +2916,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv_codec
-     * @param string $video_recv_codec
+     *
+     * @param string $video_recv_codec video_recv_codec
+     *
      * @return $this
      */
     public function setVideoRecvCodec($video_recv_codec)
@@ -2628,6 +2930,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_recv_codec
+     *
      * @return string
      */
     public function getAudioRecvCodec()
@@ -2637,7 +2940,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_recv_codec
-     * @param string $audio_recv_codec
+     *
+     * @param string $audio_recv_codec audio_recv_codec
+     *
      * @return $this
      */
     public function setAudioRecvCodec($audio_recv_codec)
@@ -2649,6 +2954,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets session_in
+     *
      * @return string
      */
     public function getSessionIn()
@@ -2658,7 +2964,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets session_in
-     * @param string $session_in
+     *
+     * @param string $session_in session_in
+     *
      * @return $this
      */
     public function setSessionIn($session_in)
@@ -2670,6 +2978,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets bonded_video_guid
+     *
      * @return string
      */
     public function getBondedVideoGuid()
@@ -2679,7 +2988,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets bonded_video_guid
-     * @param string $bonded_video_guid
+     *
+     * @param string $bonded_video_guid bonded_video_guid
+     *
      * @return $this
      */
     public function setBondedVideoGuid($bonded_video_guid)
@@ -2691,6 +3002,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets call_quality
+     *
      * @return string
      */
     public function getCallQuality()
@@ -2700,7 +3012,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets call_quality
-     * @param string $call_quality
+     *
+     * @param string $call_quality call_quality
+     *
      * @return $this
      */
     public function setCallQuality($call_quality)
@@ -2712,6 +3026,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets meetingjointime
+     *
      * @return string
      */
     public function getMeetingjointime()
@@ -2721,7 +3036,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets meetingjointime
-     * @param string $meetingjointime
+     *
+     * @param string $meetingjointime meetingjointime
+     *
      * @return $this
      */
     public function setMeetingjointime($meetingjointime)
@@ -2733,6 +3050,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets session_in_relay
+     *
      * @return string
      */
     public function getSessionInRelay()
@@ -2742,7 +3060,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets session_in_relay
-     * @param string $session_in_relay
+     *
+     * @param string $session_in_relay session_in_relay
+     *
      * @return $this
      */
     public function setSessionInRelay($session_in_relay)
@@ -2754,6 +3074,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets pairedremoteaddress
+     *
      * @return string
      */
     public function getPairedremoteaddress()
@@ -2763,7 +3084,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets pairedremoteaddress
-     * @param string $pairedremoteaddress
+     *
+     * @param string $pairedremoteaddress pairedremoteaddress
+     *
      * @return $this
      */
     public function setPairedremoteaddress($pairedremoteaddress)
@@ -2775,6 +3098,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_send_height
+     *
      * @return string
      */
     public function getVideoSendHeight()
@@ -2784,7 +3108,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_send_height
-     * @param string $video_send_height
+     *
+     * @param string $video_send_height video_send_height
+     *
      * @return $this
      */
     public function setVideoSendHeight($video_send_height)
@@ -2796,6 +3122,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv_height
+     *
      * @return string
      */
     public function getVideoRecvHeight()
@@ -2805,7 +3132,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv_height
-     * @param string $video_recv_height
+     *
+     * @param string $video_recv_height video_recv_height
+     *
      * @return $this
      */
     public function setVideoRecvHeight($video_recv_height)
@@ -2817,6 +3146,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets secure_call
+     *
      * @return string
      */
     public function getSecureCall()
@@ -2826,7 +3156,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets secure_call
-     * @param string $secure_call
+     *
+     * @param string $secure_call secure_call
+     *
      * @return $this
      */
     public function setSecureCall($secure_call)
@@ -2838,6 +3170,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_local_rtcp_address
+     *
      * @return string
      */
     public function getVideoLocalRtcpAddress()
@@ -2847,7 +3180,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_local_rtcp_address
-     * @param string $video_local_rtcp_address
+     *
+     * @param string $video_local_rtcp_address video_local_rtcp_address
+     *
      * @return $this
      */
     public function setVideoLocalRtcpAddress($video_local_rtcp_address)
@@ -2859,6 +3194,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_play_name
+     *
      * @return string
      */
     public function getAudioPlayName()
@@ -2868,7 +3204,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_play_name
-     * @param string $audio_play_name
+     *
+     * @param string $audio_play_name audio_play_name
+     *
      * @return $this
      */
     public function setAudioPlayName($audio_play_name)
@@ -2880,6 +3218,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_cap_id
+     *
      * @return string
      */
     public function getVideoCapId()
@@ -2889,7 +3228,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_cap_id
-     * @param string $video_cap_id
+     *
+     * @param string $video_cap_id video_cap_id
+     *
      * @return $this
      */
     public function setVideoCapId($video_cap_id)
@@ -2901,6 +3242,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_rtp_transport
+     *
      * @return string
      */
     public function getAudioRtpTransport()
@@ -2910,7 +3252,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_rtp_transport
-     * @param string $audio_rtp_transport
+     *
+     * @param string $audio_rtp_transport audio_rtp_transport
+     *
      * @return $this
      */
     public function setAudioRtpTransport($audio_rtp_transport)
@@ -2922,6 +3266,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets meeting_info_mode
+     *
      * @return string
      */
     public function getMeetingInfoMode()
@@ -2931,7 +3276,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets meeting_info_mode
-     * @param string $meeting_info_mode
+     *
+     * @param string $meeting_info_mode meeting_info_mode
+     *
      * @return $this
      */
     public function setMeetingInfoMode($meeting_info_mode)
@@ -2943,6 +3290,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets callhostname
+     *
      * @return string
      */
     public function getCallhostname()
@@ -2952,7 +3300,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets callhostname
-     * @param string $callhostname
+     *
+     * @param string $callhostname callhostname
+     *
      * @return $this
      */
     public function setCallhostname($callhostname)
@@ -2964,6 +3314,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets callguid
+     *
      * @return string
      */
     public function getCallguid()
@@ -2973,7 +3324,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets callguid
-     * @param string $callguid
+     *
+     * @param string $callguid callguid
+     *
      * @return $this
      */
     public function setCallguid($callguid)
@@ -2985,6 +3338,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets audio_cap_id
+     *
      * @return string
      */
     public function getAudioCapId()
@@ -2994,7 +3348,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets audio_cap_id
-     * @param string $audio_cap_id
+     *
+     * @param string $audio_cap_id audio_cap_id
+     *
      * @return $this
      */
     public function setAudioCapId($audio_cap_id)
@@ -3006,6 +3362,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_send
+     *
      * @return string
      */
     public function getVideoSend()
@@ -3015,7 +3372,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_send
-     * @param string $video_send
+     *
+     * @param string $video_send video_send
+     *
      * @return $this
      */
     public function setVideoSend($video_send)
@@ -3027,6 +3386,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets content_recv_codec
+     *
      * @return string
      */
     public function getContentRecvCodec()
@@ -3036,7 +3396,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets content_recv_codec
-     * @param string $content_recv_codec
+     *
+     * @param string $content_recv_codec content_recv_codec
+     *
      * @return $this
      */
     public function setContentRecvCodec($content_recv_codec)
@@ -3048,6 +3410,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets session_relay
+     *
      * @return string
      */
     public function getSessionRelay()
@@ -3057,7 +3420,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets session_relay
-     * @param string $session_relay
+     *
+     * @param string $session_relay session_relay
+     *
      * @return $this
      */
     public function setSessionRelay($session_relay)
@@ -3069,6 +3434,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets video_recv_remote_mute
+     *
      * @return string
      */
     public function getVideoRecvRemoteMute()
@@ -3078,7 +3444,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets video_recv_remote_mute
-     * @param string $video_recv_remote_mute
+     *
+     * @param string $video_recv_remote_mute video_recv_remote_mute
+     *
      * @return $this
      */
     public function setVideoRecvRemoteMute($video_recv_remote_mute)
@@ -3090,6 +3458,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets id
+     *
      * @return string
      */
     public function getId()
@@ -3099,7 +3468,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id
+     *
+     * @param string $id id
+     *
      * @return $this
      */
     public function setId($id)
@@ -3111,6 +3482,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets bonded_video_name
+     *
      * @return string
      */
     public function getBondedVideoName()
@@ -3120,7 +3492,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets bonded_video_name
-     * @param string $bonded_video_name
+     *
+     * @param string $bonded_video_name bonded_video_name
+     *
      * @return $this
      */
     public function setBondedVideoName($bonded_video_name)
@@ -3132,6 +3506,7 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets is_in_roster
+     *
      * @return bool
      */
     public function getIsInRoster()
@@ -3141,7 +3516,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets is_in_roster
-     * @param bool $is_in_roster
+     *
+     * @param bool $is_in_roster is_in_roster
+     *
      * @return $this
      */
     public function setIsInRoster($is_in_roster)
@@ -3152,7 +3529,9 @@ class Endpoint implements ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return boolean
      */
     public function offsetExists($offset)
@@ -3162,7 +3541,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -3172,8 +3553,10 @@ class Endpoint implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -3187,7 +3570,9 @@ class Endpoint implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -3197,15 +3582,19 @@ class Endpoint implements ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

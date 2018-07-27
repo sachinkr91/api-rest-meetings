@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getHistoryByEnterprise**
-> \BlueJeansMeetingsRestApi\Model\Meeting getHistoryByEnterprise($enterprise_id, $meeting_guid)
+> \BlueJeansMeetingsRestApi\Model\MeetingHistory getHistoryByEnterprise($enterprise_id, $meeting_guid)
 
 Get Meeting History by Enterprise
 
@@ -26,16 +26,21 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
 try {
-    $result = $api_instance->getHistoryByEnterprise($enterprise_id, $meeting_guid);
+    $result = $apiInstance->getHistoryByEnterprise($enterprise_id, $meeting_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->getHistoryByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansMeetingsRestApi\Model\MeetingHistory**](../Model/MeetingHistory.md)
 
 ### Authorization
 
@@ -66,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getHistoryByUser**
-> \BlueJeansMeetingsRestApi\Model\Meeting getHistoryByUser($user_id, $meeting_guid)
+> \BlueJeansMeetingsRestApi\Model\MeetingHistory getHistoryByUser($user_id, $meeting_guid)
 
 Get Meeting History by User
 
@@ -78,16 +83,21 @@ This endpoint retrieves the meeting history for a specific instance of a meeting
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
 try {
-    $result = $api_instance->getHistoryByUser($user_id, $meeting_guid);
+    $result = $apiInstance->getHistoryByUser($user_id, $meeting_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->getHistoryByUser: ', $e->getMessage(), PHP_EOL;
@@ -104,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Meeting**](../Model/Meeting.md)
+[**\BlueJeansMeetingsRestApi\Model\MeetingHistory**](../Model/MeetingHistory.md)
 
 ### Authorization
 
@@ -130,16 +140,21 @@ This endpoint retrieves the meeting history sharing for a specific instance of a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_guid = "meeting_guid_example"; // string | The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
 
 try {
-    $result = $api_instance->getHistorySharingByUser($user_id, $meeting_guid);
+    $result = $apiInstance->getHistorySharingByUser($user_id, $meeting_guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->getHistorySharingByUser: ', $e->getMessage(), PHP_EOL;
@@ -182,16 +197,21 @@ This endpoint retrieves the details about a meeting recording.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $recording_entity_id = 56; // int | The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
 
 try {
-    $result = $api_instance->getRecording($user_id, $recording_entity_id);
+    $result = $apiInstance->getRecording($user_id, $recording_entity_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->getRecording: ', $e->getMessage(), PHP_EOL;
@@ -234,15 +254,20 @@ This endpoint retrieves a list of meeting histories by the given enterprise.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 
 try {
-    $result = $api_instance->listHistoryByEnterprise($enterprise_id);
+    $result = $apiInstance->listHistoryByEnterprise($enterprise_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->listHistoryByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -284,11 +309,16 @@ This endpoint retrieves a list of meeting histories by the given user.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_id = "meeting_id_example"; // string | Return only meetings with the specified meeting numeric ID.
 $start_date = "start_date_example"; // string | Return meetings starting from the specified date. MM/DD/YYYY
@@ -298,7 +328,7 @@ $page_number = 56; // int | Selects which page of results to return.
 $order = "order_example"; // string | Puts results in ascending or descending order. asc/desc
 
 try {
-    $result = $api_instance->listHistoryByUser($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order);
+    $result = $apiInstance->listHistoryByUser($user_id, $meeting_id, $start_date, $end_date, $page_size, $page_number, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->listHistoryByUser: ', $e->getMessage(), PHP_EOL;
@@ -346,11 +376,16 @@ This endpoint retrieves a list of meeting recordings.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: access_token
-BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_API_KEY');
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
 
-$api_instance = new BlueJeansMeetingsRestApi\Api\HistoryApi();
+$apiInstance = new BlueJeansMeetingsRestApi\Api\HistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $page_size = 10; // int | Sets number of items returned per page.
 $page_number = 1; // int | Selects which page of results to return.
@@ -358,7 +393,7 @@ $sort_by = "start_time"; // string | Selects which page of results to return.
 $order = "desc"; // string | Puts results in ascending or descending order.
 
 try {
-    $result = $api_instance->listRecordings($user_id, $page_size, $page_number, $sort_by, $order);
+    $result = $apiInstance->listRecordings($user_id, $page_size, $page_number, $sort_by, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HistoryApi->listRecordings: ', $e->getMessage(), PHP_EOL;

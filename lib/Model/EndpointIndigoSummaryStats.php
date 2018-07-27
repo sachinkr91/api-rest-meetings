@@ -6,19 +6,19 @@
  *
  * @category Class
  * @package  BlueJeansMeetingsRestApi
- * @author   Swaagger Codegen team
+ * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.4407232018
+ * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 2.4.0-SNAPSHOT
  */
 
 /**
@@ -30,27 +30,30 @@
 namespace BlueJeansMeetingsRestApi\Model;
 
 use \ArrayAccess;
+use \BlueJeansMeetingsRestApi\ObjectSerializer;
 
 /**
  * EndpointIndigoSummaryStats Class Doc Comment
  *
- * @category    Class
- * @package     BlueJeansMeetingsRestApi
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  BlueJeansMeetingsRestApi
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EndpointIndigoSummaryStats implements ArrayAccess
+class EndpointIndigoSummaryStats implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
+      *
       * @var string
       */
     protected static $swaggerModelName = 'EndpointIndigo_summaryStats';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerTypes = [
@@ -203,6 +206,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerFormats = [
@@ -353,18 +357,30 @@ class EndpointIndigoSummaryStats implements ArrayAccess
         'round_trip_delay_avg_ao' => null
     ];
 
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
     }
 
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerFormats()
     {
         return self::$swaggerFormats;
     }
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
      * @var string[]
      */
     protected static $attributeMap = [
@@ -515,9 +531,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
         'round_trip_delay_avg_ao' => 'roundTripDelay_Avg_AO'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
      * @var string[]
      */
     protected static $setters = [
@@ -668,9 +684,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
         'round_trip_delay_avg_ao' => 'setRoundTripDelayAvgAo'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
      * @var string[]
      */
     protected static $getters = [
@@ -821,19 +837,45 @@ class EndpointIndigoSummaryStats implements ArrayAccess
         'round_trip_delay_avg_ao' => 'getRoundTripDelayAvgAo'
     ];
 
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
     public static function attributeMap()
     {
         return self::$attributeMap;
     }
 
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
     public static function setters()
     {
         return self::$setters;
     }
 
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
     public static function getters()
     {
         return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
     }
 
     
@@ -842,13 +884,16 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Associative array for storing property values
+     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -1000,32 +1045,32 @@ class EndpointIndigoSummaryStats implements ArrayAccess
     }
 
     /**
-     * show all the invalid properties with reasons.
+     * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalidProperties = [];
 
-        return $invalid_properties;
+        return $invalidProperties;
     }
 
     /**
-     * validate all the properties in the model
+     * Validate all the properties in the model
      * return true if all passed
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
     /**
      * Gets audio_recv_codec
+     *
      * @return string
      */
     public function getAudioRecvCodec()
@@ -1035,7 +1080,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets audio_recv_codec
-     * @param string $audio_recv_codec
+     *
+     * @param string $audio_recv_codec audio_recv_codec
+     *
      * @return $this
      */
     public function setAudioRecvCodec($audio_recv_codec)
@@ -1047,6 +1094,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets audio_send_codec
+     *
      * @return string
      */
     public function getAudioSendCodec()
@@ -1056,7 +1104,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets audio_send_codec
-     * @param string $audio_send_codec
+     *
+     * @param string $audio_send_codec audio_send_codec
+     *
      * @return $this
      */
     public function setAudioSendCodec($audio_send_codec)
@@ -1068,6 +1118,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_recv
+     *
      * @return bool
      */
     public function getContentRecv()
@@ -1077,7 +1128,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_recv
-     * @param bool $content_recv
+     *
+     * @param bool $content_recv content_recv
+     *
      * @return $this
      */
     public function setContentRecv($content_recv)
@@ -1089,6 +1142,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_send
+     *
      * @return bool
      */
     public function getContentSend()
@@ -1098,7 +1152,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_send
-     * @param bool $content_send
+     *
+     * @param bool $content_send content_send
+     *
      * @return $this
      */
     public function setContentSend($content_send)
@@ -1110,6 +1166,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets talk_detected
+     *
      * @return bool
      */
     public function getTalkDetected()
@@ -1119,7 +1176,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets talk_detected
-     * @param bool $talk_detected
+     *
+     * @param bool $talk_detected talk_detected
+     *
      * @return $this
      */
     public function setTalkDetected($talk_detected)
@@ -1131,6 +1190,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets session_relay
+     *
      * @return bool
      */
     public function getSessionRelay()
@@ -1140,7 +1200,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets session_relay
-     * @param bool $session_relay
+     *
+     * @param bool $session_relay session_relay
+     *
      * @return $this
      */
     public function setSessionRelay($session_relay)
@@ -1152,6 +1214,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets session_in_relay
+     *
      * @return bool
      */
     public function getSessionInRelay()
@@ -1161,7 +1224,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets session_in_relay
-     * @param bool $session_in_relay
+     *
+     * @param bool $session_in_relay session_in_relay
+     *
      * @return $this
      */
     public function setSessionInRelay($session_in_relay)
@@ -1173,6 +1238,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets session_out_relay
+     *
      * @return bool
      */
     public function getSessionOutRelay()
@@ -1182,7 +1248,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets session_out_relay
-     * @param bool $session_out_relay
+     *
+     * @param bool $session_out_relay session_out_relay
+     *
      * @return $this
      */
     public function setSessionOutRelay($session_out_relay)
@@ -1194,6 +1262,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets audio_rtp_relay
+     *
      * @return bool
      */
     public function getAudioRtpRelay()
@@ -1203,7 +1272,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets audio_rtp_relay
-     * @param bool $audio_rtp_relay
+     *
+     * @param bool $audio_rtp_relay audio_rtp_relay
+     *
      * @return $this
      */
     public function setAudioRtpRelay($audio_rtp_relay)
@@ -1215,6 +1286,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets call_rate
+     *
      * @return int
      */
     public function getCallRate()
@@ -1224,7 +1296,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets call_rate
-     * @param int $call_rate
+     *
+     * @param int $call_rate call_rate
+     *
      * @return $this
      */
     public function setCallRate($call_rate)
@@ -1236,6 +1310,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_ai
+     *
      * @return float
      */
     public function getCumulLossPercentAi()
@@ -1245,7 +1320,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_ai
-     * @param float $cumul_loss_percent_ai
+     *
+     * @param float $cumul_loss_percent_ai cumul_loss_percent_ai
+     *
      * @return $this
      */
     public function setCumulLossPercentAi($cumul_loss_percent_ai)
@@ -1257,6 +1334,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_ao
+     *
      * @return float
      */
     public function getCumulLossPercentAo()
@@ -1266,7 +1344,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_ao
-     * @param float $cumul_loss_percent_ao
+     *
+     * @param float $cumul_loss_percent_ao cumul_loss_percent_ao
+     *
      * @return $this
      */
     public function setCumulLossPercentAo($cumul_loss_percent_ao)
@@ -1278,6 +1358,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_vi
+     *
      * @return float
      */
     public function getCumulLossPercentVi()
@@ -1287,7 +1368,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_vi
-     * @param float $cumul_loss_percent_vi
+     *
+     * @param float $cumul_loss_percent_vi cumul_loss_percent_vi
+     *
      * @return $this
      */
     public function setCumulLossPercentVi($cumul_loss_percent_vi)
@@ -1299,6 +1382,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_vo
+     *
      * @return float
      */
     public function getCumulLossPercentVo()
@@ -1308,7 +1392,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_vo
-     * @param float $cumul_loss_percent_vo
+     *
+     * @param float $cumul_loss_percent_vo cumul_loss_percent_vo
+     *
      * @return $this
      */
     public function setCumulLossPercentVo($cumul_loss_percent_vo)
@@ -1320,6 +1406,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_vic
+     *
      * @return float
      */
     public function getCumulLossPercentVic()
@@ -1329,7 +1416,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_vic
-     * @param float $cumul_loss_percent_vic
+     *
+     * @param float $cumul_loss_percent_vic cumul_loss_percent_vic
+     *
      * @return $this
      */
     public function setCumulLossPercentVic($cumul_loss_percent_vic)
@@ -1341,6 +1430,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_percent_voc
+     *
      * @return float
      */
     public function getCumulLossPercentVoc()
@@ -1350,7 +1440,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_percent_voc
-     * @param float $cumul_loss_percent_voc
+     *
+     * @param float $cumul_loss_percent_voc cumul_loss_percent_voc
+     *
      * @return $this
      */
     public function setCumulLossPercentVoc($cumul_loss_percent_voc)
@@ -1362,6 +1454,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_ai
+     *
      * @return float
      */
     public function getCumulLossAi()
@@ -1371,7 +1464,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_ai
-     * @param float $cumul_loss_ai
+     *
+     * @param float $cumul_loss_ai cumul_loss_ai
+     *
      * @return $this
      */
     public function setCumulLossAi($cumul_loss_ai)
@@ -1383,6 +1478,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_ao
+     *
      * @return float
      */
     public function getCumulLossAo()
@@ -1392,7 +1488,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_ao
-     * @param float $cumul_loss_ao
+     *
+     * @param float $cumul_loss_ao cumul_loss_ao
+     *
      * @return $this
      */
     public function setCumulLossAo($cumul_loss_ao)
@@ -1404,6 +1502,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_vi
+     *
      * @return float
      */
     public function getCumulLossVi()
@@ -1413,7 +1512,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_vi
-     * @param float $cumul_loss_vi
+     *
+     * @param float $cumul_loss_vi cumul_loss_vi
+     *
      * @return $this
      */
     public function setCumulLossVi($cumul_loss_vi)
@@ -1425,6 +1526,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_vo
+     *
      * @return float
      */
     public function getCumulLossVo()
@@ -1434,7 +1536,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_vo
-     * @param float $cumul_loss_vo
+     *
+     * @param float $cumul_loss_vo cumul_loss_vo
+     *
      * @return $this
      */
     public function setCumulLossVo($cumul_loss_vo)
@@ -1446,6 +1550,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_vic
+     *
      * @return float
      */
     public function getCumulLossVic()
@@ -1455,7 +1560,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_vic
-     * @param float $cumul_loss_vic
+     *
+     * @param float $cumul_loss_vic cumul_loss_vic
+     *
      * @return $this
      */
     public function setCumulLossVic($cumul_loss_vic)
@@ -1467,6 +1574,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets cumul_loss_voc
+     *
      * @return float
      */
     public function getCumulLossVoc()
@@ -1476,7 +1584,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets cumul_loss_voc
-     * @param float $cumul_loss_voc
+     *
+     * @param float $cumul_loss_voc cumul_loss_voc
+     *
      * @return $this
      */
     public function setCumulLossVoc($cumul_loss_voc)
@@ -1488,6 +1598,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets discontinuity_count
+     *
      * @return float
      */
     public function getDiscontinuityCount()
@@ -1497,7 +1608,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets discontinuity_count
-     * @param float $discontinuity_count
+     *
+     * @param float $discontinuity_count discontinuity_count
+     *
      * @return $this
      */
     public function setDiscontinuityCount($discontinuity_count)
@@ -1509,6 +1622,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets dropped_packets_ai
+     *
      * @return float
      */
     public function getDroppedPacketsAi()
@@ -1518,7 +1632,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets dropped_packets_ai
-     * @param float $dropped_packets_ai
+     *
+     * @param float $dropped_packets_ai dropped_packets_ai
+     *
      * @return $this
      */
     public function setDroppedPacketsAi($dropped_packets_ai)
@@ -1530,6 +1646,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets dropped_packets_vi
+     *
      * @return float
      */
     public function getDroppedPacketsVi()
@@ -1539,7 +1656,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets dropped_packets_vi
-     * @param float $dropped_packets_vi
+     *
+     * @param float $dropped_packets_vi dropped_packets_vi
+     *
      * @return $this
      */
     public function setDroppedPacketsVi($dropped_packets_vi)
@@ -1551,6 +1670,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets dropped_packets_vic
+     *
      * @return float
      */
     public function getDroppedPacketsVic()
@@ -1560,7 +1680,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets dropped_packets_vic
-     * @param float $dropped_packets_vic
+     *
+     * @param float $dropped_packets_vic dropped_packets_vic
+     *
      * @return $this
      */
     public function setDroppedPacketsVic($dropped_packets_vic)
@@ -1572,6 +1694,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets mix_under_runs_ai
+     *
      * @return float
      */
     public function getMixUnderRunsAi()
@@ -1581,7 +1704,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets mix_under_runs_ai
-     * @param float $mix_under_runs_ai
+     *
+     * @param float $mix_under_runs_ai mix_under_runs_ai
+     *
      * @return $this
      */
     public function setMixUnderRunsAi($mix_under_runs_ai)
@@ -1593,6 +1718,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_avg_loss_ai
+     *
      * @return float
      */
     public function getNetworkAvgLossAi()
@@ -1602,7 +1728,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_avg_loss_ai
-     * @param float $network_avg_loss_ai
+     *
+     * @param float $network_avg_loss_ai network_avg_loss_ai
+     *
      * @return $this
      */
     public function setNetworkAvgLossAi($network_avg_loss_ai)
@@ -1614,6 +1742,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_avg_loss_ao
+     *
      * @return float
      */
     public function getNetworkAvgLossAo()
@@ -1623,7 +1752,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_avg_loss_ao
-     * @param float $network_avg_loss_ao
+     *
+     * @param float $network_avg_loss_ao network_avg_loss_ao
+     *
      * @return $this
      */
     public function setNetworkAvgLossAo($network_avg_loss_ao)
@@ -1635,6 +1766,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_avg_loss_vi
+     *
      * @return float
      */
     public function getNetworkAvgLossVi()
@@ -1644,7 +1776,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_avg_loss_vi
-     * @param float $network_avg_loss_vi
+     *
+     * @param float $network_avg_loss_vi network_avg_loss_vi
+     *
      * @return $this
      */
     public function setNetworkAvgLossVi($network_avg_loss_vi)
@@ -1656,6 +1790,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_avg_loss_vo
+     *
      * @return float
      */
     public function getNetworkAvgLossVo()
@@ -1665,7 +1800,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_avg_loss_vo
-     * @param float $network_avg_loss_vo
+     *
+     * @param float $network_avg_loss_vo network_avg_loss_vo
+     *
      * @return $this
      */
     public function setNetworkAvgLossVo($network_avg_loss_vo)
@@ -1677,6 +1814,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_cumul_loss_ai
+     *
      * @return float
      */
     public function getNetworkCumulLossAi()
@@ -1686,7 +1824,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_cumul_loss_ai
-     * @param float $network_cumul_loss_ai
+     *
+     * @param float $network_cumul_loss_ai network_cumul_loss_ai
+     *
      * @return $this
      */
     public function setNetworkCumulLossAi($network_cumul_loss_ai)
@@ -1698,6 +1838,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_cumul_loss_ao
+     *
      * @return float
      */
     public function getNetworkCumulLossAo()
@@ -1707,7 +1848,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_cumul_loss_ao
-     * @param float $network_cumul_loss_ao
+     *
+     * @param float $network_cumul_loss_ao network_cumul_loss_ao
+     *
      * @return $this
      */
     public function setNetworkCumulLossAo($network_cumul_loss_ao)
@@ -1719,6 +1862,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_cumul_loss_vi
+     *
      * @return float
      */
     public function getNetworkCumulLossVi()
@@ -1728,7 +1872,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_cumul_loss_vi
-     * @param float $network_cumul_loss_vi
+     *
+     * @param float $network_cumul_loss_vi network_cumul_loss_vi
+     *
      * @return $this
      */
     public function setNetworkCumulLossVi($network_cumul_loss_vi)
@@ -1740,6 +1886,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_cumul_loss_vo
+     *
      * @return float
      */
     public function getNetworkCumulLossVo()
@@ -1749,7 +1896,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_cumul_loss_vo
-     * @param float $network_cumul_loss_vo
+     *
+     * @param float $network_cumul_loss_vo network_cumul_loss_vo
+     *
      * @return $this
      */
     public function setNetworkCumulLossVo($network_cumul_loss_vo)
@@ -1761,6 +1910,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_loss_ai
+     *
      * @return float
      */
     public function getNetworkLossAi()
@@ -1770,7 +1920,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_loss_ai
-     * @param float $network_loss_ai
+     *
+     * @param float $network_loss_ai network_loss_ai
+     *
      * @return $this
      */
     public function setNetworkLossAi($network_loss_ai)
@@ -1782,6 +1934,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_loss_ao
+     *
      * @return float
      */
     public function getNetworkLossAo()
@@ -1791,7 +1944,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_loss_ao
-     * @param float $network_loss_ao
+     *
+     * @param float $network_loss_ao network_loss_ao
+     *
      * @return $this
      */
     public function setNetworkLossAo($network_loss_ao)
@@ -1803,6 +1958,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_loss_vi
+     *
      * @return float
      */
     public function getNetworkLossVi()
@@ -1812,7 +1968,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_loss_vi
-     * @param float $network_loss_vi
+     *
+     * @param float $network_loss_vi network_loss_vi
+     *
      * @return $this
      */
     public function setNetworkLossVi($network_loss_vi)
@@ -1824,6 +1982,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets network_loss_vo
+     *
      * @return float
      */
     public function getNetworkLossVo()
@@ -1833,7 +1992,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets network_loss_vo
-     * @param float $network_loss_vo
+     *
+     * @param float $network_loss_vo network_loss_vo
+     *
      * @return $this
      */
     public function setNetworkLossVo($network_loss_vo)
@@ -1845,6 +2006,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets call_quality_min
+     *
      * @return float
      */
     public function getCallQualityMin()
@@ -1854,7 +2016,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets call_quality_min
-     * @param float $call_quality_min
+     *
+     * @param float $call_quality_min call_quality_min
+     *
      * @return $this
      */
     public function setCallQualityMin($call_quality_min)
@@ -1866,6 +2030,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets call_quality_max
+     *
      * @return float
      */
     public function getCallQualityMax()
@@ -1875,7 +2040,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets call_quality_max
-     * @param float $call_quality_max
+     *
+     * @param float $call_quality_max call_quality_max
+     *
      * @return $this
      */
     public function setCallQualityMax($call_quality_max)
@@ -1887,6 +2054,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets call_quality_avg
+     *
      * @return float
      */
     public function getCallQualityAvg()
@@ -1896,7 +2064,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets call_quality_avg
-     * @param float $call_quality_avg
+     *
+     * @param float $call_quality_avg call_quality_avg
+     *
      * @return $this
      */
     public function setCallQualityAvg($call_quality_avg)
@@ -1908,6 +2078,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_min_vi
+     *
      * @return float
      */
     public function getFpsMinVi()
@@ -1917,7 +2088,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_min_vi
-     * @param float $fps_min_vi
+     *
+     * @param float $fps_min_vi fps_min_vi
+     *
      * @return $this
      */
     public function setFpsMinVi($fps_min_vi)
@@ -1929,6 +2102,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_min_vo
+     *
      * @return float
      */
     public function getFpsMinVo()
@@ -1938,7 +2112,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_min_vo
-     * @param float $fps_min_vo
+     *
+     * @param float $fps_min_vo fps_min_vo
+     *
      * @return $this
      */
     public function setFpsMinVo($fps_min_vo)
@@ -1950,6 +2126,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_min_vic
+     *
      * @return float
      */
     public function getFpsMinVic()
@@ -1959,7 +2136,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_min_vic
-     * @param float $fps_min_vic
+     *
+     * @param float $fps_min_vic fps_min_vic
+     *
      * @return $this
      */
     public function setFpsMinVic($fps_min_vic)
@@ -1971,6 +2150,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_min_voc
+     *
      * @return float
      */
     public function getFpsMinVoc()
@@ -1980,7 +2160,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_min_voc
-     * @param float $fps_min_voc
+     *
+     * @param float $fps_min_voc fps_min_voc
+     *
      * @return $this
      */
     public function setFpsMinVoc($fps_min_voc)
@@ -1992,6 +2174,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_max_vi
+     *
      * @return float
      */
     public function getFpsMaxVi()
@@ -2001,7 +2184,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_max_vi
-     * @param float $fps_max_vi
+     *
+     * @param float $fps_max_vi fps_max_vi
+     *
      * @return $this
      */
     public function setFpsMaxVi($fps_max_vi)
@@ -2013,6 +2198,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_max_vo
+     *
      * @return float
      */
     public function getFpsMaxVo()
@@ -2022,7 +2208,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_max_vo
-     * @param float $fps_max_vo
+     *
+     * @param float $fps_max_vo fps_max_vo
+     *
      * @return $this
      */
     public function setFpsMaxVo($fps_max_vo)
@@ -2034,6 +2222,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_max_vic
+     *
      * @return float
      */
     public function getFpsMaxVic()
@@ -2043,7 +2232,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_max_vic
-     * @param float $fps_max_vic
+     *
+     * @param float $fps_max_vic fps_max_vic
+     *
      * @return $this
      */
     public function setFpsMaxVic($fps_max_vic)
@@ -2055,6 +2246,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_max_voc
+     *
      * @return float
      */
     public function getFpsMaxVoc()
@@ -2064,7 +2256,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_max_voc
-     * @param float $fps_max_voc
+     *
+     * @param float $fps_max_voc fps_max_voc
+     *
      * @return $this
      */
     public function setFpsMaxVoc($fps_max_voc)
@@ -2076,6 +2270,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_avg_vi
+     *
      * @return float
      */
     public function getFpsAvgVi()
@@ -2085,7 +2280,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_avg_vi
-     * @param float $fps_avg_vi
+     *
+     * @param float $fps_avg_vi fps_avg_vi
+     *
      * @return $this
      */
     public function setFpsAvgVi($fps_avg_vi)
@@ -2097,6 +2294,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_avg_vo
+     *
      * @return float
      */
     public function getFpsAvgVo()
@@ -2106,7 +2304,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_avg_vo
-     * @param float $fps_avg_vo
+     *
+     * @param float $fps_avg_vo fps_avg_vo
+     *
      * @return $this
      */
     public function setFpsAvgVo($fps_avg_vo)
@@ -2118,6 +2318,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_avg_vic
+     *
      * @return float
      */
     public function getFpsAvgVic()
@@ -2127,7 +2328,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_avg_vic
-     * @param float $fps_avg_vic
+     *
+     * @param float $fps_avg_vic fps_avg_vic
+     *
      * @return $this
      */
     public function setFpsAvgVic($fps_avg_vic)
@@ -2139,6 +2342,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets fps_avg_voc
+     *
      * @return float
      */
     public function getFpsAvgVoc()
@@ -2148,7 +2352,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets fps_avg_voc
-     * @param float $fps_avg_voc
+     *
+     * @param float $fps_avg_voc fps_avg_voc
+     *
      * @return $this
      */
     public function setFpsAvgVoc($fps_avg_voc)
@@ -2160,6 +2366,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_ai
+     *
      * @return float
      */
     public function getBitrateMinAi()
@@ -2169,7 +2376,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_ai
-     * @param float $bitrate_min_ai
+     *
+     * @param float $bitrate_min_ai bitrate_min_ai
+     *
      * @return $this
      */
     public function setBitrateMinAi($bitrate_min_ai)
@@ -2181,6 +2390,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_ao
+     *
      * @return float
      */
     public function getBitrateMinAo()
@@ -2190,7 +2400,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_ao
-     * @param float $bitrate_min_ao
+     *
+     * @param float $bitrate_min_ao bitrate_min_ao
+     *
      * @return $this
      */
     public function setBitrateMinAo($bitrate_min_ao)
@@ -2202,6 +2414,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_vi
+     *
      * @return float
      */
     public function getBitrateMinVi()
@@ -2211,7 +2424,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_vi
-     * @param float $bitrate_min_vi
+     *
+     * @param float $bitrate_min_vi bitrate_min_vi
+     *
      * @return $this
      */
     public function setBitrateMinVi($bitrate_min_vi)
@@ -2223,6 +2438,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_vo
+     *
      * @return float
      */
     public function getBitrateMinVo()
@@ -2232,7 +2448,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_vo
-     * @param float $bitrate_min_vo
+     *
+     * @param float $bitrate_min_vo bitrate_min_vo
+     *
      * @return $this
      */
     public function setBitrateMinVo($bitrate_min_vo)
@@ -2244,6 +2462,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_vic
+     *
      * @return float
      */
     public function getBitrateMinVic()
@@ -2253,7 +2472,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_vic
-     * @param float $bitrate_min_vic
+     *
+     * @param float $bitrate_min_vic bitrate_min_vic
+     *
      * @return $this
      */
     public function setBitrateMinVic($bitrate_min_vic)
@@ -2265,6 +2486,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_min_voc
+     *
      * @return float
      */
     public function getBitrateMinVoc()
@@ -2274,7 +2496,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_min_voc
-     * @param float $bitrate_min_voc
+     *
+     * @param float $bitrate_min_voc bitrate_min_voc
+     *
      * @return $this
      */
     public function setBitrateMinVoc($bitrate_min_voc)
@@ -2286,6 +2510,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_ai
+     *
      * @return float
      */
     public function getBitrateMaxAi()
@@ -2295,7 +2520,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_ai
-     * @param float $bitrate_max_ai
+     *
+     * @param float $bitrate_max_ai bitrate_max_ai
+     *
      * @return $this
      */
     public function setBitrateMaxAi($bitrate_max_ai)
@@ -2307,6 +2534,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_ao
+     *
      * @return float
      */
     public function getBitrateMaxAo()
@@ -2316,7 +2544,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_ao
-     * @param float $bitrate_max_ao
+     *
+     * @param float $bitrate_max_ao bitrate_max_ao
+     *
      * @return $this
      */
     public function setBitrateMaxAo($bitrate_max_ao)
@@ -2328,6 +2558,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_vi
+     *
      * @return float
      */
     public function getBitrateMaxVi()
@@ -2337,7 +2568,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_vi
-     * @param float $bitrate_max_vi
+     *
+     * @param float $bitrate_max_vi bitrate_max_vi
+     *
      * @return $this
      */
     public function setBitrateMaxVi($bitrate_max_vi)
@@ -2349,6 +2582,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_vo
+     *
      * @return float
      */
     public function getBitrateMaxVo()
@@ -2358,7 +2592,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_vo
-     * @param float $bitrate_max_vo
+     *
+     * @param float $bitrate_max_vo bitrate_max_vo
+     *
      * @return $this
      */
     public function setBitrateMaxVo($bitrate_max_vo)
@@ -2370,6 +2606,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_vic
+     *
      * @return float
      */
     public function getBitrateMaxVic()
@@ -2379,7 +2616,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_vic
-     * @param float $bitrate_max_vic
+     *
+     * @param float $bitrate_max_vic bitrate_max_vic
+     *
      * @return $this
      */
     public function setBitrateMaxVic($bitrate_max_vic)
@@ -2391,6 +2630,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_max_voc
+     *
      * @return float
      */
     public function getBitrateMaxVoc()
@@ -2400,7 +2640,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_max_voc
-     * @param float $bitrate_max_voc
+     *
+     * @param float $bitrate_max_voc bitrate_max_voc
+     *
      * @return $this
      */
     public function setBitrateMaxVoc($bitrate_max_voc)
@@ -2412,6 +2654,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_ai
+     *
      * @return float
      */
     public function getBitrateAvgAi()
@@ -2421,7 +2664,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_ai
-     * @param float $bitrate_avg_ai
+     *
+     * @param float $bitrate_avg_ai bitrate_avg_ai
+     *
      * @return $this
      */
     public function setBitrateAvgAi($bitrate_avg_ai)
@@ -2433,6 +2678,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_ao
+     *
      * @return float
      */
     public function getBitrateAvgAo()
@@ -2442,7 +2688,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_ao
-     * @param float $bitrate_avg_ao
+     *
+     * @param float $bitrate_avg_ao bitrate_avg_ao
+     *
      * @return $this
      */
     public function setBitrateAvgAo($bitrate_avg_ao)
@@ -2454,6 +2702,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_vi
+     *
      * @return float
      */
     public function getBitrateAvgVi()
@@ -2463,7 +2712,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_vi
-     * @param float $bitrate_avg_vi
+     *
+     * @param float $bitrate_avg_vi bitrate_avg_vi
+     *
      * @return $this
      */
     public function setBitrateAvgVi($bitrate_avg_vi)
@@ -2475,6 +2726,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_vo
+     *
      * @return float
      */
     public function getBitrateAvgVo()
@@ -2484,7 +2736,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_vo
-     * @param float $bitrate_avg_vo
+     *
+     * @param float $bitrate_avg_vo bitrate_avg_vo
+     *
      * @return $this
      */
     public function setBitrateAvgVo($bitrate_avg_vo)
@@ -2496,6 +2750,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_vic
+     *
      * @return float
      */
     public function getBitrateAvgVic()
@@ -2505,7 +2760,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_vic
-     * @param float $bitrate_avg_vic
+     *
+     * @param float $bitrate_avg_vic bitrate_avg_vic
+     *
      * @return $this
      */
     public function setBitrateAvgVic($bitrate_avg_vic)
@@ -2517,6 +2774,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets bitrate_avg_voc
+     *
      * @return float
      */
     public function getBitrateAvgVoc()
@@ -2526,7 +2784,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets bitrate_avg_voc
-     * @param float $bitrate_avg_voc
+     *
+     * @param float $bitrate_avg_voc bitrate_avg_voc
+     *
      * @return $this
      */
     public function setBitrateAvgVoc($bitrate_avg_voc)
@@ -2538,6 +2798,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_ai
+     *
      * @return float
      */
     public function getJitterMinAi()
@@ -2547,7 +2808,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_ai
-     * @param float $jitter_min_ai
+     *
+     * @param float $jitter_min_ai jitter_min_ai
+     *
      * @return $this
      */
     public function setJitterMinAi($jitter_min_ai)
@@ -2559,6 +2822,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_ao
+     *
      * @return float
      */
     public function getJitterMinAo()
@@ -2568,7 +2832,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_ao
-     * @param float $jitter_min_ao
+     *
+     * @param float $jitter_min_ao jitter_min_ao
+     *
      * @return $this
      */
     public function setJitterMinAo($jitter_min_ao)
@@ -2580,6 +2846,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_vi
+     *
      * @return float
      */
     public function getJitterMinVi()
@@ -2589,7 +2856,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_vi
-     * @param float $jitter_min_vi
+     *
+     * @param float $jitter_min_vi jitter_min_vi
+     *
      * @return $this
      */
     public function setJitterMinVi($jitter_min_vi)
@@ -2601,6 +2870,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_vo
+     *
      * @return float
      */
     public function getJitterMinVo()
@@ -2610,7 +2880,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_vo
-     * @param float $jitter_min_vo
+     *
+     * @param float $jitter_min_vo jitter_min_vo
+     *
      * @return $this
      */
     public function setJitterMinVo($jitter_min_vo)
@@ -2622,6 +2894,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_vic
+     *
      * @return float
      */
     public function getJitterMinVic()
@@ -2631,7 +2904,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_vic
-     * @param float $jitter_min_vic
+     *
+     * @param float $jitter_min_vic jitter_min_vic
+     *
      * @return $this
      */
     public function setJitterMinVic($jitter_min_vic)
@@ -2643,6 +2918,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_min_voc
+     *
      * @return float
      */
     public function getJitterMinVoc()
@@ -2652,7 +2928,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_min_voc
-     * @param float $jitter_min_voc
+     *
+     * @param float $jitter_min_voc jitter_min_voc
+     *
      * @return $this
      */
     public function setJitterMinVoc($jitter_min_voc)
@@ -2664,6 +2942,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_ai
+     *
      * @return float
      */
     public function getJitterMaxAi()
@@ -2673,7 +2952,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_ai
-     * @param float $jitter_max_ai
+     *
+     * @param float $jitter_max_ai jitter_max_ai
+     *
      * @return $this
      */
     public function setJitterMaxAi($jitter_max_ai)
@@ -2685,6 +2966,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_ao
+     *
      * @return float
      */
     public function getJitterMaxAo()
@@ -2694,7 +2976,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_ao
-     * @param float $jitter_max_ao
+     *
+     * @param float $jitter_max_ao jitter_max_ao
+     *
      * @return $this
      */
     public function setJitterMaxAo($jitter_max_ao)
@@ -2706,6 +2990,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_vi
+     *
      * @return float
      */
     public function getJitterMaxVi()
@@ -2715,7 +3000,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_vi
-     * @param float $jitter_max_vi
+     *
+     * @param float $jitter_max_vi jitter_max_vi
+     *
      * @return $this
      */
     public function setJitterMaxVi($jitter_max_vi)
@@ -2727,6 +3014,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_vo
+     *
      * @return float
      */
     public function getJitterMaxVo()
@@ -2736,7 +3024,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_vo
-     * @param float $jitter_max_vo
+     *
+     * @param float $jitter_max_vo jitter_max_vo
+     *
      * @return $this
      */
     public function setJitterMaxVo($jitter_max_vo)
@@ -2748,6 +3038,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_vic
+     *
      * @return float
      */
     public function getJitterMaxVic()
@@ -2757,7 +3048,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_vic
-     * @param float $jitter_max_vic
+     *
+     * @param float $jitter_max_vic jitter_max_vic
+     *
      * @return $this
      */
     public function setJitterMaxVic($jitter_max_vic)
@@ -2769,6 +3062,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_max_voc
+     *
      * @return float
      */
     public function getJitterMaxVoc()
@@ -2778,7 +3072,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_max_voc
-     * @param float $jitter_max_voc
+     *
+     * @param float $jitter_max_voc jitter_max_voc
+     *
      * @return $this
      */
     public function setJitterMaxVoc($jitter_max_voc)
@@ -2790,6 +3086,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_ai
+     *
      * @return float
      */
     public function getJitterAvgAi()
@@ -2799,7 +3096,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_ai
-     * @param float $jitter_avg_ai
+     *
+     * @param float $jitter_avg_ai jitter_avg_ai
+     *
      * @return $this
      */
     public function setJitterAvgAi($jitter_avg_ai)
@@ -2811,6 +3110,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_ao
+     *
      * @return float
      */
     public function getJitterAvgAo()
@@ -2820,7 +3120,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_ao
-     * @param float $jitter_avg_ao
+     *
+     * @param float $jitter_avg_ao jitter_avg_ao
+     *
      * @return $this
      */
     public function setJitterAvgAo($jitter_avg_ao)
@@ -2832,6 +3134,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_vi
+     *
      * @return float
      */
     public function getJitterAvgVi()
@@ -2841,7 +3144,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_vi
-     * @param float $jitter_avg_vi
+     *
+     * @param float $jitter_avg_vi jitter_avg_vi
+     *
      * @return $this
      */
     public function setJitterAvgVi($jitter_avg_vi)
@@ -2853,6 +3158,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_vo
+     *
      * @return float
      */
     public function getJitterAvgVo()
@@ -2862,7 +3168,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_vo
-     * @param float $jitter_avg_vo
+     *
+     * @param float $jitter_avg_vo jitter_avg_vo
+     *
      * @return $this
      */
     public function setJitterAvgVo($jitter_avg_vo)
@@ -2874,6 +3182,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_vic
+     *
      * @return float
      */
     public function getJitterAvgVic()
@@ -2883,7 +3192,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_vic
-     * @param float $jitter_avg_vic
+     *
+     * @param float $jitter_avg_vic jitter_avg_vic
+     *
      * @return $this
      */
     public function setJitterAvgVic($jitter_avg_vic)
@@ -2895,6 +3206,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets jitter_avg_voc
+     *
      * @return float
      */
     public function getJitterAvgVoc()
@@ -2904,7 +3216,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets jitter_avg_voc
-     * @param float $jitter_avg_voc
+     *
+     * @param float $jitter_avg_voc jitter_avg_voc
+     *
      * @return $this
      */
     public function setJitterAvgVoc($jitter_avg_voc)
@@ -2916,6 +3230,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_min_ai
+     *
      * @return float
      */
     public function getMaxJitterMinAi()
@@ -2925,7 +3240,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_min_ai
-     * @param float $max_jitter_min_ai
+     *
+     * @param float $max_jitter_min_ai max_jitter_min_ai
+     *
      * @return $this
      */
     public function setMaxJitterMinAi($max_jitter_min_ai)
@@ -2937,6 +3254,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_min_vi
+     *
      * @return float
      */
     public function getMaxJitterMinVi()
@@ -2946,7 +3264,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_min_vi
-     * @param float $max_jitter_min_vi
+     *
+     * @param float $max_jitter_min_vi max_jitter_min_vi
+     *
      * @return $this
      */
     public function setMaxJitterMinVi($max_jitter_min_vi)
@@ -2958,6 +3278,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_min_vic
+     *
      * @return float
      */
     public function getMaxJitterMinVic()
@@ -2967,7 +3288,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_min_vic
-     * @param float $max_jitter_min_vic
+     *
+     * @param float $max_jitter_min_vic max_jitter_min_vic
+     *
      * @return $this
      */
     public function setMaxJitterMinVic($max_jitter_min_vic)
@@ -2979,6 +3302,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_max_ai
+     *
      * @return float
      */
     public function getMaxJitterMaxAi()
@@ -2988,7 +3312,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_max_ai
-     * @param float $max_jitter_max_ai
+     *
+     * @param float $max_jitter_max_ai max_jitter_max_ai
+     *
      * @return $this
      */
     public function setMaxJitterMaxAi($max_jitter_max_ai)
@@ -3000,6 +3326,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_max_vi
+     *
      * @return float
      */
     public function getMaxJitterMaxVi()
@@ -3009,7 +3336,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_max_vi
-     * @param float $max_jitter_max_vi
+     *
+     * @param float $max_jitter_max_vi max_jitter_max_vi
+     *
      * @return $this
      */
     public function setMaxJitterMaxVi($max_jitter_max_vi)
@@ -3021,6 +3350,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_max_vic
+     *
      * @return float
      */
     public function getMaxJitterMaxVic()
@@ -3030,7 +3360,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_max_vic
-     * @param float $max_jitter_max_vic
+     *
+     * @param float $max_jitter_max_vic max_jitter_max_vic
+     *
      * @return $this
      */
     public function setMaxJitterMaxVic($max_jitter_max_vic)
@@ -3042,6 +3374,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_avg_ai
+     *
      * @return float
      */
     public function getMaxJitterAvgAi()
@@ -3051,7 +3384,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_avg_ai
-     * @param float $max_jitter_avg_ai
+     *
+     * @param float $max_jitter_avg_ai max_jitter_avg_ai
+     *
      * @return $this
      */
     public function setMaxJitterAvgAi($max_jitter_avg_ai)
@@ -3063,6 +3398,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_avg_vi
+     *
      * @return float
      */
     public function getMaxJitterAvgVi()
@@ -3072,7 +3408,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_avg_vi
-     * @param float $max_jitter_avg_vi
+     *
+     * @param float $max_jitter_avg_vi max_jitter_avg_vi
+     *
      * @return $this
      */
     public function setMaxJitterAvgVi($max_jitter_avg_vi)
@@ -3084,6 +3422,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets max_jitter_avg_vic
+     *
      * @return float
      */
     public function getMaxJitterAvgVic()
@@ -3093,7 +3432,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets max_jitter_avg_vic
-     * @param float $max_jitter_avg_vic
+     *
+     * @param float $max_jitter_avg_vic max_jitter_avg_vic
+     *
      * @return $this
      */
     public function setMaxJitterAvgVic($max_jitter_avg_vic)
@@ -3105,6 +3446,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_recv_height_min
+     *
      * @return float
      */
     public function getVideoRecvHeightMin()
@@ -3114,7 +3456,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_recv_height_min
-     * @param float $video_recv_height_min
+     *
+     * @param float $video_recv_height_min video_recv_height_min
+     *
      * @return $this
      */
     public function setVideoRecvHeightMin($video_recv_height_min)
@@ -3126,6 +3470,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_recv_height_max
+     *
      * @return float
      */
     public function getVideoRecvHeightMax()
@@ -3135,7 +3480,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_recv_height_max
-     * @param float $video_recv_height_max
+     *
+     * @param float $video_recv_height_max video_recv_height_max
+     *
      * @return $this
      */
     public function setVideoRecvHeightMax($video_recv_height_max)
@@ -3147,6 +3494,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_recv_width_min
+     *
      * @return float
      */
     public function getVideoRecvWidthMin()
@@ -3156,7 +3504,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_recv_width_min
-     * @param float $video_recv_width_min
+     *
+     * @param float $video_recv_width_min video_recv_width_min
+     *
      * @return $this
      */
     public function setVideoRecvWidthMin($video_recv_width_min)
@@ -3168,6 +3518,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_recv_width_max
+     *
      * @return float
      */
     public function getVideoRecvWidthMax()
@@ -3177,7 +3528,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_recv_width_max
-     * @param float $video_recv_width_max
+     *
+     * @param float $video_recv_width_max video_recv_width_max
+     *
      * @return $this
      */
     public function setVideoRecvWidthMax($video_recv_width_max)
@@ -3189,6 +3542,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_send_height_min
+     *
      * @return float
      */
     public function getVideoSendHeightMin()
@@ -3198,7 +3552,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_send_height_min
-     * @param float $video_send_height_min
+     *
+     * @param float $video_send_height_min video_send_height_min
+     *
      * @return $this
      */
     public function setVideoSendHeightMin($video_send_height_min)
@@ -3210,6 +3566,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_send_height_max
+     *
      * @return float
      */
     public function getVideoSendHeightMax()
@@ -3219,7 +3576,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_send_height_max
-     * @param float $video_send_height_max
+     *
+     * @param float $video_send_height_max video_send_height_max
+     *
      * @return $this
      */
     public function setVideoSendHeightMax($video_send_height_max)
@@ -3231,6 +3590,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_send_width_min
+     *
      * @return float
      */
     public function getVideoSendWidthMin()
@@ -3240,7 +3600,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_send_width_min
-     * @param float $video_send_width_min
+     *
+     * @param float $video_send_width_min video_send_width_min
+     *
      * @return $this
      */
     public function setVideoSendWidthMin($video_send_width_min)
@@ -3252,6 +3614,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets video_send_width_max
+     *
      * @return float
      */
     public function getVideoSendWidthMax()
@@ -3261,7 +3624,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets video_send_width_max
-     * @param float $video_send_width_max
+     *
+     * @param float $video_send_width_max video_send_width_max
+     *
      * @return $this
      */
     public function setVideoSendWidthMax($video_send_width_max)
@@ -3273,6 +3638,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_recv_height_min
+     *
      * @return float
      */
     public function getContentRecvHeightMin()
@@ -3282,7 +3648,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_recv_height_min
-     * @param float $content_recv_height_min
+     *
+     * @param float $content_recv_height_min content_recv_height_min
+     *
      * @return $this
      */
     public function setContentRecvHeightMin($content_recv_height_min)
@@ -3294,6 +3662,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_recv_height_max
+     *
      * @return float
      */
     public function getContentRecvHeightMax()
@@ -3303,7 +3672,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_recv_height_max
-     * @param float $content_recv_height_max
+     *
+     * @param float $content_recv_height_max content_recv_height_max
+     *
      * @return $this
      */
     public function setContentRecvHeightMax($content_recv_height_max)
@@ -3315,6 +3686,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_recv_width_min
+     *
      * @return float
      */
     public function getContentRecvWidthMin()
@@ -3324,7 +3696,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_recv_width_min
-     * @param float $content_recv_width_min
+     *
+     * @param float $content_recv_width_min content_recv_width_min
+     *
      * @return $this
      */
     public function setContentRecvWidthMin($content_recv_width_min)
@@ -3336,6 +3710,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_recv_width_max
+     *
      * @return float
      */
     public function getContentRecvWidthMax()
@@ -3345,7 +3720,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_recv_width_max
-     * @param float $content_recv_width_max
+     *
+     * @param float $content_recv_width_max content_recv_width_max
+     *
      * @return $this
      */
     public function setContentRecvWidthMax($content_recv_width_max)
@@ -3357,6 +3734,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_send_height_min
+     *
      * @return float
      */
     public function getContentSendHeightMin()
@@ -3366,7 +3744,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_send_height_min
-     * @param float $content_send_height_min
+     *
+     * @param float $content_send_height_min content_send_height_min
+     *
      * @return $this
      */
     public function setContentSendHeightMin($content_send_height_min)
@@ -3378,6 +3758,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_send_height_max
+     *
      * @return float
      */
     public function getContentSendHeightMax()
@@ -3387,7 +3768,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_send_height_max
-     * @param float $content_send_height_max
+     *
+     * @param float $content_send_height_max content_send_height_max
+     *
      * @return $this
      */
     public function setContentSendHeightMax($content_send_height_max)
@@ -3399,6 +3782,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_send_width_min
+     *
      * @return float
      */
     public function getContentSendWidthMin()
@@ -3408,7 +3792,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_send_width_min
-     * @param float $content_send_width_min
+     *
+     * @param float $content_send_width_min content_send_width_min
+     *
      * @return $this
      */
     public function setContentSendWidthMin($content_send_width_min)
@@ -3420,6 +3806,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets content_send_width_max
+     *
      * @return float
      */
     public function getContentSendWidthMax()
@@ -3429,7 +3816,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets content_send_width_max
-     * @param float $content_send_width_max
+     *
+     * @param float $content_send_width_max content_send_width_max
+     *
      * @return $this
      */
     public function setContentSendWidthMax($content_send_width_max)
@@ -3441,6 +3830,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_min
+     *
      * @return float
      */
     public function getRoundTripDelayMin()
@@ -3450,7 +3840,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_min
-     * @param float $round_trip_delay_min
+     *
+     * @param float $round_trip_delay_min round_trip_delay_min
+     *
      * @return $this
      */
     public function setRoundTripDelayMin($round_trip_delay_min)
@@ -3462,6 +3854,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_max
+     *
      * @return float
      */
     public function getRoundTripDelayMax()
@@ -3471,7 +3864,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_max
-     * @param float $round_trip_delay_max
+     *
+     * @param float $round_trip_delay_max round_trip_delay_max
+     *
      * @return $this
      */
     public function setRoundTripDelayMax($round_trip_delay_max)
@@ -3483,6 +3878,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_avg
+     *
      * @return float
      */
     public function getRoundTripDelayAvg()
@@ -3492,7 +3888,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_avg
-     * @param float $round_trip_delay_avg
+     *
+     * @param float $round_trip_delay_avg round_trip_delay_avg
+     *
      * @return $this
      */
     public function setRoundTripDelayAvg($round_trip_delay_avg)
@@ -3504,6 +3902,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets rfactor_min
+     *
      * @return float
      */
     public function getRfactorMin()
@@ -3513,7 +3912,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets rfactor_min
-     * @param float $rfactor_min
+     *
+     * @param float $rfactor_min rfactor_min
+     *
      * @return $this
      */
     public function setRfactorMin($rfactor_min)
@@ -3525,6 +3926,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets rfactor_max
+     *
      * @return float
      */
     public function getRfactorMax()
@@ -3534,7 +3936,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets rfactor_max
-     * @param float $rfactor_max
+     *
+     * @param float $rfactor_max rfactor_max
+     *
      * @return $this
      */
     public function setRfactorMax($rfactor_max)
@@ -3546,6 +3950,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets rfactor_avg
+     *
      * @return float
      */
     public function getRfactorAvg()
@@ -3555,7 +3960,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets rfactor_avg
-     * @param float $rfactor_avg
+     *
+     * @param float $rfactor_avg rfactor_avg
+     *
      * @return $this
      */
     public function setRfactorAvg($rfactor_avg)
@@ -3567,6 +3974,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets process_cpu_load_min
+     *
      * @return float
      */
     public function getProcessCpuLoadMin()
@@ -3576,7 +3984,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets process_cpu_load_min
-     * @param float $process_cpu_load_min
+     *
+     * @param float $process_cpu_load_min process_cpu_load_min
+     *
      * @return $this
      */
     public function setProcessCpuLoadMin($process_cpu_load_min)
@@ -3588,6 +3998,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets process_cpu_load_max
+     *
      * @return float
      */
     public function getProcessCpuLoadMax()
@@ -3597,7 +4008,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets process_cpu_load_max
-     * @param float $process_cpu_load_max
+     *
+     * @param float $process_cpu_load_max process_cpu_load_max
+     *
      * @return $this
      */
     public function setProcessCpuLoadMax($process_cpu_load_max)
@@ -3609,6 +4022,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets process_cpu_load_avg
+     *
      * @return float
      */
     public function getProcessCpuLoadAvg()
@@ -3618,7 +4032,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets process_cpu_load_avg
-     * @param float $process_cpu_load_avg
+     *
+     * @param float $process_cpu_load_avg process_cpu_load_avg
+     *
      * @return $this
      */
     public function setProcessCpuLoadAvg($process_cpu_load_avg)
@@ -3630,6 +4046,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets system_cpu_load_min
+     *
      * @return float
      */
     public function getSystemCpuLoadMin()
@@ -3639,7 +4056,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets system_cpu_load_min
-     * @param float $system_cpu_load_min
+     *
+     * @param float $system_cpu_load_min system_cpu_load_min
+     *
      * @return $this
      */
     public function setSystemCpuLoadMin($system_cpu_load_min)
@@ -3651,6 +4070,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets system_cpu_load_max
+     *
      * @return float
      */
     public function getSystemCpuLoadMax()
@@ -3660,7 +4080,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets system_cpu_load_max
-     * @param float $system_cpu_load_max
+     *
+     * @param float $system_cpu_load_max system_cpu_load_max
+     *
      * @return $this
      */
     public function setSystemCpuLoadMax($system_cpu_load_max)
@@ -3672,6 +4094,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets system_cpu_load_avg
+     *
      * @return float
      */
     public function getSystemCpuLoadAvg()
@@ -3681,7 +4104,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets system_cpu_load_avg
-     * @param float $system_cpu_load_avg
+     *
+     * @param float $system_cpu_load_avg system_cpu_load_avg
+     *
      * @return $this
      */
     public function setSystemCpuLoadAvg($system_cpu_load_avg)
@@ -3693,6 +4118,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets wifi_recv_strength_min
+     *
      * @return float
      */
     public function getWifiRecvStrengthMin()
@@ -3702,7 +4128,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets wifi_recv_strength_min
-     * @param float $wifi_recv_strength_min
+     *
+     * @param float $wifi_recv_strength_min wifi_recv_strength_min
+     *
      * @return $this
      */
     public function setWifiRecvStrengthMin($wifi_recv_strength_min)
@@ -3714,6 +4142,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets wifi_recv_strength_max
+     *
      * @return float
      */
     public function getWifiRecvStrengthMax()
@@ -3723,7 +4152,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets wifi_recv_strength_max
-     * @param float $wifi_recv_strength_max
+     *
+     * @param float $wifi_recv_strength_max wifi_recv_strength_max
+     *
      * @return $this
      */
     public function setWifiRecvStrengthMax($wifi_recv_strength_max)
@@ -3735,6 +4166,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets wifi_recv_strength_avg
+     *
      * @return float
      */
     public function getWifiRecvStrengthAvg()
@@ -3744,7 +4176,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets wifi_recv_strength_avg
-     * @param float $wifi_recv_strength_avg
+     *
+     * @param float $wifi_recv_strength_avg wifi_recv_strength_avg
+     *
      * @return $this
      */
     public function setWifiRecvStrengthAvg($wifi_recv_strength_avg)
@@ -3756,6 +4190,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_avg_vi
+     *
      * @return float
      */
     public function getKeyFrameRateAvgVi()
@@ -3765,7 +4200,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_avg_vi
-     * @param float $key_frame_rate_avg_vi
+     *
+     * @param float $key_frame_rate_avg_vi key_frame_rate_avg_vi
+     *
      * @return $this
      */
     public function setKeyFrameRateAvgVi($key_frame_rate_avg_vi)
@@ -3777,6 +4214,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_avg_vo
+     *
      * @return float
      */
     public function getKeyFrameRateAvgVo()
@@ -3786,7 +4224,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_avg_vo
-     * @param float $key_frame_rate_avg_vo
+     *
+     * @param float $key_frame_rate_avg_vo key_frame_rate_avg_vo
+     *
      * @return $this
      */
     public function setKeyFrameRateAvgVo($key_frame_rate_avg_vo)
@@ -3798,6 +4238,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_avg_vic
+     *
      * @return float
      */
     public function getKeyFrameRateAvgVic()
@@ -3807,7 +4248,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_avg_vic
-     * @param float $key_frame_rate_avg_vic
+     *
+     * @param float $key_frame_rate_avg_vic key_frame_rate_avg_vic
+     *
      * @return $this
      */
     public function setKeyFrameRateAvgVic($key_frame_rate_avg_vic)
@@ -3819,6 +4262,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_avg_voc
+     *
      * @return float
      */
     public function getKeyFrameRateAvgVoc()
@@ -3828,7 +4272,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_avg_voc
-     * @param float $key_frame_rate_avg_voc
+     *
+     * @param float $key_frame_rate_avg_voc key_frame_rate_avg_voc
+     *
      * @return $this
      */
     public function setKeyFrameRateAvgVoc($key_frame_rate_avg_voc)
@@ -3840,6 +4286,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_min_vi
+     *
      * @return float
      */
     public function getKeyFrameRateMinVi()
@@ -3849,7 +4296,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_min_vi
-     * @param float $key_frame_rate_min_vi
+     *
+     * @param float $key_frame_rate_min_vi key_frame_rate_min_vi
+     *
      * @return $this
      */
     public function setKeyFrameRateMinVi($key_frame_rate_min_vi)
@@ -3861,6 +4310,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_min_vo
+     *
      * @return float
      */
     public function getKeyFrameRateMinVo()
@@ -3870,7 +4320,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_min_vo
-     * @param float $key_frame_rate_min_vo
+     *
+     * @param float $key_frame_rate_min_vo key_frame_rate_min_vo
+     *
      * @return $this
      */
     public function setKeyFrameRateMinVo($key_frame_rate_min_vo)
@@ -3882,6 +4334,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_min_vic
+     *
      * @return float
      */
     public function getKeyFrameRateMinVic()
@@ -3891,7 +4344,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_min_vic
-     * @param float $key_frame_rate_min_vic
+     *
+     * @param float $key_frame_rate_min_vic key_frame_rate_min_vic
+     *
      * @return $this
      */
     public function setKeyFrameRateMinVic($key_frame_rate_min_vic)
@@ -3903,6 +4358,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_min_voc
+     *
      * @return float
      */
     public function getKeyFrameRateMinVoc()
@@ -3912,7 +4368,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_min_voc
-     * @param float $key_frame_rate_min_voc
+     *
+     * @param float $key_frame_rate_min_voc key_frame_rate_min_voc
+     *
      * @return $this
      */
     public function setKeyFrameRateMinVoc($key_frame_rate_min_voc)
@@ -3924,6 +4382,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_max_vi
+     *
      * @return float
      */
     public function getKeyFrameRateMaxVi()
@@ -3933,7 +4392,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_max_vi
-     * @param float $key_frame_rate_max_vi
+     *
+     * @param float $key_frame_rate_max_vi key_frame_rate_max_vi
+     *
      * @return $this
      */
     public function setKeyFrameRateMaxVi($key_frame_rate_max_vi)
@@ -3945,6 +4406,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_max_vo
+     *
      * @return float
      */
     public function getKeyFrameRateMaxVo()
@@ -3954,7 +4416,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_max_vo
-     * @param float $key_frame_rate_max_vo
+     *
+     * @param float $key_frame_rate_max_vo key_frame_rate_max_vo
+     *
      * @return $this
      */
     public function setKeyFrameRateMaxVo($key_frame_rate_max_vo)
@@ -3966,6 +4430,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_max_vic
+     *
      * @return float
      */
     public function getKeyFrameRateMaxVic()
@@ -3975,7 +4440,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_max_vic
-     * @param float $key_frame_rate_max_vic
+     *
+     * @param float $key_frame_rate_max_vic key_frame_rate_max_vic
+     *
      * @return $this
      */
     public function setKeyFrameRateMaxVic($key_frame_rate_max_vic)
@@ -3987,6 +4454,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets key_frame_rate_max_voc
+     *
      * @return float
      */
     public function getKeyFrameRateMaxVoc()
@@ -3996,7 +4464,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets key_frame_rate_max_voc
-     * @param float $key_frame_rate_max_voc
+     *
+     * @param float $key_frame_rate_max_voc key_frame_rate_max_voc
+     *
      * @return $this
      */
     public function setKeyFrameRateMaxVoc($key_frame_rate_max_voc)
@@ -4008,6 +4478,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_avg_vo
+     *
      * @return float
      */
     public function getRoundTripDelayAvgVo()
@@ -4017,7 +4488,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_avg_vo
-     * @param float $round_trip_delay_avg_vo
+     *
+     * @param float $round_trip_delay_avg_vo round_trip_delay_avg_vo
+     *
      * @return $this
      */
     public function setRoundTripDelayAvgVo($round_trip_delay_avg_vo)
@@ -4029,6 +4502,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_avg_voc
+     *
      * @return float
      */
     public function getRoundTripDelayAvgVoc()
@@ -4038,7 +4512,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_avg_voc
-     * @param float $round_trip_delay_avg_voc
+     *
+     * @param float $round_trip_delay_avg_voc round_trip_delay_avg_voc
+     *
      * @return $this
      */
     public function setRoundTripDelayAvgVoc($round_trip_delay_avg_voc)
@@ -4050,6 +4526,7 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets round_trip_delay_avg_ao
+     *
      * @return float
      */
     public function getRoundTripDelayAvgAo()
@@ -4059,7 +4536,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets round_trip_delay_avg_ao
-     * @param float $round_trip_delay_avg_ao
+     *
+     * @param float $round_trip_delay_avg_ao round_trip_delay_avg_ao
+     *
      * @return $this
      */
     public function setRoundTripDelayAvgAo($round_trip_delay_avg_ao)
@@ -4070,7 +4549,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return boolean
      */
     public function offsetExists($offset)
@@ -4080,7 +4561,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -4090,8 +4573,10 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -4105,7 +4590,9 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -4115,15 +4602,19 @@ class EndpointIndigoSummaryStats implements ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

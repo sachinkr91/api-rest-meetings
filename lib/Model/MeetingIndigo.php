@@ -6,19 +6,19 @@
  *
  * @category Class
  * @package  BlueJeansMeetingsRestApi
- * @author   Swaagger Codegen team
+ * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.   <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
  *
- * OpenAPI spec version: 1.0.0
- * Contact: brandon@bluejeans.com
+ * OpenAPI spec version: 1.0.4407232018
+ * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 2.4.0-SNAPSHOT
  */
 
 /**
@@ -30,27 +30,30 @@
 namespace BlueJeansMeetingsRestApi\Model;
 
 use \ArrayAccess;
+use \BlueJeansMeetingsRestApi\ObjectSerializer;
 
 /**
  * MeetingIndigo Class Doc Comment
  *
- * @category    Class
- * @package     BlueJeansMeetingsRestApi
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  BlueJeansMeetingsRestApi
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MeetingIndigo implements ArrayAccess
+class MeetingIndigo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
+      *
       * @var string
       */
     protected static $swaggerModelName = 'MeetingIndigo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerTypes = [
@@ -93,6 +96,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerFormats = [
@@ -112,10 +116,10 @@ class MeetingIndigo implements ArrayAccess
         'auto_record' => null,
         'enterprise_name' => null,
         'moderator_less' => null,
-        'start_time' => 'int64',
-        'end_time' => 'int64',
+        'start_time' => 'integer',
+        'end_time' => 'integer',
         'total_call_seconds' => null,
-        'create_time' => 'int64',
+        'create_time' => 'integer',
         'endpoints_count' => null,
         'concurrent_endpoints' => null,
         'live_visible_endpoints_count' => null,
@@ -133,18 +137,30 @@ class MeetingIndigo implements ArrayAccess
         'id' => null
     ];
 
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
     }
 
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerFormats()
     {
         return self::$swaggerFormats;
     }
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
      * @var string[]
      */
     protected static $attributeMap = [
@@ -185,9 +201,9 @@ class MeetingIndigo implements ArrayAccess
         'id' => 'id'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
      * @var string[]
      */
     protected static $setters = [
@@ -228,9 +244,9 @@ class MeetingIndigo implements ArrayAccess
         'id' => 'setId'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
      * @var string[]
      */
     protected static $getters = [
@@ -271,46 +287,76 @@ class MeetingIndigo implements ArrayAccess
         'id' => 'getId'
     ];
 
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
     public static function attributeMap()
     {
         return self::$attributeMap;
     }
 
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
     public static function setters()
     {
         return self::$setters;
     }
 
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
     public static function getters()
     {
         return self::$getters;
     }
 
-    const SCHEDULED_FROM_APP = 'WEB_APP';
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
+
+    const SCHEDULED_FROM_WEB_APP = 'WEB_APP';
     
 
     
     /**
      * Gets allowable values of the enum
+     *
      * @return string[]
      */
     public function getScheduledFromAllowableValues()
     {
         return [
-            self::SCHEDULED_FROM_APP,
+            self::SCHEDULED_FROM_WEB_APP,
         ];
     }
     
 
     /**
      * Associative array for storing property values
+     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -352,44 +398,40 @@ class MeetingIndigo implements ArrayAccess
     }
 
     /**
-     * show all the invalid properties with reasons.
+     * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalidProperties = [];
 
-        $allowed_values = $this->getScheduledFromAllowableValues();
-        if (!in_array($this->container['scheduled_from'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
+        $allowedValues = $this->getScheduledFromAllowableValues();
+        if (!is_null($this->container['scheduled_from']) && !in_array($this->container['scheduled_from'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
                 "invalid value for 'scheduled_from', must be one of '%s'",
-                implode("', '", $allowed_values)
+                implode("', '", $allowedValues)
             );
         }
 
-        return $invalid_properties;
+        return $invalidProperties;
     }
 
     /**
-     * validate all the properties in the model
+     * Validate all the properties in the model
      * return true if all passed
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-
-        $allowed_values = $this->getScheduledFromAllowableValues();
-        if (!in_array($this->container['scheduled_from'], $allowed_values)) {
-            return false;
-        }
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
     /**
      * Gets meeting_id
+     *
      * @return string
      */
     public function getMeetingId()
@@ -399,7 +441,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets meeting_id
+     *
      * @param string $meeting_id This is the same as the numericMeetingId found elsewhere. We should have been more consistent.
+     *
      * @return $this
      */
     public function setMeetingId($meeting_id)
@@ -411,6 +455,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets meeting_uuid
+     *
      * @return string
      */
     public function getMeetingUuid()
@@ -420,7 +465,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets meeting_uuid
+     *
      * @param string $meeting_uuid The universally unique identifier (UUID) of the meeting. This value is a string which contains 6 alphanumeric segments separated by dashes.
+     *
      * @return $this
      */
     public function setMeetingUuid($meeting_uuid)
@@ -432,6 +479,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets user_name
+     *
      * @return string
      */
     public function getUserName()
@@ -441,7 +489,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets user_name
-     * @param string $user_name
+     *
+     * @param string $user_name user_name
+     *
      * @return $this
      */
     public function setUserName($user_name)
@@ -453,6 +503,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets email
+     *
      * @return string
      */
     public function getEmail()
@@ -462,7 +513,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets email
-     * @param string $email
+     *
+     * @param string $email email
+     *
      * @return $this
      */
     public function setEmail($email)
@@ -474,6 +527,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets encryption_type
+     *
      * @return int
      */
     public function getEncryptionType()
@@ -483,7 +537,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets encryption_type
-     * @param int $encryption_type
+     *
+     * @param int $encryption_type encryption_type
+     *
      * @return $this
      */
     public function setEncryptionType($encryption_type)
@@ -495,6 +551,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets title
+     *
      * @return string
      */
     public function getTitle()
@@ -504,7 +561,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets title
-     * @param string $title
+     *
+     * @param string $title title
+     *
      * @return $this
      */
     public function setTitle($title)
@@ -516,6 +575,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets user_full_name
+     *
      * @return string
      */
     public function getUserFullName()
@@ -525,7 +585,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets user_full_name
-     * @param string $user_full_name
+     *
+     * @param string $user_full_name user_full_name
+     *
      * @return $this
      */
     public function setUserFullName($user_full_name)
@@ -537,6 +599,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets phone_number
+     *
      * @return string
      */
     public function getPhoneNumber()
@@ -546,7 +609,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets phone_number
-     * @param string $phone_number
+     *
+     * @param string $phone_number phone_number
+     *
      * @return $this
      */
     public function setPhoneNumber($phone_number)
@@ -558,6 +623,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets user_features
+     *
      * @return string
      */
     public function getUserFeatures()
@@ -567,7 +633,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets user_features
-     * @param string $user_features
+     *
+     * @param string $user_features user_features
+     *
      * @return $this
      */
     public function setUserFeatures($user_features)
@@ -579,6 +647,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets scheduled_from
+     *
      * @return string
      */
     public function getScheduledFrom()
@@ -588,17 +657,19 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets scheduled_from
-     * @param string $scheduled_from
+     *
+     * @param string $scheduled_from scheduled_from
+     *
      * @return $this
      */
     public function setScheduledFrom($scheduled_from)
     {
-        $allowed_values = $this->getScheduledFromAllowableValues();
-        if (!is_null($scheduled_from) && !in_array($scheduled_from, $allowed_values)) {
+        $allowedValues = $this->getScheduledFromAllowableValues();
+        if (!is_null($scheduled_from) && !in_array($scheduled_from, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'scheduled_from', must be one of '%s'",
-                    implode("', '", $allowed_values)
+                    implode("', '", $allowedValues)
                 )
             );
         }
@@ -609,6 +680,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets invitee_count
+     *
      * @return int
      */
     public function getInviteeCount()
@@ -618,7 +690,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets invitee_count
-     * @param int $invitee_count
+     *
+     * @param int $invitee_count invitee_count
+     *
      * @return $this
      */
     public function setInviteeCount($invitee_count)
@@ -630,6 +704,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets personal
+     *
      * @return bool
      */
     public function getPersonal()
@@ -639,7 +714,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets personal
-     * @param bool $personal
+     *
+     * @param bool $personal personal
+     *
      * @return $this
      */
     public function setPersonal($personal)
@@ -651,6 +728,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets mute_on_entry
+     *
      * @return bool
      */
     public function getMuteOnEntry()
@@ -660,7 +738,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets mute_on_entry
-     * @param bool $mute_on_entry
+     *
+     * @param bool $mute_on_entry mute_on_entry
+     *
      * @return $this
      */
     public function setMuteOnEntry($mute_on_entry)
@@ -672,6 +752,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets auto_record
+     *
      * @return bool
      */
     public function getAutoRecord()
@@ -681,7 +762,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets auto_record
-     * @param bool $auto_record
+     *
+     * @param bool $auto_record auto_record
+     *
      * @return $this
      */
     public function setAutoRecord($auto_record)
@@ -693,6 +776,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets enterprise_name
+     *
      * @return string
      */
     public function getEnterpriseName()
@@ -702,7 +786,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets enterprise_name
-     * @param string $enterprise_name
+     *
+     * @param string $enterprise_name enterprise_name
+     *
      * @return $this
      */
     public function setEnterpriseName($enterprise_name)
@@ -714,6 +800,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets moderator_less
+     *
      * @return bool
      */
     public function getModeratorLess()
@@ -723,7 +810,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets moderator_less
-     * @param bool $moderator_less
+     *
+     * @param bool $moderator_less moderator_less
+     *
      * @return $this
      */
     public function setModeratorLess($moderator_less)
@@ -735,6 +824,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets start_time
+     *
      * @return int
      */
     public function getStartTime()
@@ -744,7 +834,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets start_time
-     * @param int $start_time
+     *
+     * @param int $start_time start_time
+     *
      * @return $this
      */
     public function setStartTime($start_time)
@@ -756,6 +848,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets end_time
+     *
      * @return int
      */
     public function getEndTime()
@@ -765,7 +858,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets end_time
-     * @param int $end_time
+     *
+     * @param int $end_time end_time
+     *
      * @return $this
      */
     public function setEndTime($end_time)
@@ -777,6 +872,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets total_call_seconds
+     *
      * @return int
      */
     public function getTotalCallSeconds()
@@ -786,7 +882,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets total_call_seconds
-     * @param int $total_call_seconds
+     *
+     * @param int $total_call_seconds total_call_seconds
+     *
      * @return $this
      */
     public function setTotalCallSeconds($total_call_seconds)
@@ -798,6 +896,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets create_time
+     *
      * @return int
      */
     public function getCreateTime()
@@ -807,7 +906,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets create_time
-     * @param int $create_time
+     *
+     * @param int $create_time create_time
+     *
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -819,6 +920,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets endpoints_count
+     *
      * @return int
      */
     public function getEndpointsCount()
@@ -828,7 +930,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets endpoints_count
-     * @param int $endpoints_count
+     *
+     * @param int $endpoints_count endpoints_count
+     *
      * @return $this
      */
     public function setEndpointsCount($endpoints_count)
@@ -840,6 +944,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets concurrent_endpoints
+     *
      * @return int
      */
     public function getConcurrentEndpoints()
@@ -849,7 +954,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets concurrent_endpoints
-     * @param int $concurrent_endpoints
+     *
+     * @param int $concurrent_endpoints concurrent_endpoints
+     *
      * @return $this
      */
     public function setConcurrentEndpoints($concurrent_endpoints)
@@ -861,6 +968,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets live_visible_endpoints_count
+     *
      * @return int
      */
     public function getLiveVisibleEndpointsCount()
@@ -870,7 +978,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets live_visible_endpoints_count
-     * @param int $live_visible_endpoints_count
+     *
+     * @param int $live_visible_endpoints_count live_visible_endpoints_count
+     *
      * @return $this
      */
     public function setLiveVisibleEndpointsCount($live_visible_endpoints_count)
@@ -882,6 +992,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets qualaroo_rating
+     *
      * @return int
      */
     public function getQualarooRating()
@@ -891,7 +1002,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets qualaroo_rating
-     * @param int $qualaroo_rating
+     *
+     * @param int $qualaroo_rating qualaroo_rating
+     *
      * @return $this
      */
     public function setQualarooRating($qualaroo_rating)
@@ -903,6 +1016,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets qualaroo_count
+     *
      * @return int
      */
     public function getQualarooCount()
@@ -912,7 +1026,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets qualaroo_count
-     * @param int $qualaroo_count
+     *
+     * @param int $qualaroo_count qualaroo_count
+     *
      * @return $this
      */
     public function setQualarooCount($qualaroo_count)
@@ -924,6 +1040,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets meeting_recording
+     *
      * @return bool
      */
     public function getMeetingRecording()
@@ -933,7 +1050,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets meeting_recording
-     * @param bool $meeting_recording
+     *
+     * @param bool $meeting_recording meeting_recording
+     *
      * @return $this
      */
     public function setMeetingRecording($meeting_recording)
@@ -945,6 +1064,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets video_share
+     *
      * @return bool
      */
     public function getVideoShare()
@@ -954,7 +1074,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets video_share
-     * @param bool $video_share
+     *
+     * @param bool $video_share video_share
+     *
      * @return $this
      */
     public function setVideoShare($video_share)
@@ -966,6 +1088,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets content_share
+     *
      * @return bool
      */
     public function getContentShare()
@@ -975,7 +1098,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets content_share
-     * @param bool $content_share
+     *
+     * @param bool $content_share content_share
+     *
      * @return $this
      */
     public function setContentShare($content_share)
@@ -987,6 +1112,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets live_recording
+     *
      * @return bool
      */
     public function getLiveRecording()
@@ -996,7 +1122,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets live_recording
-     * @param bool $live_recording
+     *
+     * @param bool $live_recording live_recording
+     *
      * @return $this
      */
     public function setLiveRecording($live_recording)
@@ -1008,6 +1136,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets live_video_share
+     *
      * @return bool
      */
     public function getLiveVideoShare()
@@ -1017,7 +1146,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets live_video_share
-     * @param bool $live_video_share
+     *
+     * @param bool $live_video_share live_video_share
+     *
      * @return $this
      */
     public function setLiveVideoShare($live_video_share)
@@ -1029,6 +1160,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets live_content_share
+     *
      * @return bool
      */
     public function getLiveContentShare()
@@ -1038,7 +1170,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets live_content_share
-     * @param bool $live_content_share
+     *
+     * @param bool $live_content_share live_content_share
+     *
      * @return $this
      */
     public function setLiveContentShare($live_content_share)
@@ -1050,6 +1184,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets large_meeting
+     *
      * @return bool
      */
     public function getLargeMeeting()
@@ -1059,7 +1194,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets large_meeting
-     * @param bool $large_meeting
+     *
+     * @param bool $large_meeting large_meeting
+     *
      * @return $this
      */
     public function setLargeMeeting($large_meeting)
@@ -1071,6 +1208,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets roi_distance
+     *
      * @return float
      */
     public function getRoiDistance()
@@ -1080,7 +1218,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets roi_distance
-     * @param float $roi_distance
+     *
+     * @param float $roi_distance roi_distance
+     *
      * @return $this
      */
     public function setRoiDistance($roi_distance)
@@ -1092,6 +1232,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets mpls
+     *
      * @return bool
      */
     public function getMpls()
@@ -1101,7 +1242,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets mpls
-     * @param bool $mpls
+     *
+     * @param bool $mpls mpls
+     *
      * @return $this
      */
     public function setMpls($mpls)
@@ -1113,6 +1256,7 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets id
+     *
      * @return string
      */
     public function getId()
@@ -1122,7 +1266,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets id
+     *
      * @param string $id Same as the meetingUUID property in this object.
+     *
      * @return $this
      */
     public function setId($id)
@@ -1133,7 +1279,9 @@ class MeetingIndigo implements ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return boolean
      */
     public function offsetExists($offset)
@@ -1143,7 +1291,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -1153,8 +1303,10 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -1168,7 +1320,9 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -1178,15 +1332,19 @@ class MeetingIndigo implements ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return json_encode(\BlueJeansMeetingsRestApi\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

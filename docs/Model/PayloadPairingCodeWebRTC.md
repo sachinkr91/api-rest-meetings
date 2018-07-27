@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoint_type** | **int** |  | [optional] 
+**endpoint_type** | **string** | Type of physical device is pairing. | [optional] 
 **user_id** | **int** |  | [optional] 
 **language_code** | **string** |  | [optional] 
 **capabilities** | **string[]** | Reserved for future use. Pass just an empty array for now. No parameters are currently accepted. | [optional] 
