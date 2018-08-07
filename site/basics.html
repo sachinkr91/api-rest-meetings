@@ -1,0 +1,132 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Meetings API Basics</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+	<link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+	<script src="./swagger-ui-bundle.js"> </script>
+	<script src="./swagger-ui-standalone-preset.js"> </script>
+
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap-theme.min.css" >
+	<link rel="stylesheet" type="text/css" href="./bjnstyles.css" >
+	<script type="text/javascript" src="./bjnscripts.js"> </script>
+
+	<!-- <script type="text/javascript" src="https://glenn-eb97dde9-eval-test.apigee.net/resources/files/api-meetings.js"> 
+	</script> -->
+	<style>
+    body {
+      margin:10px;
+      background: #fafafa;
+    }
+  </style>	
+</head>
+
+<body>
+ 
+  <h2 class="info"> What is a BlueJeans Meeting?</h2>
+    
+    <img src="./img/bjnmeeting.png" style="padding-left:20px; width:50%">
+    
+	<p>A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.  
+    The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.<?p>
+
+    <p>
+    <u>Types of Meeting Rooms</u>
+    There are two types of Meeting Rooms available to a registered user.  They are described as:
+    <ul>
+    <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li>
+    <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li>
+    </ul>
+	</p>
+	
+	<p>
+    <u>Meeting Room Security</u>
+    A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting.
+    <ul>
+    <li>When set, participants would be required to enter the access code in order to join.</li>
+    <li>The scheduler profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li>
+    </ul>
+	</p>
+    
+    <hr>
+
+    <h2 id='gs' class="info" onclick="hideit('gs')"><span id="gsicon" class="glyphicon glyphicon-chevron-right"></span> Getting Started</h2>
+	<p>
+    <div id="gsbody" style="display:none">
+    Before you start using BlueJeans APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href="mailto:Support@BlueJeans.com)">BlueJeans Support</a> for assistance.</p>
+	<p>Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans APIs and develop a level of familiarity before you write production code.</p>
+    
+    
+    <h3>To Make API Calls from This Site</h3>
+	
+	<p>If you want to use this developer site to try various BlueJeans APIs, here are the steps required to authenticate and enable your Developer Session to place API calls.</p>
+	
+	<ol>
+		<li>Choose Method for Authenticating
+		<ul>
+			<li>Click on the desired Authentication method from below.</li>
+			<li>Click on the **Try It Out** button.</li>
+		</ul></li>
+		<li>Make Authentication request
+		<ul>
+			<li>Follow APIs instructions and input the API parameters.</li>
+			<li>Click on the blue **Execute** button.</li>
+			<li>If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value.</li>
+		</ul></li>
+		<li>Authorize BlueJeans Developer Session.
+		<ul>
+			<li>Click on the green **Authorize button**. </li>
+			<li>The site will show you a pop-up window for authorization.</li>
+			<li>Enter your access token in the field named **api_key**</li>
+			<li>Click on the **Authorize** button</li>
+		</ul></li>
+	</ol>
+	
+	<p>Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will
+	automatically include your access token on any API calls you make.</p>
+
+    </div>
+
+    <hr>
+
+    
+    <h2 id='oauth' class="info" onclick="hideit('oauth')"><span id="oauthicon" class="glyphicon glyphicon-chevron-right"></span> About Meetings Authentication</h2>
+
+
+    <div id="oauthbody" style="display:none">
+
+    <p>All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access.</p>
+	
+	<h3>Grant Types</h3>
+    
+	<p>Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations.</p>
+	
+	<ul>
+		<li>Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth.</li>
+		<li>Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth.</li>
+		<li>Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth.</li>
+		<li>Authorization Code Grant – Authentication for your developer&apos;s application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/).</li>
+	</ul>
+
+    <h3>Access & Permissions</h3>
+	
+	<p>BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token&apos;s access level.<p>
+	
+	<ul>
+		<li>Meeting-level – Scope of APIs is limited to individual meetings.</li>
+		<li>User-level – Scope depends on the requested permissions.</li>
+		<li>App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token&apos;s scope provides access to the entire enterprise and all of its users.</li>
+	</ul>
+	
+	<p>All endpoints in this document that require **Enterprise Admin** access will be marked as such. </p>
+    
+    </div>
+
+    <hr>
+</body>
+</html>

@@ -17,3 +17,24 @@ alert {
 	color:  black;
 	padding: 1px;
 }
+
+
+.key {
+	display: inline-block;
+}
+
+.keyimg {
+	width: 192px;
+}
+
+.keybox {
+	font-size: 1.2em;
+	display: inline-block;
+	background-color: #dde4ee; 
+	padding: 20px; margin:10px; 
+	border-radius: 5px; 
+	width: 40%;
+}
+.keybox a{
+	font-size: 1.2em;
+}
