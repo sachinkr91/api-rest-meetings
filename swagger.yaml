@@ -2712,7 +2712,7 @@ paths:
         type: integer
       - name: filter
         in: query
-        description: An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+        description: A JSON array of FilterHighLowTs objects to bracket the search time `[{"type":"date","value":"2018-08-08T00:00:00-07:00","field":"startTime","comparison":"gt"},{"type":"date","value":"2018-08-10T23:59:59-07:00","field":"endTime","comparison":"lt"},{"type":"date","value":"2018-08-10T23:59:59-07:00","field":"startTime","comparison":"lt"}]`
         required: true
         type: string
       responses:
