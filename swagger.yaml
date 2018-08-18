@@ -57,6 +57,8 @@ tags:
   description: Manage Meeting Recordings
 - name: Command Center
   description: Access Status of Current Meetings & Enterprise Usage Information
+- name: Application
+  description: OAuth 3-Legged Operations
 schemes:
 - https
 produces:
@@ -64,6 +66,7 @@ produces:
 security:
 - access_token: []
 paths:
+# ---- AUTHENTICATION
   /oauth2/token?Password:
     post:
       tags:
@@ -332,6 +335,7 @@ paths:
           responseSchema:
             $ref: '#/definitions/Error'
       security: []
+# ---- USER
   /v1/user/{user_id}:
     get:
       tags:
@@ -423,7 +427,7 @@ paths:
     delete:
       tags:
       - User
-      summary: Remoke Granted Application
+      summary: Remove Granted Application
       description: This endpoint revokes the granted application associated with the user.
       operationId: revokeGrantedApplication
       parameters:
@@ -780,6 +784,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+# ---- ENTERPRISE
   /v1/enterprise/{enterpriseId}/users:
     get:
       tags:
@@ -1022,6 +1027,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+# ---- MEETINGS
   /v1/user/{user_id}/scheduled_meeting:
     get:
       tags:
@@ -1968,6 +1974,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+# ---- RECORDINGS
   /v1/user/{user_id}/meeting_history/recordings:
     get:
       tags:
@@ -2570,6 +2577,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+# ---- COMMAND CENTER
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       tags:
@@ -2941,41 +2949,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
-    get:
-      tags:
-      - Command Center
-      summary: Top Users
-      description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
-      operationId: getTopUsers
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: filter
-        in: query
-        description: URL-encoded JSON string
-        required: false
-        type: string
-        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}]'
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsTopUsers'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsTopUsers'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/users/usage:
     get:
       tags:
@@ -3015,41 +2988,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
-    get:
-      tags:
-      - Command Center
-      summary: Endpoint Distribution
-      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
-      operationId: getEndpointDistribution
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: filter
-        in: query
-        description: URL-encoded JSON string
-        required: false
-        type: string
-        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}]'
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsEndpointDistribution'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsEndpointDistribution'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new:
     get:
       tags:
@@ -3089,47 +3027,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
-    get:
-      tags:
-      - Command Center
-      summary: Meeting Usage Over Time
-      description: This endpoint reports on meeting usage. Requires enterprise administrator access token
-      operationId: getMeetingUsage
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: clientTZ
-        in: query
-        description: Based on standard TZ code.
-        required: false
-        type: string
-        default: America/Denver
-      - name: filter
-        in: query
-        description: URL-encoded JSON string
-        required: false
-        type: string
-        default: '[{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}]'
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsUsage'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsUsage'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
     get:
       tags:
@@ -3175,41 +3072,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
-    get:
-      tags:
-      - Command Center
-      summary: ROI Data
-      description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
-      operationId: getRoiRanges
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: filter
-        in: query
-        description: URL-encoded JSON string
-        required: true
-        type: string
-        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"startTime"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"startTime"}]'
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsRoiData'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsRoiData'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
     get:
       tags:
@@ -3249,47 +3111,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/feedback/count:
-    get:
-      tags:
-      - Command Center
-      summary: Survey Feedback Scores
-      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
-      operationId: getFeedbackCount
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: start
-        in: query
-        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-        required: true
-        type: string
-        default: 2017-01-01T00:00:00-00:00
-      - name: end
-        in: query
-        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-        required: true
-        type: string
-        default: 2018-01-01T00:00:00-00:00
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsFeedbackScores'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsFeedbackScores'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/feedback/count:
     get:
       tags:
@@ -3336,47 +3157,6 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
-    get:
-      tags:
-      - Command Center
-      summary: Survey Feedback Comments
-      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
-      operationId: getFeedbackComments
-      parameters:
-      - name: enterprise_id
-        in: path
-        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
-        required: true
-        type: integer
-      - name: start
-        in: query
-        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-        required: true
-        type: string
-        default: 2017-01-01T00:00:00-00:00
-      - name: end
-        in: query
-        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
-        required: true
-        type: string
-        default: 2018-01-01T00:00:00-00:00
-      responses:
-        200:
-          description: The results for this enterprise.
-          schema:
-            $ref: '#/definitions/AnalyticsFeedbackComments'
-          responseSchema:
-            $ref: '#/definitions/AnalyticsFeedbackComments'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-          responseSchema:
-            $ref: '#/definitions/Error'
-      security:
-      - access_token: []
-      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
     get:
       tags:
@@ -3421,6 +3201,238 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+# --> Deprecated Command Center
+  /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
+    get:
+      tags:
+      - Command Center
+      summary: Meeting Usage Over Time
+      description: This endpoint reports on meeting usage. Requires enterprise administrator access token
+      operationId: getMeetingUsage
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: clientTZ
+        in: query
+        description: Based on standard TZ code.
+        required: false
+        type: string
+        default: America/Denver
+      - name: filter
+        in: query
+        description: URL-encoded JSON string
+        required: false
+        type: string
+        default: '[{"type":"string","comparison":"eq","value":"DAY","field":"groupInterval"},{"type":"date","comparison":"eq","value":"2017-01-16T00:00:00-07:00","field":"lowts"},{"type":"date","comparison":"eq","value":"2017-01-23T23:59:59-07:00","field":"hights"}]'
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsUsage'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsUsage'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+  /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
+    get:
+      tags:
+      - Command Center
+      summary: Top Users
+      description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
+      operationId: getTopUsers
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: filter
+        in: query
+        description: URL-encoded JSON string
+        required: false
+        type: string
+        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"start_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"end_time"}]'
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsTopUsers'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsTopUsers'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+
+  /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
+    get:
+      tags:
+      - Command Center
+      summary: Endpoint Distribution
+      description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
+      operationId: getEndpointDistribution
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: filter
+        in: query
+        description: URL-encoded JSON string
+        required: false
+        type: string
+        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"creation_time"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"creation_time"}]'
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsEndpointDistribution'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsEndpointDistribution'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+  /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
+    get:
+      tags:
+      - Command Center
+      summary: ROI Data
+      description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
+      operationId: getRoiRanges
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: filter
+        in: query
+        description: URL-encoded JSON string
+        required: true
+        type: string
+        default: '[{"type":"date","comparison":"gt","value":"2017-01-16T00:00:00-07:00","field":"startTime"},{"type":"date","comparison":"lt","value":"2017-01-23T23:59:59-07:00","field":"startTime"}]'
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsRoiData'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsRoiData'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+  /v1/enterprise/{enterprise_id}/indigo/feedback/count:
+    get:
+      tags:
+      - Command Center
+      summary: Survey Feedback Scores
+      description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
+      operationId: getFeedbackCount
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: start
+        in: query
+        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+        required: true
+        type: string
+        default: 2017-01-01T00:00:00-00:00
+      - name: end
+        in: query
+        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+        required: true
+        type: string
+        default: 2018-01-01T00:00:00-00:00
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsFeedbackScores'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsFeedbackScores'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+
+  /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
+    get:
+      tags:
+      - Command Center
+      summary: Survey Feedback Comments
+      description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
+      operationId: getFeedbackComments
+      parameters:
+      - name: enterprise_id
+        in: path
+        description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
+        required: true
+        type: integer
+      - name: start
+        in: query
+        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+        required: true
+        type: string
+        default: 2017-01-01T00:00:00-00:00
+      - name: end
+        in: query
+        description: Date and time in an [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.
+        required: true
+        type: string
+        default: 2018-01-01T00:00:00-00:00
+      responses:
+        200:
+          description: The results for this enterprise.
+          schema:
+            $ref: '#/definitions/AnalyticsFeedbackComments'
+          responseSchema:
+            $ref: '#/definitions/AnalyticsFeedbackComments'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+      security:
+      - access_token: []
+      deprecated: true
+# ---- APPLICATIONS
   /v1/user/{user_id}/developer_applications:
     get:
       tags:
@@ -3763,10 +3775,6 @@ definitions:
         - hights
   GrantRequestPassword:
     type: object
-    required:
-    - grant_type
-    - password
-    - username
     properties:
       grant_type:
         type: string
@@ -3774,17 +3782,20 @@ definitions:
         enum:
         - password
         default: password
+        required: true
       username:
         type: string
         description: Your user name that you use to login to our site.
+        required: true
       password:
         type: string
         format: password
         description: Your user password that you use to login to our site.
+        required: true
     example:
-      password: password
       grant_type: password
-      username: username
+      username: joe.user
+      password: my_pwrd
   GrantPassword:
     type: object
     properties:
@@ -3821,16 +3832,19 @@ definitions:
         enum:
         - meeting_passcode
         default: meeting_passcode
+        required: true
       meetingNumericId:
         type: string
         description: Meeting ID
+        required: true
       meetingPasscode:
         type: string
         description: Pin
+        required: true
     example:
       grant_type: meeting_passcode
-      meetingPasscode: meetingPasscode
-      meetingNumericId: meetingNumericId
+      meetingNumericId: "4085551212"
+      meetingPasscode: "2404"
   GrantMeeting:
     type: object
     properties:
@@ -3862,10 +3876,6 @@ definitions:
       expires_in: 0
   GrantRequestClient:
     type: object
-    required:
-    - client_id
-    - client_secret
-    - grant_type
     properties:
       grant_type:
         type: string
@@ -3873,16 +3883,19 @@ definitions:
         enum:
         - client_credentials
         default: client_credentials
+        required: true
       client_id:
         type: string
         description: The value given within the BlueJeans Enterprise Administration console.
+        required: true
       client_secret:
         type: string
         description: The value given within the BlueJeans Enterprise Administration console.
+        required: true
     example:
       grant_type: client_credentials
-      client_secret: client_secret
-      client_id: client_id
+      client_id: a_client_app
+      client_secret: 62a01e....8ddc38f04008
   GrantClient:
     type: object
     properties:
@@ -3905,12 +3918,6 @@ definitions:
       expires_in: 0
   GrantRequestCode:
     type: object
-    required:
-    - client_id
-    - client_secret
-    - code
-    - grant_type
-    - redirectUri
     properties:
       grant_type:
         type: string
@@ -3918,24 +3925,29 @@ definitions:
         enum:
         - authorization_code
         default: authorization_code
+        required: true
       client_id:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string.
+        required: true
       client_secret:
         type: string
         description: The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
+        required: true
       redirectUri:
         type: string
         description: One of the registered url or sub-url of registered urls.
+        required: true
       code:
         type: string
         description: Code obtained after /oauth2/authorize redirect.
+        required: true
     example:
-      redirectUri: redirectUri
-      code: code
       grant_type: authorization_code
-      client_secret: client_secret
-      client_id: client_id
+      client_id: a_client_app
+      client_secret: 62a01e....8ddc38f04008
+      code: myCodeString
+      redirectUri: https://mywebsite.com/comehere
   GrantCode:
     type: object
     properties:
@@ -3969,11 +3981,6 @@ definitions:
       expires_in: 0
   GrantRequestRefresh:
     type: object
-    required:
-    - client_id
-    - client_secret
-    - grant_type
-    - refresh_token
     properties:
       grant_type:
         type: string
@@ -3981,20 +3988,24 @@ definitions:
         enum:
         - refresh_token
         default: refresh_token
+        required: true
       client_id:
         type: string
         description: The client ID will be generated on creation of the application. Normally, a 32 character hexadecimal numeric string.
+        required: true
       client_secret:
         type: string
         description: The client secret will be generated on creation of the application. Retain this value as it will only be revealed one time. If lost, you will need to regenerate.
+        required: true
       refresh_token:
         type: string
         description: Refresh token obtained after token authorization.
+        required: true
     example:
-      refresh_token: refresh_token
       grant_type: refresh_token
-      client_secret: client_secret
-      client_id: client_id
+      client_id: a_client_app
+      client_secret: 62a01e....8ddc38f04008
+      refresh_token: c38f040...acc453
   GrantRefresh:
     type: object
     properties:
