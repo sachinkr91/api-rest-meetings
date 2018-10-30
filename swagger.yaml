@@ -1,4 +1,4 @@
----
+
 swagger: "2.0"
 info:
   title: BlueJeans Meetings REST API
@@ -20,7 +20,8 @@ info:
     </div>
     <hr>
     
-    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/>
+    <alert>10/17/2018 </alert>Updated API field definitions for time variables to be 64-bit .<br/>
+    7/23/2018 Corrected errors in API definition file.<br/>
     7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
     7/06/2018 Added API for changing ownership of recordings.<br/>
     6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
@@ -32,7 +33,7 @@ info:
     <hr>
 
 
-  version: 1.0.4407232018
+  version: 1.0.4410172018
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
@@ -2723,6 +2724,12 @@ paths:
         description: A JSON array of FilterHighLowTs objects to bracket the search time `[{"type":"date","value":"2018-08-08T00:00:00-07:00","field":"startTime","comparison":"gt"},{"type":"date","value":"2018-08-10T23:59:59-07:00","field":"endTime","comparison":"lt"},{"type":"date","value":"2018-08-10T23:59:59-07:00","field":"startTime","comparison":"lt"}]`
         required: true
         type: string
+      - name: app_name
+        in: query
+        description: name of your application.  While not required, providing an app_name improves API performance
+        required: false
+        type: string
+        default: api_developer
       responses:
         200:
           description: The results for this user.
@@ -2761,6 +2768,12 @@ paths:
         description: Option to include detailed data on endpoints
         required: false
         type: boolean
+      - name: app_name
+        in: query
+        description: name of your application.  While not required, providing an app_name improves API performance
+        required: false
+        type: string
+        default: api_developer
       responses:
         200:
           description: The results for this enterprise.
@@ -2794,6 +2807,12 @@ paths:
         description: The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
         required: true
         type: string
+      - name: app_name
+        in: query
+        description: name of your application.  While not required, providing an app_name improves API performance
+        required: false
+        type: string
+        default: api_developer
       responses:
         200:
           description: The results for this user.
@@ -4407,11 +4426,11 @@ definitions:
         type: string
       start:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string
@@ -4463,9 +4482,11 @@ definitions:
         description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
       created:
         type: integer
+        format: int64
         description: This is the epoch-based time (in milliseconds) when the meeting was initially created.
       lastModified:
         type: integer
+        format: int64
         description: This is the epoch-based time (in milliseconds) when the meeting was last changed.
       isExpired:
         type: boolean
@@ -4493,8 +4514,10 @@ definitions:
         $ref: '#/definitions/StartEnd'
       nextStart:
         type: integer
+        format: int64
       nextEnd:
         type: integer
+        format: int64
       isPersonalMeeting:
         type: boolean
         description: Use the scheduler's personal meeting room and Id for this meeting.
@@ -4587,9 +4610,11 @@ definitions:
     properties:
       start:
         type: integer
+        format: int64
         description: This is the epoch-based starting-time (in milliseconds) for the specified function.
       end:
         type: integer
+        format: int64
         description: This is the epoch-based ending-time (in milliseconds) for the specified function.
     example:
       start: 1
@@ -5536,6 +5561,7 @@ definitions:
         type: integer
       meetingDuration:
         type: integer
+        format: int64
       maxParticipantCount:
         type: integer
       totalParticipantMinutes:
@@ -5554,8 +5580,10 @@ definitions:
         type: integer
       startTime:
         type: integer
+        format: int64
       endTime:
         type: integer
+        format: int64
       meetingStatus:
         type: string
         enum:
@@ -5664,11 +5692,11 @@ definitions:
         type: string
       created:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       lastmodified:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
     example:
       downloadable: true
@@ -5803,15 +5831,15 @@ definitions:
         type: boolean
       startTime:
         type: integer
-        format: integer
+        format: int64
       endTime:
         type: integer
-        format: integer
+        format: int64
       totalCallSeconds:
         type: integer
       createTime:
         type: integer
-        format: integer
+        format: int64
       endpointsCount:
         type: integer
       concurrentEndpoints:
@@ -5927,13 +5955,13 @@ definitions:
         type: boolean
       creationTime:
         type: integer
-        format: integer
+        format: int64
       meetingJoinTime:
         type: integer
-        format: integer
+        format: int64
       meetingLeaveTime:
         type: integer
-        format: integer
+        format: int64
       didNumber:
         type: string
       location:
@@ -5963,8 +5991,10 @@ definitions:
         type: string
       created:
         type: integer
+        format: int64
       modified:
         type: integer
+        format: int64
       contentStatus:
         type: string
       contentName:
@@ -6250,9 +6280,11 @@ definitions:
         description: This is a short descriptive text for the personal meeting room.
       start:
         type: integer
+        format: int64
         description: This is the epoch-based starting time (in milliseconds) of the personal meeting.
       end:
         type: integer
+        format: int64
         description: This is the epoch-based ending time (in milliseconds) of the personal meeting.
       timezone:
         type: string
@@ -6310,10 +6342,12 @@ definitions:
         description: If set indicates that this meeting will have a large
       created:
         type: integer
+        format: int64
         description: This is the date and time (in milliseconds) when the meeting was created.
         readOnly: true
       lastModified:
         type: integer
+        format: int64
         description: This is the date and time (in milliseconds) when the meeting was last changed.
         readOnly: true
       isExpired:
@@ -6342,9 +6376,11 @@ definitions:
         $ref: '#/definitions/PersonalMeetingRoom_next'
       nextStart:
         type: integer
+        format: int64
         description: This is the epoch-based starting time for the next in chain of meetings.
       nextEnd:
         type: integer
+        format: int64
         description: This is the epoch-based ending time for the next in chain of meetings.
       isPersonalMeeting:
         type: boolean
@@ -6443,11 +6479,11 @@ definitions:
         type: string
       start:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string
@@ -6603,9 +6639,11 @@ definitions:
         description: TBD
       created:
         type: integer
+        format: int64
         description: Date, since epoch time, that the recording was created (in milliseconds).
       lastmodified:
         type: integer
+        format: int64
         description: Date, since epoch time, that the recording was last modified (in milliseconds).
     example:
       downloadable: true
@@ -6669,6 +6707,7 @@ definitions:
         description: User's last (Family) name
       enterpriseJoinDate:
         type: integer
+        format: int64
         description: Date since epoch (in milliseconds) when account was added to the entperprise
       isEnterpriseAdmin:
         type: boolean
@@ -6708,11 +6747,11 @@ definitions:
         type: string
       start:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       end:
         type: integer
-        format: integer
+        format: int64
         description: A [UNIX Timestamp](https://currentmillis.com/) in milliseconds
       timezone:
         type: string
@@ -7180,6 +7219,7 @@ definitions:
         - MONTHLY
       endDate:
         type: integer
+        format: int64
         description: This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings.
       recurrenceCount:
         type: integer
@@ -7454,12 +7494,15 @@ definitions:
         type: integer
       startTimeOffset:
         type: integer
+        format: int64
       endTimeOffset:
         type: integer
+        format: int64
       chapterName:
         type: string
       totalSize:
         type: integer
+        format: int64
       compositeContentId:
         type: integer
       compositeContentStatus:
@@ -7536,6 +7579,7 @@ definitions:
         type: string
       joinTime:
         type: integer
+        format: int64
       minutes:
         type: integer
       deviceType:
@@ -7551,6 +7595,7 @@ definitions:
         type: boolean
       disconnectTime:
         type: integer
+        format: int64
       isModerator:
         type: boolean
       userId:
@@ -7921,6 +7966,7 @@ definitions:
     properties:
       duration:
         type: integer
+        format: int64
       thumbnail:
         type: string
       thumbnailSprite:
@@ -7964,6 +8010,7 @@ definitions:
     properties:
       lastMeetingTime:
         type: integer
+        format: int64
       participantMinutes:
         type: number
       last_name:
@@ -8225,9 +8272,11 @@ definitions:
     properties:
       start:
         type: integer
+        format: int64
         description: This is the epoch-based starting time (in milliseconds) of the first instance of the personal meeting.
       end:
         type: integer
+        format: int64
         description: This is the epoch-based ending time (in milliseconds) of the first instance of the personal meeting.
     example:
       start: 2
@@ -8236,9 +8285,11 @@ definitions:
     properties:
       start:
         type: integer
+        format: int64
         description: This is the epoch-based starting time (in milliseconds) of the last instance of the personal meeting.
       end:
         type: integer
+        format: int64
         description: This is the epoch-based ending time (in milliseconds) of the last instance of the personal meeting.
     example:
       start: 7
@@ -8247,9 +8298,11 @@ definitions:
     properties:
       start:
         type: integer
+        format: int64
         description: This is the epoch-based starting time (in milliseconds) of the next instance of the personal meeting.
       end:
         type: integer
+        format: int64
         description: This is the epoch-based ending time (in milliseconds) of the next instance of the personal meeting.
     example:
       start: 1
