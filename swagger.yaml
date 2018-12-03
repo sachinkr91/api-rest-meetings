@@ -20,7 +20,8 @@ info:
     </div>
     <hr>
     
-    <alert>10/17/2018 </alert>Updated API field definitions for time variables to be 64-bit .<br/>
+    <alert>12/03/2018 </alert>Add API for setting user profile photograph.<br/>
+    10/17/2018 </alert>Updated API field definitions for time variables to be 64-bit .<br/>
     7/23/2018 Corrected errors in API definition file.<br/>
     7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
     7/06/2018 Added API for changing ownership of recordings.<br/>
@@ -33,7 +34,7 @@ info:
     <hr>
 
 
-  version: 1.0.4410172018
+  version: 1.0.4412032018
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
@@ -785,6 +786,38 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+  /v1/user/{user_id}/profile_picture/upload:
+    post:
+      tags:
+      - User
+      summary: Update User Account Photograph
+      description: This endpoint uploads a photograph to the user profile
+      consumes: multipart/form-data
+      operationId: updateUserProfilePicture
+      parameters:
+      - name: user_id
+        in: path
+        description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+        required: true
+        type: integer
+      - name: file
+        in: formData        
+        type: file
+        description: The user details that you wish to update.
+        required: true
+      responses:
+        200:
+          description: The response of uploading the picture
+          schema:
+            $ref: "#definitions/uploadPhotoResponse"
+        405:
+          description: Invalid request
+        500:
+          description: Internal Server Error
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 # ---- ENTERPRISE
   /v1/enterprise/{enterpriseId}/users:
     get:
@@ -8336,6 +8369,11 @@ definitions:
     description: TBD
     example:
       nothing: nothing
+  uploadPhotoResponse:
+    properties:
+      url:
+        type: string
+        description: URI to location of stored image      
 externalDocs:
   description: |
     Find more info here
