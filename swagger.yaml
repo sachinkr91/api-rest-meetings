@@ -1675,7 +1675,14 @@ paths:
       - name: push
         in: query
         required: false
+        description:  Push these changes to all participants.  Requires Meeting access token with moderator privileges.
         type: boolean
+      - in: body
+        name: Layout
+        description: Specifies the video layout format.
+        required: true
+        schema:
+          $ref: '#/definitions/Layout'        
       responses:
         200:
           description: The settings for the endpoint's layout.
@@ -5370,9 +5377,9 @@ definitions:
         - Video
       subLayoutMode:
         type: string
-        description: Misspelling in value.
+        description: Note misspelling in Continuous Presence enum.
         enum:
-        - VideoContiniousPresence
+        - VideoCurrentSpeaker(1) VideoContiniousPresence(2) VideoConstantPresence(3) VideoContinuousPresence(4)        
     example:
       layoutMode: Video
       subLayoutMode: VideoContiniousPresence
