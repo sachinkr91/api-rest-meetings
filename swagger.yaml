@@ -20,8 +20,9 @@ info:
     </div>
     <hr>
     
-    <alert>12/03/2018 </alert>Add API for setting user profile photograph.<br/>
-    10/17/2018 </alert>Updated API field definitions for time variables to be 64-bit .<br/>
+    <alert>2/21/2019</alert> Change response of Change layout and Endpoint API's to 204<br/>
+    12/03/2018 Add API for setting user profile photograph.<br/>
+    10/17/2018 Updated API field definitions for time variables to be 64-bit .<br/>
     7/23/2018 Corrected errors in API definition file.<br/>
     7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
     7/06/2018 Added API for changing ownership of recordings.<br/>
@@ -34,7 +35,7 @@ info:
     <hr>
 
 
-  version: 1.0.4412032018
+  version: 1.0.4402212019
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
@@ -1586,12 +1587,8 @@ paths:
         required: false
         type: boolean
       responses:
-        200:
-          description: The settings for the enpoint.
-          schema:
-            $ref: '#/definitions/Endpoint'
-          responseSchema:
-            $ref: '#/definitions/Endpoint'
+        204:
+          description: The endpoint's audio/video state was updated.
         401:
           description: The access token is invalid or does not have permission.
         404:
@@ -1684,12 +1681,8 @@ paths:
         schema:
           $ref: '#/definitions/Layout'        
       responses:
-        200:
+        204:
           description: The settings for the endpoint's layout.
-          schema:
-            $ref: '#/definitions/Layout'
-          responseSchema:
-            $ref: '#/definitions/Layout'
         401:
           description: The access token is invalid or does not have permission.
         404:
