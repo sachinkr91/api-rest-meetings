@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RecurrenceType** | **string** |  | [optional] 
-**EndDate** | **int?** | This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings. | [optional] 
+**EndDate** | **long?** | This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings. | [optional] 
 **RecurrenceCount** | **int?** | The number of reoccurring meetings | [optional] 
 **Frequency** | **int?** | the interval of reoccurring meetings. | [optional] 
 **DaysOfWeekMask** | **int?** | bit mask for selecting which days of the week.  Sunday:1, Monday:2, Tuesday:4, Wednesday:8, Thursday:16, Friday:32, and Saturday:64 | [optional] 

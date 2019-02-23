@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **FirstName** | **string** | User&#39;s first (Given) name | [optional] 
 **MiddleName** | **string** | User&#39;s middle name | [optional] 
 **LastName** | **string** | User&#39;s last (Family) name | [optional] 
-**EnterpriseJoinDate** | **int?** | Date since epoch (in milliseconds) when account was added to the entperprise | [optional] 
+**EnterpriseJoinDate** | **long?** | Date since epoch (in milliseconds) when account was added to the entperprise | [optional] 
 **IsEnterpriseAdmin** | **bool?** | Indicates if this profile has Administrative BlueJeans privileges within its enterprise. | [optional] 
 **Uri** | **string** | Internal enterprise profile URI for referencing BlueJeans resources. | [optional] 
 

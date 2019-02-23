@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Uuid** | **string** |  | [optional] 
 **Title** | **string** |  | [default to "My Test Meeting"]
 **Description** | **string** |  | [optional] 
-**Start** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
-**End** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**Start** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**End** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **Timezone** | **string** |  | [optional] [default to "America/New_York"]
 **AdvancedMeetingOptions** | [**MeetingAdvancedMeetingOptions**](MeetingAdvancedMeetingOptions.md) |  | [optional] 
 **NotificationUrl** | **string** | this property is not used in the BlueJeans Meetings product | [optional] 
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **EndPointVersion** | **string** |  | [default to "2.10"]
 **Attendees** | [**List&lt;Attendee&gt;**](Attendee.md) |  | [optional] 
 **IsLargeMeeting** | **bool?** | If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins. | [optional] 
-**Created** | **int?** | This is the epoch-based time (in milliseconds) when the meeting was initially created. | [optional] 
-**LastModified** | **int?** | This is the epoch-based time (in milliseconds) when the meeting was last changed. | [optional] 
+**Created** | **long?** | This is the epoch-based time (in milliseconds) when the meeting was initially created. | [optional] 
+**LastModified** | **long?** | This is the epoch-based time (in milliseconds) when the meeting was last changed. | [optional] 
 **IsExpired** | **bool?** |  | [optional] 
 **ParentMeetingId** | **int?** | This field contains the Meeting Id of the first meeting in a recurrence chain of meetings. | [optional] 
 **ParentMeetingUUID** | **string** |  | [optional] 
@@ -39,8 +39,8 @@ Name | Type | Description | Notes
 **First** | [**StartEnd**](StartEnd.md) | Starting and ending times of the first meeting in a chain of recurring meetings. | [optional] 
 **Last** | [**StartEnd**](StartEnd.md) | Starting and ending times of the last meeting in a chain of recurring meetings. | [optional] 
 **Next** | [**StartEnd**](StartEnd.md) | Starting and ending times of the next meeting in a chain of recurring meetings. | [optional] 
-**NextStart** | **int?** |  | [optional] 
-**NextEnd** | **int?** |  | [optional] 
+**NextStart** | **long?** |  | [optional] 
+**NextEnd** | **long?** |  | [optional] 
 **IsPersonalMeeting** | **bool?** | Use the scheduler&#39;s personal meeting room and Id for this meeting. | [optional] [default to false]
 **InviteeJoinOption** | **int?** |  | [optional] 
 

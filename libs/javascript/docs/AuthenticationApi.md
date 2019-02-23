@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;Upon completion, the user will be redirected back to the client application with state and code return parameters. &lt;br /&gt;**Note**&lt;ul&gt;&lt;li&gt;This API is activated through &lt;b&gt; https://bluejeans.com/oauth2/authorize &lt;/b&gt;&lt;/li&gt;&lt;li&gt;The API&#39;s return code has a very short valid period of &lt;b&gt;30 seconds&lt;/b&gt;.  Your application must call the &lt;b&gt;/oauth2/token&lt;/b&gt; API as soon as possible once you receive this API&#39;s return code.&lt;/li&gt;&lt;/ul&gt;
+This is **not a true REST endpoint**. &lt;br /&gt; This URL should be used by a user&#39;s browser-client application to perform authorization. &lt;br /&gt;This API call takes the user to a BlueJeans page that allows the user to login and approve application access.&lt;br /&gt;Upon completion, the user will be redirected back to the client application with a code return value. &lt;br /&gt;**Note**&lt;ul&gt;&lt;li&gt;This API is activated through &lt;b&gt; https://bluejeans.com/oauth2/authorize &lt;/b&gt;&lt;/li&gt;&lt;li&gt;The API&#39;s return code has a very short valid period of &lt;b&gt;30 seconds&lt;/b&gt;.&lt;/li&gt;&lt;li&gt;Your application must call the &lt;b&gt;/oauth2/token?Code&lt;/b&gt; API as soon as possible to exchange the authorization code for an access token.&lt;/li&gt;&lt;/ul&gt;
 
 ### Example
 ```javascript
@@ -125,7 +125,7 @@ No authorization required
 
 Authentication via Code Grant Type
 
-This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
+This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected here after successfully authorizing BlueJeans to grant the application access.  You must pass to this API the authorization code received from BlueJeans along with the applications OAuth client_id and secret keys.  Include as well a *success URL* to which the user will be redirected upon successful authentication. &lt;br /&gt;**NOTE:** &lt;br /&gt;&amp;nbsp;&amp;nbsp;When calling this API, you must set the field, **grant_type** to equal \&quot;**authorization_code**\&quot; (string).
 
 ### Example
 ```javascript

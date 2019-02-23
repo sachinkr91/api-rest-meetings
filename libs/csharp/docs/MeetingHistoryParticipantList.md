@@ -4,13 +4,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndpointName** | **string** |  | [optional] 
-**JoinTime** | **int?** |  | [optional] 
+**JoinTime** | **long?** |  | [optional] 
 **Minutes** | **int?** |  | [optional] 
 **DeviceType** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **RemoteAddress** | **string** |  | [optional] 
 **IsEncrypted** | **bool?** |  | [optional] 
-**DisconnectTime** | **int?** |  | [optional] 
+**DisconnectTime** | **long?** |  | [optional] 
 **IsModerator** | **bool?** |  | [optional] 
 **UserId** | **int?** |  | [optional] 
 **Tags** | **string** |  | [optional] 

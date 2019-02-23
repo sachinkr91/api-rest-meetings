@@ -1,6 +1,7 @@
 {
 	"moduleName":"BlueJeansMeetingsRestApi",
 	"projectName":"bluejeans-api-rest-meetings",
+	"projectVersion":"1.0.4402212019",
 	"projectDescription":"JavaScript client for BlueJeans Meetings REST APIs",
 	"projectLicenseName":"MIT",
 	"gitUserId":"bluejeans",

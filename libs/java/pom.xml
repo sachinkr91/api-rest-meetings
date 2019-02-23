@@ -5,7 +5,7 @@
     <artifactId>api-rest-meetings</artifactId>
     <packaging>jar</packaging>
     <name>api-rest-meetings</name>
-    <version>1.0.0</version>
+    <version>1.0.4402212019</version>
     <url>https://github.com/bluejeans/api-rest-meetings</url>
     <description>BlueJeans Meetings REST API</description>
     <scm>

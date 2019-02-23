@@ -931,7 +931,7 @@ null (empty response body)
 
 <a name="updateEndpointLayout"></a>
 # **updateEndpointLayout**
-> Layout updateEndpointLayout(userId, numericMeetingId, endpointGuid, opts)
+> updateEndpointLayout(userId, numericMeetingId, endpointGuid, layout, opts)
 
 Update Endpoint Layout
 
@@ -957,19 +957,21 @@ var numericMeetingId = 56; // Number | The meeting ID that participants will see
 
 var endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
 
+var layout = new BlueJeansMeetingsRestApi.Layout(); // Layout | Specifies the video layout format.
+
 var opts = { 
   'isLeader': true, // Boolean | 
-  'push': true // Boolean | 
+  'push': true // Boolean | Push these changes to all participants.  Requires Meeting access token with moderator privileges.
 };
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
-apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, opts, callback);
+apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, layout, opts, callback);
 ```
 
 ### Parameters
@@ -979,12 +981,13 @@ Name | Type | Description  | Notes
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numericMeetingId** | **Number**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
+ **layout** | [**Layout**](Layout.md)| Specifies the video layout format. | 
  **isLeader** | **Boolean**|  | [optional] 
- **push** | **Boolean**|  | [optional] 
+ **push** | **Boolean**| Push these changes to all participants.  Requires Meeting access token with moderator privileges. | [optional] 
 
 ### Return type
 
-[**Layout**](Layout.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1057,7 +1060,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoint"></a>
 # **updateMeetingEndpoint**
-> Endpoint updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, opts)
+> updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, opts)
 
 Update Endpoint Video/Audio State
 
@@ -1093,7 +1096,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
 apiInstance.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, opts, callback);
@@ -1112,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Endpoint**](Endpoint.md)
+null (empty response body)
 
 ### Authorization
 

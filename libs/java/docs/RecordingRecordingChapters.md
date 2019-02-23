@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chapterId** | **String** |  |  [optional]
 **id** | **Integer** |  |  [optional]
-**startTimeOffset** | **Integer** |  |  [optional]
-**endTimeOffset** | **Integer** |  |  [optional]
+**startTimeOffset** | **Long** |  |  [optional]
+**endTimeOffset** | **Long** |  |  [optional]
 **chapterName** | **String** |  |  [optional]
-**totalSize** | **Integer** |  |  [optional]
+**totalSize** | **Long** |  |  [optional]
 **compositeContentId** | **Integer** |  |  [optional]
 **compositeContentStatus** | **String** |  |  [optional]
 **parentRecordingId** | **Integer** |  |  [optional]

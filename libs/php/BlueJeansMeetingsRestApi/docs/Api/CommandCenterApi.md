@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingPastByEnterprise**
-> \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints)
+> \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints, $app_name)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -653,9 +653,10 @@ $apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
 $enterprise_id = 56; // int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 $meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 $include_endpoints = true; // bool | Option to include detailed data on endpoints
+$app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $apiInstance->getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints);
+    $result = $apiInstance->getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingPastByEnterprise: ', $e->getMessage(), PHP_EOL;
@@ -670,6 +671,7 @@ Name | Type | Description  | Notes
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
  **meeting_uuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
  **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional]
+ **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -687,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingPastByUser**
-> \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo getMeetingPastByUser($user_id, $meeting_uuid)
+> \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo getMeetingPastByUser($user_id, $meeting_uuid, $app_name)
 
 List Meeting Endpoints & Stats by User
 
@@ -711,9 +713,10 @@ $apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
 );
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $meeting_uuid = "meeting_uuid_example"; // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+$app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $apiInstance->getMeetingPastByUser($user_id, $meeting_uuid);
+    $result = $apiInstance->getMeetingPastByUser($user_id, $meeting_uuid, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingPastByUser: ', $e->getMessage(), PHP_EOL;
@@ -727,6 +730,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meeting_uuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+ **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -986,7 +990,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeetingsPastByUser**
-> \BlueJeansMeetingsRestApi\Model\MeetingIndigoList getMeetingsPastByUser($user_id, $filter)
+> \BlueJeansMeetingsRestApi\Model\MeetingIndigoList getMeetingsPastByUser($user_id, $filter, $app_name)
 
 List Past Meetings by User
 
@@ -1009,10 +1013,11 @@ $apiInstance = new BlueJeansMeetingsRestApi\Api\CommandCenterApi(
     $config
 );
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-$filter = "filter_example"; // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+$filter = "filter_example"; // string | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"value\":\"2018-08-08T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+$app_name = "api_developer"; // string | name of your application.  While not required, providing an app_name improves API performance
 
 try {
-    $result = $apiInstance->getMeetingsPastByUser($user_id, $filter);
+    $result = $apiInstance->getMeetingsPastByUser($user_id, $filter, $app_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommandCenterApi->getMeetingsPastByUser: ', $e->getMessage(), PHP_EOL;
@@ -1025,7 +1030,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. |
+ **filter** | **string**| A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; |
+ **app_name** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 

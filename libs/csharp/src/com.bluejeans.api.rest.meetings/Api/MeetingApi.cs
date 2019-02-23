@@ -1,9 +1,9 @@
 /* 
  * BlueJeans Meetings REST API
  *
- *  ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr> 
+ *  ## Video That Works Where You Do. <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>    <nosdk> <hr> <div> <div class=\"key\">     <a href=\"./basics.html\" target=\"_\"><img class=\"keyimg\" src=\"./img/bjnmeeting.png\"/></a> </div> <div class=\"keybox\"> Basic instructions about What is a BlueJeans Meeting, and Getting Started Using API's, are <a href=\"./basics.html\" target=\"_blank\">available here <i class=\"glyphicon glyphicon-new-window\"></i></a>. </div> </div> <hr> <alert>2/21/2019</alert> Change response of Change layout and Endpoint API's to 204<br/> 12/03/2018 Add API for setting user profile photograph.<br/> 10/17/2018 Updated API field definitions for time variables to be 64-bit .<br/> 7/23/2018 Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> </nosdk> <hr> 
  *
- * OpenAPI spec version: 1.0.4407232018
+ * OpenAPI spec version: 1.0.4402212019
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  */
@@ -409,10 +409,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Layout</returns>
-        Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns></returns>
+        void UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -424,10 +425,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>ApiResponse of Layout</returns>
-        ApiResponse<Layout> UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Meeting
         /// </summary>
@@ -466,8 +468,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Endpoint</returns>
-        Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns></returns>
+        void UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -482,8 +484,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>ApiResponse of Endpoint</returns>
-        ApiResponse<Endpoint> UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -925,10 +927,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Task of Layout</returns>
-        System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null);
 
         /// <summary>
         /// Update Endpoint Layout
@@ -940,10 +943,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Task of ApiResponse (Layout)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null);
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null);
         /// <summary>
         /// Update Meeting
         /// </summary>
@@ -982,8 +986,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of Endpoint</returns>
-        System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
 
         /// <summary>
         /// Update Endpoint Video/Audio State
@@ -998,8 +1002,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of ApiResponse (Endpoint)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null);
         /// <summary>
         /// Update Meeting Endpoints State
         /// </summary>
@@ -3692,13 +3696,13 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Layout</returns>
-        public Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns></returns>
+        public void UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Layout> localVarResponse = UpdateEndpointLayoutWithHttpInfo(userId, numericMeetingId, endpointGuid, isLeader, push);
-             return localVarResponse.Data;
+             UpdateEndpointLayoutWithHttpInfo(userId, numericMeetingId, endpointGuid, layout, isLeader, push);
         }
 
         /// <summary>
@@ -3708,10 +3712,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>ApiResponse of Layout</returns>
-        public ApiResponse< Layout > UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateEndpointLayoutWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3722,6 +3727,9 @@ namespace com.bluejeans.api.rest.meetings.Api
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateEndpointLayout");
+            // verify the required parameter 'layout' is set
+            if (layout == null)
+                throw new ApiException(400, "Missing required parameter 'layout' when calling MeetingApi->UpdateEndpointLayout");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3749,6 +3757,14 @@ namespace com.bluejeans.api.rest.meetings.Api
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", this.Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (isLeader != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isLeader", isLeader)); // query parameter
             if (push != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "push", push)); // query parameter
+            if (layout != null && layout.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(layout); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = layout; // byte array
+            }
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
@@ -3769,9 +3785,9 @@ namespace com.bluejeans.api.rest.meetings.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Layout>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Layout) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
+                null);
         }
 
         /// <summary>
@@ -3781,13 +3797,13 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Task of Layout</returns>
-        public async System.Threading.Tasks.Task<Layout> UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateEndpointLayoutAsync (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null)
         {
-             ApiResponse<Layout> localVarResponse = await UpdateEndpointLayoutAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, isLeader, push);
-             return localVarResponse.Data;
+             await UpdateEndpointLayoutAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, layout, isLeader, push);
 
         }
 
@@ -3798,10 +3814,11 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="userId">The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.</param>
         /// <param name="numericMeetingId">The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.</param>
         /// <param name="endpointGuid">The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.</param>
+        /// <param name="layout">Specifies the video layout format.</param>
         /// <param name="isLeader"> (optional)</param>
-        /// <param name="push"> (optional)</param>
-        /// <returns>Task of ApiResponse (Layout)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Layout>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+        /// <param name="push">Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEndpointLayoutAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3812,6 +3829,9 @@ namespace com.bluejeans.api.rest.meetings.Api
             // verify the required parameter 'endpointGuid' is set
             if (endpointGuid == null)
                 throw new ApiException(400, "Missing required parameter 'endpointGuid' when calling MeetingApi->UpdateEndpointLayout");
+            // verify the required parameter 'layout' is set
+            if (layout == null)
+                throw new ApiException(400, "Missing required parameter 'layout' when calling MeetingApi->UpdateEndpointLayout");
 
             var localVarPath = "/v1/user/{user_id}/live_meetings/{numeric_meeting_id}/endpoints/{endpoint_guid}/layout";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3839,6 +3859,14 @@ namespace com.bluejeans.api.rest.meetings.Api
             if (endpointGuid != null) localVarPathParams.Add("endpoint_guid", this.Configuration.ApiClient.ParameterToString(endpointGuid)); // path parameter
             if (isLeader != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isLeader", isLeader)); // query parameter
             if (push != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "push", push)); // query parameter
+            if (layout != null && layout.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(layout); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = layout; // byte array
+            }
 
             // authentication (access_token) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("access_token")))
@@ -3859,9 +3887,9 @@ namespace com.bluejeans.api.rest.meetings.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Layout>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Layout) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Layout)));
+                null);
         }
 
         /// <summary>
@@ -4055,11 +4083,10 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Endpoint</returns>
-        public Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns></returns>
+        public void UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = UpdateMeetingEndpointWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
-             return localVarResponse.Data;
+             UpdateMeetingEndpointWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
         }
 
         /// <summary>
@@ -4072,8 +4099,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>ApiResponse of Endpoint</returns>
-        public ApiResponse< Endpoint > UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateMeetingEndpointWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4132,9 +4159,9 @@ namespace com.bluejeans.api.rest.meetings.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Endpoint>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoint) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
+                null);
         }
 
         /// <summary>
@@ -4147,11 +4174,10 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of Endpoint</returns>
-        public async System.Threading.Tasks.Task<Endpoint> UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateMeetingEndpointAsync (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
-             ApiResponse<Endpoint> localVarResponse = await UpdateMeetingEndpointAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
-             return localVarResponse.Data;
+             await UpdateMeetingEndpointAsyncWithHttpInfo(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
 
         }
 
@@ -4165,8 +4191,8 @@ namespace com.bluejeans.api.rest.meetings.Api
         /// <param name="muteAudio">Toggle the audio source mute. (optional)</param>
         /// <param name="muteVideo">Toggle the video source mute. (optional)</param>
         /// <param name="leaveMeeting">Remove the user from the meeting. (optional)</param>
-        /// <returns>Task of ApiResponse (Endpoint)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Endpoint>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingEndpointAsyncWithHttpInfo (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4225,9 +4251,9 @@ namespace com.bluejeans.api.rest.meetings.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Endpoint>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Endpoint) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Endpoint)));
+                null);
         }
 
         /// <summary>

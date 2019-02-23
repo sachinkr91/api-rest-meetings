@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LastMeetingTime** | **int?** |  | [optional] 
+**LastMeetingTime** | **long?** |  | [optional] 
 **ParticipantMinutes** | **decimal?** |  | [optional] 
 **LastName** | **string** |  | [optional] 
 **UserName** | **string** |  | [optional] 

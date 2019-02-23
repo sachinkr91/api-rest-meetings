@@ -1076,7 +1076,7 @@ void (empty response body)
 
 <a name="updateendpointlayout"></a>
 # **UpdateEndpointLayout**
-> Layout UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, bool? isLeader = null, bool? push = null)
+> void UpdateEndpointLayout (int? userId, int? numericMeetingId, string endpointGuid, Layout layout, bool? isLeader = null, bool? push = null)
 
 Update Endpoint Layout
 
@@ -1105,14 +1105,14 @@ namespace Example
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var numericMeetingId = 56;  // int? | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
             var endpointGuid = endpointGuid_example;  // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+            var layout = new Layout(); // Layout | Specifies the video layout format.
             var isLeader = true;  // bool? |  (optional) 
-            var push = true;  // bool? |  (optional) 
+            var push = true;  // bool? | Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional) 
 
             try
             {
                 // Update Endpoint Layout
-                Layout result = apiInstance.UpdateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push);
-                Debug.WriteLine(result);
+                apiInstance.UpdateEndpointLayout(userId, numericMeetingId, endpointGuid, layout, isLeader, push);
             }
             catch (Exception e)
             {
@@ -1130,12 +1130,13 @@ Name | Type | Description  | Notes
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numericMeetingId** | **int?**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpointGuid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
+ **layout** | [**Layout**](Layout.md)| Specifies the video layout format. | 
  **isLeader** | **bool?**|  | [optional] 
- **push** | **bool?**|  | [optional] 
+ **push** | **bool?**| Push these changes to all participants.  Requires Meeting access token with moderator privileges. | [optional] 
 
 ### Return type
 
-[**Layout**](Layout.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1220,7 +1221,7 @@ Name | Type | Description  | Notes
 
 <a name="updatemeetingendpoint"></a>
 # **UpdateMeetingEndpoint**
-> Endpoint UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
+> void UpdateMeetingEndpoint (int? userId, int? numericMeetingId, string endpointGuid, bool? muteAudio = null, bool? muteVideo = null, bool? leaveMeeting = null)
 
 Update Endpoint Video/Audio State
 
@@ -1256,8 +1257,7 @@ namespace Example
             try
             {
                 // Update Endpoint Video/Audio State
-                Endpoint result = apiInstance.UpdateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
-                Debug.WriteLine(result);
+                apiInstance.UpdateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
             }
             catch (Exception e)
             {
@@ -1281,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Endpoint**](Endpoint.md)
+void (empty response body)
 
 ### Authorization
 

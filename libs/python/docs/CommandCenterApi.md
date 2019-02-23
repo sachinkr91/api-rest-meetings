@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meeting_past_by_enterprise**
-> MeetingExtendedIndigo get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints)
+> MeetingExtendedIndigo get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints, app_name=app_name)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -643,10 +643,11 @@ api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestAp
 enterprise_id = 56 # int | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 include_endpoints = true # bool | Option to include detailed data on endpoints (optional)
+app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
 try:
     # List Meeting Endpoints & Stats by Enterprise
-    api_response = api_instance.get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints)
+    api_response = api_instance.get_meeting_past_by_enterprise(enterprise_id, meeting_uuid, include_endpoints=include_endpoints, app_name=app_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommandCenterApi->get_meeting_past_by_enterprise: %s\n" % e)
@@ -659,6 +660,7 @@ Name | Type | Description  | Notes
  **enterprise_id** | **int**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meeting_uuid** | **str**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
  **include_endpoints** | **bool**| Option to include detailed data on endpoints | [optional] 
+ **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -676,7 +678,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meeting_past_by_user**
-> MeetingExtendedIndigo get_meeting_past_by_user(user_id, meeting_uuid)
+> MeetingExtendedIndigo get_meeting_past_by_user(user_id, meeting_uuid, app_name=app_name)
 
 List Meeting Endpoints & Stats by User
 
@@ -700,10 +702,11 @@ configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 meeting_uuid = 'meeting_uuid_example' # str | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
 try:
     # List Meeting Endpoints & Stats by User
-    api_response = api_instance.get_meeting_past_by_user(user_id, meeting_uuid)
+    api_response = api_instance.get_meeting_past_by_user(user_id, meeting_uuid, app_name=app_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommandCenterApi->get_meeting_past_by_user: %s\n" % e)
@@ -715,6 +718,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meeting_uuid** | **str**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+ **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -970,7 +974,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meetings_past_by_user**
-> MeetingIndigoList get_meetings_past_by_user(user_id, filter)
+> MeetingIndigoList get_meetings_past_by_user(user_id, filter, app_name=app_name)
 
 List Past Meetings by User
 
@@ -993,11 +997,12 @@ configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = BlueJeansMeetingsRestApi.CommandCenterApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-filter = 'filter_example' # str | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+filter = 'filter_example' # str | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"value\":\"2018-08-08T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+app_name = 'api_developer' # str | name of your application.  While not required, providing an app_name improves API performance (optional) (default to api_developer)
 
 try:
     # List Past Meetings by User
-    api_response = api_instance.get_meetings_past_by_user(user_id, filter)
+    api_response = api_instance.get_meetings_past_by_user(user_id, filter, app_name=app_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommandCenterApi->get_meetings_past_by_user: %s\n" % e)
@@ -1008,7 +1013,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | **str**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **str**| A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | 
+ **app_name** | **str**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 

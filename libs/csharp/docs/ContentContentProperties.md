@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Duration** | **int?** |  | [optional] 
+**Duration** | **long?** |  | [optional] 
 **Thumbnail** | **string** |  | [optional] 
 **ThumbnailSprite** | **string** |  | [optional] 
 **HdsUrl** | **string** |  | [optional] 

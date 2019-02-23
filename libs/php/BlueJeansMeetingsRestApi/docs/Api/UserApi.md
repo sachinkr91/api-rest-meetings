@@ -13,11 +13,12 @@ Method | HTTP request | Description
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**getUserTags**](UserApi.md#getUserTags) | **GET** /v1/user/{userId}/tags | List User Tags
-[**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remove Granted Application
 [**setGroups**](UserApi.md#setGroups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**updatePeresonalMeeting**](UserApi.md#updatePeresonalMeeting) | **PUT** /v1/user/{user_id}/personal_meeting | Update Personal Meeting
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
+[**updateUserProfilePicture**](UserApi.md#updateUserProfilePicture) | **POST** /v1/user/{user_id}/profile_picture/upload | Update User Account Photograph
 
 
 # **changeUserTags**
@@ -524,7 +525,7 @@ Name | Type | Description  | Notes
 # **revokeGrantedApplication**
 > revokeGrantedApplication($user_id, $client_id)
 
-Remoke Granted Application
+Remove Granted Application
 
 This endpoint revokes the granted application associated with the user.
 
@@ -794,6 +795,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\BlueJeansMeetingsRestApi\Model\User**](../Model/User.md)
+
+### Authorization
+
+[access_token](../../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateUserProfilePicture**
+> \BlueJeansMeetingsRestApi\Model\UploadPhotoResponse updateUserProfilePicture($user_id, $file)
+
+Update User Account Photograph
+
+This endpoint uploads a photograph to the user profile
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: access_token
+$config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKey('access_token', 'YOUR_ACCESS_TOKEN');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = BlueJeansMeetingsRestApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access_token', 'Bearer');
+
+$apiInstance = new BlueJeansMeetingsRestApi\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+$file = "/path/to/file.txt"; // \SplFileObject | The user details that you wish to update.
+
+try {
+    $result = $apiInstance->updateUserProfilePicture($user_id, $file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateUserProfilePicture: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
+ **file** | **\SplFileObject**| The user details that you wish to update. |
+
+### Return type
+
+[**\BlueJeansMeetingsRestApi\Model\UploadPhotoResponse**](../Model/UploadPhotoResponse.md)
 
 ### Authorization
 

@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **downloadable** | **Boolean** | The downloadable field indicates whether the recording can be downloaded |  [optional]
 **passcode** | **String** | TBD |  [optional]
 **validity** | **String** | TBD |  [optional]
-**created** | **Integer** | Date, since epoch time, that the recording was created (in milliseconds). |  [optional]
-**lastmodified** | **Integer** | Date, since epoch time, that the recording was last modified (in milliseconds). |  [optional]
+**created** | **Long** | Date, since epoch time, that the recording was created (in milliseconds). |  [optional]
+**lastmodified** | **Long** | Date, since epoch time, that the recording was last modified (in milliseconds). |  [optional]
 
 
 <a name="StatusEnum"></a>

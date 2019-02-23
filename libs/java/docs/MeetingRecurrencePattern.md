@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recurrenceType** | [**RecurrenceTypeEnum**](#RecurrenceTypeEnum) |  |  [optional]
-**endDate** | **Integer** | This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings. |  [optional]
+**endDate** | **Long** | This is the epoch-based ending-time (in milliseconds) for the recurrence chain of meetings. |  [optional]
 **recurrenceCount** | **Integer** | The number of reoccurring meetings |  [optional]
 **frequency** | **Integer** | the interval of reoccurring meetings. |  [optional]
 **daysOfWeekMask** | **Integer** | bit mask for selecting which days of the week.  Sunday:1, Monday:2, Tuesday:4, Wednesday:8, Thursday:16, Friday:32, and Saturday:64 |  [optional]

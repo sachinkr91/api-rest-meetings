@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **Downloadable** | **bool?** | The downloadable field indicates whether the recording can be downloaded | [optional] 
 **Passcode** | **string** | TBD | [optional] 
 **Validity** | **string** | TBD | [optional] 
-**Created** | **int?** | Date, since epoch time, that the recording was created (in milliseconds). | [optional] 
-**Lastmodified** | **int?** | Date, since epoch time, that the recording was last modified (in milliseconds). | [optional] 
+**Created** | **long?** | Date, since epoch time, that the recording was created (in milliseconds). | [optional] 
+**Lastmodified** | **long?** | Date, since epoch time, that the recording was last modified (in milliseconds). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

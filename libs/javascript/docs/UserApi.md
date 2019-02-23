@@ -13,11 +13,12 @@ Method | HTTP request | Description
 [**getRoom**](UserApi.md#getRoom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**getUser**](UserApi.md#getUser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**getUserTags**](UserApi.md#getUserTags) | **GET** /v1/user/{userId}/tags | List User Tags
-[**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**revokeGrantedApplication**](UserApi.md#revokeGrantedApplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remove Granted Application
 [**setGroups**](UserApi.md#setGroups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**updatePeresonalMeeting**](UserApi.md#updatePeresonalMeeting) | **PUT** /v1/user/{user_id}/personal_meeting | Update Personal Meeting
 [**updateRoom**](UserApi.md#updateRoom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**updateUser**](UserApi.md#updateUser) | **PUT** /v1/user/{user_id} | Update User Account Details
+[**updateUserProfilePicture**](UserApi.md#updateUserProfilePicture) | **POST** /v1/user/{user_id}/profile_picture/upload | Update User Account Photograph
 
 
 <a name="changeUserTags"></a>
@@ -519,7 +520,7 @@ Name | Type | Description  | Notes
 # **revokeGrantedApplication**
 > revokeGrantedApplication(userId, clientId)
 
-Remoke Granted Application
+Remove Granted Application
 
 This endpoint revokes the granted application associated with the user.
 
@@ -793,6 +794,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="updateUserProfilePicture"></a>
+# **updateUserProfilePicture**
+> UploadPhotoResponse updateUserProfilePicture(userId, file)
+
+Update User Account Photograph
+
+This endpoint uploads a photograph to the user profile
+
+### Example
+```javascript
+var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR ACCESS TOKEN';
+access_token.name   = "access_token";
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+var apiInstance = new BlueJeansMeetingsRestApi.UserApi();
+
+var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+
+var file = "/path/to/file.txt"; // File | The user details that you wish to update.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.updateUserProfilePicture(userId, file, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **file** | **File**| The user details that you wish to update. | 
+
+### Return type
+
+[**UploadPhotoResponse**](UploadPhotoResponse.md)
 
 ### Authorization
 

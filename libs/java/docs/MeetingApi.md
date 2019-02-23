@@ -911,7 +911,7 @@ null (empty response body)
 
 <a name="updateEndpointLayout"></a>
 # **updateEndpointLayout**
-> Layout updateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push)
+> updateEndpointLayout(userId, numericMeetingId, endpointGuid, layout, isLeader, push)
 
 Update Endpoint Layout
 
@@ -938,11 +938,11 @@ MeetingApi apiInstance = new MeetingApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 Integer numericMeetingId = 56; // Integer | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 String endpointGuid = "endpointGuid_example"; // String | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+Layout layout = new Layout(); // Layout | Specifies the video layout format.
 Boolean isLeader = true; // Boolean | 
-Boolean push = true; // Boolean | 
+Boolean push = true; // Boolean | Push these changes to all participants.  Requires Meeting access token with moderator privileges.
 try {
-    Layout result = apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, isLeader, push);
-    System.out.println(result);
+    apiInstance.updateEndpointLayout(userId, numericMeetingId, endpointGuid, layout, isLeader, push);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateEndpointLayout");
     e.printStackTrace();
@@ -956,12 +956,13 @@ Name | Type | Description  | Notes
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numericMeetingId** | **Integer**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpointGuid** | **String**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
+ **layout** | [**Layout**](Layout.md)| Specifies the video layout format. |
  **isLeader** | **Boolean**|  | [optional]
- **push** | **Boolean**|  | [optional]
+ **push** | **Boolean**| Push these changes to all participants.  Requires Meeting access token with moderator privileges. | [optional]
 
 ### Return type
 
-[**Layout**](Layout.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1033,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="updateMeetingEndpoint"></a>
 # **updateMeetingEndpoint**
-> Endpoint updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
+> updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting)
 
 Update Endpoint Video/Audio State
 
@@ -1064,8 +1065,7 @@ Boolean muteAudio = true; // Boolean | Toggle the audio source mute.
 Boolean muteVideo = true; // Boolean | Toggle the video source mute.
 Boolean leaveMeeting = true; // Boolean | Remove the user from the meeting.
 try {
-    Endpoint result = apiInstance.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
-    System.out.println(result);
+    apiInstance.updateMeetingEndpoint(userId, numericMeetingId, endpointGuid, muteAudio, muteVideo, leaveMeeting);
 } catch (ApiException e) {
     System.err.println("Exception when calling MeetingApi#updateMeetingEndpoint");
     e.printStackTrace();
@@ -1085,7 +1085,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Endpoint**](Endpoint.md)
+null (empty response body)
 
 ### Authorization
 

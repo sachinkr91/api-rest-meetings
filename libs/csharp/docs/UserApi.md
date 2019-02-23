@@ -13,11 +13,12 @@ Method | HTTP request | Description
 [**GetRoom**](UserApi.md#getroom) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**GetUser**](UserApi.md#getuser) | **GET** /v1/user/{user_id} | Get User Account Details
 [**GetUserTags**](UserApi.md#getusertags) | **GET** /v1/user/{userId}/tags | List User Tags
-[**RevokeGrantedApplication**](UserApi.md#revokegrantedapplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**RevokeGrantedApplication**](UserApi.md#revokegrantedapplication) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remove Granted Application
 [**SetGroups**](UserApi.md#setgroups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**UpdatePeresonalMeeting**](UserApi.md#updateperesonalmeeting) | **PUT** /v1/user/{user_id}/personal_meeting | Update Personal Meeting
 [**UpdateRoom**](UserApi.md#updateroom) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**UpdateUser**](UserApi.md#updateuser) | **PUT** /v1/user/{user_id} | Update User Account Details
+[**UpdateUserProfilePicture**](UserApi.md#updateuserprofilepicture) | **POST** /v1/user/{user_id}/profile_picture/upload | Update User Account Photograph
 
 
 <a name="changeusertags"></a>
@@ -624,7 +625,7 @@ Name | Type | Description  | Notes
 # **RevokeGrantedApplication**
 > void RevokeGrantedApplication (int? userId, string clientId)
 
-Remoke Granted Application
+Remove Granted Application
 
 This endpoint revokes the granted application associated with the user.
 
@@ -653,7 +654,7 @@ namespace Example
 
             try
             {
-                // Remoke Granted Application
+                // Remove Granted Application
                 apiInstance.RevokeGrantedApplication(userId, clientId);
             }
             catch (Exception e)
@@ -948,6 +949,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateuserprofilepicture"></a>
+# **UpdateUserProfilePicture**
+> UploadPhotoResponse UpdateUserProfilePicture (int? userId, System.IO.Stream file)
+
+Update User Account Photograph
+
+This endpoint uploads a photograph to the user profile
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.bluejeans.api.rest.meetings.Api;
+using com.bluejeans.api.rest.meetings.Client;
+using com.bluejeans.api.rest.meetings.Model;
+
+namespace Example
+{
+    public class UpdateUserProfilePictureExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: access_token
+            Configuration.Default.AddApiKey("access_token", "YOUR_ACCESS_TOKEN");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("access_token", "Bearer");
+
+            var apiInstance = new UserApi();
+            var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+            var file = new System.IO.Stream(); // System.IO.Stream | The user details that you wish to update.
+
+            try
+            {
+                // Update User Account Photograph
+                UploadPhotoResponse result = apiInstance.UpdateUserProfilePicture(userId, file);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserApi.UpdateUserProfilePicture: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **file** | **System.IO.Stream**| The user details that you wish to update. | 
+
+### Return type
+
+[**UploadPhotoResponse**](UploadPhotoResponse.md)
 
 ### Authorization
 

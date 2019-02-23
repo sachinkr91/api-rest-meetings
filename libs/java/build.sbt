@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.bluejeans",
     name := "api-rest-meetings",
-    version := "1.0.0",
+    version := "1.0.4402212019",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

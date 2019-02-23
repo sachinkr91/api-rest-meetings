@@ -1,6 +1,6 @@
 {
   "name": "bluejeans-api-rest-meetings",
-  "version": "1.0.4407232018",
+  "version": "1.0.4402212019",
   "description": "JavaScript client for BlueJeans Meetings REST APIs",
   "license": "Commercial",
   "main": "src/index.js",
@@ -17,8 +17,8 @@
     "mocha": "~2.3.4",
     "sinon": "1.17.3",
     "expect.js": "~0.3.1"
-  },
-  "repository": {
+  }
+,  "repository": {
     "type": "git",
     "url": "https://github.com/bluejeans/api-rest-meetings.git"
   }

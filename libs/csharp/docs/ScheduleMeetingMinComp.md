@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** |  | [default to "My Test Meeting"]
 **Description** | **string** |  | [optional] 
-**Start** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
-**End** | **int?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**Start** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**End** | **long?** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **Timezone** | **string** |  | [default to "America/New_York"]
 **EndPointType** | **string** |  | [default to "WEB_APP"]
 **EndPointVersion** | **string** |  | [default to "2.10"]

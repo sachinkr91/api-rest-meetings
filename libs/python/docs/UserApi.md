@@ -13,11 +13,12 @@ Method | HTTP request | Description
 [**get_room**](UserApi.md#get_room) | **GET** /v1/user/{user_id}/room | Get User’s Default Meeting Settings
 [**get_user**](UserApi.md#get_user) | **GET** /v1/user/{user_id} | Get User Account Details
 [**get_user_tags**](UserApi.md#get_user_tags) | **GET** /v1/user/{userId}/tags | List User Tags
-[**revoke_granted_application**](UserApi.md#revoke_granted_application) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remoke Granted Application
+[**revoke_granted_application**](UserApi.md#revoke_granted_application) | **DELETE** /v1/user/{user_id}/granted_applications/{client_id} | Remove Granted Application
 [**set_groups**](UserApi.md#set_groups) | **PUT** /v1/user/{user_id}/groups | Set User Feature Groups
 [**update_peresonal_meeting**](UserApi.md#update_peresonal_meeting) | **PUT** /v1/user/{user_id}/personal_meeting | Update Personal Meeting
 [**update_room**](UserApi.md#update_room) | **PUT** /v1/user/{user_id}/room | Update User’s Default Meeting Settings
 [**update_user**](UserApi.md#update_user) | **PUT** /v1/user/{user_id} | Update User Account Details
+[**update_user_profile_picture**](UserApi.md#update_user_profile_picture) | **POST** /v1/user/{user_id}/profile_picture/upload | Update User Account Photograph
 
 
 # **change_user_tags**
@@ -515,7 +516,7 @@ Name | Type | Description  | Notes
 # **revoke_granted_application**
 > revoke_granted_application(user_id, client_id)
 
-Remoke Granted Application
+Remove Granted Application
 
 This endpoint revokes the granted application associated with the user.
 
@@ -539,7 +540,7 @@ user_id = 56 # int | The ID of the user of interest. This value is an integer wh
 client_id = 'client_id_example' # str | The ID of the granted application.
 
 try:
-    # Remoke Granted Application
+    # Remove Granted Application
     api_instance.revoke_granted_application(user_id, client_id)
 except ApiException as e:
     print("Exception when calling UserApi->revoke_granted_application: %s\n" % e)
@@ -780,6 +781,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+[access_token](../README.md#access_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_user_profile_picture**
+> UploadPhotoResponse update_user_profile_picture(user_id, file)
+
+Update User Account Photograph
+
+This endpoint uploads a photograph to the user profile
+
+### Example
+```python
+from __future__ import print_function
+import time
+import BlueJeansMeetingsRestApi
+from BlueJeansMeetingsRestApi.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: access_token
+configuration = BlueJeansMeetingsRestApi.Configuration()
+configuration.api_key['access_token'] = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = BlueJeansMeetingsRestApi.UserApi(BlueJeansMeetingsRestApi.ApiClient(configuration))
+user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
+file = '/path/to/file.txt' # file | The user details that you wish to update.
+
+try:
+    # Update User Account Photograph
+    api_response = api_instance.update_user_profile_picture(user_id, file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->update_user_profile_picture: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
+ **file** | **file**| The user details that you wish to update. | 
+
+### Return type
+
+[**UploadPhotoResponse**](UploadPhotoResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastMeetingTime** | **Integer** |  |  [optional]
+**lastMeetingTime** | **Long** |  |  [optional]
 **participantMinutes** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **lastName** | **String** |  |  [optional]
 **userName** | **String** |  |  [optional]

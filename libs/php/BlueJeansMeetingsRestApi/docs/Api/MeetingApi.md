@@ -910,7 +910,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEndpointLayout**
-> \BlueJeansMeetingsRestApi\Model\Layout updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push)
+> updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $layout, $is_leader, $push)
 
 Update Endpoint Layout
 
@@ -935,12 +935,12 @@ $apiInstance = new BlueJeansMeetingsRestApi\Api\MeetingApi(
 $user_id = 56; // int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 $numeric_meeting_id = 56; // int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 $endpoint_guid = "endpoint_guid_example"; // string | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+$layout = new \BlueJeansMeetingsRestApi\Model\Layout(); // \BlueJeansMeetingsRestApi\Model\Layout | Specifies the video layout format.
 $is_leader = true; // bool | 
-$push = true; // bool | 
+$push = true; // bool | Push these changes to all participants.  Requires Meeting access token with moderator privileges.
 
 try {
-    $result = $apiInstance->updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $is_leader, $push);
-    print_r($result);
+    $apiInstance->updateEndpointLayout($user_id, $numeric_meeting_id, $endpoint_guid, $layout, $is_leader, $push);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateEndpointLayout: ', $e->getMessage(), PHP_EOL;
 }
@@ -954,12 +954,13 @@ Name | Type | Description  | Notes
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. |
  **endpoint_guid** | **string**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. |
+ **layout** | [**\BlueJeansMeetingsRestApi\Model\Layout**](../Model/Layout.md)| Specifies the video layout format. |
  **is_leader** | **bool**|  | [optional]
- **push** | **bool**|  | [optional]
+ **push** | **bool**| Push these changes to all participants.  Requires Meeting access token with moderator privileges. | [optional]
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Layout**](../Model/Layout.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1032,7 +1033,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeetingEndpoint**
-> \BlueJeansMeetingsRestApi\Model\Endpoint updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
+> updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -1062,8 +1063,7 @@ $mute_video = true; // bool | Toggle the video source mute.
 $leave_meeting = true; // bool | Remove the user from the meeting.
 
 try {
-    $result = $apiInstance->updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
-    print_r($result);
+    $apiInstance->updateMeetingEndpoint($user_id, $numeric_meeting_id, $endpoint_guid, $mute_audio, $mute_video, $leave_meeting);
 } catch (Exception $e) {
     echo 'Exception when calling MeetingApi->updateMeetingEndpoint: ', $e->getMessage(), PHP_EOL;
 }
@@ -1083,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\BlueJeansMeetingsRestApi\Model\Endpoint**](../Model/Endpoint.md)
+void (empty response body)
 
 ### Authorization
 

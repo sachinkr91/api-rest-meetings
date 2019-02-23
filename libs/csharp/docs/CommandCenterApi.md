@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingpastbyenterprise"></a>
 # **GetMeetingPastByEnterprise**
-> MeetingExtendedIndigo GetMeetingPastByEnterprise (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null)
+> MeetingExtendedIndigo GetMeetingPastByEnterprise (int? enterpriseId, string meetingUuid, bool? includeEndpoints = null, string appName = null)
 
 List Meeting Endpoints & Stats by Enterprise
 
@@ -768,11 +768,12 @@ namespace Example
             var enterpriseId = 56;  // int? | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
             var meetingUuid = meetingUuid_example;  // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
             var includeEndpoints = true;  // bool? | Option to include detailed data on endpoints (optional) 
+            var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
             {
                 // List Meeting Endpoints & Stats by Enterprise
-                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
+                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints, appName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -791,6 +792,7 @@ Name | Type | Description  | Notes
  **enterpriseId** | **int?**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meetingUuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
  **includeEndpoints** | **bool?**| Option to include detailed data on endpoints | [optional] 
+ **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -809,7 +811,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingpastbyuser"></a>
 # **GetMeetingPastByUser**
-> MeetingExtendedIndigo GetMeetingPastByUser (int? userId, string meetingUuid)
+> MeetingExtendedIndigo GetMeetingPastByUser (int? userId, string meetingUuid, string appName = null)
 
 List Meeting Endpoints & Stats by User
 
@@ -837,11 +839,12 @@ namespace Example
             var apiInstance = new CommandCenterApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
             var meetingUuid = meetingUuid_example;  // string | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+            var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
             {
                 // List Meeting Endpoints & Stats by User
-                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByUser(userId, meetingUuid);
+                MeetingExtendedIndigo result = apiInstance.GetMeetingPastByUser(userId, meetingUuid, appName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -859,6 +862,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingUuid** | **string**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+ **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -1163,7 +1167,7 @@ Name | Type | Description  | Notes
 
 <a name="getmeetingspastbyuser"></a>
 # **GetMeetingsPastByUser**
-> MeetingIndigoList GetMeetingsPastByUser (int? userId, string filter)
+> MeetingIndigoList GetMeetingsPastByUser (int? userId, string filter, string appName = null)
 
 List Past Meetings by User
 
@@ -1190,12 +1194,13 @@ namespace Example
 
             var apiInstance = new CommandCenterApi();
             var userId = 56;  // int? | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-            var filter = filter_example;  // string | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+            var filter = filter_example;  // string | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"value\":\"2018-08-08T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+            var appName = appName_example;  // string | name of your application.  While not required, providing an app_name improves API performance (optional)  (default to api_developer)
 
             try
             {
                 // List Past Meetings by User
-                MeetingIndigoList result = apiInstance.GetMeetingsPastByUser(userId, filter);
+                MeetingIndigoList result = apiInstance.GetMeetingsPastByUser(userId, filter, appName);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1212,7 +1217,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int?**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | **string**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **string**| A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | 
+ **appName** | **string**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 

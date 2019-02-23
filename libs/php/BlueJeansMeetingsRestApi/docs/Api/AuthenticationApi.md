@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Get Authorization Code
 
-This is **not a true REST endpoint**. <br /> This URL should be used by a user's browser-client application to perform authorization. <br />Upon completion, the user will be redirected back to the client application with state and code return parameters. <br />**Note**<ul><li>This API is activated through <b> https://bluejeans.com/oauth2/authorize </b></li><li>The API's return code has a very short valid period of <b>30 seconds</b>.  Your application must call the <b>/oauth2/token</b> API as soon as possible once you receive this API's return code.</li></ul>
+This is **not a true REST endpoint**. <br /> This URL should be used by a user's browser-client application to perform authorization. <br />This API call takes the user to a BlueJeans page that allows the user to login and approve application access.<br />Upon completion, the user will be redirected back to the client application with a code return value. <br />**Note**<ul><li>This API is activated through <b> https://bluejeans.com/oauth2/authorize </b></li><li>The API's return code has a very short valid period of <b>30 seconds</b>.</li><li>Your application must call the <b>/oauth2/token?Code</b> API as soon as possible to exchange the authorization code for an access token.</li></ul>
 
 ### Example
 ```php
@@ -128,7 +128,7 @@ No authorization required
 
 Authentication via Code Grant Type
 
-This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected to a BlueJeans page to authenticate.  You must pass to this API your OAuth client and secret keys as well as a *success URL* to which the user will be redirected upon successful authentication. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**authorization_code**\" (string).
+This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected here after successfully authorizing BlueJeans to grant the application access.  You must pass to this API the authorization code received from BlueJeans along with the applications OAuth client_id and secret keys.  Include as well a *success URL* to which the user will be redirected upon successful authentication. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal \"**authorization_code**\" (string).
 
 ### Example
 ```php

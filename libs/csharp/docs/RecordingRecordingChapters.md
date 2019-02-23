@@ -5,10 +5,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChapterId** | **string** |  | [optional] 
 **Id** | **int?** |  | [optional] 
-**StartTimeOffset** | **int?** |  | [optional] 
-**EndTimeOffset** | **int?** |  | [optional] 
+**StartTimeOffset** | **long?** |  | [optional] 
+**EndTimeOffset** | **long?** |  | [optional] 
 **ChapterName** | **string** |  | [optional] 
-**TotalSize** | **int?** |  | [optional] 
+**TotalSize** | **long?** |  | [optional] 
 **CompositeContentId** | **int?** |  | [optional] 
 **CompositeContentStatus** | **string** |  | [optional] 
 **ParentRecordingId** | **int?** |  | [optional] 

@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingPastByEnterprise"></a>
 # **getMeetingPastByEnterprise**
-> MeetingExtendedIndigo getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints)
+> MeetingExtendedIndigo getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints, appName)
 
 List Meeting Endpoints &amp; Stats by Enterprise
 
@@ -656,8 +656,9 @@ CommandCenterApi apiInstance = new CommandCenterApi();
 Integer enterpriseId = 56; // Integer | The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
 String meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 Boolean includeEndpoints = true; // Boolean | Option to include detailed data on endpoints
+String appName = "api_developer"; // String | name of your application.  While not required, providing an app_name improves API performance
 try {
-    MeetingExtendedIndigo result = apiInstance.getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints);
+    MeetingExtendedIndigo result = apiInstance.getMeetingPastByEnterprise(enterpriseId, meetingUuid, includeEndpoints, appName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandCenterApi#getMeetingPastByEnterprise");
@@ -672,6 +673,7 @@ Name | Type | Description  | Notes
  **enterpriseId** | **Integer**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. |
  **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
  **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional]
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -688,7 +690,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingPastByUser"></a>
 # **getMeetingPastByUser**
-> MeetingExtendedIndigo getMeetingPastByUser(userId, meetingUuid)
+> MeetingExtendedIndigo getMeetingPastByUser(userId, meetingUuid, appName)
 
 List Meeting Endpoints &amp; Stats by User
 
@@ -714,8 +716,9 @@ access_token.setApiKey("YOUR ACCESS TOKEN");
 CommandCenterApi apiInstance = new CommandCenterApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 String meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
+String appName = "api_developer"; // String | name of your application.  While not required, providing an app_name improves API performance
 try {
-    MeetingExtendedIndigo result = apiInstance.getMeetingPastByUser(userId, meetingUuid);
+    MeetingExtendedIndigo result = apiInstance.getMeetingPastByUser(userId, meetingUuid, appName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandCenterApi#getMeetingPastByUser");
@@ -729,6 +732,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
  **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. |
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -987,7 +991,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingsPastByUser"></a>
 # **getMeetingsPastByUser**
-> MeetingIndigoList getMeetingsPastByUser(userId, filter)
+> MeetingIndigoList getMeetingsPastByUser(userId, filter, appName)
 
 List Past Meetings by User
 
@@ -1012,9 +1016,10 @@ access_token.setApiKey("YOUR ACCESS TOKEN");
 
 CommandCenterApi apiInstance = new CommandCenterApi();
 Integer userId = 56; // Integer | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
-String filter = "filter_example"; // String | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+String filter = "filter_example"; // String | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"value\":\"2018-08-08T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
+String appName = "api_developer"; // String | name of your application.  While not required, providing an app_name improves API performance
 try {
-    MeetingIndigoList result = apiInstance.getMeetingsPastByUser(userId, filter);
+    MeetingIndigoList result = apiInstance.getMeetingsPastByUser(userId, filter, appName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandCenterApi#getMeetingsPastByUser");
@@ -1027,7 +1032,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. |
- **filter** | **String**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. |
+ **filter** | **String**| A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; |
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 

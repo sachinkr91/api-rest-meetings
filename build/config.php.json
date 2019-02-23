@@ -1,6 +1,7 @@
 {
 	"gitUserId":"bluejeans",
 	"gitRepoId":"api-rest-meetings",
+	"artifactVersion":"1.0.4402212019",
 	"packagePath":"BlueJeansMeetingsRestApi",
 	"invokerPackage":"BlueJeansMeetingsRestApi"
 }

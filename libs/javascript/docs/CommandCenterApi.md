@@ -672,7 +672,8 @@ var enterpriseId = 56; // Number | The ID of the enterprise of interest. This va
 var meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
 var opts = { 
-  'includeEndpoints': true // Boolean | Option to include detailed data on endpoints
+  'includeEndpoints': true, // Boolean | Option to include detailed data on endpoints
+  'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
 };
 
 var callback = function(error, data, response) {
@@ -692,6 +693,7 @@ Name | Type | Description  | Notes
  **enterpriseId** | **Number**| The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. | 
  **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
  **includeEndpoints** | **Boolean**| Option to include detailed data on endpoints | [optional] 
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -708,7 +710,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingPastByUser"></a>
 # **getMeetingPastByUser**
-> MeetingExtendedIndigo getMeetingPastByUser(userId, meetingUuid)
+> MeetingExtendedIndigo getMeetingPastByUser(userId, meetingUuid, opts)
 
 List Meeting Endpoints &amp; Stats by User
 
@@ -732,6 +734,9 @@ var userId = 56; // Number | The ID of the user of interest. This value is an in
 
 var meetingUuid = "meetingUuid_example"; // String | The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes.
 
+var opts = { 
+  'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -740,7 +745,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMeetingPastByUser(userId, meetingUuid, callback);
+apiInstance.getMeetingPastByUser(userId, meetingUuid, opts, callback);
 ```
 
 ### Parameters
@@ -749,6 +754,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **meetingUuid** | **String**| The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. | 
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 
@@ -1012,7 +1018,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeetingsPastByUser"></a>
 # **getMeetingsPastByUser**
-> MeetingIndigoList getMeetingsPastByUser(userId, filter)
+> MeetingIndigoList getMeetingsPastByUser(userId, filter, opts)
 
 List Past Meetings by User
 
@@ -1034,8 +1040,11 @@ var apiInstance = new BlueJeansMeetingsRestApi.CommandCenterApi();
 
 var userId = 56; // Number | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 
-var filter = "filter_example"; // String | An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below.
+var filter = "filter_example"; // String | A JSON array of FilterHighLowTs objects to bracket the search time `[{\"type\":\"date\",\"value\":\"2018-08-08T00:00:00-07:00\",\"field\":\"startTime\",\"comparison\":\"gt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"endTime\",\"comparison\":\"lt\"},{\"type\":\"date\",\"value\":\"2018-08-10T23:59:59-07:00\",\"field\":\"startTime\",\"comparison\":\"lt\"}]`
 
+var opts = { 
+  'appName': "api_developer" // String | name of your application.  While not required, providing an app_name improves API performance
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1044,7 +1053,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMeetingsPastByUser(userId, filter, callback);
+apiInstance.getMeetingsPastByUser(userId, filter, opts, callback);
 ```
 
 ### Parameters
@@ -1052,7 +1061,8 @@ apiInstance.getMeetingsPastByUser(userId, filter, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
- **filter** | **String**| An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. | 
+ **filter** | **String**| A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; | 
+ **appName** | **String**| name of your application.  While not required, providing an app_name improves API performance | [optional] [default to api_developer]
 
 ### Return type
 

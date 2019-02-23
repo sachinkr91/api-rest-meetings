@@ -80,7 +80,7 @@ cd ../libs/javascript
 
 perl -p -i -e "s|Unlicense|MIT|" package.json
 perl -p -i -e "s|^  }$|  },|" package.json
-perl -p -i -e "s|^}|  \"repository\": {\n}|" package.json
+perl -p -i -e "s|^}|\,  \"repository\": {\n}|" package.json
 perl -p -i -e "s|^}|    \"type\": \"git\",\n}|" package.json
 perl -p -i -e "s|^}|    \"url\": \"https://github.com/bluejeans/api-rest-meetings.git\"\n}|" package.json
 perl -p -i -e "s|^}|  }\n}|" package.json

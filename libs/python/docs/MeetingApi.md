@@ -895,7 +895,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_endpoint_layout**
-> Layout update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, is_leader=is_leader, push=push)
+> update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, layout, is_leader=is_leader, push=push)
 
 Update Endpoint Layout
 
@@ -920,13 +920,13 @@ api_instance = BlueJeansMeetingsRestApi.MeetingApi(BlueJeansMeetingsRestApi.ApiC
 user_id = 56 # int | The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
 numeric_meeting_id = 56 # int | The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
 endpoint_guid = 'endpoint_guid_example' # str | The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
+layout = BlueJeansMeetingsRestApi.Layout() # Layout | Specifies the video layout format.
 is_leader = true # bool |  (optional)
-push = true # bool |  (optional)
+push = true # bool | Push these changes to all participants.  Requires Meeting access token with moderator privileges. (optional)
 
 try:
     # Update Endpoint Layout
-    api_response = api_instance.update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, is_leader=is_leader, push=push)
-    pprint(api_response)
+    api_instance.update_endpoint_layout(user_id, numeric_meeting_id, endpoint_guid, layout, is_leader=is_leader, push=push)
 except ApiException as e:
     print("Exception when calling MeetingApi->update_endpoint_layout: %s\n" % e)
 ```
@@ -938,12 +938,13 @@ Name | Type | Description  | Notes
  **user_id** | **int**| The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. | 
  **numeric_meeting_id** | **int**| The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join. | 
  **endpoint_guid** | **str**| The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint. | 
+ **layout** | [**Layout**](Layout.md)| Specifies the video layout format. | 
  **is_leader** | **bool**|  | [optional] 
- **push** | **bool**|  | [optional] 
+ **push** | **bool**| Push these changes to all participants.  Requires Meeting access token with moderator privileges. | [optional] 
 
 ### Return type
 
-[**Layout**](Layout.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1015,7 +1016,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_meeting_endpoint**
-> Endpoint update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
+> update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
 
 Update Endpoint Video/Audio State
 
@@ -1046,8 +1047,7 @@ leave_meeting = true # bool | Remove the user from the meeting. (optional)
 
 try:
     # Update Endpoint Video/Audio State
-    api_response = api_instance.update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
-    pprint(api_response)
+    api_instance.update_meeting_endpoint(user_id, numeric_meeting_id, endpoint_guid, mute_audio=mute_audio, mute_video=mute_video, leave_meeting=leave_meeting)
 except ApiException as e:
     print("Exception when calling MeetingApi->update_meeting_endpoint: %s\n" % e)
 ```
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Endpoint**](Endpoint.md)
+void (empty response body)
 
 ### Authorization
 

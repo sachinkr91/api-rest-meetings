@@ -12,9 +12,9 @@
 /**
  * BlueJeans Meetings REST API
  *
- * ## Video That Works Where You Do. This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you will be able to make actual API calls to manage User Accounts, Meetings, and Recordings.  Also, you can pull analytical data and current state information. With these APIs you can quickly integrate **BlueJeans** video administration into your applications.    <alert>7/23/2018 </alert>Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> <hr>  <h2 class=\"info\"> What is a BlueJeans Meeting?</h2> <img src=\"./img/bjnmeeting.png\" style=\"padding-left:20px; width:50%\">  A BlueJeans meeting is a collaboration session of 2 or more participants joining a virtual meeting-room in the cloud.   The first person to join is put into a waiting-room until other participant(s) join.  When the meeting starts, all participants will be connected over video & audio.  <u>Types of Meeting Rooms</u> There are two types of Meeting Rooms available to a registered user.  They are described as: <ul> <li>Scheduled – A room created for a specific date and time.  It is assigned a randomized and unique numeric ID by BlueJeans.</li> <li>Personal – Every user is given a personal meeting room with a customized Meeting Identifier.  People typically use their mobile phone number as their Meeting ID.</li> </ul> <u>Meeting Room Security</u> A meeting room can <i>optionally</i> be protected by a randomized access code.  THe access code ensures security of participants who join.  Also the access code can specify a Moderator role whose user(s) have additional capabilities to administer a meeting. <ul> <li>When set, participants would be required to enter the access code in order to join.</li> <li>The scheduler's profile has a user-specified moderator passcode which can be input to allow designated user(s) greater privileges to help organize meetings.</li> </ul> <hr>  <h2 id='gs' class=\"info\" onclick=\"hideit('gs')\"><span id=\"gsicon\" class=\"glyphicon glyphicon-chevron-right\"></span> Getting Started</h2> <div id=\"gsbody\" style=\"display:none\"> Before you start using BlueJeans' APIs, you must first have a BlueJeans account enabled for API Access.  Contact <a href=\"mailto:Support@BlueJeans.com)\">BlueJeans Support</a> for assistance.  <br /><br />Once you have an account, you may start writing application code to authenticate and make API calls.  *Alternatively*, you can use this developer site to test the BlueJeans' APIs and develop a level of familiarity before you write production code.  <br />  ### To Make API Calls from This Site If you want to use this developer site to try various BlueJeans' APIs, here are the steps required to authenticate and enable your Developer Session to place API calls. 1. Choose Method for Authenticating      * Click on the desired Authentication method from below.      * Click on the **Try It Out** button. 1. Make Authentication request      * Follow APIs instructions and input the API parameters.      * Click on the blue **Execute** button.      * If successful, the API returns with JSON data containing a field called **access_token**.  Copy/save this value. 1. Authorize BlueJeans Developer Session.      * Click on the green **Authorize button**.       * The site will show you a pop-up window for authorization.      * Enter your access token in the field named **api_key**      * Click on the **Authorize** button  Your current BlueJeans developer session is now authenticated and ready to place API calls.  The web site will automatically include your access token on any API calls you make. </div> <hr>  <h2 id='oauth' class=\"info\" onclick=\"hideit('oauth')\"><span id=\"oauthicon\" class=\"glyphicon glyphicon-chevron-right\"></span> About Meetings Authentication</h2>  <div id=\"oauthbody\" style=\"display:none\">  All API transactions (excluding Authentication) require an access token per **OAuth standards**.  BlueJeans provides multiple methods for obtaining an access token.  Additionally there are diffferent scopes of token access. ### Grant Types Bluejeans provides 4 different methods for users to Authenticate.  Successful authentication allows BlueJeans to grant an access token to perform API operations. * Password Credentials Grant – Authenticate with a username and password and receive an access token with user level permission. Known as two-legged OAuth. * Meeting Credentials Grant – Authenticate with a meeting ID and meeting passcode and receive an access token with meeting level permission. Known as two-legged OAuth. * Client Credentials Grant –  Authenticate with a client ID and client secret and receive an access token with enterprise level permission. Known as two-legged OAuth. * Authorization Code Grant – Authentication for your developer's application occurs through a redirection to a BlueJeans authentication page. The application receives an authorization code to be submitted, along with other tokens, to receive an access token. Known as three-legged OAuth. For more information please refer to the [OAuth specification](https://oauth.net/). ### Access & Permissions BlueJeans defines 3 levels of API access into the system.  When an access token is granted, it carries one of these 3 levels.  The scope of system functionality depends upon the token's access level. * Meeting-level – Scope of APIs is limited to individual meetings. * User-level – Scope depends on the requested permissions. * App-level – provisioned either by BlueJeans personnel, or the BlueJeans Enterprise Admin, an app, is issued a client key and secret key. These tokens then are used by the BlueJeans Authentication API to receive the token. The token's scope provides access to the entire enterprise and all of its users. All endpoints in this document that require **Enterprise Admin** access will be marked as such. </div> <hr>
+ * ## Video That Works Where You Do. <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>    <nosdk> <hr> <div> <div class=\"key\">     <a href=\"./basics.html\" target=\"_\"><img class=\"keyimg\" src=\"./img/bjnmeeting.png\"/></a> </div> <div class=\"keybox\"> Basic instructions about What is a BlueJeans Meeting, and Getting Started Using API's, are <a href=\"./basics.html\" target=\"_blank\">available here <i class=\"glyphicon glyphicon-new-window\"></i></a>. </div> </div> <hr> <alert>2/21/2019</alert> Change response of Change layout and Endpoint API's to 204<br/> 12/03/2018 Add API for setting user profile photograph.<br/> 10/17/2018 Updated API field definitions for time variables to be 64-bit .<br/> 7/23/2018 Corrected errors in API definition file.<br/> 7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/> 7/06/2018 Added API for changing ownership of recordings.<br/> 6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/> 6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/> 5/21/2018 Corrected return model for meeting history call.<br/> </nosdk> <hr>
  *
- * OpenAPI spec version: 1.0.4407232018
+ * OpenAPI spec version: 1.0.4402212019
  * Contact: glenn@bluejeans.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
  * Swagger Codegen version: 2.4.0-SNAPSHOT
@@ -3146,14 +3146,15 @@ class CommandCenterApi
      * @param  int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @param  bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo
      */
-    public function getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    public function getMeetingPastByEnterprise($enterprise_id, $meeting_uuid, $include_endpoints = null, $app_name = 'api_developer')
     {
-        list($response) = $this->getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints);
+        list($response) = $this->getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints, $app_name);
         return $response;
     }
 
@@ -3165,15 +3166,16 @@ class CommandCenterApi
      * @param  int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @param  bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    public function getMeetingPastByEnterpriseWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints = null, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo';
-        $request = $this->getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints);
+        $request = $this->getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints, $app_name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3250,13 +3252,14 @@ class CommandCenterApi
      * @param  int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @param  bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingPastByEnterpriseAsync($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    public function getMeetingPastByEnterpriseAsync($enterprise_id, $meeting_uuid, $include_endpoints = null, $app_name = 'api_developer')
     {
-        return $this->getMeetingPastByEnterpriseAsyncWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints)
+        return $this->getMeetingPastByEnterpriseAsyncWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints, $app_name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3272,14 +3275,15 @@ class CommandCenterApi
      * @param  int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @param  bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingPastByEnterpriseAsyncWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    public function getMeetingPastByEnterpriseAsyncWithHttpInfo($enterprise_id, $meeting_uuid, $include_endpoints = null, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo';
-        $request = $this->getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints);
+        $request = $this->getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints, $app_name);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3324,11 +3328,12 @@ class CommandCenterApi
      * @param  int $enterprise_id The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
      * @param  bool $include_endpoints Option to include detailed data on endpoints (optional)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints = null)
+    protected function getMeetingPastByEnterpriseRequest($enterprise_id, $meeting_uuid, $include_endpoints = null, $app_name = 'api_developer')
     {
         // verify the required parameter 'enterprise_id' is set
         if ($enterprise_id === null || (is_array($enterprise_id) && count($enterprise_id) === 0)) {
@@ -3353,6 +3358,10 @@ class CommandCenterApi
         // query params
         if ($include_endpoints !== null) {
             $queryParams['includeEndpoints'] = ObjectSerializer::toQueryValue($include_endpoints);
+        }
+        // query params
+        if ($app_name !== null) {
+            $queryParams['app_name'] = ObjectSerializer::toQueryValue($app_name);
         }
 
         // path params
@@ -3448,14 +3457,15 @@ class CommandCenterApi
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo
      */
-    public function getMeetingPastByUser($user_id, $meeting_uuid)
+    public function getMeetingPastByUser($user_id, $meeting_uuid, $app_name = 'api_developer')
     {
-        list($response) = $this->getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid);
+        list($response) = $this->getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid, $app_name);
         return $response;
     }
 
@@ -3466,15 +3476,16 @@ class CommandCenterApi
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid)
+    public function getMeetingPastByUserWithHttpInfo($user_id, $meeting_uuid, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo';
-        $request = $this->getMeetingPastByUserRequest($user_id, $meeting_uuid);
+        $request = $this->getMeetingPastByUserRequest($user_id, $meeting_uuid, $app_name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3550,13 +3561,14 @@ class CommandCenterApi
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingPastByUserAsync($user_id, $meeting_uuid)
+    public function getMeetingPastByUserAsync($user_id, $meeting_uuid, $app_name = 'api_developer')
     {
-        return $this->getMeetingPastByUserAsyncWithHttpInfo($user_id, $meeting_uuid)
+        return $this->getMeetingPastByUserAsyncWithHttpInfo($user_id, $meeting_uuid, $app_name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3571,14 +3583,15 @@ class CommandCenterApi
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingPastByUserAsyncWithHttpInfo($user_id, $meeting_uuid)
+    public function getMeetingPastByUserAsyncWithHttpInfo($user_id, $meeting_uuid, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingExtendedIndigo';
-        $request = $this->getMeetingPastByUserRequest($user_id, $meeting_uuid);
+        $request = $this->getMeetingPastByUserRequest($user_id, $meeting_uuid, $app_name);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3622,11 +3635,12 @@ class CommandCenterApi
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
      * @param  string $meeting_uuid The universally unique identifier (UUID) of the meeting of interest. This value is a string which contains 6 alphanumeric segments separated by dashes. (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMeetingPastByUserRequest($user_id, $meeting_uuid)
+    protected function getMeetingPastByUserRequest($user_id, $meeting_uuid, $app_name = 'api_developer')
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
@@ -3648,6 +3662,10 @@ class CommandCenterApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($app_name !== null) {
+            $queryParams['app_name'] = ObjectSerializer::toQueryValue($app_name);
+        }
 
         // path params
         if ($user_id !== null) {
@@ -4946,15 +4964,16 @@ class CommandCenterApi
      * List Past Meetings by User
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param  string $filter An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. (required)
+     * @param  string $filter A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \BlueJeansMeetingsRestApi\Model\MeetingIndigoList
      */
-    public function getMeetingsPastByUser($user_id, $filter)
+    public function getMeetingsPastByUser($user_id, $filter, $app_name = 'api_developer')
     {
-        list($response) = $this->getMeetingsPastByUserWithHttpInfo($user_id, $filter);
+        list($response) = $this->getMeetingsPastByUserWithHttpInfo($user_id, $filter, $app_name);
         return $response;
     }
 
@@ -4964,16 +4983,17 @@ class CommandCenterApi
      * List Past Meetings by User
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param  string $filter An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. (required)
+     * @param  string $filter A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \BlueJeansMeetingsRestApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \BlueJeansMeetingsRestApi\Model\MeetingIndigoList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMeetingsPastByUserWithHttpInfo($user_id, $filter)
+    public function getMeetingsPastByUserWithHttpInfo($user_id, $filter, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingIndigoList';
-        $request = $this->getMeetingsPastByUserRequest($user_id, $filter);
+        $request = $this->getMeetingsPastByUserRequest($user_id, $filter, $app_name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5048,14 +5068,15 @@ class CommandCenterApi
      * List Past Meetings by User
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param  string $filter An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. (required)
+     * @param  string $filter A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingsPastByUserAsync($user_id, $filter)
+    public function getMeetingsPastByUserAsync($user_id, $filter, $app_name = 'api_developer')
     {
-        return $this->getMeetingsPastByUserAsyncWithHttpInfo($user_id, $filter)
+        return $this->getMeetingsPastByUserAsyncWithHttpInfo($user_id, $filter, $app_name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5069,15 +5090,16 @@ class CommandCenterApi
      * List Past Meetings by User
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param  string $filter An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. (required)
+     * @param  string $filter A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeetingsPastByUserAsyncWithHttpInfo($user_id, $filter)
+    public function getMeetingsPastByUserAsyncWithHttpInfo($user_id, $filter, $app_name = 'api_developer')
     {
         $returnType = '\BlueJeansMeetingsRestApi\Model\MeetingIndigoList';
-        $request = $this->getMeetingsPastByUserRequest($user_id, $filter);
+        $request = $this->getMeetingsPastByUserRequest($user_id, $filter, $app_name);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5120,12 +5142,13 @@ class CommandCenterApi
      * Create request for operation 'getMeetingsPastByUser'
      *
      * @param  int $user_id The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint. (required)
-     * @param  string $filter An array of search filter conditions that describe the limits of the search to perform.  Refer to the FilterSpecification definition in the Models section below. (required)
+     * @param  string $filter A JSON array of FilterHighLowTs objects to bracket the search time &#x60;[{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-08T00:00:00-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;gt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;endTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;},{\&quot;type\&quot;:\&quot;date\&quot;,\&quot;value\&quot;:\&quot;2018-08-10T23:59:59-07:00\&quot;,\&quot;field\&quot;:\&quot;startTime\&quot;,\&quot;comparison\&quot;:\&quot;lt\&quot;}]&#x60; (required)
+     * @param  string $app_name name of your application.  While not required, providing an app_name improves API performance (optional, default to api_developer)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMeetingsPastByUserRequest($user_id, $filter)
+    protected function getMeetingsPastByUserRequest($user_id, $filter, $app_name = 'api_developer')
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
@@ -5150,6 +5173,10 @@ class CommandCenterApi
         // query params
         if ($filter !== null) {
             $queryParams['filter'] = ObjectSerializer::toQueryValue($filter);
+        }
+        // query params
+        if ($app_name !== null) {
+            $queryParams['app_name'] = ObjectSerializer::toQueryValue($app_name);
         }
 
         // path params

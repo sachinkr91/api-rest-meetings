@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **layoutMode** | [**LayoutModeEnum**](#LayoutModeEnum) |  |  [optional]
-**subLayoutMode** | [**SubLayoutModeEnum**](#SubLayoutModeEnum) | Misspelling in value. |  [optional]
+**subLayoutMode** | [**SubLayoutModeEnum**](#SubLayoutModeEnum) | Note misspelling in Continuous Presence enum. |  [optional]
 
 
 <a name="LayoutModeEnum"></a>
@@ -19,7 +19,7 @@ VIDEO | &quot;Video&quot;
 ## Enum: SubLayoutModeEnum
 Name | Value
 ---- | -----
-VIDEOCONTINIOUSPRESENCE | &quot;VideoContiniousPresence&quot;
+VIDEOCURRENTSPEAKER_1_VIDEOCONTINIOUSPRESENCE_2_VIDEOCONSTANTPRESENCE_3_VIDEOCONTINUOUSPRESENCE_4_ | &quot;VideoCurrentSpeaker(1) VideoContiniousPresence(2) VideoConstantPresence(3) VideoContinuousPresence(4)&quot;
 
 
 

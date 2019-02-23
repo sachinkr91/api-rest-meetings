@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**duration** | **Integer** |  |  [optional]
+**duration** | **Long** |  |  [optional]
 **thumbnail** | **String** |  |  [optional]
 **thumbnailSprite** | **String** |  |  [optional]
 **hdsUrl** | **String** |  |  [optional]

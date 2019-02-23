@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** |  | 
 **description** | **String** |  |  [optional]
-**start** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
-**end** | **Integer** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**start** | **Long** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
+**end** | **Long** | A [UNIX Timestamp](https://currentmillis.com/) in milliseconds | 
 **timezone** | **String** |  | 
 **endPointType** | **String** |  | 
 **endPointVersion** | **String** |  | 

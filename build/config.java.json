@@ -1,6 +1,7 @@
 {
 	"artifactUrl":"https://github.com/bluejeans/api-rest-meetings",
 	"artifactDescription":"BlueJeans Meetings REST API",
+	"artifactVersion":"1.0.4402212019",
 	"hideGenerationTimestamp":true,
 	"developerEmail":"api@bluejeans.com",
 	"developerName":"Blue Jeans",

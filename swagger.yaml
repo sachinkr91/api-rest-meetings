@@ -810,7 +810,7 @@ paths:
         200:
           description: The response of uploading the picture
           schema:
-            $ref: "#definitions/uploadPhotoResponse"
+            $ref: "#/definitions/uploadPhotoResponse"
         405:
           description: Invalid request
         500:
