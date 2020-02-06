@@ -20,7 +20,8 @@ info:
     </div>
     <hr>
     
-    <alert>2/21/2019</alert> Change response of Change layout and Endpoint API's to 204<br/>
+    <alert>2/06/2020</alert> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
+    2/21/2019 Change response of Change layout and Endpoint API's to 204<br/>
     12/03/2018 Add API for setting user profile photograph.<br/>
     10/17/2018 Updated API field definitions for time variables to be 64-bit .<br/>
     7/23/2018 Corrected errors in API definition file.<br/>
@@ -35,7 +36,7 @@ info:
     <hr>
 
 
-  version: 1.0.4402212019
+  version: 1.0.44006022020
   termsOfService: https://www.bluejeans.com/terms-of-service
   license:
     name: Commercial
@@ -1112,6 +1113,11 @@ paths:
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
         type: integer
+      - name: personal_meeting
+        in: query
+        description: If set to true, the meeting is scheduled using the user's personal meeting ID
+        required: false
+        type: boolean       
       - name: email
         in: query
         description: If set to true, sends invitation emails to all listed participants.
@@ -6802,10 +6808,6 @@ definitions:
       isLargeMeeting:
         type: boolean
         description: If true, the meeting is assumed to be large and thus no announcement will be made when a participant joins.
-      isPersonalMeeting:
-        type: boolean
-        description: Use the scheduler's personal meeting room and Id for this meeting.
-        default: false
     description: A typical minimum set of Properties required to schedule a meeting
   recordingMovedComp:
     type: object
