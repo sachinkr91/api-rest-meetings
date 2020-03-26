@@ -20,16 +20,17 @@ info:
     </div>
     <hr>
     
-    <alert>2/06/2020</alert> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
-    2/21/2019 Change response of Change layout and Endpoint API's to 204<br/>
-    12/03/2018 Add API for setting user profile photograph.<br/>
-    10/17/2018 Updated API field definitions for time variables to be 64-bit .<br/>
-    7/23/2018 Corrected errors in API definition file.<br/>
-    7/10/2018 Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
-    7/06/2018 Added API for changing ownership of recordings.<br/>
-    6/28/2018 Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
-    6/01/2018 Clarified Access Token requirements for meeting endpoint API's.<br/>
-    5/21/2018 Corrected return model for meeting history call.<br/>
+    <div class="changelog-date">3/25/2020</div> Clarify authentication APIs, update contact<br/>
+    <div class="changelog-date">2/06/2020</div> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
+    <div class="changelog-date">2/21/2019</div> Change response of Change layout and Endpoint API's to 204<br/>
+    <div class="changelog-date">12/03/2018</div> Add API for setting user profile photograph.<br/>
+    <div class="changelog-date">10/17/2018</div> Updated API field definitions for time variables to be 64-bit .<br/>
+    <div class="changelog-date">7/23/2018</div> Corrected errors in API definition file.<br/>
+    <div class="changelog-date">7/10/2018</div> Deprecated some Command Center API's.  Exposed API's that Summarize usage.<br/>
+    <div class="changelog-date">7/06/2018</div> Added API for changing ownership of recordings.<br/>
+    <div class="changelog-date">6/28/2018</div> Restored Create Enterprise Account, added Enterprise and User Profile Tag API's.<br/>
+    <div class="changelog-date">6/01/2018</div> Clarified Access Token requirements for meeting endpoint API's.<br/>
+    <div class="changelog-date">5/21/2018</div> Corrected return model for meeting history call.<br/>
 
     </nosdk>
  
@@ -42,9 +43,8 @@ info:
     name: Commercial
     url: https://www.bluejeans.com/site/terms-and-conditions
   contact:
-    name: Glenn Inn
-    url: http://bluejeans.com/
-    email: glenn@bluejeans.com
+    name: API Developer Support
+    email: api-sdk@bluejeans.com
 host: api.bluejeans.com
 tags:
 - name: Authentication
@@ -71,12 +71,12 @@ security:
 - access_token: []
 paths:
 # ---- AUTHENTICATION
-  /oauth2/token?Password:
+  /oauth2/token#User:
     post:
       tags:
       - Authentication
-      summary: Authentication via Password Grant Type
-      description: This API performs an authentication based upon a username and password.   Call this API and provide a valid username and password. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**password**" (string).
+      summary: Authenticate user using password
+      description: This API authenticates a user based upon a username and password. Call this API and provide a valid username and password. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**password**" (string).
       operationId: getTokenByPassword
       consumes:
       - application/json
@@ -101,11 +101,11 @@ paths:
           responseSchema:
             $ref: '#/definitions/Error'
       security: []
-  /oauth2/token?Meeting:
+  /oauth2/token#Meeting:
     post:
       tags:
       - Authentication
-      summary: Authentication via Meeting Grant Type
+      summary: Authenticate meeting using meeting ID and passcode
       description: This API uses an OAuth-like grant/request method similar to the Password grant type.  The API returns an access token whose scope is limited to the meeting only. <br />Call this API with the meeting's numeric ID, and the meeting passcode (if one exists). <br />&nbsp;&nbsp;If you call the API with a Moderator passcode, moderator privileges are granted. <br />&nbsp;&nbsp;If an Attendee access code is passed, the access token will grant attendee abilities.<br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**meeting_passcode**" (string).
       operationId: getTokenByMeeting
       consumes:
@@ -131,11 +131,11 @@ paths:
           responseSchema:
             $ref: '#/definitions/Error'
       security: []
-  /oauth2/token?Client:
+  /oauth2/token#Application:
     post:
       tags:
       - Authentication
-      summary: Authentication via Client Grant Type
+      summary: Authenticate application using client ID and secret
       description: This API is typically called from an application that needs to make API requests.  The values for the calling parameters, Client ID, and Secret, are provisioned within the BlueJeans Enterprise Administration console.  A BlueJeans administrator must generate these parameters and provide them to the customer/developer. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**client_credentials**" (string).
       operationId: getTokenByClient
       consumes:
@@ -161,11 +161,37 @@ paths:
           responseSchema:
             $ref: '#/definitions/Error'
       security: []
-  /oauth2/token?Code:
+  /oauth2/token#Revoke:
+    delete:
+      tags:
+      - Authentication
+      summary: Revoke a user, meeting, or application token
+      description: Invalidate tokens generated for a user, meeting, or application. <br />**NOTE:** This does not work for 3-legged tokens - see Revoke 3-Legged below.
+      operationId: revokeAccessToken
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: access_token
+        description: The token to revoke
+        required: false
+        type: string
+      responses:
+        204:
+          description: The information about the grant.
+        400:
+          description: Bad request. The access_token is probably already revoked and cannot be found. Use GET /oauth2/tokenInfo to query a token's validity if needed.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+          responseSchema:
+            $ref: '#/definitions/Error'
+  /oauth2/token#3Legged:
     post:
       tags:
       - Authentication
-      summary: Authentication via Code Grant Type
+      summary: Authenticate 3-legged using OAuth code
       description: This API is part of the 3-legged OAuth 2.0 authorization flow.  The user will be redirected here after successfully authorizing BlueJeans to grant the application access.  You must pass to this API the authorization code received from BlueJeans along with the applications OAuth client_id and secret keys.  Include as well a *success URL* to which the user will be redirected upon successful authentication. <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**authorization_code**" (string).
       operationId: getTokenByCode
       consumes:
@@ -193,12 +219,12 @@ paths:
           responseSchema:
             $ref: '#/definitions/Error'
       security: []
-  /oauth2/token?Refresh:
+  /oauth2/token#Refresh_3Legged:
     post:
       tags:
       - Authentication
-      summary: Authentication via Refresh Grant Type
-      description: This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works for access tokens obtained via /oauth2/token?Code endpoint. It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**refresh_token**" (string).
+      summary: Refresh 3-legged using existing token
+      escription: This API is part of the 3-legged OAuth 2.0 authorization flow.  It only works for access tokens obtained via the POST /oauth2/token#3-Legged) endpoint. It allows an application to refresh an existing access token.  You must pass to this API your OAuth client and secret keys as well as the current access token being refreshed.  <br />**NOTE:** <br />&nbsp;&nbsp;When calling this API, you must set the field, **grant_type** to equal "**refresh_token**" (strin.
       operationId: getTokenByRefresh
       consumes:
       - application/json
@@ -222,31 +248,32 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
-  /oauth2/token?Revoke:
+  /oauth2/token#Revoke_3Legged:
     delete:
       tags:
       - Authentication
-      summary: Revoke Access Token
-      description: This API is part of the 3-legged OAuth 2.0 authorization flow.
+      summary: Revoke 3-legged token
+      escription: This API is part of the 3-legged OAuth 2.0 authorization flow. It only works for access tokens obtained via the POST /oauth2/token#3-Legged) endpoin 
       operationId: revokeAccessToken
       consumes:
       - application/json
       parameters:
-      - name: access_token
-        in: query
+      - in: query
+        name: access_token
+        description: The token to revoke
         required: false
         type: string
       - in: body
-        name: GrantRequestRevoke
+        name: RevokeRequestOAuth
         description: Contains information about the type of grant you are revoking.
         required: true
         schema:
-          $ref: '#/definitions/GrantRequestRevoke'
+          $ref: '#/definitions/RevokeRequestOAuth'
       responses:
         204:
           description: The information about the grant.
         400:
-          description: Bad request. The access_token is probably already revoked and cannot be found. Use /oauth2/tokenInfo to query a token's validity if needed.
+          description: Bad request. The access_token is probably already revoked and cannot be found. Use GET /oauth2/tokenInfo to query a token's validity if needed.
         default:
           description: Unexpected error
           schema:
@@ -257,8 +284,8 @@ paths:
     get:
       tags:
       - Authentication
-      summary: Validate a Token
-      description: This endpoint will determine if a token is valid or not.  If the token is valid, it returns the user ID for the owner of the token.
+      summary: Validate a token
+      description: This endpoint will determine if a token is valid or not. It works for all kinds of tokens. If the token is valid, it returns information about the token. The information returned depends on the token type.
       operationId: getTokenInfo
       consumes:
       - application/json
@@ -4094,7 +4121,7 @@ definitions:
         bearerPermissions: bearerPermissions
         user: 6
       expires_in: 0
-  GrantRequestRevoke:
+  RevokeRequestOAuth:
     type: object
     required:
     - client_id
