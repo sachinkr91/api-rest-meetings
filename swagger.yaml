@@ -44,7 +44,7 @@ info:
     url: https://www.bluejeans.com/site/terms-and-conditions
   contact:
     name: API Developer Support
-    email: api-sdk@bluejeans.com
+    url: https://support.bluejeans.com/s/contactsupport
 host: api.bluejeans.com
 tags:
 - name: Authentication
@@ -8405,5 +8405,5 @@ definitions:
         description: URI to location of stored image      
 externalDocs:
   description: |
-    Find more info here
-  url: https://swagger.io
+    Find more information about BlueJeans Developer Platform
+  url: https://support.bluejeans.com/s/article/BlueJeans-Development-Tools
