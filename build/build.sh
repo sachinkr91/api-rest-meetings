@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 rm -rf ../libs/java
 java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l java -o ../libs/java -t ./templates/java  --group-id com.bluejeans --artifact-id api-rest-meetings --api-package com.bluejeans.api.rest.meetings.api --model-package com.bluejeans.api.rest.meetings.model --invoker-package com.bluejeans.api.rest.meetings --config config.java.json
 cd ../libs/java
@@ -80,7 +81,7 @@ cd ../libs/javascript
 
 perl -p -i -e "s|Unlicense|MIT|" package.json
 perl -p -i -e "s|^  }$|  },|" package.json
-perl -p -i -e "s|^}|\,  \"repository\": {\n}|" package.json
+perl -p -i -e "s|^}|\  \"repository\": {\n}|" package.json
 perl -p -i -e "s|^}|    \"type\": \"git\",\n}|" package.json
 perl -p -i -e "s|^}|    \"url\": \"https://github.com/bluejeans/api-rest-meetings.git\"\n}|" package.json
 perl -p -i -e "s|^}|  }\n}|" package.json
@@ -124,6 +125,18 @@ perl -p -i -e "s|Video That Works Where You Do.*|Video That Works Where You Do.|
 cd ../../build
 
 find ../libs -type f -name "*.bak" -exec rm {} +
+
+
+#
+# SWIFT5
+#
+
+
+rm -rf ../libs/swift5
+
+java -jar swagger-codegen-cli.jar generate -i ../swagger.yaml -l swift5 -o ../libs/swift5 --reserved-words-mappings "Error=ErrorModel" -Dapis -Dmodels -DapiTests=true -DmodelTests=true
+
+
 
 echo Press Return
 read nothing
