@@ -23,7 +23,7 @@ please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.co
 Then install it via:
 
 ```shell
-npm install bluejeans-api-rest-meetings --save
+npm install <name-of-the-package> --save
 ```
 
 ##### Local development
@@ -41,13 +41,20 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-Finally, switch to the directory you want to use your bluejeans-api-rest-meetings from, and run:
+Finally, switch to the directory you want to use your 
+
+
+
+
+
+
+from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-You should now be able to `require('bluejeans-api-rest-meetings')` in javascript files from the directory you ran the last 
+You should now be able to `require('<name-of-the-package>')` in javascript files from the directory you ran the last 
 command above from.
 
 #### git
@@ -96,7 +103,7 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var BlueJeansMeetingsRestApi = require('bluejeans-api-rest-meetings');
+var BlueJeansMeetingsRestApi = require('<name-of-the-package>');
 
 var defaultClient = BlueJeansMeetingsRestApi.ApiClient.instance;
 
