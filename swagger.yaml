@@ -3,10 +3,10 @@ swagger: "2.0"
 info:
   title: BlueJeans Meetings REST API
   description: >
-  
+
     ## Video That Works Where You Do.
-  
-    <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>   
+
+    <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>
 
     <nosdk>
     <hr>
@@ -19,7 +19,7 @@ info:
     </div>
     </div>
     <hr>
-    
+
     <div class="changelog-date">3/25/2020</div> Clarify authentication APIs, update contact<br/>
     <div class="changelog-date">2/06/2020</div> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
     <div class="changelog-date">2/21/2019</div> Change response of Change layout and Endpoint API's to 204<br/>
@@ -33,7 +33,7 @@ info:
     <div class="changelog-date">5/21/2018</div> Corrected return model for meeting history call.<br/>
 
     </nosdk>
- 
+
     <hr>
 
 
@@ -253,7 +253,7 @@ paths:
       tags:
       - Authentication
       summary: Revoke 3-legged token
-      escription: This API is part of the 3-legged OAuth 2.0 authorization flow. It only works for access tokens obtained via the POST /oauth2/token#3-Legged) endpoin 
+      description: This API is part of the 3-legged OAuth 2.0 authorization flow. It only works for access tokens obtained via the POST /oauth2/token#3-Legged) endpoint
       operationId: revokeAccessToken
       consumes:
       - application/json
@@ -407,6 +407,33 @@ paths:
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
         type: integer
+      - name: profilePictureURL
+        in: query
+        description: The profile Picture URL
+        required: false
+        type: string
+      - name: extraInfo
+        in: query
+        description: The extra information about the user. This is optional
+        required: false
+        type: string
+      - name: countryCode
+        in: query
+        description: The country code
+        required: false
+        type: string
+      - name: sendVerificationMail
+        in: query
+        description: flag to send verification email
+        required: false
+        type: boolean
+        default: false
+      - name: updateRoom
+        in: query
+        description: flag for Updating room name to user's name
+        required: false
+        type: boolean
+        default: false
       - in: body
         name: user
         description: The user details that you wish to update.
@@ -466,7 +493,7 @@ paths:
         in: path
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
-        type: integer
+        type: string
       - name: client_id
         in: path
         description: The ID of the granted application.
@@ -557,9 +584,12 @@ paths:
         type: integer
       - name: enable
         in: query
-        description: The feature group you want to enable.
+        description: The feature groups (comma separated) you want to enable.
         required: false
-        type: string
+        type: array
+        items:
+          type: string
+        collectionFormat: csv
         enum:
         - record
         - extended_capacity
@@ -568,11 +598,14 @@ paths:
         - telepresence
         - isdn
         - facetime
-      - name: disable
+      - name: disableGroups
         in: query
-        description: The feature group you want to disable.
+        description: The feature groups (comma separated) you want to disable.
         required: false
-        type: string
+        type: array
+        items:
+          type: string
+        collectionFormat: csv
         enum:
         - record
         - extended_capacity
@@ -797,9 +830,12 @@ paths:
         - delete
       - name: tag
         in: query
-        description: The name of tag
+        description: The name of tags (comma separated list)
         required: true
-        type: string
+        type: array
+        items:
+          type: string
+        collectionFormat: csv
       responses:
         200:
           description: The list of tags
@@ -830,7 +866,7 @@ paths:
         required: true
         type: integer
       - name: file
-        in: formData        
+        in: formData
         type: file
         description: The user details that you wish to update.
         required: true
@@ -884,6 +920,16 @@ paths:
         description: If specified textSearch provides a string (partial or complete) by which to search the list of BlueJeans users
         required: false
         type: string
+      - name: filters
+        in: query
+        description: return the list of users with given pre-defined filters. eg. admin users, users with command center access and active users.
+        required: false
+        type: string
+      - name: tag
+        in: query
+        description: to get enterprise Users for specified tags
+        required: false
+        type: string
       - name: emailId
         in: query
         description: If specified, emailId specifies performing a search for the user profile associated with this email address.  Wildcards are <b>not</b> supported for the email address value.
@@ -917,7 +963,7 @@ paths:
     post:
       tags:
       - Enterprise
-      summary: Create User
+      summary: Create an Enterprise User
       description: This endpoint creates a user profile within the specified enterprise.  It is the first of the 2-step process to create a BlueJeans user.  It should be followed by an API call to create the user's personal meeting room.
       operationId: createEnterpriseUser
       parameters:
@@ -926,28 +972,24 @@ paths:
         description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
         required: true
         type: integer
-      - name: billingCategory
+      - name: billingKey
         in: query
-        description: What general billing group does this profile belong?
+        description: What general billing group does this profile belong? (among INDIVIDUAL, ENTERPRISE, DT_GROUP_EUR, DT_GROUP_GBP)
         required: false
         type: string
         default: ENTERPRISE
-      - name: forcePasswordChange
+      - name: countryCode
         in: query
-        description: Create profile and force user to change password on next login
+        description: For Country Code
         required: false
-        type: boolean
-      - name: isAdmin
-        in: query
-        description: Create this account to have Administrative Privileges for the enterprise
-        required: false
-        type: boolean
+        type: string
+        default: US
       - in: body
         name: EnterpriseUser
         description: Basic Enterprise Account information
         required: true
         schema:
-          $ref: '#/definitions/EnterpriseCreateUser'
+          $ref: '#/definitions/User'
       responses:
         201:
           description: The settings for the user
@@ -1144,7 +1186,7 @@ paths:
         in: query
         description: If set to true, the meeting is scheduled using the user's personal meeting ID
         required: false
-        type: boolean       
+        type: boolean
       - name: email
         in: query
         description: If set to true, sends invitation emails to all listed participants.
@@ -1359,6 +1401,28 @@ paths:
         description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
         required: true
         type: integer
+      - name: ip
+        in: query
+        description: IP passed as query param will be used in geo-locating user for PSTN number selection
+        required: true
+        type: string
+      - name: country
+        in: query
+        description: country name
+        required: true
+        type: string
+      - name: allowGeoLocation
+        in: query
+        description: To allow the usage of the Country in geo-locating the user for PSTN number selection
+        required: false
+        type: boolean
+        default: false
+      - name: all
+        in: query
+        description: To include all PSTN numbers i.e. Geo Location and IP
+        required: false
+        type: boolean
+        default: false
       responses:
         200:
           description: The settings for the join information.
@@ -1525,9 +1589,17 @@ paths:
         enum:
         - audio
         - video
+      - name: participantType
+        in: query
+        description: Specify the participant type
+        required: false
+        type: string
+        enum:
+          - MODERATOR
+          - NON_MODERATOR
       responses:
         204:
-          description: There is no body conent.
+          description: There is no body content.
         401:
           description: The access token is invalid or does not have permission.
         404:
@@ -1563,6 +1635,11 @@ paths:
         description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
         required: true
         type: string
+      - name: sendRosterStatus
+        in: query
+        description: Flag to send roster status
+        required: false
+        type: boolean
       responses:
         200:
           description: The settings for the endpoint.
@@ -1604,6 +1681,11 @@ paths:
         description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
         required: true
         type: string
+      - name: name
+        in: path
+        description: To set endpoint name
+        required: false
+        type: string
       - name: muteAudio
         in: query
         description: Toggle the audio source mute.
@@ -1617,6 +1699,26 @@ paths:
       - name: leaveMeeting
         in: query
         description: Remove the user from the meeting.
+        required: false
+        type: boolean
+      - name: muteContent
+        in: query
+        description: Flag to mute content
+        required: false
+        type: boolean
+      - name: pinVideo
+        in: query
+        description: Flag to pin video
+        required: false
+        type: boolean
+      - name: endpointDTMFMenu
+        in: query
+        description: Flag for endpoint DTMF Menu
+        required: false
+        type: boolean
+      - name: voiceProcessing
+        in: query
+        description: Flag for voice processing
         required: false
         type: boolean
       responses:
@@ -1639,7 +1741,7 @@ paths:
       tags:
       - Meeting
       summary: Get Endpoint Layout
-      description: This endpoint allows you to retrieve an individual endpoint’s current layout setting.  Can use either of a general or meeting access token.
+      description: This endpoint allows you to retrieve an individual endpoint’s current layout setting. Need meeting access token
       operationId: getEndpointLayout
       parameters:
       - name: user_id
@@ -1698,10 +1800,6 @@ paths:
         description: The GUID of an endpoint.  Usually retrieved from the List Meeting Endpoints endpoint.
         required: true
         type: string
-      - name: isLeader
-        in: query
-        required: false
-        type: boolean
       - name: push
         in: query
         required: false
@@ -1712,7 +1810,7 @@ paths:
         description: Specifies the video layout format.
         required: true
         schema:
-          $ref: '#/definitions/Layout'        
+          $ref: '#/definitions/Layout'
       responses:
         204:
           description: The settings for the endpoint's layout.
@@ -1746,6 +1844,27 @@ paths:
         description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
         required: true
         type: integer
+      - name: role
+        in: query
+        required: false
+        type: string
+        default: USER
+        enum:
+          - USER
+          - GUEST
+          - ANONYMOUS
+      - name: namePrefix
+        in: query
+        description: The name prefix
+        required: false
+        type: string
+        default: Guest
+      - name: generateName
+        in: query
+        description: Name to generate
+        required: false
+        type: boolean
+        default: false
       - in: body
         name: PayloadPairingCodeSIP
         description: Information about the device that will be joining via SIP.
@@ -1794,6 +1913,22 @@ paths:
         required: false
         type: string
         default: USER
+        enum:
+          - USER
+          - GUEST
+          - ANONYMOUS
+      - name: namePrefix
+        in: query
+        description: The name prefix
+        required: false
+        type: string
+        default: Guest
+      - name: generateName
+        in: query
+        description: Name to generate
+        required: false
+        type: boolean
+        default: false
       - in: body
         name: PayloadPairingCodeWebRTC
         required: true
@@ -1836,11 +1971,28 @@ paths:
         description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
         required: true
         type: integer
+      - name: namePrefix
+        in: query
+        description: The name prefix
+        required: false
+        type: string
+        default: Guest
+      - name: generateName
+        in: query
+        description: Name to generate
+        required: false
+        type: boolean
+        default: false
       - name: role
         in: query
         required: false
         type: string
         default: USER
+        description: User's role type
+        enum:
+          - USER
+          - GUEST
+          - ANONYMOUS
       - in: body
         name: PayloadPairingCodePstn
         required: true
@@ -1973,6 +2125,11 @@ paths:
         description: Return meetings up until the specified date. MM/DD/YYYY
         required: false
         type: string
+      - name: timezone
+        in: query
+        description: Timezone for start date and end date
+        required: false
+        type: string
       - name: pageSize
         in: query
         description: Sets number of items returned per page.
@@ -1983,6 +2140,11 @@ paths:
         description: Selects which page of results to return.
         required: false
         type: integer
+      - name: sortBy
+        in: query
+        description: The field name according to which sorting needs to be done
+        required: false
+        type: string
       - name: order
         in: query
         description: Puts results in ascending or descending order. asc/desc
@@ -2022,6 +2184,36 @@ paths:
         description: The ID of the enterprise of interest. This value is an integer which can be retrieved for the current user via the Get Enterprise Profile endpoint.
         required: true
         type: integer
+      - name: meetingId
+        in: query
+        description: Return only meetings with the specified meeting numeric ID.
+        required: false
+        type: string
+      - name: startDate
+        in: query
+        description: Return meetings starting from the specified date. MM/DD/YYYY
+        required: false
+        type: string
+      - name: endDate
+        in: query
+        description: Return meetings up until the specified date. MM/DD/YYYY
+        required: false
+        type: string
+      - name: timezone
+        in: query
+        description: Timezone for start date and end date
+        required: false
+        type: string
+      - name: pageSize
+        in: query
+        description: Sets number of items returned per page.
+        required: false
+        type: integer
+      - name: pageNumber
+        in: query
+        description: Selects which page of results to return.
+        required: false
+        type: integer
       responses:
         200:
           description: List of meeting history objects.
@@ -2055,6 +2247,11 @@ paths:
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
         type: integer
+      - name: meetingGuid
+        in: query
+        description: Return only meetings with the specified meeting Guid.
+        required: false
+        type: string
       - name: pageSize
         in: query
         description: Sets number of items returned per page.
@@ -2069,7 +2266,7 @@ paths:
         default: 1
       - name: sortBy
         in: query
-        description: Selects which page of results to return.
+        description: The field name according to which sorting needs to be done.
         required: false
         type: string
         default: start_time
@@ -2101,7 +2298,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/user/{user_id}/meeting_history/recordings/{recording_entity_id}:
+  /v1/user/{user_id}/meeting_history/recordings/{recordingId}:
     get:
       tags:
       - History
@@ -2114,7 +2311,7 @@ paths:
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
         type: integer
-      - name: recording_entity_id
+      - name: recordingId
         in: path
         description: The ID of the meeting recording. This value is shown in meeting recording lists as recordingEntityId.
         required: true
@@ -2256,8 +2453,8 @@ paths:
       - name: action
         in: query
         description: Always set to "start" in order to start recording.
-        required: true
         type: string
+        required: true
         default: start
         enum:
         - start
@@ -2288,7 +2485,7 @@ paths:
         in: path
         description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
         required: true
-        type: integer
+        type: string
       - name: action
         in: query
         description: Always set to "stop" in order to stop recording.
@@ -2325,7 +2522,7 @@ paths:
         in: path
         description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
         required: true
-        type: integer
+        type: string
       - name: meetingGuid
         in: query
         description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
@@ -2380,7 +2577,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
-  /v1/user/{user_id}/meeting_history/{meeting_id}/recordings/{recording_chapter_id}/:
+  /v1/user/{user_id}/meeting_history/{meeting_guid}/recordings/{recording_chapter_id}/:
     delete:
       tags:
       - Recording
@@ -2392,17 +2589,17 @@ paths:
         in: path
         description: The ID of the user of interest. This value is an integer which can be retrieved for the current user via the Get User Account Details endpoint.
         required: true
-        type: integer
-      - name: meeting_id
+        type: string
+      - name: meeting_guid
         in: path
-        description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+        description: The globally unique identifier (GUID) of the meeting of interest. This value is a string which contains the numeric meeting id, followed by a colon, followed by a 128-bit integer number formatted as 5 alphanumeric segments separated by dashes. Since a given numeric meeting ID can have multiple instantiations over time, the GUID helps identify the instance of interest.
         required: true
-        type: integer
+        type: string
       - name: recording_chapter_id
         in: path
         description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
         required: true
-        type: integer
+        type: string
       responses:
         200:
           description: The results for this meeting.
@@ -2471,10 +2668,10 @@ paths:
         required: true
         type: string
       - in: body
-        name: setSharing
+        name: meetingHistorySharing
         required: true
         schema:
-          $ref: '#/definitions/setSharing'
+          $ref: '#/definitions/MeetingHistorySharing'
       responses:
         201:
           description: The results for the request.
@@ -2585,10 +2782,32 @@ paths:
         type: integer
       - name: isDownloadable
         in: query
-        description: Set to true.
+        description: Set to true/false.
         required: true
         type: boolean
         default: true
+      - name: isDisabledContentAllowed
+        in: query
+        description: Set to true/false.
+        required: false
+        type: boolean
+        default: true
+      - name: expiry
+        in: path
+        description: expiry hours
+        required: false
+        type: integer
+        format: int32
+      - name: recordingFileName
+        in: path
+        description: The recording file name
+        required: false
+        type: string
+      - name: audioFileName
+        in: path
+        description: The audio file name
+        required: false
+        type: string
       responses:
         200:
           description: The results for this content item.
@@ -5401,14 +5620,17 @@ definitions:
         type: string
         enum:
         - Video
+        - Content
       subLayoutMode:
         type: string
         description: Note misspelling in Continuous Presence enum.
         enum:
-        - VideoCurrentSpeaker(1) VideoContiniousPresence(2) VideoConstantPresence(3) VideoContinuousPresence(4)        
+        - UNKNOWN(0)
+        - VideoCurrentSpeaker(1) VideoContiniousPresence(2) VideoConstantPresence(3) VideoContinuousPresence(4) VideoFilmstrip(5)
+        - ContentSmallVideo(1) ContentOnly(2) ContentVideoOnly(3) ContentLargeVideo(4) ContentVideoStacked(5)
     example:
       layoutMode: Video
-      subLayoutMode: VideoContiniousPresence
+      subLayoutMode: VideoCurrentSpeaker
   RecordingHistoryList:
     title: RecordingHistoryList
     type: array
@@ -6868,15 +7090,23 @@ definitions:
         - terminated
       audioMuteOnEntry:
         type: boolean
-        description: True forces each party to automatically mute when the connect into the meeting
+        description: True forces each party to automatically mute audio when the connect into the meeting
+      videoMuteOnEntry:
+        type: boolean
+        description: True forces each party to automatically mute video when the connect into the meeting
       isLargeMeeting:
         type: boolean
         description: True causes BlueJeans to suppress playing announcement/tones when a party joins the meeting
+      disableParticipantDTMFMenus:
+        type: boolean
+        description: Flag to disable participant DTMF Menus
     example:
       isLargeMeeting: true
       locked: true
       audioMuteOnEntry: true
       status: terminated
+      videoMuteOnEntry: false
+      allowModeratorScreenShare: true
   PayloadPairingCodeSIP:
     type: object
     required:
@@ -6918,6 +7148,12 @@ definitions:
   PayloadPairingCodeWebRTC:
     type: object
     properties:
+      proxyTraversal:
+        type: boolean
+        description: Flag for proxy traversal
+      endpointName:
+        type: string
+        description: Typically, the first and last name of the user.traversal
       endpointType:
         type: string
         description: Type of physical device is pairing.
@@ -6949,7 +7185,7 @@ definitions:
       endpointType: GENERIC
       capabilities:
       - AUDIO
-      - AUDIO
+      - VIDEO
       languageCode: en
       userId: 0
   PayloadPairingCodePstn:
@@ -6957,12 +7193,21 @@ definitions:
     properties:
       endpointName:
         type: string
-        description: Typically, the first and last name of the user.
+        description: Typically, the first and last name of the user
       endpointType:
         type: string
         description: Type of physical device is pairing.
         enum:
+        - NONE
+        - GENERIC
+        - LYNC
+        - JABBER
+        - BlueJeansBrowserEndpoint
+        - BlueJeansMobileEndpoint
+        - WranglerSkypeEndpoint
         - PSTN
+        - DCPAudioOnly
+        - SalesModeBrowserEndpoint
       userId:
         type: integer
         description: (optional) The ID of a registered BlueJeans user associated with this outdial
@@ -6976,13 +7221,20 @@ definitions:
         items:
           type: string
           enum:
+          - NONE
           - AUDIO
+          - VIDEO
+          - CONTENT
+          - CHAT
+          - PRIVATE_CHAT
+          - ALL
     example:
       endpointType: PSTN
       capabilities:
       - AUDIO
-      - AUDIO
+      - VIDEO
       endpointName: endpointName
+      partitionId: 1
       languageCode: en
       userId: 0
   PayloadDialout:
@@ -7000,6 +7252,9 @@ definitions:
       phoneNumber:
         type: string
         description: The invited user's phone number
+      url:
+        type: string
+        description: URL
     example:
       phoneNumber: phoneNumber
       pairedParticipantGuid: pairedParticipantGuid
@@ -8402,7 +8657,7 @@ definitions:
     properties:
       url:
         type: string
-        description: URI to location of stored image      
+        description: URI to location of stored image
 externalDocs:
   description: |
     Find more information about BlueJeans Developer Platform
