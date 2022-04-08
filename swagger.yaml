@@ -60,7 +60,7 @@ tags:
 - name: Recording
   description: Manage Meeting Recordings
 - name: Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
-  description: For migration, refer to Command Center v2.0 APIs at https://indigo2-docs.bluejeans.com/. Access Status of Current Meetings & Enterprise Usage Information
+  description: For migration, refer to Command Center v2.0 APIs at https://indigo2-docs.bluejeans.com/. 
 - name: Application
   description: OAuth 3-Legged Operations
 schemes:
@@ -2867,7 +2867,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Live Meetings Summary by Enterprise
       description: This endpoint lists meetings in progress by enterprise. Requires enterprise administrator access token
       operationId: getMeetingsLiveByEnterprise
@@ -2901,7 +2901,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: List Live Meeting Endpoints by Enterprise
       description: This endpoint lists endpoints for a given meeting in progress. Requires enterprise administrator access token
       operationId: getMeetingEndpointsLiveByEnterprise
@@ -2940,7 +2940,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: List Past Meetings by Enterprise
       description: This endpoint lists completed meetings by enterprise. Requires enterprise administrator access token
       operationId: getMeetingsPastByEnterprise
@@ -2994,7 +2994,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: List Past Meetings by User
       description: This endpoint lists completed meetings by user. Requires enterprise administrator access token
       operationId: getMeetingsPastByUser
@@ -3033,7 +3033,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: List Meeting Endpoints & Stats by Enterprise
       description: This endpoint lists meeting endpoints for completed meetings by enterprise. Requires enterprise administrator access token
       operationId: getMeetingPastByEnterprise
@@ -3077,7 +3077,7 @@ paths:
   /v1/user/{user_id}/indigo/meetings/{meeting_uuid}:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: List Meeting Endpoints & Stats by User
       description: This endpoint lists meeting endpoints for completed meetings by user. Requires enterprise administrator access token
       operationId: getMeetingPastByUser
@@ -3116,7 +3116,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Overall Enterprise Summary
       description: This endpoint lists the summary usage statistics for the specified Enterprise. Requires enterprise administrator access token
       operationId: getEnterpriseOverallSummary
@@ -3155,7 +3155,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/users/active:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Enterprise User Summary
       description: This endpoint lists the summary of active users statistics for the specified Enterprise.  Requires enterprise administrator access token
       operationId: getEnterpriseUsersActive
@@ -3205,7 +3205,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Geographic Demographics
       description: This endpoint lists the Geographic endpoint accesses.  Requires enterprise administrator access token
       operationId: getGeoMap
@@ -3256,7 +3256,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/users/usage:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Top Users
       description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
       operationId: getTopUsersV2
@@ -3295,7 +3295,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Endpoint Distribution
       description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
       operationId: getEndpointDistributionV2
@@ -3334,7 +3334,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Meeting Usage Over Time
       description: This endpoint reports on meeting usage.  Requires enterprise administrator access token
       operationId: getMeetingUsageV2
@@ -3379,7 +3379,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: ROI Data
       description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
       operationId: getRoiRangesV2
@@ -3418,7 +3418,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/feedback/count:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Survey Feedback Scores
       description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
       operationId: getFeedbackCountV2
@@ -3464,7 +3464,7 @@ paths:
   /v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Survey Feedback Comments
       description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
       operationId: getFeedbackCommentsV2
@@ -3509,7 +3509,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Meeting Usage Over Time
       description: This endpoint reports on meeting usage. Requires enterprise administrator access token
       operationId: getMeetingUsage
@@ -3550,7 +3550,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/users/usage:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Top Users
       description: This endpoint retrieves the top users by usage for an enterprise. Requires enterprise administrator access token
       operationId: getTopUsers
@@ -3586,7 +3586,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Endpoint Distribution
       description: This endpoint retrieves endpoint connection type distribution by enterprise. Requires enterprise administrator access token
       operationId: getEndpointDistribution
@@ -3621,7 +3621,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: ROI Data
       description: This endpoint lists return on investment (ROI) data for meetings. Requires enterprise administrator access token
       operationId: getRoiRanges
@@ -3656,7 +3656,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/feedback/count:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Survey Feedback Scores
       description: This endpoint lists end of meeting survey scores by enterprise by time period. Requires enterprise administrator access token
       operationId: getFeedbackCount
@@ -3698,7 +3698,7 @@ paths:
   /v1/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
     get:
       tags:
-      - Command Center
+      - Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
       summary: Survey Feedback Comments
       description: This endpoint lists end of meeting survey comments by enterprise by time period. Requires enterprise administrator access token
       operationId: getFeedbackComments
