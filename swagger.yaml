@@ -59,8 +59,8 @@ tags:
   description: Access Historical Meeting Data
 - name: Recording
   description: Manage Meeting Recordings
-- name: Command Center
-  description: Access Status of Current Meetings & Enterprise Usage Information
+- name: Command Center v1.0 [DEPRECATING ON 31/MAY/2022]
+  description: For migration, refer to Command Center v2.0 APIs at https://indigo2-docs.bluejeans.com/. Access Status of Current Meetings & Enterprise Usage Information
 - name: Application
   description: OAuth 3-Legged Operations
 schemes:
