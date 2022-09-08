@@ -2512,7 +2512,7 @@ paths:
         type: integer
       - name: meeting_id
         in: path
-        description: The ID of the meeting you want to view. This is an integer value. You can find this ID by doing a list of meetings and referencing the "id" property.
+        description: The meeting ID that participants will see and use to join the conference. When joining via phone, this is the code they enter via DTMF to join.
         required: true
         type: string
       - name: meetingGuid
