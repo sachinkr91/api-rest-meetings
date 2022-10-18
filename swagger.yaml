@@ -51,8 +51,8 @@ tags:
   description: Access Historical Meeting Data
 - name: Recording
   description: Manage Meeting Recordings
-- name: Command Center v2.0 [Link - https://indigo2-docs.bluejeans.com/]
-  description: Refer migration guide at https://support.bluejeans.com/s/article/Command-Center-REST-API-Updates
+- name: Command Center v2.0
+  description: Refer REST APIs <a href="https://indigo2-docs.bluejeans.com/">here</a> | Refer migration guide <a href="https://support.bluejeans.com/s/article/Command-Center-REST-API-Updates">here</a>
 - name: Command Center v1.0 [DEPRECATED]
   description: These REST APIs have been deprecated.
 - name: Application
