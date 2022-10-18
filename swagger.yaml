@@ -51,8 +51,10 @@ tags:
   description: Access Historical Meeting Data
 - name: Recording
   description: Manage Meeting Recordings
+- name: Command Center v2.0 [Link - https://indigo2-docs.bluejeans.com/]
+  description: Refer migration guide at https://support.bluejeans.com/s/article/Command-Center-REST-API-Updates
 - name: Command Center v1.0 [DEPRECATED]
-  description: Refer to Command Center v2.0 APIs at https://indigo2-docs.bluejeans.com/. 
+  description: These REST APIs have been deprecated.
 - name: Application
   description: OAuth 3-Legged Operations
 schemes:
@@ -2890,6 +2892,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v1/enterprise/{enterprise_id}/indigo/meetings/live/{meeting_uuid}/endpoints/:
     get:
       tags:
@@ -2929,6 +2932,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v1/enterprise/{enterprise_id}/indigo/meetings:
     get:
       tags:
@@ -2983,6 +2987,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v1/user/{user_id}/indigo/meetings:
     get:
       tags:
@@ -3022,6 +3027,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v1/enterprise/{enterprise_id}/indigo/meetings/{meeting_uuid}:
     get:
       tags:
@@ -3066,6 +3072,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v1/user/{user_id}/indigo/meetings/{meeting_uuid}:
     get:
       tags:
@@ -3105,6 +3112,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/summary:
     get:
       tags:
@@ -3144,6 +3152,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/users/active:
     get:
       tags:
@@ -3194,6 +3203,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/location/countries:
     get:
       tags:
@@ -3245,6 +3255,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/users/usage:
     get:
       tags:
@@ -3284,6 +3295,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/endpoints/distribution_new:
     get:
       tags:
@@ -3323,6 +3335,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
     get:
       tags:
@@ -3368,6 +3381,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/roi_ranges:
     get:
       tags:
@@ -3407,6 +3421,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/feedback/count:
     get:
       tags:
@@ -3453,6 +3468,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
   /v2/enterprise/{enterprise_id}/indigo/analytics/feedback/comments:
     get:
       tags:
@@ -3497,6 +3513,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
       - access_token: []
+      deprecated: true
 # --> Deprecated Command Center
   /v1/enterprise/{enterprise_id}/indigo/analytics/meetings/usage:
     get:
