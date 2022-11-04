@@ -8,6 +8,10 @@
   border: 0;
 }
 
+.swagger-ui .info .title small {
+	background: #12a8f1;
+}
+
 .changelog-date {
 	font-weight: bold;
 	display: inline-block;
@@ -32,6 +36,82 @@
 	border-radius: 5px; 
 	width: 40%;
 }
-.keybox a{
-	font-size: 1.2em;
+
+.swagger-ui .topbar {
+	padding: 8px 0;
+    background-image: repeating-linear-gradient(154deg,#006fd2,#088ed6 44%,#1ad1e0);
+}
+
+.topbarContainer {
+    color: #fff;
+    font-weight: 700;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    padding: 8px 0;
+    background-image: repeating-linear-gradient(154deg,#006fd2,#088ed6 44%,#1ad1e0);
+}
+
+.topbar {
+    display: block;
+    width: 100%;
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.topbar span {
+    margin: 0;
+    padding: 0 4px;
+    vertical-align: middle;
+}
+
+.swagger-ui .topbar-wrapper img {
+	width: 64px;
+	height: 52px;
+	background-image: url('./img/bjnlogo.png') !important;
+}
+
+.swagger-ui .info .main {
+	background-color: #dde4ee;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 0 20px;
+}
+
+.swagger-ui .info .base-url {
+    font-size: 1.25em;
+    font-weight: 400!important;
+}
+
+.swagger-ui .topbar .download-url-wrapper .download-url-button {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 30px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background: #1478c7;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+.swagger-ui .topbar-wrapper a span {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.swagger-ui .info {
+	margin: 50px 0 10px;
+}
+
+.keybox a,.swagger-ui .link {
+	text-decoration: none;
+	transition: color .15s ease-in;
+	font-size: 14px;
+	font-family: sans-serif;
+	color: #4990e2;
+}
+
+.swagger-ui .linkContainer {
+	margin: 0 0 5px;
 }

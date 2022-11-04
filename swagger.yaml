@@ -6,37 +6,7 @@ info:
 
     ## Video That Works Where You Do.
 
-    <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>
-
-    <nosdk>
-    <hr>
-    <div>
-    <div class="key">
-        <a href="./basics.html" target="_"><img class="keyimg" src="./img/bjnmeeting.png"/></a>
-    </div>
-    <div class="keybox">
-    Basic instructions about What is a BlueJeans Meeting, and Getting Started Using API's, are <a href="./basics.html" target="_blank">available here <i class="glyphicon glyphicon-new-window"></i></a>.
-    </div>
-    </div>
-    <hr>
-    
-    <div class="changelog-date">5/31/2022</div> Command Center 1.0 REST APIs deprecated. Refer to 2.0 version at https://indigo2-docs.bluejeans.com/<br/>
-    <div class="changelog-date">3/25/2020</div> Clarify authentication APIs, update contact<br/>
-    <div class="changelog-date">2/06/2020</div> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
-
-    </nosdk>
-
-    <hr>
-
-
   version: 1.0.44006022020
-  termsOfService: https://www.bluejeans.com/terms-of-service
-  license:
-    name: Commercial
-    url: https://www.bluejeans.com/site/terms-and-conditions
-  contact:
-    name: API Developer Support
-    url: https://support.bluejeans.com/s/contactsupport
 host: api.bluejeans.com
 tags:
 - name: Authentication

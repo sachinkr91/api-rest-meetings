@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>BlueJeans Meetings REST API's</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://bluejeans.github.io/swagger-ui/dist/swagger-ui.css" >
+  <link rel="stylesheet" type="text/css" href="./swagger-ui/swagger-ui.css" >
   <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
   <style>
@@ -26,6 +26,11 @@
       margin:0;
       background: #fafafa;
     }
+
+    .topbar {
+      display: none;
+    }
+
   </style>
 </head>
 
@@ -65,22 +70,73 @@
   </defs>
 </svg>
 
+<div class="topbarContainer">
+  <div class="topbar">
+    <img alt="BlueJeans" height="52" width="64" src="./img/bjnlogo.png"/>
+    <span>BlueJeans</span>
+  </div>
+</div>
 <div id="swagger-ui"></div>
 
-<script src="https://bluejeans.github.io/swagger-ui/dist/swagger-ui-bundle.js"> </script>
-<script src="https://bluejeans.github.io/swagger-ui/dist/swagger-ui-standalone-preset.js"> </script>
+<script src="./swagger-ui/swagger-ui-bundle.js"> </script>
+<script src="./swagger-ui/swagger-ui-standalone-preset.js"> </script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://bluejeans.github.io/swagger-ui/dist/bootstrap/css/bootstrap.min.css" >
 <link rel="stylesheet" type="text/css" href="https://bluejeans.github.io/swagger-ui/dist/bootstrap/css/bootstrap-theme.min.css" >
 <link rel="stylesheet" type="text/css" href="./bjnstyles.css" >
 <script type="text/javascript" src="./bjnscripts.js"> </script>
-<script type="text/javascript" src="https://glenn-eb97dde9-eval-test.apigee.net/resources/files/api-meetings.js"> </script>
 
-<script>
+<script type="text/babel">
 window.onload = function() {
 
-   var yamlPath = window.location.pathname.split("/").slice(0, -2).join("/") + "/swagger.yaml"; ;
-   var yamlUrl = window.location.protocol+"//"+window.location.host + yamlPath;
+  var yamlPath = window.location.pathname.split("/").slice(0, -2).join("/") + "/swagger.yaml"; ;
+  var yamlUrl = window.location.protocol+"//"+window.location.host + yamlPath;
+
+  const InfoPlugin = (system) => {
+    return {
+      wrapComponents: {
+        info: (Original, system) => (props) => {
+          return (
+            <div>
+              <Original {...props} />
+              <div>
+                  <p>This site provides developers access to APIs from BlueJean's Meetings meeting service.  From here you can see and try actual API calls to manage User Accounts, Meetings, and Recordings, pull Analytical Data and Current State information.</p>
+                  <hr/>
+                  <div>
+                    <div class="key">
+                      <a href="./basics.html" target="_"><img class="keyimg" src="./img/bjnmeeting.png"/></a>
+                    </div>
+                    <div class="keybox">
+                      Basic instructions about What is a BlueJeans Meeting, and Getting Started Using API's, are <a href="./basics.html" target="_blank">available here <i class="glyphicon glyphicon-new-window"></i></a>.
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="changelog-date">5/31/2022</div> Command Center 1.0 REST APIs deprecated. Refer to 2.0 version at https://indigo2-docs.bluejeans.com/<br/>
+                  <div class="changelog-date">3/25/2020</div> Clarify authentication APIs, update contact<br/>
+                  <div class="changelog-date">2/06/2020</div> Update POST to scheduled_meeting API, specify personal meeting via Query Parameter<br/>
+                  <hr/>
+                  <div class="linkContainer">
+                    <a target="_blank" href="https://www.bluejeans.com/terms-of-service" rel="noopener noreferrer" class="link">Terms of service</a>
+                  </div>
+                  <div class="linkContainer">
+                    <a target="_blank" href="https://support.bluejeans.com/s/contactsupport" rel="noopener noreferrer" class="link">API Developer Support - Website</a>
+                  </div>
+                  <div class="linkContainer">
+                    <a target="_blank" href="https://www.bluejeans.com/site/terms-and-conditions" rel="noopener noreferrer" class="link">Commercial</a>
+                  </div>
+                  <div class="linkContainer">
+                    <a target="_blank" href="https://support.bluejeans.com/s/article/BlueJeans-Development-Tools" rel="noopener noreferrer" class="link">Find more information about BlueJeans Developer Platform</a>
+                  </div>
+              </div>
+            </div>
+          );
+        }
+      }
+    };
+  };
 
   // Build a system
   const ui = SwaggerUIBundle({
@@ -91,9 +147,9 @@ window.onload = function() {
       SwaggerUIStandalonePreset
     ],
     plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
+      SwaggerUIBundle.plugins.DownloadUrl,
+      InfoPlugin
+    ]
   });
 
   window.ui = ui;
