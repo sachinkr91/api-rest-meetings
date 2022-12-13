@@ -212,7 +212,7 @@ paths:
             $ref: '#/definitions/Error'
           responseSchema:
             $ref: '#/definitions/Error'
-  /oauth2/token:
+  /oauth2/token#Revoke_3Legged:
     delete:
       tags:
       - Authentication
