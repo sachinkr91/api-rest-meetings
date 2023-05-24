@@ -634,7 +634,7 @@ paths:
         description: The user's room details
         required: true
         schema:
-          $ref: '#/definitions/Room'
+          $ref: '#/definitions/CreateRoom'
       responses:
         200:
           description: The default meeting settings.
@@ -4667,6 +4667,17 @@ definitions:
       defaultLayout: defaultLayout
       playAudioAlerts: true
       personalMeetingId: 5
+      moderatorPasscode: moderatorPasscode
+  CreateRoom:
+    type: object
+    properties:
+      numericId:
+        type: string
+        description: Unique identifier for room.
+      moderatorPasscode:
+        type: string
+    example:
+      numericId: numericId
       moderatorPasscode: moderatorPasscode
   Meeting:
     type: object
